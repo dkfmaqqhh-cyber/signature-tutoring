@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>무료 상담 신청 | 시그니처과외</title>
+<meta name="description" content="초등·중등·고등 1:1 방문과외·화상과외 상담을 신청하세요. 학년, 과목, 지역, 수업 방식에 맞춰 상담을 안내합니다.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#102a4b">
+<!-- [도메인 연결 후 할 일] canonical·og:url은 실제 도메인 확정 후 추가합니다. -->
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+<header class="sig-header">
+  <div class="container sig-nav">
+    <a href="index.html" class="sig-logo" aria-label="시그니처과외 홈">
+      <img src="images/logo.webp" alt="시그니처과외 로고">
+    </a>
+    <nav class="sig-menu" aria-label="주 메뉴">
+      <div class="sig-nav-dropdown">
+        <button class="sig-nav-dropdown-toggle" type="button" aria-expanded="false">시그니처과외종류 <span class="sig-nav-caret">▾</span></button>
+        <div class="sig-nav-dropdown-menu">
+          <!-- [메뉴 수정] 시그니처과외종류 5개 항목. 과목과외→과목과외 허브(subject/index.html), 검정고시→검정고시 페이지(program/geomjeong.html), 코딩박사→코딩박사 페이지(program/coding.html), 회화전문→회화전문 페이지(program/conversation.html), 학원수업→상담신청(관련 안내 영역 없음)으로 임시 연결. 방문과외·화상과외·수학과외·영어과외 페이지는 상단 메뉴에서만 빠졌고 파일과 본문·푸터 링크는 유지 -->
+          <a href="subject/index.html">과목과외</a>
+          <a href="consult.html">학원수업</a>
+          <a href="program/geomjeong.html">검정고시</a>
+          <a href="program/coding.html">코딩박사</a>
+          <a href="program/conversation.html">회화전문</a>
+        </div>
+      </div>
+      <a href="index.html#teacher-preview">선생님소개</a><!-- [1차 임시] 원래 주소: teachers.html -->
+      <a href="info.html">학습정보</a>
+      <a href="consult.html" aria-current="page">상담신청</a>
+    </nav>
+    <a class="sig-top-cta" href="consult.html">무료 상담 신청</a>
+    <button class="sig-mobile-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="sigMobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="sig-mobile-menu" id="sigMobileMenu" aria-label="모바일 메뉴">
+    <div class="sig-mobile-group">
+      <span class="sig-mobile-group-title">시그니처과외종류</span>
+      <div class="sig-mobile-sub">
+        <!-- [메뉴 수정] 시그니처과외종류 5개 항목. 과목과외→과목과외 허브(subject/index.html), 검정고시→검정고시 페이지(program/geomjeong.html), 코딩박사→코딩박사 페이지(program/coding.html), 회화전문→회화전문 페이지(program/conversation.html), 학원수업→상담신청(관련 안내 영역 없음)으로 임시 연결. 방문과외·화상과외·수학과외·영어과외 페이지는 상단 메뉴에서만 빠졌고 파일과 본문·푸터 링크는 유지 -->
+        <a href="subject/index.html">과목과외</a>
+        <a href="consult.html">학원수업</a>
+        <a href="program/geomjeong.html">검정고시</a>
+        <a href="program/coding.html">코딩박사</a>
+        <a href="program/conversation.html">회화전문</a>
+      </div>
+    </div>
+    <a href="index.html#teacher-preview">선생님소개</a>
+    <a href="info.html">학습정보</a>
+    <a class="sig-mobile-cta" href="consult.html">무료 상담 신청</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<section class="page-hero no-visual">
+  <div class="container page-hero-inner">
+    <div>
+      <ol class="breadcrumb">
+        <li><a href="index.html">홈</a></li>
+        <li>상담신청</li>
+      </ol>
+      <span class="page-kicker">FREE CONSULTATION</span>
+      <h1>무료 상담 신청</h1>
+      <p class="page-lead">과외를 결정하기 전, 먼저 아이의 현재 상황부터 확인하세요.<br>학생의 학년 · 희망과목 · 현재 고민을 알려주시면 상담에 필요한 내용을 순서대로 확인할 수 있습니다.</p>
+      <p class="note-box">시그니처과외 주요 수업은 상담 후 무료수업을 통해 수업 방식과 학습 방향을 확인할 수 있습니다. 구체적인 진행 방식과 조건은 상담 시 안내드립니다.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page-section soft">
+  <div class="container">
+    <div class="consult-layout">
+
+      <!-- [14.5차] 접수는 Google Sheets(Apps Script 웹 앱)로 전송합니다. js/script.js 맨 위 CONSULT_API_URL에 웹 앱 주소를 넣어야 실제 전송되며, 기본값이면 전송하지 않습니다. 연결 방법: docs/상담접수_구글시트_연결방법.txt -->
+      <form class="consult-form" id="consultForm" method="post" autocomplete="on">
+        <h2>상담 신청서</h2>
+        <p><span class="req" aria-hidden="true">*</span> 표시는 필수 입력 항목입니다.</p>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="cfName">이름<span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="cfName" name="name" maxlength="30" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="cfPhone">연락처<span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="cfPhone" name="phone" inputmode="numeric" maxlength="13" placeholder="010-0000-0000" autocomplete="tel" pattern="01[0-9]-?[0-9]{3,4}-?[0-9]{4}" required>
+          </div>
+          <div class="form-field">
+            <label for="cfGrade">학년<span class="req" aria-hidden="true">*</span></label>
+            <select id="cfGrade" name="grade" required>
+              <option value="">선택해 주세요</option>
+              <optgroup label="초등">
+                <option>초1</option><option>초2</option><option>초3</option>
+                <option>초4</option><option>초5</option><option>초6</option>
+              </optgroup>
+              <optgroup label="중등">
+                <option>중1</option><option>중2</option><option>중3</option>
+              </optgroup>
+              <optgroup label="고등">
+                <option>고1</option><option>고2</option><option>고3</option>
+              </optgroup>
+              <option>성인</option>
+              <option value="기타">기타 (검정고시 등)</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="cfSubject">희망 과목<span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="cfSubject" name="subject" maxlength="50" placeholder="예: 수학, 영어" required>
+          </div>
+          <div class="form-field">
+            <span class="form-label" id="cfModeLabel">수업 방식<span class="req" aria-hidden="true">*</span></span>
+            <div class="choice-row" role="radiogroup" aria-labelledby="cfModeLabel">
+              <label><input type="radio" name="mode" value="방문" required><span>방문수업</span></label>
+              <label><input type="radio" name="mode" value="화상"><span>화상수업</span></label>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="cfRegion">거주 지역<span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="cfRegion" name="region" maxlength="100" placeholder="예: 부산광역시 해운대구 우동" autocomplete="address-level2" aria-describedby="cfRegionHint" required>
+            <p class="form-hint" id="cfRegionHint" aria-live="polite">수업 방식을 선택하면 거주 지역 입력 기준이 안내됩니다.</p><!-- [14차] 방문: 상세 주소 필수 / 화상: 시·도·구·군·동(아파트명까지) — js/script.js에서 자동 전환 -->
+          </div>
+          <div class="form-field full">
+            <label for="cfMessage">기타 요청사항</label>
+            <textarea id="cfMessage" name="message" maxlength="1000" placeholder="희망 수업 요일·시간대, 현재 학습 상황 등 요청사항을 자유롭게 적어 주세요."></textarea>
+          </div>
+          <div class="agree-box">
+            <label><input type="checkbox" name="agree" required> [필수] 개인정보 수집·이용에 동의합니다.</label>
+            <details>
+              <summary>수집·이용 내용 보기</summary>
+              <ul>
+                <li>수집 목적: 과외 상담 신청 확인 및 상담 안내, 방문수업 가능 여부 및 수업 상담을 위한 지역 확인</li>
+                <li>수집 항목: 이름, 연락처, 학년, 희망 과목, 수업 방식, 거주 지역(방문수업: 상세 주소 / 화상수업: 시·도·구·군·동, 아파트 거주 시 아파트 이름까지), 기타 요청사항, 접수 관련 시스템 정보</li>
+                <li>보유 기간: 개인정보처리방침에 따릅니다.</li>
+                <li>동의를 거부할 수 있으며, 거부 시 온라인 상담 신청이 제한됩니다.</li>
+              </ul>
+            </details>
+            <p class="agree-link"><a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침 전문 보기 (새 창)</a></p>
+          </div>
+          <!-- [14.5차] 스팸 방지용 숨김 칸(honeypot): 사람에게 보이지 않음. 값이 들어오면 전송하지 않음 -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="cfWebsite">웹사이트</label>
+            <input type="text" id="cfWebsite" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="form-message" role="status" aria-live="polite"></div>
+          <div class="form-submit">
+            <button type="submit" class="btn-navy">상담 신청하기</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="contact-side">
+        <div class="consult-guide">
+          <h3>상담 시 확인하는 내용</h3>
+          <ul>
+            <li>학생 학년과 희망 과목</li>
+            <li>희망 수업 방식 (방문과외 · 화상과외)</li>
+            <li>방문과외를 원하시는 경우 수업 지역</li>
+            <li>현재 학습 상황과 고민, 목표</li>
+            <li>희망 수업 요일과 시간대</li>
+          </ul>
+          <p class="consult-guide-note" id="consultStatusNote">온라인 상담 접수 기능은 현재 준비 중입니다. 신청서를 작성하셔도 아직 전송되지 않습니다.</p><!-- [14.5차] 접수 주소(CONSULT_API_URL) 연결 시 js가 문구를 자동 변경 -->
+        </div>
+        <!-- [19차] 전화 상담 연결 (index.html과 동일) -->
+        <a class="contact-card phone" href="tel:01058701109">
+          <span class="contact-label">전화 상담</span>
+          <strong>010-5870-1109</strong>
+          <p>전화로 바로 상담하실 수 있습니다.</p>
+        </a>
+        <!-- [19차] 카카오톡 오픈채팅 연결 (index.html과 동일) -->
+        <a class="contact-card kakao" href="https://open.kakao.com/o/gL2WvLQi" target="_blank" rel="noopener">
+          <span class="contact-label">카카오톡 상담</span>
+          <strong>오픈채팅으로 상담하기</strong>
+          <p>카카오톡 오픈채팅이 새 창에서 열립니다.</p>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer-top">
+      <a href="index.html" class="site-footer-brand" aria-label="시그니처과외 홈"><img src="images/logo.webp" alt="시그니처과외" loading="lazy" decoding="async"></a>
+      <nav class="site-footer-links" aria-label="하단 메뉴">
+        <a href="index.html">홈</a>
+        <a href="tutoring/visit.html">방문과외</a>
+        <a href="tutoring/online.html">화상과외</a>
+        <a href="subject/math.html">수학과외</a>
+        <a href="subject/english.html">영어과외</a>
+        <a href="index.html#tuition">수업안내</a>
+        <a href="index.html#teacher-preview">선생님소개</a>
+        <a href="index.html#reviews">학생 후기</a>
+        <a href="index.html#faq">자주 묻는 질문</a>
+        <a href="info.html">학습정보</a>
+        <a href="consult.html">상담신청</a>
+        <a href="privacy.html" class="site-footer-privacy">개인정보처리방침</a>
+      </nav>
+    </div>
+    <!-- [입력 필요] 사업자 정보 확정 후 index.html 푸터와 동일하게 추가하세요. (임의 정보 입력 금지) -->
+    <p class="site-footer-info"><span>시그니처과외</span></p>
+    <p class="site-footer-copy">© 2026 시그니처과외. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

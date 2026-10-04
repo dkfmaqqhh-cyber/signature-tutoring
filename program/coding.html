@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>코딩 1:1 맞춤수업 | 코딩박사 | 시그니처과외</title>
+<meta name="description" content="자바·파이썬 등 코딩 기초와 학생 내신 대비, 학생·직장인 자격증 준비를 위한 1:1 화상 코딩수업. 방학 집중수업과 자격증 준비 과정을 상담합니다.">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="코딩 1:1 맞춤수업 | 코딩박사 | 시그니처과외">
+<meta property="og:description" content="자바·파이썬 등 코딩 기초와 학생 내신 대비, 학생·직장인 자격증 준비를 위한 1:1 화상 코딩수업. 방학 집중수업과 자격증 준비 과정을 상담합니다.">
+<meta property="og:site_name" content="시그니처과외">
+<meta property="og:locale" content="ko_KR">
+<meta name="theme-color" content="#102a4b">
+<!-- [도메인 연결 후 할 일] canonical, og:url, og:image(절대주소), BreadcrumbList 구조화데이터(절대 URL 필요)를 추가합니다. -->
+<link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "코딩박사 1:1 코딩수업",
+      "serviceType": "1:1 코딩수업",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "시그니처과외"
+      },
+      "audience": [
+        {
+          "@type": "EducationalAudience",
+          "educationalRole": "student",
+          "audienceType": "학생"
+        },
+        {
+          "@type": "Audience",
+          "audienceType": "직장인"
+        }
+      ],
+      "description": "화상전용 실시간 라이브 1:1 코딩수업. 자바·파이썬 수업을 진행하며, 학생 대상 코딩 기초·내신 대비·자격증 준비·방학 집중수업과 직장인 대상 자바·파이썬 학습·자격증 준비 수업을 상담합니다."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "코딩수업은 방문수업도 가능한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "코딩박사 수업은 화상전용으로 진행합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "자바와 파이썬 수업을 진행하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "자바와 파이썬 수업을 진행하며, 현재 수준과 학습 목표에 맞춰 수업 방향을 상담합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "학생 내신 대비 코딩수업도 가능한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "학생의 학교 학습과 코딩 관련 내신 대비를 위한 수업도 진행하며, 구체적인 학습 범위는 상담을 통해 확인합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "자격증 준비도 가능한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "학생과 직장인을 대상으로 자격증 준비 수업을 진행합니다. 준비 가능한 세부 자격증 과정은 상담 시 확인 후 안내드립니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "직장인도 수업을 받을 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "직장인도 자바·파이썬 학습과 자격증 준비를 위한 1:1 화상수업을 받을 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "무료수업을 받을 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "시그니처과외의 주요 수업은 무료수업이 가능합니다. 구체적인 진행 방식과 조건은 상담 시 안내드립니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+
+<header class="sig-header">
+  <div class="container sig-nav">
+    <a href="../index.html" class="sig-logo" aria-label="시그니처과외 홈">
+      <img src="../images/logo.webp" alt="시그니처과외 로고">
+    </a>
+    <nav class="sig-menu" aria-label="주 메뉴">
+      <div class="sig-nav-dropdown">
+        <button class="sig-nav-dropdown-toggle" type="button" aria-expanded="false">시그니처과외종류 <span class="sig-nav-caret">▾</span></button>
+        <div class="sig-nav-dropdown-menu">
+          <!-- [메뉴 수정] 시그니처과외종류 5개 항목. 과목과외→과목과외 허브(subject/index.html), 검정고시→검정고시 페이지(program/geomjeong.html), 코딩박사→코딩박사 페이지(program/coding.html), 회화전문→회화전문 페이지(program/conversation.html), 학원수업→상담신청(관련 안내 영역 없음)으로 임시 연결. 방문과외·화상과외·수학과외·영어과외 페이지는 상단 메뉴에서만 빠졌고 파일과 본문·푸터 링크는 유지 -->
+          <a href="../subject/index.html">과목과외</a>
+          <a href="../consult.html">학원수업</a>
+          <a href="../program/geomjeong.html">검정고시</a>
+          <a href="../program/coding.html">코딩박사</a>
+          <a href="../program/conversation.html">회화전문</a>
+        </div>
+      </div>
+      <a href="../index.html#teacher-preview">선생님소개</a><!-- [1차 임시] 원래 주소: teachers.html -->
+      <a href="../info.html">학습정보</a>
+      <a href="../consult.html">상담신청</a>
+    </nav>
+    <a class="sig-top-cta" href="../consult.html">무료 상담 신청</a>
+    <button class="sig-mobile-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="sigMobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="sig-mobile-menu" id="sigMobileMenu" aria-label="모바일 메뉴">
+    <div class="sig-mobile-group">
+      <span class="sig-mobile-group-title">시그니처과외종류</span>
+      <div class="sig-mobile-sub">
+        <!-- [메뉴 수정] 시그니처과외종류 5개 항목. 과목과외→과목과외 허브(subject/index.html), 검정고시→검정고시 페이지(program/geomjeong.html), 코딩박사→코딩박사 페이지(program/coding.html), 회화전문→회화전문 페이지(program/conversation.html), 학원수업→상담신청(관련 안내 영역 없음)으로 임시 연결. 방문과외·화상과외·수학과외·영어과외 페이지는 상단 메뉴에서만 빠졌고 파일과 본문·푸터 링크는 유지 -->
+        <a href="../subject/index.html">과목과외</a>
+        <a href="../consult.html">학원수업</a>
+        <a href="../program/geomjeong.html">검정고시</a>
+        <a href="../program/coding.html">코딩박사</a>
+        <a href="../program/conversation.html">회화전문</a>
+      </div>
+    </div>
+    <a href="../index.html#teacher-preview">선생님소개</a>
+    <a href="../info.html">학습정보</a>
+    <a class="sig-mobile-cta" href="../consult.html">무료 상담 신청</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- 1. 히어로 ([11.5차] 실제 운영 기준: 화상전용, 자바·파이썬, 학생 내신·자격증, 직장인 자격증) -->
+<section class="page-hero no-visual">
+  <div class="container page-hero-inner">
+    <div>
+      <ol class="breadcrumb">
+        <li><a href="../index.html">홈</a></li>
+        <li>코딩박사</li>
+      </ol>
+      <span class="page-kicker">코딩박사 · 화상전용 1:1 코딩</span>
+      <h1>기초부터 차근차근 배우는 <em>1:1 코딩수업</em></h1>
+      <p class="page-lead">자바·파이썬 등 코딩 기초부터 학생 내신 대비와 학생·직장인 자격증 준비까지, 학습 목표에 맞춰 진행하는 1:1 화상 코딩수업입니다.<br>코딩박사 수업은 <strong>화상전용</strong>으로, 선생님과 같은 시간에 화면으로 만나 진행하는 실시간 라이브 수업입니다.</p>
+      <div class="page-actions">
+        <a href="../consult.html" class="btn-navy">무료 상담 신청</a>
+        <a href="#target" class="btn-line">나에게 맞는 수업 찾기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. 실시간 라이브 화상수업 + 수업 녹화 기능 (화상전용 안내·필요 환경 포함) -->
+<section class="page-section" id="live">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">LIVE ONLINE CLASS</div>
+      <h2>실시간으로 함께하는 1:1 라이브 화상수업</h2>
+      <p>코딩박사 수업은 화상전용으로 진행합니다. 녹화된 강의를 시청하는 방식이 아니라, 학생과 선생님이 같은 시간에 화면으로 만나 질문하고 답하며 수업을 진행합니다. 수업 녹화 기능을 활용해 수업 후 복습에도 활용할 수 있습니다.</p>
+    </div>
+    <div class="point-grid">
+      <div class="point-card">
+        <span class="point-num">01</span>
+        <h3>실시간 1:1 수업</h3>
+        <p>정해진 시간에 선생님과 화면으로 만나 1:1로 수업합니다.</p>
+      </div>
+      <div class="point-card">
+        <span class="point-num">02</span>
+        <h3>선생님과 즉시 질문·답변</h3>
+        <p>막히는 부분이 생기면 수업 중에 바로 묻고 답을 들을 수 있습니다.</p>
+      </div>
+      <div class="point-card">
+        <span class="point-num">03</span>
+        <h3>수업 녹화 기능으로 복습</h3>
+        <p>라이브 수업을 녹화하는 기능을 활용해 수업 후 다시 보며 복습할 수 있습니다.</p>
+      </div>
+    </div>
+    <div class="post-related related-info">
+      <strong>필요한 환경</strong>
+    <div class="check-grid">
+      <div class="check-item">PC 또는 노트북</div>
+      <div class="check-item">안정적인 인터넷 환경</div>
+    </div>
+    </div>
+    <p class="note-box">수업 녹화 기능의 이용 방법, 수업에 사용하는 프로그램, 카메라·마이크 등 세부 환경은 상담 시 안내드립니다.</p>
+  </div>
+</section>
+
+<!-- 3. 대상별 수업 찾기 (학생 / 직장인) -->
+<section class="page-section soft" id="target">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">FIND YOUR CLASS</div>
+      <h2>나에게 맞는 코딩수업 찾기</h2>
+      <p>코딩박사는 학생과 직장인 모두 수업 대상입니다. 상황에 맞는 수업을 선택해 자세한 내용을 확인하세요.</p>
+    </div>
+    <div class="point-grid cols-2">
+      <a class="point-card point-card-link" href="#student">
+        <span class="point-num">STUDENT</span>
+        <h3>학생</h3>
+        <ul>
+          <li>코딩 기초 · 자바 · 파이썬</li>
+          <li>학교 학습과 코딩 관련 내신 대비</li>
+          <li>자격증 준비</li>
+          <li>방학 집중수업</li>
+        </ul>
+        <span class="point-card-more">학생 코딩수업 보기 →</span>
+      </a>
+      <a class="point-card point-card-link" href="#worker">
+        <span class="point-num">WORKER</span>
+        <h3>직장인</h3>
+        <ul>
+          <li>자바 · 파이썬 학습</li>
+          <li>자격증 준비</li>
+          <li>개인 목표에 맞춘 1:1 화상수업</li>
+        </ul>
+        <span class="point-card-more">직장인 코딩수업 보기 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 4. 학생 코딩수업 (특정 학교명·시험 범위·자격증명은 임의로 적지 않음) -->
+<section class="page-section" id="student">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">FOR STUDENTS</div>
+      <h2>학생 코딩수업</h2>
+      <p>코딩을 처음 배우는 학생부터 학교 학습과 내신, 자격증을 준비하는 학생까지 현재 수준과 목표에 맞춰 1:1 화상수업으로 진행합니다.</p>
+    </div>
+    <div class="check-grid">
+      <div class="check-item">자바 기초</div>
+      <div class="check-item">파이썬 기초</div>
+      <div class="check-item">프로그래밍 기본 개념</div>
+      <div class="check-item">문제를 나누어 해결하는 과정</div>
+      <div class="check-item">배운 내용을 직접 해 보는 실습</div>
+      <div class="check-item">학교 학습과 코딩 관련 내신 대비</div>
+      <div class="check-item">학생 자격증 준비</div>
+      <div class="check-item">방학 기간을 활용한 집중수업</div>
+    </div>
+    <p class="note-box">학교별 학습 범위와 준비 가능한 세부 자격증 과정은 상담 시 확인 후 안내드립니다.</p>
+  </div>
+</section>
+
+<!-- 5. 방학 집중수업 (구체적인 기간·시간표는 임의로 적지 않음) -->
+<section class="page-section soft" id="vacation">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">VACATION CLASS</div>
+      <h2>방학 집중수업</h2>
+      <p>방학 기간을 활용해 자바·파이썬 기초, 학교 학습 보완, 자격증 준비 등 학생의 목표에 맞춰 집중적으로 학습할 수 있습니다.</p>
+    </div>
+    <div class="point-grid">
+      <div class="point-card">
+        <h3>자바·파이썬 기초</h3>
+        <p>학기 중에 시작하기 어려웠던 코딩 기초를 방학 동안 차근차근 익힙니다.</p>
+      </div>
+      <div class="point-card">
+        <h3>학교 학습 보완</h3>
+        <p>학기 중 어려웠던 코딩 관련 학교 학습 내용을 다시 정리합니다.</p>
+      </div>
+      <div class="point-card">
+        <h3>자격증 준비</h3>
+        <p>방학 기간을 활용해 목표로 하는 자격증 준비에 집중합니다.</p>
+      </div>
+    </div>
+    <p class="note-box">방학 집중수업의 구체적인 기간과 시간표 등 세부 일정은 상담 시 안내드립니다.</p>
+  </div>
+</section>
+
+<!-- 6. 직장인 자격증 준비 (취업·합격 보장 표현 쓰지 않음) -->
+<section class="page-section" id="worker">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">FOR WORKERS</div>
+      <h2>직장인 자격증 준비</h2>
+      <p>직장인도 코딩박사의 실제 수업 대상입니다. 자바·파이썬 학습과 자격증 준비를 개인 목표와 일정에 맞춰 1:1 화상수업으로 진행합니다.</p>
+    </div>
+    <div class="check-grid">
+      <div class="check-item">자바·파이썬 학습</div>
+      <div class="check-item">자격증 준비</div>
+      <div class="check-item">현재 수준에 맞는 학습 방향</div>
+      <div class="check-item">개인 목표에 맞춘 1:1 화상수업</div>
+    </div>
+    <p class="note-box">세부 수업 내용과 일정, 준비 가능한 세부 자격증 과정은 상담 후 안내드립니다.</p>
+  </div>
+</section>
+
+<!-- 7. 코딩수업 학습 방향 (자격증 이름은 실제 목록 확정 전이라 적지 않음) -->
+<section class="page-section soft" id="direction">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">LEARNING DIRECTION</div>
+      <h2>코딩수업 학습 방향</h2>
+      <p>수강생의 현재 수준과 목표에 맞춰 아래 내용 중 필요한 부분을 중심으로 수업합니다.</p>
+    </div>
+    <div class="check-grid">
+      <div class="check-item"><span><strong>자바</strong> — 자바 문법과 기본 구조를 익히고 직접 코드를 작성해 봅니다.</span></div>
+      <div class="check-item"><span><strong>파이썬</strong> — 파이썬으로 기초 개념을 익히고 간단한 문제를 해결해 봅니다.</span></div>
+      <div class="check-item"><span><strong>프로그래밍 기초</strong> — 변수, 조건, 반복 등 프로그래밍의 기본 개념을 이해합니다.</span></div>
+      <div class="check-item"><span><strong>논리적 사고</strong> — 원하는 결과를 얻기 위해 순서와 조건을 정리하며 생각합니다.</span></div>
+      <div class="check-item"><span><strong>문제 해결</strong> — 큰 문제를 작은 단계로 나누고 막힌 부분의 원인을 찾아 해결합니다.</span></div>
+      <div class="check-item"><span><strong>실습</strong> — 자바·파이썬 실습을 선생님과 화면으로 함께 보며 진행합니다.</span></div>
+      <div class="check-item"><span><strong>내신 대비</strong> — 학생의 학교 학습과 코딩 관련 내신 범위에 맞춰 준비합니다.</span></div>
+      <div class="check-item"><span><strong>자격증 준비</strong> — 학생과 직장인의 자격증 준비 목표에 맞춰 학습합니다.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. 학습 진행 과정 -->
+<section class="page-section">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">PROCESS</div>
+      <h2>학습 진행 과정</h2>
+      <p>학생은 내신 대비·자격증 준비·방학 집중수업 등 목표를, 직장인은 자격증 준비 등 목표를 상담에서 함께 확인합니다.</p>
+    </div>
+    <ol class="step-flow" style="--steps: 4">
+      <li><strong>상담</strong><span>수업 상담을 신청하고 희망 일정을 확인합니다.</span></li>
+      <li><strong>학생 / 직장인 구분</strong><span>수강생이 학생인지 직장인인지에 따라 상담 내용을 나눕니다.</span></li>
+      <li><strong>현재 수준 확인</strong><span>코딩 경험과 현재 이해하고 있는 내용을 확인합니다.</span></li>
+      <li><strong>목표 확인</strong><span>학생은 내신·자격증·방학수업, 직장인은 자격증 준비 등 목표를 확인합니다.</span></li>
+      <li><strong>학습 방향 결정</strong><span>자바·파이썬 등 수준과 목표에 맞는 학습 방향을 정합니다.</span></li>
+      <li><strong>1:1 화상수업</strong><span>선생님과 같은 시간에 화면으로 만나 실시간 1:1 수업을 진행합니다.</span></li>
+      <li><strong>학습 내용 점검</strong><span>수업 내용을 점검하고 다음 학습 방향을 안내합니다.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- [11차] AI 학습도구 안내는 코딩수업에서의 실제 활용 여부가 확인되지 않아 이 페이지에 넣지 않음 -->
+
+<!-- 9. 검증된 선생님 안내 (메인 '교육청에 정식 등록된 검증된 선생님' 표현과 같은 기준, 코딩 경력·자격·수상은 적지 않음) -->
+<section class="page-section soft">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">VERIFIED TEACHERS</div>
+      <h2>검증된 선생님</h2>
+      <p>교육청에 정식 등록된 검증된 선생님이 수강생의 현재 수준과 학습 목표에 맞춰 1:1 화상수업을 진행합니다.</p>
+    </div>
+    <div class="check-grid">
+      <div class="check-item">학생 / 직장인 구분</div>
+      <div class="check-item">현재 수준과 코딩 경험</div>
+      <div class="check-item">학습 목표 (내신 대비 · 자격증 준비 등)</div>
+      <div class="check-item">희망 요일과 시간대</div>
+    </div>
+    <p class="note-box">위 내용을 고려해 수강생에게 맞는 선생님을 안내합니다. 구체적인 배정 절차와 기준은 상담 시 확인 후 안내드립니다.</p>
+  </div>
+</section>
+
+<!-- 10. FAQ (FAQPage 구조화데이터와 문구 동일하게 유지) -->
+<section class="page-section" id="faq">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">FAQ</div>
+      <h2>코딩박사 자주 묻는 질문</h2>
+    </div>
+    <div class="faq-list">
+      <details><summary>코딩수업은 방문수업도 가능한가요?</summary><div class="faq-answer">코딩박사 수업은 화상전용으로 진행합니다.</div></details>
+      <details><summary>자바와 파이썬 수업을 진행하나요?</summary><div class="faq-answer">자바와 파이썬 수업을 진행하며, 현재 수준과 학습 목표에 맞춰 수업 방향을 상담합니다.</div></details>
+      <details><summary>학생 내신 대비 코딩수업도 가능한가요?</summary><div class="faq-answer">학생의 학교 학습과 코딩 관련 내신 대비를 위한 수업도 진행하며, 구체적인 학습 범위는 상담을 통해 확인합니다.</div></details>
+      <details><summary>자격증 준비도 가능한가요?</summary><div class="faq-answer">학생과 직장인을 대상으로 자격증 준비 수업을 진행합니다. 준비 가능한 세부 자격증 과정은 상담 시 확인 후 안내드립니다.</div></details>
+      <details><summary>직장인도 수업을 받을 수 있나요?</summary><div class="faq-answer">직장인도 자바·파이썬 학습과 자격증 준비를 위한 1:1 화상수업을 받을 수 있습니다.</div></details>
+      <details><summary>무료수업을 받을 수 있나요?</summary><div class="faq-answer">시그니처과외의 주요 수업은 무료수업이 가능합니다. 구체적인 진행 방식과 조건은 상담 시 안내드립니다.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- 11. 하단 CTA -->
+<section class="cta-band">
+  <div class="container cta-band-inner">
+    <div>
+      <h2>코딩박사 1:1 화상수업, 상담으로 시작하세요</h2>
+      <p>학생은 학년과 목표(내신·자격증·방학 집중수업), 직장인은 자격증 준비 등 목표를 남겨주시면 상담 내용을 확인해 안내드립니다. 코딩박사도 상담 후 무료수업을 통해 수업 방식과 학습 방향을 먼저 확인할 수 있습니다.</p>
+    </div>
+    <div class="page-actions">
+      <a href="../consult.html" class="btn-gold">무료수업 상담하기</a>
+      <a href="../index.html" class="btn-line">메인으로</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer-top">
+      <a href="../index.html" class="site-footer-brand" aria-label="시그니처과외 홈"><img src="../images/logo.webp" alt="시그니처과외" loading="lazy" decoding="async"></a>
+      <nav class="site-footer-links" aria-label="하단 메뉴">
+        <a href="../index.html">홈</a>
+        <a href="../tutoring/visit.html">방문과외</a>
+        <a href="../tutoring/online.html">화상과외</a>
+        <a href="../subject/math.html">수학과외</a>
+        <a href="../subject/english.html">영어과외</a>
+        <a href="../index.html#tuition">수업안내</a>
+        <a href="../index.html#teacher-preview">선생님소개</a>
+        <a href="../index.html#reviews">학생 후기</a>
+        <a href="../index.html#faq">자주 묻는 질문</a>
+        <a href="../info.html">학습정보</a>
+        <a href="../consult.html">상담신청</a>
+        <a href="../privacy.html" class="site-footer-privacy">개인정보처리방침</a>
+      </nav>
+    </div>
+    <!-- [입력 필요] 사업자 정보 확정 후 index.html 푸터와 동일하게 추가하세요. (임의 정보 입력 금지) -->
+    <p class="site-footer-info"><span>시그니처과외</span></p>
+    <p class="site-footer-copy">© 2026 시그니처과외. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

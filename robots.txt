@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /backup/
+Disallow: /%EC%8B%9C%EA%B7%B8%EB%8B%88%EC%B2%98%EA%B3%BC%EC%99%B8-%ED%99%88_1%EC%B0%A8%EC%88%98%EC%A0%95%EC%A0%84%EB%B0%B1%EC%97%85.html
+
+Sitemap: https://signaturetutoring.co.kr/sitemap.xml

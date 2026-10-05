@@ -4959,9 +4959,6 @@ body.page-home .site-footer-links a { font-size: 15.5px; font-weight: 900; }
 .page-subject .sj-reach .section-head p { color: rgba(255, 255, 255, 0.8); }
 .rv-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
 .rv-grid .rv-card { flex: none; }
-.sj-trial-contacts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 760px; margin: 28px auto 0; }
-.sj-trial-contacts .contact-card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-.sj-trial-more { margin-top: 18px; text-align: center; }
 @media (max-width: 1100px) {
   .rv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -4970,7 +4967,7 @@ body.page-home .site-footer-links a { font-size: 15.5px; font-weight: 900; }
   .sj-reach h2 { font-size: 27px; }
 }
 @media (max-width: 640px) {
-  .rv-grid, .sj-trial-contacts { grid-template-columns: 1fr; }
+  .rv-grid { grid-template-columns: 1fr; }
 }
 /* ---------- [22차] 메인 상담 영역 밀도 · 과목과외 전국수업 가독성 · 이유 카드 이미지 구조 ----------
    되돌리기: 이 블록 삭제 + backup/22차수정전 파일 복원 */
@@ -5010,28 +5007,10 @@ body.page-home #consult-form .contact-card { padding: 20px 24px; }
 @media (max-width: 980px) {
   .sj-hero-visual img { max-width: 360px; margin-bottom: -52px; }
 }
-/* 추천 학생 슬라이드: 크림 섹션 위 네이비 카드 + 골드 포인트 */
-.rec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 30px; }
-.rec-head .section-head { margin: 0; }
-.rec-nav { display: flex; gap: 10px; flex: none; }
-.rec-arrow {
-  width: 46px; height: 46px; padding: 0;
-  border: 1px solid #dccfb9; border-radius: 50%;
-  background: #fff; color: #102a4b;
-  font-size: 26px; line-height: 1; cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease;
-}
-.rec-arrow:hover, .rec-arrow:focus-visible { border-color: var(--yellow); color: #8f6b2f; }
-.rec-track {
-  display: flex; gap: 20px;
-  overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
-  scrollbar-width: none; -webkit-overflow-scrolling: touch;
-}
-.rec-track::-webkit-scrollbar { display: none; }
-.rec-track:focus-visible { outline: 2px solid var(--yellow); outline-offset: 4px; border-radius: 22px; }
+/* 추천 학생 카드: 크림 섹션 위 네이비 카드 + 골드 포인트 ([25차] 슬라이드 제거 → 4개 동시 노출 그리드) */
+.rec-track { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
 .rec-card {
-  flex: 0 0 calc((100% - 40px) / 3); min-width: 0;
-  scroll-snap-align: start;
+  min-width: 0;
   display: flex; flex-direction: column; gap: 10px;
   padding: 28px 26px 24px;
   border-top: 3px solid var(--yellow); border-radius: 22px;
@@ -5052,9 +5031,9 @@ body.page-home #consult-form .contact-card { padding: 20px 24px; }
   position: relative; display: flex; flex-direction: column;
   padding: 30px 26px 26px; border: 1px solid #e3e8f1; border-radius: 26px;
   background: #f4f6fb; color: #102a4b;
-  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  cursor: default;
 }
-.gr-card:hover { transform: translateY(-3px); border-color: #d3b98d; box-shadow: 0 14px 30px rgba(16, 42, 75, 0.08); }
+
 .gr-card:nth-child(even) { background: #fbf8f3; border-color: #efe7da; }
 .gr-icon { display: grid; place-items: center; width: 76px; height: 76px; margin-bottom: 18px; border-radius: 22px; background: #fff; box-shadow: 0 6px 16px rgba(16, 42, 75, 0.06); }
 .gr-icon svg { width: 46px; height: 46px; fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
@@ -5063,21 +5042,33 @@ body.page-home #consult-form .contact-card { padding: 20px 24px; }
 .gr-en { color: #b78a46; font-size: 12px; font-weight: 900; letter-spacing: 0.1em; }
 .gr-card h3 { margin: 4px 0 6px; color: #102a4b; font-size: 26px; letter-spacing: -0.03em; }
 .gr-sub { display: block; margin-bottom: 10px; color: #102a4b; font-size: 15px; font-weight: 800; word-break: keep-all; }
-.gr-card p { margin: 0 0 18px; color: #4f5a6b; font-size: 14px; line-height: 1.7; word-break: keep-all; }
-.gr-more { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(16, 42, 75, 0.1); color: #102a4b; font-size: 14px; font-weight: 900; }
-.gr-more i { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #102a4b; color: #fff; font-style: normal; font-size: 14px; }
+.gr-card p { margin: 0; color: #4f5a6b; font-size: 14px; line-height: 1.7; word-break: keep-all; }
 /* 성적향상: 짙은 네이비 + 골드, 이전 점수는 작게 · 결과는 크게 */
 .sc-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+/* [25차] 방패형 엠블럼: 골드 외곽(카드 배경) + 안쪽 네이비(::before), 같은 clip-path 로 테두리 효과 */
 .sc-card {
-  display: flex; flex-direction: column; align-items: center; gap: 12px;
-  padding: 28px 18px 26px; text-align: center;
-  border: 1px solid rgba(212, 173, 106, 0.3); border-top: 3px solid var(--yellow); border-radius: 20px;
-  background: rgba(255, 255, 255, 0.05);
+  --sc-shield: polygon(50% 0%, 100% 9%, 100% 54%, 94% 70%, 80% 85%, 50% 100%, 20% 85%, 6% 70%, 0% 54%, 0% 9%);
+  position: relative; isolation: isolate;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  max-width: 260px; width: 100%; margin: 0 auto;
+  padding: 42px 18px 84px; text-align: center;
+  clip-path: var(--sc-shield);
+  background: linear-gradient(160deg, #f1d9a6 0%, #c9a15f 45%, #9c7638 100%);
 }
+.sc-card::before {
+  content: ""; position: absolute; inset: 3px; z-index: -1;
+  clip-path: var(--sc-shield);
+  background: radial-gradient(circle at 50% 18%, #1f4373 0%, #12305a 48%, #0b1f3a 100%);
+}
+.sc-card::after {
+  content: "★"; position: absolute; left: 50%; bottom: 30px; transform: translateX(-50%);
+  color: #d4ad6a; font-size: 16px; line-height: 1;
+}
+.sj-reach + .sj-cases { border-top: 1px solid rgba(212, 173, 106, 0.22); background: linear-gradient(180deg, #0c2242 0%, #102a4b 100%); }
 .sc-label { color: rgba(255, 255, 255, 0.78); font-size: 13px; font-weight: 800; letter-spacing: 0.04em; }
-.sc-change { display: flex; align-items: baseline; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.sc-change { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
 .sc-before { color: rgba(255, 255, 255, 0.6); font-size: 18px; font-weight: 700; text-decoration: line-through; text-decoration-color: rgba(255, 255, 255, 0.35); }
-.sc-arrow { color: var(--yellow); font-size: 20px; font-weight: 900; }
+.sc-arrow { color: var(--yellow); font-size: 16px; font-weight: 900; line-height: 1.2; }
 .sc-after { color: #fff; font-size: 52px; font-weight: 900; line-height: 1; letter-spacing: -0.03em; }
 .sc-after small { margin-left: 2px; color: #d4ad6a; font-size: 18px; font-weight: 800; letter-spacing: 0; }
 .sc-gain { padding: 6px 14px; border-radius: 999px; background: #d4ad6a; color: #102a4b; font-size: 14px; font-weight: 900; }
@@ -5087,19 +5078,144 @@ body.page-home #consult-form .contact-card { padding: 20px 24px; }
 .sc-quote { margin: 30px 0 0; text-align: center; color: #fff; font-size: 24px; font-weight: 800; letter-spacing: -0.03em; word-break: keep-all; }
 .sc-quote em { color: #d4ad6a; font-style: normal; }
 @media (max-width: 980px) {
-  .rec-card { flex-basis: calc((100% - 20px) / 2); }
-  .gr-grid, .sc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rec-track, .gr-grid, .sc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
-  .rec-head { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 22px; }
-  .rec-card { flex-basis: 100%; padding: 24px 22px 22px; }
+  .rec-track { grid-template-columns: 1fr; gap: 14px; }
+  .rec-card { padding: 24px 22px 22px; }
   .gr-grid { grid-template-columns: 1fr; }
   .sc-grid { gap: 12px; }
-  .sc-card { padding: 22px 12px 20px; }
+  .sc-card { padding: 30px 10px 66px; gap: 6px; }
+  .sc-card::after { bottom: 22px; font-size: 13px; }
   .sc-before { font-size: 15px; }
   .sc-after { font-size: 40px; }
   .sc-after small { font-size: 15px; }
   .sc-gain { font-size: 12.5px; padding: 5px 11px; }
   .sc-care li { font-size: 14px; padding: 9px 14px; }
   .sc-quote { font-size: 20px; }
+}
+/* ---------- [25차] 과목과외: 대문 이미지 · 과목별 핵심포인트 · 설명글 폰트/크기 ([25.5차] 무료수업 섹션 리디자인 · 별도 CTA 삭제) ----------
+   되돌리기: 이 블록 삭제 + backup/25차수정전 파일 복원 (성적향상 방패형·추천 그리드는 위 24차 블록 안에서 수정) */
+/* 대문 이미지: 크림 배경과 자연스럽게 섞이도록 가장자리 페이드 */
+.sj-hero-visual img {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 86%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 80%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 86%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 80%, transparent 100%);
+  mask-composite: intersect;
+}
+/* 과목별 안내: 핵심포인트형 4카드 */
+.sj-subject-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.sj-subject-card {
+  padding: 28px 24px 26px; border: 1px solid #e9e2d8; border-top: 3px solid var(--yellow); border-radius: 22px;
+  background: #fff; box-shadow: 0 14px 34px rgba(21, 31, 53, 0.05);
+}
+.sj-subject-card .point-num { margin-bottom: 8px; }
+.sj-subject-card h3 { margin: 0 0 16px; color: #102a4b; font-size: 22px; letter-spacing: -0.03em; }
+.sj-subject-card ul { display: grid; gap: 10px; margin: 0; padding: 16px 0 0; list-style: none; border-top: 1px solid #f0e9dd; }
+.sj-subject-card li { display: flex; align-items: center; gap: 10px; color: #2c3647; font-size: 16px; font-weight: 700; word-break: keep-all; }
+.sj-subject-card li::before {
+  content: "✓"; flex: none; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%;
+  background: #f4ead9; color: #8f6b2f; font-size: 12px; font-weight: 900;
+}
+/* [25.5차] 무료수업 섹션(11번) 리디자인: 짙은 네이비/차콜 + 민트·하늘 보조 + 골드 CTA, 왼쪽 인물 · 오른쪽 상담 정보 */
+.sj-trial { padding: 84px 0; background: #fbf8f3; }
+.sj-trial-box {
+  position: relative; overflow: hidden;
+  display: grid; grid-template-columns: 5fr 7fr; align-items: center;
+  border-radius: 32px; color: #fff;
+  background:
+    radial-gradient(circle at 18% 30%, rgba(94, 234, 212, 0.18), transparent 42%),
+    radial-gradient(circle at 100% 100%, rgba(125, 211, 252, 0.14), transparent 40%),
+    linear-gradient(135deg, #0e1c33 0%, #15263f 55%, #1d2a3a 100%);
+  box-shadow: 0 26px 54px rgba(14, 28, 51, 0.24);
+}
+.sj-trial-box::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: linear-gradient(90deg, #5eead4, #7dd3fc 45%, #d4ad6a); }
+.sj-trial-visual { position: relative; display: grid; place-items: center; padding: 56px 24px 56px 48px; }
+.sj-trial-photo {
+  width: 100%; max-width: 320px; aspect-ratio: 4 / 5; overflow: hidden;
+  border-radius: 180px 180px 28px 28px; border: 3px solid rgba(94, 234, 212, 0.55);
+  box-shadow: 0 0 0 10px rgba(94, 234, 212, 0.08), 0 20px 40px rgba(0, 0, 0, 0.3);
+  background: #efe7dc;
+}
+.sj-trial-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; }
+.sj-trial-chip {
+  position: absolute; display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 15px; border-radius: 999px; background: #fff; color: #0e1c33;
+  font-size: 13.5px; font-weight: 900; box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22); white-space: nowrap;
+}
+.sj-trial-chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #2dd4bf; }
+.sj-trial-chip.chip-a { left: 30px; top: 22%; }
+.sj-trial-chip.chip-b { right: 6px; bottom: 20%; }
+.sj-trial-chip.chip-b::before { background: #d4ad6a; }
+.sj-trial-body { position: relative; padding: 56px 56px 56px 24px; }
+.sj-trial-badge { display: inline-block; margin-bottom: 14px; padding: 6px 13px; border-radius: 999px; background: rgba(94, 234, 212, 0.14); color: #5eead4; font-size: 12px; font-weight: 900; letter-spacing: 0.12em; }
+.sj-trial-body h2 { margin: 0 0 14px; color: #fff; font-size: 36px; line-height: 1.3; letter-spacing: -0.04em; word-break: keep-all; }
+.sj-trial-body h2 em { color: #d4ad6a; font-style: normal; }
+.sj-trial-desc { margin: 0; color: #d6dee9; font-size: 17px; line-height: 1.8; word-break: keep-all; }
+.sj-trial-contacts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: none; margin: 28px 0 0; }
+.sj-trial-contact {
+  display: flex; align-items: center; gap: 14px; padding: 18px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 18px; background: rgba(255, 255, 255, 0.06);
+  color: #fff; transition: border-color 0.2s ease, background 0.2s ease;
+}
+.sj-trial-contact:hover { border-color: rgba(94, 234, 212, 0.6); background: rgba(255, 255, 255, 0.09); }
+.sj-trial-ico { flex: none; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: #5eead4; }
+.sj-trial-ico svg { width: 22px; height: 22px; fill: #0e1c33; }
+.sj-trial-contact.kakao .sj-trial-ico { background: #fee500; }
+.sj-trial-contact.kakao .sj-trial-ico svg { fill: #191600; }
+.sj-trial-txt { display: flex; flex-direction: column; min-width: 0; }
+.sj-trial-label { color: #7dd3fc; font-size: 13px; font-weight: 800; }
+.sj-trial-txt strong { margin: 3px 0 2px; color: #fff; font-size: 19px; font-weight: 900; letter-spacing: -0.02em; word-break: keep-all; }
+.sj-trial-txt small { color: #b9c4d3; font-size: 13.5px; line-height: 1.5; word-break: keep-all; }
+.sj-trial-btn { display: flex; width: 100%; margin-top: 16px; padding: 18px 28px; font-size: 17px; }
+/* 설명글: Nanum Gothic 계열 + 글자 크기 확대 (제목·숫자·버튼은 기존 Pretendard 유지) */
+.page-subject main :is(.page-lead, .section-head p, .point-card p, .point-card li, .sj-reach-item p, .rec-card p, .gr-card p,
+  .note-box, .faq-answer, .contact-card p, .check-item, .sj-subject-card li, .sj-trial-desc, .sj-trial-txt small) {
+  font-family: "Nanum Gothic", "NanumGothic", "나눔고딕", "Pretendard Variable", Pretendard, sans-serif;
+}
+.page-subject .page-lead { font-size: 19px; line-height: 1.8; }
+.page-subject main .section-head p { font-size: 18px; line-height: 1.75; }
+.page-subject .point-card p { font-size: 16.5px; line-height: 1.8; }
+.page-subject .point-card ul { font-size: 16px; }
+.page-subject .sj-reach-item p { font-size: 16px; line-height: 1.8; }
+.page-subject .rec-card p { font-size: 16.5px; line-height: 1.75; }
+.page-subject .gr-card p { font-size: 15.5px; line-height: 1.75; }
+.page-subject .note-box { font-size: 16px; line-height: 1.8; }
+.page-subject .faq-list .faq-answer { font-size: 16.5px; }
+@media (max-width: 980px) {
+  .page-subject .page-hero.no-visual .page-hero-inner:has(.sj-hero-visual img) { grid-template-columns: 1fr; gap: 28px; }
+  .sj-subject-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sj-trial-box { grid-template-columns: 1fr; }
+  .sj-trial-visual { padding: 48px 24px 8px; }
+  .sj-trial-photo { max-width: 260px; }
+  .sj-trial-chip.chip-a { left: calc(50% - 190px); }
+  .sj-trial-chip.chip-b { right: calc(50% - 190px); }
+  .sj-trial-body { padding: 28px 40px 44px; text-align: center; }
+  .sj-trial-contact { text-align: left; }
+}
+@media (max-width: 640px) {
+  .sj-hero-visual img { max-width: 260px; margin-bottom: -52px; }
+  .sj-subject-grid { gap: 12px; }
+  .sj-subject-card { padding: 22px 16px 20px; border-radius: 18px; }
+  .sj-subject-card h3 { font-size: 19px; margin-bottom: 12px; }
+  .sj-subject-card ul { gap: 8px; padding-top: 12px; }
+  .sj-subject-card li { gap: 7px; font-size: 14.5px; align-items: flex-start; }
+  .sj-subject-card li::before { width: 18px; height: 18px; font-size: 10px; margin-top: 2px; }
+  .sj-trial { padding: 56px 0; }
+  .sj-trial-box { border-radius: 24px; }
+  .sj-trial-visual { padding: 40px 16px 4px; }
+  .sj-trial-photo { max-width: 210px; }
+  .sj-trial-chip { padding: 7px 12px; font-size: 12px; }
+  .sj-trial-chip.chip-a { left: 14px; top: 26%; }
+  .sj-trial-chip.chip-b { right: 14px; bottom: 14%; }
+  .sj-trial-body { padding: 24px 20px 32px; }
+  .sj-trial-body h2 { font-size: 26px; }
+  .sj-trial-desc { font-size: 16px; }
+  .sj-trial-contacts { grid-template-columns: 1fr; gap: 10px; margin-top: 22px; }
+  .sj-trial-contact { padding: 15px 16px; }
+  .sj-trial-txt strong { font-size: 18px; }
+  .page-subject .page-lead { font-size: 17px; }
+  .page-subject main .section-head p { font-size: 16.5px; }
+  .page-subject .point-card p, .page-subject .rec-card p, .page-subject .faq-list .faq-answer { font-size: 16px; }
+  .page-subject .point-card ul, .page-subject .sj-reach-item p, .page-subject .gr-card p, .page-subject .note-box { font-size: 15.5px; }
 }

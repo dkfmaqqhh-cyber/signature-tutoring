@@ -320,47 +320,48 @@ t.addEventListener('touchstart',function(){paused=true;},{passive:true});
 t.addEventListener('touchend',function(){setTimeout(function(){paused=false;},4000);},{passive:true});
 if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))start();})();
 
-/* [20차] 메인 학생 후기 슬라이드 (선생님 슬라이더와 별도: rvTrack / rvPrev / rvNext)
-   PC 3장 · 모바일 1장 보기, 4.5초 자동 이동, 마우스 올림·터치·포커스 중 정지, 끝에서 처음으로 */
+/* [48차] 메인: 학생 후기 순차 등장 + 신뢰 수치 카운트업 (한 번만 실행, IntersectionObserver)
+   · 후기: #rvxPanel 안 .rvx-item 이 위→아래로 0.35초 간격 등장 (기존 [20차] 후기 가로 슬라이드 코드는 제거)
+   · 숫자: .count-up[data-count] 를 0부터 목표값까지 1.2초 증가 (data-decimals 로 소수 자릿수 지정) */
 (function () {
-  var track = document.getElementById('rvTrack');
-  if (!track) return;
-  var cards = track.querySelectorAll('.rv-card');
-  var prev = document.getElementById('rvPrev');
-  var next = document.getElementById('rvNext');
-  var section = document.getElementById('reviews');
-  var AUTO_MS = 4500;
-  var timer = null, paused = false;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canObserve = 'IntersectionObserver' in window;
+  function once(el, cb, threshold) {
+    if (!canObserve) { cb(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { io.disconnect(); cb(); } });
+    }, { threshold: threshold || 0.2 });
+    io.observe(el);
+  }
 
-  function step() {
-    if (cards.length < 2) return track.clientWidth;
-    return cards[1].offsetLeft - cards[0].offsetLeft;
+  var panel = document.getElementById('rvxPanel');
+  if (panel && canObserve && !reduce) {
+    var items = panel.querySelectorAll('.rvx-item');
+    panel.classList.add('rvx-ready');
+    once(panel, function () {
+      items.forEach(function (it, i) { setTimeout(function () { it.classList.add('is-in'); }, i * 350); });
+    }, 0.15);
   }
-  function go(dir) {
-    var max = track.scrollWidth - track.clientWidth;
-    var x;
-    if (dir > 0) x = track.scrollLeft >= max - 4 ? 0 : Math.min(track.scrollLeft + step(), max);
-    else x = track.scrollLeft <= 4 ? max : Math.max(track.scrollLeft - step(), 0);
-    track.scrollTo({ left: x, behavior: 'smooth' });
-  }
-  function start() {
-    stop();
-    timer = setInterval(function () { if (!paused && !document.hidden) go(1); }, AUTO_MS);
-  }
-  function stop() { if (timer) clearInterval(timer); timer = null; }
 
-  next.addEventListener('click', function () { go(1); start(); });
-  prev.addEventListener('click', function () { go(-1); start(); });
-  section.addEventListener('mouseenter', function () { paused = true; });
-  section.addEventListener('mouseleave', function () { paused = false; });
-  track.addEventListener('focusin', function () { paused = true; });
-  track.addEventListener('focusout', function () { paused = false; });
-  track.addEventListener('touchstart', function () { paused = true; }, { passive: true });
-  track.addEventListener('touchend', function () { setTimeout(function () { paused = false; }, 4000); }, { passive: true });
-  track.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
-    if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+  var nums = document.querySelectorAll('.count-up[data-count]');
+  if (!nums.length || reduce || !canObserve) return;
+  function fmt(v, d) { return v.toLocaleString('ko-KR', { minimumFractionDigits: d, maximumFractionDigits: d }); }
+  nums.forEach(function (el) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    if (isNaN(target)) return;
+    el.textContent = fmt(0, dec);
+    once(el, function () {
+      var start = null, DUR = 1200;
+      function tick(ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / DUR, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(p < 1 ? target * eased : target, dec);
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }, 0.4);
   });
-  if (!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) start();
 })();
 /* [25차] 과목과외 추천 학생 슬라이드 제거 (4개 카드 동시 노출로 변경, CSS만 사용) */

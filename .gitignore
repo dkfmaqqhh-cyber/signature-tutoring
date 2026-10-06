@@ -1,0 +1,17 @@
+# 배포 제외 대상 (로컬 보관용 — GitHub에 올리지 않음)
+backup/
+시그니처과외-홈_1차수정전백업.html
+
+# 사용하지 않는 이미지 원본
+images/coding-beginner.png.png
+images/coding-data.png.png
+images/coding-project.png.png
+images/coding-feedback.png.png
+images/subject-hero-teacher.png
+images/ChatGPT 이미지 2026년 10월 4일 오후 09_00_30-1.png
+images/ChatGPT 이미지 2026년 10월 4일 오후 09_00_33-2.png
+
+# OS 파일
+Thumbs.db
+desktop.ini
+.DS_Store

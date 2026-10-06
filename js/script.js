@@ -389,3 +389,15 @@ sec.addEventListener('focusout',function(){paused=false;});
 t.addEventListener('touchstart',function(){paused=true;},{passive:true});
 t.addEventListener('touchend',function(){setTimeout(function(){paused=false;},4000);},{passive:true});
 if(!reduce)start();})();
+
+/* [68차] 사이트 전체: 떠 있는 상담 버튼 3개 자동 삽입 (스타일은 css/style.css [68차] 블록)
+   · 상담신청 주소는 이 스크립트 위치 기준으로 계산해 하위 폴더 페이지에서도 정상 연결 */
+(function(){if(document.querySelector('.sig-float'))return;
+var me=document.currentScript||document.querySelector('script[src*="js/script.js"]');
+var consult='consult.html';try{consult=new URL('../consult.html',me.src).href;}catch(e){}
+var nav=document.createElement('nav');nav.className='sig-float';nav.setAttribute('aria-label','빠른 상담');
+nav.innerHTML=
+'<a class="sf-kakao" href="https://open.kakao.com/o/gL2WvLQi" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.5 3 2 6.5 2 10.8c0 2.8 1.9 5.2 4.7 6.6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8c.5.1 1 .1 1.5.1 5.5 0 10-3.5 10-7.9S17.5 3 12 3z"/></svg>카카오톡 상담</a>'+
+'<a class="sf-trial" href="'+consult+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.2 6.3L20.5 10l-6.3 2.2L12 18.5l-2.2-6.3L3.5 10l6.3-1.7z"/><path d="M19 15l.9 2.6 2.6.9-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9z"/></svg>시범수업 신청</a>'+
+'<a class="sf-phone" href="tel:01058701109" title="010-5870-1109"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>전화상담</a>';
+document.body.appendChild(nav);document.body.classList.add('has-sig-float');})();

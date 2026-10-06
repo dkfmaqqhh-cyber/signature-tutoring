@@ -5814,3 +5814,142 @@ body.page-sj #results .rs-quote em { color: var(--brand-gold-light); font-weight
   body.page-sj #results .rs-quote { margin-top: 40px; font-size: 25px; line-height: 1.4; }
   body.page-sj #results .rs-quote::before, body.page-sj #results .rs-quote::after { content: none; }
 }
+
+/* ---------- [63차] 과목과외: 전국 어디서나 1:1 수업 가능 카드 3개 내용 가운데 정렬 (body.page-sj #nationwide 한정)
+   되돌리기: 이 블록 삭제 + backup/63차수정전 파일 복원 */
+body.page-sj #nationwide .sj-reach-item { text-align: center; }
+body.page-sj #nationwide .sj-reach-item p { text-wrap: balance; }
+
+/* ---------- [66차] 과목과외: 수업 진행 5단계(PROCESS) 확대 · 시범수업 박스 축소 (body.page-sj #process / #free-trial 한정)
+   되돌리기: 이 블록 삭제 + backup/66차수정전 파일 복원 */
+/* PROCESS 확대 */
+body.page-sj #process { padding: 100px 0 108px; }
+body.page-sj #process .section-head { margin-bottom: 52px; }
+body.page-sj #process .section-head h2 { font-size: 40px; }
+body.page-sj #process .flow-ico { width: 116px; height: 116px; margin-bottom: 20px; padding: 9px; }
+body.page-sj #process .flow-ico svg { width: 48px; height: 48px; }
+body.page-sj #process .flow-step:not(:last-child)::after { top: 58px; left: calc(50% + 58px); width: calc(100% - 116px); }
+body.page-sj #process .flow-step strong { font-size: 22px; }
+body.page-sj #process .flow-step p { margin-top: 10px; font-size: 17px; line-height: 1.65; }
+/* 시범수업 박스 축소 */
+body.page-sj #free-trial { padding: 64px 0; }
+body.page-sj #free-trial .sj-trial-box { max-width: 1080px; margin: 0 auto; }
+body.page-sj #free-trial .sj-trial-box.is-right { grid-template-columns: minmax(0, 1fr) 300px; }
+body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-body { padding: 40px 16px 40px 44px; }
+body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-visual { padding: 32px 44px 32px 0; }
+body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-photo { max-width: 230px; }
+body.page-sj #free-trial .sj-trial-body h2 { font-size: 30px; }
+body.page-sj #free-trial .sj-trial-desc { font-size: 16px; }
+body.page-sj #free-trial .sj-trial-btn { min-height: 52px; font-size: 16px; }
+@media (max-width: 980px) {
+  body.page-sj #process .flow-ico { width: 96px; height: 96px; }
+  body.page-sj #process .flow-ico svg { width: 40px; height: 40px; }
+  body.page-sj #process .flow-step:not(:last-child)::after { top: 48px; left: calc(50% + 48px); width: calc(100% - 96px); }
+  body.page-sj #process .flow-step:nth-child(3)::after { display: none; }
+  body.page-sj #free-trial .sj-trial-box.is-right { grid-template-columns: 1fr; }
+  body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-body { padding: 36px 32px 4px; }
+  body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-visual { padding: 24px 24px 36px; }
+  body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-photo { max-width: 220px; }
+}
+@media (max-width: 640px) {
+  body.page-sj #process { padding: 64px 0 68px; }
+  body.page-sj #process .section-head { margin-bottom: 30px; }
+  body.page-sj #process .section-head h2 { font-size: 30px; }
+  body.page-sj #process .flow-step { grid-template-columns: 76px 1fr; column-gap: 18px; padding: 16px 0; }
+  body.page-sj #process .flow-ico { width: 76px; height: 76px; padding: 7px; margin: 0; }
+  body.page-sj #process .flow-ico svg { width: 32px; height: 32px; }
+  body.page-sj #process .flow-step:not(:last-child)::after { top: auto; left: 37px; width: 0; }
+  body.page-sj #process .flow-step:nth-child(3)::after { display: block; }
+  body.page-sj #process .flow-step strong { font-size: 19px; }
+  body.page-sj #process .flow-step p { margin-top: 4px; font-size: 16px; }
+  body.page-sj #free-trial { padding: 48px 0; }
+  body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-body { padding: 30px 20px 4px; }
+  body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-visual { padding: 20px 16px 28px; }
+  body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-photo { max-width: 190px; }
+  body.page-sj #free-trial .sj-trial-body h2 { font-size: 25px; }
+  body.page-sj #free-trial .sj-trial-desc { font-size: 15px; }
+}
+
+/* ---------- [67차] 과목과외: 시범수업 박스 추가 축소 (body.page-sj #free-trial 한정, [66차] 위에 덮어씀)
+   되돌리기: 이 블록 삭제 + backup/67차수정전 파일 복원 */
+body.page-sj #free-trial { padding: 52px 0; }
+body.page-sj #free-trial .sj-trial-box { max-width: 960px; border-radius: 24px; }
+body.page-sj #free-trial .sj-trial-box.is-right { grid-template-columns: minmax(0, 1fr) 250px; }
+body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-body { padding: 32px 12px 32px 36px; }
+body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-visual { padding: 26px 36px 26px 0; }
+body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-photo { max-width: 190px; }
+body.page-sj #free-trial .sj-trial-body h2 { margin-bottom: 8px; font-size: 27px; }
+body.page-sj #free-trial .sj-trial-desc { font-size: 15px; line-height: 1.65; }
+body.page-sj #free-trial .sj-trial-contacts { gap: 10px; margin-top: 18px; }
+body.page-sj #free-trial .sj-trial-contact { padding: 12px 14px; }
+body.page-sj #free-trial .sj-trial-txt strong { font-size: 16.5px; }
+body.page-sj #free-trial .sj-trial-btn { min-height: 46px; margin-top: 12px; font-size: 15.5px; }
+@media (max-width: 980px) {
+  body.page-sj #free-trial .sj-trial-box { max-width: 640px; }
+  body.page-sj #free-trial .sj-trial-box.is-right { grid-template-columns: 1fr; }
+  body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-body { padding: 30px 28px 4px; }
+  body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-visual { padding: 18px 24px 28px; }
+  body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-photo { max-width: 180px; }
+}
+@media (max-width: 640px) {
+  body.page-sj #free-trial { padding: 40px 0; }
+  body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-body { padding: 26px 18px 4px; }
+  body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-visual { padding: 16px 16px 24px; }
+  body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-photo { max-width: 160px; }
+  body.page-sj #free-trial .sj-trial-body h2 { font-size: 23px; }
+  body.page-sj #free-trial .sj-trial-desc { font-size: 14.5px; }
+}
+
+/* ---------- [68차] 사이트 전체: 떠 있는 상담 버튼 3개 (카카오톡 상담 · 시범수업 신청 · 전화상담)
+   · 버튼 HTML은 js/script.js [68차] 블록이 모든 페이지에 자동 삽입 (PC 오른쪽 아래 세로 배치 · 모바일 화면 하단 고정 바)
+   되돌리기: 이 블록 삭제 + js/script.js [68차] 블록 삭제 + backup/68차수정전 파일 복원 */
+.sig-float { position: fixed; right: 24px; bottom: 28px; z-index: 90; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.sig-float a { display: inline-flex; align-items: center; gap: 10px; min-width: 168px; padding: 14px 24px 14px 20px; border-radius: 999px; font-family: "Pretendard Variable", Pretendard, "Noto Sans KR", sans-serif; font-size: 16px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; text-decoration: none; white-space: nowrap; box-shadow: 0 10px 22px rgba(16, 42, 75, 0.22); transition: transform 0.2s, box-shadow 0.2s; }
+.sig-float a:hover, .sig-float a:focus-visible { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(16, 42, 75, 0.28); }
+.sig-float svg { flex: none; width: 22px; height: 22px; }
+.sig-float .sf-kakao { background: #fee500; color: #191600; }
+.sig-float .sf-kakao svg { fill: #191600; }
+.sig-float .sf-trial { background: linear-gradient(135deg, #5b6ee1, #8a4fd1); color: #fff; }
+.sig-float .sf-trial svg { fill: #ffe27a; }
+.sig-float .sf-phone { background: linear-gradient(135deg, #2bb673, #1f9d5c); color: #fff; }
+.sig-float .sf-phone svg { fill: #fff; }
+@media (max-width: 640px) {
+  .sig-float { left: 0; right: 0; bottom: 0; flex-direction: row; gap: 0; padding-bottom: env(safe-area-inset-bottom); background: #fff; box-shadow: 0 -6px 18px rgba(16, 42, 75, 0.12); }
+  .sig-float a { flex: 1 1 0; min-width: 0; justify-content: center; gap: 6px; padding: 15px 4px; border-radius: 0; font-size: 14px; box-shadow: none; }
+  .sig-float a:hover, .sig-float a:focus-visible { transform: none; box-shadow: none; }
+  .sig-float svg { width: 18px; height: 18px; }
+  body.has-sig-float { padding-bottom: calc(50px + env(safe-area-inset-bottom)); }
+}
+@media print { .sig-float { display: none; } }
+
+/* ---------- [69차] 과목과외: 실제 학습 변화 섹션에 학습 기록 사진 카드 6장 추가 (body.page-sj #results 한정)
+   되돌리기: 이 블록 삭제 + subject/index.html의 .rs-proof 블록 삭제 + backup/69차수정전 파일 복원 */
+body.page-sj #results .rs-proof { margin-top: 56px; }
+body.page-sj #results .rs-proof-head { margin-bottom: 24px; text-align: center; }
+body.page-sj #results .rs-proof-head h3 { margin: 0 0 8px; color: #fff; font-size: 28px; font-weight: 800; letter-spacing: -0.03em; }
+body.page-sj #results .rs-proof-head h3 em { color: var(--brand-gold-light); font-style: normal; }
+body.page-sj #results .rs-proof-head p { margin: 0; color: rgba(255, 255, 255, 0.72); font-size: 16px; }
+body.page-sj #results .rs-proof-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+body.page-sj #results .rs-proof-card { display: flex; flex-direction: column; margin: 0; overflow: hidden; border-radius: 18px; background: #fff; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18); }
+body.page-sj #results .rs-proof-img { aspect-ratio: 3 / 2; overflow: hidden; background: #f4f6fb; }
+body.page-sj #results .rs-proof-img img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transition: transform 0.35s; }
+body.page-sj #results .rs-proof-card.is-contain .rs-proof-img { background: #fff; }
+body.page-sj #results .rs-proof-card.is-contain .rs-proof-img img { padding: 10px; object-fit: contain; }
+body.page-sj #results .rs-proof-card:hover .rs-proof-img img { transform: scale(1.04); }
+body.page-sj #results .rs-proof-card figcaption { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 18px; border-top: 1px solid #edf0f5; }
+body.page-sj #results .rs-proof-tag { align-self: flex-start; padding: 3px 10px; border-radius: 999px; background: #e3f8f4; color: #0f8f86; font-size: 12px; font-weight: 800; }
+body.page-sj #results .rs-proof-card strong { color: var(--brand-navy); font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+body.page-sj #results .rs-proof-card p { margin: 0; color: #4e5a6b; font-size: 15px; line-height: 1.6; word-break: keep-all; }
+@media (max-width: 980px) {
+  body.page-sj #results .rs-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  body.page-sj #results .rs-proof { margin-top: 40px; }
+  body.page-sj #results .rs-proof-head h3 { font-size: 22px; }
+  body.page-sj #results .rs-proof-head p { font-size: 14.5px; }
+  body.page-sj #results .rs-proof-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 82%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px 14px 12px; margin: 0 -14px; scroll-padding-left: 14px; }
+  body.page-sj #results .rs-proof-grid::-webkit-scrollbar { display: none; }
+  body.page-sj #results .rs-proof-card { scroll-snap-align: start; }
+  body.page-sj #results .rs-proof-card strong { font-size: 17px; }
+  body.page-sj #results .rs-proof-card p { font-size: 14.5px; }
+}

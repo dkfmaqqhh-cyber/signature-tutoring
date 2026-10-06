@@ -365,3 +365,27 @@ if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))
   });
 })();
 /* [25차] 과목과외 추천 학생 슬라이드 제거 (4개 카드 동시 노출로 변경, CSS만 사용) */
+
+/* [59차] 과목과외: 선생님 안내 카드 가로 슬라이드 (#tchTrack · 3초 자동 넘김, 마지막 → 처음 순환, 마우스·터치·포커스 시 일시정지) */
+(function(){var t=document.getElementById('tchTrack');if(!t)return;
+var cards=t.querySelectorAll('.tch-card');if(cards.length<2)return;
+function pos(k){return cards[k].offsetLeft-cards[0].offsetLeft;}
+function cur(){var x=t.scrollLeft,b=0,d=1e9;for(var k=0;k<cards.length;k++){var e=Math.abs(pos(k)-x);if(e<d){d=e;b=k;}}return b;}
+function go(dir){var max=t.scrollWidth-t.clientWidth,k=cur()+dir;
+if(dir>0&&t.scrollLeft>=max-4)k=0;else if(dir<0&&t.scrollLeft<=4)k=-1;
+var x=k<0?max:Math.min(pos(k),max);t.scrollTo({left:x,behavior:'smooth'});}
+var timer=null,paused=false;
+function start(){stop();timer=setInterval(function(){if(!paused&&!document.hidden)go(1);},3000);}
+function stop(){if(timer)clearInterval(timer);timer=null;}
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var prev=document.getElementById('tchPrev'),next=document.getElementById('tchNext');
+if(next)next.addEventListener('click',function(){go(1);if(!reduce)start();});
+if(prev)prev.addEventListener('click',function(){go(-1);if(!reduce)start();});
+var sec=document.getElementById('teachers')||t;
+sec.addEventListener('mouseenter',function(){paused=true;});
+sec.addEventListener('mouseleave',function(){paused=false;});
+sec.addEventListener('focusin',function(){paused=true;});
+sec.addEventListener('focusout',function(){paused=false;});
+t.addEventListener('touchstart',function(){paused=true;},{passive:true});
+t.addEventListener('touchend',function(){setTimeout(function(){paused=false;},4000);},{passive:true});
+if(!reduce)start();})();

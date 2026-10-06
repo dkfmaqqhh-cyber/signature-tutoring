@@ -141,7 +141,7 @@
 
 <main id="top">
 
-<!-- 섹션 순서: 대문 → 전국 수업 → 수업 방식 → 학년별 맞춤수업 → 과목과외가 필요한 이유 → 추천 학생 → 실제 성적향상 → 1:1 전문과외 3가지 이유 → 선생님 안내(54차) → 수업 진행 5단계 → 무료수업 → FAQ (맞춤 진단·학습관리, 검증된 선생님 섹션은 52차에 삭제) -->
+<!-- 섹션 순서: 대문 → 전국 수업 → 수업 방식 → 학년별 맞춤수업 → 과목과외가 필요한 이유 → 선생님 안내(60차 이동) → 실제 성적향상 → 1:1 전문과외 3가지 이유 → 수업 진행 5단계 → 무료수업 → FAQ (맞춤 진단·학습관리, 검증된 선생님 섹션은 52차, 추천 학생 섹션은 60차에 삭제) -->
 
 <!-- 1. 대문 -->
 <section class="page-hero no-visual">
@@ -298,46 +298,81 @@
   </div>
 </section>
 
-<!-- 5. 이런 학생에게 추천합니다 ([25차] 슬라이드 제거 → 4개 카드 동시 노출. PC 4열 · 태블릿 2열 · 모바일 1열)
-     이미지: 현재 images/ 폴더에 카드용 학생 이미지가 없어 보류. 이미지가 없으면 .rec-photo 영역은 자동 숨김(:empty).
-     넣는 방법: 각 .rec-photo 안의 주석을 지우고 <img src="../images/파일명.jpg" alt="설명" loading="lazy" decoding="async"> 추가 (4:3 비율로 표시) -->
-<section class="page-section soft" id="recommend">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">RECOMMENDED FOR</div>
-      <h2>이런 학생에게 추천합니다</h2>
-      <p>아래와 같은 고민이 있다면 1:1 과목과외로 학습 방향을 다시 잡아 보세요.</p>
+<!-- [54차] 선생님 안내 (왼쪽 소개 + 오른쪽 프로필 카드 · [59차] 코딩·검정고시 추가 6개 자동 슬라이드 · [60차] 버튼 삭제, '성적이 오르지 않는 이유' 바로 아래로 이동)
+     · 사진은 기존 '예시 이미지'(images/teacher-*.webp) 임시 사용. 실제 사진·이름·전공·경력 확정 시 각 카드의 주석 표시 위치만 교체
+     · 확인되지 않은 학력·경력은 넣지 않음 (지도 분야·수업 포인트만 표기) -->
+<section class="page-section soft" id="teachers"><!-- [61차] 배경 연한 베이지(soft) -->
+  <div class="container tch-layout">
+    <div class="tch-intro-col">
+      <div class="kicker">OUR TEACHERS</div>
+      <h2>선생님 안내</h2>
+      <p class="tch-lead">학생의 과목과 학습 목표에 맞춰 전문 선생님을 안내합니다.</p>
+      <ul class="tch-keys">
+        <li>맞춤형 수업</li>
+        <li>맞춤형 피드백</li>
+        <li>체계적인 학습</li>
+        <li>자기주도 학습</li>
+      </ul>
     </div>
-    <div class="rec-track rec-pastel"><!-- [52차] 카드 4개 파스텔 배경 (이 페이지만) -->
-      <article class="rec-card">
-        <div class="rec-photo"><!-- 이미지 입력 위치: 열심히 공부하지만 학습 방향을 잡지 못해 고민하는 학생 --></div>
-        <span class="rec-badge">RECOMMEND 01</span>
-        <h3>노력파 학생</h3>
-        <p>어떻게 공부해야 할지 갈피를 못 잡고, 노력에 비해 결과가 아쉬운 학생</p>
-        <ul class="rec-tags"><li>공부방법</li><li>학습방향</li><li>1:1 관리</li></ul>
+    <!-- [59차] 카드 6개 가로 슬라이드 (PC 4장 · 태블릿/모바일 2장 노출, 자동 넘김 + 좌우 버튼) -->
+    <div class="tch-grid tch-track" id="tchTrack">
+      <article class="tch-card">
+        <span class="tch-subject">영어</span>
+        <div class="tch-photo"><img src="../images/teacher-english.webp" alt="영어 선생님 예시 이미지" loading="lazy" decoding="async"></div><!-- 사진 교체: 실제 선생님 사진 파일로 src 변경 -->
+        <div class="tch-body">
+          <strong class="tch-name">김** 선생님</strong><!-- 이름 교체 (익명 표기 유지 권장) -->
+          <span class="tch-field">영어 지도</span><!-- 지도 분야 / 전공 (실제 정보 확정 시 교체) -->
+          <span class="tch-point">내신·수능 영어</span><!-- 경력·수업 포인트 (실제 정보 확정 시 교체) -->
+          <p class="tch-intro">학생별 취약 유형을 분석해 수업합니다.</p>
+        </div>
+      </article>      <article class="tch-card">
+        <span class="tch-subject">수학</span>
+        <div class="tch-photo"><img src="../images/teacher-math.webp" alt="수학 선생님 예시 이미지" loading="lazy" decoding="async"></div><!-- 사진 교체: 실제 선생님 사진 파일로 src 변경 -->
+        <div class="tch-body">
+          <strong class="tch-name">박** 선생님</strong><!-- 이름 교체 (익명 표기 유지 권장) -->
+          <span class="tch-field">수학 지도</span><!-- 지도 분야 / 전공 (실제 정보 확정 시 교체) -->
+          <span class="tch-point">개념·풀이 과정 점검</span><!-- 경력·수업 포인트 (실제 정보 확정 시 교체) -->
+          <p class="tch-intro">풀이 순서를 함께 정리하며 수업합니다.</p>
+        </div>
+      </article>      <article class="tch-card">
+        <span class="tch-subject">국어</span>
+        <div class="tch-photo"><img src="../images/teacher-korean.webp" alt="국어 선생님 예시 이미지" loading="lazy" decoding="async"></div><!-- 사진 교체: 실제 선생님 사진 파일로 src 변경 -->
+        <div class="tch-body">
+          <strong class="tch-name">이** 선생님</strong><!-- 이름 교체 (익명 표기 유지 권장) -->
+          <span class="tch-field">국어 지도</span><!-- 지도 분야 / 전공 (실제 정보 확정 시 교체) -->
+          <span class="tch-point">독해·문법·서술형</span><!-- 경력·수업 포인트 (실제 정보 확정 시 교체) -->
+          <p class="tch-intro">글의 구조를 읽는 힘을 길러 줍니다.</p>
+        </div>
+      </article>      <article class="tch-card">
+        <span class="tch-subject">과학</span>
+        <div class="tch-photo"><img src="../images/teacher-science.webp" alt="과학 선생님 예시 이미지" loading="lazy" decoding="async"></div><!-- 사진 교체: 실제 선생님 사진 파일로 src 변경 -->
+        <div class="tch-body">
+          <strong class="tch-name">최** 선생님</strong><!-- 이름 교체 (익명 표기 유지 권장) -->
+          <span class="tch-field">과학 지도</span><!-- 지도 분야 / 전공 (실제 정보 확정 시 교체) -->
+          <span class="tch-point">원리 이해·자료 해석</span><!-- 경력·수업 포인트 (실제 정보 확정 시 교체) -->
+          <p class="tch-intro">개념의 원리부터 차근차근 설명합니다.</p>
+        </div>
       </article>
-      <article class="rec-card">
-        <div class="rec-photo"><!-- 이미지 입력 위치: 문제를 보며 막막해하거나 고민하는 학생 --></div>
-        <span class="rec-badge">RECOMMEND 02</span>
-        <h3>답답한 학생</h3>
-        <p>기본기가 약해 성적이 잘 오르지 않아 답답함을 느끼는 학생</p>
-        <ul class="rec-tags"><li>기초보완</li><li>개념점검</li><li>취약영역</li></ul>
+      <article class="tch-card">
+        <span class="tch-subject">코딩</span>
+        <div class="tch-photo"><img src="../images/teacher-coding.webp" alt="코딩 선생님 예시 이미지" loading="lazy" decoding="async"></div><!-- 사진 교체: 실제 선생님 사진 파일로 src 변경 -->
+        <div class="tch-body">
+          <strong class="tch-name">정** 선생님</strong><!-- 이름 교체 (익명 표기 유지 권장) -->
+          <span class="tch-field">코딩 지도</span><!-- 지도 분야 / 전공 (실제 정보 확정 시 교체) -->
+          <span class="tch-point">파이썬·자바 기초</span><!-- 경력·수업 포인트 (실제 정보 확정 시 교체) -->
+          <p class="tch-intro">실습하며 코드를 함께 완성합니다.</p>
+        </div>
       </article>
-      <article class="rec-card">
-        <div class="rec-photo"><!-- 이미지 입력 위치: 시험지나 고난도 문제를 집중해서 검토하는 학생 --></div>
-        <span class="rec-badge">RECOMMEND 03</span>
-        <h3>상위권 학생</h3>
-        <p>한두 문제 차이까지 세밀하게 관리하고 싶은 상위권 학생</p>
-        <ul class="rec-tags"><li>심화학습</li><li>오답관리</li><li>상위권관리</li></ul>
-      </article>
-      <article class="rec-card">
-        <div class="rec-photo"><!-- 이미지 입력 위치: 심화 교재와 노트를 활용해 집중적으로 공부하는 학생 --></div>
-        <span class="rec-badge">RECOMMEND 04</span>
-        <h3>특목고 · 과학고 · 외고</h3>
-        <p>학교별 내신과 심화학습을 체계적으로 관리하고 싶은 학생</p>
-        <ul class="rec-tags"><li>특목고</li><li>과학고·외고</li><li>내신·심화</li></ul>
-      </article>
-    </div>
+      <article class="tch-card">
+        <span class="tch-subject">검정고시</span>
+        <div class="tch-photo"><img src="../images/teacher-geomjeong.webp" alt="검정고시 선생님 예시 이미지" loading="lazy" decoding="async"></div><!-- 사진 교체: 실제 선생님 사진 파일로 src 변경 -->
+        <div class="tch-body">
+          <strong class="tch-name">한** 선생님</strong><!-- 이름 교체 (익명 표기 유지 권장) -->
+          <span class="tch-field">검정고시 지도</span><!-- 지도 분야 / 전공 (실제 정보 확정 시 교체) -->
+          <span class="tch-point">과목별 개념 정리</span><!-- 경력·수업 포인트 (실제 정보 확정 시 교체) -->
+          <p class="tch-intro">기초부터 차근차근 시험을 준비합니다.</p>
+        </div>
+      </article>    </div>
   </div>
 </section>
 
@@ -404,62 +439,6 @@
   </div>
 </section>
 
-<!-- [54차] 선생님 안내 (왼쪽 소개 + 오른쪽 프로필 카드 4개)
-     · 사진은 기존 '예시 이미지'(images/teacher-*.webp) 임시 사용. 실제 사진·이름·전공·경력 확정 시 각 카드의 주석 표시 위치만 교체
-     · 확인되지 않은 학력·경력은 넣지 않음 (지도 분야·수업 포인트만 표기) -->
-<section class="page-section" id="teachers">
-  <div class="container tch-layout">
-    <div class="tch-intro-col">
-      <div class="kicker">OUR TEACHERS</div>
-      <h2>선생님 안내</h2>
-      <p class="tch-lead">학생의 과목과 학습 목표에 맞춰 전문 선생님을 안내합니다.</p>
-      <ul class="tch-keys">
-        <li>맞춤형 수업</li>
-        <li>맞춤형 피드백</li>
-        <li>체계적인 학습</li>
-        <li>자기주도 학습</li>
-      </ul>
-    </div>
-    <div class="tch-grid">
-      <article class="tch-card">
-        <span class="tch-subject">영어</span>
-        <div class="tch-photo"><img src="../images/teacher-english.webp" alt="영어 선생님 예시 이미지" loading="lazy" decoding="async"></div><!-- 사진 교체: 실제 선생님 사진 파일로 src 변경 -->
-        <div class="tch-body">
-          <strong class="tch-name">김** 선생님</strong><!-- 이름 교체 (익명 표기 유지 권장) -->
-          <span class="tch-field">영어 지도</span><!-- 지도 분야 / 전공 (실제 정보 확정 시 교체) -->
-          <span class="tch-point">내신·수능 영어</span><!-- 경력·수업 포인트 (실제 정보 확정 시 교체) -->
-          <p class="tch-intro">학생별 취약 유형을 분석해 수업합니다.</p>
-        </div>
-      </article>      <article class="tch-card">
-        <span class="tch-subject">수학</span>
-        <div class="tch-photo"><img src="../images/teacher-math.webp" alt="수학 선생님 예시 이미지" loading="lazy" decoding="async"></div><!-- 사진 교체: 실제 선생님 사진 파일로 src 변경 -->
-        <div class="tch-body">
-          <strong class="tch-name">박** 선생님</strong><!-- 이름 교체 (익명 표기 유지 권장) -->
-          <span class="tch-field">수학 지도</span><!-- 지도 분야 / 전공 (실제 정보 확정 시 교체) -->
-          <span class="tch-point">개념·풀이 과정 점검</span><!-- 경력·수업 포인트 (실제 정보 확정 시 교체) -->
-          <p class="tch-intro">풀이 순서를 함께 정리하며 수업합니다.</p>
-        </div>
-      </article>      <article class="tch-card">
-        <span class="tch-subject">국어</span>
-        <div class="tch-photo"><img src="../images/teacher-korean.webp" alt="국어 선생님 예시 이미지" loading="lazy" decoding="async"></div><!-- 사진 교체: 실제 선생님 사진 파일로 src 변경 -->
-        <div class="tch-body">
-          <strong class="tch-name">이** 선생님</strong><!-- 이름 교체 (익명 표기 유지 권장) -->
-          <span class="tch-field">국어 지도</span><!-- 지도 분야 / 전공 (실제 정보 확정 시 교체) -->
-          <span class="tch-point">독해·문법·서술형</span><!-- 경력·수업 포인트 (실제 정보 확정 시 교체) -->
-          <p class="tch-intro">글의 구조를 읽는 힘을 길러 줍니다.</p>
-        </div>
-      </article>      <article class="tch-card">
-        <span class="tch-subject">과학</span>
-        <div class="tch-photo"><img src="../images/teacher-science.webp" alt="과학 선생님 예시 이미지" loading="lazy" decoding="async"></div><!-- 사진 교체: 실제 선생님 사진 파일로 src 변경 -->
-        <div class="tch-body">
-          <strong class="tch-name">최** 선생님</strong><!-- 이름 교체 (익명 표기 유지 권장) -->
-          <span class="tch-field">과학 지도</span><!-- 지도 분야 / 전공 (실제 정보 확정 시 교체) -->
-          <span class="tch-point">원리 이해·자료 해석</span><!-- 경력·수업 포인트 (실제 정보 확정 시 교체) -->
-          <p class="tch-intro">개념의 원리부터 차근차근 설명합니다.</p>
-        </div>
-      </article>    </div>
-  </div>
-</section>
 <!-- [54차] 수업은 이렇게 진행됩니다 (5단계 순서·문구 최종 · 남색/주황 원형 아이콘 교차, 원끼리 선으로 연결) -->
 <section class="page-section" id="process">
   <div class="container">

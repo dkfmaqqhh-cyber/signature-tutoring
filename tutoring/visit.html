@@ -243,9 +243,9 @@
       <h2>학년별 방문과외 안내</h2>
       <p>학년마다 필요한 공부가 다릅니다. 아래는 일반적인 학습 목표이며, 실제 수업 방향은 학생 상황에 맞춰 정합니다.</p>
     </div>
-    <!-- [6차] 학년 카드는 학년별 페이지(../grade/)로 연결 -->
+    <!-- [6차] 학년 카드는 학년별 페이지(../grade/)로 연결 · [70차] 링크와 '자세히 보기' 삭제 (카드 내용만 안내, 학년 페이지 파일은 유지) -->
     <div class="point-grid">
-      <a class="point-card point-card-link" href="../grade/elementary.html">
+      <div class="point-card">
         <span class="point-num">ELEMENTARY</span>
         <h3>초등</h3>
         <p>교과 기초 개념을 탄탄히 하고, 스스로 공부하는 습관을 만드는 데 중점을 둡니다.</p>
@@ -254,9 +254,8 @@
           <li>학교 진도에 맞춘 복습</li>
           <li>공부 시간과 숙제 습관 잡기</li>
         </ul>
-        <span class="point-card-more">초등과외 자세히 보기 →</span>
-      </a>
-      <a class="point-card point-card-link" href="../grade/middle.html">
+      </div>
+      <div class="point-card">
         <span class="point-num">MIDDLE</span>
         <h3>중등</h3>
         <p>과목별 개념 이해를 바탕으로 학교 내신 시험에 대비하고, 고등 과정의 기본기를 쌓습니다.</p>
@@ -265,9 +264,8 @@
           <li>과목별 개념 정리와 문제 풀이</li>
           <li>취약 단원 보완</li>
         </ul>
-        <span class="point-card-more">중학생과외 자세히 보기 →</span>
-      </a>
-      <a class="point-card point-card-link" href="../grade/high.html">
+      </div>
+      <div class="point-card">
         <span class="point-num">HIGH</span>
         <h3>고등</h3>
         <p>내신과 수능 등 학생의 목표에 맞춰 과목별 학습 계획을 세우고 부족한 부분을 보완합니다.</p>
@@ -276,42 +274,55 @@
           <li>목표에 맞춘 과목별 학습 계획</li>
           <li>취약 유형·단원 집중 보완</li>
         </ul>
-        <span class="point-card-more">고등학생과외 자세히 보기 →</span>
-      </a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- 6. 주요 과목 -->
-<section class="page-section">
+<section class="page-section" id="visit-subjects">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">SUBJECTS</div>
       <h2>주요 과목</h2>
       <p>그 밖의 과목도 상담 시 수업 가능 여부를 확인해 안내드립니다.</p>
     </div>
-    <!-- [5차·9차] 수학·영어·국어·과학 카드 모두 과목 페이지로 연결 -->
-    <div class="point-grid cols-4">
-      <a class="point-card point-card-link" href="../subject/math.html">
-        <h3>수학</h3>
-        <p>개념 이해와 풀이 과정 점검을 중심으로 학교 진도와 내신 시험을 대비합니다.</p>
-        <span class="point-card-more">수학과외 자세히 보기 →</span>
-      </a>
-      <a class="point-card point-card-link" href="../subject/english.html">
-        <h3>영어</h3>
-        <p>문법·독해·어휘 등 학년과 목표에 맞는 영역을 정해 학습합니다.</p>
-        <span class="point-card-more">영어과외 자세히 보기 →</span>
-      </a>
-      <a class="point-card point-card-link" href="../subject/korean.html">
+    <!-- [5차·9차] 수학·영어·국어·과학 카드 모두 과목 페이지로 연결 · [70차] 7개 분류(국어·영어·수학·사회탐구·과학탐구·한국사·기타)로 확장, 카드 링크·'자세히 보기' 없이 내용만 안내 -->
+    <div class="point-grid cols-4 vs-subj-grid">
+      <div class="point-card vs-subj">
         <h3>국어</h3>
-        <p>문학·비문학 독해와 문법, 서술형 답안 작성을 학년에 맞게 학습합니다.</p>
-        <span class="point-card-more">국어과외 자세히 보기 →</span>
-      </a>
-      <a class="point-card point-card-link" href="../subject/science.html">
-        <h3>과학</h3>
-        <p>개념과 원리 이해를 중심으로 학교 진도에 맞춰 내신 시험을 대비합니다.</p>
-        <span class="point-card-more">과학과외 자세히 보기 →</span>
-      </a>
+        <p>문학·독서·문법</p>
+        <span class="vs-subj-goal">내신·수능</span>
+      </div>
+      <div class="point-card vs-subj">
+        <h3>영어</h3>
+        <p>문법·독해·어휘</p>
+        <span class="vs-subj-goal">내신·수능</span>
+      </div>
+      <div class="point-card vs-subj">
+        <h3>수학</h3>
+        <p>개념·유형·문제풀이</p>
+        <span class="vs-subj-goal">내신·수능</span>
+      </div>
+      <div class="point-card vs-subj">
+        <h3>사회탐구</h3>
+        <p>사회문화·생활과윤리 등</p>
+        <span class="vs-subj-goal">내신·수능</span>
+      </div>
+      <div class="point-card vs-subj">
+        <h3>과학탐구</h3>
+        <p>물리·화학·생명과학·지구과학</p>
+        <span class="vs-subj-goal">내신·수능</span>
+      </div>
+      <div class="point-card vs-subj">
+        <h3>한국사</h3>
+        <p>학교 내신</p>
+        <span class="vs-subj-goal">수능 한국사</span>
+      </div>
+      <div class="point-card vs-subj is-etc">
+        <h3>기타 내신·수능 과목</h3>
+        <p>학생 상황에 따라 상담 후 안내</p>
+      </div>
     </div>
   </div>
 </section>

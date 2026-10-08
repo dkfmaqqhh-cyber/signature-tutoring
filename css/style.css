@@ -5436,8 +5436,7 @@ body.page-subject .gr-card { box-shadow: var(--shadow-card-strong); }
 .lp-topics a:hover { border-color: var(--brand-gold); color: var(--brand-gold-text); }
 .lp-more { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 14px; color: var(--brand-navy); font-size: 15px; font-weight: 900; }
 .lp-more:hover { color: var(--brand-gold-text); }
-.lp-note, .lp-link-row { margin: 18px 0 0; text-align: center; color: var(--text-body); font-family: "Nanum Gothic", "NanumGothic", "Pretendard Variable", Pretendard, sans-serif; font-size: 15.5px; word-break: keep-all; }
-.lp-link-row a { color: var(--brand-navy); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+.lp-note { margin: 18px 0 0; text-align: center; color: var(--text-body); font-family: "Nanum Gothic", "NanumGothic", "Pretendard Variable", Pretendard, sans-serif; font-size: 15.5px; word-break: keep-all; }
 /* 최신 글 */
 .lp-posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .lp-post { display: flex; flex-direction: column; padding: 26px 24px 22px; border: 1px solid var(--line); border-top: 3px solid var(--brand-gold); border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow-card); }
@@ -5446,31 +5445,10 @@ body.page-subject .gr-card { box-shadow: var(--shadow-card-strong); }
 .lp-post h3 a { color: var(--brand-navy); }
 .lp-post h3 a:hover { color: var(--brand-gold-text); }
 .lp-post p { margin: 0; color: var(--text-body); font-family: "Nanum Gothic", "NanumGothic", "Pretendard Variable", Pretendard, sans-serif; font-size: 16px; line-height: 1.75; word-break: keep-all; }
-/* 학년별 */
-.lp-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.lp-col { display: flex; flex-direction: column; padding: 24px 24px 22px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: #fff; }
-.lp-col-tag { align-self: flex-start; padding: 4px 11px; border-radius: 999px; background: #e3f8f4; color: #0f8f86; font-size: 12.5px; font-weight: 900; }
-.lp-col h3 { margin: 12px 0 10px; color: var(--brand-navy); font-size: 20px; letter-spacing: -0.03em; }
-.lp-col ul, .lp-topic-body ul { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
-.lp-col li, .lp-topic-body li { display: flex; gap: 8px; color: var(--text-body); font-family: "Nanum Gothic", "NanumGothic", "Pretendard Variable", Pretendard, sans-serif; font-size: 16px; line-height: 1.65; word-break: keep-all; }
-.lp-col li::before, .lp-topic-body li::before { content: "✓"; flex: none; color: var(--brand-gold); font-weight: 900; }
-/* 과목별 공부법 */
-.lp-tips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 0; }
-.lp-tip { display: flex; gap: 16px; align-items: flex-start; padding: 20px 22px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; }
-.lp-tip dt { flex: none; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: var(--brand-navy); color: #fff; font-size: 16px; font-weight: 900; }
-.lp-tip dd { margin: 0; color: var(--text-body); font-family: "Nanum Gothic", "NanumGothic", "Pretendard Variable", Pretendard, sans-serif; font-size: 16px; line-height: 1.75; word-break: keep-all; }
-/* 과외 선택 가이드 */
-.lp-guide { display: grid; grid-template-columns: 3fr 2fr; gap: 18px; align-items: stretch; }
-.lp-checklist { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; counter-reset: lp; }
-.lp-checklist li { counter-increment: lp; position: relative; padding: 16px 20px 16px 62px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; }
-.lp-checklist li::before { content: counter(lp); position: absolute; left: 20px; top: 50%; transform: translateY(-50%); display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--brand-cream-deep); color: var(--brand-gold-text); font-size: 14px; font-weight: 900; }
-.lp-checklist strong { display: block; color: var(--brand-navy); font-size: 16.5px; }
-.lp-checklist span { display: block; margin-top: 2px; color: var(--text-body); font-family: "Nanum Gothic", "NanumGothic", "Pretendard Variable", Pretendard, sans-serif; font-size: 15px; line-height: 1.6; word-break: keep-all; }
-.lp-guide-links { display: flex; flex-direction: column; gap: 4px; padding: 24px; border-radius: var(--radius-lg); background: var(--brand-navy); }
-.lp-guide-links .lp-col-tag { margin-bottom: 8px; }
-.lp-guide-links a { padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.14); color: #fff; font-size: 15.5px; font-weight: 800; }
-.lp-guide-links a:last-child { border-bottom: 0; }
-.lp-guide-links a:hover { color: var(--brand-gold-light); }
+.lp-topic-body ul { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.lp-topic-body li { display: flex; gap: 8px; color: var(--text-body); font-family: "Nanum Gothic", "NanumGothic", "Pretendard Variable", Pretendard, sans-serif; font-size: 16px; line-height: 1.65; word-break: keep-all; }
+.lp-topic-body li::before { content: "✓"; flex: none; color: var(--brand-gold); font-weight: 900; }
+/* [70차] 학년별 학습정보 · 과목별 공부법 · 과외 선택 가이드 전용 규칙(.lp-cols/.lp-col/.lp-tips/.lp-guide/.lp-checklist/.lp-link-row) 삭제 — 복원: backup/70차수정전/css/style.css */
 /* 검정고시 · 회화 · 코딩 (제목 왼쪽 · 내용 오른쪽) */
 .lp-topic { display: grid; grid-template-columns: 2fr 3fr; gap: 32px; align-items: center; }
 .page-lp .lp-topic-head h2 { margin: 8px 0 10px; color: var(--brand-navy); font-size: 30px; line-height: 1.25; letter-spacing: -0.04em; }
@@ -5483,16 +5461,13 @@ body.page-subject .gr-card { box-shadow: var(--shadow-card-strong); }
 .lp-consult-btn { flex: none; padding: 13px 24px; border: 1px solid var(--brand-navy); border-radius: 999px; color: var(--brand-navy); font-size: 15px; font-weight: 900; transition: background 0.18s ease, color 0.18s ease; }
 .lp-consult-btn:hover { background: var(--brand-navy); color: #fff; }
 @media (max-width: 980px) {
-  .lp-posts, .lp-cols { grid-template-columns: 1fr; gap: 14px; }
-  .lp-guide, .lp-topic { grid-template-columns: 1fr; gap: 18px; }
+  .lp-posts { grid-template-columns: 1fr; gap: 14px; }
+  .lp-topic { grid-template-columns: 1fr; gap: 18px; }
 }
 @media (max-width: 640px) {
   .page-lp main .page-section { padding: 56px 0; }
   .lp-topics a { padding: 7px 12px; font-size: 13px; }
-  .lp-tips { grid-template-columns: 1fr; gap: 10px; }
-  .lp-tip { padding: 16px; gap: 12px; }
-  .lp-tip dt { width: 44px; height: 44px; font-size: 14.5px; }
-  .lp-tip dd, .lp-post p, .lp-col li, .lp-topic-body li { font-size: 15.5px; }
+  .lp-post p, .lp-topic-body li { font-size: 15.5px; }
   .page-lp .lp-topic-head h2 { font-size: 26px; }
   .lp-consult { flex-direction: column; align-items: flex-start; padding: 22px 20px; }
   .lp-consult-btn { align-self: stretch; text-align: center; }
@@ -5953,3 +5928,67 @@ body.page-sj #results .rs-proof-card p { margin: 0; color: #4e5a6b; font-size: 1
   body.page-sj #results .rs-proof-card strong { font-size: 17px; }
   body.page-sj #results .rs-proof-card p { font-size: 14.5px; }
 }
+
+/* ---------- [70차] 과목과외: 선생님 안내 키워드 4개 가운데 정렬·확대 (#teachers) · 전국 어디서나 1:1 수업 가능 글자 확대·카드 설명 흰색 (#nationwide)
+   + 방문과외(tutoring/visit.html): 주요 과목 7개 분류 카드 (#visit-subjects 한정)
+   되돌리기: 이 블록 삭제 + backup/70차수정전 파일 복원 */
+/* 선생님 안내 키워드: 같은 크기 박스 · 글자 가운데 · 노란 점은 작게 */
+body.page-sj #teachers .tch-keys li { justify-content: center; gap: 9px; min-height: 58px; padding: 12px 16px; color: var(--sj-navy); font-size: 19px; font-weight: 800; line-height: 1.4; text-align: center; }
+body.page-sj #teachers .tch-keys li::before { width: 6px; height: 6px; opacity: 0.85; }
+/* 전국 어디서나 1:1 수업 가능 */
+body.page-sj #nationwide .section-head h2 { font-size: 42px; font-weight: 800; line-height: 1.28; }
+body.page-sj #nationwide .section-head p { font-size: 21px; line-height: 1.6; word-break: keep-all; }
+body.page-sj #nationwide .sj-reach-grid { align-items: stretch; }
+body.page-sj #nationwide .sj-reach-item { padding: 30px 28px 28px; }
+body.page-sj #nationwide .sj-reach-item strong { margin-bottom: 12px; font-size: 23px; font-weight: 800; line-height: 1.35; }
+body.page-sj #nationwide .sj-reach-item p { color: #fff; font-size: 19px; line-height: 1.75; }
+@media (max-width: 1100px) {
+  body.page-sj #teachers .tch-keys { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 860px; margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 980px) {
+  body.page-sj #teachers .tch-keys { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 520px; }
+  body.page-sj #nationwide .section-head h2 { font-size: 36px; }
+}
+@media (max-width: 640px) {
+  body.page-sj #teachers .tch-keys { gap: 8px; }
+  body.page-sj #teachers .tch-keys li { min-height: 52px; padding: 10px 8px; font-size: 17px; }
+  body.page-sj #nationwide .section-head h2 { font-size: 31px; line-height: 1.3; }
+  body.page-sj #nationwide .section-head p { font-size: 17.5px; }
+  body.page-sj #nationwide .sj-reach-item { padding: 24px 20px 22px; }
+  body.page-sj #nationwide .sj-reach-item strong { font-size: 20px; }
+  body.page-sj #nationwide .sj-reach-item p { font-size: 16.5px; line-height: 1.7; }
+}
+/* 방문과외 주요 과목: 7개 카드 (PC 4열, 마지막 '기타'는 2칸 · 모바일 2열) */
+#visit-subjects .vs-subj { display: flex; flex-direction: column; align-items: flex-start; }
+#visit-subjects .vs-subj h3 { margin-bottom: 8px; }
+#visit-subjects .vs-subj p { margin-bottom: 14px; color: #4e5a6b; font-size: 16px; line-height: 1.6; word-break: keep-all; }
+#visit-subjects .vs-subj-goal { margin-top: auto; padding: 4px 12px; border-radius: 999px; background: #fbf3e2; color: #8a6420; font-size: 13.5px; font-weight: 800; }
+#visit-subjects .vs-subj.is-etc p { margin-bottom: 0; }
+#visit-subjects .vs-subj.is-etc { grid-column: span 2; justify-content: center; border-style: dashed; border-color: #d8c6a4; background: #fffaf1; }
+@media (max-width: 640px) {
+  #visit-subjects .vs-subj-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  #visit-subjects .vs-subj { padding: 20px 16px; border-radius: 18px; }
+  #visit-subjects .vs-subj h3 { font-size: 18px; }
+  #visit-subjects .vs-subj p { font-size: 14.5px; }
+  #visit-subjects .vs-subj-goal { font-size: 12.5px; padding: 3px 10px; }
+}
+
+/* ---------- [71차] 학습정보 목록: 새 글 썸네일 색상 (info/midterm-report-card.html 카드)
+   되돌리기: 이 블록 삭제 + backup/71차수정전 파일 복원 */
+.thumb.e { background: linear-gradient(135deg, #0e1c33, #b8893e); }
+/* 정보글 요약 박스: 목록 안 강조(strong)가 제목처럼 줄바꿈되던 문제 수정 (after-midterm-review.html에도 동일 적용) */
+.post-summary li strong { display: inline; margin: 0; font-size: inherit; }
+
+/* 정보글 대표 이미지: 목록 썸네일(.thumb.has-img) · 글 상단(.post-cover) — images/info/ 폴더, 1200x630 */
+.thumb.has-img { padding: 0; overflow: hidden; background: #0e1c33; }
+.thumb.has-img img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%; }
+.post-cover { margin: 0 0 28px; overflow: hidden; border-radius: 20px; box-shadow: 0 14px 30px rgba(16, 42, 75, 0.1); }
+.post-cover img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; }
+@media (max-width: 640px) { .post-cover { margin-bottom: 22px; border-radius: 14px; } }
+
+/* ---------- [72차] 학습정보: 기존 정보글 4편 대표 이미지 추가 · 최신 학습정보 카드 상단 이미지 (learning/index.html .lp-post)
+   되돌리기: 이 블록 삭제 + backup/72차수정전 파일 복원 + images/info/ 이미지 삭제 */
+.lp-post { overflow: hidden; }
+.lp-post-img { display: block; margin: -26px -24px 20px; aspect-ratio: 1200 / 630; overflow: hidden; background: #0e1c33; }
+.lp-post-img img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+.lp-post:hover .lp-post-img img { transform: scale(1.03); }

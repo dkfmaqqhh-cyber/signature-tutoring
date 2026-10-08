@@ -1,0 +1,84 @@
+<!doctype html>
+<!-- [73차] 정보글 대표 이미지 틀 (1200x630). render.mjs 가 아래 COVER 자리에 설정(JSON)을 넣어 캡처합니다. 사이트 화면에는 쓰이지 않는 작업용 파일 -->
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body { font-family: "Pretendard Variable", Pretendard, "Noto Sans CJK KR", "Noto Sans KR", "Malgun Gothic", sans-serif; letter-spacing: -0.02em; color: #fff; position: relative;
+    background: radial-gradient(circle at 88% 8%, var(--glow), transparent 38%), linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%); }
+  .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.07) 1.5px, transparent 1.5px); background-size: 26px 26px; }
+  .left { position: absolute; left: 72px; top: 0; bottom: 0; width: 540px; display: flex; flex-direction: column; justify-content: center; }
+  .badge { align-self: flex-start; padding: 9px 18px; border-radius: 999px; background: var(--accent); color: #0e1c33; font-size: 22px; font-weight: 800; }
+  h1 { margin-top: 26px; font-size: 62px; line-height: 1.2; font-weight: 800; letter-spacing: -0.04em; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .keys { display: flex; gap: 10px; margin-top: 30px; flex-wrap: wrap; }
+  .keys span { padding: 9px 16px; border: 1.5px solid rgba(255,255,255,.35); border-radius: 12px; font-size: 22px; font-weight: 700; color: #e8edf5; }
+  .brand { position: absolute; left: 72px; bottom: 38px; font-size: 20px; font-weight: 700; color: rgba(255,255,255,.6); }
+  .card { position: absolute; right: 70px; top: 100px; width: 500px; padding: 28px 30px 26px; border-radius: 26px; background: #fff; color: #0e1c33; box-shadow: 0 30px 60px rgba(0,0,0,.35); transform: rotate(2.5deg); }
+  .card-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 2px solid #eef1f5; }
+  .card-top strong { font-size: 25px; font-weight: 800; }
+  .card-top span { padding: 4px 11px; border-radius: 999px; background: #eef3f8; color: #5b6472; font-size: 15px; font-weight: 700; }
+  /* 카드 종류 1: 막대 (rows) */
+  .rows { display: grid; gap: 12px; margin-top: 16px; }
+  .row { display: flex; align-items: center; gap: 14px; font-size: 22px; font-weight: 700; }
+  .row b { flex: none; width: 112px; font-weight: 800; }
+  .bar { flex: 1; height: 16px; border-radius: 99px; background: #eef1f5; overflow: hidden; }
+  .bar i { display: block; height: 100%; border-radius: 99px; background: var(--bar); }
+  .row em { flex: none; width: 46px; text-align: right; font-style: normal; color: #5b6472; font-size: 19px; }
+  /* 카드 종류 2: 체크리스트 (checks) */
+  .check { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-top: 1px solid #f0f2f6; font-size: 23px; font-weight: 700; }
+  .check:first-child { border-top: 0; }
+  .check i { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--bar); color: #fff; font-style: normal; font-size: 20px; font-weight: 800; }
+  /* 카드 종류 3: 단계 (steps) */
+  .weeks { display: grid; gap: 10px; margin-top: 16px; }
+  .wk { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 14px; background: #f6f8fb; font-size: 21px; font-weight: 700; }
+  .wk b { flex: none; padding: 5px 12px; border-radius: 10px; background: var(--bar); color: #fff; font-size: 18px; font-weight: 800; }
+  .wk:last-child { background: #fff5c7; }
+  /* 카드 종류 4: 비교 (compare) */
+  .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+  .vs div { padding: 18px 16px; border-radius: 18px; background: #f5f7fb; }
+  .vs div:last-child { background: #e9f7f3; }
+  .vs strong { display: block; margin-bottom: 10px; font-size: 25px; font-weight: 800; }
+  .vs p { font-size: 19px; line-height: 1.75; color: #3d4757; font-weight: 600; }
+  .lens { position: absolute; right: 42px; bottom: 50px; width: 140px; height: 140px; border-radius: 50%; border: 12px solid var(--accent); background: rgba(255,255,255,.12); box-shadow: 0 10px 26px rgba(0,0,0,.3); }
+  .lens::after { content: ""; position: absolute; right: -50px; bottom: -38px; width: 66px; height: 22px; border-radius: 12px; background: var(--accent); transform: rotate(42deg); }
+</style></head>
+<body>
+<div class="dots"></div>
+<div class="left"><span class="badge" id="badge"></span><h1 id="title"></h1><div class="keys" id="keys"></div></div>
+<div class="brand">시그니처과외 학습정보</div>
+<div class="card" id="card"></div>
+<div class="lens" id="lens"></div>
+<script>
+(() => {
+const COVER = /*COVER*/null;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const palettes = {
+  navy:   { '--bg1': '#0e1c33', '--bg2': '#17345c', '--glow': 'rgba(244,200,74,.28)', '--accent': '#f4c84a', '--bar': '#17345c' },
+  blue:   { '--bg1': '#102a4b', '--bg2': '#2d5a8c', '--glow': 'rgba(125,211,252,.25)', '--accent': '#f4c84a', '--bar': '#3d6a9e' },
+  indigo: { '--bg1': '#26357e', '--bg2': '#5b6ee1', '--glow': 'rgba(244,200,74,.28)', '--accent': '#f4c84a', '--bar': '#5b6ee1' },
+  teal:   { '--bg1': '#0f5f57', '--bg2': '#1f9d8c', '--glow': 'rgba(244,200,74,.3)', '--accent': '#f4c84a', '--bar': '#168175' },
+  brown:  { '--bg1': '#7a4317', '--bg2': '#c27a3a', '--glow': 'rgba(255,226,122,.3)', '--accent': '#ffe27a', '--bar': '#a86428' },
+  plum:   { '--bg1': '#4a1d5c', '--bg2': '#8a4fd1', '--glow': 'rgba(244,200,74,.28)', '--accent': '#f4c84a', '--bar': '#7a3fb8' },
+  green:  { '--bg1': '#14532d', '--bg2': '#2f9e5b', '--glow': 'rgba(244,200,74,.28)', '--accent': '#f4c84a', '--bar': '#1f7a45' },
+  red:    { '--bg1': '#6b1d1d', '--bg2': '#c2453a', '--glow': 'rgba(255,226,122,.3)', '--accent': '#ffe27a', '--bar': '#a8322a' }
+};
+const c = COVER;
+for (const [k, v] of Object.entries(palettes[c.palette] || palettes.navy)) document.body.style.setProperty(k, v);
+document.getElementById('badge').textContent = c.badge;
+// title: 줄은 \n, 강조는 *별표* 로 감싼 부분
+document.getElementById('title').innerHTML = esc(c.title).replace(/\*([^*]+)\*/g, '<em>$1</em>').replace(/\n/g, '<br>');
+document.getElementById('keys').innerHTML = (c.keys || []).map(k => `<span>${esc(k)}</span>`).join('');
+const cardTop = `<div class="card-top"><strong>${esc(c.cardTitle)}</strong><span>${esc(c.cardTag || '예시')}</span></div>`;
+let body = '';
+if (c.cardType === 'rows') body = `<div class="rows">${c.items.map(it => `<div class="row"><b>${esc(it.label)}</b><span class="bar"><i style="width:${Number(it.percent)}%"></i></span><em>${esc(it.value)}</em></div>`).join('')}</div>`;
+if (c.cardType === 'checks') body = `<div>${c.items.map(it => `<div class="check"><i>✓</i>${esc(it)}</div>`).join('')}</div>`;
+if (c.cardType === 'steps') body = `<div class="weeks">${c.items.map(it => `<div class="wk"><b>${esc(it.label)}</b>${esc(it.text)}</div>`).join('')}</div>`;
+if (c.cardType === 'compare') body = `<div class="vs">${c.items.map(it => `<div><strong>${esc(it.title)}</strong><p>${it.lines.map(esc).join('<br>')}</p></div>`).join('')}</div>`;
+document.getElementById('card').innerHTML = cardTop + body;
+if (!c.lens) document.getElementById('lens').remove();
+})();
+</script>
+</body></html>

@@ -352,13 +352,15 @@ if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))
     if (isNaN(target)) return;
     el.textContent = fmt(0, dec);
     once(el, function () {
-      var start = null, DUR = 1200;
+      /* [90차] data-duration(ms)으로 시간 지정 가능(기본 1200 · 메인 그대로) · data-ease="quart"면 끝부분이 더 부드럽게 감속 · 끝나면 .is-done (마무리 효과용) */
+      var start = null, DUR = parseInt(el.getAttribute('data-duration') || '1200', 10);
+      var pw = el.getAttribute('data-ease') === 'quart' ? 4 : 3;
       function tick(ts) {
         if (start === null) start = ts;
         var p = Math.min((ts - start) / DUR, 1);
-        var eased = 1 - Math.pow(1 - p, 3);
+        var eased = 1 - Math.pow(1 - p, pw);
         el.textContent = fmt(p < 1 ? target * eased : target, dec);
-        if (p < 1) requestAnimationFrame(tick);
+        if (p < 1) requestAnimationFrame(tick); else el.classList.add('is-done');
       }
       requestAnimationFrame(tick);
     }, 0.4);
@@ -425,3 +427,58 @@ box.addEventListener('focusout',function(){paused=false;});
 t.addEventListener('touchstart',function(){paused=true;},{passive:true});
 t.addEventListener('touchend',function(){setTimeout(function(){paused=false;},4000);},{passive:true});
 if(!reduce)start();})();
+
+/* [90차] 통합 1:1수업(body.page-tutoring): REAL RESULTS 성과 카드 순차 등장 + 점수 변화 + 상승 문구 지연 / 시범수업 CTA fade-up
+   · 한 번만 실행(IntersectionObserver 해제) · 동작 줄이기 설정이거나 IntersectionObserver가 없으면 아무것도 하지 않음(처음부터 최종 상태 그대로 보임) */
+(function () {
+  if (!document.body.classList.contains('page-tutoring')) return;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  function once(el, cb, th) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); cb(); } }); }, { threshold: th || 0.2 });
+    io.observe(el);
+  }
+  var grid = document.querySelector('#results .rs-grid');
+  if (grid) {
+    var cards = grid.querySelectorAll('.rs-card');
+    var plans = [];
+    cards.forEach(function (card) {
+      var after = card.querySelector('.rs-after'), before = card.querySelector('.rs-before'), gain = card.querySelector('.rs-gain');
+      var unit = after && after.querySelector('small') ? after.querySelector('small').textContent : '';
+      var node = after && after.firstChild && after.firstChild.nodeType === 3 ? after.firstChild : null;
+      var to = node ? parseInt(node.nodeValue, 10) : NaN, from = before ? parseInt(before.textContent, 10) : NaN;
+      var isScore = unit === '점' && !isNaN(to) && !isNaN(from) && from < to;
+      if (isScore) node.nodeValue = String(from);
+      plans.push({ card: card, after: after, gain: gain, node: node, from: from, to: to, isScore: isScore });
+    });
+    grid.classList.add('rs-anim');
+    once(grid, function () {
+      plans.forEach(function (p, i) {
+        setTimeout(function () {
+          p.card.classList.add('is-in');
+          setTimeout(function () { p.card.classList.add('is-settled'); }, 650);
+          var t0 = 220, DUR = p.isScore ? 900 : 450;
+          setTimeout(function () {
+            p.card.classList.add('show-after');
+            if (p.isScore) {
+              var s = null;
+              var tick = function (ts) {
+                if (s === null) s = ts;
+                var k = Math.min((ts - s) / DUR, 1), e = 1 - Math.pow(1 - k, 3);
+                p.node.nodeValue = String(k < 1 ? Math.round(p.from + (p.to - p.from) * e) : p.to);
+                if (k < 1) requestAnimationFrame(tick);
+              };
+              requestAnimationFrame(tick);
+            }
+          }, t0);
+          setTimeout(function () { p.card.classList.add('show-gain'); }, t0 + DUR + 300);
+        }, i * 150);
+      });
+    }, 0.25);
+  }
+  var cta = document.querySelector('.tu-trial');
+  if (cta) {
+    cta.classList.add('tu-reveal');
+    once(cta, function () { cta.classList.add('is-in'); }, 0.25);
+  }
+})();

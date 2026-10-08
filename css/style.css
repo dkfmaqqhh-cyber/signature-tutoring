@@ -5224,18 +5224,18 @@ body.page-home .sj-footer-menu a { font-size: 16px; font-weight: 800; }
 .page-subject .gr-card,
 .page-subject .rec-card { border-radius: 24px; }
 .page-subject .rec-card { box-shadow: 0 14px 30px rgba(16, 42, 75, 0.12); }
-.page-subject .rs-card { border-radius: 18px; }
+body.page-tutoring #results .rs-card { border-radius: 18px; }
 .page-subject .check-item { border-radius: 18px; }
 .page-subject .faq-list details { box-shadow: 0 8px 20px rgba(21, 31, 53, 0.04); }
 /* 성과 카드: 높이 통일 · 결과 숫자 강조 · 학생명 보조 · 작은 골드 배지 · 포인트 가독성 */
-.page-subject .rs-grid { align-items: stretch; }
-.page-subject .rs-name { font-size: 13px; font-weight: 600; color: #7a8394; }
-.page-subject .rs-after { font-size: 34px; }
-.page-subject .rs-before { font-size: 15px; }
-.page-subject .rs-gain { padding: 4px 10px; border: 1px solid #e3c88f; background: #fbf3e2; color: var(--brand-gold-text); font-size: 12px; letter-spacing: -0.01em; }
-.page-subject .rs-point { margin-top: auto; color: #1f2a3c; font-size: 15.5px; }
-.page-subject .rs-care { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 10px; margin-top: 26px; }
-.page-subject .rs-care li { padding: 8px 15px; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 999px; background: transparent; font-size: 14px; font-weight: 700; }
+body.page-tutoring #results .rs-grid { align-items: stretch; }
+body.page-tutoring #results .rs-name { font-size: 13px; font-weight: 600; color: #7a8394; }
+body.page-tutoring #results .rs-after { font-size: 34px; }
+body.page-tutoring #results .rs-before { font-size: 15px; }
+body.page-tutoring #results .rs-gain { padding: 4px 10px; border: 1px solid #e3c88f; background: #fbf3e2; color: var(--brand-gold-text); font-size: 12px; letter-spacing: -0.01em; }
+body.page-tutoring #results .rs-point { margin-top: auto; color: #1f2a3c; font-size: 15.5px; }
+body.page-tutoring #results .rs-care { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 10px; margin-top: 26px; }
+body.page-tutoring #results .rs-care li { padding: 8px 15px; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 999px; background: transparent; font-size: 14px; font-weight: 700; }
 /* 무료수업: 이미지 조금 키우고 모바일 여백 축소, 신청 버튼이 가장 강한 CTA */
 .page-subject .sj-trial-box.is-right .sj-trial-photo { max-width: 320px; }
 /* 버튼 통일: 본문 주요 CTA 54px · pill · 16px/900 · 같은 hover */
@@ -5254,8 +5254,8 @@ body.page-home .sj-footer-menu a { font-size: 16px; font-weight: 800; }
   .page-subject .sj-trial-body h2 { font-size: 26px; line-height: 1.3; }
   .page-subject .section-head { margin-bottom: 28px; }
   .page-subject .sj-reach .section-head { margin-bottom: 28px; }
-  .page-subject .rs-after { font-size: 32px; }
-  .page-subject .rs-care li { padding: 7px 12px; font-size: 13px; }
+  body.page-tutoring #results .rs-after { font-size: 32px; }
+  body.page-tutoring #results .rs-care li { padding: 7px 12px; font-size: 13px; }
   .page-subject .sj-trial-box.is-right .sj-trial-photo { max-width: 230px; }
   .page-subject .sj-trial-box.is-right .sj-trial-visual { padding: 20px 16px 28px; }
   .page-subject .faq-list summary { font-size: 16px; padding: 18px 48px 18px 18px; line-height: 1.5; }
@@ -5618,8 +5618,8 @@ body.page-sj .note-box { background: var(--sj-yellow-bg); color: #3d4757; border
 body.page-sj .rec-pastel .rec-badge { background: var(--sj-yellow); color: var(--sj-navy); }
 body.page-sj .rec-pastel .rec-tags li { border-color: rgba(244, 200, 74, 0.85); }
 /* 성적향상 카드 */
-body.page-sj .rs-arrow { color: #9aa6b8; }
-body.page-sj .rs-gain { background: var(--sj-yellow-soft); border-color: var(--sj-yellow); color: var(--sj-navy); }
+body.page-tutoring #results .rs-arrow { color: #9aa6b8; }
+body.page-tutoring #results .rs-gain { background: var(--sj-yellow-soft); border-color: var(--sj-yellow); color: var(--sj-navy); }
 /* 3가지 이유: 아이콘 네이비/옐로우 교차 */
 body.page-sj .why-ico { border-color: var(--sj-yellow); background: var(--sj-navy); }
 body.page-sj .why-ico svg { stroke: #fff; }
@@ -5706,7 +5706,7 @@ body.page-sj main :is(p, li, .faq-answer, .page-lead) { line-height: 1.7; }
 /* 900 → 700~800 (작은 라벨·숫자·배지 700, 버튼 800) */
 body.page-sj :is(.kicker, .page-kicker, .rec-badge, .sj-trial-badge, .point-num, .gr-en, .rs-gain, .rs-type, .rs-arrow, .point-card-more) { font-weight: 700 !important; letter-spacing: 0.04em; }
 body.page-sj :is(.rs-type, .rs-gain, .point-card-more) { letter-spacing: normal; }
-body.page-sj .rs-after { font-weight: 700 !important; }
+body.page-tutoring #results .rs-after { font-weight: 700 !important; }
 body.page-sj .rs-point::before, body.page-sj .faq-list summary::before { font-weight: 700 !important; }
 body.page-sj :is(.sig-top-cta, .btn-navy, .btn-gold, .sj-trial-btn) { font-weight: 800 !important; }
 body.page-sj main :is(strong, li, b) { font-weight: 700; }
@@ -5775,19 +5775,19 @@ body.page-sj #why-signature .why-item p strong { font-size: inherit; font-weight
   #teachers .tch-track { --tch-gap: 10px; padding: 8px 12px 30px; margin: -8px -12px -30px; scroll-padding-left: 12px; }
 }
 
-/* ---------- [62차] 과목과외: 실제 학습 변화 섹션 마무리 문구 '결과는 공부시간이 아닌 공부방법에서 달라집니다' 확대 · 가운데 강조 (body.page-sj #results 한정)
+/* ---------- [62차] 과목과외: 실제 학습 변화 섹션 마무리 문구 '결과는 공부시간이 아닌 공부방법에서 달라집니다' 확대 · 가운데 강조 (body.page-tutoring #results 한정)
    되돌리기: 이 블록 삭제 + backup/62차수정전 파일 복원 */
-body.page-sj #results .rs-quote { display: block; max-width: 1080px; margin: 56px auto 6px; color: #fff; font-size: 38px; font-weight: 800; line-height: 1.35; letter-spacing: -0.03em; text-align: center; word-break: keep-all; text-wrap: balance; }
-body.page-sj #results .rs-quote::before, body.page-sj #results .rs-quote::after { content: ""; display: inline-block; width: 80px; height: 2px; margin: 0 22px; vertical-align: middle; border-radius: 2px; background: linear-gradient(90deg, rgba(244, 200, 74, 0), var(--brand-gold-light)); }
-body.page-sj #results .rs-quote::after { background: linear-gradient(90deg, var(--brand-gold-light), rgba(244, 200, 74, 0)); }
-body.page-sj #results .rs-quote em { color: var(--brand-gold-light); font-weight: 800; font-style: normal; }
+body.page-tutoring #results .rs-quote { display: block; max-width: 1080px; margin: 56px auto 6px; color: #fff; font-size: 38px; font-weight: 800; line-height: 1.35; letter-spacing: -0.03em; text-align: center; word-break: keep-all; text-wrap: balance; }
+body.page-tutoring #results .rs-quote::before, body.page-tutoring #results .rs-quote::after { content: ""; display: inline-block; width: 80px; height: 2px; margin: 0 22px; vertical-align: middle; border-radius: 2px; background: linear-gradient(90deg, rgba(244, 200, 74, 0), var(--brand-gold-light)); }
+body.page-tutoring #results .rs-quote::after { background: linear-gradient(90deg, var(--brand-gold-light), rgba(244, 200, 74, 0)); }
+body.page-tutoring #results .rs-quote em { color: var(--brand-gold-light); font-weight: 800; font-style: normal; }
 @media (max-width: 980px) {
-  body.page-sj #results .rs-quote { font-size: 32px; }
-  body.page-sj #results .rs-quote::before, body.page-sj #results .rs-quote::after { width: 48px; margin: 0 14px; }
+  body.page-tutoring #results .rs-quote { font-size: 32px; }
+  body.page-tutoring #results .rs-quote::before, body.page-tutoring #results .rs-quote::after { width: 48px; margin: 0 14px; }
 }
 @media (max-width: 640px) {
-  body.page-sj #results .rs-quote { margin-top: 40px; font-size: 25px; line-height: 1.4; }
-  body.page-sj #results .rs-quote::before, body.page-sj #results .rs-quote::after { content: none; }
+  body.page-tutoring #results .rs-quote { margin-top: 40px; font-size: 25px; line-height: 1.4; }
+  body.page-tutoring #results .rs-quote::before, body.page-tutoring #results .rs-quote::after { content: none; }
 }
 
 /* ---------- [63차] 과목과외: 전국 어디서나 1:1 수업 가능 카드 3개 내용 가운데 정렬 (body.page-sj #nationwide 한정)
@@ -5796,16 +5796,8 @@ body.page-sj #nationwide .sj-reach-item { text-align: center; }
 body.page-sj #nationwide .sj-reach-item p { text-wrap: balance; }
 
 /* ---------- [66차] 과목과외: 수업 진행 5단계(PROCESS) 확대 · 시범수업 박스 축소 (body.page-sj #process / #free-trial 한정)
+   [83차] 과목과외 PROCESS 섹션 삭제로 body.page-sj #process 규칙 제거 (시범수업 규칙만 남음) · 80차 '방문과외·화상과외 더 보기' 링크 규칙도 제거
    되돌리기: 이 블록 삭제 + backup/66차수정전 파일 복원 */
-/* PROCESS 확대 */
-body.page-sj #process { padding: 100px 0 108px; }
-body.page-sj #process .section-head { margin-bottom: 52px; }
-body.page-sj #process .section-head h2 { font-size: 40px; }
-body.page-sj #process .flow-ico { width: 116px; height: 116px; margin-bottom: 20px; padding: 9px; }
-body.page-sj #process .flow-ico svg { width: 48px; height: 48px; }
-body.page-sj #process .flow-step:not(:last-child)::after { top: 58px; left: calc(50% + 58px); width: calc(100% - 116px); }
-body.page-sj #process .flow-step strong { font-size: 22px; }
-body.page-sj #process .flow-step p { margin-top: 10px; font-size: 17px; line-height: 1.65; }
 /* 시범수업 박스 축소 */
 body.page-sj #free-trial { padding: 64px 0; }
 body.page-sj #free-trial .sj-trial-box { max-width: 1080px; margin: 0 auto; }
@@ -5817,26 +5809,12 @@ body.page-sj #free-trial .sj-trial-body h2 { font-size: 30px; }
 body.page-sj #free-trial .sj-trial-desc { font-size: 16px; }
 body.page-sj #free-trial .sj-trial-btn { min-height: 52px; font-size: 16px; }
 @media (max-width: 980px) {
-  body.page-sj #process .flow-ico { width: 96px; height: 96px; }
-  body.page-sj #process .flow-ico svg { width: 40px; height: 40px; }
-  body.page-sj #process .flow-step:not(:last-child)::after { top: 48px; left: calc(50% + 48px); width: calc(100% - 96px); }
-  body.page-sj #process .flow-step:nth-child(3)::after { display: none; }
   body.page-sj #free-trial .sj-trial-box.is-right { grid-template-columns: 1fr; }
   body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-body { padding: 36px 32px 4px; }
   body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-visual { padding: 24px 24px 36px; }
   body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-photo { max-width: 220px; }
 }
 @media (max-width: 640px) {
-  body.page-sj #process { padding: 64px 0 68px; }
-  body.page-sj #process .section-head { margin-bottom: 30px; }
-  body.page-sj #process .section-head h2 { font-size: 30px; }
-  body.page-sj #process .flow-step { grid-template-columns: 76px 1fr; column-gap: 18px; padding: 16px 0; }
-  body.page-sj #process .flow-ico { width: 76px; height: 76px; padding: 7px; margin: 0; }
-  body.page-sj #process .flow-ico svg { width: 32px; height: 32px; }
-  body.page-sj #process .flow-step:not(:last-child)::after { top: auto; left: 37px; width: 0; }
-  body.page-sj #process .flow-step:nth-child(3)::after { display: block; }
-  body.page-sj #process .flow-step strong { font-size: 19px; }
-  body.page-sj #process .flow-step p { margin-top: 4px; font-size: 16px; }
   body.page-sj #free-trial { padding: 48px 0; }
   body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-body { padding: 30px 20px 4px; }
   body.page-sj #free-trial .sj-trial-box.is-right .sj-trial-visual { padding: 20px 16px 28px; }
@@ -5897,36 +5875,36 @@ body.page-sj #free-trial .sj-trial-btn { min-height: 46px; margin-top: 12px; fon
 }
 @media print { .sig-float { display: none; } }
 
-/* ---------- [69차] 과목과외: 실제 학습 변화 섹션에 학습 기록 사진 카드 6장 추가 (body.page-sj #results 한정)
+/* ---------- [69차] 과목과외: 실제 학습 변화 섹션에 학습 기록 사진 카드 6장 추가 (body.page-tutoring #results 한정)
    되돌리기: 이 블록 삭제 + subject/index.html의 .rs-proof 블록 삭제 + backup/69차수정전 파일 복원 */
-body.page-sj #results .rs-proof { margin-top: 56px; }
-body.page-sj #results .rs-proof-head { margin-bottom: 24px; text-align: center; }
-body.page-sj #results .rs-proof-head h3 { margin: 0 0 8px; color: #fff; font-size: 28px; font-weight: 800; letter-spacing: -0.03em; }
-body.page-sj #results .rs-proof-head h3 em { color: var(--brand-gold-light); font-style: normal; }
-body.page-sj #results .rs-proof-head p { margin: 0; color: rgba(255, 255, 255, 0.72); font-size: 16px; }
-body.page-sj #results .rs-proof-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-body.page-sj #results .rs-proof-card { display: flex; flex-direction: column; margin: 0; overflow: hidden; border-radius: 18px; background: #fff; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18); }
-body.page-sj #results .rs-proof-img { aspect-ratio: 3 / 2; overflow: hidden; background: #f4f6fb; }
-body.page-sj #results .rs-proof-img img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transition: transform 0.35s; }
-body.page-sj #results .rs-proof-card.is-contain .rs-proof-img { background: #fff; }
-body.page-sj #results .rs-proof-card.is-contain .rs-proof-img img { padding: 10px; object-fit: contain; }
-body.page-sj #results .rs-proof-card:hover .rs-proof-img img { transform: scale(1.04); }
-body.page-sj #results .rs-proof-card figcaption { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 18px; border-top: 1px solid #edf0f5; }
-body.page-sj #results .rs-proof-tag { align-self: flex-start; padding: 3px 10px; border-radius: 999px; background: #e3f8f4; color: #0f8f86; font-size: 12px; font-weight: 800; }
-body.page-sj #results .rs-proof-card strong { color: var(--brand-navy); font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
-body.page-sj #results .rs-proof-card p { margin: 0; color: #4e5a6b; font-size: 15px; line-height: 1.6; word-break: keep-all; }
+body.page-tutoring #results .rs-proof { margin-top: 56px; }
+body.page-tutoring #results .rs-proof-head { margin-bottom: 24px; text-align: center; }
+body.page-tutoring #results .rs-proof-head h3 { margin: 0 0 8px; color: #fff; font-size: 28px; font-weight: 800; letter-spacing: -0.03em; }
+body.page-tutoring #results .rs-proof-head h3 em { color: var(--brand-gold-light); font-style: normal; }
+body.page-tutoring #results .rs-proof-head p { margin: 0; color: rgba(255, 255, 255, 0.72); font-size: 16px; }
+body.page-tutoring #results .rs-proof-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+body.page-tutoring #results .rs-proof-card { display: flex; flex-direction: column; margin: 0; overflow: hidden; border-radius: 18px; background: #fff; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18); }
+body.page-tutoring #results .rs-proof-img { aspect-ratio: 3 / 2; overflow: hidden; background: #f4f6fb; }
+body.page-tutoring #results .rs-proof-img img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transition: transform 0.35s; }
+body.page-tutoring #results .rs-proof-card.is-contain .rs-proof-img { background: #fff; }
+body.page-tutoring #results .rs-proof-card.is-contain .rs-proof-img img { padding: 10px; object-fit: contain; }
+body.page-tutoring #results .rs-proof-card:hover .rs-proof-img img { transform: scale(1.04); }
+body.page-tutoring #results .rs-proof-card figcaption { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 18px; border-top: 1px solid #edf0f5; }
+body.page-tutoring #results .rs-proof-tag { align-self: flex-start; padding: 3px 10px; border-radius: 999px; background: #e3f8f4; color: #0f8f86; font-size: 12px; font-weight: 800; }
+body.page-tutoring #results .rs-proof-card strong { color: var(--brand-navy); font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+body.page-tutoring #results .rs-proof-card p { margin: 0; color: #4e5a6b; font-size: 15px; line-height: 1.6; word-break: keep-all; }
 @media (max-width: 980px) {
-  body.page-sj #results .rs-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body.page-tutoring #results .rs-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
-  body.page-sj #results .rs-proof { margin-top: 40px; }
-  body.page-sj #results .rs-proof-head h3 { font-size: 22px; }
-  body.page-sj #results .rs-proof-head p { font-size: 14.5px; }
-  body.page-sj #results .rs-proof-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 82%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px 14px 12px; margin: 0 -14px; scroll-padding-left: 14px; }
-  body.page-sj #results .rs-proof-grid::-webkit-scrollbar { display: none; }
-  body.page-sj #results .rs-proof-card { scroll-snap-align: start; }
-  body.page-sj #results .rs-proof-card strong { font-size: 17px; }
-  body.page-sj #results .rs-proof-card p { font-size: 14.5px; }
+  body.page-tutoring #results .rs-proof { margin-top: 40px; }
+  body.page-tutoring #results .rs-proof-head h3 { font-size: 22px; }
+  body.page-tutoring #results .rs-proof-head p { font-size: 14.5px; }
+  body.page-tutoring #results .rs-proof-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 82%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px 14px 12px; margin: 0 -14px; scroll-padding-left: 14px; }
+  body.page-tutoring #results .rs-proof-grid::-webkit-scrollbar { display: none; }
+  body.page-tutoring #results .rs-proof-card { scroll-snap-align: start; }
+  body.page-tutoring #results .rs-proof-card strong { font-size: 17px; }
+  body.page-tutoring #results .rs-proof-card p { font-size: 14.5px; }
 }
 
 /* ---------- [70차] 과목과외: 선생님 안내 키워드 4개 가운데 정렬·확대 (#teachers) · 전국 어디서나 1:1 수업 가능 글자 확대·카드 설명 흰색 (#nationwide)
@@ -6247,10 +6225,6 @@ body.page-visit main .vs-fit .check-item { padding: 15px 20px; font-size: 17px; 
 .vs-grade-points { justify-items: center; gap: 9px; width: 100%; margin-top: 14px; padding-top: 16px; }
 .vs-grade-points li { justify-content: center; gap: 7px; font-size: 19px; font-weight: 800; line-height: 1.4; word-break: keep-all; }
 .vs-grade-points li::before { font-size: 16px; line-height: 1.6; }
-/* 과목과외 수업 방식 카드 하단 링크 */
-body.page-sj #lesson-mode .lm-body .point-card-more { display: inline-flex; align-items: center; gap: 8px; padding: 12px 2px 4px; color: #0e1c33; font-size: 19.5px; font-weight: 800; letter-spacing: -0.02em; }
-body.page-sj #lesson-mode .lm-more-arrow { display: inline-block; font-size: 22px; font-weight: 900; line-height: 1; transition: transform 0.2s; }
-body.page-sj #lesson-mode .lm-body .point-card-more:hover .lm-more-arrow { transform: translateX(4px); }
 @media (max-width: 980px) {
   .vs-fit { grid-template-columns: 1fr; gap: 26px; }
   .vs-fit-img { max-width: 680px; margin: 0 auto; }
@@ -6263,6 +6237,373 @@ body.page-sj #lesson-mode .lm-body .point-card-more:hover .lm-more-arrow { trans
   .vs-grade-body p { min-height: 0; font-size: 16px; }
   .vs-grade-points li { font-size: 17px; }
   .vs-grade-points li::before { font-size: 15px; }
-  body.page-sj #lesson-mode .lm-body .point-card-more { font-size: 17.5px; }
-  body.page-sj #lesson-mode .lm-more-arrow { font-size: 19px; }
+}
+
+/* ---------- [81차] 방문과외 + 실시간 화상수업 통합 페이지 (tutoring/index.html, body.page-visit.page-tutoring): 방문과외 확정 디자인 재사용 + 수업방식 탭 · 선택 카드 · 공통 핵심 · 배지 · 시그니처 2카드 · 비교 하단 CTA
+   되돌리기: 이 블록 삭제 + tutoring/index.html 삭제 + backup/81차수정전 파일 복원 */
+body.page-tutoring [id] { scroll-margin-top: 84px; }
+/* 대문: 수업방식 선택 탭 */
+.tu-mode-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 22px; }
+.tu-mode-tabs a { display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border: 1.5px solid rgba(255, 255, 255, 0.5); border-radius: 999px; color: #fff; font-size: 16.5px; font-weight: 700; text-decoration: none; transition: background 0.2s, border-color 0.2s, color 0.2s; }
+.tu-mode-tabs a::before { content: ""; width: 8px; height: 8px; margin-right: 9px; border-radius: 50%; background: var(--hf-yellow, #f6c739); }
+.tu-mode-tabs a + a::before { background: #ff8a63; }
+.tu-mode-tabs a:hover, .tu-mode-tabs a:focus-visible { border-color: var(--hf-yellow, #f6c739); background: rgba(255, 255, 255, 0.12); }
+body.page-tutoring .vs-hf-lead { margin-bottom: 22px; }
+/* 공통 버튼 */
+/* 방문과외 / 실시간 화상수업 선택 카드 */
+.tu-choose-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; max-width: 1040px; margin: 0 auto; }
+.tu-choose-card { position: relative; display: flex; flex-direction: column; align-items: flex-start; padding: 36px 36px 32px; border: 1px solid #e8edf3; border-top: 5px solid var(--v-navy, #102a4b); border-radius: 24px; background: #fff; color: #16233a; text-decoration: none; box-shadow: 0 16px 34px rgba(16, 42, 75, 0.09); transition: transform 0.2s, box-shadow 0.2s; }
+.tu-choose-card.is-online { border-top-color: var(--v-orange, #f15a32); }
+.tu-choose-card:hover, .tu-choose-card:focus-visible { transform: translateY(-4px); box-shadow: 0 22px 40px rgba(16, 42, 75, 0.14); }
+.tu-core-ico svg { width: 34px; height: 34px; fill: none; stroke: #fff; stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
+.tu-choose-tag { display: inline-block; margin-top: 18px; padding: 4px 12px; border-radius: 999px; background: var(--v-yellow-soft, #fff3c4); color: var(--v-navy, #102a4b); font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; }
+.is-online .tu-choose-tag { background: #ffe6dd; color: #b9401f; }
+.tu-choose-card h3 { margin: 12px 0 18px; font-size: 30px; font-weight: 800; letter-spacing: -0.035em; }
+.tu-choose-card ul { display: grid; gap: 10px; width: 100%; margin: 0 0 24px; padding: 0; list-style: none; }
+.tu-choose-card li { display: flex; align-items: center; gap: 10px; font-size: 18.5px; font-weight: 700; color: #28364e; word-break: keep-all; }
+.tu-choose-card li::before { content: "✓"; display: grid; place-items: center; flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--v-yellow-soft, #fff3c4); color: var(--v-navy, #102a4b); font-size: 13px; font-weight: 900; }
+.tu-choose-card.is-online li::before { background: #ffe6dd; color: #b9401f; }
+.tu-choose-more { margin-top: auto; color: var(--v-navy, #102a4b); font-size: 17px; font-weight: 800; }
+.tu-choose-card.is-online .tu-choose-more { color: #c8461f; }
+/* 단계별 중요 핵심 (공통 장점 5개) */
+.tu-core-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.tu-core-item { display: flex; flex-direction: column; align-items: center; padding: 30px 18px 28px; border: 1px solid #e8edf3; border-radius: 22px; background: #fff; text-align: center; box-shadow: 0 12px 26px rgba(16, 42, 75, 0.06); }
+.tu-core-ico { display: grid; place-items: center; width: 64px; height: 64px; margin-bottom: 16px; border-radius: 50%; background: var(--v-navy, #102a4b); }
+.tu-core-item:nth-child(even) .tu-core-ico { background: var(--v-orange, #f15a32); }
+.tu-core-ico svg { width: 30px; height: 30px; }
+.tu-core-item strong { color: #16233a; font-size: 20px; font-weight: 800; letter-spacing: -0.03em; word-break: keep-all; }
+.tu-core-item p { margin: 10px 0 0; color: #4e5a6b; font-size: 16px; line-height: 1.65; word-break: keep-all; }
+/* 시그니처수업: 방문/화상 큰 카드 2개 */
+@media (max-width: 1199px) {
+  .tu-mode-tabs { margin-bottom: 24px; }
+}
+@media (max-width: 1100px) {
+  .tu-core-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 980px) {
+}
+@media (max-width: 720px) {
+  .tu-choose-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+@media (max-width: 640px) {
+  body.page-tutoring [id] { scroll-margin-top: 72px; }
+  .tu-mode-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 18px; }
+  .tu-mode-tabs a { justify-content: center; min-height: 46px; padding: 0 10px; font-size: 15.5px; }
+  .tu-choose-card { padding: 26px 22px 24px; }
+  .tu-choose-tag { margin-top: 14px; }
+  .tu-choose-card h3 { margin: 10px 0 14px; font-size: 24px; }
+  .tu-choose-card li { font-size: 16.5px; }
+  .tu-choose-more { font-size: 15.5px; }
+  .tu-core-grid { grid-template-columns: 1fr; gap: 10px; }
+  .tu-core-item { display: grid; grid-template-columns: 56px 1fr; column-gap: 16px; align-items: center; padding: 18px; text-align: left; }
+  .tu-core-ico { grid-row: span 2; width: 56px; height: 56px; margin: 0; }
+  .tu-core-ico svg { width: 26px; height: 26px; }
+  .tu-core-item strong { align-self: end; font-size: 18px; }
+  .tu-core-item p { align-self: start; margin-top: 4px; font-size: 15px; }
+}
+
+/* ---------- [82차] 통합 과외 페이지(body.page-tutoring) 다듬기: 두 가지 방식 카드 대표 이미지·가운데 정렬 / 추천합니다!! 이미지:카드 50:50·높이 맞춤·공통 카드 / 시그니처수업 글자 확대·가운데 정렬·핵심 키워드 색 강조
+   (비교 섹션은 HTML에서 삭제, 전용 스타일 .tu-compare-cta·.tu-badge 함께 삭제 · .vs-compare는 tutoring/visit.html에서 계속 사용)
+   되돌리기: 이 블록 삭제 + backup/82차수정전 파일 복원 */
+/* 두 가지 방식: 이미지가 핵심 비주얼 */
+body.page-tutoring .tu-choose-card { align-items: center; padding: 0 0 30px; overflow: hidden; text-align: center; }
+.tu-choose-img { display: block; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: #f4ede1; }
+.tu-choose-img img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.tu-choose-card:hover .tu-choose-img img { transform: scale(1.03); }
+body.page-tutoring .tu-choose-tag { margin-top: 24px; }
+body.page-tutoring .tu-choose-card h3 { margin: 12px 0 16px; }
+body.page-tutoring .tu-choose-card ul { justify-items: center; width: auto; padding: 0 24px; }
+body.page-tutoring .tu-choose-more { margin-top: auto; }
+/* 추천합니다!!: 이미지 50 : 카드 50, 상하 라인 맞춤 · 카드 2열×3줄 크기 통일 · 가운데 정렬 */
+body.page-tutoring #recommended .vs-fit { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; align-items: stretch; }
+body.page-tutoring #recommended .vs-fit-img { height: 100%; }
+body.page-tutoring #recommended .vs-fit-img img { height: 100%; aspect-ratio: auto; object-position: 50% 40%; }
+body.page-tutoring #recommended .check-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 12px; }
+body.page-tutoring main #recommended .vs-fit .check-item { flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 20px 18px; font-size: 17px; text-align: center; word-break: keep-all; border-radius: 18px; }
+body.page-tutoring main #recommended .vs-fit .check-item::before { flex: none; width: 30px; height: 30px; }
+/* 시그니처수업: 제목·설명 확대, 카드 제목·설명 가운데, 핵심 키워드 색 강조 */
+@media (max-width: 980px) {
+  body.page-tutoring #recommended .vs-fit { grid-template-columns: 1fr; }
+  body.page-tutoring #recommended .vs-fit-img { height: auto; }
+  body.page-tutoring #recommended .vs-fit-img img { height: auto; aspect-ratio: 16 / 10; }
+}
+@media (max-width: 640px) {
+  body.page-tutoring .tu-choose-card { padding: 0 0 24px; }
+  body.page-tutoring .tu-choose-tag { margin-top: 18px; }
+  body.page-tutoring .tu-choose-card ul { padding: 0 18px; }
+  body.page-tutoring #recommended .check-grid { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 10px; }
+  body.page-tutoring main #recommended .vs-fit .check-item { flex-direction: row; justify-content: center; gap: 10px; padding: 16px; font-size: 16px; }
+}
+
+/* ---------- [83차] 통합 1:1수업(body.page-tutoring): 소개 카드 축소·링크 삭제 / 대문 신뢰 수치 카운터 (.tu-stats · 숫자는 js [48차] .count-up)
+   되돌리기: 이 블록 삭제 + backup/83차수정전 파일 복원 */
+/* 소개 카드 축소 (링크 아님 → 마우스 올림 효과 없음) */
+body.page-tutoring .tu-choose-grid { max-width: 960px; gap: 22px; }
+body.page-tutoring .tu-choose-card { padding: 0 0 26px; }
+body.page-tutoring .tu-choose-card:hover { transform: none; box-shadow: 0 16px 34px rgba(16, 42, 75, 0.09); }
+body.page-tutoring .tu-choose-card:hover .tu-choose-img img { transform: none; }
+body.page-tutoring .tu-choose-tag { margin-top: 20px; }
+body.page-tutoring .tu-choose-card h3 { margin: 10px 0 14px; font-size: 28px; }
+body.page-tutoring .tu-choose-card ul { gap: 8px; margin-bottom: 0; }
+body.page-tutoring .tu-choose-card li { font-size: 17.5px; }
+body.page-tutoring .tu-choose-card li::before { width: 24px; height: 24px; font-size: 12px; }
+/* 대문 카운터: 버튼 바로 아래 · 3칸 같은 너비 · 가는 세로 구분선 */
+body.page-tutoring .vs-hero-final h1 { margin: 12px 0 14px; }
+body.page-tutoring .vs-hf-lead { margin-bottom: 18px; }
+body.page-tutoring .tu-mode-tabs { margin-bottom: 18px; }
+body.page-tutoring .tu-mode-tabs a { min-height: 42px; }
+body.page-tutoring .vs-hf-btn { min-height: 56px; }
+.tu-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 560px; max-width: 100%; margin: 24px 0 0; padding: 18px 0 0; border-top: 1px solid rgba(255, 255, 255, 0.2); list-style: none; }
+@media (min-width: 1200px) { .tu-stats { max-width: none; } }
+.tu-stats li { display: flex; flex-direction: column; gap: 4px; padding: 0 16px; border-left: 1px solid rgba(255, 255, 255, 0.22); }
+.tu-stats li:first-child { padding-left: 0; border-left: 0; }
+.tu-stats strong { display: flex; align-items: baseline; gap: 2px; color: var(--hf-yellow, #f6c739); font-size: 34px; font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tu-stats small { color: #fff; font-size: 17px; font-weight: 700; letter-spacing: 0; }
+.tu-stats li > span { color: rgba(255, 255, 255, 0.82); font-size: 14.5px; font-weight: 600; }
+@media (min-width: 1500px) { .tu-stats strong { font-size: 38px; } .tu-stats { width: 620px; } }
+@media (max-width: 1199px) {
+  .tu-stats { width: 600px; }
+}
+@media (max-width: 640px) {
+  body.page-tutoring .tu-choose-card { padding-bottom: 22px; }
+  body.page-tutoring .tu-choose-tag { margin-top: 16px; }
+  body.page-tutoring .tu-choose-card h3 { margin: 8px 0 12px; font-size: 23px; }
+  body.page-tutoring .tu-choose-card li { font-size: 16px; }
+  .tu-stats { grid-template-columns: 1.35fr 1fr 0.9fr; width: auto; margin-top: 22px; padding-top: 16px; }
+  .tu-stats li { padding: 0 10px; }
+  .tu-stats strong { font-size: 24px; letter-spacing: -0.04em; }
+  .tu-stats small { font-size: 14px; }
+  .tu-stats li > span { font-size: 13px; }
+}/* PC(1200px~): 탭+버튼 한 줄 · 글 블록 약간 위로 · 카운터 줄은 대문 네이비와 같은 색 바탕(곡선 밖으로 나가도 읽힘) */
+.tu-hero-actions { display: block; }
+@media (min-width: 1200px) {
+  body.page-tutoring .vs-hf-text { top: 45%; }
+  .tu-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 14px; width: 600px; }
+  .tu-hero-actions .tu-mode-tabs { margin: 0; }
+  .tu-stats { margin-top: 22px; padding: 16px 18px 14px 0; border-radius: 0 18px 18px 0; background: var(--hf-navy, #133d65); }
+}@media (min-width: 1500px) { .tu-stats { width: 690px; } .tu-stats li { padding-left: 20px; } .tu-stats li:first-child { padding-left: 0; } }
+
+/* ---------- [84차] 통합 1:1수업(body.page-tutoring): 섹션 순서 재배치 · 두가지 방식 카드에 핵심 키워드 통합(시그니처수업 섹션 삭제) · 추천 카드 의미별 라인 아이콘 · REAL RESULTS 이동(과목과외 → 여기) · 섹션별 파스텔 배경
+   (기존 body.page-sj #results / .page-subject .rs-* 규칙은 선택자를 body.page-tutoring #results 로 바꿔 그대로 재사용 · 시그니처수업 전용 .tu-sig-* / .tu-cta-* 규칙 삭제)
+   되돌리기: 이 블록 삭제 + backup/84차수정전 파일 복원 */
+/* 섹션 배경: 채도 낮은 파스텔 · 카드는 흰색 그대로 */
+body.page-tutoring main > section.page-section { border-top: 1px solid rgba(16, 42, 75, 0.05); }
+body.page-tutoring main #choose { background: #fff8ee; }
+body.page-tutoring main #core { background: #f3f7fc; }
+body.page-tutoring main #recommended { background: #fff6f2; }
+body.page-tutoring main #results { background: #f2faf7; }
+body.page-tutoring main #by-grade { background: #faf7f1; }
+body.page-tutoring main #process { background: #f4f7fa; }
+body.page-tutoring main #faq { background: #fffdfc; }
+/* 두가지 방식: 짧은 설명 + 핵심 키워드 4개 (방문 네이비·옐로우 / 화상 오렌지) */
+body.page-tutoring .tu-choose-img { aspect-ratio: 16 / 10; }
+body.page-tutoring .tu-choose-card h3 { margin-bottom: 8px; }
+.tu-choose-desc { margin: 0 24px 16px; color: #4e5a6b; font-size: 16.5px; line-height: 1.6; word-break: keep-all; }
+body.page-tutoring .tu-choose-card ul.tu-kw { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; width: calc(100% - 56px); max-width: 360px; margin: 0; padding: 0; }
+body.page-tutoring .tu-choose-card .tu-kw li { display: block; padding: 10px 8px; border-radius: 12px; background: var(--v-yellow-soft, #fff3c4); color: var(--v-navy, #102a4b); font-size: 16.5px; font-weight: 800; text-align: center; letter-spacing: -0.02em; word-break: keep-all; }
+body.page-tutoring .tu-choose-card .tu-kw li::before { content: none; display: none; }
+body.page-tutoring .tu-choose-card.is-online .tu-kw li { background: #fff0ea; color: #d9481f; }
+/* 추천합니다!!: 체크 원형 → 라인 아이콘 (네이비 + 오렌지 포인트) */
+body.page-tutoring main #recommended .vs-fit .check-item::before { content: none; display: none; }
+.tu-rec-ico { display: grid; place-items: center; flex: none; width: 34px; height: 34px; }
+.tu-rec-ico svg { width: 32px; height: 32px; fill: none; stroke: var(--v-navy, #102a4b); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.tu-rec-ico .ac { stroke: var(--v-orange, #f15a32); }
+/* REAL RESULTS: 밝은 배경에 맞춰 글자 네이비 · 카드 그림자 부드럽게 · 숫자 강조 유지 */
+body.page-tutoring #results .rs-card, body.page-tutoring #results .rs-proof-card { border: 1px solid #e1eee8; box-shadow: 0 12px 26px rgba(16, 42, 75, 0.08); }
+body.page-tutoring #results .rs-after { font-weight: 800 !important; color: var(--v-navy, #102a4b); }
+body.page-tutoring #results .rs-arrow { color: var(--v-orange, #f15a32); }
+body.page-tutoring #results .rs-gain { border: 1px solid var(--v-yellow, #f4c84a); background: var(--v-yellow-soft, #fff3c4); color: var(--v-navy, #102a4b); font-weight: 800; }
+body.page-tutoring #results .rs-proof-head h3 { color: #16233a; }
+body.page-tutoring #results .rs-proof-head h3 em, body.page-tutoring #results .rs-quote em { color: var(--v-orange, #f15a32); }
+body.page-tutoring #results .rs-proof-head p { color: #4e5a6b; }
+body.page-tutoring #results .rs-care li { border-color: #cfe6dd; background: #fff; color: #16233a; }
+body.page-tutoring #results .rs-quote { color: #16233a; }
+@media (max-width: 640px) {
+  .tu-choose-desc { margin: 0 18px 14px; font-size: 15.5px; }
+  body.page-tutoring .tu-choose-card ul.tu-kw { width: calc(100% - 36px); }
+  body.page-tutoring .tu-choose-card .tu-kw li { padding: 9px 6px; font-size: 15.5px; }
+  .tu-rec-ico { width: 28px; height: 28px; }
+  .tu-rec-ico svg { width: 26px; height: 26px; }
+}body.page-tutoring .tu-choose-card ul.tu-kw { justify-items: stretch; }
+
+/* ---------- [85차] 통합 1:1수업 '추천합니다!!' 사진 교체 (images/tutoring-recommend-students.png, 529x412 · 흰 배경 사진)
+   · 흰 배경이 카드처럼 보이도록 흰 바탕 유지 · 인물 머리·손가락이 잘리지 않게 위쪽 기준 · 모바일은 사진 원래 비율
+   되돌리기: 이 블록 삭제 + backup/85차수정전 파일 복원 */
+body.page-tutoring #recommended .tu-rec-photo { background: #fff; }
+body.page-tutoring #recommended .tu-rec-photo img { object-position: 50% 20%; }
+@media (max-width: 980px) {
+  body.page-tutoring #recommended .tu-rec-photo img { aspect-ratio: 529 / 412; }
+}/* [85차] 원본 사진 가장자리에 편집 프로그램 선택선(하늘색 테두리·점)이 함께 들어 있어, 파일은 그대로 두고 화면에서만 5% 확대해 가장자리를 가림 (깨끗한 원본으로 교체하면 이 줄 삭제) */
+body.page-tutoring #recommended .tu-rec-photo img { transform: scale(1.05); transform-origin: 50% 50%; }
+/* [86차] 1:1수업 '주요 과목' 섹션 삭제로 #visit-subjects 배경 규칙 제거 (슬라이드 공통 CSS·JS는 tutoring/visit.html에서 계속 사용) · 순서 변경에 맞춰 배경 교체: 학년별 #F3F7FC / 단계별 중요 핵심 #FAF7F1 (같은 크림색 연속 방지) */
+
+/* ---------- [87차] 통합 1:1수업(body.page-tutoring): 아이콘 색감 반복 정리 — 세 섹션 성격 분리
+   · 학년별: 사진 → 흰 카드 + 큰 컬러 아이콘 타일(학년별 대표색) / 단계별 중요 핵심: 연한 파스텔 카드 + 흰 아이콘 타일(항목별 포인트색)
+   · PROCESS: 흐름 구조 유지, 아이콘만 흰 원 + 네이비 라인 + 오렌지 포인트 (tutoring/visit.html은 변경 없음)
+   되돌리기: 이 블록 삭제 + backup/87차수정전 파일 복원 */
+/* 학년별 1:1 수업 */
+body.page-tutoring .tu-grade { --g: #1f9e8c; --g2: #e3a414; --g-soft: #e4f6f1; --g-tile: linear-gradient(145deg, #e2f6f0 0%, #fff3cf 100%); border-top: 5px solid var(--g); }
+body.page-tutoring .tu-grade.is-ele { --g: #2f8fd8; --g2: #2f8fd8; --g-soft: #e3f1fc; --g-tile: linear-gradient(145deg, #e8f4fe 0%, #d6eafb 100%); }
+body.page-tutoring .tu-grade.is-mid { --g: #5a5fd6; --g2: #8b5bd6; --g-soft: #eceafd; --g-tile: linear-gradient(145deg, #eceefe 0%, #f0e7fd 100%); }
+body.page-tutoring .tu-grade.is-high { --g: #13897a; --g2: #2e9a5d; --g-soft: #e1f4ee; --g-tile: linear-gradient(145deg, #dff3ed 0%, #e6f5e2 100%); }
+.tu-grade-ico { display: grid; place-items: center; width: 104px; height: 104px; margin: 30px auto 0; border-radius: 28px; background: var(--g-tile); box-shadow: 0 10px 22px rgba(16, 42, 75, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.7); }
+.tu-grade-ico svg { width: 58px; height: 58px; fill: none; stroke: var(--g); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.tu-grade-ico .f { fill: #fff; }
+.tu-grade-ico .ac, .tu-grade-ico .ac-s { stroke: var(--g2); }
+body.page-tutoring .tu-grade .vs-grade-body { padding-top: 18px; }
+body.page-tutoring .tu-grade .vs-grade-tag { background: var(--g-soft); color: var(--g); }
+body.page-tutoring .tu-grade .vs-grade-points li::before { color: var(--g); }
+body.page-tutoring .tu-grade .vs-grade-points { border-top-color: var(--g-soft); }
+/* 단계별 중요 핵심 */
+body.page-tutoring .tu-core-item { --c: #e0603f; --c-bg: #fff0eb; border: 1px solid rgba(16, 42, 75, 0.05); background: var(--c-bg); box-shadow: 0 8px 18px rgba(16, 42, 75, 0.04); }
+body.page-tutoring .tu-core-item:nth-child(2) { --c: #3567c9; --c-bg: #edf3fd; }
+body.page-tutoring .tu-core-item:nth-child(3) { --c: #c48510; --c-bg: #fff5d9; }
+body.page-tutoring .tu-core-item:nth-child(4) { --c: #138a7c; --c-bg: #e6f6f2; }
+body.page-tutoring .tu-core-item:nth-child(5) { --c: #7357cf; --c-bg: #f1edfc; }
+body.page-tutoring .tu-core-item .tu-core-ico, body.page-tutoring .tu-core-item:nth-child(even) .tu-core-ico { width: 70px; height: 70px; border-radius: 20px; background: #fff; box-shadow: 0 8px 18px rgba(16, 42, 75, 0.08); }
+body.page-tutoring .tu-core-ico svg { width: 38px; height: 38px; fill: none; stroke: var(--c); stroke-width: 2.2; }
+body.page-tutoring .tu-core-ico .f { fill: var(--c-bg); }
+/* PROCESS: 흰 원 + 네이비 라인 + 오렌지 포인트 */
+body.page-tutoring .vs-process .flow-step .flow-ico { padding: 0; border: 2px solid #d3deec; background: #fff; box-shadow: 0 10px 22px rgba(16, 42, 75, 0.08); }
+body.page-tutoring .vs-process .flow-step:nth-child(even) .flow-ico { border-color: #f4cdbd; box-shadow: 0 10px 22px rgba(241, 90, 50, 0.08); }
+body.page-tutoring .vs-process .flow-ico-in { background: radial-gradient(circle at 50% 45%, #f6f9fd 0%, #ffffff 72%); }
+body.page-tutoring .vs-process .flow-step:nth-child(even) .flow-ico-in { background: radial-gradient(circle at 50% 45%, #fff6f1 0%, #ffffff 72%); }
+body.page-tutoring .vs-process .flow-step .flow-ico svg { fill: none; stroke: var(--v-navy, #102a4b); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+body.page-tutoring .vs-process .flow-ico .ac { stroke: var(--v-orange, #f15a32); }
+body.page-tutoring .vs-process .flow-ico circle.ac { fill: var(--v-yellow, #f4c84a); stroke: var(--v-yellow, #f4c84a); }
+@media (max-width: 640px) {
+  .tu-grade-ico { width: 88px; height: 88px; margin-top: 24px; border-radius: 24px; }
+  .tu-grade-ico svg { width: 50px; height: 50px; }
+  body.page-tutoring .tu-core-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  body.page-tutoring .tu-core-item { display: flex; flex-direction: column; align-items: center; padding: 20px 14px; text-align: center; }
+  body.page-tutoring .tu-core-item:last-child { grid-column: 1 / -1; }
+  body.page-tutoring .tu-core-item .tu-core-ico, body.page-tutoring .tu-core-item:nth-child(even) .tu-core-ico { width: 58px; height: 58px; margin: 0 0 12px; border-radius: 17px; }
+  body.page-tutoring .tu-core-ico svg { width: 32px; height: 32px; }
+  body.page-tutoring .tu-core-item strong { align-self: center; font-size: 17px; }
+  body.page-tutoring .tu-core-item p { margin-top: 6px; font-size: 14.5px; }
+}/* [87차] 아이콘 크기 보정: 학년 아이콘 더 크게 · PROCESS 아이콘 또렷하게 */
+.tu-grade-ico { width: 112px; height: 112px; }
+.tu-grade-ico svg { width: 68px; height: 68px; }
+body.page-tutoring .vs-process .flow-step .flow-ico svg { width: 54px; height: 54px; }
+@media (max-width: 980px) { body.page-tutoring .vs-process .flow-step .flow-ico svg { width: 46px; height: 46px; } }
+@media (max-width: 640px) {
+  .tu-grade-ico { width: 92px; height: 92px; }
+  .tu-grade-ico svg { width: 56px; height: 56px; }
+  body.page-tutoring .vs-process .flow-step .flow-ico svg { width: 38px; height: 38px; }
+}/* [88차] 1:1수업 학년별 카드 사진 복원 (HTML의 .tu-grade-ico 아이콘 타일 제거 → 기존 .vs-grade-img 사진) · 87차 .tu-grade-ico 규칙은 현재 미사용, 학년별 색 포인트는 유지 */
+
+/* ---------- [90차] 통합 1:1수업(body.page-tutoring): 애니메이션 3곳 집중 — 대문 카운터 마무리 · REAL RESULTS 순차 등장/점수 변화/상승 문구 지연 · 시범수업 CTA(FAQ 위) fade-up
+   (JS: js/script.js [48차] 카운트업 data-duration·data-ease / [90차] 블록 · 동작 줄이기 설정이면 모두 최종 상태로 바로 표시)
+   되돌리기: 이 블록 삭제 + backup/90차수정전 파일 복원 */
+/* 1) 대문 카운터: 숫자 도달 후 아주 약한 마무리 */
+.tu-stats .count-up { display: inline-block; }
+.tu-stats .count-up.is-done { animation: tuNumSettle 0.45s ease-out; }
+@keyframes tuNumSettle { from { opacity: 0.82; transform: scale(0.985); } to { opacity: 1; transform: none; } }
+/* 2) REAL RESULTS: 다른 섹션보다 살짝 강조된 민트 배경 + 결과 강조 */
+body.page-tutoring main #results { background: linear-gradient(180deg, #e9f6f1 0%, #f3faf7 55%, #eef8f4 100%); border-top: 1px solid #d5ece3; border-bottom: 1px solid #d5ece3; }
+body.page-tutoring #results .rs-card { transition: box-shadow 0.25s ease, transform 0.25s ease; }
+body.page-tutoring #results .rs-before { color: #8a94a5; }
+body.page-tutoring #results .rs-arrow { color: #a3adbd; }
+body.page-tutoring #results .rs-after { color: var(--v-navy, #102a4b); font-size: 36px; font-weight: 800 !important; }
+body.page-tutoring #results .rs-gain { margin-top: 6px; padding: 5px 12px; border: 0; background: #fff0ea; color: #e2512b; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+@media (hover: hover) and (min-width: 981px) {
+  body.page-tutoring #results .rs-card:hover { transform: translateY(-3px); box-shadow: 0 18px 34px rgba(16, 42, 75, 0.12); }
+}
+/* 등장 준비 상태(JS가 .rs-anim을 붙일 때만) → 카드 순차 등장 · 등급은 결과 문구 부드럽게 · 상승 문구는 나중에 */
+body.page-tutoring #results .rs-anim .rs-card { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.25s ease; }
+body.page-tutoring #results .rs-anim .rs-card.is-in { opacity: 1; transform: none; }
+body.page-tutoring #results .rs-anim .rs-card.is-settled { transition: box-shadow 0.25s ease, transform 0.25s ease; }
+body.page-tutoring #results .rs-anim .rs-after { opacity: 0; transition: opacity 0.45s ease; }
+body.page-tutoring #results .rs-anim .rs-card.show-after .rs-after { opacity: 1; }
+body.page-tutoring #results .rs-anim .rs-gain { opacity: 0; transform: translateY(6px); transition: opacity 0.4s ease, transform 0.4s ease; }
+body.page-tutoring #results .rs-anim .rs-card.show-gain .rs-gain { opacity: 1; transform: none; }
+@media (hover: hover) and (min-width: 981px) {
+  body.page-tutoring #results .rs-anim .rs-card.is-settled:hover { transform: translateY(-3px); }
+}
+/* 3) 실제 공부 기록: 결과의 근거 영역 (작은 라벨 + 양쪽 라인 · 제목 강조) */
+body.page-tutoring #results .rs-proof { margin-top: 64px; }
+body.page-tutoring #results .rs-proof-label { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 10px; color: #0f8f86; font-size: 13px; font-weight: 800; letter-spacing: 0.12em; }
+body.page-tutoring #results .rs-proof-label::before, body.page-tutoring #results .rs-proof-label::after { content: ""; width: 40px; height: 1.5px; border-radius: 2px; background: #9fd6c9; }
+body.page-tutoring #results .rs-proof-head h3 { font-size: 30px; }
+body.page-tutoring #results .rs-proof-head p { font-size: 17px; }
+/* 4) 시범수업 CTA (FAQ 바로 위) */
+.tu-trial { padding: 0; background: var(--v-navy, #102a4b); background: linear-gradient(135deg, #0f2747 0%, #133d65 100%); }
+.tu-trial-box { display: flex; flex-direction: column; align-items: center; min-height: 290px; justify-content: center; padding: 56px 0; text-align: center; color: #fff; }
+.tu-trial-kicker { display: inline-flex; align-items: center; gap: 12px; color: var(--v-yellow, #f4c84a); font-size: 13.5px; font-weight: 800; letter-spacing: 0.14em; }
+.tu-trial-kicker::before, .tu-trial-kicker::after { content: ""; width: 36px; height: 1.5px; background: rgba(244, 200, 74, 0.6); }
+.tu-trial-box h2 { margin: 14px 0 12px; color: #fff; font-size: 36px; font-weight: 800; line-height: 1.3; letter-spacing: -0.035em; word-break: keep-all; }
+.tu-trial-box h2 em { color: var(--v-yellow, #f4c84a); font-style: normal; }
+.tu-trial-box p { max-width: 640px; margin: 0 0 26px; color: rgba(255, 255, 255, 0.82); font-size: 18px; line-height: 1.7; word-break: keep-all; }
+.tu-trial-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 58px; padding: 0 38px; border-radius: 999px; background: var(--v-yellow, #f4c84a); color: var(--v-navy, #102a4b); font-size: 18px; font-weight: 800; text-decoration: none; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2); transition: background 0.2s, box-shadow 0.2s, transform 0.2s; }
+.tu-trial-btn:hover, .tu-trial-btn:focus-visible { background: #ffd65c; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28); transform: translateY(-2px); }
+.tu-trial.tu-reveal .tu-trial-box { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.tu-trial.tu-reveal.is-in .tu-trial-box { opacity: 1; transform: none; }
+@media (max-width: 640px) {
+  body.page-tutoring #results .rs-after { font-size: 30px; }
+  body.page-tutoring #results .rs-gain { font-size: 16.5px; }
+  body.page-tutoring #results .rs-proof { margin-top: 44px; }
+  body.page-tutoring #results .rs-proof-head h3 { font-size: 23px; }
+  body.page-tutoring #results .rs-proof-head p { font-size: 15px; }
+  .tu-trial-box { min-height: 0; padding: 52px 4px; }
+  .tu-trial-box h2 { font-size: 26px; }
+  .tu-trial-box p { font-size: 16px; }
+  .tu-trial-btn { width: 90%; min-height: 56px; font-size: 17px; }
+}
+/* 동작 줄이기: 움직임 없이 최종 상태 그대로 (JS도 준비 클래스를 붙이지 않음) */
+@media (prefers-reduced-motion: reduce) {
+  .tu-stats .count-up.is-done { animation: none; }
+  body.page-tutoring #results .rs-card, body.page-tutoring #results .rs-anim .rs-card, body.page-tutoring #results .rs-anim .rs-after, body.page-tutoring #results .rs-anim .rs-gain, .tu-trial.tu-reveal .tu-trial-box { opacity: 1; transform: none; transition: none; }
+}/* [90차] 보정: 숫자 span inline-block 전환으로 첫 칸이 4px 넘침 → PC 카운터 줄 폭 소폭 확대 · CTA 높이 320px 이하 */
+@media (min-width: 1200px) and (max-width: 1499px) { .tu-stats { width: 584px; } }
+.tu-trial-box { padding: 52px 0; }
+@media (max-width: 640px) { .tu-trial-box { padding: 52px 4px; } }
+
+/* ---------- [92차] 과목과외(교과 전문수업): '1:1 맞춤 전문과외를 선택해야 하는 3가지 이유' — 네이비 강조 섹션 + 흰 카드 3개(큰 숫자 01 네이비 / 02 골드옐로우 / 03 오렌지)
+   (기존 .why-list/.why-item 목록은 HTML에서 카드로 교체 · 예전 .why-* 규칙은 미사용)
+   되돌리기: 이 블록 삭제 + backup/92차수정전 파일 복원 */
+body.page-sj main #why-signature { padding: 100px 0; background: #0e1c33; }
+body.page-sj main #why-signature .kicker { display: inline-block; padding: 6px 16px; border-radius: 999px; background: rgba(244, 200, 74, 0.14); color: #f4c84a !important; }
+body.page-sj main #why-signature .section-head { margin-bottom: 48px; }
+body.page-sj main #why-signature .section-head h2 { color: #fff; font-size: 42px; font-weight: 800; line-height: 1.3; }
+.wy-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin: 0; padding: 0; list-style: none; }
+.wy-card { --wy: #0e1c33; --wy-soft: #eef3f8; --wy-text: #0e1c33; display: flex; flex-direction: column; align-items: center; padding: 38px 30px 36px; border-radius: 24px; background: #fff; text-align: center; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18); transition: transform 0.28s ease, box-shadow 0.28s ease; }
+.wy-card.is-2 { --wy: #f2b705; --wy-soft: #fff4cc; --wy-text: #8a6200; }
+.wy-card.is-3 { --wy: #f15a32; --wy-soft: #fff0ea; --wy-text: #c8441c; }
+.wy-num { color: var(--wy); font-size: 52px; font-weight: 900; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.wy-ico { display: grid; place-items: center; width: 50px; height: 50px; margin: 16px 0 4px; border-radius: 14px; background: var(--wy-soft); }
+.wy-ico svg { width: 32px; height: 32px; fill: none; stroke: var(--wy-text); stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
+.wy-card h3 { margin: 14px 0 12px; color: #0e1c33; font-size: 23px; font-weight: 800; line-height: 1.35; letter-spacing: -0.03em; word-break: keep-all; }
+.wy-key { display: inline-block; padding: 7px 14px; border-radius: 12px; background: var(--wy-soft); color: var(--wy-text); font-size: 16.5px; font-weight: 800; line-height: 1.5; letter-spacing: -0.02em; word-break: keep-all; }
+.wy-card p { margin: 16px 0 0; color: #4a5566; font-size: 16.5px; line-height: 1.7; word-break: keep-all; }
+@media (hover: hover) and (min-width: 981px) {
+  .wy-card:hover { transform: translateY(-4px); box-shadow: 0 20px 38px rgba(0, 0, 0, 0.26); }
+}
+@media (max-width: 980px) {
+  .wy-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; gap: 18px; }
+}
+@media (max-width: 640px) {
+  body.page-sj main #why-signature { padding: 70px 0; }
+  body.page-sj main #why-signature .section-head { margin-bottom: 32px; }
+  body.page-sj main #why-signature .section-head h2 { font-size: 30px; }
+  .wy-card { padding: 28px 22px 28px; border-radius: 22px; }
+  .wy-num { font-size: 42px; }
+  .wy-ico { width: 46px; height: 46px; margin-top: 14px; }
+  .wy-ico svg { width: 30px; height: 30px; }
+  .wy-card h3 { margin-top: 12px; font-size: 20.5px; }
+  .wy-key { font-size: 15.5px; }
+  .wy-card p { font-size: 15.5px; }
+}
+
+/* ---------- [95차] 통합 1:1수업: 학생후기 섹션 복원(REAL RESULTS 바로 아래 · 메인 .rvx-item 카드 디자인 그대로, 2×2 정적 배치) · 배경 지정값 반영(학년별 #FAF7F1 / 단계별 중요 핵심 #F3F7FC / 학생후기 #FFFDFC)
+   되돌리기: 이 블록 삭제 + backup/95차수정전 파일 복원 */
+body.page-tutoring main #reviews { background: #fffdfc; }
+body.page-tutoring #reviews .section-head { margin-bottom: 36px; }
+.tu-review-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; max-width: 1040px; margin: 0 auto; }
+.tu-review-grid .rvx-item, .tu-review-grid .rvx-item:nth-child(n) { width: auto; margin: 0; padding: 22px 24px; border-color: #ece6f4; box-shadow: 0 10px 24px rgba(16, 42, 75, 0.06); }
+.tu-review-grid .rvx-text { font-size: 16.5px; }
+@media (max-width: 760px) {
+  .tu-review-grid { grid-template-columns: 1fr; gap: 12px; }
+  .tu-review-grid .rvx-item, .tu-review-grid .rvx-item:nth-child(n) { padding: 18px 16px; }
+  .tu-review-grid .rvx-badge { margin-left: 0; }
+  .tu-review-grid .rvx-text { font-size: 15.5px; }
 }

@@ -49,14 +49,6 @@
         },
         {
           "@type": "Question",
-          "name": "집에서 어떤 공간을 준비해야 하나요?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "학생과 선생님이 함께 교재를 펼쳐 볼 수 있는 책상과 의자, 수업에 집중할 수 있는 조용한 공간이 있으면 됩니다. 학생이 평소 공부하는 책상이나 거실 테이블 등 가정 상황에 맞는 곳에서 진행하실 수 있습니다."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "수업 시간은 어떻게 정하나요?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -70,22 +62,6 @@
             "@type": "Answer",
             "text": "수업을 진행하면서 학생과 선생님이 잘 맞지 않는다고 느끼신다면 상담을 통해 변경을 요청하실 수 있습니다. 변경 절차와 소요 기간은 상담 시 확인 후 안내드립니다."
           }
-        },
-        {
-          "@type": "Question",
-          "name": "방문과외와 화상과외 중 어떤 방식이 적합한가요?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "선생님과 마주 앉아 풀이 과정을 함께 확인할 때 집중이 잘 되는 학생에게는 방문과외가, 방문 일정을 맞추기 어렵거나 지역에 관계없이 수업을 받고 싶은 경우에는 화상과외가 잘 맞을 수 있습니다. 학생의 성향과 일정에 맞는 방식을 상담에서 함께 정합니다."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "무료수업을 받을 수 있나요?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "시그니처과외의 주요 수업은 무료수업이 가능합니다. 구체적인 진행 방식과 조건은 상담 시 안내드립니다."
-          }
         }
       ]
     }
@@ -95,7 +71,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="page-visit"><!-- [75차] 방문과외 전용 글자 크기·구성 스타일용 클래스 -->
 
 
 <header class="sig-header">
@@ -105,19 +81,17 @@
     </a>
     <nav class="sig-menu" aria-label="주 메뉴">
       <div class="sig-nav-dropdown">
-        <button class="sig-nav-dropdown-toggle" type="button" aria-expanded="false">시그니처과외종류 <span class="sig-nav-caret">▾</span></button>
+        <button class="sig-nav-dropdown-toggle" type="button" aria-expanded="false">시그니처과외수업 <span class="sig-nav-caret">▾</span></button>
         <div class="sig-nav-dropdown-menu">
-          <!-- [메뉴 수정] 시그니처과외종류 5개 항목. 과목과외→과목과외 허브(subject/index.html), 검정고시→검정고시 페이지(program/geomjeong.html), 코딩박사→코딩박사 페이지(program/coding.html), 회화전문→회화전문 페이지(program/conversation.html), 학원수업→상담신청(관련 안내 영역 없음)으로 임시 연결. 방문과외·화상과외·수학과외·영어과외 페이지는 상단 메뉴에서만 빠졌고 파일과 본문·푸터 링크는 유지 -->
+          <!-- [74차] 상단 메뉴를 메인(index.html)과 통일: 시그니처과외수업(과목과외·학원수업) / 검정고시 / 회화전문 / 코딩천재 / 학습정보 + 무료 상담 신청 버튼 -->
           <a href="../subject/index.html">과목과외</a>
           <a href="../consult.html">학원수업</a>
-          <a href="../ged/index.html">검정고시</a>
-          <a href="../coding/index.html">코딩박사</a>
-          <a href="../conversation/index.html">회화전문</a>
         </div>
       </div>
-      <a href="../index.html#teacher-preview">선생님소개</a><!-- [1차 임시] 원래 주소: teachers.html -->
+      <a href="../ged/index.html">검정고시</a>
+      <a href="../conversation/index.html">회화전문</a>
+      <a href="../coding/index.html">코딩천재</a>
       <a href="../learning/index.html">학습정보</a>
-      <a href="../consult.html">상담신청</a>
     </nav>
     <a class="sig-top-cta" href="../consult.html">무료 상담 신청</a>
     <button class="sig-mobile-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="sigMobileMenu">
@@ -126,17 +100,15 @@
   </div>
   <nav class="sig-mobile-menu" id="sigMobileMenu" aria-label="모바일 메뉴">
     <div class="sig-mobile-group">
-      <span class="sig-mobile-group-title">시그니처과외종류</span>
+      <span class="sig-mobile-group-title">시그니처과외수업</span>
       <div class="sig-mobile-sub">
-        <!-- [메뉴 수정] 시그니처과외종류 5개 항목. 과목과외→과목과외 허브(subject/index.html), 검정고시→검정고시 페이지(program/geomjeong.html), 코딩박사→코딩박사 페이지(program/coding.html), 회화전문→회화전문 페이지(program/conversation.html), 학원수업→상담신청(관련 안내 영역 없음)으로 임시 연결. 방문과외·화상과외·수학과외·영어과외 페이지는 상단 메뉴에서만 빠졌고 파일과 본문·푸터 링크는 유지 -->
         <a href="../subject/index.html">과목과외</a>
         <a href="../consult.html">학원수업</a>
-        <a href="../ged/index.html">검정고시</a>
-        <a href="../coding/index.html">코딩박사</a>
-        <a href="../conversation/index.html">회화전문</a>
       </div>
     </div>
-    <a href="../index.html#teacher-preview">선생님소개</a>
+    <a href="../ged/index.html">검정고시</a>
+    <a href="../conversation/index.html">회화전문</a>
+    <a href="../coding/index.html">코딩천재</a>
     <a href="../learning/index.html">학습정보</a>
     <a class="sig-mobile-cta" href="../consult.html">무료 상담 신청</a>
   </nav>
@@ -151,32 +123,123 @@
 
 <main id="top">
 
-<!-- 1. 히어로 -->
-<section class="page-hero no-visual">
-  <div class="container page-hero-inner">
-    <div>
+<!-- 1. 히어로 ([78차] 최종 디자인: 배경+학생 이미지(images/visit-hero-final.png, 글자 없음) 위에 실제 HTML 글자·흰색 상담 버튼
+     · PC: 왼쪽 네이비 곡선 위 글자 / 오른쪽 학생 · 태블릿·모바일: 네이비 글자 영역 아래 이미지 · 이미지 파일은 원본 그대로 사용(webp는 같은 그림의 용량 축소판)) -->
+<section class="vs-hero-final" aria-labelledby="vsHeroTitle">
+  <div class="vs-hf-frame">
+    <picture class="vs-hf-img">
+      <source srcset="../images/visit-hero-final.webp" type="image/webp">
+      <img src="../images/visit-hero-final.png" alt="네이비·오렌지 곡선 배경 앞에서 교복을 입은 학생이 웃으며 손가락으로 가리키는 모습" width="1672" height="941" loading="eager" decoding="async" fetchpriority="high">
+    </picture>
+    <div class="vs-hf-text">
       <ol class="breadcrumb">
         <li><a href="../index.html">홈</a></li>
         <li>과외</li>
         <li>방문과외</li>
       </ol>
-      <span class="page-kicker">VISIT TUTORING</span>
-      <h1>집에서 집중하는 <em>초중고 1:1 방문과외</em></h1>
-      <p class="page-lead">선생님이 학생의 집으로 찾아가, 학생이 익숙한 공간에서 1:1로 수업합니다.<br>학년·과목·학습 수준과 목표를 상담에서 먼저 확인한 뒤 알맞은 수업 방향을 안내합니다.</p>
-      <div class="page-actions">
-        <a href="../consult.html" class="btn-navy">무료 상담 신청</a>
-        <a href="online.html" class="btn-line">화상과외 알아보기</a>
-      </div>
+      <span class="vs-hf-kicker">VISIT TUTORING</span>
+      <h1 id="vsHeroTitle">집에서 집중하는<br><em>1:1 방문과외</em></h1>
+      <p class="vs-hf-lead">학년·과목·학습 수준과 목표를 상담에서 먼저 확인한 뒤 알맞은 수업 방향을 안내합니다.</p>
+      <a class="vs-hf-btn" href="../consult.html">
+        <svg class="vs-hf-btn-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="15.5" cy="15" r="1.3"/></svg>
+        <span>시험수업 신청</span>
+        <svg class="vs-hf-btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- [79차] 섹션 순서: 대문 → 단계별 중요핵심 → 이런 학생에게 적합합니다 → 시그니처수업 → 수업은 이렇게 진행됩니다 → 주요 과목 → 비교 → FAQ -->
+<!-- 5. 학년별 안내 ([75차] 유아·초등·중등·고등 4개 이미지 카드 · 링크/'자세히 보기' 없음)
+     · 유아 사진: images/visit-grade-preschool.webp (한글·숫자·영어 카드로 공부하는 유아) -->
+<section class="page-section soft" id="by-grade">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">BY GRADE</div>
+      <h2>단계별 중요핵심</h2><!-- [76차] 제목 변경 (기존: 학년별 방문과외 안내) -->
+      <p>학년마다 필요한 공부가 다릅니다. 아래는 일반적인 학습 목표이며, 실제 수업 방향은 학생 상황에 맞춰 정합니다.</p>
+    </div>
+    <div class="vs-grade-grid">
+      <article class="vs-grade-card">
+        <div class="vs-grade-img"><img src="../images/visit-grade-preschool.webp" alt="유아가 집에서 숫자 블록과 한글·영어 카드로 즐겁게 공부하는 모습" width="800" height="600" loading="lazy" decoding="async"></div>
+        <div class="vs-grade-body">
+          <span class="vs-grade-tag">PRESCHOOL</span>
+          <h3>유아</h3>
+          <p>한글·수학·영어 기초와 학교생활 준비를 아이에게 맞는 속도로 진행합니다.</p>
+          <ul class="vs-grade-points">
+            <li>한글떼기·읽기쓰기</li>
+            <li>수 개념·기초수학</li>
+            <li>알파벳·기초 영어 표현</li>
+            <li>초등 입학 준비</li>
+          </ul>
+        </div>
+      </article>
+      <article class="vs-grade-card">
+        <div class="vs-grade-img"><img src="../images/visit-grade-elementary.webp" alt="초등학생이 선생님과 함께 책을 보며 공부하는 모습" width="800" height="600" loading="lazy" decoding="async"></div>
+        <div class="vs-grade-body">
+          <span class="vs-grade-tag">ELEMENTARY</span>
+          <h3>초등</h3>
+          <p>교과 기초를 탄탄히 하고 스스로 공부하는 습관을 만들어 갑니다.</p>
+          <ul class="vs-grade-points">
+            <li>기초 개념</li>
+            <li>읽기·연산</li>
+            <li>공부 습관 형성</li>
+          </ul>
+        </div>
+      </article>
+      <article class="vs-grade-card">
+        <div class="vs-grade-img"><img src="../images/visit-grade-middle.webp" alt="중학생이 책상에서 집중해 문제를 푸는 모습" width="800" height="600" loading="lazy" decoding="async"></div>
+        <div class="vs-grade-body">
+          <span class="vs-grade-tag">MIDDLE</span>
+          <h3>중등</h3>
+          <p>과목별 개념 이해를 바탕으로 학교 내신과 시험 준비를 시작합니다.</p>
+          <ul class="vs-grade-points">
+            <li>내신 기초</li>
+            <li>과목별 개념 정리</li>
+            <li>시험 대비</li>
+          </ul>
+        </div>
+      </article>
+      <article class="vs-grade-card">
+        <div class="vs-grade-img"><img src="../images/visit-grade-high.webp" alt="교복을 입은 고등학생이 내신과 수능 공부를 하는 모습" width="800" height="600" loading="lazy" decoding="async"></div>
+        <div class="vs-grade-body">
+          <span class="vs-grade-tag">HIGH</span>
+          <h3>고등</h3>
+          <p>내신과 수능 목표에 맞춰 과목별 학습 계획과 취약 단원을 관리합니다.</p>
+          <ul class="vs-grade-points">
+            <li>내신·수능</li>
+            <li>과목별 학습 계획</li>
+            <li>취약 단원 보완</li>
+          </ul>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- 2. 방문과외란? -->
-<section class="page-section">
+<!-- 3. 이런 학생에게 적합합니다 -->
+<section class="page-section" id="recommended">
   <div class="container">
     <div class="section-head center">
-      <div class="kicker">WHAT IS VISIT TUTORING</div>
-      <h2>방문과외란?</h2>
+      <div class="kicker">RECOMMENDED FOR</div>
+      <h2>이런 학생에게 적합합니다</h2>
+    </div>
+    <div class="check-grid">
+      <div class="check-item">학원 이동 시간을 줄이고 그 시간을 공부에 쓰고 싶은 학생</div>
+      <div class="check-item">여러 명이 듣는 수업보다 1:1 집중 수업이 필요한 학생</div>
+      <div class="check-item">학교 진도와 내신 대비를 함께 관리하고 싶은 학생</div>
+      <div class="check-item">공부 습관과 학습 태도를 함께 점검해야 하는 학생</div>
+      <div class="check-item">선생님과 마주 앉아 풀이 과정을 확인받을 때 집중이 잘 되는 학생</div>
+      <div class="check-item">질문을 바로 하기 어려워 개별 설명이 필요한 학생</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. 시그니처수업 ([79차] 기존 '방문과외란?' 섹션 · 제목 변경 + 3번째로 이동) -->
+<section class="page-section soft" id="signature-class">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">SIGNATURE CLASS</div>
+      <h2>시그니처수업</h2>
       <p>방문과외는 선생님이 학생의 집을 찾아가, 학생이 평소 공부하는 공간에서 마주 앉아 1:1로 진행하는 수업입니다.</p>
     </div>
     <div class="point-grid">
@@ -199,88 +262,25 @@
   </div>
 </section>
 
-<!-- 3. 이런 학생에게 적합합니다 -->
-<section class="page-section soft">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">RECOMMENDED FOR</div>
-      <h2>이런 학생에게 적합합니다</h2>
-    </div>
-    <div class="check-grid">
-      <div class="check-item">학원 이동 시간을 줄이고 그 시간을 공부에 쓰고 싶은 학생</div>
-      <div class="check-item">여러 명이 듣는 수업보다 1:1 집중 수업이 필요한 학생</div>
-      <div class="check-item">학교 진도와 내신 대비를 함께 관리하고 싶은 학생</div>
-      <div class="check-item">공부 습관과 학습 태도를 함께 점검해야 하는 학생</div>
-      <div class="check-item">선생님과 마주 앉아 풀이 과정을 확인받을 때 집중이 잘 되는 학생</div>
-      <div class="check-item">질문을 바로 하기 어려워 개별 설명이 필요한 학생</div>
-    </div>
-  </div>
-</section>
-
-<!-- 4. 수업 진행 과정 -->
-<section class="page-section">
+<!-- 4. 수업 진행 과정 ([75차] 과목과외와 같은 5단계 · 네이비/주황 원형 아이콘 · 점선 연결, 숫자 없음) -->
+<section class="page-section vs-process" id="process">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">PROCESS</div>
-      <h2>방문과외 진행 과정</h2>
-      <p>단계별 세부 일정은 학생 상황에 따라 달라질 수 있어 상담 시 확인 후 안내드립니다.</p>
+      <h2>수업은 이렇게 진행됩니다</h2>
     </div>
-    <ol class="step-flow" style="--steps: 5">
-      <li><strong>상담</strong><span>학년, 희망 과목, 수업 지역과 희망 일정을 확인합니다.</span></li>
-      <li><strong>학생 상황 확인</strong><span>현재 학습 수준, 고민, 목표를 함께 정리합니다.</span></li>
-      <li><strong>선생님 연결</strong><span>확인한 내용을 바탕으로 학생에게 맞는 선생님을 안내합니다.</span></li>
-      <li><strong>수업 진행</strong><span>정한 요일과 시간에 선생님이 방문해 1:1 수업을 진행합니다.</span></li>
-      <li><strong>학습 방향 점검</strong><span>수업 진행 상황을 살펴보며 필요한 부분의 학습 방향을 조정합니다.</span></li>
+    <ol class="flow-steps">
+      <li class="flow-step"><span class="flow-ico" aria-hidden="true"><span class="flow-ico-in"><svg viewBox="0 0 48 48"><path d="M10 26v-4a14 14 0 0 1 28 0v4"/><rect x="7" y="25" width="7" height="11" rx="3"/><rect x="34" y="25" width="7" height="11" rx="3"/><path d="M38 36c0 4-4 6-9 6h-3"/></svg></span></span><strong>상담 신청</strong><p>학생의 학년·과목·목표를 확인합니다.</p></li>
+      <li class="flow-step"><span class="flow-ico" aria-hidden="true"><span class="flow-ico-in"><svg viewBox="0 0 48 48"><rect x="10" y="5" width="28" height="38" rx="4"/><path d="M17 15l2.5 2.5L24 13M17 25l2.5 2.5L24 23M17 35l2.5 2.5L24 33"/><path d="M28 16h4M28 26h4M28 36h4"/></svg></span></span><strong>맞춤 수업 설계</strong><p>현재 수준과 목표에 맞춰 수업 방향을 정합니다.</p></li>
+      <li class="flow-step"><span class="flow-ico" aria-hidden="true"><span class="flow-ico-in"><svg viewBox="0 0 48 48"><circle cx="16" cy="16" r="6"/><circle cx="33" cy="16" r="6"/><path d="M4 38c0-7 5-11 12-11 4 0 7 1 9 4"/><path d="M27 33l4 4 9-10"/></svg></span></span><strong>선생님 매칭</strong><p>학생에게 맞는 선생님을 안내합니다.</p></li>
+      <li class="flow-step"><span class="flow-ico" aria-hidden="true"><span class="flow-ico-in"><svg viewBox="0 0 48 48"><rect x="8" y="6" width="24" height="34" rx="3"/><path d="M14 15h12M14 22h12M14 29h6"/><path d="M40 18 27 31l-2 6 6-2 13-13z"/></svg></span></span><strong>모의수업 및 피드백</strong><p>실제 수업 후 학습 방향을 다시 점검합니다.</p></li>
+      <li class="flow-step"><span class="flow-ico" aria-hidden="true"><span class="flow-ico-in"><svg viewBox="0 0 48 48"><path d="M8 40h32"/><path d="M14 34V26M24 34V18M34 34V12"/><path d="M28 12l6-6 6 6"/></svg></span></span><strong>학습 시작</strong><p>학생에게 맞춘 1:1 수업을 시작합니다.</p></li>
     </ol>
   </div>
 </section>
 
-<!-- 5. 학년별 안내 -->
-<section class="page-section soft">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">BY GRADE</div>
-      <h2>학년별 방문과외 안내</h2>
-      <p>학년마다 필요한 공부가 다릅니다. 아래는 일반적인 학습 목표이며, 실제 수업 방향은 학생 상황에 맞춰 정합니다.</p>
-    </div>
-    <!-- [6차] 학년 카드는 학년별 페이지(../grade/)로 연결 · [70차] 링크와 '자세히 보기' 삭제 (카드 내용만 안내, 학년 페이지 파일은 유지) -->
-    <div class="point-grid">
-      <div class="point-card">
-        <span class="point-num">ELEMENTARY</span>
-        <h3>초등</h3>
-        <p>교과 기초 개념을 탄탄히 하고, 스스로 공부하는 습관을 만드는 데 중점을 둡니다.</p>
-        <ul>
-          <li>연산·읽기 등 기초 학습</li>
-          <li>학교 진도에 맞춘 복습</li>
-          <li>공부 시간과 숙제 습관 잡기</li>
-        </ul>
-      </div>
-      <div class="point-card">
-        <span class="point-num">MIDDLE</span>
-        <h3>중등</h3>
-        <p>과목별 개념 이해를 바탕으로 학교 내신 시험에 대비하고, 고등 과정의 기본기를 쌓습니다.</p>
-        <ul>
-          <li>학교 진도와 내신 시험 대비</li>
-          <li>과목별 개념 정리와 문제 풀이</li>
-          <li>취약 단원 보완</li>
-        </ul>
-      </div>
-      <div class="point-card">
-        <span class="point-num">HIGH</span>
-        <h3>고등</h3>
-        <p>내신과 수능 등 학생의 목표에 맞춰 과목별 학습 계획을 세우고 부족한 부분을 보완합니다.</p>
-        <ul>
-          <li>내신 시험 일정에 맞춘 준비</li>
-          <li>목표에 맞춘 과목별 학습 계획</li>
-          <li>취약 유형·단원 집중 보완</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- 6. 주요 과목 -->
-<section class="page-section" id="visit-subjects">
+<section class="page-section soft" id="visit-subjects">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">SUBJECTS</div>
@@ -288,47 +288,25 @@
       <p>그 밖의 과목도 상담 시 수업 가능 여부를 확인해 안내드립니다.</p>
     </div>
     <!-- [5차·9차] 수학·영어·국어·과학 카드 모두 과목 페이지로 연결 · [70차] 7개 분류(국어·영어·수학·사회탐구·과학탐구·한국사·기타)로 확장, 카드 링크·'자세히 보기' 없이 내용만 안내 -->
-    <div class="point-grid cols-4 vs-subj-grid">
-      <div class="point-card vs-subj">
-        <h3>국어</h3>
-        <p>문학·독서·문법</p>
-        <span class="vs-subj-goal">내신·수능</span>
+    <!-- [77차] 주요 과목: 아이콘 카드 자동 슬라이드 (3.5초 · 한 칸씩 · 끝나면 처음으로 · 마우스 올리면 정지 · 좌우 화살표 · 모바일 스와이프) · 링크/'자세히 보기' 없음 -->
+    <div class="vs-subj-slider">
+      <button class="vs-subj-arrow is-prev" id="vsSubjPrev" type="button" aria-label="이전 과목"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <div class="vs-subj-track" id="vsSubjTrack">
+        <article class="vs-subj-card"><span class="vs-subj-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M6 10c6-3 12-3 18 1 6-4 12-4 18-1v28c-6-3-12-3-18 1-6-4-12-4-18-1z"/><path d="M24 11v28"/></svg></span><h3>국어</h3><p>문학·독서·문법</p><span class="vs-subj-goal">내신·수능</span></article>
+        <article class="vs-subj-card"><span class="vs-subj-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 9h32v23H22l-9 7v-7H8z"/><path d="M18 27l6-12 6 12M20.5 22h7"/></svg></span><h3>영어</h3><p>문법·독해·어휘</p><span class="vs-subj-goal">내신·수능</span></article>
+        <article class="vs-subj-card"><span class="vs-subj-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="11" y="5" width="26" height="38" rx="4"/><rect x="16" y="10" width="16" height="8" rx="1.5"/><path d="M17 27h6M20 24v6M27 27h5M17 36l5 0M27 34h5M27 38h5"/></svg></span><h3>수학</h3><p>개념·유형·문제풀이</p><span class="vs-subj-goal">내신·수능</span></article>
+        <article class="vs-subj-card"><span class="vs-subj-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><path d="M7 24h34M24 7c5 5 7 11 7 17s-2 12-7 17c-5-5-7-11-7-17s2-12 7-17z"/></svg></span><h3>사회탐구</h3><p>사회문화·생활과윤리 등</p><span class="vs-subj-goal">내신·수능</span></article>
+        <article class="vs-subj-card"><span class="vs-subj-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M19 6h10M21 6v12L10 38a3 3 0 0 0 2.6 4.5h22.8A3 3 0 0 0 38 38L27 18V6"/><path d="M15 31h18"/></svg></span><h3>과학탐구</h3><p>물리·화학·생명과학·지구과학</p><span class="vs-subj-goal">내신·수능</span></article>
+        <article class="vs-subj-card"><span class="vs-subj-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M5 18c6 0 12-5 19-10 7 5 13 10 19 10"/><path d="M10 18v4h28v-4"/><path d="M13 22v18M35 22v18M8 40h32M20 40V30h8v10"/></svg></span><h3>한국사</h3><p>학교 내신</p><span class="vs-subj-goal">수능 한국사</span></article>
+        <article class="vs-subj-card is-etc"><span class="vs-subj-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 6l5.5 11.2 12.3 1.8-8.9 8.7 2.1 12.3L24 34.2 13 40l2.1-12.3-8.9-8.7 12.3-1.8z"/></svg></span><h3>기타 내신·수능 과목</h3><p>학생 상황에 따라 상담 후 안내</p><span class="vs-subj-goal is-soft">상담 후 안내</span></article>
       </div>
-      <div class="point-card vs-subj">
-        <h3>영어</h3>
-        <p>문법·독해·어휘</p>
-        <span class="vs-subj-goal">내신·수능</span>
-      </div>
-      <div class="point-card vs-subj">
-        <h3>수학</h3>
-        <p>개념·유형·문제풀이</p>
-        <span class="vs-subj-goal">내신·수능</span>
-      </div>
-      <div class="point-card vs-subj">
-        <h3>사회탐구</h3>
-        <p>사회문화·생활과윤리 등</p>
-        <span class="vs-subj-goal">내신·수능</span>
-      </div>
-      <div class="point-card vs-subj">
-        <h3>과학탐구</h3>
-        <p>물리·화학·생명과학·지구과학</p>
-        <span class="vs-subj-goal">내신·수능</span>
-      </div>
-      <div class="point-card vs-subj">
-        <h3>한국사</h3>
-        <p>학교 내신</p>
-        <span class="vs-subj-goal">수능 한국사</span>
-      </div>
-      <div class="point-card vs-subj is-etc">
-        <h3>기타 내신·수능 과목</h3>
-        <p>학생 상황에 따라 상담 후 안내</p>
-      </div>
+      <button class="vs-subj-arrow is-next" id="vsSubjNext" type="button" aria-label="다음 과목"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 </section>
 
-<!-- 7. 방문과외와 화상과외 비교 -->
-<section class="page-section soft">
+<!-- 7. 방문과외와 화상과외 비교 ([75차] FAQ 바로 위로 이동 · 가운데 정렬 강조 섹션 · 모바일은 항목별 카드 · '화상과외 자세히 보기' 삭제) -->
+<section class="page-section vs-compare" id="compare">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">COMPARE</div>
@@ -341,15 +319,14 @@
           <tr><th scope="col">구분</th><th scope="col">방문과외</th><th scope="col">화상과외</th></tr>
         </thead>
         <tbody>
-          <tr><th scope="row">수업 장소</th><td>학생의 집에서 대면 수업</td><td>각자의 공간에서 화상 프로그램으로 실시간 수업</td></tr>
-          <tr><th scope="row">이동</th><td>선생님이 방문하므로 학생 이동 없음</td><td>학생과 선생님 모두 이동 없음</td></tr>
-          <tr><th scope="row">수업 지역</th><td>선생님 배정 상황에 따라 상담 시 확인</td><td>인터넷 연결이 가능하면 지역 제약이 적음</td></tr>
-          <tr><th scope="row">준비할 것</th><td>책상과 조용한 공부 공간</td><td>기기, 카메라·마이크, 안정적인 인터넷</td></tr>
-          <tr><th scope="row">잘 맞는 학생</th><td>마주 앉아 풀이 과정을 함께 확인할 때 집중이 잘 되는 학생</td><td>이동이 부담되거나 지역에 관계없이 수업을 원하는 학생</td></tr>
+          <tr><th scope="row">수업 장소</th><td data-label="방문과외">학생의 집에서 대면 수업</td><td data-label="화상과외">각자의 공간에서 화상 프로그램으로 실시간 수업</td></tr>
+          <tr><th scope="row">이동</th><td data-label="방문과외">선생님이 방문하므로 학생 이동 없음</td><td data-label="화상과외">학생과 선생님 모두 이동 없음</td></tr>
+          <tr><th scope="row">수업 지역</th><td data-label="방문과외">선생님 배정 상황에 따라 상담 시 확인</td><td data-label="화상과외">인터넷 연결이 가능하면 지역 제약이 적음</td></tr>
+          <tr><th scope="row">준비할 것</th><td data-label="방문과외">책상과 조용한 공부 공간</td><td data-label="화상과외">기기, 카메라·마이크, 안정적인 인터넷</td></tr>
+          <tr><th scope="row">잘 맞는 학생</th><td data-label="방문과외">마주 앉아 풀이 과정을 함께 확인할 때 집중이 잘 되는 학생</td><td data-label="화상과외">이동이 부담되거나 지역에 관계없이 수업을 원하는 학생</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="section-more"><a href="online.html">화상과외 자세히 보기 →</a></div>
     <!-- [7차] 관련 학습정보 -->
     <div class="post-related related-info">
       <strong>관련 학습정보</strong>
@@ -360,25 +337,9 @@
   </div>
 </section>
 
-<!-- 8. 선생님 배정 안내 -->
-<section class="page-section">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">TEACHER MATCHING</div>
-      <h2>선생님 배정 안내</h2>
-      <p>상담에서 확인한 내용을 바탕으로 학생에게 맞는 선생님을 안내합니다.</p>
-    </div>
-    <div class="check-grid">
-      <div class="check-item">학생의 학년과 희망 과목</div>
-      <div class="check-item">현재 학습 수준과 목표</div>
-      <div class="check-item">학생의 성향과 희망하는 수업 스타일</div>
-      <div class="check-item">희망 요일·시간대와 수업 지역</div>
-    </div>
-    <p class="note-box">구체적인 배정 절차와 기준은 상담 시 확인 후 안내드립니다.</p>
-  </div>
-</section>
+<!-- [75차] '선생님 배정 안내(TEACHER MATCHING)' 섹션 삭제 -->
 
-<!-- 9. FAQ (FAQPage 구조화데이터와 문구 동일하게 유지) -->
+<!-- 9. FAQ (FAQPage 구조화데이터와 문구 동일하게 유지 · [76차] 3개만 유지: 지역 · 수업 시간 · 선생님 변경) -->
 <section class="page-section soft" id="faq">
   <div class="container">
     <div class="section-head center">
@@ -387,11 +348,8 @@
     </div>
     <div class="faq-list">
       <details><summary>방문과외는 어떤 지역에서 가능한가요?</summary><div class="faq-answer">방문과외 가능 지역은 선생님 배정 상황에 따라 달라질 수 있어 상담 시 확인 후 안내드립니다. 방문이 어려운 지역이라면 화상과외로 수업하는 방법도 함께 안내드립니다.</div></details>
-      <details><summary>집에서 어떤 공간을 준비해야 하나요?</summary><div class="faq-answer">학생과 선생님이 함께 교재를 펼쳐 볼 수 있는 책상과 의자, 수업에 집중할 수 있는 조용한 공간이 있으면 됩니다. 학생이 평소 공부하는 책상이나 거실 테이블 등 가정 상황에 맞는 곳에서 진행하실 수 있습니다.</div></details>
       <details><summary>수업 시간은 어떻게 정하나요?</summary><div class="faq-answer">수업 요일과 시간은 학생의 학교·학원 일정과 희망 시간대, 선생님 일정을 함께 고려해 정합니다. 주당 수업 횟수와 1회 수업 시간 등 구체적인 사항은 상담 시 확인 후 안내드립니다.</div></details>
       <details><summary>선생님 변경이 가능한가요?</summary><div class="faq-answer">수업을 진행하면서 학생과 선생님이 잘 맞지 않는다고 느끼신다면 상담을 통해 변경을 요청하실 수 있습니다. 변경 절차와 소요 기간은 상담 시 확인 후 안내드립니다.</div></details>
-      <details><summary>방문과외와 화상과외 중 어떤 방식이 적합한가요?</summary><div class="faq-answer">선생님과 마주 앉아 풀이 과정을 함께 확인할 때 집중이 잘 되는 학생에게는 방문과외가, 방문 일정을 맞추기 어렵거나 지역에 관계없이 수업을 받고 싶은 경우에는 화상과외가 잘 맞을 수 있습니다. 학생의 성향과 일정에 맞는 방식을 상담에서 함께 정합니다.</div></details>
-      <details><summary>무료수업을 받을 수 있나요?</summary><div class="faq-answer">시그니처과외의 주요 수업은 무료수업이 가능합니다. 구체적인 진행 방식과 조건은 상담 시 안내드립니다.</div></details>
     </div>
   </div>
 </section>

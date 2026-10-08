@@ -401,3 +401,27 @@ nav.innerHTML=
 '<a class="sf-trial" href="'+consult+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.2 6.3L20.5 10l-6.3 2.2L12 18.5l-2.2-6.3L3.5 10l6.3-1.7z"/><path d="M19 15l.9 2.6 2.6.9-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9z"/></svg>시범수업 신청</a>'+
 '<a class="sf-phone" href="tel:01058701109" title="010-5870-1109"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>전화상담</a>';
 document.body.appendChild(nav);document.body.classList.add('has-sig-float');})();
+
+/* [77차] 방문과외: 주요 과목 아이콘 카드 자동 슬라이드 (#vsSubjTrack · 3.5초마다 한 칸, 끝이면 처음으로 · 마우스·포커스·터치 중 정지 · 좌우 화살표) */
+(function(){var t=document.getElementById('vsSubjTrack');if(!t)return;
+var cards=t.querySelectorAll('.vs-subj-card');if(cards.length<2)return;
+function pos(k){return cards[k].offsetLeft-cards[0].offsetLeft;}
+function cur(){var x=t.scrollLeft,b=0,d=1e9;for(var k=0;k<cards.length;k++){var e=Math.abs(pos(k)-x);if(e<d){d=e;b=k;}}return b;}
+function go(dir){var max=t.scrollWidth-t.clientWidth,k=cur()+dir;
+if(dir>0&&t.scrollLeft>=max-4)k=0;else if(dir<0&&t.scrollLeft<=4)k=-1;
+var x=k<0?max:Math.min(pos(k),max);t.scrollTo({left:x,behavior:'smooth'});}
+var timer=null,paused=false;
+function start(){stop();timer=setInterval(function(){if(!paused&&!document.hidden)go(1);},3500);}
+function stop(){if(timer)clearInterval(timer);timer=null;}
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var prev=document.getElementById('vsSubjPrev'),next=document.getElementById('vsSubjNext');
+if(next)next.addEventListener('click',function(){go(1);if(!reduce)start();});
+if(prev)prev.addEventListener('click',function(){go(-1);if(!reduce)start();});
+var box=t.parentNode;
+box.addEventListener('mouseenter',function(){paused=true;});
+box.addEventListener('mouseleave',function(){paused=false;});
+box.addEventListener('focusin',function(){paused=true;});
+box.addEventListener('focusout',function(){paused=false;});
+t.addEventListener('touchstart',function(){paused=true;},{passive:true});
+t.addEventListener('touchend',function(){setTimeout(function(){paused=false;},4000);},{passive:true});
+if(!reduce)start();})();

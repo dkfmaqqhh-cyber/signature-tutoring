@@ -6231,3 +6231,38 @@ body.page-visit .cta-band .btn-gold { background: var(--v-yellow); border-color:
   .vs-hf-img img { aspect-ratio: 4 / 3; object-fit: cover; object-position: 88% 0; }
   .vs-hf-img { margin-top: -18px; }
 }
+
+/* ---------- [80차] 방문과외: '이런 학생에게 적합합니다' 이미지+체크 2열 · 단계별 카드 가운데 정렬·글씨 확대 / 과목과외: 수업 방식 '방문과외·화상과외 더 보기' 링크 강조
+   되돌리기: 이 블록 삭제 + backup/80차수정전 파일 복원 + images/visit-fit-students.png 삭제 */
+.vs-fit { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; align-items: center; }
+.vs-fit-img { margin: 0; overflow: hidden; border-radius: 22px; box-shadow: 0 14px 30px rgba(16, 42, 75, 0.1); }
+.vs-fit-img img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 30%; }
+.vs-fit .check-grid { grid-template-columns: 1fr; gap: 10px; }
+body.page-visit main .vs-fit .check-item { padding: 15px 20px; font-size: 17px; border-radius: 16px; }
+/* 단계별 중요핵심 카드: 전체 가운데 정렬 · 글씨 확대 · 체크 문구 강조 */
+.vs-grade-body { align-items: center; padding: 24px 20px 26px; text-align: center; }
+.vs-grade-tag { align-self: center; }
+.vs-grade-body h3 { margin: 12px 0 10px; font-size: 25px; font-weight: 800; }
+.vs-grade-body p { min-height: calc(1.65em * 3); font-size: 17.5px; line-height: 1.65; }
+.vs-grade-points { justify-items: center; gap: 9px; width: 100%; margin-top: 14px; padding-top: 16px; }
+.vs-grade-points li { justify-content: center; gap: 7px; font-size: 19px; font-weight: 800; line-height: 1.4; word-break: keep-all; }
+.vs-grade-points li::before { font-size: 16px; line-height: 1.6; }
+/* 과목과외 수업 방식 카드 하단 링크 */
+body.page-sj #lesson-mode .lm-body .point-card-more { display: inline-flex; align-items: center; gap: 8px; padding: 12px 2px 4px; color: #0e1c33; font-size: 19.5px; font-weight: 800; letter-spacing: -0.02em; }
+body.page-sj #lesson-mode .lm-more-arrow { display: inline-block; font-size: 22px; font-weight: 900; line-height: 1; transition: transform 0.2s; }
+body.page-sj #lesson-mode .lm-body .point-card-more:hover .lm-more-arrow { transform: translateX(4px); }
+@media (max-width: 980px) {
+  .vs-fit { grid-template-columns: 1fr; gap: 26px; }
+  .vs-fit-img { max-width: 680px; margin: 0 auto; }
+}
+@media (max-width: 640px) {
+  .vs-fit-img { border-radius: 18px; }
+  .vs-fit-img img { aspect-ratio: 16 / 10; }
+  body.page-visit main .vs-fit .check-item { padding: 14px 16px; font-size: 16px; }
+  .vs-grade-body h3 { font-size: 21px; }
+  .vs-grade-body p { min-height: 0; font-size: 16px; }
+  .vs-grade-points li { font-size: 17px; }
+  .vs-grade-points li::before { font-size: 15px; }
+  body.page-sj #lesson-mode .lm-body .point-card-more { font-size: 17.5px; }
+  body.page-sj #lesson-mode .lm-more-arrow { font-size: 19px; }
+}

@@ -6,6 +6,13 @@
    ===================================================================== */
 const CONSULT_API_URL = "https://script.google.com/macros/s/AKfycbxe_OFPl8e0mHqatLVoC_YcDBRul4QJBqozwvtEmB85cFYutmlGTQ2T118611EMh-B5/exec";
 
+/* [97차] 상담 접수 → Make Webhook → Discord 상담문의 채널
+   Make 시나리오의 Custom webhook 주소(https://hook.○○○.make.com/...)를 아래 따옴표 안에 붙여 넣으세요.
+   주소가 들어 있으면 상담폼은 Make로만 전송합니다(Google Sheets 전송 중단).
+   기본값(placeholder) 그대로이면 기존처럼 위 CONSULT_API_URL(Google Sheets)로 전송합니다.
+   ※ Discord Webhook 주소는 홈페이지에 넣지 말고 Make 시나리오 안에서만 사용하세요. */
+const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/pmov2v7wclcd95n8esvydrp6c16tadel";
+
 window.addEventListener("load",function(){
   if(!location.hash){window.scrollTo(0,0);}
 });
@@ -150,8 +157,25 @@ window.addEventListener("load", function(){
   var MSG_NOT_CONNECTED = '상담 접수 주소가 아직 연결되지 않았습니다. 입력하신 내용은 전송되거나 저장되지 않았습니다.';
   var MSG_SUCCESS = '상담 신청이 접수되었습니다. 확인 후 안내드리겠습니다.';
   var MSG_FAIL = '상담 접수 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.';
+  var MSG_MAKE_SUCCESS = '상담 신청이 접수되었습니다.'; /* [97차] */
+  var MSG_MAKE_FAIL = '접수 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.';
+  var MSG_REPEAT = '방금 상담 신청이 접수되었습니다. 추가 문의는 잠시 후 다시 신청하시거나 전화로 연락해 주세요.';
+  var REPEAT_MS = 60000; /* [97차] 접수 성공 후 1분 안의 반복 제출 차단 */
+  var REPEAT_KEY = 'sigConsultLastSent';
+  var lastSentAt = 0;
+  var makeUrl = typeof MAKE_WEBHOOK_URL === 'string' ? MAKE_WEBHOOK_URL.trim() : '';
+  var useMake = /^https:\/\/hook\.[a-z0-9.-]*make\.com\/[A-Za-z0-9_-]+$/.test(makeUrl);
   var apiUrl = typeof CONSULT_API_URL === 'string' ? CONSULT_API_URL.trim() : '';
-  var apiReady = /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(apiUrl);
+  var apiReady = useMake || /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(apiUrl);
+  function getLastSent() {
+    var t = lastSentAt;
+    try { t = Math.max(t, Number(localStorage.getItem(REPEAT_KEY)) || 0); } catch (e) {}
+    return t;
+  }
+  function setLastSent() {
+    lastSentAt = Date.now();
+    try { localStorage.setItem(REPEAT_KEY, String(lastSentAt)); } catch (e) {}
+  }
 
   form.noValidate = true; /* JS가 동작하면 브라우저 기본 말풍선 대신 아래 안내 문구로 확인 */
   function show(type, text) {
@@ -222,6 +246,28 @@ window.addEventListener("load", function(){
     };
   }
 
+  /* [97차] Make Webhook 전송 데이터: 기본 6개(name·phone·grade·subject·region·message) + 수업방식·접수 페이지·제출 시간 */
+  function kstNow() {
+    var d = new Date(Date.now() + 9 * 3600000);
+    function p(n) { return (n < 10 ? '0' : '') + n; }
+    return d.getUTCFullYear() + '-' + p(d.getUTCMonth() + 1) + '-' + p(d.getUTCDate()) + ' ' +
+      p(d.getUTCHours()) + ':' + p(d.getUTCMinutes()) + ':' + p(d.getUTCSeconds()) + ' (KST)';
+  }
+  function buildMakePayload() {
+    return {
+      name: f.name.value.trim(),
+      phone: f.phone.value.trim(),
+      grade: f.grade.value,
+      subject: f.subject.value.trim(),
+      region: f.region.value.trim(),
+      message: f.message.value.trim(),
+      lesson_type: f.mode.value,
+      page_url: location.href,
+      page_title: document.title,
+      submitted_at: kstNow()
+    };
+  }
+
   function setSubmitting(on) {
     submitting = on;
     if (!submitBtn) return;
@@ -262,9 +308,37 @@ window.addEventListener("load", function(){
     /* 접수 주소(placeholder) 미연결: 네트워크 요청을 보내지 않음 */
     if (!apiReady) return show('info', MSG_NOT_CONNECTED);
 
+    /* [97차] 스팸 방지: 접수 성공 직후 반복 제출 차단 */
+    if (Date.now() - getLastSent() < REPEAT_MS) return show('info', MSG_REPEAT);
+
     setSubmitting(true);
     var ctrl = window.AbortController ? new AbortController() : null;
     var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, TIMEOUT_MS) : null;
+
+    /* [97차] Make Webhook 연결 시: JSON(UTF-8)으로 Make에만 전송. Make는 정상 수신 시 200 "Accepted"를 돌려줌 */
+    if (useMake) {
+      fetch(makeUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        body: JSON.stringify(buildMakePayload()),
+        signal: ctrl ? ctrl.signal : undefined
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('http');
+          setLastSent();
+          resetAfterSuccess();
+          show('success', MSG_MAKE_SUCCESS);
+        })
+        .catch(function () {
+          show('error', MSG_MAKE_FAIL); /* 입력 내용 유지 */
+        })
+        .then(function () {
+          if (timer) clearTimeout(timer);
+          setSubmitting(false);
+        });
+      return;
+    }
+
     /* Apps Script 웹 앱은 CORS 사전 요청(OPTIONS)을 처리하지 않으므로 text/plain으로 JSON을 보냄 */
     fetch(apiUrl, {
       method: 'POST',
@@ -278,6 +352,7 @@ window.addEventListener("load", function(){
       })
       .then(function (data) {
         if (data && data.success === true) {
+          setLastSent();
           resetAfterSuccess();
           show('success', MSG_SUCCESS);
         } else {

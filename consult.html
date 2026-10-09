@@ -81,7 +81,9 @@
   <div class="container">
     <div class="consult-layout">
 
-      <!-- [14.5차] 접수는 Google Sheets(Apps Script 웹 앱)로 전송합니다. js/script.js 맨 위 CONSULT_API_URL에 웹 앱 주소를 넣어야 실제 전송되며, 기본값이면 전송하지 않습니다. 연결 방법: docs/상담접수_구글시트_연결방법.txt -->
+      <!-- [14.5차] 접수는 Google Sheets(Apps Script 웹 앱)로 전송합니다. js/script.js 맨 위 CONSULT_API_URL에 웹 앱 주소를 넣어야 실제 전송되며, 기본값이면 전송하지 않습니다. 연결 방법: docs/상담접수_구글시트_연결방법.txt
+           [97차] js/script.js의 MAKE_WEBHOOK_URL에 Make 주소를 넣으면 Make Webhook(→ Discord 상담문의 채널)으로만 전송합니다. -->
+
       <form class="consult-form" id="consultForm" method="post" autocomplete="on">
         <h2>상담 신청서</h2>
         <p><span class="req" aria-hidden="true">*</span> 표시는 필수 입력 항목입니다.</p>

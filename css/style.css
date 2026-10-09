@@ -6792,3 +6792,219 @@ body.page-area .ar-info .section-head { margin-bottom: 30px; }
   .ar-cta-box p { font-size: 15.5px; }
   .ar-cta-btn { width: 90%; }
 }
+
+/* ---------- [108차] 시·도 지역 페이지 표준 템플릿(body.page-region, 첫 페이지 /area/seoul/): 대문(H1+CTA) · 구 카드(PC 5열·모바일 2열, 대표 동 표시) · 학년 4카드 · 수업 분야 4카드 · 방문/화상 2카드 · 학부모 질문 8개 · 관련 링크 · CTA · 최종 업데이트
+   (.ar-hero / .ar-region / .ar-links / .ar-cta 등 /area/ 허브 스타일 재사용)  되돌리기: 이 블록 삭제 + area/seoul/ 삭제 */
+.rg-hero { padding: 38px 0 44px; }
+.rg-hero h1 { margin-bottom: 10px; }
+.rg-hero-q { margin: 0 0 8px; color: var(--v-yellow, #f4c84a); font-size: 21px; font-weight: 800; letter-spacing: -0.02em; word-break: keep-all; }
+.rg-hero .ar-lead { font-size: 17px; }
+.rg-hero-btn { margin-top: 22px; }
+body.page-region .ar-regions .section-head, body.page-region main .page-section .section-head { margin-bottom: 28px; }
+body.page-region main .page-section .section-head h2 { word-break: keep-all; }
+.rg-gu-grid > li { flex-basis: calc((100% - 56px) / 5); }
+.ar-region.rg-gu { gap: 5px; min-height: 112px; padding: 16px 10px 14px; }
+.ar-region.rg-gu strong { font-size: 22px; }
+.ar-region.rg-gu em { color: #6f7684; font-size: 13.5px; font-style: normal; font-weight: 600; line-height: 1.45; word-break: keep-all; }
+.ar-region.rg-gu small { margin-top: 2px; padding: 2px 8px; border-radius: 999px; background: #f3efe7; color: #8a8f99; font-size: 11px; }
+body.page-region main .rg-grades { background: #fff; }
+.rg-grade-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; max-width: 1040px; margin: 0 auto; padding: 0; list-style: none; }
+.rg-grade { display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 0; padding: 24px 18px; border: 1px solid #ece4d6; border-top: 4px solid var(--rg-c, #f4c84a); border-radius: 18px; background: #fffdf8; text-align: center; }
+.rg-grade::before { content: none; display: none; }
+.rg-grade.is-ele { --rg-c: #3d7be0; } .rg-grade.is-mid { --rg-c: #1fae86; } .rg-grade.is-high { --rg-c: #f0743f; }
+.rg-grade h3 { margin: 0; color: #16233a; font-size: 20px; font-weight: 900; letter-spacing: -0.03em; }
+.rg-grade p { margin: 0; color: #4e5a6b; font-size: 15px; line-height: 1.55; word-break: keep-all; }
+.rg-ico { display: grid; place-items: center; flex: none; width: 52px; height: 52px; border-radius: 15px; background: #fff; box-shadow: 0 4px 12px rgba(16, 42, 75, 0.07); }
+.rg-ico svg { width: 30px; height: 30px; }
+.rg-ico .ac { stroke: var(--v-orange, #f15a32); }
+body.page-region main .rg-fields { background: #f3f7fc; }
+.rg-field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 1040px; margin: 0 auto; }
+.rg-field { display: flex; flex-direction: column; gap: 14px; padding: 22px 24px; border: 1px solid rgba(16, 42, 75, 0.07); border-radius: 18px; background: #fff; }
+.rg-field.is-school { background: #f1f6fd; } .rg-field.is-basic { background: #fffaea; } .rg-field.is-lang { background: #eefaf6; } .rg-field.is-special { background: #fff3ec; }
+.rg-field-head { display: flex; align-items: center; gap: 14px; }
+.rg-field-head h3 { margin: 0; color: #16233a; font-size: 21px; font-weight: 900; letter-spacing: -0.03em; }
+.rg-field .tu-area-tags li { padding: 7px 14px; font-size: 15px; font-weight: 700; }
+body.page-region main .rg-modes { background: #fff; }
+.rg-mode-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 860px; margin: 0 auto; }
+.rg-mode { display: flex; flex-direction: column; gap: 14px; padding: 22px 24px; border: 1px solid #e8edf3; border-top: 4px solid var(--v-navy, #102a4b); border-radius: 18px; background: #fff; box-shadow: 0 10px 24px rgba(16, 42, 75, 0.05); }
+.rg-mode.is-online { border-top-color: var(--v-orange, #f15a32); }
+.rg-checks { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.rg-checks li { position: relative; margin: 0; padding-left: 28px; color: #28364e; font-size: 16px; font-weight: 700; line-height: 1.5; word-break: keep-all; }
+.rg-checks li::before { content: "✓"; position: absolute; left: 0; top: 1px; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--v-yellow-soft, #fff3c4); color: var(--v-navy, #102a4b); font-size: 11px; font-weight: 900; }
+.rg-mode.is-online .rg-checks li::before { background: #ffe6dd; color: #b9401f; }
+.rg-more { margin: 22px 0 0; text-align: center; }
+.rg-more a { color: var(--v-navy, #102a4b); font-size: 16px; font-weight: 800; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(16, 42, 75, 0.3); }
+.rg-more a:hover { color: #c8461f; }
+body.page-region main .rg-faq { background: #faf7f1; }
+.rg-faq-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; max-width: 1040px; margin: 0 auto; }
+.rg-faq-item { padding: 22px 24px; border: 1px solid #ece4d6; border-radius: 16px; background: #fff; }
+.rg-faq-item h3 { position: relative; margin: 0 0 10px; padding-left: 30px; color: #16233a; font-size: 17.5px; font-weight: 800; line-height: 1.45; letter-spacing: -0.02em; word-break: keep-all; }
+.rg-faq-item h3::before { content: "Q"; position: absolute; left: 0; top: 0; color: var(--v-orange, #f15a32); font-weight: 900; }
+.rg-faq-item p { margin: 0; padding-left: 30px; color: #3e4a5c; font-size: 15.5px; line-height: 1.75; word-break: keep-all; }
+.rg-related { padding: 34px 0 38px; background: #fff; }
+.rg-related .ar-links { margin-top: 0; }
+.rg-updated { padding: 16px 0; background: #fff; border-top: 1px solid #eef0f4; }
+.rg-updated p { margin: 0; color: #8a8f99; font-size: 13.5px; text-align: center; }
+/* /area/ 허브에서 페이지가 열린 지역 카드(a.ar-region)는 골드 테두리로 구분 */
+a.ar-region { border-color: #e9cf8f; }
+@media (max-width: 980px) {
+  .rg-gu-grid > li { flex-basis: calc((100% - 42px) / 4); }
+  .rg-grade-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .rg-field-grid, .rg-mode-grid, .rg-faq-grid { grid-template-columns: 1fr; gap: 12px; }
+}
+@media (max-width: 640px) {
+  .rg-hero { padding: 28px 0 34px; }
+  .rg-hero-q { font-size: 17.5px; }
+  .rg-hero .ar-lead { font-size: 15.5px; }
+  .rg-hero-btn { width: 90%; margin-top: 18px; }
+  body.page-region .ar-regions .section-head, body.page-region main .page-section .section-head { margin-bottom: 22px; }
+  .rg-gu-grid > li { flex-basis: calc((100% - 10px) / 2); }
+  .ar-region.rg-gu { min-height: 100px; padding: 14px 8px 12px; }
+  .ar-region.rg-gu strong { font-size: 20px; }
+  .ar-region.rg-gu em { font-size: 12.5px; }
+  .rg-grade-grid { gap: 10px; }
+  .rg-grade { gap: 8px; padding: 18px 12px; }
+  .rg-grade h3 { font-size: 18px; }
+  .rg-grade p { font-size: 14px; }
+  .rg-ico { width: 46px; height: 46px; border-radius: 13px; }
+  .rg-ico svg { width: 26px; height: 26px; }
+  .rg-field, .rg-mode { gap: 12px; padding: 18px 16px; }
+  .rg-field-head h3 { font-size: 19px; }
+  .rg-field .tu-area-tags li { padding: 6px 12px; font-size: 14px; }
+  .rg-checks li { font-size: 15px; }
+  .rg-faq-item { padding: 18px 16px; }
+  .rg-faq-item h3 { font-size: 16.5px; padding-left: 26px; }
+  .rg-faq-item p { font-size: 15px; padding-left: 0; }
+  .rg-related { padding: 26px 0 30px; }
+}
+
+/* ---------- [109차] 지역 페이지(/area/, /area/seoul/) 대문을 크림 배경 + 네이비 제목 + 골드 포인트로 · 지역 카드 색상 통일 · 서울 방문/화상 섹션 삭제(HTML)
+   색상: 배경 #FBF8F2 / 제목 #10233F / 라벨·포인트 #C99A3D / 설명 #6B7280 / 카드 #FFFFFF·테두리 #E5E7EB / 상담 버튼 #10233F·#FFFFFF
+   되돌리기: 이 블록 삭제 + backup/109차수정전 파일 복원 */
+.ar-hero { padding: 34px 0 38px; background: #FBF8F2; color: #10233F; border-bottom: 1px solid #EFE8DA; }
+.ar-hero h1 { color: #10233F; }
+.ar-kicker { color: #C99A3D; }
+.ar-kicker::before, .ar-kicker::after { background: rgba(201, 154, 61, 0.55); }
+.ar-lead { color: #6B7280; }
+.ar-hero .ar-breadcrumb { color: #6B7280; }
+.ar-hero .ar-breadcrumb a { color: #10233F; }
+.ar-hero .ar-breadcrumb li + li::before { color: #C9C2B3; }
+.rg-hero { padding: 32px 0 38px; }
+.rg-hero-q { color: #10233F; font-size: 20px; font-weight: 800; }
+.ar-cta-btn.rg-hero-btn { background: #10233F; color: #FFFFFF; box-shadow: 0 10px 22px rgba(16, 35, 63, 0.18); }
+.ar-cta-btn.rg-hero-btn:hover, .ar-cta-btn.rg-hero-btn:focus-visible { background: #1c3a63; color: #FFFFFF; }
+.ar-region { border-color: #E5E7EB; background: #FFFFFF; }
+a.ar-region { border-color: #E5E7EB; }
+a.ar-region:hover, a.ar-region:focus-visible { border-color: #C99A3D; background: #FFFCF5; }
+.ar-region strong, .ar-region.is-soon strong { color: #10233F; }
+.ar-region.rg-gu em { color: #6B7280; }
+.ar-region small, .ar-region.rg-gu small { margin-top: 2px; padding: 2px 9px; border-radius: 999px; background: #F4F1EA; color: #7A6A4B; font-size: 11.5px; font-weight: 700; }
+a.ar-region small { border: 1px solid #E6C873; background: #FFF4D6; color: #8A6A1F; }
+@media (max-width: 640px) {
+  .ar-hero { padding: 24px 0 28px; }
+  .ar-hero .ar-breadcrumb { margin-bottom: 10px; }
+  .rg-hero { padding: 24px 0 28px; }
+  .rg-hero-q { font-size: 17px; }
+}
+
+/* ---------- [110차] 지역 페이지(/area/, /area/seoul/): 밝은 노랑 포인트(#F4C542) · /area/ 시·도 카드 PC 4열 · 지역+과목(.ar-topic) · 세분화 4단계(.ar-step) · 서울 '많이 찾는 수업'
+   색상: 대문 #FBF8F2 / 제목 #10233F / 포인트 #F4C542 / 설명 #6B7280 / 카드 #FFFFFF·테두리 #E5E7EB
+   되돌리기: 이 블록 삭제 + backup/110차수정전 파일 복원 */
+.ar-kicker { gap: 0; padding: 5px 14px; border-radius: 999px; background: #F4C542; color: #10233F; font-size: 12.5px; letter-spacing: 0.14em; }
+.ar-kicker::before, .ar-kicker::after { content: none; display: none; }
+.ar-hero h1 { margin-top: 14px; }
+.ar-cta-btn { background: #F4C542; color: #10233F; }
+.ar-cta-btn:hover, .ar-cta-btn:focus-visible { background: #f7d264; color: #10233F; }
+.ar-region em { color: #6B7280; font-size: 13.5px; font-style: normal; font-weight: 600; line-height: 1.45; word-break: keep-all; }
+a.ar-region small { border-color: #F4C542; background: #FFF4CC; color: #10233F; }
+a.ar-region:hover, a.ar-region:focus-visible { border-color: #F4C542; background: #FFFCF0; }
+body.page-area main .ar-regions { background: #FFFFFF; }
+.ar-sido-grid > li { flex-basis: calc((100% - 42px) / 4); }
+.ar-sido-grid .ar-region { min-height: 104px; }
+.ar-region-grid > li { display: flex; }
+.ar-region-grid > li > .ar-region { flex: 1 1 auto; width: 100%; } /* 같은 줄 카드 높이 맞춤(서울 카드가 더 길어도 줄 전체가 같은 높이) */
+.ar-topics, body.page-area main .ar-topics { background: #FBF8F2; }
+.ar-topic-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 900px; margin: 0 auto; padding: 0; list-style: none; }
+.ar-topic-list > li { margin: 0; }
+.ar-topic-list > li::before { content: none; display: none; }
+.ar-topic { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border: 1px solid #E5E7EB; border-radius: 999px; background: #FFFFFF; color: #10233F; font-size: 16px; font-weight: 700; text-decoration: none; }
+.ar-topic::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #F4C542; }
+a.ar-topic:hover, a.ar-topic:focus-visible { border-color: #F4C542; background: #FFFCF0; }
+.ar-topic.is-soon { cursor: default; }
+.ar-topic-note { margin: 18px 0 0; color: #6B7280; font-size: 13.5px; text-align: center; }
+body.page-area main .ar-steps-sec { background: #FFFFFF; }
+.ar-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; max-width: 1040px; margin: 0 auto; padding: 0; list-style: none; counter-reset: none; }
+.ar-step { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 0; padding: 26px 18px 24px; border: 1px solid #E5E7EB; border-radius: 18px; background: #FFFFFF; text-align: center; }
+.ar-step::before { content: none; display: none; }
+.ar-step-num { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: #F4C542; color: #10233F; font-size: 17px; font-weight: 900; }
+.ar-step h3 { margin: 0; color: #10233F; font-size: 21px; font-weight: 900; letter-spacing: -0.03em; }
+.ar-step p { margin: 0; color: #6B7280; font-size: 15px; line-height: 1.6; word-break: keep-all; }
+.ar-step + .ar-step::after { content: "→"; position: absolute; top: 50%; left: -14px; transform: translateY(-50%); color: #F4C542; font-size: 18px; font-weight: 900; }
+body.page-region main .rg-gus { background: #FFFFFF; }
+@media (max-width: 980px) {
+  .ar-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ar-step + .ar-step::after { content: none; }
+}
+@media (max-width: 640px) {
+  .ar-sido-grid > li { flex-basis: calc((100% - 10px) / 2); }
+  .ar-sido-grid .ar-region { min-height: 88px; }
+  .ar-region em { font-size: 12.5px; }
+  .ar-topic-list { gap: 8px; }
+  .ar-topic { padding: 9px 14px; font-size: 14.5px; }
+  .ar-steps { gap: 10px; }
+  .ar-step { gap: 8px; padding: 18px 12px; }
+  .ar-step-num { width: 32px; height: 32px; font-size: 15px; }
+  .ar-step h3 { font-size: 18px; }
+  .ar-step p { font-size: 14px; }
+}
+
+/* ---------- [111차] 지역 페이지(/area/, /area/seoul/): 서울 대문 상담 버튼·하단 CTA 버튼 밝은 노랑 통일 · 오른쪽 아래 떠 있는 상담/전화 버튼 2개(.rg-float, 공통 .sig-float 3버튼 대신)
+   되돌리기: 이 블록 삭제 + backup/111차수정전 파일 복원 */
+.ar-cta-btn, .ar-cta-btn.rg-hero-btn { background: #F4C542; color: #10233F; font-weight: 800; box-shadow: 0 6px 16px rgba(16, 35, 63, 0.12); transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+.ar-cta-btn:hover, .ar-cta-btn:focus-visible, .ar-cta-btn.rg-hero-btn:hover, .ar-cta-btn.rg-hero-btn:focus-visible { background: #FFD45A; color: #10233F; transform: translateY(-2px); box-shadow: 0 8px 18px rgba(16, 35, 63, 0.14); }
+.sig-float.rg-float { left: auto; right: 20px; bottom: 26px; flex-direction: column; align-items: stretch; gap: 9px; padding: 0; background: none; box-shadow: none; }
+.sig-float.rg-float a { flex: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 72px; min-width: 0; height: 72px; padding: 0; border-radius: 20px; font-size: 13px; font-weight: 800; line-height: 1; box-shadow: 0 8px 18px rgba(16, 35, 63, 0.18); }
+.sig-float.rg-float a:hover, .sig-float.rg-float a:focus-visible { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(16, 35, 63, 0.22); }
+.sig-float.rg-float svg { width: 22px; height: 22px; }
+.sig-float.rg-float .rgf-consult { background: #F4C542; color: #10233F; }
+.sig-float.rg-float .rgf-phone { background: #10233F; color: #FFFFFF; }
+@media (max-width: 640px) {
+  .sig-float.rg-float { left: auto; right: 13px; bottom: calc(20px + env(safe-area-inset-bottom)); flex-direction: column; gap: 8px; padding: 0; background: none; box-shadow: none; }
+  .sig-float.rg-float a { flex: none; width: 62px; height: 62px; gap: 4px; padding: 0; border-radius: 18px; font-size: 11.5px; box-shadow: 0 6px 14px rgba(16, 35, 63, 0.18); }
+  .sig-float.rg-float a:hover, .sig-float.rg-float a:focus-visible { transform: none; box-shadow: 0 6px 14px rgba(16, 35, 63, 0.18); }
+  .sig-float.rg-float svg { width: 18px; height: 18px; }
+}
+
+/* ---------- [112차] 지역 페이지 모바일: 하단 상담 CTA 버튼이 오른쪽 떠 있는 상담/전화 버튼(오른쪽 13px + 62px)과 겹치지 않도록 폭 제한
+   가운데 정렬 유지 → 양쪽에 (13 + 62 + 8)px씩 비워 둠 = 화면 폭 - 166px (390px 화면에서 224px) · 줄바꿈 없음 · 데스크톱 변경 없음
+   되돌리기: 이 블록 삭제 */
+@media (max-width: 640px) {
+  body.page-area .ar-cta .ar-cta-btn { width: calc(100vw - 166px); max-width: 330px; padding: 0 12px; gap: 6px; font-size: 15px; white-space: nowrap; }
+}
+@media (max-width: 380px) {
+  body.page-area .ar-cta .ar-cta-btn { font-size: 14px; padding: 0 8px; gap: 4px; }
+}
+
+/* ---------- [113차] 지역 페이지 하단 '시그니처과외 수업 안내'(.sc-*): 수업 분야 4카드(PC 한 줄·모바일 1열) + 과외수업 전체 보기(상담 CTA보다 약한 테두리 버튼)
+   되돌리기: 이 블록 삭제 + backup/113차수정전 파일 복원 */
+body.page-area main .sc-sec { background: #FBF8F2; }
+.sc-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; max-width: 1080px; margin: 0 auto; }
+.sc-card { display: flex; flex-direction: column; gap: 10px; padding: 24px 22px; border: 1px solid #E5E7EB; border-top: 3px solid #F4C542; border-radius: 16px; background: #FFFFFF; }
+.sc-card h3 { margin: 0; color: #10233F; font-size: 19px; font-weight: 900; letter-spacing: -0.03em; }
+.sc-card p { margin: 0; color: #6B7280; font-size: 14.5px; line-height: 1.65; word-break: keep-all; }
+.sc-card .sc-tags { margin-top: auto; padding-top: 6px; color: #10233F; font-size: 13.5px; font-weight: 700; }
+.sc-more { margin: 24px 0 0; text-align: center; }
+.sc-more-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border: 1.5px solid #10233F; border-radius: 999px; background: #FFFFFF; color: #10233F; font-size: 15px; font-weight: 700; text-decoration: none; transition: background 0.2s, border-color 0.2s; }
+.sc-more-btn:hover, .sc-more-btn:focus-visible { border-color: #F4C542; background: #FFF4CC; color: #10233F; }
+@media (max-width: 980px) {
+  .sc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .sc-grid { grid-template-columns: 1fr; gap: 12px; }
+  .sc-card { gap: 8px; padding: 18px 16px; }
+  .sc-card h3 { font-size: 18px; }
+  .sc-more { margin-top: 20px; }
+  .sc-more-btn { max-width: calc(100vw - 166px); padding: 10px 16px; font-size: 14.5px; white-space: nowrap; } /* 떠 있는 상담/전화 버튼과 겹치지 않는 폭 */
+}

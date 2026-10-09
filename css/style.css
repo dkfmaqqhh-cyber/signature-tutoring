@@ -7036,3 +7036,31 @@ body.page-area main .sc-sec { background: #FBF8F2; }
   .rg-grade h3 { margin: 10px 8px 4px; font-size: 18.5px; }
   .rg-grade p { padding: 0 10px; font-size: 13.5px; line-height: 1.5; }
 }
+
+/* ---------- [118차] 지역 페이지(서울·경기·부산·인천) 대문 = 지역 HERO 이미지 1장(images/area/{지역}-hero.webp, 원본 1448x1086)
+   · 이미지 안 글자(지역명·무료 상담 신청·안내 카드)와 겹치지 않도록 HTML 글자는 올리지 않고 H1만 화면에서 숨김(.rg-sr-only, display:none 아님)
+   · 보이는 범위는 원본 픽셀 좌표로 지정(--x 시작·--y 시작·--w 폭·--h 높이) → 화면 폭이 바뀌어도 같은 부분이 같은 비율로 보임(왜곡 없음)
+     PC: 가로 전체 + 위 하늘·아래 숲만 조금 잘라 높이 조절 / 모바일(640px 이하): 지역명·상담 버튼·방문/화상 카드가 읽히도록 왼쪽 두 카드까지 확대
+   · .rgh-hit = 이미지 속 '무료 상담 신청' 버튼 자리의 투명 링크(--bx·--by·--bw·--bh, 원본 픽셀) → consult.html
+   되돌리기: 이 블록 삭제 + backup/118차수정전 파일 복원 */
+.rg-sr-only { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+.ar-hero.rg-hero-img { padding: 14px 0 0; }
+.rg-hero-img .ar-breadcrumb { margin: 0 0 12px; }
+.rgh-frame { --x: 0; --y: 250; --w: 1448; --h: 750; --bx: 0; --by: 0; --bw: 0; --bh: 0; position: relative; max-width: 1448px; margin: 0 auto; aspect-ratio: var(--w) / var(--h); overflow: hidden; background: #DCE6F2; }
+.rgh-canvas { position: relative; width: calc(100% * 1448 / var(--w)); margin-top: calc(-100% * var(--y) / var(--w)); margin-left: calc(-100% * var(--x) / var(--w)); aspect-ratio: 1448 / 1086; }
+.rgh-canvas img { display: block; width: 100%; height: 100%; }
+.rgh-hit { position: absolute; left: calc(100% * var(--bx) / 1448); top: calc(100% * var(--by) / 1086); width: calc(100% * var(--bw) / 1448); height: calc(100% * var(--bh) / 1086); border-radius: 999px; transition: background 0.2s; }
+.rgh-hit:hover { background: rgba(255, 255, 255, 0.14); }
+.rgh-hit:focus-visible { outline: 3px solid #10233F; outline-offset: 3px; }
+.rgh-frame[data-area="seoul"] { --y: 250; --bx: 80; --by: 600; --bw: 450; --bh: 105; }
+.rgh-frame[data-area="gyeonggi"] { --y: 240; --bx: 100; --by: 617; --bw: 442; --bh: 100; }
+.rgh-frame[data-area="busan"] { --y: 270; --bx: 96; --by: 628; --bw: 426; --bh: 96; }
+.rgh-frame[data-area="incheon"] { --y: 300; --bx: 114; --by: 640; --bw: 476; --bh: 106; }
+@media (max-width: 640px) {
+  .ar-hero.rg-hero-img { padding-top: 10px; }
+  .rg-hero-img .ar-breadcrumb { margin-bottom: 8px; }
+  .rgh-frame[data-area="seoul"] { --x: 72; --w: 876; --y: 225; --h: 745; }
+  .rgh-frame[data-area="gyeonggi"] { --x: 76; --w: 870; --y: 215; --h: 765; }
+  .rgh-frame[data-area="busan"] { --x: 90; --w: 850; --y: 255; --h: 715; }
+  .rgh-frame[data-area="incheon"] { --x: 97; --w: 864; --y: 290; --h: 748; }
+}

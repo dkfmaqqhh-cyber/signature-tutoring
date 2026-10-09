@@ -18,7 +18,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48.png">
 <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
 <!-- [81차] 방문과외 + 실시간 화상수업 통합 대표 페이지 (/tutoring/) · 기존 visit.html / online.html은 유지하고 canonical만 이 페이지로 지정
-     · FAQPage 구조화데이터는 화면 FAQ 5개와 문구 동일하게 유지 -->
+     · [100차] FAQ 섹션 삭제에 따라 FAQPage 구조화데이터도 삭제 -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -39,51 +39,6 @@
         "audienceType": "유아, 초등학생, 중학생, 고등학생"
       },
       "description": "유아·초등·중등·고등 1:1 방문과외와 실시간 화상수업. 학년·과목·학습 목표에 맞춰 학생에게 맞는 수업 방식과 방향을 설계합니다."
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "방문과외와 실시간 화상수업 중 어떤 방식이 더 좋나요?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "어느 한 방식이 더 좋다기보다 학생의 성향, 일정, 사는 지역에 따라 잘 맞는 방식이 다릅니다. 마주 앉아 직접 피드백을 받을 때 집중이 잘 되는 학생은 방문과외, 이동 시간을 줄이거나 지역 제약 없이 수업하고 싶은 학생은 실시간 화상수업이 잘 맞을 수 있습니다. 상담에서 학생 상황을 확인한 뒤 함께 안내드립니다."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "방문수업과 화상수업을 변경할 수 있나요?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "수업을 진행하면서 학생의 일정이나 상황이 달라지면 상담을 통해 수업 방식 변경을 요청하실 수 있습니다. 변경 가능 여부와 절차는 선생님 일정 등을 확인한 뒤 안내드립니다."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "유아도 1:1 수업이 가능한가요?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "유아 수업은 한글·수 개념·기초 영어 표현과 초등 입학 준비 등을 아이에게 맞는 속도로 진행합니다. 아이의 연령과 집중 시간에 맞는 수업 방식과 시간은 상담 시 확인 후 안내드립니다."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "어떤 과목을 수업할 수 있나요?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "국어, 영어, 수학, 사회탐구, 과학탐구, 한국사 등 주요 과목을 방문과외와 실시간 화상수업 모두로 진행할 수 있습니다. 그 밖의 내신·수능 과목은 상담 시 수업 가능 여부를 확인해 안내드립니다."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "무료 시범수업 후 결정해도 되나요?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "네. 상담 후 무료 시범수업으로 수업 방식과 학습 방향을 먼저 확인하신 뒤 수업 진행 여부를 결정하실 수 있습니다. 세부 조건은 상담 시 안내드립니다."
-          }
-        }
-      ]
     }
   ]
 }
@@ -279,6 +234,47 @@
   </div>
 </section>
 
+<!-- [100차] 수업 가능 분야 (학년별 1:1 수업 바로 아래 · 과목별 SEO 페이지가 아닌 수업 범위 안내용 · 카드 4개 PC 2×2 / 모바일 1열 · 태그는 pill) -->
+<section class="page-section tu-areas" id="areas">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">LEARNING AREAS</div>
+      <h2>1:1 맞춤수업, 이런 분야까지 가능합니다</h2>
+      <p>유아 기초학습부터 교과·내신, 외국어, 특별과정까지 학생의 목표에 맞춰 수업을 안내합니다.</p>
+    </div>
+    <div class="tu-area-grid">
+      <article class="tu-area is-basic">
+        <div class="tu-area-head">
+          <span class="tu-area-ico" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 26l2-6L21.5 6.5a2.8 2.8 0 0 1 4 4L12 24z"/><path d="M19 9l4 4"/><path class="ac" d="M5 6h8v8H5z"/><path class="ac" d="M7.5 12l1.5-4 1.5 4M8 10.8h2"/></svg></span>
+          <div><h3>유아·기초학습</h3><p>한글떼기부터 초등 입학 준비까지</p></div>
+        </div>
+        <ul class="tu-area-tags"><li>유아한글</li><li>한글떼기</li><li>읽기쓰기</li><li>기초수학</li><li>알파벳</li><li>파닉스</li><li>초등 입학 준비</li></ul>
+      </article>
+      <article class="tu-area is-school">
+        <div class="tu-area-head">
+          <span class="tu-area-ico" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M3 7.5c2.6-1.3 5.4-1.3 8 0v18c-2.6-1.3-5.4-1.3-8 0z"/><path d="M11 7.5c2.6-1.3 5.4-1.3 8 0v18c-2.6-1.3-5.4-1.3-8 0"/><rect x="21" y="5" width="9" height="13" rx="1.6"/><path class="ac" d="M23.3 9.4l1.3 1.3 2.4-2.4M23.3 14.2l1.3 1.3 2.4-2.4"/></svg></span>
+          <div><h3>교과·내신</h3><p>학교 진도부터 내신·수능까지</p></div>
+        </div>
+        <ul class="tu-area-tags"><li>국어</li><li>영어</li><li>수학</li><li>과학</li><li>사회</li><li>한국사</li><li>내신</li><li>수능</li></ul>
+      </article>
+      <article class="tu-area is-lang">
+        <div class="tu-area-head">
+          <span class="tu-area-ico" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 5h15a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M7 9.5h9M7 13.5h6"/><g class="ac"><circle cx="24" cy="22" r="6.5"/><path d="M17.5 22h13M24 15.5c-2 2-2.8 4.2-2.8 6.5s.8 4.5 2.8 6.5c2-2 2.8-4.2 2.8-6.5s-.8-4.5-2.8-6.5"/></g></svg></span>
+          <div><h3>외국어·표현</h3><p>회화부터 읽기·쓰기까지</p></div>
+        </div>
+        <ul class="tu-area-tags"><li>스피킹</li><li>라이팅</li><li>에세이</li><li>문법</li><li>일본어</li><li>중국어</li><li>회화</li></ul>
+      </article>
+      <article class="tu-area is-special">
+        <div class="tu-area-head">
+          <span class="tu-area-ico" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="14" cy="18" r="11"/><circle cx="14" cy="18" r="6"/><circle class="ac" cx="14" cy="18" r="1.6"/><path class="ac" d="M14 18L27 5M22.5 5H27v4.5"/></svg></span>
+          <div><h3>진로·특별과정</h3><p>학생별 목표에 맞춘 특별과정</p></div>
+        </div>
+        <ul class="tu-area-tags"><li>검정고시</li><li>국제학교</li><li>유학</li><li>특목고</li><li>코딩</li><li>학습코칭</li><li>인증시험</li><li>해외거주 학생 수업</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- 4. 추천합니다!! ([82차] 제목 변경 · 방문/화상/공통 배지 삭제 → 하나의 공통 추천 목록 · 이미지:카드 50:50, 높이 맞춤 · [84차] 체크 원형 → 문구별 라인 아이콘: 1:1 집중·책+체크리스트·대화·캘린더·시계·위치핀+연결) -->
 <section class="page-section" id="recommended">
   <div class="container">
@@ -441,7 +437,7 @@
   </div>
 </section>
 
-<!-- [90차] 시범수업 강조 CTA (FAQ 바로 위 · 페이지에서 한 번만 · 네이비 배경 · 들어올 때 fade-up 한 번) -->
+<!-- [90차] 시범수업 강조 CTA ([100차] FAQ 삭제로 footer 바로 위 ·페이지에서 한 번만 · 네이비 배경 · 들어올 때 fade-up 한 번) -->
 <section class="tu-trial" id="trial" aria-labelledby="tuTrialTitle">
   <div class="container">
     <div class="tu-trial-box">
@@ -452,22 +448,7 @@
     </div>
   </div>
 </section>
-<!-- 9. FAQ (FAQPage 구조화데이터와 문구 동일하게 유지 · 5개) -->
-<section class="page-section soft" id="faq">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">FAQ</div>
-      <h2>자주 묻는 질문</h2>
-    </div>
-    <div class="faq-list">
-      <details><summary>방문과외와 실시간 화상수업 중 어떤 방식이 더 좋나요?</summary><div class="faq-answer">어느 한 방식이 더 좋다기보다 학생의 성향, 일정, 사는 지역에 따라 잘 맞는 방식이 다릅니다. 마주 앉아 직접 피드백을 받을 때 집중이 잘 되는 학생은 방문과외, 이동 시간을 줄이거나 지역 제약 없이 수업하고 싶은 학생은 실시간 화상수업이 잘 맞을 수 있습니다. 상담에서 학생 상황을 확인한 뒤 함께 안내드립니다.</div></details>
-      <details><summary>방문수업과 화상수업을 변경할 수 있나요?</summary><div class="faq-answer">수업을 진행하면서 학생의 일정이나 상황이 달라지면 상담을 통해 수업 방식 변경을 요청하실 수 있습니다. 변경 가능 여부와 절차는 선생님 일정 등을 확인한 뒤 안내드립니다.</div></details>
-      <details><summary>유아도 1:1 수업이 가능한가요?</summary><div class="faq-answer">유아 수업은 한글·수 개념·기초 영어 표현과 초등 입학 준비 등을 아이에게 맞는 속도로 진행합니다. 아이의 연령과 집중 시간에 맞는 수업 방식과 시간은 상담 시 확인 후 안내드립니다.</div></details>
-      <details><summary>어떤 과목을 수업할 수 있나요?</summary><div class="faq-answer">국어, 영어, 수학, 사회탐구, 과학탐구, 한국사 등 주요 과목을 방문과외와 실시간 화상수업 모두로 진행할 수 있습니다. 그 밖의 내신·수능 과목은 상담 시 수업 가능 여부를 확인해 안내드립니다.</div></details>
-      <details><summary>무료 시범수업 후 결정해도 되나요?</summary><div class="faq-answer">네. 상담 후 무료 시범수업으로 수업 방식과 학습 방향을 먼저 확인하신 뒤 수업 진행 여부를 결정하실 수 있습니다. 세부 조건은 상담 시 안내드립니다.</div></details>
-    </div>
-  </div>
-</section>
+<!-- [100차] FAQ 섹션·FAQPage 구조화데이터 삭제 (공통 .faq-list CSS는 다른 페이지에서 사용하므로 유지) -->
 <!-- [84차] '시그니처수업' 섹션 삭제 (핵심 키워드는 '시그니처과외 수업 두가지 방식' 카드로 통합) · [86차] '주요 과목' 슬라이드 섹션 삭제 -->
 </main>
 
@@ -479,7 +460,7 @@
       <nav class="site-footer-links sj-footer-menu" aria-label="하단 메뉴">
         <a href="../index.html#tuition">수업안내</a>
         <a href="../index.html#reviews">학생후기</a>
-        <a href="#faq">자주 묻는 질문</a>
+        <a href="../index.html#faq">자주 묻는 질문</a>
       </nav>
     </div>
     <!-- [입력 필요] 사업자 정보 확정 후 index.html 푸터와 동일하게 추가하세요. (임의 정보 입력 금지) -->

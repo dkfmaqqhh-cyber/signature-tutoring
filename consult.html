@@ -127,8 +127,8 @@
           </div>
           <div class="form-field">
             <label for="cfRegion">거주 지역<span class="req" aria-hidden="true">*</span></label>
-            <input type="text" id="cfRegion" name="region" maxlength="100" placeholder="예: 부산광역시 해운대구 우동" autocomplete="address-level2" aria-describedby="cfRegionHint" required>
-            <p class="form-hint" id="cfRegionHint" aria-live="polite">수업 방식을 선택하면 거주 지역 입력 기준이 안내됩니다.</p><!-- [14차] 방문: 상세 주소 필수 / 화상: 시·도·구·군·동(아파트명까지) — js/script.js에서 자동 전환 -->
+            <input type="text" id="cfRegion" name="region" maxlength="100" placeholder="예: 부산광역시 부산진구 부암동 / ○○아파트" autocomplete="address-level2" aria-describedby="cfRegionHint" required>
+            <p class="form-hint" id="cfRegionHint" aria-live="polite">시·도, 시·구, 동까지 입력해 주세요. 아파트 거주 시 아파트명은 선택 입력입니다. (도로명·번지·동호수는 적지 않으셔도 됩니다)</p><!-- [99차] 수업 방식과 관계없이 시·도 + 시·구 + 동 기준(아파트명 선택) — 형식 확인은 js/script.js looksRegion -->
           </div>
           <div class="form-field full">
             <label for="cfMessage">기타 요청사항</label>
@@ -140,7 +140,7 @@
               <summary>수집·이용 내용 보기</summary>
               <ul>
                 <li>수집 목적: 과외 상담 신청 확인 및 상담 안내, 방문수업 가능 여부 및 수업 상담을 위한 지역 확인</li>
-                <li>수집 항목: 이름, 연락처, 학년, 희망 과목, 수업 방식, 거주 지역(방문수업: 상세 주소 / 화상수업: 시·도·구·군·동, 아파트 거주 시 아파트 이름까지), 기타 요청사항, 접수 관련 시스템 정보</li>
+                <li>수집 항목: 이름, 연락처, 학년, 희망 과목, 수업 방식, 거주 지역(시·도, 시·구, 동 / 아파트 거주 시 아파트 이름 선택), 기타 요청사항, 접수 관련 시스템 정보</li>
                 <li>보유 기간: 개인정보처리방침에 따릅니다.</li>
                 <li>동의를 거부할 수 있으며, 거부 시 온라인 상담 신청이 제한됩니다.</li>
               </ul>

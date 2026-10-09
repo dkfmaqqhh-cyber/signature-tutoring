@@ -6394,7 +6394,6 @@ body.page-tutoring main #recommended { background: #fff6f2; }
 body.page-tutoring main #results { background: #f2faf7; }
 body.page-tutoring main #by-grade { background: #faf7f1; }
 body.page-tutoring main #process { background: #f4f7fa; }
-body.page-tutoring main #faq { background: #fffdfc; }
 /* 두가지 방식: 짧은 설명 + 핵심 키워드 4개 (방문 네이비·옐로우 / 화상 오렌지) */
 body.page-tutoring .tu-choose-img { aspect-ratio: 16 / 10; }
 body.page-tutoring .tu-choose-card h3 { margin-bottom: 8px; }
@@ -6606,4 +6605,34 @@ body.page-tutoring #reviews .section-head { margin-bottom: 36px; }
   .tu-review-grid .rvx-item, .tu-review-grid .rvx-item:nth-child(n) { padding: 18px 16px; }
   .tu-review-grid .rvx-badge { margin-left: 0; }
   .tu-review-grid .rvx-text { font-size: 15.5px; }
+}
+
+/* ---------- [100차] 통합 1:1수업(body.page-tutoring): FAQ 섹션 삭제(전용 배경 규칙 삭제 · 공통 .faq-list는 유지) · '수업 가능 분야'(#areas) 새 섹션 — 카드 4개 PC 2×2 / 모바일 1열 · 태그 pill 한 가지 색
+   되돌리기: 이 블록 삭제 + backup/100차수정전 파일 복원 */
+body.page-tutoring main #areas { background: #fff; }
+.tu-area-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 1040px; margin: 0 auto; }
+.tu-area { display: flex; flex-direction: column; gap: 18px; padding: 26px 28px 28px; border: 1px solid rgba(16, 42, 75, 0.07); border-radius: 20px; box-shadow: 0 10px 24px rgba(16, 42, 75, 0.05); }
+.tu-area.is-basic { background: #fffaea; }
+.tu-area.is-school { background: #f1f6fd; }
+.tu-area.is-lang { background: #eefaf6; }
+.tu-area.is-special { background: #fff3ec; }
+.tu-area-head { display: flex; align-items: center; gap: 16px; }
+.tu-area-ico { display: grid; place-items: center; flex: none; width: 56px; height: 56px; border-radius: 16px; background: #fff; box-shadow: 0 4px 12px rgba(16, 42, 75, 0.07); }
+.tu-area-ico svg { width: 32px; height: 32px; fill: none; stroke: var(--v-navy, #102a4b); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.tu-area-ico .ac { stroke: var(--v-orange, #f15a32); }
+.tu-area-head h3 { margin: 0 0 4px; color: #16233a; font-size: 21px; font-weight: 800; letter-spacing: -0.03em; }
+.tu-area-head p { margin: 0; color: #4e5a6b; font-size: 15.5px; line-height: 1.5; word-break: keep-all; }
+.tu-area-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.tu-area-tags li { margin: 0; padding: 7px 14px; border: 1px solid rgba(16, 42, 75, 0.09); border-radius: 999px; background: rgba(255, 255, 255, 0.9); color: #263346; font-size: 14.5px; font-weight: 600; line-height: 1.3; white-space: nowrap; }
+.tu-area-tags li::before { content: none; display: none; }
+@media (max-width: 760px) {
+  .tu-area-grid { grid-template-columns: 1fr; gap: 14px; }
+  .tu-area { gap: 14px; padding: 20px 18px 22px; border-radius: 18px; }
+  .tu-area-head { gap: 14px; }
+  .tu-area-ico { width: 48px; height: 48px; border-radius: 14px; }
+  .tu-area-ico svg { width: 28px; height: 28px; }
+  .tu-area-head h3 { font-size: 19px; }
+  .tu-area-head p { font-size: 14.5px; }
+  .tu-area-tags { gap: 6px; }
+  .tu-area-tags li { padding: 6px 12px; font-size: 13.5px; }
 }

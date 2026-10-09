@@ -197,36 +197,29 @@ window.addEventListener("load", function(){
   var statusNote = document.getElementById('consultStatusNote');
   if (statusNote && apiReady) statusNote.textContent = '상담 신청서를 남겨주시면 내용을 확인한 뒤 연락드립니다.';
 
-  /* [14차] 수업 방식에 따라 거주 지역 입력 기준(안내 문구·placeholder) 자동 전환
-     방문: 상세 주소 필수 / 화상: 시·도·구·군·동까지(아파트 거주 시 아파트 이름까지) */
+  /* [99차] 거주 지역 입력 기준: 수업 방식과 관계없이 시·도 + 시·구(군) + 동(읍·면)까지, 아파트명은 선택
+     (기존 [14차] 방문=상세 주소 필수 / 화상=동까지 자동 전환은 사용하지 않음. 안내 문구·placeholder는 consult.html 기본값) */
   var regionHint = document.getElementById('cfRegionHint');
   var REGION_DEFAULT = {
     hint: regionHint ? regionHint.textContent : '',
     placeholder: f.region.placeholder
-  };
-  var REGION = {
-    '방문': {
-      hint: '방문수업 가능 여부 확인을 위해 상세 주소까지 입력해 주세요. (예: 부산광역시 해운대구 ○○로 00, ○○아파트 000동 000호)',
-      placeholder: '예: 부산광역시 해운대구 ○○로 00, ○○아파트 000동 000호'
-    },
-    '화상': {
-      hint: '화상수업은 시/도·구/군·동까지 입력해 주세요. 아파트 거주 시 아파트 이름까지만 적어 주세요. (예: 부산광역시 해운대구 우동 ○○아파트)',
-      placeholder: '예: 부산광역시 해운대구 우동 ○○아파트'
-    }
   };
   function applyRegionGuide(rule) {
     if (!rule || !regionHint) return;
     regionHint.textContent = rule.hint;
     f.region.placeholder = rule.placeholder;
   }
-  function updateRegionGuide() { applyRegionGuide(REGION[f.mode.value]); }
-  for (var i = 0; i < f.mode.length; i++) f.mode[i].addEventListener('change', updateRegionGuide);
-  updateRegionGuide();
 
-  /* 방문수업 상세 주소 형식 확인: 실제 주소 존재 여부는 확인하지 않고,
-     너무 짧거나 번지·동호수 등 숫자가 없으면 상세 주소 입력을 안내 */
-  function looksDetailed(v) {
-    return v.replace(/\s/g, '').length >= 10 && /[0-9]/.test(v);
+  /* [99차] 거주 지역 형식 확인: 주소 API·도로명 검증 없이 띄어쓰기 단위로만 확인
+     첫 단어 = 시·도(부산광역시·서울·경기도 등) → 시/구/군으로 끝나는 단어(세종은 생략 가능) → 동/읍/면/가/리로 끝나는 단어.
+     그 뒤(아파트명 등)는 자유. 도로명·번지·동호수·우편번호는 요구하지 않음 */
+  var SIDO = /^(서울|부산|대구|인천|광주|대전|울산|세종|경기|강원|충북|충남|충청|전북|전남|전라|경북|경남|경상|제주)/;
+  function looksRegion(v) {
+    var t = v.split(/\s+/), i = 1, sigu = false;
+    if (v.replace(/\s/g, '').length < 7 || t.length < 2 || !SIDO.test(t[0])) return false;
+    while (i < t.length && /^[가-힣0-9]+[시구군]$/.test(t[i])) { sigu = true; i++; }
+    if (!sigu && !/^세종/.test(t[0])) return false;
+    return i < t.length && /^[가-힣0-9·.]+[동읍면가리]$/.test(t[i]);
   }
 
   /* 전송 데이터 (Google Sheets 컬럼 순서: 접수시간·이름·연락처·학년·희망과목·수업방식·거주지역/상세주소·기타요청·개인정보동의·접수페이지·브라우저정보) */
@@ -298,8 +291,8 @@ window.addEventListener("load", function(){
     if (!f.grade.value) return fail(f.grade, '학년을 선택해 주세요.');
     if (!f.subject.value.trim()) return fail(f.subject, '희망 과목을 입력해 주세요.');
     if (!f.mode.value) return fail(f.mode, '수업 방식(방문수업 · 화상수업)을 선택해 주세요.');
-    if (!region) return fail(f.region, f.mode.value === '방문' ? '방문수업은 상세 주소까지 입력해 주세요.' : '거주 지역을 입력해 주세요.');
-    if (f.mode.value === '방문' && !looksDetailed(region)) return fail(f.region, '방문수업은 상세 주소까지 입력해 주세요.');
+    if (!region) return fail(f.region, '거주 지역을 입력해 주세요.');
+    if (!looksRegion(region)) return fail(f.region, '거주 지역은 시·도, 시·구, 동까지 입력해 주세요. (예: 부산광역시 부산진구 부암동)');
     if (!f.agree.checked) return fail(f.agree, '개인정보 수집·이용에 동의하셔야 상담을 신청할 수 있습니다.');
 
     /* 스팸 방지: 너무 빠른 제출 차단 */

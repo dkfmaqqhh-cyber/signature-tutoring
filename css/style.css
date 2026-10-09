@@ -6636,3 +6636,87 @@ body.page-tutoring main #areas { background: #fff; }
   .tu-area-tags { gap: 6px; }
   .tu-area-tags li { padding: 6px 12px; font-size: 13.5px; }
 }
+
+/* ---------- [101차] 통합 1:1수업(body.page-tutoring): ① 수업 두가지 방식 카드 소개용으로 축소(PC 카드 폭 469→290px · 이미지 높이 292→155px · 섹션 여백 축소, 모바일은 1열·화면 폭 93% 유지하며 소폭만) ② '시그니처과외 가능 수업' 제목 확대·설명 삭제·카드 가운데 정렬 + 카드별 강조 배지·좌측 포인트 라인 ③ TRIAL CLASS "먼저 경험해보세요." 2초 주기 부드러운 pulse(버튼은 기존 그대로)
+   되돌리기: 이 블록 삭제 + backup/101차수정전 파일 복원 */
+/* ① 수업 두가지 방식 */
+body.page-tutoring main #choose { padding-top: 44px; padding-bottom: 46px; }
+body.page-tutoring #choose .section-head { margin-bottom: 22px; }
+body.page-tutoring .tu-choose-grid { grid-template-columns: repeat(2, 290px); justify-content: center; gap: 16px; max-width: none; }
+body.page-tutoring .tu-choose-card { padding: 0 0 16px; border-top-width: 4px; border-radius: 20px; }
+body.page-tutoring .tu-choose-img { aspect-ratio: auto; height: 155px; }
+body.page-tutoring .tu-choose-img img { object-fit: cover; }
+body.page-tutoring .tu-choose-tag { margin-top: 12px; padding: 3px 10px; font-size: 11.5px; }
+body.page-tutoring .tu-choose-card h3 { margin: 7px 0 6px; font-size: 25px; font-weight: 800; }
+body.page-tutoring .tu-choose-desc { margin: 0 18px 10px; font-size: 15px; line-height: 1.5; }
+body.page-tutoring .tu-choose-card ul.tu-kw { gap: 6px; width: calc(100% - 32px); }
+body.page-tutoring .tu-choose-card .tu-kw li { padding: 6px 4px; border-radius: 10px; font-size: 15px; }
+@media (max-width: 640px) {
+  body.page-tutoring main #choose { padding-top: 48px; padding-bottom: 48px; }
+  body.page-tutoring #choose .section-head { margin-bottom: 24px; }
+  body.page-tutoring .tu-choose-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  body.page-tutoring .tu-choose-img { height: 190px; }
+  body.page-tutoring .tu-choose-card { padding-bottom: 20px; }
+  body.page-tutoring .tu-choose-card h3 { font-size: 23px; }
+  body.page-tutoring .tu-choose-desc { margin: 0 18px 12px; font-size: 14.5px; }
+  body.page-tutoring .tu-choose-card ul.tu-kw { width: calc(100% - 36px); }
+  body.page-tutoring .tu-choose-card .tu-kw li { padding: 8px 6px; font-size: 15px; }
+}
+/* ② 시그니처과외 가능 수업 */
+body.page-tutoring #areas .section-head { margin-bottom: 32px; }
+body.page-tutoring #areas .section-head h2 { margin-bottom: 0; font-size: 46px; font-weight: 900; letter-spacing: -0.04em; }
+.tu-area { --area-c: #e0a800; --area-badge: #fff0bf; --area-badge-t: #7a5300; position: relative; align-items: center; gap: 0; padding: 30px 28px 30px 34px; border-left: 6px solid var(--area-c); text-align: center; }
+.tu-area.is-school { --area-c: #3d7be0; --area-badge: #dce9fc; --area-badge-t: #1d4f9c; }
+.tu-area.is-lang { --area-c: #1fae86; --area-badge: #d2f2e6; --area-badge-t: #11704f; }
+.tu-area.is-special { --area-c: #f0743f; --area-badge: #ffdfcf; --area-badge-t: #a9431a; }
+.tu-area .tu-area-ico { width: 62px; height: 62px; margin-bottom: 14px; border-radius: 18px; }
+.tu-area .tu-area-ico svg { width: 34px; height: 34px; }
+.tu-area .tu-area-ico .ac { stroke: var(--area-c); }
+.tu-area > h3 { margin: 0 0 10px; color: #16233a; font-size: 29px; font-weight: 900; letter-spacing: -0.04em; }
+.tu-area-badge { display: inline-block; margin: 0 0 18px; padding: 6px 16px; border-radius: 999px; background: var(--area-badge); color: var(--area-badge-t); font-size: 16px; font-weight: 800; line-height: 1.4; word-break: keep-all; }
+.tu-area .tu-area-tags { justify-content: center; gap: 8px; }
+.tu-area .tu-area-tags li { padding: 8px 15px; font-size: 15.5px; font-weight: 700; }
+@media (max-width: 760px) {
+  body.page-tutoring #areas .section-head { margin-bottom: 24px; }
+  body.page-tutoring #areas .section-head h2 { font-size: 34px; }
+  .tu-area { padding: 24px 16px 24px 20px; border-left-width: 5px; }
+  .tu-area .tu-area-ico { width: 54px; height: 54px; margin-bottom: 12px; border-radius: 16px; }
+  .tu-area .tu-area-ico svg { width: 30px; height: 30px; }
+  .tu-area > h3 { margin-bottom: 8px; font-size: 25px; }
+  .tu-area-badge { margin-bottom: 14px; padding: 5px 14px; font-size: 14.5px; }
+  .tu-area .tu-area-tags { gap: 6px; }
+  .tu-area .tu-area-tags li { padding: 7px 12px; font-size: 14px; }
+}
+/* ③ TRIAL CLASS: "먼저 경험해보세요."만 부드럽게 밝아졌다 돌아옴 (깜박임·흔들림·확대 없음) */
+@keyframes trialTextPulse {
+  0%, 100% { opacity: 0.82; text-shadow: 0 0 0 rgba(255, 208, 70, 0); }
+  50% { opacity: 1; text-shadow: 0 0 12px rgba(255, 208, 70, 0.35); }
+}
+.tu-trial-box h2 em.tu-trial-pulse { display: inline-block; color: var(--v-yellow, #f4c84a); animation: trialTextPulse 2s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .tu-trial-box h2 em.tu-trial-pulse { animation: none !important; opacity: 1; text-shadow: none; }
+}
+
+/* ---------- [102차] 상담 신청폼 간소화(consult.html .cf-compact): 학생이름 / 지역·학교 / 학년·문의과목 / 휴대폰번호 / 신청자 / 개인정보 동의 — PC 2열(지역·학교, 학년·문의과목), 모바일 1열(기존 .form-grid 규칙)
+   되돌리기: 이 블록 삭제 + backup/102차수정전 파일 복원 */
+.cf-compact { gap: 14px 16px; align-items: start; }
+.cf-compact .form-field { gap: 6px; }
+.cf-compact .form-field > label, .cf-compact .form-field > .form-label { color: #16233a; font-size: 15px; font-weight: 800; }
+.consult-form .cf-compact input[type="text"], .consult-form .cf-compact input[type="tel"], .consult-form .cf-compact select { height: 48px; padding: 0 15px; border-radius: 12px; font-size: 15px; }
+.consult-form .cf-compact input::placeholder { color: #9aa1ad; }
+.cf-compact .form-hint { margin-top: -1px; font-size: 12.5px; }
+.cf-compact .choice-row { gap: 10px; }
+.cf-compact .choice-row label { flex: 0 0 auto; }
+.cf-compact .choice-row span { min-width: 104px; padding: 10px 20px; font-size: 15px; text-align: center; }
+.cf-compact .form-field.cf-inline { flex-direction: row; align-items: center; gap: 18px; padding-top: 2px; }
+.cf-compact .form-field.cf-inline > .form-label { flex: none; min-width: 64px; }
+.cf-compact .agree-box { margin-top: 0; padding: 12px 16px; }
+.cf-compact .agree-box details { margin-top: 6px; }
+.cf-compact .agree-box .agree-link { margin: 6px 0 0; }
+@media (max-width: 640px) {
+  .cf-compact { gap: 14px; }
+  .cf-compact .form-field.cf-inline { gap: 14px; }
+  .cf-compact .form-field.cf-inline .choice-row { flex: 1 1 auto; }
+  .cf-compact .choice-row label { flex: 1 1 0; }
+  .cf-compact .choice-row span { display: block; min-width: 0; }
+}

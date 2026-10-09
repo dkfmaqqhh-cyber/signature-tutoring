@@ -230,16 +230,21 @@ window.addEventListener("load", function(){
       phone: f.phone.value.trim(),
       grade: f.grade.value,
       subject: f.subject.value.trim(),
-      lessonType: f.mode.value,
+      applicant: f.applicant.value,
       region: f.region.value.trim(),
-      message: f.message.value.trim(),
+      message: buildMessage(),
       privacyAgreed: f.agree.checked,
       page: location.href,
       userAgent: navigator.userAgent
     };
   }
 
-  /* [97차] Make Webhook 전송 데이터: 기본 6개(name·phone·grade·subject·region·message) + 수업방식·접수 페이지·제출 시간 */
+  /* [102차] 간소화한 폼에는 문의내용 칸이 없으므로 message = "학교: ○○ / 신청자: 학부모" (학교 미입력 시 '미입력') */
+  function buildMessage() {
+    return '학교: ' + (f.school.value.trim() || '미입력') + ' / 신청자: ' + f.applicant.value;
+  }
+
+  /* [97차] Make Webhook 전송 데이터: 기본 6개(name·phone·grade·subject·region·message) + 접수 페이지·제출 시간 ([102차] 수업방식 lesson_type 삭제) */
   function kstNow() {
     var d = new Date(Date.now() + 9 * 3600000);
     function p(n) { return (n < 10 ? '0' : '') + n; }
@@ -253,8 +258,7 @@ window.addEventListener("load", function(){
       grade: f.grade.value,
       subject: f.subject.value.trim(),
       region: f.region.value.trim(),
-      message: f.message.value.trim(),
-      lesson_type: f.mode.value,
+      message: buildMessage(),
       page_url: location.href,
       page_title: document.title,
       submitted_at: kstNow()
@@ -270,7 +274,7 @@ window.addEventListener("load", function(){
   }
 
   function resetAfterSuccess() {
-    form.reset(); /* 입력값·방문/화상 선택·개인정보 동의 초기화 */
+    form.reset(); /* 입력값·신청자 선택·개인정보 동의 초기화 */
     applyRegionGuide(REGION_DEFAULT); /* 주소 안내를 기본 상태로 */
     var invalid = form.querySelectorAll('[aria-invalid]');
     for (var k = 0; k < invalid.length; k++) invalid[k].removeAttribute('aria-invalid');
@@ -286,13 +290,14 @@ window.addEventListener("load", function(){
 
     var phone = f.phone.value.replace(/[^0-9]/g, '');
     var region = f.region.value.trim();
-    if (!f.name.value.trim()) return fail(f.name, '이름(학생 또는 학부모)을 입력해 주세요.');
-    if (!/^01[0-9]{8,9}$/.test(phone)) return fail(f.phone, '연락처를 정확히 입력해 주세요. (예: 010-1234-5678)');
+    /* [102차] 화면 순서대로 확인: 학생이름 → 지역 → 학년 → 문의과목 → 휴대폰번호 → 신청자 → 개인정보 동의 (학교는 선택) */
+    if (!f.name.value.trim()) return fail(f.name, '학생 이름을 입력해 주세요.');
+    if (!region) return fail(f.region, '지역을 입력해 주세요.');
+    if (!looksRegion(region)) return fail(f.region, '지역은 시·도, 시·구, 동까지 입력해 주세요. (예: 부산광역시 부산진구 부암동)');
     if (!f.grade.value) return fail(f.grade, '학년을 선택해 주세요.');
-    if (!f.subject.value.trim()) return fail(f.subject, '희망 과목을 입력해 주세요.');
-    if (!f.mode.value) return fail(f.mode, '수업 방식(방문수업 · 화상수업)을 선택해 주세요.');
-    if (!region) return fail(f.region, '거주 지역을 입력해 주세요.');
-    if (!looksRegion(region)) return fail(f.region, '거주 지역은 시·도, 시·구, 동까지 입력해 주세요. (예: 부산광역시 부산진구 부암동)');
+    if (!f.subject.value.trim()) return fail(f.subject, '문의 과목을 입력해 주세요.');
+    if (!/^01[0-9]{8,9}$/.test(phone)) return fail(f.phone, '휴대폰번호를 정확히 입력해 주세요. (예: 010-1234-5678)');
+    if (!f.applicant.value) return fail(f.applicant, '신청자(학부모 · 학생)를 선택해 주세요.');
     if (!f.agree.checked) return fail(f.agree, '개인정보 수집·이용에 동의하셔야 상담을 신청할 수 있습니다.');
 
     /* 스팸 방지: 너무 빠른 제출 차단 */

@@ -258,6 +258,8 @@ window.addEventListener("load", function(){
       grade: f.grade.value,
       subject: f.subject.value.trim(),
       region: f.region.value.trim(),
+      school: f.school.value.trim() || '미입력', /* [116차] 학교·신청자 구분을 별도 필드로도 전송 (message는 그대로 유지) */
+      applicant_type: f.applicant.value,
       message: buildMessage(),
       page_url: location.href,
       page_title: document.title,

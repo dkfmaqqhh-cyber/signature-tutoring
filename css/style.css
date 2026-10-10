@@ -7064,3 +7064,76 @@ body.page-area main .sc-sec { background: #FBF8F2; }
   .rgh-frame[data-area="busan"] { --x: 90; --w: 850; --y: 255; --h: 715; }
   .rgh-frame[data-area="incheon"] { --x: 97; --w: 864; --y: 290; --h: 748; }
 }
+
+/* ---------- [121차] 대구 페이지(/area/daegu/) 대문 = 네이비(#10233F) + 골드(#F4C542) 단색형(.rg-hero-solid, 지역 사진 없음) · 대구 9개 구·군 PC 3열(.rg-gu-grid-3, 모바일 2열)
+   · 다른 지역 페이지(.rg-hero-img)·/area/ 허브 대문은 변경 없음 (이 클래스가 있는 페이지에만 적용)
+   되돌리기: 이 블록 삭제 + area/daegu/ 삭제 + backup/121차수정전 파일 복원 */
+.ar-hero.rg-hero-solid { padding: 30px 0 60px; background: #10233F; color: #FFFFFF; border-bottom: 0; }
+.rg-hero-solid .ar-breadcrumb { margin: 0 0 30px; color: rgba(255, 255, 255, 0.6); }
+.rg-hero-solid .ar-breadcrumb a { color: rgba(255, 255, 255, 0.86); }
+.rg-hero-solid .ar-breadcrumb li + li::before { color: rgba(255, 255, 255, 0.35); }
+.rg-hero-solid .ar-kicker { letter-spacing: 0.04em; font-size: 13.5px; }
+.rgs-title { margin: 18px 0 0; color: #FFFFFF; font-size: 48px; font-weight: 900; line-height: 1.22; letter-spacing: -0.04em; word-break: keep-all; }
+.rgs-title span, .rgs-title strong { display: block; }
+.rgs-title strong { color: #F4C542; font-weight: 900; }
+.rgs-title::after { content: ""; display: block; width: 56px; height: 3px; margin: 22px auto 0; border-radius: 2px; background: #F4C542; }
+.rgs-sub { margin: 20px 0 0; color: #F4C542; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; word-break: keep-all; }
+.rgs-desc { max-width: 560px; margin: 10px auto 0; color: rgba(255, 255, 255, 0.8); font-size: 17px; line-height: 1.7; word-break: keep-all; }
+.rgs-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+.rgs-btns .ar-cta-btn { box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22); }
+.rgs-btn-sub { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 30px; border: 1.5px solid rgba(255, 255, 255, 0.55); border-radius: 999px; color: #FFFFFF; font-size: 17px; font-weight: 700; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+.rgs-btn-sub:hover, .rgs-btn-sub:focus-visible { border-color: #F4C542; background: rgba(244, 197, 66, 0.1); color: #FFFFFF; }
+.rg-gu-grid.rg-gu-grid-3 { max-width: 780px; }
+.rg-gu-grid-3 > li { flex-basis: calc((100% - 28px) / 3); }
+@media (max-width: 980px) {
+  .rg-gu-grid-3 > li { flex-basis: calc((100% - 28px) / 3); }
+}
+@media (max-width: 640px) {
+  .ar-hero.rg-hero-solid { padding: 20px 0 44px; }
+  .rg-hero-solid .ar-breadcrumb { margin-bottom: 22px; }
+  .rg-hero-solid .ar-kicker { font-size: 12.5px; }
+  .rgs-title { margin-top: 14px; font-size: 36px; }
+  .rgs-title::after { width: 44px; margin-top: 18px; }
+  .rgs-sub { margin-top: 16px; font-size: 17px; }
+  .rgs-desc { font-size: 15.5px; }
+  .rgs-btns { flex-direction: column; align-items: center; gap: 10px; margin-top: 24px; }
+  .rgs-btns .ar-cta-btn, .rgs-btn-sub { width: 100%; max-width: 300px; min-height: 52px; padding: 0 16px; font-size: 16px; }
+  .rg-gu-grid-3 > li { flex-basis: calc((100% - 10px) / 2); }
+}
+/* ---------- [124차] 지역 카드 PC 4열 변형(.rg-gu-grid-4, 충북 11개 시·군 → 4·4·3) · 모바일은 기존 2열 그대로
+   되돌리기: 이 블록 삭제 + area/chungbuk/index.html 의 rg-gu-grid-4 클래스 삭제 */
+.rg-gu-grid.rg-gu-grid-4 { max-width: 1000px; }
+.rg-gu-grid-4 > li { flex-basis: calc((100% - 42px) / 4); }
+@media (max-width: 640px) {
+  .rg-gu-grid-4 > li { flex-basis: calc((100% - 10px) / 2); }
+}
+/* ---------- [127차] 지역 카드 2개 가운데 정렬 변형(.rg-gu-grid-2, 제주 2개 행정시) · PC 폭 560px 안에서 2열 · 모바일도 2열(기존 규칙과 같은 폭)
+   되돌리기: 이 블록 삭제 + area/jeju/index.html 의 rg-gu-grid-2 클래스 삭제 */
+.rg-gu-grid.rg-gu-grid-2 { max-width: 560px; }
+.rg-gu-grid-2 > li { flex-basis: calc((100% - 14px) / 2); }
+@media (max-width: 640px) {
+  .rg-gu-grid-2 > li { flex-basis: calc((100% - 10px) / 2); }
+}
+/* ---------- [128차] 세부지역(구) 페이지 표준(body.page-subarea, 1호 /area/seoul/gangnam/) · 시·도 페이지 디자인은 변경 없음
+   · 단색 대문에서 H1을 화면에 표시(.rgs-title를 h1에 사용 · 기존 .ar-hero h1 네이비 글자색·크기 덮어쓰기)
+   · 지역 소개 문단(.gn-intro) · 인근 지역 + 상위 페이지 링크(.gn-uplink, 상담 CTA보다 약한 테두리 버튼)
+   · 구 카드가 실제 링크가 되면(a.ar-region.rg-gu) 허브의 활성 카드와 같은 노랑 배지 (/area/seoul/ 강남구 카드)
+   되돌리기: 이 블록 삭제 + area/seoul/gangnam/ 삭제 + backup/128차수정전 파일 복원 */
+.rg-hero-solid h1.rgs-title { margin: 18px 0 0; color: #FFFFFF; font-size: 48px; font-weight: 900; line-height: 1.22; letter-spacing: -0.04em; }
+a.ar-region.rg-gu small { border: 1px solid #F4C542; background: #FFF4CC; color: #10233F; }
+body.page-subarea main .gn-intro { background: #FBF8F2; }
+.gn-intro-text { max-width: 760px; margin: 0 auto; }
+.gn-intro-text p { margin: 0; color: #4B5563; font-size: 17px; line-height: 1.85; text-align: center; word-break: keep-all; }
+.gn-intro-text p + p { margin-top: 12px; }
+body.page-subarea .gn-dong-grid .ar-region.rg-gu { min-height: 96px; }
+body.page-subarea main .gn-nearby { background: #FFFFFF; }
+.gn-uplinks { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
+.gn-uplink { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 22px; border: 1.5px solid #10233F; border-radius: 999px; background: #FFFFFF; color: #10233F; font-size: 15px; font-weight: 700; text-decoration: none; transition: background 0.2s, border-color 0.2s; }
+.gn-uplink:hover, .gn-uplink:focus-visible { border-color: #F4C542; background: #FFF4CC; color: #10233F; }
+@media (max-width: 640px) {
+  .rg-hero-solid h1.rgs-title { margin-top: 14px; font-size: 36px; }
+  .gn-intro-text p { font-size: 15.5px; line-height: 1.8; text-align: left; }
+  body.page-subarea .gn-dong-grid .ar-region.rg-gu { min-height: 84px; }
+  .gn-uplinks { flex-direction: column; align-items: center; gap: 8px; margin-top: 22px; }
+  .gn-uplink { width: 100%; max-width: 300px; padding: 10px 16px; font-size: 14.5px; }
+}

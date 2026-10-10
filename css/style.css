@@ -7585,3 +7585,23 @@ body.page-area-hub #topics a.ar-topic:hover, body.page-area-hub #topics a.ar-top
   body.page-area-hub #teachers .tch-track { --tch-gap: 10px; grid-auto-columns: 248px; }
   body.page-area-hub #teachers .tch-body { padding: 10px 11px 11px; }
 }
+/* ---------- [142차] 지역+과목 랜딩 영어 전용 '영어 영역별 학습' 카드(.en-area · /area/seoul/gangnam/english/) · 다른 페이지에는 이 클래스가 없어 영향 없음
+   · 어휘·문법·독해·학교 내신 4카드(기존 수업 카드 4색) · PC 4열 / 태블릿 2열 / 모바일 1열
+   되돌리기: 이 블록 삭제 + area/seoul/gangnam/english/ 삭제 + backup/142차수정전 파일 복원 */
+body.page-subject .en-area-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; max-width: 1080px; margin: 0 auto; }
+body.page-subject .en-area { display: flex; flex-direction: column; gap: 8px; padding: 22px 20px; border: 1px solid #E5E7EB; border-radius: 16px; }
+body.page-subject .en-area.is-voca { background: #EDF5FF; }
+body.page-subject .en-area.is-grammar { background: #FFF0E8; }
+body.page-subject .en-area.is-reading { background: #F3EEFF; }
+body.page-subject .en-area.is-school { background: #ECF8F2; }
+body.page-subject .en-area-en { color: #C99A3D; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; }
+body.page-subject .en-area h3 { margin: 0; color: #10233F; font-size: 21px; font-weight: 900; letter-spacing: -0.03em; }
+body.page-subject .en-area p { margin: 0; color: #4B5563; font-size: 15px; line-height: 1.65; word-break: keep-all; }
+@media (max-width: 980px) {
+  body.page-subject .en-area-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 760px; }
+}
+@media (max-width: 640px) {
+  body.page-subject .en-area-grid { grid-template-columns: 1fr; gap: 10px; }
+  body.page-subject .en-area { gap: 6px; padding: 18px 16px; }
+  body.page-subject .en-area h3 { font-size: 19px; }
+}

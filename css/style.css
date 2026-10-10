@@ -7700,3 +7700,23 @@ body.page-gu-hub .rg-field.is-special { background: #F7F1E7; }
   body.page-gu-hub .gh-grade-card img { width: 118px; flex: 0 0 118px; aspect-ratio: auto; min-height: 100%; }
   body.page-gu-hub .gh-card-body { gap: 5px; padding: 14px 14px 14px 16px; }
 }
+
+/* ---------- [149차] 송파구 허브 생활권 13개: 마지막 줄에 1개만 남는 카드를 가운데 정렬 · .gh-dong-grid.is-center-last(송파구 허브에만 있음) → 다른 페이지 영향 없음
+   · 카드 크기는 그대로(열 너비와 같은 폭 계산) · 되돌리기: 이 블록 삭제 + 송파구 허브 ul의 is-center-last 클래스 삭제 */
+body.page-gu-hub .gh-dong-grid.is-center-last > .gh-dong:last-child { grid-column: 1 / -1; justify-self: center; width: calc((100% - 36px) / 4); }
+@media (max-width: 1024px) {
+  body.page-gu-hub .gh-dong-grid.is-center-last > .gh-dong:last-child { width: calc((100% - 24px) / 3); }
+}
+@media (max-width: 640px) {
+  body.page-gu-hub .gh-dong-grid.is-center-last > .gh-dong:last-child { width: calc((100% - 8px) / 2); }
+}
+/* ---------- [150차] 구 허브 생활권: 마지막 줄이 덜 찬 경우 가운데 정렬 · .gh-dong-grid.is-center-rows(현재 광진구 허브에만 있음) → 다른 페이지 영향 없음
+   · grid → flex wrap 으로 바꾸고 카드 폭은 기존 열 너비와 같게 계산(PC 4열 · 태블릿 3열 · 모바일 2열) · 되돌리기: 이 블록 삭제 + 광진구 허브 ul의 is-center-rows 클래스 삭제 */
+body.page-gu-hub .gh-dong-grid.is-center-rows { display: flex; flex-wrap: wrap; justify-content: center; }
+body.page-gu-hub .gh-dong-grid.is-center-rows > .gh-dong { width: calc((100% - 36px) / 4); }
+@media (max-width: 1024px) {
+  body.page-gu-hub .gh-dong-grid.is-center-rows > .gh-dong { width: calc((100% - 24px) / 3); }
+}
+@media (max-width: 640px) {
+  body.page-gu-hub .gh-dong-grid.is-center-rows > .gh-dong { width: calc((100% - 8px) / 2); }
+}

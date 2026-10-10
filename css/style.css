@@ -7137,3 +7137,72 @@ body.page-subarea main .gn-nearby { background: #FFFFFF; }
   .gn-uplinks { flex-direction: column; align-items: center; gap: 8px; margin-top: 22px; }
   .gn-uplink { width: 100%; max-width: 300px; padding: 10px 16px; font-size: 14.5px; }
 }
+/* ---------- [132차] 지역+과목 랜딩(body.page-subject, 1호 /area/seoul/gangnam/math/) 전용 · 다른 지역/세부지역 페이지는 이 클래스가 없어 변화 없음
+   · 섹션 배경(.mt-bg-*) · 학년별 수학 3카드(.mt-grade) · 막히는 이유 번호 카드(.mt-reason) · 시험 대비 5단계(.ar-steps.mt-steps)
+   · 상담 확인 5항목(.mt-check) · 학교 표시(.mt-school, 링크 없음) · 중간 CTA(.mt-midcta-box, 하단 CTA보다 약한 밝은 박스)
+   되돌리기: 이 블록 삭제 + area/seoul/gangnam/math/ 삭제 + backup/132차수정전 파일 복원 */
+body.page-subject main .mt-bg-white { background: #FFFFFF; }
+body.page-subject main .mt-bg-cream { background: #FBF8F2; }
+body.page-subject main .mt-bg-blue { background: #F3F7FC; }
+body.page-subject .mt-diag-grid .sc-card h3 { font-size: 18px; line-height: 1.45; word-break: keep-all; }
+.mt-grade-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 1040px; margin: 0 auto; }
+.mt-grade { display: flex; flex-direction: column; gap: 12px; padding: 24px 22px; border: 1px solid #E5E7EB; border-radius: 18px; }
+.mt-grade.is-ele { background: #EDF5FF; } .mt-grade.is-mid { background: #F3EEFF; } .mt-grade.is-high { background: #ECF8F2; }
+.mt-grade h3 { margin: 0; color: #10233F; font-size: 21px; font-weight: 900; letter-spacing: -0.03em; }
+.mt-grade p { margin: 0; color: #4B5563; font-size: 15px; line-height: 1.65; word-break: keep-all; }
+.mt-grade .tu-area-tags li { padding: 6px 12px; border-color: rgba(16, 35, 63, 0.08); background: rgba(255, 255, 255, 0.85); color: #10233F; font-size: 14px; font-weight: 700; }
+.mt-grade-mini { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 14px; max-width: 1040px; margin: 14px auto 0; padding: 16px 20px; border: 1px solid #E5E7EB; border-radius: 14px; background: #FFF0E8; text-align: center; }
+.mt-grade-mini h3 { margin: 0; color: #10233F; font-size: 17px; font-weight: 800; }
+.mt-grade-mini p { margin: 0; color: #4B5563; font-size: 14.5px; word-break: keep-all; }
+.mt-reason-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; max-width: 960px; margin: 0 auto; padding: 0; list-style: none; counter-reset: mtr; }
+.mt-reason-grid > li.mt-reason { position: relative; margin: 0; padding: 22px 22px 22px 70px; border: 1px solid #E5E7EB; border-radius: 16px; background: #FFFFFF; counter-increment: mtr; }
+.mt-reason-grid > li.mt-reason::before { content: counter(mtr); position: absolute; left: 22px; top: 22px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #F4C542; color: #10233F; font-size: 16px; font-weight: 900; }
+.mt-reason h3 { margin: 0 0 6px; color: #10233F; font-size: 17.5px; font-weight: 800; line-height: 1.45; word-break: keep-all; }
+.mt-reason p { margin: 0; color: #4B5563; font-size: 15px; line-height: 1.65; word-break: keep-all; }
+.mt-note { max-width: 760px; margin: 22px auto 0; color: #10233F; font-size: 15.5px; font-weight: 700; text-align: center; word-break: keep-all; }
+body.page-subject main .mt-midcta { padding-top: 48px; padding-bottom: 48px; }
+.mt-midcta-box { display: flex; flex-direction: column; align-items: center; max-width: 880px; margin: 0 auto; padding: 32px 28px; border: 1px solid #E5E7EB; border-radius: 20px; background: #FBF8F2; text-align: center; }
+.mt-midcta-box h2 { margin: 0 0 10px; color: #10233F; font-size: 24px; font-weight: 800; line-height: 1.4; letter-spacing: -0.03em; word-break: keep-all; }
+.mt-midcta-box p { margin: 0 0 20px; color: #4B5563; font-size: 16px; line-height: 1.65; word-break: keep-all; }
+.ar-steps.mt-steps { grid-template-columns: repeat(5, minmax(0, 1fr)); max-width: 1120px; }
+.mt-steps .ar-step h3 { font-size: 17px; line-height: 1.4; word-break: keep-all; }
+.mt-steps .ar-step p { font-size: 14.5px; }
+.mt-check-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; max-width: 1040px; margin: 0 auto; padding: 0; list-style: none; }
+.mt-check-grid > li.mt-check { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin: 0; padding: 22px 12px; border: 1px solid #E5E7EB; border-radius: 16px; background: #FFFFFF; text-align: center; }
+.mt-check-grid > li.mt-check::before { content: none; display: none; }
+.mt-check-num { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #10233F; color: #F4C542; font-size: 14px; font-weight: 900; }
+.mt-check h3 { margin: 0; color: #10233F; font-size: 16px; font-weight: 800; line-height: 1.45; word-break: keep-all; }
+.mt-school-wrap { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 960px; margin: 0 auto; }
+.mt-school { padding: 22px; border: 1px solid #E5E7EB; border-radius: 18px; background: #FFFFFF; }
+.mt-school h3 { margin: 0 0 14px; color: #10233F; font-size: 18px; font-weight: 900; }
+.mt-school .ar-topic-list { justify-content: flex-start; gap: 8px; max-width: none; }
+.mt-school .ar-topic { padding: 8px 14px; font-size: 15px; }
+@media (max-width: 980px) {
+  .mt-grade-grid { grid-template-columns: 1fr; max-width: 640px; }
+  .ar-steps.mt-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .mt-check-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .mt-grade { padding: 18px 16px; }
+  .mt-grade h3 { font-size: 19px; }
+  .mt-reason-grid { grid-template-columns: 1fr; gap: 10px; }
+  .mt-reason-grid > li.mt-reason { padding: 18px 16px 18px 60px; }
+  .mt-reason-grid > li.mt-reason::before { left: 16px; top: 18px; width: 30px; height: 30px; font-size: 14px; }
+  .mt-reason h3 { font-size: 16.5px; }
+  body.page-subject main .mt-midcta { padding-top: 36px; padding-bottom: 36px; }
+  .mt-midcta-box { padding: 24px 16px; }
+  .mt-midcta-box h2 { font-size: 20px; }
+  .mt-midcta-box p { font-size: 15px; }
+  .mt-midcta-box .ar-cta-btn { width: calc(100vw - 166px); max-width: 330px; padding: 0 12px; gap: 6px; font-size: 15px; white-space: nowrap; }
+  .ar-steps.mt-steps { grid-template-columns: 1fr; gap: 10px; }
+  .mt-steps .ar-step { display: grid; grid-template-columns: 32px 1fr; align-items: start; column-gap: 12px; row-gap: 4px; padding: 16px; text-align: left; }
+  .mt-steps .ar-step-num { grid-row: span 2; }
+  .mt-steps .ar-step h3 { font-size: 16.5px; }
+  .mt-check-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .mt-check-grid > li.mt-check { padding: 16px 10px; }
+  .mt-check-grid > li.mt-check:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .mt-check h3 { font-size: 15px; }
+  .mt-school-wrap { grid-template-columns: 1fr; gap: 12px; }
+  .mt-school { padding: 18px 16px; }
+  .mt-school .ar-topic { padding: 7px 12px; font-size: 14px; }
+}

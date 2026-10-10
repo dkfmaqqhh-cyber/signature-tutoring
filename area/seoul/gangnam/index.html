@@ -18,8 +18,8 @@
 <link rel="icon" type="image/png" sizes="48x48" href="../../../images/favicon-48.png">
 <link rel="apple-touch-icon" href="../../../images/apple-touch-icon.png">
 <!-- [128차] 세부지역 표준 템플릿 1호: 서울 강남구 (/area/seoul/gangnam/) = 강남구 지역 허브(서울 허브 → 구 허브 → 향후 동 페이지)
-     구성: 지역명 HERO · 지역 소개 · 세부 지역(동) · 많이 찾는 수업 · 학년 · 가능 수업 · 구체적 FAQ · 인근/상위 내부링크 · 수업 안내 · CTA
-     · 동·과목·인근 구 페이지는 아직 없어 링크하지 않음(404 방지, data-href에 향후 경로만 기록) · 가격·통계·학교·선생님 수 등 확인되지 않은 정보는 쓰지 않음
+     [147차] 구 단위 표준 랜딩 구성: HERO · 핵심정보 요약 5 · 법정동 14(정보 카드, 링크 없음) · 과목 4(링크) · 학년 3(링크) · 학교 예시(태그, 링크 없음) · 상담 확인 5 · 가능 수업 · FAQ 8 · 인근/상위 링크 · CTA
+     · 동·학교 페이지는 만들지 않음(링크·data-href 없음) · 가격·통계·성적향상·선생님 수 등 확인되지 않은 정보는 쓰지 않음
      · 최종 업데이트 날짜는 콘텐츠를 실제로 고칠 때 화면(.rg-updated)과 JSON-LD dateModified를 함께 바꿀 것 -->
 <script type="application/ld+json">
 {
@@ -75,7 +75,7 @@
     {
       "@type": "Service",
       "name": "강남구 1:1 맞춤과외",
-      "serviceType": "1:1 과외",
+      "serviceType": "초·중·고 1:1 과외",
       "url": "https://signaturetutoring.co.kr/area/seoul/gangnam/",
       "areaServed": {
         "@type": "AdministrativeArea",
@@ -88,75 +88,75 @@
       },
       "audience": {
         "@type": "EducationalAudience",
-        "audienceType": "유아, 초등학생, 중학생, 고등학생"
+        "audienceType": "초등학생, 중학생, 고등학생"
       },
-      "description": "서울 강남구 유아·초등·중등·고등 학생을 위한 1:1 방문과외와 실시간 화상수업. 학년, 과목, 현재 학습 수준과 목표에 맞춰 안내합니다."
+      "description": "서울 강남구 초등·중등·고등 학생을 위한 수학·영어·국어·과학 1:1 방문과외와 실시간 화상수업. 학년·학교·과목·일정을 확인한 뒤 수업 방향을 안내합니다."
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "강남구 1:1 과외 비용은 어느 정도인가요?",
+          "name": "강남구 어느 지역에서 방문과외가 가능한가요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "수업료는 한 가지로 정해져 있지 않고 학년, 과목, 주당 수업 횟수와 시간에 따라 달라집니다. 선생님 조건과 방문수업·화상수업 여부도 함께 반영되므로, 상담에서 학생 상황을 확인한 뒤 정확하게 안내드립니다."
+            "text": "강남구 방문과외는 학생이 사는 동과 희망 요일·시간, 선생님 배정 상황을 확인한 뒤 가능 여부를 안내드립니다. 대치동·역삼동·개포동처럼 생활권에 따라 일정이 달라질 수 있어 상담에서 먼저 확인하며, 방문이 어려운 경우 실시간 화상수업도 함께 안내드립니다."
           }
         },
         {
           "@type": "Question",
-          "name": "중학생이 수학과 과학을 같이 과외받을 수 있나요?",
+          "name": "초등·중등·고등학생 모두 상담할 수 있나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "네, 중학생은 수학과 과학을 함께 상담하실 수 있습니다. 한 선생님이 두 과목을 맡는 방법과 과목별로 선생님을 따로 연결하는 방법이 있으며, 학생의 현재 진도와 학교 시험 범위, 주간 일정을 확인한 뒤 함께 정합니다."
+            "text": "네, 강남구 초등학생·중학생·고등학생 모두 1:1 과외를 상담하실 수 있습니다. 학년에 따라 필요한 공부 방향이 달라 현재 학습 수준과 목표를 먼저 확인한 뒤 수업 방향을 안내드립니다."
           }
         },
         {
           "@type": "Question",
-          "name": "영어와 수학을 각각 다른 선생님에게 받을 수도 있나요?",
+          "name": "수학과 영어처럼 여러 과목을 함께 상담할 수 있나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "네, 영어와 수학을 과목별로 다른 선생님에게 받으실 수 있습니다. 과목마다 학생에게 필요한 지도 방식이 다를 수 있어 각 과목의 수준과 목표에 맞춰 선생님을 연결해드리며, 두 수업의 요일과 시간이 겹치지 않도록 상담에서 함께 조율합니다."
+            "text": "네, 수학과 영어처럼 여러 과목을 함께 상담하실 수 있습니다. 한 선생님이 여러 과목을 맡는 방법과 과목별로 선생님을 따로 연결하는 방법이 있어, 학생의 학년과 목표, 주간 일정을 확인한 뒤 함께 정합니다."
           }
         },
         {
           "@type": "Question",
-          "name": "시험기간에는 수업 횟수를 조정할 수 있나요?",
+          "name": "방문수업과 화상수업 중에서 선택할 수 있나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "네, 시험기간에는 선생님과 일정을 협의해 수업 횟수나 시간을 조정하는 방향으로 상담하실 수 있습니다. 조정 범위는 선생님 일정과 수업 계획에 따라 달라질 수 있으니, 학교 시험 일정이 나오면 미리 말씀해 주시면 좋습니다."
+            "text": "네, 학생 상황에 맞춰 방문수업과 실시간 화상수업 중에서 선택하실 수 있습니다. 거주 지역과 일정, 학생이 집중하기 편한 환경을 함께 고려해 상담에서 알맞은 방식을 안내드립니다."
           }
         },
         {
           "@type": "Question",
-          "name": "대치동이나 수서동처럼 원하는 지역으로 방문수업 상담이 가능한가요?",
+          "name": "학교 내신 중심으로 상담할 수 있나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "네, 대치동이나 수서동처럼 원하시는 지역을 말씀해 주시면 방문수업 가능 여부를 먼저 상담해드립니다. 방문 가능 여부는 희망 요일·시간과 선생님 배정 상황에 따라 달라질 수 있으며, 방문이 어려운 경우 실시간 화상수업도 함께 안내드립니다."
+            "text": "네, 강남구 학생이 다니는 학교의 진도와 시험 범위에 맞춘 내신 중심 수업을 상담하실 수 있습니다. 학년과 과목, 시험 일정을 확인한 뒤 취약 영역부터 우선순위를 정해 안내드립니다."
           }
         },
         {
           "@type": "Question",
-          "name": "여자 선생님이나 원하는 선생님 조건을 요청할 수 있나요?",
+          "name": "원하는 선생님 조건을 요청할 수 있나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "네, 상담 시 원하시는 선생님 조건을 요청하실 수 있습니다. 성별이나 수업 스타일 등 요청하신 조건은 지역과 일정, 선생님 배정 상황에 따라 가능 여부가 달라질 수 있어 확인 후 안내드립니다."
+            "text": "네, 상담 시 성별이나 수업 스타일 등 원하시는 선생님 조건을 요청하실 수 있습니다. 요청하신 조건은 지역과 일정, 선생님 배정 상황에 따라 가능 여부가 달라질 수 있어 확인 후 안내드립니다."
           }
         },
         {
           "@type": "Question",
-          "name": "아이와 선생님이 맞지 않으면 변경을 상담할 수 있나요?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "네, 수업을 진행하면서 아이와 잘 맞지 않는다고 느끼시면 선생님 변경을 상담하실 수 있습니다. 어떤 부분이 맞지 않았는지 먼저 확인한 뒤, 학생 상황과 선생님 일정을 고려해 변경 가능 여부와 절차를 안내드립니다."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "시범수업을 받아본 후 정식 수업을 결정할 수 있나요?",
+          "name": "시범수업을 상담할 수 있나요?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "네, 상담 후 무료 시범수업으로 수업 방식과 학습 방향을 먼저 확인하신 뒤 정식 수업 여부를 결정하실 수 있습니다. 세부 조건은 상담 시 안내드립니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "수업 요일과 시간은 어떻게 정하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "수업 요일과 시간은 상담에서 학생의 학교·학원 일정과 가능한 시간대를 확인한 뒤 선생님 일정과 맞춰 정합니다. 주당 수업 횟수도 학생의 현재 수준과 목표에 따라 함께 상의해 결정합니다."
           }
         }
       ]
@@ -165,9 +165,10 @@
 }
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../../../css/style.css?v=128">
+<link rel="stylesheet" href="../../../css/style.css?v=147">
 </head>
-<body class="page-area page-region page-subarea">
+<!-- [147차] page-gu-hub = 구 단위 허브 전용 클래스(이 페이지에서만 새 CSS 적용) -->
+<body class="page-area page-region page-subarea page-gu-hub">
 
 
 <header class="sig-header">
@@ -202,7 +203,7 @@
 
 <main id="top">
 
-<!-- 1. 대문 (네이비+골드 단색형 .rg-hero-solid · 세부지역 페이지는 H1을 화면에 그대로 표시: '강남구' 흰색 / '1:1 맞춤과외' 골드) -->
+<!-- 1. 대문 ([147차] 보조문구·CTA 교체 · 네이비+골드 단색형 유지 · H1 '강남구 1:1 맞춤과외') -->
 <section class="ar-hero rg-hero rg-hero-solid" aria-labelledby="rgTitle">
   <div class="container">
     <ol class="breadcrumb ar-breadcrumb">
@@ -213,88 +214,115 @@
     </ol>
     <span class="ar-kicker">GANGNAM TUTORING</span>
     <h1 id="rgTitle" class="rgs-title"><span>강남구</span> <strong>1:1 맞춤과외</strong></h1>
-    <p class="rgs-sub">우리 아이에게 맞는 수업을 강남구에서 찾아보세요.</p>
-    <p class="rgs-desc">학생의 학년과 과목, 현재 학습 수준과 목표를 확인한 뒤 맞춤 수업 방향을 안내합니다.</p>
+    <p class="rgs-sub">초등·중등·고등 학생의 학년과 현재 수준,<br>희망 과목을 확인해 방문·화상 1:1 수업 방향을 상담합니다.</p>
     <div class="rgs-btns">
-      <a class="ar-cta-btn rgs-btn" href="../../../consult.html">강남구 과외 무료 상담 신청 <span aria-hidden="true">→</span></a>
+      <a class="ar-cta-btn rgs-btn" href="../../../consult.html">강남구 과외 상담 신청 <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
 
-<!-- 2. 강남구 지역 소개 (지역명 치환형 문구 금지 · 생활권 범위 + 1:1 맞춤 상담 기준만 설명) -->
-<section class="page-section gn-intro" id="about" aria-labelledby="gnIntroTitle">
+<!-- 2. [147차] 핵심 정보 요약 5 (확정된 정보만 · 무료 체험 등 미확정 내용 없음) -->
+<section class="gh-summary-sec" aria-label="강남구 과외 핵심 정보">
   <div class="container">
-    <div class="section-head center">
-      <div class="kicker">ABOUT GANGNAM</div>
-      <h2 id="gnIntroTitle">강남구 지역별 과외 안내</h2>
-    </div>
-    <div class="gn-intro-text">
-      <p>강남구는 한강변의 신사·압구정·청담에서 대치·도곡·역삼을 지나 개포·일원·수서·세곡까지 생활권이 길게 이어져 있어, 같은 구 안에서도 학생마다 다니는 학교와 학원 일정, 수업이 가능한 요일과 시간이 다릅니다.</p>
-      <p>시그니처과외는 학생이 사는 동과 학년, 희망 과목, 현재 학습 수준과 수업 목표를 먼저 확인한 뒤 1:1 맞춤 상담으로 수업 방향을 정합니다. 방문수업이 어려운 시간대에는 실시간 화상수업도 함께 안내합니다.</p>
-    </div>
+    <dl class="gh-summary">
+      <div class="gh-sum-item"><dt>지역</dt><dd>서울특별시 강남구</dd></div>
+      <div class="gh-sum-item"><dt>대상</dt><dd>초등학생 · 중학생 · 고등학생</dd></div>
+      <div class="gh-sum-item"><dt>과목</dt><dd>수학 · 영어 · 국어 · 과학</dd></div>
+      <div class="gh-sum-item"><dt>수업방식</dt><dd>방문수업 · 화상수업</dd></div>
+      <div class="gh-sum-item"><dt>상담</dt><dd>학년 · 학교 · 과목 · 일정 확인 후 안내</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- 3. 강남구 세부 지역 (서울시 자치구별 동 현황 기준 22개 행정동 · 14개 법정동 확인 → 법정동 이름 기준 대표 생활권 12곳, 강남구 행정 순서)
-     행정동 대응: 신사동 / 논현1·2동 / 압구정동 / 청담동 / 삼성1·2동 / 대치1·2·4동 / 역삼1·2동 / 도곡1·2동 / 개포1·2·3·4동(개포3동 = 2022.12 옛 일원2동) / 일원본동·일원1동 / 수서동 / 세곡동(법정동 세곡·자곡·율현)
-     동 페이지가 아직 없어 링크 없는 비활성 카드 · 페이지를 만들면 <span … data-href="daechi/">…</span> 을 <a class="ar-region rg-gu" href="daechi/">…</a> 로 바꾸고 <small> 문구만 바꾸면 됩니다. -->
-<section class="page-section ar-regions rg-gus" id="districts" aria-labelledby="rgGuTitle">
+<!-- 3. [147차] 강남구 동네 14 (법정동 · 정보 표시용 카드 · 링크·href·data-href·동별 URL 없음 · 기존 12개 생활권 카드(data-href 포함)를 대체) -->
+<section class="page-section gh-bg-white" id="districts" aria-labelledby="ghDongTitle">
   <div class="container">
     <div class="section-head center">
-      <div class="kicker">GANGNAM AREAS</div>
-      <h2 id="rgGuTitle">강남구 세부 지역</h2>
-      <p>동별 세부 안내는 순차적으로 열립니다. 지금은 상담으로 우리 동네 수업 가능 여부를 먼저 확인하실 수 있습니다.</p>
+      <div class="kicker">GANGNAM AREA</div>
+      <h2 id="ghDongTitle">강남구 어느 동에서 과외를 찾고 계신가요?</h2>
+      <p>강남구 주요 생활권을 확인하고 학생의 지역과 가능한 수업방식을 상담할 수 있습니다.</p>
     </div>
-    <ul class="ar-region-grid rg-gu-grid rg-gu-grid-4 gn-dong-grid">
-      <li><span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="sinsa/"><strong>신사동</strong><small>세부 페이지 준비 중</small></span></li>
-      <li><span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="nonhyeon/"><strong>논현동</strong><small>세부 페이지 준비 중</small></span></li>
-      <li><span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="apgujeong/"><strong>압구정동</strong><small>세부 페이지 준비 중</small></span></li>
-      <li><span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="cheongdam/"><strong>청담동</strong><small>세부 페이지 준비 중</small></span></li>
-      <li><span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="samseong/"><strong>삼성동</strong><small>세부 페이지 준비 중</small></span></li>
-      <li><span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="daechi/"><strong>대치동</strong><small>세부 페이지 준비 중</small></span></li>
-      <li><span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="yeoksam/"><strong>역삼동</strong><small>세부 페이지 준비 중</small></span></li>
-      <li><span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="dogok/"><strong>도곡동</strong><small>세부 페이지 준비 중</small></span></li>
-      <li><span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="gaepo/"><strong>개포동</strong><small>세부 페이지 준비 중</small></span></li>
-      <li><span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="irwon/"><strong>일원동</strong><small>세부 페이지 준비 중</small></span></li>
-      <li><span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="suseo/"><strong>수서동</strong><small>세부 페이지 준비 중</small></span></li>
-      <li><span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="segok/"><strong>세곡동</strong><small>세부 페이지 준비 중</small></span></li>
+    <ul class="gh-dong-grid">
+      <li class="gh-dong">개포동</li>
+      <li class="gh-dong">논현동</li>
+      <li class="gh-dong">대치동</li>
+      <li class="gh-dong">도곡동</li>
+      <li class="gh-dong">삼성동</li>
+      <li class="gh-dong">세곡동</li>
+      <li class="gh-dong">수서동</li>
+      <li class="gh-dong">신사동</li>
+      <li class="gh-dong">압구정동</li>
+      <li class="gh-dong">역삼동</li>
+      <li class="gh-dong">율현동</li>
+      <li class="gh-dong">일원동</li>
+      <li class="gh-dong">자곡동</li>
+      <li class="gh-dong">청담동</li>
     </ul>
-    <p class="ar-topic-note">※ 카드는 법정동 이름 기준의 대표 생활권입니다. 실제 행정동(예: 대치1·2·4동)과 경계가 다를 수 있습니다.</p>
+    <p class="gh-note">강남구는 대치동·도곡동·역삼동·개포동·수서동·청담동 등 여러 생활권으로 나뉩니다. 방문수업은 학생의 실제 거주 지역과 선생님 일정에 따라 가능 여부를 확인하며, 지역에 따라 화상수업도 함께 상담할 수 있습니다.</p>
   </div>
 </section>
 
-<!-- 4. 강남구에서 많이 찾는 수업 (세부 페이지가 아직 없어 링크 없음 · data-href = 향후 /area/seoul/gangnam/{과목·학년}/ 경로 · 생성 시 span → <a class="ar-topic" href="…/"> 로 교체) -->
-<section class="page-section ar-topics rg-popular" id="popular" aria-labelledby="rgPopTitle">
+<!-- 4. [147차] 과목별 4 (실제 링크 카드 · 기존 '많이 찾는 수업' 칩 7개를 과목 4 + 학년 3 카드로 대체) -->
+<section class="page-section gh-bg-cream" id="subjects" aria-labelledby="ghSubTitle">
   <div class="container">
     <div class="section-head center">
-      <div class="kicker">POPULAR</div>
-      <h2 id="rgPopTitle">강남구에서 많이 찾는 수업</h2>
-      <p>과목과 학년별 강남구 세부 안내는 순차적으로 연결됩니다.</p>
+      <div class="kicker">BY SUBJECT</div>
+      <h2 id="ghSubTitle">강남구에서 많이 찾는 과목별 1:1 과외</h2>
     </div>
-    <ul class="ar-topic-list">
-      <li><a class="ar-topic" href="math/" data-area="seoul-gangnam" data-topic="math">강남구 수학과외</a></li><!-- [132차] 강남구 수학과외 랜딩 연결 -->
-      <li><a class="ar-topic" href="english/" data-area="seoul-gangnam" data-topic="english">강남구 영어과외</a></li><!-- [142차] 강남구 영어과외 랜딩 연결 -->
-      <li><a class="ar-topic" href="korean/" data-area="seoul-gangnam" data-topic="korean">강남구 국어과외</a></li><!-- [144차] 강남구 국어·과학과외 랜딩 연결 -->
-      <li><a class="ar-topic" href="science/" data-area="seoul-gangnam" data-topic="science">강남구 과학과외</a></li><!-- [144차] 강남구 국어·과학과외 랜딩 연결 -->
-      <li><a class="ar-topic" href="elementary/" data-area="seoul-gangnam" data-topic="elementary">강남구 초등과외</a></li><!-- [145차] 강남구 학년별 랜딩 연결 -->
-      <li><a class="ar-topic" href="middle/" data-area="seoul-gangnam" data-topic="middle">강남구 중학생과외</a></li><!-- [145차] 강남구 학년별 랜딩 연결 -->
-      <li><a class="ar-topic" href="high/" data-area="seoul-gangnam" data-topic="high">강남구 고등학생과외</a></li><!-- [145차] 강남구 학년별 랜딩 연결 -->
-    </ul>
+    <div class="gh-link-grid">
+      <a class="gh-link-card" href="math/"><span class="gh-en">MATH</span><h3>강남구 수학과외</h3><span class="gh-kw">기초 개념 · 문제 적용 · 내신 · 시험 대비</span><span class="gh-more">자세히 보기 <span aria-hidden="true">→</span></span></a>
+      <a class="gh-link-card" href="english/"><span class="gh-en">ENGLISH</span><h3>강남구 영어과외</h3><span class="gh-kw">어휘 · 문법 · 독해 · 학교 내신</span><span class="gh-more">자세히 보기 <span aria-hidden="true">→</span></span></a>
+      <a class="gh-link-card" href="korean/"><span class="gh-en">KOREAN</span><h3>강남구 국어과외</h3><span class="gh-kw">독해 · 문학 · 비문학 · 문법·내신</span><span class="gh-more">자세히 보기 <span aria-hidden="true">→</span></span></a>
+      <a class="gh-link-card" href="science/"><span class="gh-en">SCIENCE</span><h3>강남구 과학과외</h3><span class="gh-kw">개념 이해 · 자료 해석 · 문제 적용 · 내신</span><span class="gh-more">자세히 보기 <span aria-hidden="true">→</span></span></a>
+    </div>
   </div>
 </section>
 
-<!-- 5. 학년별 ([114차] 카드 상단 AI 이미지 images/grade-*.webp · 세부 학년 페이지가 아직 없어 링크 없음) -->
-<section class="page-section rg-grades" id="grades" aria-labelledby="rgGradeTitle">
+<!-- 5. [147차] 학년별 3 (실제 링크 카드 · 기존 학년 이미지 카드(링크 없음)와 통합해 같은 AI 이미지 재사용) + 학년+과목 안내 한 줄 -->
+<section class="page-section gh-bg-white" id="grades" aria-labelledby="ghGradeTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">BY GRADE</div>
-      <h2 id="rgGradeTitle">강남구 학년별 1:1 과외</h2>
+      <h2 id="ghGradeTitle">학년별로 달라지는 강남구 1:1 과외</h2>
     </div>
-    <ul class="rg-grade-grid">
-      <li class="rg-grade is-pre" data-grade="preschool"><img class="rg-grade-img" src="../../../images/grade-preschool.webp" alt="유아 기초학습 수업 모습" width="800" height="600" loading="lazy" decoding="async"><h3>유아·기초</h3><p>한글·기초수학·파닉스 등 학습의 첫 시작</p></li>
-      <li class="rg-grade is-ele" data-grade="elementary"><img class="rg-grade-img" src="../../../images/grade-elementary.webp" alt="초등학생 1대1 학습 수업 모습" width="800" height="600" loading="lazy" decoding="async"><h3>초등학생</h3><p>기초학습부터 공부 습관과 교과 관리</p></li>
-      <li class="rg-grade is-mid" data-grade="middle"><img class="rg-grade-img" src="../../../images/grade-middle.webp" alt="중학생 내신 수업 모습" width="800" height="600" loading="lazy" decoding="async"><h3>중학생</h3><p>학교 진도·내신·시험 대비 중심</p></li>
-      <li class="rg-grade is-high" data-grade="high"><img class="rg-grade-img" src="../../../images/grade-high.webp" alt="고등학생 성적 향상 학습 모습" width="800" height="600" loading="lazy" decoding="async"><h3>고등학생</h3><p>내신과 수능을 고려한 목표별 학습</p></li>
+    <div class="gh-grade-grid">
+      <a class="gh-grade-card" href="elementary/"><img src="../../../images/grade-elementary.webp" alt="초등학생 1대1 학습 수업 모습" width="800" height="600" loading="lazy" decoding="async"><span class="gh-card-body"><h3>강남구 초등학생과외</h3><span class="gh-kw">기초학습 · 공부습관 · 학교진도</span><span class="gh-more">자세히 보기 <span aria-hidden="true">→</span></span></span></a>
+      <a class="gh-grade-card" href="middle/"><img src="../../../images/grade-middle.webp" alt="중학생 내신 수업 모습" width="800" height="600" loading="lazy" decoding="async"><span class="gh-card-body"><h3>강남구 중학생과외</h3><span class="gh-kw">첫 내신 · 시험대비 · 과목별 학습</span><span class="gh-more">자세히 보기 <span aria-hidden="true">→</span></span></span></a>
+      <a class="gh-grade-card" href="high/"><img src="../../../images/grade-high.webp" alt="고등학생 학습 모습" width="800" height="600" loading="lazy" decoding="async"><span class="gh-card-body"><h3>강남구 고등학생과외</h3><span class="gh-kw">내신 · 모의고사 · 취약영역 관리</span><span class="gh-more">자세히 보기 <span aria-hidden="true">→</span></span></span></a>
+    </div>
+    <p class="gh-note">학년별 페이지에서는 초등수학·초등영어, 중학생수학·중학생영어, 고등학생수학·고등학생영어처럼 더 세분화된 수업 안내도 확인할 수 있습니다.</p>
+  </div>
+</section>
+
+<!-- 6. [147차] 학교 정보 (강남구청 관내 학교 목록에서 확인한 일부 · 작은 태그 · 링크·href·data-href·학교별 페이지 없음 · 학교 전문/기출/성적 보장 표현 없음) -->
+<section class="page-section gh-bg-cream" id="schools" aria-labelledby="ghSchoolTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">SCHOOLS</div>
+      <h2 id="ghSchoolTitle">강남구 학생의 학교 진도와 내신도 함께 확인합니다</h2>
+      <p>학생이 다니는 학교와 학년, 현재 진도와 시험 일정을 확인해 필요한 과목과 학습 방향을 상담합니다.</p>
+    </div>
+    <div class="gh-school-wrap">
+      <div class="gh-school"><h3>중학교</h3><ul class="gh-school-tags"><li>대청중학교</li><li>대치중학교</li><li>도곡중학교</li><li>역삼중학교</li><li>수서중학교</li><li>청담중학교</li></ul></div>
+      <div class="gh-school"><h3>고등학교</h3><ul class="gh-school-tags"><li>경기고등학교</li><li>휘문고등학교</li><li>중동고등학교</li><li>압구정고등학교</li><li>개포고등학교</li></ul></div>
+    </div>
+    <p class="gh-note">학교마다 진도와 시험 범위가 다를 수 있어 상담 시 학생이 다니는 학교와 현재 학습 상황을 함께 확인합니다. 위 학교는 강남구 내 학교 안내를 위한 일부 예시이며, 다른 학교 학생도 상담할 수 있습니다.</p>
+  </div>
+</section>
+
+<!-- 7. [147차] 상담 시 확인 항목 5 -->
+<section class="page-section gh-bg-white" id="consult-check" aria-labelledby="ghCheckTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">CONSULTATION</div>
+      <h2 id="ghCheckTitle">강남구 과외 상담에서는 무엇을 확인하나요?</h2>
+    </div>
+    <ul class="mt-check-grid">
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">1</span><h3>학생 거주 지역</h3></li>
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">2</span><h3>현재 학년과 학교</h3></li>
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">3</span><h3>희망 과목</h3></li>
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">4</span><h3>기초·내신·시험대비 등 목표</h3></li>
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">5</span><h3>방문·화상 및 가능한 요일·시간</h3></li>
     </ul>
   </div>
 </section>
@@ -319,7 +347,7 @@
   </div>
 </section>
 
-<!-- 7. 학부모 질문 8개 (시·도 페이지보다 구체적인 검색형 질문 · 첫 문장에서 결론 · 화면 문구 = JSON-LD FAQPage 문구) -->
+<!-- 9. FAQ 8 ([147차] 허브 검색 의도에 맞게 교체 · 첫 문장 결론 · 화면 문구 = JSON-LD FAQPage) -->
 <section class="page-section rg-faq" id="faq" aria-labelledby="rgFaqTitle">
   <div class="container">
     <div class="section-head center">
@@ -328,56 +356,53 @@
     </div>
     <div class="rg-faq-grid">
       <article class="rg-faq-item">
-        <h3>강남구 1:1 과외 비용은 어느 정도인가요?</h3>
-        <p>수업료는 한 가지로 정해져 있지 않고 학년, 과목, 주당 수업 횟수와 시간에 따라 달라집니다. 선생님 조건과 방문수업·화상수업 여부도 함께 반영되므로, 상담에서 학생 상황을 확인한 뒤 정확하게 안내드립니다.</p>
+        <h3>강남구 어느 지역에서 방문과외가 가능한가요?</h3>
+        <p>강남구 방문과외는 학생이 사는 동과 희망 요일·시간, 선생님 배정 상황을 확인한 뒤 가능 여부를 안내드립니다. 대치동·역삼동·개포동처럼 생활권에 따라 일정이 달라질 수 있어 상담에서 먼저 확인하며, 방문이 어려운 경우 실시간 화상수업도 함께 안내드립니다.</p>
       </article>
       <article class="rg-faq-item">
-        <h3>중학생이 수학과 과학을 같이 과외받을 수 있나요?</h3>
-        <p>네, 중학생은 수학과 과학을 함께 상담하실 수 있습니다. 한 선생님이 두 과목을 맡는 방법과 과목별로 선생님을 따로 연결하는 방법이 있으며, 학생의 현재 진도와 학교 시험 범위, 주간 일정을 확인한 뒤 함께 정합니다.</p>
+        <h3>초등·중등·고등학생 모두 상담할 수 있나요?</h3>
+        <p>네, 강남구 초등학생·중학생·고등학생 모두 1:1 과외를 상담하실 수 있습니다. 학년에 따라 필요한 공부 방향이 달라 현재 학습 수준과 목표를 먼저 확인한 뒤 수업 방향을 안내드립니다.</p>
       </article>
       <article class="rg-faq-item">
-        <h3>영어와 수학을 각각 다른 선생님에게 받을 수도 있나요?</h3>
-        <p>네, 영어와 수학을 과목별로 다른 선생님에게 받으실 수 있습니다. 과목마다 학생에게 필요한 지도 방식이 다를 수 있어 각 과목의 수준과 목표에 맞춰 선생님을 연결해드리며, 두 수업의 요일과 시간이 겹치지 않도록 상담에서 함께 조율합니다.</p>
+        <h3>수학과 영어처럼 여러 과목을 함께 상담할 수 있나요?</h3>
+        <p>네, 수학과 영어처럼 여러 과목을 함께 상담하실 수 있습니다. 한 선생님이 여러 과목을 맡는 방법과 과목별로 선생님을 따로 연결하는 방법이 있어, 학생의 학년과 목표, 주간 일정을 확인한 뒤 함께 정합니다.</p>
       </article>
       <article class="rg-faq-item">
-        <h3>시험기간에는 수업 횟수를 조정할 수 있나요?</h3>
-        <p>네, 시험기간에는 선생님과 일정을 협의해 수업 횟수나 시간을 조정하는 방향으로 상담하실 수 있습니다. 조정 범위는 선생님 일정과 수업 계획에 따라 달라질 수 있으니, 학교 시험 일정이 나오면 미리 말씀해 주시면 좋습니다.</p>
+        <h3>방문수업과 화상수업 중에서 선택할 수 있나요?</h3>
+        <p>네, 학생 상황에 맞춰 방문수업과 실시간 화상수업 중에서 선택하실 수 있습니다. 거주 지역과 일정, 학생이 집중하기 편한 환경을 함께 고려해 상담에서 알맞은 방식을 안내드립니다.</p>
       </article>
       <article class="rg-faq-item">
-        <h3>대치동이나 수서동처럼 원하는 지역으로 방문수업 상담이 가능한가요?</h3>
-        <p>네, 대치동이나 수서동처럼 원하시는 지역을 말씀해 주시면 방문수업 가능 여부를 먼저 상담해드립니다. 방문 가능 여부는 희망 요일·시간과 선생님 배정 상황에 따라 달라질 수 있으며, 방문이 어려운 경우 실시간 화상수업도 함께 안내드립니다.</p>
+        <h3>학교 내신 중심으로 상담할 수 있나요?</h3>
+        <p>네, 강남구 학생이 다니는 학교의 진도와 시험 범위에 맞춘 내신 중심 수업을 상담하실 수 있습니다. 학년과 과목, 시험 일정을 확인한 뒤 취약 영역부터 우선순위를 정해 안내드립니다.</p>
       </article>
       <article class="rg-faq-item">
-        <h3>여자 선생님이나 원하는 선생님 조건을 요청할 수 있나요?</h3>
-        <p>네, 상담 시 원하시는 선생님 조건을 요청하실 수 있습니다. 성별이나 수업 스타일 등 요청하신 조건은 지역과 일정, 선생님 배정 상황에 따라 가능 여부가 달라질 수 있어 확인 후 안내드립니다.</p>
+        <h3>원하는 선생님 조건을 요청할 수 있나요?</h3>
+        <p>네, 상담 시 성별이나 수업 스타일 등 원하시는 선생님 조건을 요청하실 수 있습니다. 요청하신 조건은 지역과 일정, 선생님 배정 상황에 따라 가능 여부가 달라질 수 있어 확인 후 안내드립니다.</p>
       </article>
       <article class="rg-faq-item">
-        <h3>아이와 선생님이 맞지 않으면 변경을 상담할 수 있나요?</h3>
-        <p>네, 수업을 진행하면서 아이와 잘 맞지 않는다고 느끼시면 선생님 변경을 상담하실 수 있습니다. 어떤 부분이 맞지 않았는지 먼저 확인한 뒤, 학생 상황과 선생님 일정을 고려해 변경 가능 여부와 절차를 안내드립니다.</p>
-      </article>
-      <article class="rg-faq-item">
-        <h3>시범수업을 받아본 후 정식 수업을 결정할 수 있나요?</h3>
+        <h3>시범수업을 상담할 수 있나요?</h3>
         <p>네, 상담 후 무료 시범수업으로 수업 방식과 학습 방향을 먼저 확인하신 뒤 정식 수업 여부를 결정하실 수 있습니다. 세부 조건은 상담 시 안내드립니다.</p>
+      </article>
+      <article class="rg-faq-item">
+        <h3>수업 요일과 시간은 어떻게 정하나요?</h3>
+        <p>수업 요일과 시간은 상담에서 학생의 학교·학원 일정과 가능한 시간대를 확인한 뒤 선생님 일정과 맞춰 정합니다. 주당 수업 횟수도 학생의 현재 수준과 목표에 따라 함께 상의해 결정합니다.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- 8. 인근 지역 + 상위 페이지 내부링크 ([128차])
-     · 인근 구(서초·송파·성동·광진)는 페이지가 아직 없어 링크 없는 표시만(data-href = 향후 /area/seoul/{구}/) · 생성 시 span → <a class="ar-topic" href="../seocho/"> 로 교체
-     · 상위 링크 2개(서울·전국)는 상담 CTA보다 약한 테두리 버튼(.gn-uplink) -->
+<!-- 10. 함께 많이 찾는 서울 지역 + 상위 링크 ([147차] 서초·송파·성동·광진 구 페이지가 131차에 생성되어 실제 링크로 전환) -->
 <section class="page-section gn-nearby" id="nearby" aria-labelledby="gnNearTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">NEARBY</div>
       <h2 id="gnNearTitle">강남구와 함께 많이 찾는 서울 지역</h2>
-      <p>인접한 구의 세부 안내는 순차적으로 연결됩니다.</p>
     </div>
     <ul class="ar-topic-list">
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-href="../seocho/">서초구</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-href="../songpa/">송파구</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-href="../seongdong/">성동구</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-href="../gwangjin/">광진구</span></li>
+      <li><a class="ar-topic" href="../seocho/">서초구</a></li>
+      <li><a class="ar-topic" href="../songpa/">송파구</a></li>
+      <li><a class="ar-topic" href="../seongdong/">성동구</a></li>
+      <li><a class="ar-topic" href="../gwangjin/">광진구</a></li>
     </ul>
     <div class="gn-uplinks">
       <a class="gn-uplink" href="../">서울 지역별 과외 전체 보기 <span aria-hidden="true">→</span></a>
@@ -386,30 +411,12 @@
   </div>
 </section>
 
-<!-- [113차] 시그니처과외 수업 안내 (상담 CTA 바로 위) -->
-<section class="page-section sc-sec" id="classes" aria-labelledby="scTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">SIGNATURE CLASS</div>
-      <h2 id="scTitle">시그니처과외 수업 안내</h2>
-      <p>지역을 확인한 뒤, 우리 아이에게 필요한 수업을 바로 찾아보세요.</p>
-    </div>
-    <div class="sc-grid">
-      <article class="sc-card"><h3>교과·내신</h3><p>국어·영어·수학·과학·사회 등 학교 진도와 내신을 중심으로 1:1 수업을 안내합니다.</p><p class="sc-tags">국어 · 영어 · 수학 · 과학 · 사회</p></article>
-      <article class="sc-card"><h3>유아·기초학습</h3><p>유아한글, 한글떼기, 기초수학, 파닉스 등 학습의 첫 시작을 함께합니다.</p><p class="sc-tags">유아한글 · 기초수학 · 파닉스</p></article>
-      <article class="sc-card"><h3>원어민·외국어</h3><p>영어회화, 스피킹, 라이팅 등 학생과 성인의 목표에 맞는 외국어 수업을 안내합니다.</p><p class="sc-tags">영어회화 · 스피킹 · 라이팅</p></article>
-      <article class="sc-card"><h3>특별과정</h3><p>검정고시, 코딩, 학습코칭 등 일반 교과 외에 필요한 과정도 확인할 수 있습니다.</p><p class="sc-tags">검정고시 · 코딩 · 학습코칭</p></article>
-    </div>
-    <p class="sc-more"><a class="sc-more-btn" href="../../../subject/index.html">과외수업 전체 보기 <span aria-hidden="true">→</span></a></p>
-  </div>
-</section>
-
-<!-- 9. 상담 CTA (기존 상담폼 consult.html로만 연결) -->
+<!-- 11. 상담 CTA ([147차] 문구 교체 · consult.html) -->
 <section class="ar-cta" id="consult" aria-labelledby="rgCtaTitle">
   <div class="container">
     <div class="ar-cta-box">
       <h2 id="rgCtaTitle">강남구에서 우리 아이에게 맞는 과외를 찾고 계신가요?</h2>
-      <p>학생의 지역, 학년과 희망 과목을 알려주시면 상담을 통해 수업 방향을 안내해드립니다.</p>
+      <p>학생의 동네와 학년, 학교, 희망 과목을 알려주시면 가능한 수업 방식과 방향을 상담해드립니다.</p>
       <a class="ar-cta-btn" href="../../../consult.html">강남구 과외 무료 상담 신청 <span aria-hidden="true">→</span></a>
     </div>
   </div>

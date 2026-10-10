@@ -7614,3 +7614,89 @@ body.page-subject .en-area .en-area-link:hover, body.page-subject .en-area .en-a
 body.page-subject .mt-school-wrap.gr-school-one { grid-template-columns: 1fr; max-width: 640px; }@media (max-width: 640px) {
   body.page-subject .ar-cta .ar-cta-btn.gr-cta-btn { height: auto; min-height: 56px; padding: 8px 14px; line-height: 1.35; white-space: normal; text-align: center; word-break: keep-all; } /* [145차] 학년 페이지 하단 버튼: 문구가 길어 모바일에서 2줄 허용(폭은 floating 겹침 방지 폭 그대로) */
 }
+/* ---------- [146차] 강남구 학년+과목 랜딩(/area/seoul/gangnam/{elementary|middle|high}/{math|english}/) 보조 스타일 · 새 클래스만 → 기존 페이지 영향 없음
+   · 중간 CTA 버튼(.gr-cta-btn)도 모바일에서 2줄 허용(폭은 floating 겹침 방지 폭 그대로) · 과목 페이지 '학년별로 확인하기' 목록 간격(.gs-grade-links)
+   되돌리기: 이 블록 삭제 + 학년+과목 폴더 6개 삭제 + backup/146차수정전 파일 복원 */
+body.page-subject .ar-topic-list.gs-grade-links { margin-top: 10px; }
+@media (max-width: 640px) {
+  body.page-subject .mt-midcta-box .ar-cta-btn.gr-cta-btn { height: auto; min-height: 52px; padding: 8px 12px; line-height: 1.35; white-space: normal; text-align: center; word-break: keep-all; }
+}
+/* ---------- [147차] 강남구 허브(/area/seoul/gangnam/) 구 단위 표준 랜딩 · body.page-gu-hub 에만 적용 → 다른 페이지 영향 없음
+   · 핵심정보 요약(.gh-summary) · 동 정보 카드(.gh-dong, 링크 없음) · 과목 링크 카드(.gh-link-card) · 학년 이미지 링크 카드(.gh-grade-card) · 학교 태그(.gh-school-tags, 링크 없음)
+   · 네이비/골드/크림/화이트만 사용(가능 수업 카드의 초록 배경도 이 페이지에서는 크림 계열로)
+   되돌리기: 이 블록 삭제 + backup/147차수정전 파일 복원 */
+body.page-gu-hub main .gh-bg-white { background: #FFFFFF; }
+body.page-gu-hub main .gh-bg-cream { background: #FBF8F2; }
+body.page-gu-hub .rgs-sub { max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+body.page-gu-hub .gh-summary-sec { padding: 0; background: #FBF8F2; }
+body.page-gu-hub .gh-summary { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; max-width: 1120px; margin: -34px auto 0; padding: 0; position: relative; z-index: 2; border: 1px solid rgba(16, 35, 63, 0.08); border-radius: 18px; background: #FFFFFF; box-shadow: 0 14px 34px rgba(16, 35, 63, 0.10); overflow: hidden; }
+body.page-gu-hub .gh-sum-item { display: flex; flex-direction: column; gap: 6px; padding: 20px 18px; border-left: 1px solid #EEE7DA; text-align: center; }
+body.page-gu-hub .gh-sum-item:first-child { border-left: 0; }
+body.page-gu-hub .gh-sum-item dt { color: #8F6B2F; font-size: 13px; font-weight: 900; letter-spacing: 0.02em; }
+body.page-gu-hub .gh-sum-item dd { margin: 0; color: #10233F; font-size: 15.5px; font-weight: 800; line-height: 1.5; word-break: keep-all; }
+body.page-gu-hub .gh-summary-sec + .page-section { padding-top: 72px; }
+/* 동: 정보 표시용 카드(화살표·hover 없음) */
+body.page-gu-hub .gh-dong-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; max-width: 920px; margin: 0 auto; padding: 0; list-style: none; }
+body.page-gu-hub .gh-dong { display: flex; align-items: center; justify-content: center; min-height: 54px; margin: 0; padding: 12px 10px; border: 1px solid #E8DFCF; border-radius: 12px; background: #FBF8F2; color: #10233F; font-size: 16px; font-weight: 800; text-align: center; cursor: default; }
+body.page-gu-hub .gh-note { max-width: 820px; margin: 22px auto 0; color: #4B5563; font-size: 15px; line-height: 1.75; text-align: center; word-break: keep-all; }
+/* 과목: 링크 카드(네이비 상단 라인 + 골드 '자세히 보기') */
+body.page-gu-hub .gh-link-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; max-width: 1120px; margin: 0 auto; }
+body.page-gu-hub .gh-link-card { display: flex; flex-direction: column; gap: 10px; padding: 24px 22px 22px; border: 1px solid #E5E7EB; border-top: 4px solid #10233F; border-radius: 16px; background: #FFFFFF; color: #10233F; text-decoration: none; box-shadow: 0 8px 22px rgba(16, 35, 63, 0.06); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+body.page-gu-hub .gh-link-card:hover, body.page-gu-hub .gh-link-card:focus-visible { transform: translateY(-3px); border-top-color: #D4AD6A; box-shadow: 0 14px 30px rgba(16, 35, 63, 0.12); }
+body.page-gu-hub .gh-en { color: #8F6B2F; font-size: 12px; font-weight: 900; letter-spacing: 0.08em; }
+body.page-gu-hub .gh-link-card h3, body.page-gu-hub .gh-grade-card h3 { margin: 0; color: #10233F; font-size: 20px; font-weight: 900; letter-spacing: -0.03em; }
+body.page-gu-hub .gh-kw { color: #4B5563; font-size: 14.5px; line-height: 1.6; word-break: keep-all; }
+body.page-gu-hub .gh-more { margin-top: auto; padding-top: 4px; color: #10233F; font-size: 14px; font-weight: 800; }
+body.page-gu-hub .gh-more span { color: #D4AD6A; }
+/* 학년: 이미지 링크 카드 */
+body.page-gu-hub .gh-grade-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; max-width: 1040px; margin: 0 auto; }
+body.page-gu-hub .gh-grade-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid #E5E7EB; border-radius: 18px; background: #FFFFFF; color: #10233F; text-decoration: none; box-shadow: 0 8px 22px rgba(16, 35, 63, 0.06); transition: transform .18s ease, box-shadow .18s ease; }
+body.page-gu-hub .gh-grade-card:hover, body.page-gu-hub .gh-grade-card:focus-visible { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(16, 35, 63, 0.12); }
+body.page-gu-hub .gh-grade-card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; background: #F7F1E7; }
+body.page-gu-hub .gh-card-body { display: flex; flex: 1; flex-direction: column; gap: 8px; padding: 18px 20px 20px; }
+/* 학교: 작은 태그(링크 없음) */
+body.page-gu-hub .gh-school-wrap { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 920px; margin: 0 auto; }
+body.page-gu-hub .gh-school { padding: 20px 22px; border: 1px solid #E8DFCF; border-radius: 16px; background: #FFFFFF; }
+body.page-gu-hub .gh-school h3 { margin: 0 0 12px; color: #10233F; font-size: 17px; font-weight: 900; }
+body.page-gu-hub .gh-school-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+body.page-gu-hub .gh-school-tags li { padding: 6px 12px; border: 1px solid rgba(16, 35, 63, 0.10); border-radius: 999px; background: #F7F1E7; color: #10233F; font-size: 14px; font-weight: 700; cursor: default; }
+/* 가능 수업 카드: 초록 배경 제거(네이비·골드·크림 계열) */
+body.page-gu-hub main .rg-fields { background: #FBF8F2; }
+body.page-gu-hub .rg-field.is-school { background: #EEF2F8; }
+body.page-gu-hub .rg-field.is-basic { background: #FFF8EA; }
+body.page-gu-hub .rg-field.is-lang { background: #FFFFFF; }
+body.page-gu-hub .rg-field.is-special { background: #F7F1E7; }
+@media (max-width: 1024px) {
+  body.page-gu-hub .gh-dong-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 680px; }
+  body.page-gu-hub .gh-link-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 720px; }
+  body.page-gu-hub .gh-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-left: 16px; margin-right: 16px; }
+  body.page-gu-hub .gh-sum-item { border-left: 0; border-top: 1px solid #EEE7DA; }
+  body.page-gu-hub .gh-sum-item:nth-child(-n+3) { border-top: 0; }
+  body.page-gu-hub .gh-sum-item:not(:nth-child(3n+1)) { border-left: 1px solid #EEE7DA; }
+}
+@media (max-width: 760px) {
+  body.page-gu-hub .gh-grade-grid { grid-template-columns: 1fr; max-width: 460px; }
+  body.page-gu-hub .gh-school-wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  body.page-gu-hub .gh-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); margin: -26px 0 0; border-radius: 16px; }
+  body.page-gu-hub .gh-sum-item { padding: 14px 10px; border-left: 0 !important; border-top: 1px solid #EEE7DA !important; }
+  body.page-gu-hub .gh-sum-item:nth-child(-n+2) { border-top: 0 !important; }
+  body.page-gu-hub .gh-sum-item:nth-child(even) { border-left: 1px solid #EEE7DA !important; }
+  body.page-gu-hub .gh-sum-item:last-child { grid-column: 1 / -1; }
+  body.page-gu-hub .gh-sum-item dt { font-size: 12px; }
+  body.page-gu-hub .gh-sum-item dd { font-size: 14px; }
+  body.page-gu-hub .gh-summary-sec + .page-section { padding-top: 56px; }
+  body.page-gu-hub .gh-dong-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  body.page-gu-hub .gh-dong { min-height: 46px; font-size: 15px; }
+  body.page-gu-hub .gh-note { font-size: 14px; text-align: left; }
+  body.page-gu-hub .gh-link-grid { grid-template-columns: 1fr; gap: 12px; }
+  body.page-gu-hub .gh-link-card { padding: 18px 18px 16px; }
+  body.page-gu-hub .gh-link-card h3, body.page-gu-hub .gh-grade-card h3 { font-size: 18px; }
+  body.page-gu-hub .gh-school { padding: 16px; }
+  body.page-gu-hub .gh-school-tags li { font-size: 13.5px; }
+  body.page-gu-hub .gh-grade-grid { gap: 12px; }
+  body.page-gu-hub .gh-grade-card { flex-direction: row; align-items: stretch; }
+  body.page-gu-hub .gh-grade-card img { width: 118px; flex: 0 0 118px; aspect-ratio: auto; min-height: 100%; }
+  body.page-gu-hub .gh-card-body { gap: 5px; padding: 14px 14px 14px 16px; }
+}

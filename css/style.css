@@ -7206,3 +7206,382 @@ body.page-subject main .mt-midcta { padding-top: 48px; padding-bottom: 48px; }
   .mt-school { padding: 18px 16px; }
   .mt-school .ar-topic { padding: 7px 12px; font-size: 14px; }
 }
+/* ---------- [133차] /area/ 시·도 선택 카드 컴팩트화(.ar-sido-grid는 /area/ 허브에만 있음 → 다른 페이지 영향 없음)
+   · PC(981px~): 12칸 그리드, 카드 1개 = 2칸 → 6 / 6 / 5 · 마지막 줄 5개는 2번째 칸부터 시작해 좌우 1칸씩 같은 여백(가운데 정렬)
+     ※ 카드 수가 17개가 아니게 되면 아래 nth-child(13) 규칙을 함께 조정할 것
+   · 태블릿(641~980px): 3열(3·3·3·3·3·2, 마지막 2개 가운데) · 모바일(~640px): 기존 2열 그대로
+   되돌리기: 이 블록 삭제 + backup/133차수정전 파일 복원 */
+@media (min-width: 981px) {
+  .ar-region-grid.ar-sido-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px; max-width: 1040px; }
+  .ar-sido-grid > li { grid-column: span 2; }
+  .ar-sido-grid > li:nth-child(13) { grid-column: 2 / span 2; }
+  .ar-sido-grid .ar-region { min-height: 90px; padding: 13px 10px; gap: 2px; }
+  .ar-sido-grid .ar-region strong { font-size: 19px; font-weight: 800; line-height: 1.15; }
+  .ar-sido-grid .ar-region em { font-size: 12px; line-height: 1.3; }
+  .ar-sido-grid a.ar-region small { display: inline-flex; align-items: center; box-sizing: border-box; height: 24px; margin-top: 0; padding: 0 10px; font-size: 11.5px; line-height: 1; }
+}
+@media (min-width: 641px) and (max-width: 980px) {
+  .ar-sido-grid > li { flex-basis: calc((100% - 28px) / 3); }
+}
+/* ---------- [134차] /area/ 과외수업 통합형 허브(body.page-area-hub = /area/index.html 전용) · 지역/세부지역/과목 페이지에는 이 클래스가 없어 영향 없음
+   · 새 섹션: 과목별 1:1 과외(#subjects, PC 3+2 가운데) · 학년별(.rg-grade 재사용) · 수업 목적별(.ah-goal) · FAQ(.rg-faq 재사용)
+   · 배경은 화이트 → 연한 블루그레이 → 화이트 → 크림 반복(과한 색 블록 없음)
+   되돌리기: 이 블록 삭제 + backup/134차수정전 파일 복원 */
+body.page-area-hub main .ah-bg-white { background: #FFFFFF; }
+body.page-area-hub main .ah-bg-cream { background: #FBF8F2; }
+body.page-area-hub main .ah-bg-mist { background: #F5F8FC; }
+body.page-area-hub #subjects { scroll-margin-top: 84px; }
+body.page-area-hub .ah-subject-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; max-width: 1040px; margin: 0 auto; }
+body.page-area-hub .ah-subject { grid-column: span 2; display: flex; flex-direction: column; gap: 10px; padding: 24px 22px; border: 1px solid #E5E7EB; border-radius: 16px; background: #FFFFFF; }
+body.page-area-hub .ah-subject:nth-child(4) { grid-column: 2 / span 2; }
+body.page-area-hub .ah-subject h3 { display: flex; align-items: center; gap: 8px; margin: 0; color: #10233F; font-size: 19px; font-weight: 900; letter-spacing: -0.03em; }
+body.page-area-hub .ah-subject h3::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: #F4C542; }
+body.page-area-hub .ah-subject p { margin: 0; color: #4B5563; font-size: 15px; line-height: 1.65; word-break: keep-all; }
+body.page-area-hub .ah-subject .ah-tags { margin-top: auto; padding-top: 4px; color: #10233F; font-size: 13.5px; font-weight: 700; }
+body.page-area-hub .ah-goal-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; max-width: 1080px; margin: 0 auto; padding: 0; list-style: none; }
+body.page-area-hub .ah-goal-grid > li.ah-goal { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 22px 20px; border: 1px solid #E5E7EB; border-radius: 16px; background: #FFFFFF; }
+body.page-area-hub .ah-goal-grid > li.ah-goal::before { content: none; display: none; }
+body.page-area-hub .ah-goal-num { color: #C99A3D; font-size: 13px; font-weight: 900; letter-spacing: 0.08em; }
+body.page-area-hub .ah-goal h3 { margin: 0; color: #10233F; font-size: 18px; font-weight: 900; letter-spacing: -0.03em; }
+body.page-area-hub .ah-goal p { margin: 0; color: #4B5563; font-size: 14.5px; line-height: 1.65; word-break: keep-all; }
+@media (max-width: 980px) {
+  body.page-area-hub .ah-subject-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 760px; }
+  body.page-area-hub .ah-subject, body.page-area-hub .ah-subject:nth-child(4) { grid-column: auto; }
+  body.page-area-hub .ah-subject:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 8px); }
+  body.page-area-hub .ah-goal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 760px; }
+}
+@media (max-width: 640px) {
+  body.page-area-hub .ah-subject-grid { grid-template-columns: 1fr; gap: 12px; }
+  body.page-area-hub .ah-subject:last-child:nth-child(odd) { width: 100%; }
+  body.page-area-hub .ah-subject { gap: 8px; padding: 18px 16px; }
+  body.page-area-hub .ah-subject h3 { font-size: 18px; }
+  body.page-area-hub .ah-goal-grid { grid-template-columns: 1fr; gap: 10px; }
+  body.page-area-hub .ah-goal-grid > li.ah-goal { gap: 6px; padding: 18px 16px; }
+}
+
+/* ---------- [137차] /area/ 과외수업 콘텐츠 이식용: subject/index.html 전용 규칙(body.page-sj · body.page-subject · .page-subject main)을
+   body.page-area-hub .ah-sj 범위로 그대로 복제(원래 순서·미디어쿼리 유지, 자동 변환) · 원본 /subject/ 규칙은 그대로 둠
+   · 헤더·푸터·breadcrumb 규칙과 subject 전용 제목(.section-head/.kicker) 서체 규칙은 제외 → 제목은 /area/ 스타일로 통일
+   · .page-hero h1 규칙은 이식 블록의 h2(.ah-sj-h1)용으로 복제
+   되돌리기: 이 블록과 아래 [137차-보정] 블록 삭제 + backup/137차수정전 파일 복원 */
+body.page-area-hub .ah-sj .page-hero .ah-sj-h1 {
+  margin: 0 0 18px;
+  color: #16233a;
+  font-size: 44px;
+  line-height: 1.22;
+  letter-spacing: -0.045em;
+}
+body.page-area-hub .ah-sj .page-hero .ah-sj-h1 em {
+  font-style: normal;
+  color: #a67a3a;
+}
+@media (max-width: 980px) {
+  body.page-area-hub .ah-sj .page-hero .ah-sj-h1 {
+    font-size: 36px;
+  }
+}
+@media (max-width: 640px) {
+  body.page-area-hub .ah-sj .page-hero .ah-sj-h1 {
+    font-size: 30px;
+  }
+}
+body.page-area-hub .ah-sj :is(.page-lead, .section-head p, .point-card p, .point-card li, .sj-reach-item p, .rec-card p, .gr-card p,
+  .note-box, .faq-answer, .contact-card p, .check-item, .lm-body p, .rs-point, .sj-trial-desc, .sj-trial-txt small) {
+  font-family: "Nanum Gothic", "NanumGothic", "나눔고딕", "Pretendard Variable", Pretendard, sans-serif;
+}
+body.page-area-hub .ah-sj .btn-navy,
+body.page-area-hub .ah-sj .btn-gold { min-height: 54px; padding: 0 30px; border-radius: 999px; font-size: 16px; font-weight: 900; transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease; }
+body.page-area-hub .ah-sj .btn-navy:hover,
+body.page-area-hub .ah-sj .btn-gold:hover { transform: translateY(-2px); filter: brightness(1.06); box-shadow: 0 14px 26px rgba(16, 42, 75, 0.2); }
+body.page-area-hub .ah-sj .sj-trial-btn { min-height: 58px; font-size: 17px; box-shadow: 0 12px 26px rgba(201, 161, 95, 0.35); }
+@media (max-width: 640px) {
+  body.page-area-hub .ah-sj .btn-navy,
+  body.page-area-hub .ah-sj .btn-gold { min-height: 52px; font-size: 15.5px; }
+  body.page-area-hub .ah-sj .sj-trial-btn { min-height: 56px; font-size: 16.5px; }
+}
+body.page-area-hub .ah-sj :is(.point-card, .lm-card, .rec-card) { box-shadow: var(--shadow-card); }
+body.page-area-hub .ah-sj .gr-card { box-shadow: var(--shadow-card-strong); }
+body.page-area-hub .ah-sj {
+  --sj-navy: #0e1c33; --sj-yellow: #f4c84a; --sj-yellow-dark: #e6b52f; --sj-yellow-soft: #fff5c7; --sj-yellow-bg: #fff9e8; --sj-gray: #5b6472; --sj-line: #eef1f5;
+  --yellow: var(--sj-yellow); --brand-gold: var(--sj-yellow); --brand-gold-light: var(--sj-yellow); --brand-gold-text: var(--sj-navy);
+  --brand-cream: var(--sj-yellow-bg); --brand-cream-deep: var(--sj-yellow-soft); --line: var(--sj-line); --text-body: var(--sj-gray);
+  --brand-navy: var(--sj-navy);
+}
+body.page-area-hub .ah-sj .page-hero { background: radial-gradient(circle at 85% 10%, rgba(244, 200, 74, 0.18), transparent 42%), linear-gradient(180deg, #ffffff 0%, var(--sj-yellow-bg) 100%); border-bottom-color: var(--sj-line); }
+body.page-area-hub .ah-sj .page-kicker { background: var(--sj-yellow-soft); color: var(--sj-navy); }
+body.page-area-hub .ah-sj .page-hero h1 em,
+body.page-area-hub .ah-sj .page-hero .ah-sj-h1 em,
+body.page-area-hub .ah-sj .lm-body p em { color: var(--sj-navy); background: linear-gradient(transparent 62%, rgba(244, 200, 74, 0.6) 62%); }
+body.page-area-hub .ah-sj .lm-card:nth-child(2) .lm-body p em { color: var(--sj-navy); }
+body.page-area-hub .ah-sj .page-hero .btn-navy { background: var(--sj-yellow); color: var(--sj-navy); border-color: var(--sj-yellow); box-shadow: 0 10px 22px rgba(244, 200, 74, 0.35); }
+body.page-area-hub .ah-sj .page-hero .btn-navy:hover { background: var(--sj-yellow-dark); box-shadow: 0 14px 26px rgba(230, 181, 47, 0.38); }
+body.page-area-hub .ah-sj :is(.sj-reach, .sj-cases) .kicker { background: rgba(244, 200, 74, 0.14); color: var(--sj-yellow) !important; }
+body.page-area-hub .ah-sj .point-num { color: var(--sj-navy); }
+body.page-area-hub .ah-sj .lm-tags li { background: var(--sj-yellow-soft); color: var(--sj-navy); }
+body.page-area-hub .ah-sj .sj-reach-item { border-color: rgba(244, 200, 74, 0.35); border-top-color: var(--sj-yellow); }
+body.page-area-hub .ah-sj .note-box { background: var(--sj-yellow-bg); color: #3d4757; border: 1px solid rgba(244, 200, 74, 0.35); }
+body.page-area-hub .ah-sj .rec-pastel .rec-badge { background: var(--sj-yellow); color: var(--sj-navy); }
+body.page-area-hub .ah-sj .rec-pastel .rec-tags li { border-color: rgba(244, 200, 74, 0.85); }
+body.page-area-hub .ah-sj .why-ico { border-color: var(--sj-yellow); background: var(--sj-navy); }
+body.page-area-hub .ah-sj .why-ico svg { stroke: #fff; }
+body.page-area-hub .ah-sj .why-item:nth-child(2) .why-ico { background: var(--sj-yellow); }
+body.page-area-hub .ah-sj .why-item:nth-child(2) .why-ico svg { stroke: var(--sj-navy); }
+body.page-area-hub .ah-sj .why-item p strong { color: var(--sj-navy); }
+body.page-area-hub .ah-sj .why-list, body.page-area-hub .ah-sj .why-item { border-color: var(--sj-line); }
+body.page-area-hub .ah-sj .sj-trial-box::after { background: linear-gradient(90deg, #5eead4, #7dd3fc 45%, var(--sj-yellow)); }
+body.page-area-hub .ah-sj .sj-trial-btn { background: var(--sj-yellow); color: var(--sj-navy); box-shadow: 0 12px 26px rgba(244, 200, 74, 0.35); }
+body.page-area-hub .ah-sj .sj-trial-btn:hover { background: var(--sj-yellow-dark); }
+body.page-area-hub .ah-sj .faq-list summary::before { color: var(--sj-navy); }
+body.page-area-hub .ah-sj .faq-list summary::after { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--sj-yellow); color: var(--sj-navy); font-size: 18px; font-weight: 700; line-height: 1; }
+body.page-area-hub .ah-sj .faq-list details[open] { border-color: var(--sj-yellow); }
+body.page-area-hub .ah-sj .faq-list details:hover { border-color: rgba(244, 200, 74, 0.7); }
+body.page-area-hub .ah-sj { --flow-navy: #0b4475; --flow-orange: #f15a32; }
+body.page-area-hub .ah-sj .flow-steps { position: relative; gap: 0; }
+body.page-area-hub .ah-sj .flow-step + .flow-step::before { content: none; display: none; }
+body.page-area-hub .ah-sj .flow-step { padding: 0 10px; }
+body.page-area-hub .ah-sj .flow-ico { position: relative; z-index: 1; width: 92px; height: 92px; margin-bottom: 16px; padding: 8px; background: var(--flow-navy); box-shadow: 0 10px 20px rgba(11, 68, 117, 0.18); }
+body.page-area-hub .ah-sj .flow-step:nth-child(even) .flow-ico { background: var(--flow-orange); box-shadow: 0 10px 20px rgba(241, 90, 50, 0.2); }
+body.page-area-hub .ah-sj .flow-ico-in { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 50%; background: #fff; }
+body.page-area-hub .ah-sj .flow-ico svg { width: 36px; height: 36px; stroke: var(--flow-navy); stroke-width: 2.4; }
+body.page-area-hub .ah-sj .flow-step:nth-child(even) .flow-ico svg { stroke: var(--flow-orange); }
+body.page-area-hub .ah-sj .flow-step:not(:last-child)::after { content: ""; position: absolute; top: 46px; left: calc(50% + 46px); width: calc(100% - 92px); height: 0; border-top: 2px dashed rgba(11, 68, 117, 0.28); }
+body.page-area-hub .ah-sj .flow-step:nth-child(even):not(:last-child)::after { border-top-color: rgba(241, 90, 50, 0.35); }
+@media (max-width: 980px) {
+  body.page-area-hub .ah-sj .flow-step:nth-child(3)::after { display: none; }
+}
+@media (max-width: 640px) {
+  body.page-area-hub .ah-sj .flow-step { padding: 14px 0; grid-template-columns: 64px 1fr; }
+  body.page-area-hub .ah-sj .flow-ico { width: 64px; height: 64px; padding: 6px; margin: 0; }
+  body.page-area-hub .ah-sj .flow-ico svg { width: 26px; height: 26px; }
+  body.page-area-hub .ah-sj .flow-step:not(:last-child)::after { top: auto; bottom: -1px; left: 31px; width: 0; height: 30px; border-top: 0; border-left: 2px dashed rgba(11, 68, 117, 0.28); transform: translateY(50%); }
+  body.page-area-hub .ah-sj .flow-step:nth-child(even):not(:last-child)::after { border-left-color: rgba(241, 90, 50, 0.35); }
+  body.page-area-hub .ah-sj .flow-step:nth-child(3)::after { display: block; }
+}
+body.page-area-hub .ah-sj { --sj-font: "Pretendard Variable", Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+body.page-area-hub .ah-sj, body.page-area-hub .ah-sj * { font-family: var(--sj-font) !important; letter-spacing: normal; }
+body.page-area-hub .ah-sj :is(p, li, dd, .faq-answer, .page-lead) { font-weight: 450; }
+body.page-area-hub .ah-sj :is(h1, h2) { font-weight: 800; line-height: 1.3; letter-spacing: -0.025em; }
+body.page-area-hub .ah-sj :is(p, li, .faq-answer, .page-lead) { line-height: 1.7; }
+body.page-area-hub .ah-sj :is(.kicker, .page-kicker, .rec-badge, .sj-trial-badge, .point-num, .gr-en, .rs-gain, .rs-type, .rs-arrow, .point-card-more) { font-weight: 700 !important; letter-spacing: 0.04em; }
+body.page-area-hub .ah-sj :is(.rs-type, .rs-gain, .point-card-more) { letter-spacing: normal; }
+body.page-area-hub .ah-sj .rs-point::before, body.page-area-hub .ah-sj .faq-list summary::before { font-weight: 700 !important; }
+body.page-area-hub .ah-sj :is(strong, li, b) { font-weight: 700; }
+body.page-area-hub .ah-sj :is(.why-item p, .rec-card p, .gr-card p, .lm-body p, .sj-reach-item p) { font-weight: 450; }
+body.page-area-hub .ah-sj .why-item p strong { font-weight: 800; }
+body.page-area-hub .ah-sj #why-signature .section-head h2 { font-size: 37px; font-weight: 800; line-height: 1.3; color: var(--sj-navy); }
+body.page-area-hub .ah-sj .why-item { gap: 22px; padding: 32px 8px; }
+body.page-area-hub .ah-sj .why-item p { font-size: 18px; line-height: 1.7; }
+body.page-area-hub .ah-sj .why-item p strong { font-size: 19px; }
+body.page-area-hub .ah-sj .rec-pastel .rec-card { align-items: center; text-align: center; }
+body.page-area-hub .ah-sj .rec-pastel .rec-badge { align-self: center; }
+body.page-area-hub .ah-sj .rec-pastel .rec-tags { justify-content: center; width: 100%; }
+body.page-area-hub .ah-sj .sj-reason-card h3 { text-align: center; }
+@media (max-width: 640px) {
+  body.page-area-hub .ah-sj #why-signature .section-head h2 { font-size: 28px; }
+  body.page-area-hub .ah-sj .why-item { gap: 16px; padding: 24px 2px; }
+  body.page-area-hub .ah-sj .why-item p { font-size: 16px; }
+  body.page-area-hub .ah-sj .why-item p strong { font-size: 16.5px; }
+}
+body.page-area-hub .ah-sj #why-signature .section-head { max-width: 1120px; margin-bottom: 44px; }
+body.page-area-hub .ah-sj #why-signature .section-head h2 { font-size: 46px; font-weight: 800; line-height: 1.28; text-wrap: balance; word-break: keep-all; }
+body.page-area-hub .ah-sj #why-signature .why-list { max-width: 1060px; }
+body.page-area-hub .ah-sj #why-signature .why-item { gap: 36px; padding: 44px 12px; }
+body.page-area-hub .ah-sj #why-signature .why-ico { width: 84px; height: 84px; }
+body.page-area-hub .ah-sj #why-signature .why-ico svg { width: 44px; height: 44px; }
+body.page-area-hub .ah-sj #why-signature .why-item p { font-size: 32px; font-weight: 500; line-height: 1.5; letter-spacing: -0.02em; word-break: keep-all; }
+body.page-area-hub .ah-sj #why-signature .why-item p strong { font-size: inherit; font-weight: 800; }
+@media (max-width: 980px) {
+  body.page-area-hub .ah-sj #why-signature .section-head h2 { font-size: 40px; }
+  body.page-area-hub .ah-sj #why-signature .why-item { gap: 26px; padding: 36px 6px; }
+  body.page-area-hub .ah-sj #why-signature .why-item p { font-size: 27px; }
+}
+@media (max-width: 640px) {
+  body.page-area-hub .ah-sj #why-signature .section-head { margin-bottom: 32px; }
+  body.page-area-hub .ah-sj #why-signature .section-head h2 { font-size: 32px; line-height: 1.3; }
+  body.page-area-hub .ah-sj #why-signature .why-item { gap: 18px; padding: 30px 0; align-items: flex-start; }
+  body.page-area-hub .ah-sj #why-signature .why-ico { width: 54px; height: 54px; margin-top: 4px; }
+  body.page-area-hub .ah-sj #why-signature .why-ico svg { width: 30px; height: 30px; }
+  body.page-area-hub .ah-sj #why-signature .why-item p { font-size: 22px; line-height: 1.58; }
+}
+@media (min-width: 641px) {
+  body.page-area-hub .ah-sj #why-signature .why-keep { white-space: nowrap; }
+}
+body.page-area-hub .ah-sj #nationwide .sj-reach-item { text-align: center; }
+body.page-area-hub .ah-sj #nationwide .sj-reach-item p { text-wrap: balance; }
+body.page-area-hub .ah-sj #free-trial { padding: 64px 0; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-box { max-width: 1080px; margin: 0 auto; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right { grid-template-columns: minmax(0, 1fr) 300px; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-body { padding: 40px 16px 40px 44px; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-visual { padding: 32px 44px 32px 0; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-photo { max-width: 230px; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-body h2 { font-size: 30px; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-desc { font-size: 16px; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-btn { min-height: 52px; font-size: 16px; }
+@media (max-width: 980px) {
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right { grid-template-columns: 1fr; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-body { padding: 36px 32px 4px; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-visual { padding: 24px 24px 36px; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-photo { max-width: 220px; }
+}
+@media (max-width: 640px) {
+  body.page-area-hub .ah-sj #free-trial { padding: 48px 0; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-body { padding: 30px 20px 4px; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-visual { padding: 20px 16px 28px; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-photo { max-width: 190px; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-body h2 { font-size: 25px; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-desc { font-size: 15px; }
+}
+body.page-area-hub .ah-sj #free-trial { padding: 52px 0; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-box { max-width: 960px; border-radius: 24px; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right { grid-template-columns: minmax(0, 1fr) 250px; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-body { padding: 32px 12px 32px 36px; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-visual { padding: 26px 36px 26px 0; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-photo { max-width: 190px; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-body h2 { margin-bottom: 8px; font-size: 27px; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-desc { font-size: 15px; line-height: 1.65; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-contacts { gap: 10px; margin-top: 18px; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-contact { padding: 12px 14px; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-txt strong { font-size: 16.5px; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-btn { min-height: 46px; margin-top: 12px; font-size: 15.5px; }
+@media (max-width: 980px) {
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box { max-width: 640px; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right { grid-template-columns: 1fr; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-body { padding: 30px 28px 4px; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-visual { padding: 18px 24px 28px; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-photo { max-width: 180px; }
+}
+@media (max-width: 640px) {
+  body.page-area-hub .ah-sj #free-trial { padding: 40px 0; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-body { padding: 26px 18px 4px; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-visual { padding: 16px 16px 24px; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-box.is-right .sj-trial-photo { max-width: 160px; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-body h2 { font-size: 23px; }
+  body.page-area-hub .ah-sj #free-trial .sj-trial-desc { font-size: 14.5px; }
+}
+body.page-area-hub .ah-sj #teachers .tch-keys li { justify-content: center; gap: 9px; min-height: 58px; padding: 12px 16px; color: var(--sj-navy); font-size: 19px; font-weight: 800; line-height: 1.4; text-align: center; }
+body.page-area-hub .ah-sj #teachers .tch-keys li::before { width: 6px; height: 6px; opacity: 0.85; }
+body.page-area-hub .ah-sj #nationwide .section-head h2 { font-size: 42px; font-weight: 800; line-height: 1.28; }
+body.page-area-hub .ah-sj #nationwide .section-head p { font-size: 21px; line-height: 1.6; word-break: keep-all; }
+body.page-area-hub .ah-sj #nationwide .sj-reach-grid { align-items: stretch; }
+body.page-area-hub .ah-sj #nationwide .sj-reach-item { padding: 30px 28px 28px; }
+body.page-area-hub .ah-sj #nationwide .sj-reach-item strong { margin-bottom: 12px; font-size: 23px; font-weight: 800; line-height: 1.35; }
+body.page-area-hub .ah-sj #nationwide .sj-reach-item p { color: #fff; font-size: 19px; line-height: 1.75; }
+@media (max-width: 1100px) {
+  body.page-area-hub .ah-sj #teachers .tch-keys { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 860px; margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 980px) {
+  body.page-area-hub .ah-sj #teachers .tch-keys { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 520px; }
+  body.page-area-hub .ah-sj #nationwide .section-head h2 { font-size: 36px; }
+}
+@media (max-width: 640px) {
+  body.page-area-hub .ah-sj #teachers .tch-keys { gap: 8px; }
+  body.page-area-hub .ah-sj #teachers .tch-keys li { min-height: 52px; padding: 10px 8px; font-size: 17px; }
+  body.page-area-hub .ah-sj #nationwide .section-head h2 { font-size: 31px; line-height: 1.3; }
+  body.page-area-hub .ah-sj #nationwide .section-head p { font-size: 17.5px; }
+  body.page-area-hub .ah-sj #nationwide .sj-reach-item { padding: 24px 20px 22px; }
+  body.page-area-hub .ah-sj #nationwide .sj-reach-item strong { font-size: 20px; }
+  body.page-area-hub .ah-sj #nationwide .sj-reach-item p { font-size: 16.5px; line-height: 1.7; }
+}
+body.page-area-hub .ah-sj #why-signature { padding: 100px 0; background: #0e1c33; }
+body.page-area-hub .ah-sj #why-signature .kicker { display: inline-block; padding: 6px 16px; border-radius: 999px; background: rgba(244, 200, 74, 0.14); color: #f4c84a !important; }
+body.page-area-hub .ah-sj #why-signature .section-head { margin-bottom: 48px; }
+body.page-area-hub .ah-sj #why-signature .section-head h2 { color: #fff; font-size: 42px; font-weight: 800; line-height: 1.3; }
+@media (max-width: 640px) {
+  body.page-area-hub .ah-sj #why-signature { padding: 70px 0; }
+  body.page-area-hub .ah-sj #why-signature .section-head { margin-bottom: 32px; }
+  body.page-area-hub .ah-sj #why-signature .section-head h2 { font-size: 30px; }
+}
+body.page-area-hub .ah-sj .mt-bg-white { background: #FFFFFF; }
+body.page-area-hub .ah-sj .mt-bg-cream { background: #FBF8F2; }
+body.page-area-hub .ah-sj .mt-bg-blue { background: #F3F7FC; }
+body.page-area-hub .ah-sj .mt-diag-grid .sc-card h3 { font-size: 18px; line-height: 1.45; word-break: keep-all; }
+body.page-area-hub .ah-sj .mt-midcta { padding-top: 48px; padding-bottom: 48px; }
+@media (max-width: 640px) {
+  body.page-area-hub .ah-sj .mt-midcta { padding-top: 36px; padding-bottom: 36px; }
+}
+
+/* ---------- [137차-보정] 이식 블록이 /subject/ 원본과 같게 보이도록 브라우저 실측 비교 후 맞춘 값(줄간격·자간·굵기·키커 모양)
+   · 원본 값: 소개 제목 1.3 / 이유 카드·학년 카드 제목 1.35 / 시범수업 제목 700·1.25 / 버튼 800 / 다크 섹션 키커는 둥근 배지 */
+body.page-area-hub .ah-sj .page-hero .ah-sj-h1 { line-height: 1.3; letter-spacing: -0.025em; }
+body.page-area-hub .ah-sj .sj-reason-card h3 { line-height: 1.35; letter-spacing: -0.02em; }
+body.page-area-hub .ah-sj .gr-card h3 { line-height: 1.35; letter-spacing: -0.02em; }
+body.page-area-hub .ah-sj #free-trial .sj-trial-body h2 { font-weight: 700; line-height: 1.25; letter-spacing: -0.04em; }
+body.page-area-hub .ah-sj :is(.btn-navy, .btn-gold, .sj-trial-btn) { font-weight: 800 !important; }
+body.page-area-hub .ah-sj #nationwide .kicker { display: inline-block; padding: 5px 12px; border-radius: 999px; }
+@media (max-width: 640px) {
+  body.page-area-hub .ah-sj #free-trial .sj-trial-body h2 { line-height: 1.3; }
+}
+/* ---------- [138차] /area/ 흐름 정리(body.page-area-hub 전용 · 다른 페이지 영향 없음)
+   · 섹션 위아래 여백 약 15~20% 축소(PC·태블릿) · 모바일은 52px 이상 유지
+   · 시그니처과외 수업 안내 = 빠른 선택(퀵메뉴)형 카드(.sc-grid.ah-quick)
+   · FAQ = 질문만 보이는 접힘형(details.ah-faq) · 이미지·카드 크기는 줄이지 않음
+   되돌리기: 이 블록 삭제 + backup/138차수정전 파일 복원 */
+@media (min-width: 641px) {
+  body.page-area-hub main .page-section { padding-top: 68px; padding-bottom: 68px; }
+  body.page-area-hub .ah-sj .page-hero.ah-sj-intro { padding-top: 46px; padding-bottom: 58px; }
+  body.page-area-hub .ah-sj .sj-reach { padding-top: 60px; padding-bottom: 60px; }
+  body.page-area-hub .ah-sj #why-signature.wy-section { padding-top: 82px; padding-bottom: 82px; }
+  body.page-area-hub .ah-sj #free-trial.sj-trial { padding-top: 44px; padding-bottom: 44px; }
+}
+@media (max-width: 640px) {
+  body.page-area-hub main .page-section { padding-top: 52px; padding-bottom: 52px; }
+  body.page-area-hub .ah-sj .sj-reach { padding-top: 52px; padding-bottom: 52px; }
+  body.page-area-hub .ah-sj #why-signature.wy-section { padding-top: 56px; padding-bottom: 56px; }
+}
+body.page-area-hub .sc-grid.ah-quick { gap: 12px; }
+body.page-area-hub .ah-quick .sc-card { gap: 6px; padding: 18px 20px; }
+body.page-area-hub .ah-quick .sc-card h3 { font-size: 18px; }
+body.page-area-hub .ah-quick .sc-card p { font-size: 14.5px; line-height: 1.55; }
+body.page-area-hub .ah-quick .sc-card .sc-tags { padding-top: 4px; font-size: 13px; }
+@media (max-width: 640px) {
+  body.page-area-hub .sc-grid.ah-quick { gap: 10px; }
+  body.page-area-hub .ah-quick .sc-card { padding: 16px; }
+}
+body.page-area-hub .rg-faq-grid { align-items: start; }
+body.page-area-hub details.ah-faq { padding: 0; }
+body.page-area-hub .ah-faq summary { position: relative; display: block; padding: 20px 56px 20px 24px; cursor: pointer; list-style: none; border-radius: 16px; }
+body.page-area-hub .ah-faq summary::-webkit-details-marker { display: none; }
+body.page-area-hub .ah-faq summary::after { content: "+"; position: absolute; top: 50%; right: 20px; display: grid; place-items: center; width: 26px; height: 26px; margin-top: -13px; border-radius: 50%; background: #FFF4CC; color: #10233F; font-size: 18px; font-weight: 800; line-height: 1; }
+body.page-area-hub .ah-faq[open] summary::after { content: "−"; background: #F4C542; }
+body.page-area-hub .ah-faq summary:hover h3 { color: #10233F; }
+body.page-area-hub .ah-faq summary:focus-visible { outline: 3px solid #F4C542; outline-offset: 2px; }
+body.page-area-hub .ah-faq summary h3 { margin: 0; }
+body.page-area-hub .ah-faq[open] { border-color: #F4C542; }
+body.page-area-hub .ah-faq > p { margin: 0; padding: 0 24px 20px 54px; }
+@media (max-width: 640px) {
+  body.page-area-hub .ah-faq summary { padding: 16px 50px 16px 16px; }
+  body.page-area-hub .ah-faq summary::after { right: 14px; }
+  body.page-area-hub .ah-faq > p { padding: 0 16px 16px; }
+}
+/* ---------- [139차] /area/ 디자인 마감(body.page-area-hub 전용 · 다른 페이지 영향 없음)
+   · 지역과 과목으로 찾기 칩: 높이 44px·15px·좌우 18px·간격 10px · 링크(a)만 hover/pointer(현재 칩은 링크 없음 → 기본 커서)
+   · 전국 1:1(네이비) → 수업 안내(크림) 경계 여백 축소 · 수업 안내 → 과외수업 소개 간격 약 10% 축소
+   · 모바일(~640px) 선생님 카드: 고정폭 280px + 간격 12px → 한 화면 약 1.3장(다음 카드 일부 보임) · 사진 비율(4:4.4) 그대로
+   되돌리기: 이 블록 삭제 + backup/139차수정전 파일 복원 */
+body.page-area-hub #topics .ar-topic-list { gap: 10px; }
+@media (min-width: 981px) { body.page-area-hub #topics .ar-topic-list { max-width: 1060px; } } /* PC: 7개 한 줄 */
+@media (min-width: 641px) and (max-width: 980px) { body.page-area-hub #topics .ar-topic-list { max-width: 600px; } } /* 태블릿: 4 + 3 */
+body.page-area-hub #topics .ar-topic { box-sizing: border-box; height: 44px; padding: 0 18px; border: 1px solid #E5E7EB; border-radius: 999px; background: #FFFFFF; color: #10233F; font-size: 15px; font-weight: 700; box-shadow: 0 1px 2px rgba(16, 35, 63, 0.05); }
+body.page-area-hub #topics span.ar-topic { cursor: default; }
+body.page-area-hub #topics a.ar-topic { cursor: pointer; transition: border-color 0.2s, background 0.2s, transform 0.2s; }
+body.page-area-hub #topics a.ar-topic:hover, body.page-area-hub #topics a.ar-topic:focus-visible { border-color: #F4C542; background: #FFF9E8; transform: translateY(-1px); }
+@media (min-width: 641px) {
+  body.page-area-hub main #topics.page-section { padding-top: 60px; padding-bottom: 60px; }
+  body.page-area-hub .ah-sj #nationwide.sj-reach { padding-bottom: 52px; }
+  body.page-area-hub main #classes.page-section { padding-top: 56px; padding-bottom: 60px; }
+}
+@media (max-width: 640px) {
+  body.page-area-hub #topics .ar-topic-list { gap: 8px; }
+  body.page-area-hub #topics .ar-topic { height: 40px; padding: 0 14px; font-size: 14px; }
+  body.page-area-hub main #classes.page-section { padding-top: 48px; }
+  body.page-area-hub #teachers .tch-track { --tch-gap: 12px; grid-auto-columns: 280px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  body.page-area-hub #teachers .tch-track .tch-card { scroll-snap-align: start; }
+  body.page-area-hub #teachers .tch-body { padding: 11px 12px 12px; }
+}
+/* ---------- [140차] /area/ 모바일(~640px) 선생님 카드만 미세조정(body.page-area-hub 전용 · PC/태블릿 변경 없음)
+   · 카드 280px → 248px, 간격 12px → 10px → 한 화면 약 1.47장 · 카드 글 영역 여백 약 8% 축소 · 사진 비율(4:4.4)·object-fit 그대로
+   되돌리기: 이 블록 삭제 + backup/140차수정전 파일 복원 */
+@media (max-width: 640px) {
+  body.page-area-hub #teachers .tch-track { --tch-gap: 10px; grid-auto-columns: 248px; }
+  body.page-area-hub #teachers .tch-body { padding: 10px 11px 11px; }
+}

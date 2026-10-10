@@ -7605,3 +7605,12 @@ body.page-subject .en-area p { margin: 0; color: #4B5563; font-size: 15px; line-
   body.page-subject .en-area { gap: 6px; padding: 18px 16px; }
   body.page-subject .en-area h3 { font-size: 19px; }
 }
+/* ---------- [145차] 강남구 학년별 랜딩(/area/seoul/gangnam/elementary|middle|high/) 전용 보조 스타일 · body.page-subject 안의 새 클래스만 → 기존 페이지 영향 없음
+   · 학습영역/과목 카드(.en-area) 안 키워드 줄(.en-area-tags)·과목 페이지 링크(.en-area-link) · 학교 목록 1개일 때 가운데 1열(.gr-school-one)
+   되돌리기: 이 블록 삭제 + 학년 폴더 3개 삭제 + backup/145차수정전 파일 복원 */
+body.page-subject .en-area .en-area-tags { margin: 0; padding-top: 2px; color: #10233F; font-size: 13.5px; font-weight: 700; line-height: 1.5; word-break: keep-all; }
+body.page-subject .en-area .en-area-link { margin-top: auto; padding-top: 6px; color: #10233F; font-size: 14px; font-weight: 800; text-decoration: none; }
+body.page-subject .en-area .en-area-link:hover, body.page-subject .en-area .en-area-link:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+body.page-subject .mt-school-wrap.gr-school-one { grid-template-columns: 1fr; max-width: 640px; }@media (max-width: 640px) {
+  body.page-subject .ar-cta .ar-cta-btn.gr-cta-btn { height: auto; min-height: 56px; padding: 8px 14px; line-height: 1.35; white-space: normal; text-align: center; word-break: keep-all; } /* [145차] 학년 페이지 하단 버튼: 문구가 길어 모바일에서 2줄 허용(폭은 floating 겹침 방지 폭 그대로) */
+}

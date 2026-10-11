@@ -7720,3 +7720,22 @@ body.page-gu-hub .gh-dong-grid.is-center-rows > .gh-dong { width: calc((100% - 3
 @media (max-width: 640px) {
   body.page-gu-hub .gh-dong-grid.is-center-rows > .gh-dong { width: calc((100% - 8px) / 2); }
 }
+/* ---------- [155차] 5과목(국어·영어·수학·사회·과학) 지역 페이지용 · 새 클래스만 → 기존 지역 페이지 영향 없음
+   · 허브 과목 카드 .gh-link-grid.is-five: PC 5열 · 태블릿 2열 · 모바일 1열(덜 찬 줄 가운데)
+   · 학년 페이지 과목 카드 .en-area-grid.is-five: PC 3+2 · 태블릿 2열 · 모바일 1열(덜 찬 줄 가운데) · 사회 카드 색 .en-area.is-social(크림 계열)
+   되돌리기: 이 블록 삭제 + backup/155차수정전 복원 */
+body.page-gu-hub .gh-link-grid.is-five { display: flex; flex-wrap: wrap; justify-content: center; }
+body.page-gu-hub .gh-link-grid.is-five > .gh-link-card { width: calc((100% - 64px) / 5); }
+body.page-subject .en-area-grid.is-five { display: flex; flex-wrap: wrap; justify-content: center; }
+body.page-subject .en-area-grid.is-five > .en-area { width: calc((100% - 28px) / 3); }
+body.page-subject .en-area.is-social { background: #FBF3E4; }
+@media (max-width: 1024px) {
+  body.page-gu-hub .gh-link-grid.is-five > .gh-link-card { width: calc((100% - 16px) / 2); }
+}
+@media (max-width: 980px) {
+  body.page-subject .en-area-grid.is-five > .en-area { width: calc((100% - 14px) / 2); }
+}
+@media (max-width: 640px) {
+  body.page-gu-hub .gh-link-grid.is-five > .gh-link-card { width: 100%; }
+  body.page-subject .en-area-grid.is-five > .en-area { width: 100%; }
+}

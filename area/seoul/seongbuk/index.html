@@ -88,7 +88,7 @@
       },
       "audience": {
         "@type": "EducationalAudience",
-        "audienceType": "초등학생, 중학생, 고등학생"
+        "audienceType": "유아, 초등학생, 중학생, 고등학생, 성인, 시니어"
       },
       "description": "서울 성북구 초등·중등·고등 학생을 위한 국어·영어·수학·사회·한국사·과학 1:1 방문과외와 실시간 화상과외. 사는 동과 학교·학년·과목·일정을 확인한 뒤 수업 방향을 안내합니다."
     },
@@ -166,6 +166,88 @@
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../../css/style.css?v=155">
+<!-- [성북 허브 상단 개편] 이 페이지 전용 스타일 — HERO CTA 2개 균형 · 신뢰정보 4칸(.sbh-trust, 숫자 없는 정보형 · 추후 검증 수치로 교체 가능) · HERO 아래 안내문(.sbh-intro) · 핵심정보 5칸 상자는 삭제 · 전화상담 버튼 SVG 아이콘(.sbh-tel) -->
+<style>
+body.page-gu-hub .ar-hero.rg-hero-solid { padding-bottom: 56px; }
+body.page-gu-hub .rgs-btns .sbh-tel { gap: 8px; }
+body.page-gu-hub .sbh-tel-ico { flex: 0 0 auto; }
+body.page-gu-hub .rgs-btns .ar-cta-btn, body.page-gu-hub .rgs-btns .rgs-btn-sub { min-width: 220px; min-height: 56px; }
+body.page-gu-hub .sbh-trust { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; max-width: 880px; margin: 30px auto 0; padding: 0; list-style: none; }
+body.page-gu-hub .sbh-trust li { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 10px 14px; border: 1px solid rgba(244, 197, 66, 0.35); border-radius: 14px; background: rgba(255, 255, 255, 0.06); color: #FFFFFF; font-size: 15px; font-weight: 700; line-height: 1.4; text-align: center; word-break: keep-all; }
+body.page-gu-hub .sbh-trust li::before { content: ""; flex: 0 0 auto; width: 7px; height: 7px; border-radius: 50%; background: #F4C542; }
+body.page-gu-hub .sbh-intro { padding: 52px 0 8px; background: #FFFFFF; }
+body.page-gu-hub .sbh-intro-box { max-width: 860px; margin: 0 auto; }
+body.page-gu-hub .sbh-intro h2 { margin: 0 0 16px; color: #10233F; font-size: 24px; font-weight: 900; text-align: center; letter-spacing: -0.02em; word-break: keep-all; }
+body.page-gu-hub .sbh-intro p { margin: 0 0 14px; color: #374151; font-size: 16px; line-height: 1.85; word-break: keep-all; }
+body.page-gu-hub .sbh-intro p:last-child { margin-bottom: 0; }
+@media (max-width: 768px) {
+  body.page-gu-hub .ar-hero.rg-hero-solid { padding-bottom: 40px; }
+  body.page-gu-hub .rgs-btns .ar-cta-btn, body.page-gu-hub .rgs-btns .rgs-btn-sub { min-width: 0; }
+  body.page-gu-hub .sbh-trust { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; max-width: 360px; margin-top: 22px; }
+  body.page-gu-hub .sbh-trust li { min-height: 48px; padding: 8px 10px; font-size: 13.5px; }
+  body.page-gu-hub .sbh-intro { padding: 36px 0 0; }
+  body.page-gu-hub .sbh-intro h2 { font-size: 20px; }
+  body.page-gu-hub .sbh-intro p { font-size: 15px; line-height: 1.8; }
+}
+/* HERO 색감: 딥네이비 + 아이보리 + 샴페인골드 (레이아웃·문구 변경 없음) */
+body.page-gu-hub .ar-hero.rg-hero-solid { background: #102640; }
+body.page-gu-hub .rg-hero-solid .ar-breadcrumb { color: #C8D0DA; }
+body.page-gu-hub .rg-hero-solid .ar-breadcrumb a { color: #E9EDF2; }
+body.page-gu-hub .rg-hero-solid .ar-breadcrumb li + li::before { color: rgba(200, 208, 218, 0.45); }
+body.page-gu-hub .rg-hero-solid .ar-kicker { color: #D7B56D; }
+body.page-gu-hub .rg-hero-solid h1.rgs-title span { color: #FFFDF8; }
+body.page-gu-hub .rg-hero-solid h1.rgs-title strong { color: #D7B56D; }
+body.page-gu-hub .rg-hero-solid .rgs-title::after { background: #D7B56D; }
+body.page-gu-hub .rg-hero-solid .rgs-sub { color: #E9EDF2; font-weight: 600; }
+body.page-gu-hub .rgs-btns .ar-cta-btn.rgs-btn { background: #FFFDF8; color: #102640; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18); }
+body.page-gu-hub .rgs-btns .ar-cta-btn.rgs-btn span { color: #B8924A; }
+body.page-gu-hub .rgs-btns .ar-cta-btn.rgs-btn:hover, body.page-gu-hub .rgs-btns .ar-cta-btn.rgs-btn:focus-visible { background: #FFFFFF; color: #102640; }
+body.page-gu-hub .rgs-btns .sbh-tel { border-color: rgba(255, 253, 248, 0.75); background: transparent; color: #FFFDF8; }
+body.page-gu-hub .rgs-btns .sbh-tel:hover, body.page-gu-hub .rgs-btns .sbh-tel:focus-visible { border-color: #FFFDF8; background: rgba(255, 253, 248, 0.08); color: #FFFDF8; }
+body.page-gu-hub .sbh-tel-ico { color: #FFFDF8; }
+body.page-gu-hub .sbh-trust li { border-color: rgba(215, 181, 109, 0.35); background: #1A314D; color: #FFFDF8; font-weight: 600; }
+body.page-gu-hub .sbh-trust li::before { background: #D7B56D; }/* 영문 배지 삭제 후 H1 위 간격 · 하단 설명문 삭제 후 섹션 여백 */
+body.page-gu-hub .rg-hero-solid .ar-breadcrumb { margin-bottom: 22px; }
+body.page-gu-hub .rg-hero-solid h1.rgs-title { margin-top: 0; }
+body.page-gu-hub #districts .gh-dong-grid, body.page-gu-hub #schools .gh-school-wrap { margin-bottom: 0; }
+@media (max-width: 768px) {
+  body.page-gu-hub .rg-hero-solid .ar-breadcrumb { margin-bottom: 16px; }
+}
+/* 학년별 학습 전략 섹션(.sbs-*) — 딥네이비·아이보리·샴페인골드, 그림자 최소 */
+body.page-gu-hub .sbs-sec { background: #FFFDF8; border-top: 1px solid #EFE7D6; }
+body.page-gu-hub .sbs-sec .kicker { color: #B8924A; }
+body.page-gu-hub .sbs-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; max-width: 1080px; margin: 0 auto 28px; padding: 0; list-style: none; border-radius: 18px; background: #102640; overflow: hidden; }
+body.page-gu-hub .sbs-stats li { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 26px 16px 24px; text-align: center; border-left: 1px solid rgba(215, 181, 109, 0.22); }
+body.page-gu-hub .sbs-stats li:first-child { border-left: 0; }
+body.page-gu-hub .sbs-num { color: #D7B56D; font-size: 40px; font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; }
+body.page-gu-hub .sbs-num small { margin-left: 2px; font-size: 0.5em; font-weight: 800; }
+body.page-gu-hub .sbs-label { color: #FFFDF8; font-size: 16px; font-weight: 800; }
+body.page-gu-hub .sbs-note { color: #C8D0DA; font-size: 13.5px; line-height: 1.55; word-break: keep-all; }
+body.page-gu-hub .sbs-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 1080px; margin: 0 auto; }
+body.page-gu-hub .sbs-card { padding: 24px 22px; border: 1px solid #E8DFCF; border-radius: 16px; background: #FFFFFF; }
+body.page-gu-hub .sbs-tag { display: inline-block; margin-bottom: 12px; padding: 3px 12px; border: 1px solid rgba(184, 146, 74, 0.45); border-radius: 999px; color: #8F6B2F; font-size: 13px; font-weight: 800; }
+body.page-gu-hub .sbs-card h3 { margin: 0 0 10px; color: #102640; font-size: 18px; font-weight: 900; line-height: 1.45; word-break: keep-all; }
+body.page-gu-hub .sbs-card p, body.page-gu-hub .sbs-point p { margin: 0; color: #374151; font-size: 15px; line-height: 1.75; word-break: keep-all; }
+body.page-gu-hub .sbs-point { max-width: 1080px; margin: 16px auto 0; padding: 24px 26px; border: 1px solid #E8DFCF; border-left: 4px solid #D7B56D; border-radius: 16px; background: #F7F1E5; }
+body.page-gu-hub .sbs-point h3 { margin: 0 0 8px; color: #102640; font-size: 18px; font-weight: 900; }
+@media (max-width: 1024px) {
+  body.page-gu-hub .sbs-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body.page-gu-hub .sbs-stats li:nth-child(3) { border-left: 0; }
+  body.page-gu-hub .sbs-stats li:nth-child(n+3) { border-top: 1px solid rgba(215, 181, 109, 0.22); }
+  body.page-gu-hub .sbs-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  body.page-gu-hub .sbs-br { display: none; }
+  body.page-gu-hub .sbs-stats { border-radius: 16px; margin-bottom: 20px; }
+  body.page-gu-hub .sbs-stats li { padding: 18px 10px 16px; gap: 4px; }
+  body.page-gu-hub .sbs-num { font-size: 30px; }
+  body.page-gu-hub .sbs-label { font-size: 14.5px; }
+  body.page-gu-hub .sbs-note { font-size: 12.5px; }
+  body.page-gu-hub .sbs-card, body.page-gu-hub .sbs-point { padding: 20px 18px; }
+  body.page-gu-hub .sbs-card h3, body.page-gu-hub .sbs-point h3 { font-size: 17px; }
+  body.page-gu-hub .sbs-card p, body.page-gu-hub .sbs-point p { font-size: 14.5px; }
+}
+</style>
 </head>
 <!-- [165차] page-gu-hub = 구 단위 허브 전용 클래스(147·150·155차 CSS 재사용) -->
 <body class="page-area page-region page-subarea page-gu-hub">
@@ -212,25 +294,30 @@
       <li><a href="../">서울</a></li>
       <li>성북구</li>
     </ol>
-    <span class="ar-kicker">SEONGBUK TUTORING</span>
     <h1 id="rgTitle" class="rgs-title"><span>성북구</span> <strong>1:1 맞춤과외</strong></h1>
-    <p class="rgs-sub">초등·중등·고등 학생의 학년과 현재 수준,<br>희망 과목을 확인해 방문·화상 1:1 수업 방향을 상담합니다.</p>
+    <p class="rgs-sub">좋은 수업은 현재 수준을 정확히 확인하는 것부터 시작합니다.<br>무료 시범수업으로 학생에게 맞는 선생님과 수업 방향을 먼저 만나보세요.</p>
     <div class="rgs-btns">
-      <a class="ar-cta-btn rgs-btn" href="../../../consult.html">성북구 과외 상담 신청 <span aria-hidden="true">→</span></a>
+      <a class="ar-cta-btn rgs-btn" href="../../../consult.html">무료 시범수업 신청 <span aria-hidden="true">→</span></a>
+      <a class="rgs-btn-sub sbh-tel" href="tel:01058701109" aria-label="전화상담 (전화 연결)"><svg class="sbh-tel-ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>전화상담</a>
     </div>
+    <!-- 신뢰정보 4 (정보형 · 근거 없는 숫자 없음 · 검증 수치가 생기면 이 목록만 교체) -->
+    <ul class="sbh-trust" aria-label="시그니처과외 수업 안내">
+      <li>방문·화상 수업</li>
+      <li>유아~시니어 상담</li>
+      <li>국·영·수·사회·한국사·과학 등</li>
+      <li>무료 시범수업 상담</li>
+    </ul>
   </div>
 </section>
 
-<!-- 2. 핵심 정보 요약 5 -->
-<section class="gh-summary-sec" aria-label="성북구 과외 핵심 정보">
+<!-- 2-1. 성북구 1:1 과외 안내문 (흰 배경 · 2문단) -->
+<section class="sbh-intro" aria-labelledby="sbhIntroTitle">
   <div class="container">
-    <dl class="gh-summary">
-      <div class="gh-sum-item"><dt>지역</dt><dd>서울특별시 성북구</dd></div>
-      <div class="gh-sum-item"><dt>대상</dt><dd>초등학생 · 중학생 · 고등학생</dd></div>
-      <div class="gh-sum-item"><dt>과목</dt><dd>국어 · 영어 · 수학 · 사회·한국사 · 과학</dd></div>
-      <div class="gh-sum-item"><dt>수업방식</dt><dd>방문수업 · 화상수업</dd></div>
-      <div class="gh-sum-item"><dt>상담</dt><dd>학년 · 학교 · 과목 · 일정 확인 후 안내</dd></div>
-    </dl>
+    <div class="sbh-intro-box">
+      <h2 id="sbhIntroTitle">성북구 1:1 과외, 이렇게 상담합니다</h2>
+      <p>성북구에서 1:1 과외를 찾는 학생과 학부모를 위해 시그니처과외는 유아부터 초등·중등·고등학생, 성인과 시니어까지 배우는 분의 학년과 다니는 학교, 현재 학습 수준과 희망 과목을 먼저 확인한 뒤 수업 방향을 상담합니다. 국어·영어·수학은 물론 사회·한국사와 과학까지 필요한 과목을 함께 정하고, 선생님이 집으로 찾아가는 방문과외와 실시간으로 진행하는 화상과외 가운데 생활 일정에 맞는 방식을 고를 수 있습니다.</p>
+      <p>학년별로는 성북구 초등학생과외에서 기초학습과 공부습관, 학교진도를 차근차근 챙기고, 성북구 중학생과외에서는 학교진도에 맞춘 내신과 시험대비를, 성북구 고등학생과외에서는 내신과 모의고사, 취약영역 관리를 중심으로 계획을 세웁니다. 이때 학생이 다니는 학교와 현재 학교 진도, 시험 범위와 일정도 함께 확인해 지금 필요한 과목과 학습 방향을 상담합니다.</p>
+    </div>
   </div>
 </section>
 
@@ -264,7 +351,6 @@
       <li class="gh-dong">장위3동</li>
       <li class="gh-dong">석관동</li>
     </ul>
-    <p class="gh-note">위 카드는 성북구청이 안내하는 행정동(동주민센터 단위) 20개 기준입니다. 정릉·길음·장위동처럼 법정동 하나를 여러 행정동이 나누어 맡고, 삼선동·보문동처럼 법정동이 '가' 단위로 나뉜 곳도 있어 생활권 안내에는 행정동을 사용했으며, 사는 동과 원하는 시간에 따라 방문 가능 여부를 확인하고 필요하면 실시간 화상수업도 함께 안내합니다.</p>
   </div>
 </section>
 
@@ -281,6 +367,44 @@
       <a class="gh-link-card" href="math/"><span class="gh-en">MATH</span><h3>성북구 수학과외</h3><span class="gh-kw">기초 개념 · 문제 적용 · 내신 · 시험 대비</span><span class="gh-more">자세히 보기 <span aria-hidden="true">→</span></span></a>
       <a class="gh-link-card" href="social/"><span class="gh-en">SOCIAL · HISTORY</span><h3>성북구 사회·한국사과외</h3><span class="gh-kw">개념 · 자료 해석 · 시대 흐름 · 서술형·내신</span><span class="gh-more">자세히 보기 <span aria-hidden="true">→</span></span></a>
       <a class="gh-link-card" href="science/"><span class="gh-en">SCIENCE</span><h3>성북구 과학과외</h3><span class="gh-kw">개념 이해 · 자료 해석 · 문제 적용 · 내신</span><span class="gh-more">자세히 보기 <span aria-hidden="true">→</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 4-1. 성북구 1:1 과외 학습 전략 (수치 4개는 메인 페이지 #signature-metrics와 같은 값만 사용 · 새 수치 없음) -->
+<section class="page-section sbs-sec" id="strategy" aria-labelledby="sbsTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">STUDY STRATEGY</div>
+      <h2 id="sbsTitle">성북구 1:1 과외, 학년별로 달라지는 학습 전략</h2>
+      <p>학생의 학년과 현재 수준, 학교 진도와 시험 일정을 확인해<br class="sbs-br">필요한 과목과 학습 방향을 상담합니다.</p>
+    </div>
+    <ul class="sbs-stats" aria-label="시그니처과외 소개 수치">
+      <li><strong class="sbs-num">30<small>년+</small></strong><span class="sbs-label">교육 노하우</span><span class="sbs-note">1995년 설립 이후 축적된 교육 경험</span></li>
+      <li><strong class="sbs-num">8<small>종</small></strong><span class="sbs-label">전문 과외 프로그램</span><span class="sbs-note">교과·AI·입시·수행평가 등 다양한 수업</span></li>
+      <li><strong class="sbs-num">100<small>만</small></strong><span class="sbs-label">누적 회원</span><span class="sbs-note">다양한 학년과 학습 목표의 회원 상담</span></li>
+      <li><strong class="sbs-num">2<small>가지</small></strong><span class="sbs-label">수업 방식</span><span class="sbs-note">방문수업 · 화상수업</span></li>
+    </ul>
+    <div class="sbs-grid">
+      <article class="sbs-card">
+        <span class="sbs-tag">초등</span>
+        <h3>초등은 기초학습과 공부습관을 먼저 확인합니다.</h3>
+        <p>성북구 초등학생과외는 읽기·계산·기초개념처럼 기본 학습 상태를 확인하고, 학교 진도와 공부습관을 함께 살펴 혼자 공부할 수 있는 기초를 만드는 방향으로 수업을 상담합니다.</p>
+      </article>
+      <article class="sbs-card">
+        <span class="sbs-tag">중등</span>
+        <h3>중등은 학교 진도와 내신 준비가 중요합니다.</h3>
+        <p>성북구 중학생과외는 과목별 개념 이해와 학교 진도, 시험 범위와 일정을 함께 확인합니다. 국어·영어·수학·사회·한국사·과학 등 필요한 과목에서 취약한 부분을 찾고 내신과 시험대비 방향을 정합니다.</p>
+      </article>
+      <article class="sbs-card">
+        <span class="sbs-tag">고등</span>
+        <h3>고등은 내신과 모의고사, 취약영역의 우선순위를 정합니다.</h3>
+        <p>성북구 고등학생과외는 과목별 취약 단원과 학교 내신, 모의고사 학습 상황을 함께 확인해 현재 필요한 학습 순서와 시간 배분을 정합니다.</p>
+      </article>
+    </div>
+    <div class="sbs-point">
+      <h3>성북구 1:1 과외 학습관리 포인트</h3>
+      <p>수업 시간만 공부하는 것보다 복습과 오답 확인, 학습 계획까지 이어지는 흐름이 중요합니다. 학생의 학년과 현재 수준에 맞춰 수업 후 복습, 오답 정리, 시험 전 점검까지 스스로 이어갈 수 있도록 학습 방향을 상담합니다. 수업은 방문수업과 화상수업 가운데 고를 수 있어, 성북구 과외를 처음 알아보는 학생도 생활 일정에 맞춰 시작할 수 있습니다.</p>
     </div>
   </div>
 </section>
@@ -313,7 +437,6 @@
       <div class="gh-school"><h3>중학교</h3><ul class="gh-school-tags"><li>길음중학교</li><li>삼선중학교</li><li>석관중학교</li><li>월곡중학교</li></ul></div>
       <div class="gh-school"><h3>고등학교</h3><ul class="gh-school-tags"><li>계성고등학교</li><li>석관고등학교</li><li>성신여자고등학교</li><li>용문고등학교</li></ul></div>
     </div>
-    <p class="gh-note">학교마다 교과서와 시험 범위, 시험 시기가 다를 수 있어 상담에서 학생의 학교와 현재 진도를 함께 확인합니다. 위 학교는 성북구 학교 안내를 위한 일부 예시이며, 다른 학교 학생도 상담할 수 있습니다.</p>
   </div>
 </section>
 

@@ -7739,3 +7739,16 @@ body.page-subject .en-area.is-social { background: #FBF3E4; }
   body.page-gu-hub .gh-link-grid.is-five > .gh-link-card { width: 100%; }
   body.page-subject .en-area-grid.is-five > .en-area { width: 100%; }
 }
+
+/* [168차] 학교 전체 표시 신규 기준(노원구~) — 허브 초·중·고 3그룹 1열(.gh-school-wrap.is-full) · 그룹별 학교 수(.gh-count/.mt-count) · 과목/학년 페이지 압축 태그(.mt-school-wrap.is-compact) · 학교 링크 없음 */
+body.page-gu-hub .gh-school-wrap.is-full { grid-template-columns: 1fr; max-width: 1080px; }
+body.page-gu-hub .gh-school-lead { max-width: 820px; margin: 0 auto 22px; color: #4B5563; font-size: 15.5px; line-height: 1.75; text-align: center; word-break: keep-all; }
+body.page-gu-hub .gh-school h3 .gh-count,
+body.page-subject .mt-school h3 .mt-count { margin-left: 4px; color: #9A7A3A; font-size: 0.82em; font-weight: 800; }
+body.page-subject .mt-school-wrap.is-compact .ar-topic-list { gap: 6px; }
+body.page-subject .mt-school-wrap.is-compact .ar-topic { padding: 5px 11px; font-size: 13.5px; }
+body.page-subject .mt-school-wrap.gr-school-one.is-compact { max-width: 960px; }
+@media (max-width: 640px) {
+  body.page-gu-hub .gh-school-lead { font-size: 14.5px; text-align: left; }
+  body.page-subject .mt-school-wrap.is-compact .ar-topic { padding: 5px 10px; font-size: 13px; }
+}

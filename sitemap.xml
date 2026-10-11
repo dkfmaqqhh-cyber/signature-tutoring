@@ -163,6 +163,30 @@
     <loc>https://signaturetutoring.co.kr/area/seoul/gangseo/</loc>
   </url>
   <url>
+    <loc>https://signaturetutoring.co.kr/area/seoul/gangseo/korean/</loc>
+  </url>
+  <url>
+    <loc>https://signaturetutoring.co.kr/area/seoul/gangseo/english/</loc>
+  </url>
+  <url>
+    <loc>https://signaturetutoring.co.kr/area/seoul/gangseo/math/</loc>
+  </url>
+  <url>
+    <loc>https://signaturetutoring.co.kr/area/seoul/gangseo/social/</loc>
+  </url>
+  <url>
+    <loc>https://signaturetutoring.co.kr/area/seoul/gangseo/science/</loc>
+  </url>
+  <url>
+    <loc>https://signaturetutoring.co.kr/area/seoul/gangseo/elementary/</loc>
+  </url>
+  <url>
+    <loc>https://signaturetutoring.co.kr/area/seoul/gangseo/middle/</loc>
+  </url>
+  <url>
+    <loc>https://signaturetutoring.co.kr/area/seoul/gangseo/high/</loc>
+  </url>
+  <url>
     <loc>https://signaturetutoring.co.kr/area/seoul/gwanak/</loc>
   </url>
   <url>
@@ -452,6 +476,9 @@
   </url>
   <url>
     <loc>https://signaturetutoring.co.kr/area/seoul/seongdong/math/</loc>
+  </url>
+  <url>
+    <loc>https://signaturetutoring.co.kr/area/seoul/seongdong/social/</loc>
   </url>
   <url>
     <loc>https://signaturetutoring.co.kr/area/seoul/seongdong/english/</loc>

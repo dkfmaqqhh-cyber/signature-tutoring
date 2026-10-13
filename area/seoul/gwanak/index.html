@@ -148,7 +148,7 @@
           "name": "시범수업을 상담할 수 있나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "네, 상담 후 무료 시범수업으로 선생님의 수업 방식을 먼저 확인하신 뒤 정식 수업을 결정하실 수 있습니다. 세부 조건은 상담 시 안내드립니다."
+            "text": "네, 상담에서 학교·학년과 현재 수준을 확인한 뒤 무료 시범수업으로 선생님의 설명 방식과 수업 흐름이 학생에게 맞는지 먼저 확인하실 수 있습니다. 정규 수업 여부는 시범수업 뒤 정하시면 되며, 세부 조건은 상담 시 안내드립니다."
           }
         },
         {
@@ -248,6 +248,22 @@ body.page-gu-hub .sbs-point h3 { margin: 0 0 8px; color: #102640; font-size: 18p
   body.page-gu-hub .sbs-card p, body.page-gu-hub .sbs-point p { font-size: 14.5px; }
 }
 </style>
+<!-- [190차] 서울 구 허브 보완 스타일 — 상담 5단계 설명문 · 학교 출처 한 줄 · 모바일(640px 이하) 떠 있는 버튼이 본문 글자를 가리지 않도록 오른쪽 여백 확보 + 버튼 52px로 소폭 축소 (HERO 제외) -->
+<style>
+body.page-gu-hub #consult-check .mt-check p { margin: 0; color: #4B5563; font-size: 14px; line-height: 1.6; text-align: center; word-break: keep-all; }
+body.page-gu-hub .gh-school-src { margin: 16px auto 0; color: #6B7280; font-size: 13px; line-height: 1.6; text-align: center; word-break: keep-all; }
+@media (max-width: 640px) {
+  body.page-gu-hub .sig-float.rg-float { right: 8px; gap: 8px; }
+  body.page-gu-hub .sig-float.rg-float a { width: 52px; height: 52px; gap: 3px; border-radius: 16px; font-size: 10.5px; }
+  body.page-gu-hub .sig-float.rg-float svg { width: 16px; height: 16px; }
+  body.page-gu-hub main section:not(.rg-hero-solid) > .container, body.page-gu-hub .rg-updated .container, body.page-gu-hub .site-footer .container { padding-right: 64px; }
+}
+</style>
+<!-- [190-3차] 전략 카드 글자형 값(.sbs-num.is-word) 크기 보정 — 숫자 카드와 같은 자리·색 유지 -->
+<style>
+body.page-gu-hub .sbs-num.is-word { font-size: 28px; line-height: 1.25; word-break: keep-all; }
+@media (max-width: 640px) { body.page-gu-hub .sbs-num.is-word { font-size: 20px; } }
+</style>
 </head>
 <!-- [184차] page-gu-hub = 구 단위 허브 전용 클래스(147·150·155차 CSS 재사용) -->
 <body class="page-area page-region page-subarea page-gu-hub">
@@ -327,7 +343,7 @@ body.page-gu-hub .sbs-point h3 { margin: 0 0 8px; color: #102640; font-size: 18p
     <div class="section-head center">
       <div class="kicker">GWANAK AREA</div>
       <h2 id="ghDongTitle">관악구 어느 지역에서 과외를 찾고 계신가요?</h2>
-      <p>아래는 관악구청이 안내하는 행정동 기준 생활권입니다. 학생이 사는 동을 확인하고, 방문수업이 가능한지와 화상수업으로 진행할 수 있는지를 함께 상담합니다.</p>
+      <p>아래는 관악구청이 안내하는 행정동 기준 생활권입니다(2026년 10월 확인). 학생이 사는 동을 확인하고, 방문수업이 가능한지와 화상수업으로 진행할 수 있는지를 함께 상담합니다.</p>
     </div>
     <ul class="gh-dong-grid is-center-rows">
       <li class="gh-dong">보라매동</li>
@@ -380,11 +396,12 @@ body.page-gu-hub .sbs-point h3 { margin: 0 0 8px; color: #102640; font-size: 18p
       <h2 id="sbsTitle">관악구 1:1 과외, 학년별로 달라지는 학습 전략</h2>
       <p>학생의 학년과 현재 수준, 학교 진도와 시험 일정을 확인해<br class="sbs-br">필요한 과목과 학습 방향을 상담합니다.</p>
     </div>
-    <ul class="sbs-stats" aria-label="시그니처과외 소개 수치">
-      <li><strong class="sbs-num">30<small>년+</small></strong><span class="sbs-label">교육 노하우</span><span class="sbs-note">1995년 설립 이후 축적된 교육 경험</span></li>
-      <li><strong class="sbs-num">8<small>종</small></strong><span class="sbs-label">전문 과외 프로그램</span><span class="sbs-note">교과·AI·입시·수행평가 등 다양한 수업</span></li>
-      <li><strong class="sbs-num">100<small>만</small></strong><span class="sbs-label">누적 회원</span><span class="sbs-note">다양한 학년과 학습 목표의 회원 상담</span></li>
-      <li><strong class="sbs-num">2<small>가지</small></strong><span class="sbs-label">수업 방식</span><span class="sbs-note">방문수업 · 화상수업</span></li>
+    <!-- [190-3차] 근거 자료가 없는 실적 수치(30년+·8종·100만) 대신 실제 제공 서비스 사실 4가지 · 카드 디자인 유지 -->
+    <ul class="sbs-stats" aria-label="시그니처과외 수업 안내">
+      <li><strong class="sbs-num is-word">1:1</strong><span class="sbs-label">맞춤수업</span><span class="sbs-note">학생의 학년·과목·현재 수준에 맞춘 수업</span></li>
+      <li><strong class="sbs-num is-word">유아~시니어</strong><span class="sbs-label">상담 대상</span><span class="sbs-note">유아·초중고 학생부터 성인·시니어까지</span></li>
+      <li><strong class="sbs-num is-word">방문·화상</strong><span class="sbs-label">수업 방식</span><span class="sbs-note">방문수업 · 실시간 화상수업 중 선택</span></li>
+      <li><strong class="sbs-num is-word">무료</strong><span class="sbs-label">시범수업</span><span class="sbs-note">상담 후 설명 방식과 수업 흐름을 먼저 확인</span></li>
     </ul>
     <div class="sbs-grid">
       <article class="sbs-card">
@@ -440,23 +457,24 @@ body.page-gu-hub .sbs-point h3 { margin: 0 0 8px; color: #102640; font-size: 18p
       <div class="gh-school"><h3>관악구 중학교 <span class="gh-count">16곳</span></h3><ul class="gh-school-tags"><li>관악중학교</li><li>광신중학교</li><li>구암중학교</li><li>난우중학교</li><li>남강중학교</li><li>남서울중학교</li><li>당곡중학교</li><li>미성중학교</li><li>봉림중학교</li><li>봉원중학교</li><li>삼성중학교</li><li>서울문영여자중학교</li><li>성보중학교</li><li>신관중학교</li><li>신림중학교</li><li>인헌중학교</li></ul></div>
       <div class="gh-school"><h3>관악구 고등학교 <span class="gh-count">17곳</span></h3><ul class="gh-school-tags"><li>광신고등학교</li><li>광신방송예술고등학교</li><li>구암고등학교</li><li>남강고등학교</li><li>당곡고등학교</li><li>미림마이스터고등학교</li><li>미림여자고등학교</li><li>삼성고등학교</li><li>서울관광고등학교</li><li>서울문영여자고등학교</li><li>서울미술고등학교</li><li>서울여자상업고등학교</li><li>성보고등학교</li><li>신림고등학교</li><li>영락고등학교</li><li>영락의료과학고등학교</li><li>인헌고등학교</li></ul></div>
     </div>
+    <p class="gh-school-src">학교 정보: 서울특별시동작관악교육지원청 관내학교 정보(2026년) 기준</p>
   </div>
 </section>
 
-<!-- 7. 상담 시 확인 항목 5 -->
+<!-- 7. [190차] 상담부터 수업 시작까지 5단계 (기존 상담 확인 섹션 재사용 · 상담=현재 수준 확인 / 시범수업=수업 방식·적합성 확인 역할 구분) -->
 <section class="page-section gh-bg-white" id="consult-check" aria-labelledby="ghCheckTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">CONSULTATION</div>
-      <h2 id="ghCheckTitle">관악구 과외 상담에서는 무엇을 확인하나요?</h2>
+      <h2 id="ghCheckTitle">관악구 과외, 상담부터 수업 시작까지</h2>
     </div>
-    <ul class="mt-check-grid">
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">1</span><h3>학생이 사는 동</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">2</span><h3>학년과 다니는 학교</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">3</span><h3>희망 과목</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">4</span><h3>기초·내신·시험대비 등 목표</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">5</span><h3>방문·화상 및 가능한 요일·시간</h3></li>
-    </ul>
+    <ol class="mt-check-grid">
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">1</span><h3>상담 신청</h3><p>무료 상담 신청이나 전화로 문의를 남깁니다.</p></li>
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">2</span><h3>학교·학년·현재 수준 확인</h3><p>사는 동, 학교·학년, 현재 수준과 희망 과목, 가능한 요일·시간을 확인합니다.</p></li>
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">3</span><h3>수업 방향과 선생님 안내</h3><p>확인한 내용을 바탕으로 수업 방향과 방문·화상 방식, 선생님을 안내합니다.</p></li>
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">4</span><h3>무료 시범수업</h3><p>선생님의 설명 방식과 수업 흐름이 학생에게 맞는지 확인합니다.</p></li>
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">5</span><h3>수업 진행 여부 결정</h3><p>시범수업 뒤 정규 수업 진행 여부를 정합니다.</p></li>
+    </ol>
   </div>
 </section>
 
@@ -514,7 +532,7 @@ body.page-gu-hub .sbs-point h3 { margin: 0 0 8px; color: #102640; font-size: 18p
       </article>
       <article class="rg-faq-item">
         <h3>시범수업을 상담할 수 있나요?</h3>
-        <p>네, 상담 후 무료 시범수업으로 선생님의 수업 방식을 먼저 확인하신 뒤 정식 수업을 결정하실 수 있습니다. 세부 조건은 상담 시 안내드립니다.</p>
+        <p>네, 상담에서 학교·학년과 현재 수준을 확인한 뒤 무료 시범수업으로 선생님의 설명 방식과 수업 흐름이 학생에게 맞는지 먼저 확인하실 수 있습니다. 정규 수업 여부는 시범수업 뒤 정하시면 되며, 세부 조건은 상담 시 안내드립니다.</p>
       </article>
       <article class="rg-faq-item">
         <h3>수업 요일과 시간은 어떻게 정하나요?</h3>

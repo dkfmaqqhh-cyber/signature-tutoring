@@ -61,6 +61,8 @@
       <h1>무료 상담 신청</h1>
       <p class="page-lead">과외를 결정하기 전, 먼저 아이의 현재 상황부터 확인하세요.<br>학생의 학년 · 희망과목 · 현재 고민을 알려주시면 상담에 필요한 내용을 순서대로 확인할 수 있습니다.</p>
       <p class="note-box">시그니처과외 주요 수업은 상담 후 무료수업을 통해 수업 방식과 학습 방향을 확인할 수 있습니다. 구체적인 진행 방식과 조건은 상담 시 안내드립니다.</p>
+      <!-- [190-2차] 바로 상담 채널(실제 연결된 전화·카카오톡 오픈채팅만) -->
+      <p class="consult-quick">바로 상담하기: <a href="tel:01058701109">전화 010-5870-1109</a><span aria-hidden="true"> · </span><a href="https://open.kakao.com/o/gL2WvLQi" target="_blank" rel="noopener" title="카카오톡 오픈채팅이 새 창에서 열립니다">카카오톡 상담</a></p>
     </div>
   </div>
 </section>
@@ -159,7 +161,7 @@
             <li>학생에게 필요한 과목과 학습 방향</li>
             <li>선생님 매칭에 필요한 사항</li>
           </ul>
-          <p class="consult-guide-note" id="consultStatusNote">온라인 상담 접수 기능은 현재 준비 중입니다. 신청서를 작성하셔도 아직 전송되지 않습니다.</p><!-- [14.5차] 접수 주소(CONSULT_API_URL) 연결 시 js가 문구를 자동 변경 -->
+          <p class="consult-guide-note" id="consultStatusNote">신청서 접수가 어렵거나 바로 상담을 원하시면 아래 전화·카카오톡으로 연락해 주세요.</p><!-- [14.5차] 접수 주소(CONSULT_API_URL) 연결 시 js가 문구를 자동 변경 · [190-2차] JS 미실행 시 보이는 기본 문구를 사실과 맞게 수정(현재 js/script.js에 Make 웹훅 연결됨 → 접수 성공 응답일 때만 '접수되었습니다' 표시) -->
         </div>
         <!-- [19차] 전화 상담 연결 (index.html과 동일) -->
         <a class="contact-card phone" href="tel:01058701109">
@@ -176,6 +178,22 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- [190-2차] 상담부터 수업 시작까지 5단계 (서울 구 허브 190차 흐름과 같은 순서 · 상담=현재 수준 확인 / 시범수업=수업 방식·적합성 확인) -->
+<section class="page-section consult-flow" aria-labelledby="consultFlowTitle">
+  <div class="container">
+    <div class="section-head center">
+      <h2 id="consultFlowTitle">상담부터 수업 시작까지</h2>
+    </div>
+    <ol class="mt-check-grid">
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">1</span><h3>상담 신청</h3><p>신청서, 전화, 카카오톡 중 편한 방법으로 문의를 남깁니다.</p></li>
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">2</span><h3>학교·학년·현재 수준 확인</h3><p>사는 동, 학교·학년, 현재 수준과 희망 과목, 가능한 요일·시간을 확인합니다.</p></li>
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">3</span><h3>수업 방향과 선생님 안내</h3><p>확인한 내용을 바탕으로 수업 방향과 방문·화상 방식, 선생님을 안내합니다.</p></li>
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">4</span><h3>무료 시범수업</h3><p>선생님의 설명 방식과 수업 흐름이 학생에게 맞는지 확인합니다.</p></li>
+      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">5</span><h3>수업 진행 여부 결정</h3><p>시범수업 뒤 정규 수업 진행 여부를 정합니다.</p></li>
+    </ol>
   </div>
 </section>
 </main>

@@ -7752,3 +7752,19 @@ body.page-subject .mt-school-wrap.gr-school-one.is-compact { max-width: 960px; }
   body.page-gu-hub .gh-school-lead { font-size: 14.5px; text-align: left; }
   body.page-subject .mt-school-wrap.is-compact .ar-topic { padding: 5px 10px; font-size: 13px; }
 }
+
+/* ---------- [190-2차] 상담 페이지 바로 상담 링크·5단계 흐름 + 서울 구 페이지(허브 page-gu-hub · 과목/학년/사회 page-subarea.page-subject) 떠 있는 버튼 글자 가림 방지
+   · 1024px 이하에서만: 떠 있는 버튼 52px·오른쪽 8px로 소폭 축소 + 본문 컨테이너 오른쪽 여백 64px (HERO 제외) · 서울 외 지역(page-subject 없음)과 PC 1025px 이상은 영향 없음
+   되돌리기: 이 블록 삭제 */
+.consult-quick { margin: 14px 0 0; font-size: 15px; font-weight: 700; color: #10233F; }
+.consult-quick a { color: #10233F; text-decoration: underline; text-underline-offset: 3px; }
+.consult-flow .mt-check p { margin: 0; color: #4B5563; font-size: 14px; line-height: 1.6; text-align: center; word-break: keep-all; }
+/* PC에서 학교 출처 안내문(.ar-topic-note)이 오른쪽 떠 있는 버튼 아래까지 길게 이어지지 않도록 폭 제한 (서울 과목·학년·사회 페이지만) */
+body.page-subarea.page-subject .ar-topic-note, body.page-subarea.page-subject .ar-cta-box h2 { max-width: 900px; margin-left: auto; margin-right: auto; }
+@media (max-width: 1024px) {
+  body.page-gu-hub .sig-float.rg-float, body.page-subarea.page-subject .sig-float.rg-float { right: 8px; gap: 8px; }
+  body.page-gu-hub .sig-float.rg-float a, body.page-subarea.page-subject .sig-float.rg-float a { width: 52px; height: 52px; gap: 3px; border-radius: 16px; font-size: 10.5px; }
+  body.page-gu-hub .sig-float.rg-float svg, body.page-subarea.page-subject .sig-float.rg-float svg { width: 16px; height: 16px; }
+  body.page-gu-hub main section:not(.rg-hero-solid) > .container, body.page-gu-hub .rg-updated .container, body.page-gu-hub .site-footer .container,
+  body.page-subarea.page-subject main section:not(.rg-hero-solid) > .container, body.page-subarea.page-subject .rg-updated .container, body.page-subarea.page-subject .site-footer .container { padding-right: 64px; }
+}

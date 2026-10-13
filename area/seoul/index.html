@@ -160,6 +160,15 @@
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../css/style.css?v=131">
+<!-- [197차] 서울 대문 전용: 1024px 이하에서 떠 있는 버튼 52px·오른쪽 8px + 구 카드 포함 본문 컨테이너 오른쪽 여백 64px (HERO 제외) (공용 css 미수정 · PC 1025px 이상 영향 없음 · 되돌리기: 이 style 삭제) -->
+<style>
+@media (max-width: 1024px) {
+  body.page-region .sig-float.rg-float { right: 8px; gap: 8px; }
+  body.page-region .sig-float.rg-float a { width: 52px; height: 52px; gap: 3px; border-radius: 16px; font-size: 10.5px; }
+  body.page-region .sig-float.rg-float svg { width: 16px; height: 16px; }
+  body.page-region main section:not(.ar-hero) > .container, body.page-region .rg-updated .container, body.page-region .site-footer .container { padding-right: 64px; }
+}
+</style>
 </head>
 <body class="page-area page-region">
 
@@ -224,7 +233,7 @@
     <div class="section-head center">
       <div class="kicker">SEOUL DISTRICTS</div>
       <h2 id="rgGuTitle">서울 지역을 선택해 주세요</h2>
-      <p>구별 세부 안내는 순차적으로 열립니다. 지금은 상담으로 우리 동네 수업 가능 여부를 먼저 확인하실 수 있습니다.</p>
+      <p>서울 25개 구 모두 구별 안내를 확인하실 수 있습니다. 구를 선택하면 생활권·학교·과목별 안내로 이동합니다. 상담을 통해 우리 동네 방문수업 가능 여부와 원하는 수업 방식을 함께 확인하실 수 있습니다.</p>
     </div>
     <!-- [131차] 세부지역(구·시·군) 페이지 생성 → 카드 링크 활성화(지역 보기 →) -->
     <ul class="ar-region-grid rg-gu-grid">

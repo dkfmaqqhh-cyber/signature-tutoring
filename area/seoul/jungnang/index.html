@@ -264,6 +264,13 @@ body.page-gu-hub .gh-school-src { margin: 16px auto 0; color: #6B7280; font-size
 body.page-gu-hub .sbs-num.is-word { font-size: 28px; line-height: 1.25; word-break: keep-all; }
 @media (max-width: 640px) { body.page-gu-hub .sbs-num.is-word { font-size: 20px; } }
 </style>
+<!-- [206차] 긴 학교명 태그 보정: 1024px 이하에서 학교 카드가 그리드 칸 폭에 맞게 줄어들고(min-width:0), 공백 없는 긴 학교명만 칸 안에서 자연스럽게 줄바꿈(overflow-wrap:anywhere) · 서울 서대문구 [202차]·대구 [205차]와 같은 규칙 · 글자 삭제·줄임표 없음 · PC 1025px 이상 영향 없음 · 되돌리기: 이 style 삭제 -->
+<style>
+@media (max-width: 1024px) {
+  body.page-gu-hub .gh-school-wrap > .gh-school, body.page-subject .mt-school-wrap > .mt-school { min-width: 0; }
+  body.page-gu-hub .gh-school-tags li, body.page-subject .mt-school .ar-topic-list > li, body.page-subject .mt-school .ar-topic { max-width: 100%; min-width: 0; overflow-wrap: anywhere; }
+}
+</style>
 </head>
 <!-- [186차] page-gu-hub = 구 단위 허브 전용 클래스(147·150·155차 CSS 재사용) -->
 <body class="page-area page-region page-subarea page-gu-hub">

@@ -30,7 +30,7 @@
       "name": "인천광역시 1:1 맞춤과외",
       "url": "https://signaturetutoring.co.kr/area/incheon/",
       "inLanguage": "ko-KR",
-      "dateModified": "2026-10-10",
+      "dateModified": "2026-10-15",
       "description": "인천 지역 유아·초등·중등·고등 1:1 과외를 확인하세요. 학생의 학년, 과목, 현재 학습 수준과 목표에 맞춰 방문과외와 실시간 화상수업을 안내합니다.",
       "isPartOf": {
         "@type": "WebSite",
@@ -168,6 +168,16 @@
   body.page-region main section:not(.ar-hero) > .container, body.page-region .rg-updated .container, body.page-region .site-footer .container { padding-right: 64px; }
 }
 </style>
+<!-- [208차] 인천 대문 지역 묶음 제목(.rgb-group-title)·집계 줄(.rgb-stats) — 대구 대문 [205차]·부산 대문 [201차] 집계 줄과 같은 스타일 (되돌리기: 이 style 삭제) -->
+<style>
+body.page-region .rgb-group-title { margin: 30px auto 14px; color: #10233F; font-size: 18px; font-weight: 800; line-height: 1.5; text-align: center; word-break: keep-all; }
+body.page-region .rgb-group-title.is-first { margin-top: 6px; }
+body.page-region .rgb-group-title span { margin-left: 6px; color: #8F6B2F; font-size: 15px; font-weight: 800; }
+body.page-region .rgb-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 880px; margin: 20px auto 0; padding: 0; list-style: none; }
+body.page-region .rgb-stats li { padding: 6px 14px; border: 1px solid #E5E7EB; border-radius: 999px; background: #FFFFFF; color: #10233F; font-size: 14px; font-weight: 700; line-height: 1.5; word-break: keep-all; }
+body.page-region .rgb-stats-src { margin: 10px auto 0; color: #6B7280; font-size: 13px; line-height: 1.6; text-align: center; word-break: keep-all; }
+@media (max-width: 640px) { body.page-region .rgb-group-title { font-size: 16.5px; } body.page-region .rgb-stats li { padding: 5px 11px; font-size: 13px; } }
+</style>
 </head>
 <body class="page-area page-region">
 
@@ -224,49 +234,60 @@
   </div>
 </section>
 
-<!-- 2. 인천 11개 군·구 ([119차] 2026.7.1 행정체제 개편 기준 2군·9구 · 행정 순서 · 세부 페이지가 아직 없어 링크 없는 비활성 카드)
-     세부 페이지를 만들면 해당 줄의 <span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="jemulpo/">…</span> 을
-     <a class="ar-region rg-gu" href="jemulpo/">…</a> 로 바꾸고 <small>준비 중</small> 만 지우면 됩니다. -->
+<!-- 2. 인천 11개 군·구 ([119차] 2026.7.1 행정체제 개편 기준 2군·9구 · 행정 순서)
+     · [208차] 1차 6개 구(제물포·영종·미추홀·연수·남동·부평)는 구 허브 + 학년 3·과목 5 하위 페이지 운영, 나머지 5개 군·구(계양·서해·검단·강화·옹진)는 기존 기본 안내 페이지 링크 유지 — 두 묶음을 제목·버튼 문구로 구분
+     · 집계: 인천광역시 행정구역(2026.7.1. 기준) · 인천광역시교육청 학교현황(2026.4.1. 기준, 개편 후 행정구역 열, 분교장 제외) -->
 <section class="page-section ar-regions rg-gus" id="districts" aria-labelledby="rgGuTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">INCHEON DISTRICTS</div>
       <h2 id="rgGuTitle">인천 지역을 선택해 주세요</h2>
-      <p>군·구별 세부 안내는 순차적으로 열립니다. 지금은 상담으로 우리 동네 수업 가능 여부를 먼저 확인하실 수 있습니다.</p>
+      <p>제물포구·영종구·미추홀구·연수구·남동구·부평구는 행정동과 초·중·고 학교 정보, 학년별·과목별 1:1 과외 안내를 정리했습니다. 계양구·서해구·검단구·강화군·옹진군은 현재 기본 안내 페이지에서 수업 방식과 상담 방법을 안내합니다.</p>
     </div>
-    <!-- [131차] 세부지역(구·시·군) 페이지 생성 → 카드 링크 활성화(지역 보기 →) -->
+    <h3 class="rgb-group-title is-first">학교·학년·과목 안내가 있는 지역 <span>6곳</span></h3>
+    <ul class="ar-region-grid rg-gu-grid rg-gu-grid-3">
+      <li><a class="ar-region rg-gu" href="jemulpo/"><strong>제물포구</strong><em>신포 · 연안 · 송림 · 화수</em><small>학년·과목 안내 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu" href="yeongjong/"><strong>영종구</strong><em>영종 · 운서 · 용유</em><small>학년·과목 안내 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu" href="michuhol/"><strong>미추홀구</strong><em>주안 · 용현 · 학익 · 숭의</em><small>학년·과목 안내 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu" href="yeonsu/"><strong>연수구</strong><em>송도 · 연수 · 청학 · 동춘</em><small>학년·과목 안내 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu" href="namdong/"><strong>남동구</strong><em>구월 · 논현 · 만수 · 간석</em><small>학년·과목 안내 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu" href="bupyeong/"><strong>부평구</strong><em>부평 · 삼산 · 부개 · 산곡</em><small>학년·과목 안내 보기 →</small></a></li>
+    </ul>
+    <ul class="rgb-stats" aria-label="인천 6개 구 학교·행정동 현황">
+      <li>6개 구</li>
+      <li>행정동 102곳</li>
+      <li>초등학교 163곳</li>
+      <li>중학교 89곳</li>
+      <li>고등학교 85곳</li>
+    </ul>
+    <p class="rgb-stats-src">위 6개 구 기준 · 행정동: 인천광역시 행정구역 현황(2026년 7월 1일 기준) · 학교: 인천광역시교육청 학교현황(2026년 4월 1일 기준, 분교장·특수학교·각종학교 제외)</p>
+    <h3 class="rgb-group-title">기본 안내 지역 <span>5곳</span></h3>
     <ul class="ar-region-grid rg-gu-grid">
-      <li><a class="ar-region rg-gu" href="jemulpo/"><strong>제물포구</strong><em>신포 · 연안 · 송림 · 화수</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="yeongjong/"><strong>영종구</strong><em>영종 · 운서 · 용유</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="michuhol/"><strong>미추홀구</strong><em>주안 · 용현 · 학익 · 숭의</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="yeonsu/"><strong>연수구</strong><em>송도 · 연수 · 청학 · 동춘</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="namdong/"><strong>남동구</strong><em>구월 · 논현 · 만수 · 간석</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="bupyeong/"><strong>부평구</strong><em>부평 · 삼산 · 부개 · 산곡</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="gyeyang/"><strong>계양구</strong><em>계산 · 작전 · 효성 · 임학</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="seohae/"><strong>서해구</strong><em>청라 · 가정 · 석남 · 연희</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="geomdan/"><strong>검단구</strong><em>검단 · 불로대곡 · 마전 · 당하</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="ganghwa/"><strong>강화군</strong><em>강화읍 · 길상면 · 선원면</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="ongjin/"><strong>옹진군</strong><em>영흥면 · 백령면 · 덕적면</em><small>지역 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu is-basic" href="gyeyang/"><strong>계양구</strong><em>계산 · 작전 · 효성 · 임학</em><small>기본 안내 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu is-basic" href="seohae/"><strong>서해구</strong><em>청라 · 가정 · 석남 · 연희</em><small>기본 안내 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu is-basic" href="geomdan/"><strong>검단구</strong><em>검단 · 불로대곡 · 마전 · 당하</em><small>기본 안내 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu is-basic" href="ganghwa/"><strong>강화군</strong><em>강화읍 · 길상면 · 선원면</em><small>기본 안내 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu is-basic" href="ongjin/"><strong>옹진군</strong><em>영흥면 · 백령면 · 덕적면</em><small>기본 안내 보기 →</small></a></li>
     </ul>
   </div>
 </section>
 
-<!-- [110차] 인천에서 많이 찾는 수업 (세부 페이지가 아직 없어 링크 없는 표시만 · 생성 시 span → <a class="ar-topic" href="…/"> 로 교체) -->
+<!-- [208차] 인천 구별 과외 수업 안내 · 인천 전체 단위 과목 페이지는 없으므로 1차 6개 구의 실제 과목·학년 페이지로 연결(허위 URL 없음 · 인기·검색량 표현 없음) · 배정: 6개 구에 서로 다른 과목·학년 1개씩 + 부평구 고등 1개 -->
 <section class="page-section ar-topics rg-popular" id="popular" aria-labelledby="rgPopTitle">
   <div class="container">
     <div class="section-head center">
-      <div class="kicker">POPULAR</div>
-      <h2 id="rgPopTitle">인천에서 많이 찾는 수업</h2>
-      <p>지역과 과목, 학년을 함께 찾을 수 있도록 앞으로 세부 페이지를 연결합니다.</p>
+      <div class="kicker">BY DISTRICT</div>
+      <h2 id="rgPopTitle">인천 구별 과외 수업 안내</h2>
+      <p>학교·학년·과목 안내가 있는 6개 구의 과외 페이지를 바로 확인할 수 있습니다. 다른 과목과 학년은 위 지역 카드에서 구를 선택해 주세요.</p>
     </div>
     <ul class="ar-topic-list">
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="incheon" data-topic="math">인천 수학과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="incheon" data-topic="english">인천 영어과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="incheon" data-topic="korean">인천 국어과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="incheon" data-topic="science">인천 과학과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="incheon" data-topic="elementary">인천 초등과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="incheon" data-topic="middle">인천 중학생과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="incheon" data-topic="high">인천 고등학생과외</span></li>
+      <li><a class="ar-topic" href="jemulpo/korean/" data-area="incheon-jemulpo" data-topic="korean">제물포구 국어과외</a></li>
+      <li><a class="ar-topic" href="yeongjong/elementary/" data-area="incheon-yeongjong" data-topic="elementary">영종구 초등학생과외</a></li>
+      <li><a class="ar-topic" href="michuhol/science/" data-area="incheon-michuhol" data-topic="science">미추홀구 과학과외</a></li>
+      <li><a class="ar-topic" href="yeonsu/english/" data-area="incheon-yeonsu" data-topic="english">연수구 영어과외</a></li>
+      <li><a class="ar-topic" href="namdong/middle/" data-area="incheon-namdong" data-topic="middle">남동구 중학생과외</a></li>
+      <li><a class="ar-topic" href="bupyeong/math/" data-area="incheon-bupyeong" data-topic="math">부평구 수학과외</a></li>
+      <li><a class="ar-topic" href="bupyeong/high/" data-area="incheon-bupyeong" data-topic="high">부평구 고등학생과외</a></li>
     </ul>
   </div>
 </section>
@@ -382,7 +403,7 @@
 </section>
 
 <!-- 8. 최종 업데이트 (JSON-LD dateModified와 같은 날짜 · 콘텐츠 수정 시 둘 다 직접 변경) -->
-<div class="rg-updated"><div class="container"><p>최종 업데이트: <time datetime="2026-10-10">2026.10.10</time></p></div></div>
+<div class="rg-updated"><div class="container"><p>최종 업데이트: <time datetime="2026-10-15">2026.10.15</time></p></div></div>
 </main>
 
 <footer class="site-footer">

@@ -30,7 +30,7 @@
       "name": "울산 지역별 맞춤 과외",
       "url": "https://signaturetutoring.co.kr/area/ulsan/",
       "inLanguage": "ko-KR",
-      "dateModified": "2026-10-10",
+      "dateModified": "2026-10-15",
       "description": "울산 지역 유아·초등·중등·고등 1:1 과외를 확인하세요. 학생의 학년, 과목, 현재 학습 수준과 목표에 맞춰 방문과외와 실시간 화상수업을 안내합니다.",
       "isPartOf": {
         "@type": "WebSite",
@@ -168,6 +168,16 @@
   body.page-region main section:not(.ar-hero) > .container, body.page-region .rg-updated .container, body.page-region .site-footer .container { padding-right: 64px; }
 }
 </style>
+<!-- [215차] 울산 대문 지역 묶음 제목(.rgb-group-title)·집계 줄(.rgb-stats) — 대전 대문 [213차]·광주 [211차]와 같은 스타일 (되돌리기: 이 style 삭제) -->
+<style>
+body.page-region .rgb-group-title { margin: 30px auto 14px; color: #10233F; font-size: 18px; font-weight: 800; line-height: 1.5; text-align: center; word-break: keep-all; }
+body.page-region .rgb-group-title.is-first { margin-top: 6px; }
+body.page-region .rgb-group-title span { margin-left: 6px; color: #8F6B2F; font-size: 15px; font-weight: 800; }
+body.page-region .rgb-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 880px; margin: 20px auto 0; padding: 0; list-style: none; }
+body.page-region .rgb-stats li { padding: 6px 14px; border: 1px solid #E5E7EB; border-radius: 999px; background: #FFFFFF; color: #10233F; font-size: 14px; font-weight: 700; line-height: 1.5; word-break: keep-all; }
+body.page-region .rgb-stats-src { max-width: 880px; margin: 10px auto 0; color: #6B7280; font-size: 13px; line-height: 1.6; text-align: center; word-break: keep-all; }
+@media (max-width: 640px) { body.page-region .rgb-group-title { font-size: 16.5px; } body.page-region .rgb-stats li { padding: 5px 11px; font-size: 13px; } }
+</style>
 </head>
 <body class="page-area page-region">
 
@@ -225,43 +235,51 @@
   </div>
 </section>
 
-<!-- 2. 울산 5개 구·군 ([123차] 행정 순서 · 세부 페이지가 아직 없어 링크 없는 비활성 카드 · PC 한 줄 5개(기본 .rg-gu-grid)·모바일 2열)
-     세부 페이지를 만들면 해당 줄의 <span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="ulju/">…</span> 을
-     <a class="ar-region rg-gu" href="ulju/">…</a> 로 바꾸고 <small>준비 중</small> 만 지우면 됩니다. -->
+<!-- 2. 울산 5개 구·군 ([123차] 행정 순서 · PC 한 줄 5개(기본 .rg-gu-grid)·모바일 2열)
+     · [215차] 5개 구·군 모두 허브 + 학년 3·과목 5 하위 페이지 운영 → 묶음 제목·집계 줄(대전 [213차] 디자인) · 비활성 카드·'순차' 안내 제거
+     · 집계: 읍면동 = 행정안전부 읍면동 하부행정기관 현황(2025-12-31) = 울산시 누리집 구·군별 행정구역(2026-01-30 수정) 43동 + 6읍 6면 · 학교 = 전국초중등학교위치표준데이터(2026-10-01)·NEIS, 본교 244(분교장 1 제외) · 특수학교·각종학교는 미확보 (214차 확정자료) -->
 <section class="page-section ar-regions rg-gus" id="districts" aria-labelledby="rgGuTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">ULSAN DISTRICTS</div>
       <h2 id="rgGuTitle">울산 지역을 선택해 주세요</h2>
-      <p>구·군별 세부 안내는 순차적으로 열립니다. 지금은 상담으로 우리 동네 수업 가능 여부를 먼저 확인하실 수 있습니다.</p>
+      <p>울산 중구·남구·동구·북구와 울주군 5개 구·군 모두 행정동·읍·면과 초·중·고 학교 정보, 학년별·과목별 1:1 과외 안내를 정리했습니다. 울주군은 읍·면마다 여건이 달라 실시간 화상수업을 먼저 안내하고, 방문 가능 여부는 사는 읍·면과 일정을 확인한 뒤 알려드립니다.</p>
     </div>
-    <!-- [131차] 세부지역(구·시·군) 페이지 생성 → 카드 링크 활성화(지역 보기 →) -->
+    <h3 class="rgb-group-title is-first">학교·학년·과목 안내가 있는 지역 <span>5곳</span></h3>
     <ul class="ar-region-grid rg-gu-grid">
-      <li><a class="ar-region rg-gu" href="jung/"><strong>중구</strong><em>태화 · 우정 · 성안 · 병영</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="nam/"><strong>남구</strong><em>삼산 · 신정 · 옥동 · 무거</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="dong/"><strong>동구</strong><em>방어 · 일산 · 전하 · 화정</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="buk/"><strong>북구</strong><em>송정 · 농소 · 효문 · 강동</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="ulju/"><strong>울주군</strong><em>범서읍 · 언양읍 · 온양읍 · 삼남읍</em><small>지역 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu" href="jung/"><strong>중구</strong><em>태화 · 우정 · 성안 · 병영</em><small>학년·과목 안내 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu" href="nam/"><strong>남구</strong><em>삼산 · 신정 · 옥동 · 무거</em><small>학년·과목 안내 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu" href="dong/"><strong>동구</strong><em>방어 · 일산 · 전하 · 화정</em><small>학년·과목 안내 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu" href="buk/"><strong>북구</strong><em>송정 · 농소 · 효문 · 강동</em><small>학년·과목 안내 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu" href="ulju/"><strong>울주군</strong><em>범서읍 · 언양읍 · 온양읍 · 삼남읍</em><small>학년·과목 안내 보기 →</small></a></li>
     </ul>
+    <ul class="rgb-stats" aria-label="울산 5개 구·군 학교·행정구역 현황">
+      <li>4개 구 1개 군</li>
+      <li>행정동 43곳 · 6읍 6면 (55곳)</li>
+      <li>초등학교 123곳</li>
+      <li>중학교 64곳</li>
+      <li>고등학교 57곳</li>
+    </ul>
+    <p class="rgb-stats-src">행정구역: 행정안전부 읍면동 하부행정기관 현황(2025년 12월 31일 기준)·울산광역시 누리집 구·군별 행정구역(2026년 1월 30일 수정) · 학교: 전국초중등학교위치표준데이터(2026년 10월 1일 기준)·NEIS, 분교장 제외</p>
   </div>
 </section>
 
-<!-- 3. 울산에서 많이 찾는 수업 (세부 페이지가 아직 없어 링크 없는 표시만 · 생성 시 span → <a class="ar-topic" href="…/"> 로 교체) -->
+<!-- 3. [215차] 울산 구·군별 과외 수업 안내 · 울산 전체 단위 과목 페이지는 없으므로 5개 구·군의 실제 과목·학년 페이지로 연결(허위 URL 없음 · 인기·검색량 표현 없음) · 배정: 5개 구·군에 서로 다른 과목 1개씩 + 남구 중등·울주군 초등 -->
 <section class="page-section ar-topics rg-popular" id="popular" aria-labelledby="rgPopTitle">
   <div class="container">
     <div class="section-head center">
-      <div class="kicker">POPULAR</div>
-      <h2 id="rgPopTitle">울산에서 많이 찾는 수업</h2>
-      <p>지역과 과목, 학년을 함께 찾을 수 있도록 앞으로 세부 페이지를 연결합니다.</p>
+      <div class="kicker">BY DISTRICT</div>
+      <h2 id="rgPopTitle">울산 구·군별 과외 수업 안내</h2>
+      <p>5개 구·군의 과목·학년 과외 페이지 가운데 일부를 바로 확인할 수 있습니다. 다른 과목과 학년은 위 지역 카드에서 구·군을 선택해 주세요.</p>
     </div>
     <ul class="ar-topic-list">
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="ulsan" data-topic="math">울산 수학과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="ulsan" data-topic="english">울산 영어과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="ulsan" data-topic="korean">울산 국어과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="ulsan" data-topic="science">울산 과학과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="ulsan" data-topic="elementary">울산 초등과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="ulsan" data-topic="middle">울산 중학생과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="ulsan" data-topic="high">울산 고등학생과외</span></li>
+      <li><a class="ar-topic" href="jung/korean/" data-area="ulsan-jung" data-topic="korean">울산 중구 국어과외</a></li>
+      <li><a class="ar-topic" href="nam/math/" data-area="ulsan-nam" data-topic="math">울산 남구 수학과외</a></li>
+      <li><a class="ar-topic" href="dong/english/" data-area="ulsan-dong" data-topic="english">울산 동구 영어과외</a></li>
+      <li><a class="ar-topic" href="buk/science/" data-area="ulsan-buk" data-topic="science">울산 북구 과학과외</a></li>
+      <li><a class="ar-topic" href="ulju/social/" data-area="ulsan-ulju" data-topic="social">울주군 사회·한국사과외</a></li>
+      <li><a class="ar-topic" href="nam/middle/" data-area="ulsan-nam" data-topic="middle">울산 남구 중학생과외</a></li>
+      <li><a class="ar-topic" href="ulju/elementary/" data-area="ulsan-ulju" data-topic="elementary">울주군 초등학생과외</a></li>
     </ul>
   </div>
 </section>
@@ -376,7 +394,7 @@
 </section>
 
 <!-- 8. 최종 업데이트 (JSON-LD dateModified와 같은 날짜 · 콘텐츠 수정 시 둘 다 직접 변경) -->
-<div class="rg-updated"><div class="container"><p>최종 업데이트: <time datetime="2026-10-10">2026.10.10</time></p></div></div>
+<div class="rg-updated"><div class="container"><p>최종 업데이트: <time datetime="2026-10-15">2026.10.15</time></p></div></div>
 </main>
 
 <footer class="site-footer">

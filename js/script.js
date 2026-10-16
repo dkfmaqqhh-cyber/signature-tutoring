@@ -1,15 +1,7 @@
-/* =====================================================================
-   [14.5차] 상담 접수 설정 (Google Sheets 연결)
-   Google Apps Script 웹 앱을 배포한 뒤 받은 URL(https://script.google.com/macros/s/.../exec)을
-   아래 따옴표 안에 붙여 넣으세요. 기본값(placeholder) 그대로이면 실제 전송하지 않습니다.
-   연결 방법: docs/상담접수_구글시트_연결방법.txt
-   ===================================================================== */
-const CONSULT_API_URL = "https://script.google.com/macros/s/AKfycbxe_OFPl8e0mHqatLVoC_YcDBRul4QJBqozwvtEmB85cFYutmlGTQ2T118611EMh-B5/exec";
-
 /* [97차] 상담 접수 → Make Webhook → Discord 상담문의 채널
    Make 시나리오의 Custom webhook 주소(https://hook.○○○.make.com/...)를 아래 따옴표 안에 붙여 넣으세요.
-   주소가 들어 있으면 상담폼은 Make로만 전송합니다(Google Sheets 전송 중단).
-   기본값(placeholder) 그대로이면 기존처럼 위 CONSULT_API_URL(Google Sheets)로 전송합니다.
+   주소 형식이 맞지 않으면 네트워크 요청 없이 '연결되지 않았습니다' 안내만 표시합니다.
+   [224차] 구 Google Sheets(Apps Script) 접수 경로·CONSULT_API_URL 삭제 — 상담 접수는 Make 단일 경로 (되돌리기: backup/224차수정전/script.js)
    ※ Discord Webhook 주소는 홈페이지에 넣지 말고 Make 시나리오 안에서만 사용하세요. */
 const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/pmov2v7wclcd95n8esvydrp6c16tadel";
 
@@ -285,10 +277,10 @@ window.addEventListener("load", function(){
   });
 })();
 
-/* 상담 신청 폼(consult.html): 입력 확인 → Google Sheets 접수
-   ※ [14.5차] CONSULT_API_URL(이 파일 맨 위)에 실제 Apps Script 웹 앱 URL이 들어 있을 때만 전송합니다.
-     기본값(placeholder) 상태에서는 네트워크 요청을 보내지 않고 '연결되지 않았습니다' 안내만 표시합니다.
-     Apps Script가 success: true 를 돌려준 경우에만 '접수되었습니다' 문구를 표시합니다.
+/* 상담 신청 폼(consult.html): 입력 확인 → Make Webhook 접수 ([224차] 구 Google Sheets 경로 삭제)
+   ※ MAKE_WEBHOOK_URL(이 파일 맨 위)이 올바른 Make 주소일 때만 전송합니다.
+     형식이 맞지 않으면 네트워크 요청을 보내지 않고 '연결되지 않았습니다' 안내만 표시합니다.
+     Make가 2xx를 돌려준 경우에만 '접수되었습니다' 문구를 표시합니다.
      민감정보 보호를 위해 입력값을 console에 출력하지 않습니다. */
 (function () {
   var form = document.getElementById('consultForm');
@@ -302,7 +294,6 @@ window.addEventListener("load", function(){
   var MIN_FILL_MS = 3000; /* 페이지를 연 뒤 3초 안의 제출은 자동 입력(스팸)으로 보고 막음 */
   var TIMEOUT_MS = 15000;
   var MSG_NOT_CONNECTED = '상담 접수 주소가 아직 연결되지 않았습니다. 입력하신 내용은 전송되거나 저장되지 않았습니다.';
-  var MSG_SUCCESS = '상담 신청이 접수되었습니다. 확인 후 안내드리겠습니다.';
   var MSG_FAIL = '상담 접수 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.';
   var MSG_MAKE_SUCCESS = '상담 신청이 접수되었습니다.'; /* [97차] */
   var MSG_MAKE_FAIL = '접수 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.';
@@ -312,8 +303,7 @@ window.addEventListener("load", function(){
   var lastSentAt = 0;
   var makeUrl = typeof MAKE_WEBHOOK_URL === 'string' ? MAKE_WEBHOOK_URL.trim() : '';
   var useMake = /^https:\/\/hook\.[a-z0-9.-]*make\.com\/[A-Za-z0-9_-]+$/.test(makeUrl);
-  var apiUrl = typeof CONSULT_API_URL === 'string' ? CONSULT_API_URL.trim() : '';
-  var apiReady = useMake || /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(apiUrl);
+  var apiReady = useMake; /* [224차] Make 단일 경로 */
   function getLastSent() {
     var t = lastSentAt;
     try { t = Math.max(t, Number(localStorage.getItem(REPEAT_KEY)) || 0); } catch (e) {}
@@ -368,23 +358,6 @@ window.addEventListener("load", function(){
     while (i < t.length && /^[가-힣0-9]+[시구군]$/.test(t[i])) { sigu = true; i++; }
     if (!sigu && !/^세종/.test(t[0])) return false;
     return i < t.length && /^[가-힣0-9·.]+[동읍면가리]$/.test(t[i]);
-  }
-
-  /* 전송 데이터 (Google Sheets 컬럼 순서: 접수시간·이름·연락처·학년·희망과목·수업방식·거주지역/상세주소·기타요청·개인정보동의·접수페이지·브라우저정보) */
-  function buildPayload() {
-    return {
-      submittedAt: new Date().toISOString(),
-      name: f.name.value.trim(),
-      phone: f.phone.value.trim(),
-      grade: f.grade.value,
-      subject: f.subject.value.trim(),
-      applicant: f.applicant.value,
-      region: f.region.value.trim(),
-      message: buildMessage(),
-      privacyAgreed: f.agree.checked,
-      page: location.href,
-      userAgent: navigator.userAgent
-    };
   }
 
   /* [102차] 간소화한 폼에는 문의내용 칸이 없으므로 message = "학교: ○○ / 신청자: 학부모" (학교 미입력 시 '미입력') */
@@ -472,7 +445,7 @@ window.addEventListener("load", function(){
     var ctrl = window.AbortController ? new AbortController() : null;
     var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, TIMEOUT_MS) : null;
 
-    /* [97차] Make Webhook 연결 시: JSON(UTF-8)으로 Make에만 전송. Make는 정상 수신 시 200 "Accepted"를 돌려줌 */
+    /* [97차] Make Webhook: JSON(UTF-8)으로 Make에만 전송. Make는 정상 수신 시 200 "Accepted"를 돌려줌 */
     if (useMake) {
       fetch(makeUrl, {
         method: 'POST',
@@ -494,37 +467,7 @@ window.addEventListener("load", function(){
           if (timer) clearTimeout(timer);
           setSubmitting(false);
         });
-      return;
     }
-
-    /* Apps Script 웹 앱은 CORS 사전 요청(OPTIONS)을 처리하지 않으므로 text/plain으로 JSON을 보냄 */
-    fetch(apiUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(buildPayload()),
-      signal: ctrl ? ctrl.signal : undefined
-    })
-      .then(function (res) {
-        if (!res.ok) throw new Error('http');
-        return res.json();
-      })
-      .then(function (data) {
-        if (data && data.success === true) {
-          setLastSent();
-          resetAfterSuccess();
-          show('success', MSG_SUCCESS);
-          try { window.sigTrack.lead(submitId); } catch (err) {} /* [221차] Apps Script success:true 확인 후에만 (현재는 Make 경로 사용) */
-        } else {
-          show('error', MSG_FAIL); /* 입력 내용 유지 */
-        }
-      })
-      .catch(function () {
-        show('error', MSG_FAIL); /* 입력 내용 유지 */
-      })
-      .then(function () {
-        if (timer) clearTimeout(timer);
-        setSubmitting(false);
-      });
   });
   /* 연락처 자동 하이픈 */
   f.phone.addEventListener('input', function () {

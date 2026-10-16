@@ -71,8 +71,8 @@
   <div class="container">
     <div class="consult-layout">
 
-      <!-- [14.5차] 접수는 Google Sheets(Apps Script 웹 앱)로 전송합니다. js/script.js 맨 위 CONSULT_API_URL에 웹 앱 주소를 넣어야 실제 전송되며, 기본값이면 전송하지 않습니다. 연결 방법: docs/상담접수_구글시트_연결방법.txt
-           [97차] js/script.js의 MAKE_WEBHOOK_URL에 Make 주소를 넣으면 Make Webhook(→ Discord 상담문의 채널)으로만 전송합니다. -->
+      <!-- [97차] js/script.js의 MAKE_WEBHOOK_URL(Make Webhook → Discord 상담문의 채널)로만 전송합니다.
+           [224차] 구 Google Sheets(Apps Script) 접수 경로·연결 안내(docs/) 삭제 -->
 
       <form class="consult-form" id="consultForm" method="post" autocomplete="on">
         <h2>상담 신청서</h2>
@@ -161,7 +161,7 @@
             <li>학생에게 필요한 과목과 학습 방향</li>
             <li>선생님 매칭에 필요한 사항</li>
           </ul>
-          <p class="consult-guide-note" id="consultStatusNote">신청서 접수가 어렵거나 바로 상담을 원하시면 아래 전화·카카오톡으로 연락해 주세요.</p><!-- [14.5차] 접수 주소(CONSULT_API_URL) 연결 시 js가 문구를 자동 변경 · [190-2차] JS 미실행 시 보이는 기본 문구를 사실과 맞게 수정(현재 js/script.js에 Make 웹훅 연결됨 → 접수 성공 응답일 때만 '접수되었습니다' 표시) -->
+          <p class="consult-guide-note" id="consultStatusNote">신청서 접수가 어렵거나 바로 상담을 원하시면 아래 전화·카카오톡으로 연락해 주세요.</p><!-- [14.5차] 접수 주소(MAKE_WEBHOOK_URL, [224차] 이름 정정) 연결 시 js가 문구를 자동 변경 · [190-2차] JS 미실행 시 보이는 기본 문구를 사실과 맞게 수정(현재 js/script.js에 Make 웹훅 연결됨 → 접수 성공 응답일 때만 '접수되었습니다' 표시) -->
         </div>
         <!-- [19차] 전화 상담 연결 (index.html과 동일) -->
         <a class="contact-card phone" href="tel:01058701109" aria-label="전화 상담 연결">

@@ -13,6 +13,153 @@ const CONSULT_API_URL = "https://script.google.com/macros/s/AKfycbxe_OFPl8e0mHqa
    ※ Discord Webhook 주소는 홈페이지에 넣지 말고 Make 시나리오 안에서만 사용하세요. */
 const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/pmov2v7wclcd95n8esvydrp6c16tadel";
 
+/* [221차] GA4 상담 전환 추적 설정
+   · ANALYTICS_ENABLED = false 이면 Google 태그를 불러오지 않고 아무것도 전송하지 않습니다(추적 모듈 전체 비활성).
+     개인정보처리방침·동의 문구 확정과 운영 승인 후에만 true 로 바꾸세요.
+   · ATTRIBUTION_TO_MAKE = false 이면 Make 전송 데이터는 기존 11개 필드 그대로입니다.
+     Make 테스트 시나리오에서 신규 필드(landing_page 등) 수신을 확인한 뒤에만 true 로 바꾸세요.
+   · 되돌리기: 두 값을 false 로 두면 [221차] 이전과 같은 동작입니다. */
+const GA4_ID = "G-JQ98E36W6G";
+const ANALYTICS_ENABLED = false;
+const ATTRIBUTION_TO_MAKE = false;
+
+/* [221차] 상담 전환 추적 모듈 (window.sigTrack)
+   · 클릭 추적: 문서 전체 이벤트 위임 — 상담(consult.html)·전화(tel:)·카카오(open/pf.kakao.com) 링크의 기존 목적지·동작은 바꾸지 않음
+   · 유입 기록: sessionStorage(탭 단위) — 최초 랜딩 경로·유입 도메인·utm 3종 / 마지막 상담 클릭 페이지·CTA 유형. URL 쿼리·해시 제거, 민감 경로 제외
+   · GA4 전송값은 허용 목록 키만, 개인정보(이름·전화·학교·입력값·전체 URL·웹훅 주소) 없음
+   · 모든 처리는 try/catch — 추적 오류·저장소 차단이 상담폼·전화·카카오 기능을 막지 않음 */
+(function () {
+  var noop = function () {};
+  window.sigTrack = { event: noop, lead: noop, attribution: function () { return null; } };
+  var ACTIVE = (typeof ANALYTICS_ENABLED !== 'undefined' && ANALYTICS_ENABLED === true) || (typeof ATTRIBUTION_TO_MAKE !== 'undefined' && ATTRIBUTION_TO_MAKE === true);
+  if (!ACTIVE || window.__sigTrackInit) return;
+  window.__sigTrackInit = true;
+  try {
+    var GA_ON = ANALYTICS_ENABLED === true && /^G-[A-Z0-9]{4,}$/.test(String(GA4_ID));
+    var KEY_LP = 'sig_lp', KEY_CTA = 'sig_cta';
+    var ssGet = function (k) { try { var v = sessionStorage.getItem(k); return v ? JSON.parse(v) : null; } catch (e) { return null; } };
+    var ssSet = function (k, v) { try { sessionStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+    /* 경로만 (쿼리·해시 제거) · 민감 경로 제외 · 100자 */
+    var cleanPath = function (p) {
+      p = String(p || '/').split(/[?#]/)[0];
+      try { p = decodeURI(p); } catch (e) {}
+      if (/(^|\/)(backup|tools|docs)(\/|$)/i.test(p) || /@/.test(p) || /\d{7,}/.test(p)) return '(excluded)';
+      return p.slice(0, 100);
+    };
+    var cleanRef = function () {
+      try {
+        if (!document.referrer) return 'direct';
+        var h = new URL(document.referrer).hostname;
+        return h === location.hostname ? 'internal' : h.slice(0, 60);
+      } catch (e) { return 'unknown'; }
+    };
+    var cleanText = function (v) {
+      v = String(v == null ? '' : v).slice(0, 100);
+      if (/@/.test(v) || /\d{7,}/.test(v.replace(/[\s.-]/g, ''))) return '(excluded)';
+      return v;
+    };
+    var utm = function () {
+      var o = {};
+      try {
+        var q = new URLSearchParams(location.search);
+        ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) {
+          var v = q.get(k);
+          if (v) { v = v.replace(/[^A-Za-z0-9_.\-가-힣]/g, '').slice(0, 50); if (v && !/\d{7,}/.test(v)) o[k] = v; }
+        });
+      } catch (e) {}
+      return o;
+    };
+    var PAGE = cleanPath(location.pathname);
+    /* 최초 랜딩 (탭에서 한 번만) */
+    if (!ssGet(KEY_LP)) {
+      var lp = { path: PAGE, ref: cleanRef(), t: Date.now() }, u = utm();
+      for (var k in u) lp[k] = u[k];
+      ssSet(KEY_LP, lp);
+    }
+    /* GA4 (허용 키만 전송) */
+    var ALLOW = { cta_type: 1, page_path: 1, form_id: 1, landing_page: 1, landing_ref: 1, cta_page: 1, field: 1, transport_type: 1 };
+    var send = noop;
+    if (GA_ON) {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_ID);
+      document.head.appendChild(s);
+      window.gtag('js', new Date());
+      /* 자동 page_view 끔(send_page_view:false) → 아래에서 정리된 위치로 한 번만 수동 전송 */
+      window.gtag('config', GA4_ID, {
+        send_page_view: false,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+        page_location: location.origin + PAGE,
+        page_referrer: ''
+      });
+      send = function (name, params) {
+        var p = {};
+        for (var key in params) if (ALLOW[key] && params[key] != null) p[key] = cleanText(params[key]);
+        p.send_to = GA4_ID;
+        window.gtag('event', name, p);
+      };
+      if (!window.__sigPageViewSent) {
+        window.__sigPageViewSent = true;
+        send('page_view', { page_path: PAGE });
+      }
+    }
+    var attribution = function () {
+      var lp2 = ssGet(KEY_LP) || {}, c = ssGet(KEY_CTA) || {};
+      return {
+        landing_page: lp2.path || 'unknown', landing_ref: lp2.ref || 'unknown',
+        cta_page: c.page || 'unknown', cta_type: c.type || 'unknown',
+        utm_source: lp2.utm_source || '', utm_medium: lp2.utm_medium || '', utm_campaign: lp2.utm_campaign || ''
+      };
+    };
+    /* 클릭 위임 (기존 목적지·기본 동작 유지 · 같은 링크 1초 안 반복 무시) */
+    var last = { el: null, t: 0 };
+    var ctaType = function (a) {
+      if (a.closest('.sig-header')) return 'header';
+      if (a.closest('.sig-float')) return a.closest('.rg-float') ? 'float' : 'auto_float';
+      if (a.closest('.ar-hero, .rg-hero, .hero, .tu-hero, .page-hero')) return 'hero';
+      if (a.closest('.ar-cta, .mt-midcta')) return 'cta_section';
+      if (a.closest('.consult-quick, .consult-guide')) return 'consult_page';
+      return 'body';
+    };
+    document.addEventListener('click', function (e) {
+      try {
+        var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a) return;
+        var href = a.getAttribute('href') || '', name = null;
+        if (/^tel:/i.test(href)) name = 'click_call';
+        else if (/^https?:\/\/(open|pf)\.kakao\.com\//i.test(href)) name = 'click_kakao';
+        else { var url = new URL(a.href, location.href); if (url.origin === location.origin && /\/consult\.html$/.test(url.pathname)) name = 'click_consult'; }
+        if (!name) return;
+        var now = Date.now();
+        if (last.el === a && now - last.t < 1000) return;
+        last = { el: a, t: now };
+        var type = ctaType(a);
+        ssSet(KEY_CTA, { page: PAGE, type: type, channel: name.replace('click_', ''), t: now });
+        send(name, { cta_type: type, page_path: PAGE, transport_type: 'beacon' });
+      } catch (err) {}
+    }, true);
+    /* 상담 접수 성공(서버 2xx 확인 후)에만 호출 · 같은 제출 ID는 한 번만 */
+    var leadSent = {};
+    window.sigTrack = {
+      event: function (name, params) { try { if (/^[a-z_]{3,40}$/.test(name)) send(name, params || {}); } catch (e) {} },
+      lead: function (submitId) {
+        try {
+          if (!submitId || leadSent[submitId]) return;
+          leadSent[submitId] = true;
+          var at = attribution();
+          send('generate_lead', { form_id: 'consult', landing_page: at.landing_page, landing_ref: at.landing_ref, cta_page: at.cta_page, cta_type: at.cta_type });
+        } catch (e) {}
+      },
+      attribution: function () { try { return attribution(); } catch (e) { return null; } }
+    };
+  } catch (err) {
+    window.sigTrack = { event: noop, lead: noop, attribution: function () { return null; } };
+  }
+})();
+
 window.addEventListener("load",function(){
   if(!location.hash){window.scrollTo(0,0);}
 });
@@ -186,6 +333,7 @@ window.addEventListener("load", function(){
   function fail(field, text) {
     var el = field.length && !field.tagName ? field[0] : field;
     if (el.setAttribute && el.type !== 'radio' && el.type !== 'checkbox') el.setAttribute('aria-invalid', 'true');
+    try { window.sigTrack.event('form_error', { field: el.name || 'unknown' }); } catch (err) {} /* [221차] 틀린 칸 이름만 (입력값 없음) */
     show('error', text);
     el.focus();
   }
@@ -252,7 +400,7 @@ window.addEventListener("load", function(){
       p(d.getUTCHours()) + ':' + p(d.getUTCMinutes()) + ':' + p(d.getUTCSeconds()) + ' (KST)';
   }
   function buildMakePayload() {
-    return {
+    var base = {
       name: f.name.value.trim(),
       phone: f.phone.value.trim(),
       grade: f.grade.value,
@@ -265,6 +413,14 @@ window.addEventListener("load", function(){
       page_title: document.title,
       submitted_at: kstNow()
     };
+    /* [221차] 유입 필드(landing_page 등)는 ATTRIBUTION_TO_MAKE = true 일 때만 기존 11개 필드 뒤에 추가 (기존 필드 이름·값 변경 없음) */
+    try {
+      if (typeof ATTRIBUTION_TO_MAKE !== 'undefined' && ATTRIBUTION_TO_MAKE === true) {
+        var at = window.sigTrack.attribution();
+        if (at) for (var k in at) if (!(k in base)) base[k] = at[k];
+      }
+    } catch (err) {}
+    return base;
   }
 
   function setSubmitting(on) {
@@ -312,6 +468,7 @@ window.addEventListener("load", function(){
     if (Date.now() - getLastSent() < REPEAT_MS) return show('info', MSG_REPEAT);
 
     setSubmitting(true);
+    var submitId = Date.now().toString(36) + Math.random().toString(36).slice(2, 8); /* [221차] generate_lead 중복 방지용 제출 ID (개인정보 아님) */
     var ctrl = window.AbortController ? new AbortController() : null;
     var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, TIMEOUT_MS) : null;
 
@@ -328,6 +485,7 @@ window.addEventListener("load", function(){
           setLastSent();
           resetAfterSuccess();
           show('success', MSG_MAKE_SUCCESS);
+          try { window.sigTrack.lead(submitId); } catch (err) {} /* [221차] Make 2xx 확인 후에만 generate_lead */
         })
         .catch(function () {
           show('error', MSG_MAKE_FAIL); /* 입력 내용 유지 */
@@ -355,6 +513,7 @@ window.addEventListener("load", function(){
           setLastSent();
           resetAfterSuccess();
           show('success', MSG_SUCCESS);
+          try { window.sigTrack.lead(submitId); } catch (err) {} /* [221차] Apps Script success:true 확인 후에만 (현재는 Make 경로 사용) */
         } else {
           show('error', MSG_FAIL); /* 입력 내용 유지 */
         }

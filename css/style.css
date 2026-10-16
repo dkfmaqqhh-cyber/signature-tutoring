@@ -7768,3 +7768,15 @@ body.page-subarea.page-subject .ar-topic-note, body.page-subarea.page-subject .a
   body.page-gu-hub main section:not(.rg-hero-solid) > .container, body.page-gu-hub .rg-updated .container, body.page-gu-hub .site-footer .container,
   body.page-subarea.page-subject main section:not(.rg-hero-solid) > .container, body.page-subarea.page-subject .rg-updated .container, body.page-subarea.page-subject .site-footer .container { padding-right: 64px; }
 }
+/* [225차] 메인 푸터 운영자 정보(운영자·이메일) — index.html .site-footer-operator 에만 적용
+   PC: 기존 구분선(|) 한 줄 / 모바일(600px 이하): 항목별 한 줄, 구분선 숨김. 메일 링크는 밑줄로 링크임을 표시
+   되돌리기: 이 블록 삭제 + index.html의 site-footer-operator 문단을 기존 <p class="site-footer-info"><span>시그니처과외</span></p>로 */
+.site-footer-operator { color: #5d6474; }
+.site-footer-operator a { color: #28364e; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.site-footer-operator a:hover { color: #b78a46; }
+@media (max-width: 600px) {
+  .site-footer-operator { line-height: 1.7; font-size: 13.5px; }
+  .site-footer-operator span { display: block; }
+  .site-footer-operator span + span::before { content: none; }
+  .site-footer-operator a { display: inline-block; padding: 6px 2px; }
+}

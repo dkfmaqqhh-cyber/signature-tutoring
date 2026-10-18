@@ -45,6 +45,42 @@
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../css/style.css">
+<!-- [수업료 시안] 수업료 섹션 전용 스타일(.tu-price*) — 이 페이지에만 적용 · 네이비·골드·크림 · 공통 css 미수정 · 되돌리기: 이 style과 #price 섹션 삭제 -->
+<style>
+.tu-price { background: #fff; }
+.tu-price .section-head p { max-width: 640px; margin-left: auto; margin-right: auto; }
+.tu-price-label { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 0 18px; color: #10233F; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+.tu-price-label span { padding: 4px 12px; border-radius: 999px; background: #10233F; color: #F4C84A; font-size: 13px; font-weight: 800; letter-spacing: 0.02em; }
+.tu-price-basis { margin: -8px 0 22px; color: #6B7280; font-size: 15px; text-align: center; word-break: keep-all; }
+.tu-price-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; max-width: 1080px; margin: 0 auto; padding: 0; list-style: none; }
+.tu-price-card { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 0; padding: 26px 16px 24px; border: 1px solid #E8DFCF; border-top: 4px solid #D7B56D; border-radius: 16px; background: #FBF8F2; text-align: center; }
+.tu-price-card h3 { margin: 0; color: #10233F; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; word-break: keep-all; }
+.tu-price-amount { margin: 4px 0 0; color: #10233F; font-size: 30px; font-weight: 900; line-height: 1.15; letter-spacing: -0.03em; white-space: nowrap; }
+.tu-price-amount small { margin-left: 2px; font-size: 16px; font-weight: 800; }
+.tu-price-unit { color: #8A6D2F; font-size: 14px; font-weight: 700; line-height: 1.45; }
+.tu-price-unit > span { white-space: nowrap; }
+.tu-price-online { display: flex; align-items: center; justify-content: space-between; gap: 18px; max-width: 1080px; margin: 28px auto 0; padding: 26px 30px; border-radius: 18px; background: linear-gradient(135deg, #0f2747 0%, #133d65 100%); color: #fff; }
+.tu-price-online h3 { margin: 0 0 6px; color: #fff; font-size: 20px; font-weight: 800; }
+.tu-price-online p { margin: 0; color: rgba(255, 255, 255, 0.8); font-size: 15px; line-height: 1.6; word-break: keep-all; }
+.tu-price-online .tu-price-amount { margin: 0; color: #F4C84A; font-size: 32px; font-weight: 900; line-height: 1.15; }
+.tu-price-notes { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 14px; max-width: 1080px; margin: 24px auto 0; padding: 0; list-style: none; }
+.tu-price-notes li { padding: 10px 16px; border: 1px solid #E8DFCF; border-radius: 999px; background: #FBF8F2; color: #10233F; font-size: 15px; font-weight: 700; word-break: keep-all; }
+.tu-price-notes li strong { color: #8A6D2F; }
+@media (max-width: 1024px) { .tu-price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .tu-price-label { font-size: 18px; }
+  .tu-price-grid { gap: 10px; }
+  .tu-price-card { padding: 20px 10px 18px; }
+  .tu-price-card h3 { font-size: 16px; }
+  .tu-price-amount { font-size: 23px; }
+  .tu-price-amount small { font-size: 14px; margin-left: 1px; }
+  .tu-price-online { flex-direction: column; align-items: flex-start; padding: 22px 20px; }
+  .tu-price-online .tu-price-amount { font-size: 26px; }
+  .tu-price-online .tu-price-amount small { font-size: 16px; }
+  .tu-price-notes { flex-direction: column; align-items: stretch; }
+  .tu-price-notes li { border-radius: 12px; text-align: center; }
+}
+</style>
 </head>
 <body class="page-visit page-tutoring"><!-- [81차] page-visit: 방문과외 페이지에서 확정한 디자인 재사용 · page-tutoring: 통합 페이지 전용 -->
 
@@ -414,6 +450,36 @@
       <li class="flow-step"><span class="flow-ico" aria-hidden="true"><span class="flow-ico-in"><svg viewBox="0 0 48 48"><rect x="6" y="8" width="30" height="22" rx="3"/><path d="M13 16h12M13 22h8M15 30l-3 10M27 30l3 10"/><path class="ac" d="M42 15 31 26l-1.5 5 5-1.5 11-11z"/></svg></span></span><strong>모의수업 및 피드백</strong><p>실제 수업 후 학습 방향을 다시 점검합니다.</p></li>
       <li class="flow-step"><span class="flow-ico" aria-hidden="true"><span class="flow-ico-in"><svg viewBox="0 0 48 48"><path d="M7 41h34"/><rect x="10" y="29" width="7" height="12" rx="1.5"/><rect x="21" y="22" width="7" height="19" rx="1.5"/><rect x="32" y="14" width="7" height="27" rx="1.5"/><path class="ac" d="M9 21l9-8 6 4 11-10M30 7h5v5"/></svg></span></span><strong>학습 시작</strong><p>학생에게 맞춘 1:1 수업을 시작합니다.</p></li>
     </ol>
+  </div>
+</section>
+
+<!-- [수업료 시안] 수업료 안내 (시범수업 CTA 바로 위 · 방문과외 = 한 달 주 2회·1회 60분 기준(방문과외 제목 아래·각 카드에만 표기) / 화상과외 = '230,000원부터'만 표기 · 5개 금액 모두 '원부터', 방문 기준 미적용 · 90·120분은 상담 후 안내 · 링크 추가 없음) -->
+<section class="page-section tu-price" id="price" aria-labelledby="tuPriceTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">TUITION</div>
+      <h2 id="tuPriceTitle">수업료 안내</h2>
+      <p>학년별 1:1 수업료를 안내합니다. 자세한 수업 조건은 상담에서 함께 정합니다.</p>
+    </div>
+    <h3 class="tu-price-label"><span>VISIT</span>방문과외</h3>
+    <p class="tu-price-basis">한 달 주 2회 · 1회 60분 기준</p>
+    <ul class="tu-price-grid">
+      <li class="tu-price-card"><h3>초등학생</h3><p class="tu-price-amount">256,000<small>원부터</small></p><span class="tu-price-unit"><span>한 달 주 2회</span> · <span>1회 60분 기준</span></span></li>
+      <li class="tu-price-card"><h3>중학생</h3><p class="tu-price-amount">296,000<small>원부터</small></p><span class="tu-price-unit"><span>한 달 주 2회</span> · <span>1회 60분 기준</span></span></li>
+      <li class="tu-price-card"><h3>고등 1·2학년</h3><p class="tu-price-amount">336,000<small>원부터</small></p><span class="tu-price-unit"><span>한 달 주 2회</span> · <span>1회 60분 기준</span></span></li>
+      <li class="tu-price-card"><h3>고등 3학년 · 성인</h3><p class="tu-price-amount">376,000<small>원부터</small></p><span class="tu-price-unit"><span>한 달 주 2회</span> · <span>1회 60분 기준</span></span></li>
+    </ul>
+    <div class="tu-price-online">
+      <div>
+        <h3>화상과외</h3>
+        <p>수업 횟수와 시간은 상담에서 학생에게 맞춰 정합니다.</p>
+      </div>
+      <p class="tu-price-amount">230,000<small>원부터</small></p>
+    </div>
+    <ul class="tu-price-notes">
+      <li><strong>90분·120분</strong> 수업료는 상담 후 안내</li>
+      <li><strong>무료 시범수업</strong> 제공</li>
+    </ul>
   </div>
 </section>
 

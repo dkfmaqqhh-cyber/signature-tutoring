@@ -178,6 +178,11 @@
   body.page-gu-hub .gh-school-tags li, body.page-subject .mt-school .ar-topic-list > li, body.page-subject .mt-school .ar-topic { max-width: 100%; min-width: 0; overflow-wrap: anywhere; }
 }
 </style>
+<!-- [235차] 학년별 확인 사항 3단(.gj-three) — 이 페이지에만 적용 · 기존 .ar-steps 카드 재사용 · 되돌리기: 이 style과 #years 섹션 삭제 -->
+<style>
+body.page-subject .ar-steps.mt-steps.gj-three { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 960px; }
+@media (max-width: 640px) { body.page-subject .ar-steps.mt-steps.gj-three { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body class="page-area page-region page-subarea page-subject">
 
@@ -286,6 +291,22 @@
 </section>
 
 <!-- 5. 중간 CTA -->
+<!-- [235차] 학년별 확인 사항 (2026년 기준 · 교육부 2022 개정 교육과정 확정 발표·2028 대입개편의 확인된 사실만 · 성과·보장 표현 없음) -->
+<section class="page-section mt-bg-blue" id="years" aria-labelledby="grYearTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">BY GRADE</div>
+      <h2 id="grYearTitle">광진구 중학생, 학년마다 먼저 확인하는 것</h2>
+      <p>2026년에는 중1·중2가 2022 개정 교육과정으로, 중3이 2015 개정 교육과정으로 배웁니다. 학년마다 시험 일정과 준비할 내용이 달라 상담에서는 학년부터 확인합니다.</p>
+    </div>
+    <ol class="ar-steps mt-steps gj-three">
+      <li class="ar-step"><span class="ar-step-num" aria-hidden="true">1</span><h3>중1 · 자유학기와 평가 계획</h3><p>1학년 중 한 학기는 학교가 정해 자유학기로 운영하며, 자유학기에는 지필평가 대신 학습 과정을 중심으로 평가합니다. 자유학기를 운영하는 학기와 평가 계획은 학교마다 다를 수 있어, 다니는 학교의 학사일정과 평가 계획부터 확인합니다.</p></li>
+      <li class="ar-step"><span class="ar-step-num" aria-hidden="true">2</span><h3>중2 · 시험 준비 방법 점검</h3><p>1학년 때 치른 지필평가 횟수가 학교마다 다를 수 있어, 지난 시험지와 수행평가 결과를 보며 과목별 시험 준비 방법을 다시 정합니다.</p></li>
+      <li class="ar-step"><span class="ar-step-num" aria-hidden="true">3</span><h3>중3 · 중학교 마지막 시험과 고교 준비</h3><p>학교 시험 범위에 맞춰 중학교 마지막 지필평가를 준비하고, 고등학교 수학·영어로 이어지는 단원이 비어 있지 않은지 함께 점검합니다.</p></li>
+    </ol>
+  </div>
+</section>
+
 <section class="page-section mt-bg-white mt-midcta" aria-labelledby="grMidTitle">
   <div class="container">
     <div class="mt-midcta-box">

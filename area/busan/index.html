@@ -161,19 +161,13 @@
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../css/style.css?v=131">
-<!-- [201차] 부산 대문 전용: 서울 대문 [197차]와 같은 규칙 — 1024px 이하에서 떠 있는 버튼 52px·오른쪽 8px + 본문 컨테이너 오른쪽 여백 64px (HERO 제외) · 16개 구·군 집계 줄(.rgb-stats) (공용 css 미수정 · 되돌리기: 이 style 삭제) -->
+<!-- [201차] 부산 대문 전용: 서울 대문 [197차]와 같은 규칙 — 1024px 이하에서 떠 있는 버튼 52px·오른쪽 8px + 본문 컨테이너 오른쪽 여백 64px (HERO 제외) · [233차] 16개 구·군 집계 줄(.rgb-stats) 삭제 (공용 css 미수정 · 되돌리기: 이 style 삭제) -->
 <style>
-body.page-region .rgb-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 880px; margin: 24px auto 0; padding: 0; list-style: none; }
-body.page-region .rgb-stats li { padding: 6px 14px; border: 1px solid #E5E7EB; border-radius: 999px; background: #FFFFFF; color: #10233F; font-size: 14px; font-weight: 700; line-height: 1.5; word-break: keep-all; }
-body.page-region .rgb-stats-src { margin: 10px auto 0; color: #6B7280; font-size: 13px; line-height: 1.6; text-align: center; word-break: keep-all; }
 @media (max-width: 1024px) {
   body.page-region .sig-float.rg-float { right: 8px; gap: 8px; }
   body.page-region .sig-float.rg-float a { width: 52px; height: 52px; gap: 3px; border-radius: 16px; font-size: 10.5px; }
   body.page-region .sig-float.rg-float svg { width: 16px; height: 16px; }
   body.page-region main section:not(.ar-hero) > .container, body.page-region .rg-updated .container, body.page-region .site-footer .container { padding-right: 64px; }
-}
-@media (max-width: 640px) {
-  body.page-region .rgb-stats li { padding: 5px 11px; font-size: 13px; }
 }
 </style>
 </head>
@@ -258,13 +252,6 @@ body.page-region .rgb-stats-src { margin: 10px auto 0; color: #6B7280; font-size
       <li><a class="ar-region rg-gu" href="yeongdo/"><strong>영도구</strong><em>동삼 · 청학 · 영선 · 봉래</em><small>지역 보기 →</small></a></li>
       <li><a class="ar-region rg-gu" href="jung/"><strong>중구</strong><em>중앙 · 광복 · 남포 · 영주</em><small>지역 보기 →</small></a></li>
       <li><a class="ar-region rg-gu" href="haeundae/"><strong>해운대구</strong><em>우동 · 좌동 · 반여 · 재송</em><small>지역 보기 →</small></a></li>
-    </ul>
-    <ul class="rgb-stats" aria-label="부산 16개 구·군 학교·행정동 현황">
-      <li>16개 구·군</li>
-      <li>행정동 206곳</li>
-      <li>초등학교 302곳</li>
-      <li>중학교 172곳</li>
-      <li>고등학교 143곳</li>
     </ul>
   </div>
 </section>

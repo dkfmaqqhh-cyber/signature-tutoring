@@ -7780,3 +7780,70 @@ body.page-subarea.page-subject .ar-topic-note, body.page-subarea.page-subject .a
   .site-footer-operator span + span::before { content: none; }
   .site-footer-operator a { display: inline-block; padding: 6px 2px; }
 }
+
+/* ==========================================================================
+   [236차] 지역페이지 글자 크기·줄 간격 (가독성)
+   · 범위: body.page-area.page-region = 지역페이지 1,133개(시·도 대문·시군구 허브·과목·학년)만. /area/ 전국 대문과 다른 서비스 페이지는 영향 없음
+   · 바꾸는 것: font-size·line-height만 (색·여백·배경·카드 수·배치·이미지·본문·FAQ·JSON-LD 변경 없음)
+   · 원칙: 목표보다 작은 글자만 키움(이미 큰 글자는 그대로) · 카드 제목은 PC(981px 이상)에서만 키워 모바일 제목 균형 유지
+   · 기준(광진구 수학과외): 대문 설명 18 · 섹션 설명 18 · 카드 제목 18 · 카드 설명 16 · 일반 본문 17 / 모바일 본문 최소 16
+   · 되돌리기: 이 블록 삭제
+   ========================================================================== */
+/* 1) 대문 설명 */
+body.page-area.page-region .rgs-desc { font-size: 18px; line-height: 1.7; }
+/* 2) 섹션 설명 (허브 16 → 18 · 과목·학년 페이지 19는 그대로) */
+body.page-area.page-region:not(.page-subject) .page-section .section-head p { font-size: 18px; line-height: 1.75; }
+/* 3) 카드 설명 · FAQ 답변 → 16 (모든 화면) */
+body.page-area.page-region .sc-card p:not(.sc-tags),
+body.page-area.page-region .mt-steps .ar-step p,
+body.page-area.page-region .mt-grade p,
+body.page-area.page-region.page-subject .en-area p:not(.en-area-tags),
+body.page-area.page-region .mt-reason p,
+body.page-area.page-region .mt-check p,
+body.page-area.page-region #consult-check .mt-check p,
+body.page-area.page-region .rg-faq-item p,
+body.page-area.page-region .rg-grade p,
+body.page-area.page-region.page-subject .gr-card p,
+body.page-area.page-region.page-gu-hub .sbs-card p,
+body.page-area.page-region.page-gu-hub .sbs-point p,
+body.page-area.page-region.page-gu-hub .gh-note { font-size: 16px; line-height: 1.65; }
+/* 4) 일반 본문 → 17 */
+body.page-area.page-region .mt-note,
+body.page-area.page-region .gn-intro-text p,
+body.page-area.page-region .ar-cta-box p,
+body.page-area.page-region .mt-midcta-box p,
+body.page-area.page-region.page-gu-hub .gh-school-lead,
+body.page-area.page-region.page-gu-hub .sbh-intro p,
+body.page-area.page-region.page-gu-hub .sjh-about p { font-size: 17px; line-height: 1.7; }
+/* 5) 카드 제목 → 18 (PC만 · 모바일·태블릿 제목 크기는 기존 그대로) */
+@media (min-width: 981px) {
+  body.page-area.page-region .mt-check h3,
+  body.page-area.page-region .mt-reason h3,
+  body.page-area.page-region .rg-faq-item h3,
+  body.page-area.page-region .mt-steps .ar-step h3,
+  body.page-area.page-region.page-gu-hub .gh-school h3 { font-size: 18px; line-height: 1.45; }
+}
+/* 6) 모바일(640px 이하): 대문 설명·일반 본문 최소 16 (카드 설명 16은 위에서 공통 적용) */
+@media (max-width: 640px) {
+  body.page-area.page-region .rgs-desc,
+  body.page-area.page-region .mt-note,
+  body.page-area.page-region .gn-intro-text p,
+  body.page-area.page-region .ar-cta-box p,
+  body.page-area.page-region .mt-midcta-box p,
+  body.page-area.page-region.page-gu-hub .gh-school-lead,
+  body.page-area.page-region.page-gu-hub .sbh-intro p,
+  body.page-area.page-region.page-gu-hub .sjh-about p { font-size: 16px; line-height: 1.7; }
+  body.page-area.page-region:not(.page-subject) .page-section .section-head p { font-size: 16px; }
+}
+
+/* ==========================================================================
+   [236-2차] 지역페이지 글꼴 통일: Pretendard Variable
+   · 원인: 위쪽 '.page-subject main :is(.section-head p, …)' 규칙이 'Nanum Gothic'을 1순위로 지정하는데
+     지역페이지는 나눔고딕 웹폰트를 불러오지 않음 → 나눔고딕 설치 PC에서만 나눔고딕, 나머지는 Pretendard로 보였음
+   · 범위: body.page-area.page-region(지역페이지)만. 다른 서비스 페이지의 나눔고딕 규칙은 그대로
+   · 바꾸는 것: font-family만 (크기·굵기·색·여백 변경 없음) · 되돌리기: 이 블록 삭제
+   ========================================================================== */
+body.page-area.page-region :is(.page-lead, .section-head p, .point-card p, .point-card li, .sj-reach-item p, .rec-card p, .gr-card p,
+  .note-box, .faq-answer, .contact-card p, .check-item, .lm-body p, .rs-point, .sj-trial-desc, .sj-trial-txt small) {
+  font-family: "Pretendard Variable", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+}

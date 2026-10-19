@@ -203,6 +203,33 @@ body.page-subject #grades .gj-card-link:hover { text-decoration: underline; text
 @media (max-width: 1100px) and (min-width: 981px) { body.page-subject #grades .gj-card-media { aspect-ratio: 16 / 9; } }
 @media (max-width: 640px) { body.page-subject #grades .gj-card-media { margin: -18px -16px 4px; aspect-ratio: 16 / 7; } }
 </style>
+<!-- [237-8차] 학교 안내 아코디언(이 페이지 전용) — 초·중·고 학교 목록을 details/summary로 접고 펼침 · 기본은 모두 접힘 · 태그 글자 크기는 기존 .is-compact 그대로 · 되돌리기: 이 style 삭제 + #schools 섹션을 backup/237-8차수정전 본으로 복원 -->
+<style>
+body.page-subject #schools .mt-school-wrap.is-acc { grid-template-columns: 1fr; gap: 12px; max-width: 880px; }
+body.page-subject #schools .is-acc > details.mt-school { padding: 0; border: 1px solid #E8DFCF; border-radius: 16px; background: #FFFFFF; overflow: hidden; }
+body.page-subject #schools .is-acc summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 22px; list-style: none; cursor: pointer; }
+body.page-subject #schools .is-acc summary::-webkit-details-marker { display: none; }
+body.page-subject #schools .is-acc summary:focus-visible { outline: 2px solid #D7B56D; outline-offset: -2px; border-radius: 16px; }
+body.page-subject #schools .is-acc summary h3 { margin: 0; }
+body.page-subject #schools .section-head h2 .mt-nw { white-space: nowrap; }
+body.page-subject #schools .mt-acc-side { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; color: #8F6B2F; font-size: 14px; font-weight: 800; }
+body.page-subject #schools .mt-acc-side::before { content: "학교 보기"; }
+body.page-subject #schools details[open] .mt-acc-side::before { content: "접기"; }
+body.page-subject #schools .mt-acc-ico { position: relative; width: 28px; height: 28px; border-radius: 50%; background: #F7F1E5; }
+body.page-subject #schools .mt-acc-ico::after { content: ""; position: absolute; left: 10px; top: 8px; width: 7px; height: 7px; border: solid #B8924A; border-width: 0 2px 2px 0; transform: rotate(45deg); transition: transform 0.2s ease, top 0.2s ease; }
+body.page-subject #schools details[open] .mt-acc-ico::after { top: 11px; transform: rotate(-135deg); }
+body.page-subject #schools details[open] > summary { border-bottom: 1px dashed #E8DFCF; background: #FFFDF8; }
+body.page-subject #schools .is-acc .ar-topic-list { padding: 16px 22px 20px; }
+@media (max-width: 640px) {
+  body.page-subject #schools .is-acc summary { padding: 16px; }
+  body.page-subject #schools .mt-acc-side { gap: 8px; font-size: 13px; }
+  body.page-subject #schools .is-acc .ar-topic-list { padding: 14px 16px 16px; }
+}
+@media (max-width: 360px) {
+  body.page-subject #schools .is-acc summary h3 { white-space: nowrap; }
+  body.page-subject #schools .mt-acc-side::before { content: none; }
+}
+</style>
 </head>
 <body class="page-area page-region page-subarea page-subject">
 
@@ -377,17 +404,43 @@ body.page-subject #grades .gj-card-link:hover { text-decoration: underline; text
   </div>
 </section>
 
-<!-- 학교 안내 (서울특별시성동광진교육지원청 관내 학교 정보(공공데이터포털 15053922·15053917·15053920, 2026) 기준 광진구 학교 전체 · 압축 태그 · 정보 표시용, 링크 없음 · 학교 전문/기출/성적 보장 표현 없음) -->
+<!-- [237-8차] 학교 안내: 광진구 초 21(초등학생 페이지·허브와 같은 목록)·중 13·고 9(기존 목록 그대로) · details/summary 아코디언(기본 접힘) · 정보 표시용, 링크 없음 · 학교별 수업·선생님 배정·성적 보장 표현 없음 -->
 <section class="page-section mt-bg-blue" id="schools" aria-labelledby="sjSchoolTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">SCHOOLS</div>
-      <h2 id="sjSchoolTitle">광진구 중·고등학생 수학수업 상담</h2>
-      <p>광진구에는 중학교 13곳, 고등학교 9곳이 있습니다. 학교와 학년을 알려주시면 수학 시험 범위와 서술형 비중을 함께 확인합니다.</p>
+      <h2 id="sjSchoolTitle">다니는 학교에 맞춘 <span class="mt-nw">초·중·고</span> 수학수업 상담</h2>
+      <p>광진구 초등학교 21곳, 중학교 13곳, 고등학교 9곳을 학교급별로 정리했습니다. 학교와 학년을 알려주시면 초등은 교과서 진도를, 중·고등은 시험 범위와 서술형 비중을 확인해 수학 수업 계획을 세웁니다.</p>
     </div>
-    <div class="mt-school-wrap is-compact">
-      <div class="mt-school">
-        <h3>중학교 <span class="mt-count">13곳</span></h3>
+    <div class="mt-school-wrap is-compact is-acc">
+      <details class="mt-school">
+        <summary><h3>초등학교 <span class="mt-count">21곳</span></h3><span class="mt-acc-side"><span class="mt-acc-ico" aria-hidden="true"></span></span></summary>
+        <ul class="ar-topic-list">
+          <li><span class="ar-topic">경복초등학교</span></li>
+          <li><span class="ar-topic">서울광남초등학교</span></li>
+          <li><span class="ar-topic">서울광장초등학교</span></li>
+          <li><span class="ar-topic">서울광진초등학교</span></li>
+          <li><span class="ar-topic">서울구남초등학교</span></li>
+          <li><span class="ar-topic">서울구의초등학교</span></li>
+          <li><span class="ar-topic">서울동의초등학교</span></li>
+          <li><span class="ar-topic">서울동자초등학교</span></li>
+          <li><span class="ar-topic">서울성자초등학교</span></li>
+          <li><span class="ar-topic">서울신양초등학교</span></li>
+          <li><span class="ar-topic">서울신자초등학교</span></li>
+          <li><span class="ar-topic">서울양남초등학교</span></li>
+          <li><span class="ar-topic">서울양진초등학교</span></li>
+          <li><span class="ar-topic">서울용곡초등학교</span></li>
+          <li><span class="ar-topic">서울용마초등학교</span></li>
+          <li><span class="ar-topic">서울자양초등학교</span></li>
+          <li><span class="ar-topic">서울장안초등학교</span></li>
+          <li><span class="ar-topic">서울중광초등학교</span></li>
+          <li><span class="ar-topic">서울중마초등학교</span></li>
+          <li><span class="ar-topic">성동초등학교</span></li>
+          <li><span class="ar-topic">세종초등학교</span></li>
+        </ul>
+      </details>
+      <details class="mt-school">
+        <summary><h3>중학교 <span class="mt-count">13곳</span></h3><span class="mt-acc-side"><span class="mt-acc-ico" aria-hidden="true"></span></span></summary>
         <ul class="ar-topic-list">
           <li><span class="ar-topic">건국대학교사범대학부속중학교</span></li>
           <li><span class="ar-topic">광남중학교</span></li>
@@ -403,9 +456,9 @@ body.page-subject #grades .gj-card-link:hover { text-decoration: underline; text
           <li><span class="ar-topic">용곡중학교</span></li>
           <li><span class="ar-topic">자양중학교</span></li>
         </ul>
-      </div>
-      <div class="mt-school">
-        <h3>고등학교 <span class="mt-count">9곳</span></h3>
+      </details>
+      <details class="mt-school">
+        <summary><h3>고등학교 <span class="mt-count">9곳</span></h3><span class="mt-acc-side"><span class="mt-acc-ico" aria-hidden="true"></span></span></summary>
         <ul class="ar-topic-list">
           <li><span class="ar-topic">건국대학교사범대학부속고등학교</span></li>
           <li><span class="ar-topic">광남고등학교</span></li>
@@ -417,7 +470,7 @@ body.page-subject #grades .gj-card-link:hover { text-decoration: underline; text
           <li><span class="ar-topic">선화예술고등학교</span></li>
           <li><span class="ar-topic">자양고등학교</span></li>
         </ul>
-      </div>
+      </details>
     </div>
   </div>
 </section>

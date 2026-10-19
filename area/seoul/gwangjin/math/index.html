@@ -186,6 +186,23 @@
   body.page-gu-hub .gh-school-tags li, body.page-subject .mt-school .ar-topic-list > li, body.page-subject .mt-school .ar-topic { max-width: 100%; min-width: 0; overflow-wrap: anywhere; }
 }
 </style>
+<!-- [237-4차·237-5차] 학년 카드 상단 이미지(이 페이지 전용) — 이미지: images/area/gwangjin/gwangjin-math-{elementary|middle|high}.webp (1200×600, 2:1)
+     · PC 2:1(원본 비율 그대로) · 981~1100px 16:9 · 640px 이하 16:7(위아래 일부 잘림 → 이미지별 object-position으로 핵심 피사체 유지)
+     · 되돌리기: 이 style과 figure.gj-card-media·a.gj-card-link 삭제 -->
+<style>
+body.page-subject #grades .mt-grade { overflow: hidden; }
+body.page-subject #grades .gj-card-media { display: block; margin: -24px -22px 6px; aspect-ratio: 2 / 1; background: #F7F1E5; overflow: hidden; }
+body.page-subject #grades .gj-card-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+body.page-subject #grades .gj-card-media[data-slot="gwangjin-math-elementary"] img { object-position: center 62%; }
+body.page-subject #grades .gj-card-media[data-slot="gwangjin-math-middle"] img { object-position: center 60%; }
+body.page-subject #grades .gj-card-media[data-slot="gwangjin-math-high"] img { object-position: center 50%; }
+body.page-subject #grades .gj-card-link { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 6px; color: #10233F; font-size: 15px; font-weight: 800; text-decoration: none; }
+body.page-subject #grades .gj-card-link span { color: #B8924A; transition: transform 0.18s ease; }
+body.page-subject #grades .gj-card-link:hover span, body.page-subject #grades .gj-card-link:focus-visible span { transform: translateX(3px); }
+body.page-subject #grades .gj-card-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 1100px) and (min-width: 981px) { body.page-subject #grades .gj-card-media { aspect-ratio: 16 / 9; } }
+@media (max-width: 640px) { body.page-subject #grades .gj-card-media { margin: -18px -16px 4px; aspect-ratio: 16 / 7; } }
+</style>
 </head>
 <body class="page-area page-region page-subarea page-subject">
 
@@ -268,19 +285,25 @@
     </div>
     <div class="mt-grade-grid">
       <article class="mt-grade is-ele">
+        <figure class="gj-card-media" data-slot="gwangjin-math-elementary"><img src="../../../../images/area/gwangjin/gwangjin-math-elementary.webp" alt="초등 수학 연산 문제를 적은 공책과 입체도형 교구, 숫자 블록" width="1200" height="600" loading="lazy" decoding="async"></figure>
         <h3>초등 수학</h3>
         <p>연산을 정확하게 하는 습관을 만들고, 분수·도형 개념과 문장제 풀이를 차근차근 다집니다.</p>
         <ul class="tu-area-tags"><li>연산 정확도</li><li>분수</li><li>도형</li><li>문장제</li></ul>
+        <a class="gj-card-link" href="../elementary/">광진구 초등학생과외 보기 <span aria-hidden="true">→</span></a>
       </article>
       <article class="mt-grade is-mid">
+        <figure class="gj-card-media" data-slot="gwangjin-math-middle"><img src="../../../../images/area/gwangjin/gwangjin-math-middle.webp" alt="중학 수학 교재 옆에 함수 그래프와 풀이 과정을 적은 노트" width="1200" height="600" loading="lazy" decoding="async"></figure>
         <h3>중등 수학</h3>
         <p>문자와 식, 함수, 도형 단원을 유형별로 정리합니다. 중등 수학 내신은 학교마다 서술형 문항 비중이 달라, 풀이 과정을 단계별로 쓰는 연습을 함께 합니다.</p>
         <ul class="tu-area-tags"><li>문자와 식</li><li>함수</li><li>유형 정리</li><li>내신·서술형</li></ul>
+        <a class="gj-card-link" href="../middle/">광진구 중학생과외 보기 <span aria-hidden="true">→</span></a>
       </article>
       <article class="mt-grade is-high">
+        <figure class="gj-card-media" data-slot="gwangjin-math-high"><img src="../../../../images/area/gwangjin/gwangjin-math-high.webp" alt="수학Ⅱ·미적분·확률과 통계 교재와 풀이를 적은 문제지" width="1200" height="600" loading="lazy" decoding="async"></figure>
         <h3>고등 수학</h3>
         <p>흔들리는 단원을 다시 세우고 모의고사 문제에 개념을 적용하는 연습을 합니다. 고등 수학 내신은 학교 교과서와 부교재 문제를 바탕으로 출제되기도 해, 다니는 학교의 시험 범위 교재부터 확인합니다.</p>
         <ul class="tu-area-tags"><li>취약 단원</li><li>개념 적용</li><li>내신</li><li>모의고사</li></ul>
+        <a class="gj-card-link" href="../high/">광진구 고등학생과외 보기 <span aria-hidden="true">→</span></a>
       </article>
     </div>
   </div>
@@ -396,7 +419,6 @@
         </ul>
       </div>
     </div>
-    <p class="ar-topic-note">※ 광진구의 현재 운영 중인 중·고등학교입니다. 고등학교도 학교 유형과 관계없이 모두 담았으며, 목록에 없는 학교 학생도 같은 방식으로 상담할 수 있습니다.</p>
   </div>
 </section>
 

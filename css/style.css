@@ -7847,3 +7847,123 @@ body.page-area.page-region :is(.page-lead, .section-head p, .point-card p, .poin
   .note-box, .faq-answer, .contact-card p, .check-item, .lm-body p, .rs-point, .sj-trial-desc, .sj-trial-txt small) {
   font-family: "Pretendard Variable", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
 }
+
+/* ==========================================================================
+   [238차] 구 단위 페이지 광진구 표준(gu-v2) 공통 스타일
+   · 적용: body에 gu-v2 클래스가 있는 페이지만(238차 A묶음: 관악·금천·마포·용산 36페이지) — 광진구(페이지 안 스타일 유지)와 미전환 지역 영향 없음
+   · 내용: 광진구 237-3·237-10·237-11차(허브: 학습 원칙·수업 카드 아이콘·학년 배지·320px 넘침 보정), 237-4/5·237-8차(과목: 카드 이미지·학년 링크·학교 아코디언), 235차(학년별 확인 3단)를 그대로 옮기고 선택자만 body.gu-v2 로 한정
+   · 아이콘은 images/icons/*.svg(img), 과목 카드 이미지는 images/area/subject/*.webp
+   · 되돌리기: 이 블록 삭제 + 해당 페이지 body의 gu-v2 제거
+   ========================================================================== */
+body.gu-v2.page-gu-hub #study-guide { background: #102640; }
+body.gu-v2.page-gu-hub #study-guide .kicker { color: #D7B56D; }
+body.gu-v2.page-gu-hub #study-guide .section-head h2 { color: #FFFDF8; }
+body.gu-v2.page-gu-hub #study-guide .section-head p { color: #C8D0DA; }
+body.gu-v2.page-gu-hub .sg-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; max-width: 1080px; margin: 0 auto; padding: 0; list-style: none; }
+body.gu-v2.page-gu-hub .sg-card { display: flex; flex-direction: column; padding: 26px 24px 24px; border-radius: 18px; background: #FFFDF8; border-top: 4px solid #D7B56D; }
+body.gu-v2.page-gu-hub .sg-step { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; color: #8F6B2F; font-size: 14px; font-weight: 800; letter-spacing: 0.02em; }
+body.gu-v2.page-gu-hub .sg-step b { display: inline-flex; align-items: center; justify-content: center; min-width: 46px; padding: 3px 10px; border-radius: 999px; background: #102640; color: #FFFDF8; font-size: 13px; font-weight: 800; letter-spacing: 0; }
+body.gu-v2.page-gu-hub .sg-card h3 { margin: 0 0 10px; color: #102640; font-size: 19px; font-weight: 900; line-height: 1.45; letter-spacing: -0.01em; word-break: keep-all; }
+body.gu-v2.page-gu-hub .sg-card > p { margin: 0 0 16px; color: #374151; font-size: 16px; line-height: 1.7; word-break: keep-all; }
+body.gu-v2.page-gu-hub .sg-check-title { margin: auto 0 8px; padding-top: 14px; border-top: 1px dashed #E2D6BE; color: #102640; font-size: 14px; font-weight: 800; }
+body.gu-v2.page-gu-hub .sg-checks { margin: 0; padding: 0; list-style: none; }
+body.gu-v2.page-gu-hub .sg-checks li { position: relative; margin-top: 8px; padding-left: 28px; color: #1F2937; font-size: 15.5px; line-height: 1.6; word-break: keep-all; }
+body.gu-v2.page-gu-hub .sg-checks li::before { content: ""; position: absolute; left: 0; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: #D7B56D; }
+body.gu-v2.page-gu-hub .sg-checks li::after { content: ""; position: absolute; left: 6px; top: 7px; width: 5px; height: 8px; border: solid #102640; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+body.gu-v2.page-gu-hub .sg-checks b { color: #102640; font-weight: 800; }
+@media (max-width: 1024px) {
+  body.gu-v2.page-gu-hub .sg-grid { grid-template-columns: 1fr; max-width: 640px; gap: 14px; }
+}
+@media (max-width: 640px) {
+  body.gu-v2.page-gu-hub .sg-card { padding: 22px 18px 20px; border-radius: 16px; }
+  body.gu-v2.page-gu-hub .sg-card h3 { font-size: 18px; }
+  body.gu-v2.page-gu-hub .sg-checks li { font-size: 15px; }
+}
+@media (max-width: 360px) {
+  body.gu-v2.page-gu-hub #grades .gh-grade-card img { flex: 0 0 96px; width: 96px; }
+  body.gu-v2.page-gu-hub #grades .gh-card-body { min-width: 0; padding: 12px 12px 12px 14px; }
+}
+body.gu-v2.page-gu-hub #fields .rg-field-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; max-width: 1120px; }
+body.gu-v2.page-gu-hub #fields .rg-field { align-items: center; gap: 16px; padding: 28px 20px 26px; border: 1px solid #EDE4D3; border-radius: 22px; background: #FFFFFF; text-align: center; box-shadow: 0 10px 26px rgba(16, 38, 64, 0.06); }
+body.gu-v2.page-gu-hub #fields .rg-field-head { flex-direction: column; gap: 16px; }
+body.gu-v2.page-gu-hub #fields .rg-field-head h3 { font-size: 21px; }
+body.gu-v2.page-gu-hub #fields .rg-ico { width: 104px; height: 104px; border-radius: 30px; box-shadow: inset 0 -8px 14px rgba(16, 38, 64, 0.06), 0 12px 24px rgba(16, 38, 64, 0.10); }
+body.gu-v2.page-gu-hub #fields .rg-ico :is(svg, img) { width: 92px; height: 92px; }
+body.gu-v2.page-gu-hub #fields .rg-field.is-school .rg-ico { background: linear-gradient(160deg, #F2F6FC, #DCE7F6); }
+body.gu-v2.page-gu-hub #fields .rg-field.is-basic .rg-ico { background: linear-gradient(160deg, #FFF6EF, #FBE3D3); }
+body.gu-v2.page-gu-hub #fields .rg-field.is-lang .rg-ico { background: linear-gradient(160deg, #F6F4FD, #E4DFF7); }
+body.gu-v2.page-gu-hub #fields .rg-field.is-special .rg-ico { background: linear-gradient(160deg, #F1FAF5, #D9F0E4); }
+body.gu-v2.page-gu-hub #fields .rg-field .tu-area-tags { justify-content: center; }
+body.gu-v2.page-gu-hub #fields .rg-field .tu-area-tags li { background: #FBF8F2; border-color: #EDE4D3; }
+@media (max-width: 1024px) { body.gu-v2.page-gu-hub #fields .rg-field-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 720px; } }
+@media (max-width: 640px) {
+  body.gu-v2.page-gu-hub #fields .rg-field-grid { grid-template-columns: 1fr; max-width: 460px; gap: 12px; }
+  body.gu-v2.page-gu-hub #fields .rg-field { align-items: stretch; gap: 14px; padding: 18px 16px; text-align: left; }
+  body.gu-v2.page-gu-hub #fields .rg-field-head { flex-direction: row; gap: 14px; }
+  body.gu-v2.page-gu-hub #fields .rg-field-head h3 { font-size: 19px; }
+  body.gu-v2.page-gu-hub #fields .rg-ico { width: 72px; height: 72px; border-radius: 22px; }
+  body.gu-v2.page-gu-hub #fields .rg-ico :is(svg, img) { width: 64px; height: 64px; }
+  body.gu-v2.page-gu-hub #fields .rg-field .tu-area-tags { justify-content: flex-start; }
+}
+@media (max-width: 360px) {
+  body.gu-v2.page-gu-hub #fields .rg-ico { width: 64px; height: 64px; border-radius: 20px; }
+  body.gu-v2.page-gu-hub #fields .rg-ico :is(svg, img) { width: 56px; height: 56px; }
+}
+body.gu-v2.page-gu-hub #grades .gh-card-body { position: relative; }
+body.gu-v2.page-gu-hub #grades .gh-grade-badge { position: absolute; top: -27px; right: 18px; z-index: 1; display: grid; place-items: center; width: 50px; height: 50px; border: 2px solid #FFFDF8; border-radius: 50%; box-shadow: 0 6px 14px rgba(16, 38, 64, 0.18); }
+body.gu-v2.page-gu-hub #grades .gh-grade-badge.is-ele { background: linear-gradient(150deg, #FFF6EF, #FBE1D1); }
+body.gu-v2.page-gu-hub #grades .gh-grade-badge.is-mid { background: linear-gradient(150deg, #F6F4FD, #E2DCF6); }
+body.gu-v2.page-gu-hub #grades .gh-grade-badge.is-high { background: linear-gradient(150deg, #F1FAF5, #D6EFE2); }
+body.gu-v2.page-gu-hub #grades .gh-grade-badge :is(svg, img) { width: 42px; height: 42px; }
+body.gu-v2.page-gu-hub #grades .gh-card-body h3 { padding-right: 62px; }
+body.gu-v2.page-gu-hub #grades .gh-grade-card:hover .gh-grade-badge, body.gu-v2.page-gu-hub #grades .gh-grade-card:focus-visible .gh-grade-badge { box-shadow: 0 8px 18px rgba(16, 38, 64, 0.24); }
+@media (max-width: 640px) {
+  body.gu-v2.page-gu-hub #grades .gh-grade-badge { top: auto; right: auto; bottom: 8px; left: -48px; width: 40px; height: 40px; }
+  body.gu-v2.page-gu-hub #grades .gh-grade-badge :is(svg, img) { width: 33px; height: 33px; }
+  body.gu-v2.page-gu-hub #grades .gh-card-body h3 { padding-right: 0; }
+}
+@media (max-width: 360px) {
+  body.gu-v2.page-gu-hub #grades .gh-grade-badge { left: -44px; width: 36px; height: 36px; }
+  body.gu-v2.page-gu-hub #grades .gh-grade-badge :is(svg, img) { width: 30px; height: 30px; }
+}
+body.gu-v2.page-subject #grades .mt-grade { overflow: hidden; }
+body.gu-v2.page-subject #grades .gj-card-media { display: block; margin: -24px -22px 6px; aspect-ratio: 2 / 1; background: #F7F1E5; overflow: hidden; }
+body.gu-v2.page-subject #grades .gj-card-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+body.gu-v2.page-subject #grades .gj-card-media[data-slot="math-elementary"] img { object-position: center 62%; }
+body.gu-v2.page-subject #grades .gj-card-media[data-slot="math-middle"] img { object-position: center 60%; }
+body.gu-v2.page-subject #grades .gj-card-media[data-slot="math-high"] img { object-position: center 50%; }
+body.gu-v2.page-subject #grades .gj-card-media[data-slot="english-elementary"] img { object-position: center 45%; }
+body.gu-v2.page-subject #grades .gj-card-media[data-slot="english-middle"] img { object-position: center 45%; }
+body.gu-v2.page-subject #grades .gj-card-media[data-slot="english-high"] img { object-position: center 40%; }
+body.gu-v2.page-subject #grades .gj-card-link { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 6px; color: #10233F; font-size: 15px; font-weight: 800; text-decoration: none; }
+body.gu-v2.page-subject #grades .gj-card-link span { color: #B8924A; transition: transform 0.18s ease; }
+body.gu-v2.page-subject #grades .gj-card-link:hover span, body.gu-v2.page-subject #grades .gj-card-link:focus-visible span { transform: translateX(3px); }
+body.gu-v2.page-subject #grades .gj-card-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 1100px) and (min-width: 981px) { body.gu-v2.page-subject #grades .gj-card-media { aspect-ratio: 16 / 9; } }
+@media (max-width: 640px) { body.gu-v2.page-subject #grades .gj-card-media { margin: -18px -16px 4px; aspect-ratio: 16 / 7; } }
+body.gu-v2.page-subject #schools .mt-school-wrap.is-acc { grid-template-columns: 1fr; gap: 12px; max-width: 880px; }
+body.gu-v2.page-subject #schools .is-acc > details.mt-school { padding: 0; border: 1px solid #E8DFCF; border-radius: 16px; background: #FFFFFF; overflow: hidden; }
+body.gu-v2.page-subject #schools .is-acc summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 22px; list-style: none; cursor: pointer; }
+body.gu-v2.page-subject #schools .is-acc summary::-webkit-details-marker { display: none; }
+body.gu-v2.page-subject #schools .is-acc summary:focus-visible { outline: 2px solid #D7B56D; outline-offset: -2px; border-radius: 16px; }
+body.gu-v2.page-subject #schools .is-acc summary h3 { margin: 0; }
+body.gu-v2.page-subject #schools .section-head h2 .mt-nw { white-space: nowrap; }
+body.gu-v2.page-subject #schools .mt-acc-side { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; color: #8F6B2F; font-size: 14px; font-weight: 800; }
+body.gu-v2.page-subject #schools .mt-acc-side::before { content: "학교 보기"; }
+body.gu-v2.page-subject #schools details[open] .mt-acc-side::before { content: "접기"; }
+body.gu-v2.page-subject #schools .mt-acc-ico { position: relative; width: 28px; height: 28px; border-radius: 50%; background: #F7F1E5; }
+body.gu-v2.page-subject #schools .mt-acc-ico::after { content: ""; position: absolute; left: 10px; top: 8px; width: 7px; height: 7px; border: solid #B8924A; border-width: 0 2px 2px 0; transform: rotate(45deg); transition: transform 0.2s ease, top 0.2s ease; }
+body.gu-v2.page-subject #schools details[open] .mt-acc-ico::after { top: 11px; transform: rotate(-135deg); }
+body.gu-v2.page-subject #schools details[open] > summary { border-bottom: 1px dashed #E8DFCF; background: #FFFDF8; }
+body.gu-v2.page-subject #schools .is-acc .ar-topic-list { padding: 16px 22px 20px; }
+@media (max-width: 640px) {
+  body.gu-v2.page-subject #schools .is-acc summary { padding: 16px; }
+  body.gu-v2.page-subject #schools .mt-acc-side { gap: 8px; font-size: 13px; }
+  body.gu-v2.page-subject #schools .is-acc .ar-topic-list { padding: 14px 16px 16px; }
+}
+@media (max-width: 360px) {
+  body.gu-v2.page-subject #schools .is-acc summary h3 { white-space: nowrap; }
+  body.gu-v2.page-subject #schools .mt-acc-side::before { content: none; }
+}
+body.gu-v2.page-subject .ar-steps.mt-steps.gj-three { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 960px; }
+@media (max-width: 640px) { body.gu-v2.page-subject .ar-steps.mt-steps.gj-three { grid-template-columns: 1fr; } }

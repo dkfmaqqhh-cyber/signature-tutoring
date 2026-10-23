@@ -172,5 +172,36 @@
       "어순을 소리 내어 읽어 봤나요?"
     ],
     "lens": false
+  },
+  "csat-3weeks-routine": {
+    "palette": "navy",
+    "badge": "수능 준비 · 고3 마무리",
+    "title": "수능 3주 전,\n*실전 감각*\n지키는 루틴",
+    "keys": [
+      "수능 시간표",
+      "영역별 마무리"
+    ],
+    "cardTitle": "수능 시간표 맞춤 루틴",
+    "cardTag": "예시",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "08:40",
+        "text": "국어 실전 연습"
+      },
+      {
+        "label": "10:30",
+        "text": "수학 · 오답 재풀이"
+      },
+      {
+        "label": "13:10",
+        "text": "영어 듣기부터"
+      },
+      {
+        "label": "14:50",
+        "text": "한국사 · 탐구 정리"
+      }
+    ],
+    "lens": false
   }
 }

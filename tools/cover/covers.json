@@ -203,5 +203,36 @@
       }
     ],
     "lens": false
+  },
+  "final-exam-middle-math": {
+    "palette": "indigo",
+    "badge": "내신 관리 · 중등 수학",
+    "title": "중학교 기말고사\n*수학 4주*\n공부 순서",
+    "keys": [
+      "주차별 계획표",
+      "서술형 대비"
+    ],
+    "cardTitle": "기말 수학 4주 계획",
+    "cardTag": "예시",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "4주 전",
+        "text": "범위 확인 · 개념"
+      },
+      {
+        "label": "3주 전",
+        "text": "유형 연습"
+      },
+      {
+        "label": "2주 전",
+        "text": "오답 정리 · 서술형"
+      },
+      {
+        "label": "1주 전",
+        "text": "실전 · 마무리"
+      }
+    ],
+    "lens": false
   }
 }

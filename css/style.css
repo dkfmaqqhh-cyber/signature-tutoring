@@ -7990,3 +7990,14 @@ body.page-area.page-region #consult-check .mt-check-grid > li.mt-check { justify
 @media (min-width: 981px) {
   body.page-area.page-region #consult-check .mt-check-grid > li.mt-check > h3 { margin-inline: -4px; }
 }
+
+/* ---------- [249차 후속] 허브 학년 카드(.gh-grade-card) 360px 이하 글자 넘침
+   · 원인: gu-v2가 아닌 허브는 360px 이하 보정이 없어 이미지 118px + 본문 min-width:auto
+     → 줄바꿈 안 되는 제목 "초등학생과외"(90px)가 본문 글자 폭 78px보다 넓어 본문이 카드 밖으로 11px 밀리고 잘림
+   · gu-v2 허브(대구·부산·서울)에 이미 있는 360px 이하 규칙(이미지 96px · 본문 min-width:0 · 안쪽 여백)을 모든 허브에 동일 적용
+   · 글자 크기·내용·361px 이상은 그대로 / gu-v2 허브는 같은 값이라 변화 없음
+   되돌리기: 이 블록 삭제 */
+@media (max-width: 360px) {
+  body.page-gu-hub .gh-grade-card img { flex: 0 0 96px; width: 96px; }
+  body.page-gu-hub .gh-card-body { min-width: 0; padding: 12px 12px 12px 14px; }
+}

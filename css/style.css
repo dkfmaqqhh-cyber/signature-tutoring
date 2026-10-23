@@ -7973,3 +7973,20 @@ body.gu-v2.page-subject #schools .is-acc .ar-topic-list { padding: 16px 22px 20p
 }
 body.gu-v2.page-subject .ar-steps.mt-steps.gj-three { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 960px; }
 @media (max-width: 640px) { body.gu-v2.page-subject .ar-steps.mt-steps.gj-three { grid-template-columns: 1fr; } }
+
+/* ---------- [249차] 지역페이지 상담 카드(#consult-check .mt-check) 숫자·제목·설명 시작 높이 통일
+   · 원인: .mt-check 카드가 세로 가운데 정렬(justify-content: center)이라 같은 줄 카드끼리 숫자 배지 높이가 달라짐
+   · 내용을 카드 위쪽부터 배치하고, subgrid로 같은 줄 카드끼리 숫자·제목·설명 행 높이를 공유 (필요한 만큼만 높이 맞춤)
+   · 범위: 지역페이지(body.page-area.page-region)의 #consult-check 카드만 — 상담 페이지(.consult-flow) 등 다른 카드는 영향 없음
+   · 색상·글자 크기·카드 순서·모바일 2열/마지막 카드 한 줄 구성은 기존 규칙 그대로
+   되돌리기: 이 블록 삭제 */
+body.page-area.page-region #consult-check .mt-check-grid > li.mt-check { justify-content: flex-start; }
+@supports (grid-template-rows: subgrid) {
+  body.page-area.page-region #consult-check .mt-check-grid > li.mt-check { display: grid; grid-template-rows: subgrid; grid-row: span 2; row-gap: 10px; align-content: start; align-items: start; justify-items: center; }
+  body.page-area.page-region #consult-check .mt-check-grid > li.mt-check:has(> p) { grid-row: span 3; }
+}
+/* · PC(981px~) 5열에서 제목에만 좌우 4px 여유: "학교·학년·현재 수준 확인"(175px)이 가용 폭 172px에 3px 모자라 2줄로 접히면
+     subgrid 제목 행이 같은 줄 전체를 키워 카드 높이 +26px(경기·세종 허브) — 설명 폭·모바일·태블릿은 그대로 */
+@media (min-width: 981px) {
+  body.page-area.page-region #consult-check .mt-check-grid > li.mt-check > h3 { margin-inline: -4px; }
+}

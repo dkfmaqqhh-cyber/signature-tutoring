@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="시그니처과외">
 <meta property="og:locale" content="ko_KR">
 <meta name="theme-color" content="#102a4b">
-<!-- [42차] 학습정보 대표 허브 페이지 (subject·ged·conversation·coding 디자인 시스템 공유, CTA 약하게).
+<!-- [42차] 학습정보 대표 허브 페이지 (subject·ged·conversation·coding 디자인 시스템 공유, CTA 약하게). [자동 정보글] 글 목록은 tools/blog/build.py 가 published.json 으로 생성.
      글 카드는 실제 존재하는 info/ 글 3개만 연결 (작성일 정보가 없어 카테고리로 표기). 기존 info.html·info/ 글은 유지 -->
 <link rel="icon" href="../images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48.png">
@@ -34,24 +34,11 @@
   "mainEntity": {
     "@type": "ItemList",
     "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "url": "https://signaturetutoring.co.kr/info/midterm-report-card.html",
-        "name": "중간고사 성적표 보는 법, 점수보다 먼저 봐야 할 3가지"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "url": "https://signaturetutoring.co.kr/info/after-midterm-review.html",
-        "name": "중간고사 끝난 뒤 2주, 시험 결과 분석과 오답 정리법"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "url": "https://signaturetutoring.co.kr/info/visit-vs-online-tutoring.html",
-        "name": "방문과외와 화상과외, 우리 아이에게 맞는 방식은?"
-      }
+      {"@type": "ListItem", "position": 1, "url": "https://signaturetutoring.co.kr/info/midterm-report-card.html", "name": "중간고사 성적표 보는 법, 점수보다 먼저 봐야 할 3가지"},
+      {"@type": "ListItem", "position": 2, "url": "https://signaturetutoring.co.kr/info/after-midterm-review.html", "name": "중간고사 끝난 뒤 2주, 시험 결과 분석과 오답 정리법"},
+      {"@type": "ListItem", "position": 3, "url": "https://signaturetutoring.co.kr/info/naesin-exam-4-weeks.html", "name": "중간·기말고사 4주 전 과목별 내신 준비 방법"},
+      {"@type": "ListItem", "position": 4, "url": "https://signaturetutoring.co.kr/info/visit-vs-online-tutoring.html", "name": "방문과외와 화상과외, 우리 아이에게 맞는 방식은?"},
+      {"@type": "ListItem", "position": 5, "url": "https://signaturetutoring.co.kr/info/middle-school-math-tutoring.html", "name": "중학생 수학과외가 필요한 경우와 선택 기준"}
     ]
   }
 }
@@ -127,8 +114,7 @@
       <p>과외를 고민할 때 확인하면 좋은 기준과 시험 준비 방법을 정리했습니다.</p>
     </div>
     <div class="lp-posts">
-      <!-- [58차] 최신 학습정보는 최근 3편만 노출 (중학생 수학과외 글은 학습정보 목록(info.html)에서 계속 연결 · [70차] '과외·수업 선택 가이드' 섹션 삭제) -->
-      <!-- [71차] 새 글 '중간고사 성적표 보는 법' 맨 앞 추가, '4주 전 내신 준비' 카드는 목록(info.html)에서만 연결 -->
+      <!-- AUTO-POSTS:START (tools/blog/build.py 가 자동 생성 · 직접 수정 금지) -->
       <article class="lp-post">
         <a class="lp-post-img" href="../info/midterm-report-card.html" tabindex="-1" aria-hidden="true"><img src="../images/info/midterm-report-card.webp" alt="" width="1200" height="630" loading="lazy" decoding="async"></a>
         <span class="lp-post-cat">내신 관리 · 학부모 가이드</span>
@@ -144,12 +130,27 @@
         <a class="lp-more" href="../info/after-midterm-review.html">자세히 보기 <span aria-hidden="true">→</span></a>
       </article>
       <article class="lp-post">
+        <a class="lp-post-img" href="../info/naesin-exam-4-weeks.html" tabindex="-1" aria-hidden="true"><img src="../images/info/naesin-exam-4-weeks.webp" alt="" width="1200" height="630" loading="lazy" decoding="async"></a>
+        <span class="lp-post-cat">내신 관리 · 시험 준비</span>
+        <h3><a href="../info/naesin-exam-4-weeks.html">중간·기말고사 4주 전 과목별 내신 준비 방법</a></h3>
+        <p>시험 4주 전부터 개념 복습, 문제 적용, 오답 정리까지 주차별 준비 흐름을 정리했습니다.</p>
+        <a class="lp-more" href="../info/naesin-exam-4-weeks.html">자세히 보기 <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="lp-post">
         <a class="lp-post-img" href="../info/visit-vs-online-tutoring.html" tabindex="-1" aria-hidden="true"><img src="../images/info/visit-vs-online-tutoring.webp" alt="" width="1200" height="630" loading="lazy" decoding="async"></a>
         <span class="lp-post-cat">수업 방식 · 과외 선택</span>
         <h3><a href="../info/visit-vs-online-tutoring.html">방문과외와 화상과외, 우리 아이에게 맞는 방식은?</a></h3>
         <p>두 방식의 차이와 준비 환경, 학생 성향에 따른 선택 기준을 비교했습니다.</p>
         <a class="lp-more" href="../info/visit-vs-online-tutoring.html">자세히 보기 <span aria-hidden="true">→</span></a>
       </article>
+      <article class="lp-post">
+        <a class="lp-post-img" href="../info/middle-school-math-tutoring.html" tabindex="-1" aria-hidden="true"><img src="../images/info/middle-school-math-tutoring.webp" alt="" width="1200" height="630" loading="lazy" decoding="async"></a>
+        <span class="lp-post-cat">중등 수학 · 과외 선택</span>
+        <h3><a href="../info/middle-school-math-tutoring.html">중학생 수학과외가 필요한 경우와 선택 기준</a></h3>
+        <p>수학과외를 고려할 수 있는 상황과 선생님·수업 방식을 고르는 기준을 정리했습니다.</p>
+        <a class="lp-more" href="../info/middle-school-math-tutoring.html">자세히 보기 <span aria-hidden="true">→</span></a>
+      </article>
+      <!-- AUTO-POSTS:END -->
     </div>
     <p class="lp-note">학습정보 글은 계속 추가될 예정입니다.</p>
   </div>

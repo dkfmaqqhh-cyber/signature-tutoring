@@ -4654,6 +4654,12 @@ main, main * {
 .post-refs ul{margin:8px 0 0;padding-left:18px}
 .post-refs a{color:#2c5aa0}
 .post-disclaimer{margin:24px 0 0;font-size:13px;color:#9aa0aa}
+/* [자동 정보글] 참고 자료(출처) 목록 */
+.post-sources{margin:32px 0 0;padding:18px 20px;background:#fbf9f5;border:1px solid #efe8db;border-radius:12px;font-size:14px}
+.post-sources h2{margin:0 0 10px!important;font-size:16px!important}
+.post-sources ul{margin:0;padding-left:18px}
+.post-sources li{margin:4px 0;color:#5b6370;word-break:break-all}
+.post-sources a{color:#1d4f91}
 .post-cta{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:36px;padding:24px 26px;border-radius:16px;background:#102a4b;color:#fff}
 .post-cta strong{font-size:17px}
 .post-cta p{margin:4px 0 0;font-size:14px;color:rgba(255,255,255,.78)}

@@ -20,7 +20,7 @@
 <!-- [121차] 대구 시·도 지역 페이지 (/area/daegu/) · /area/incheon/ 표준 템플릿과 같은 구조(대문만 네이비+골드 단색형 .rg-hero-solid)
      · 아직 없는 구·군·학년·과목 페이지는 링크하지 않음(404 방지) · 가격·통계·선생님 수 등 확인되지 않은 숫자는 쓰지 않음
      · 최종 업데이트 날짜는 콘텐츠를 실제로 고칠 때 화면(.rg-updated)과 JSON-LD dateModified를 함께 바꿀 것
-     · [205차] 대구 1차: 중·동·서·남·북·수성·달서구, 달성군 8개 구·군 허브 + 학년 3·과목 5 하위 페이지(64) 완료 · 군위군은 학교 자료 출처 간 불일치로 기존 기본 안내 페이지 유지(완료 지역 아님)
+     · [205차] 대구 1차: 중·동·서·남·북·수성·달서구, 달성군 8개 구·군 허브 + 학년 3·과목 5 하위 페이지(64) 완료 · [250차] 군위군 허브 재작성 + 학년 3·과목 5 하위 페이지(8) 신설 — 학교 자료는 표준데이터 8건 = NEIS 2026학년도 학급정보 8곳으로 확인(본교 5·캠퍼스 3, 캠퍼스는 본교 수에 합산하지 않음)
        집계(8개 구·군): 행정동 = 대구광역시 '행정구역'(2025-12-31 기준) · 학교 = 대구광역시교육청 학교찾기(2026-10-14 조회 · 특수·각종·분교장·캠퍼스·학력인정 제외 · 운영 미확정 대구비봉초 제외) -->
 <script type="application/ld+json">
 {
@@ -227,13 +227,13 @@
   </div>
 </section>
 
-<!-- 2. 대구 9개 구·군 (7구·2군 · 행정 순서 · 군위군은 2023.7.1 대구 편입 · [205차] 8개 구·군은 허브 + 학년·과목 하위 페이지 운영, 군위군은 기본 안내 페이지 링크 유지) -->
+<!-- 2. 대구 9개 구·군 (7구·2군 · 행정 순서 · 군위군은 2023.7.1 대구 편입 · [205차] 8개 구·군 + [250차] 군위군 = 9개 구·군 모두 허브 + 학년·과목 하위 페이지 운영) -->
 <section class="page-section ar-regions rg-gus" id="districts" aria-labelledby="rgGuTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">DAEGU DISTRICTS</div>
       <h2 id="rgGuTitle">대구 지역을 선택해 주세요</h2>
-      <p>중구·동구·서구·남구·북구·수성구·달서구·달성군은 행정동과 초·중·고 학교 정보, 학년별·과목별 1:1 과외 안내를 정리했습니다. 군위군은 학교 정보를 확인하는 중이라 현재는 기본 안내 페이지로 상담을 도와드립니다.</p>
+      <p>중구·동구·서구·남구·북구·수성구·달서구·달성군·군위군 9개 구·군 모두 행정동 또는 읍·면과 초·중·고 학교 정보, 학년별·과목별 1:1 과외 안내를 정리했습니다.</p>
     </div>
     <!-- [131차] 세부지역(구·시·군) 페이지 생성 → 카드 링크 활성화(지역 보기 →) -->
     <ul class="ar-region-grid rg-gu-grid rg-gu-grid-3">
@@ -245,7 +245,7 @@
       <li><a class="ar-region rg-gu" href="suseong/"><strong>수성구</strong><em>범어 · 만촌 · 황금 · 지산</em><small>지역 보기 →</small></a></li>
       <li><a class="ar-region rg-gu" href="dalseo/"><strong>달서구</strong><em>상인 · 월성 · 용산 · 성당</em><small>지역 보기 →</small></a></li>
       <li><a class="ar-region rg-gu" href="dalseong/"><strong>달성군</strong><em>화원읍 · 다사읍 · 현풍읍 · 유가읍</em><small>지역 보기 →</small></a></li>
-      <li><a class="ar-region rg-gu" href="gunwi/"><strong>군위군</strong><em>군위읍 · 효령면 · 부계면</em><small>지역 보기 →</small></a></li>
+      <li><a class="ar-region rg-gu" href="gunwi/"><strong>군위군</strong><em>군위읍 · 소보면 · 효령면 · 부계면</em><small>지역 보기 →</small></a></li>
     </ul>
   </div>
 </section>

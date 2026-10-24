@@ -296,7 +296,7 @@ window.addEventListener("load", function(){
   var MSG_NOT_CONNECTED = '상담 접수 주소가 아직 연결되지 않았습니다. 입력하신 내용은 전송되거나 저장되지 않았습니다.';
   var MSG_FAIL = '상담 접수 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.';
   var MSG_MAKE_SUCCESS = '상담 신청이 접수되었습니다.'; /* [97차] */
-  var MSG_MAKE_FAIL = '접수 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.';
+  var MSG_MAKE_FAIL = '접수 중 오류가 발생했습니다. 잠시 후 다시 시도하시거나 전화·카카오톡 상담으로 연락해 주세요.'; /* [269차] 실패 시 다른 상담 경로 안내 */
   var MSG_REPEAT = '방금 상담 신청이 접수되었습니다. 추가 문의는 잠시 후 다시 신청하시거나 전화로 연락해 주세요.';
   var REPEAT_MS = 60000; /* [97차] 접수 성공 후 1분 안의 반복 제출 차단 */
   var REPEAT_KEY = 'sigConsultLastSent';
@@ -360,9 +360,21 @@ window.addEventListener("load", function(){
     return i < t.length && /^[가-힣0-9·.]+[동읍면가리]$/.test(t[i]);
   }
 
-  /* [102차] 간소화한 폼에는 문의내용 칸이 없으므로 message = "학교: ○○ / 신청자: 학부모" (학교 미입력 시 '미입력') */
+  /* [269차] 신청자 확인: 학생 본인 → 만 14세 이상 여부(age14) / 학부모 → 법정대리인 확인(guardian) 칸만 보이기 · 학년으로 나이를 추정하지 않음 */
+  var ageBox = document.getElementById('cfAgeBox'), guardianBox = document.getElementById('cfGuardianBox');
+  function syncApplicant() {
+    var who = f.applicant.value;
+    if (ageBox) ageBox.hidden = who !== '학생';
+    if (guardianBox) guardianBox.hidden = who !== '학부모';
+  }
+  form.addEventListener('change', function (e) { if (e.target && e.target.name === 'applicant') syncApplicant(); });
+  syncApplicant();
+
+  /* [102차] 간소화한 폼에는 문의내용 칸이 없으므로 message = "학교: ○○ / 신청자: 학부모" (학교 미입력 시 '미입력')
+     [269차] 신청자 뒤에 확인 내용을 붙임: "신청자: 학부모(법정대리인 확인)" / "신청자: 학생(만 14세 이상 확인)" — applicant_type 값(학부모·학생)은 그대로 */
   function buildMessage() {
-    return '학교: ' + (f.school.value.trim() || '미입력') + ' / 신청자: ' + f.applicant.value;
+    var who = f.applicant.value, note = who === '학부모' ? '(법정대리인 확인)' : who === '학생' ? '(만 14세 이상 확인)' : '';
+    return '학교: ' + (f.school.value.trim() || '미입력') + ' / 신청자: ' + who + note;
   }
 
   /* [97차] Make Webhook 전송 데이터: 기본 6개(name·phone·grade·subject·region·message) + 접수 페이지·제출 시간 ([102차] 수업방식 lesson_type 삭제) */
@@ -382,7 +394,7 @@ window.addEventListener("load", function(){
       school: f.school.value.trim() || '미입력', /* [116차] 학교·신청자 구분을 별도 필드로도 전송 (message는 그대로 유지) */
       applicant_type: f.applicant.value,
       message: buildMessage(),
-      page_url: location.href,
+      page_url: location.origin + location.pathname, /* [269차] 주소 뒤 광고·검색 매개변수(?utm_… 등)와 #는 보내지 않음 */
       page_title: document.title,
       submitted_at: kstNow()
     };
@@ -409,6 +421,7 @@ window.addEventListener("load", function(){
     applyRegionGuide(REGION_DEFAULT); /* 주소 안내를 기본 상태로 */
     var invalid = form.querySelectorAll('[aria-invalid]');
     for (var k = 0; k < invalid.length; k++) invalid[k].removeAttribute('aria-invalid');
+    syncApplicant(); /* [269차] 신청자 선택이 초기화되면 확인 칸도 숨김 */
     loadedAt = Date.now();
   }
 
@@ -429,6 +442,12 @@ window.addEventListener("load", function(){
     if (!f.subject.value.trim()) return fail(f.subject, '문의 과목을 입력해 주세요.');
     if (!/^01[0-9]{8,9}$/.test(phone)) return fail(f.phone, '휴대폰번호를 정확히 입력해 주세요. (예: 010-1234-5678)');
     if (!f.applicant.value) return fail(f.applicant, '신청자(학부모 · 학생)를 선택해 주세요.');
+    /* [269차] 만 14세 미만 학생 본인 신청 차단 · 학부모 신청은 법정대리인 확인 필수 */
+    if (f.applicant.value === '학생') {
+      if (!f.age14.value) return fail(f.age14, '학생 나이(만 14세 이상 · 미만)를 선택해 주세요.');
+      if (f.age14.value !== 'over') return fail(f.age14, '만 14세 미만 학생은 법정대리인(부모 등)의 동의가 필요합니다. 학부모님이 신청자를 \'학부모\'로 선택해 신청해 주세요.');
+    }
+    if (f.applicant.value === '학부모' && !f.guardian.checked) return fail(f.guardian, '학생의 법정대리인(부모 등)인지 확인해 주세요. 법정대리인이 아니시면 전화로 문의해 주세요.');
     if (!f.agree.checked) return fail(f.agree, '개인정보 수집·이용에 동의하셔야 상담을 신청할 수 있습니다.');
 
     /* 스팸 방지: 너무 빠른 제출 차단 */

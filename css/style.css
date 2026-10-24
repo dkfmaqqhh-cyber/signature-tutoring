@@ -8001,3 +8001,21 @@ body.page-area.page-region #consult-check .mt-check-grid > li.mt-check { justify
   body.page-gu-hub .gh-grade-card img { flex: 0 0 96px; width: 96px; }
   body.page-gu-hub .gh-card-body { min-width: 0; padding: 12px 12px 12px 14px; }
 }
+
+/* ---------- [269차] ① 상담 신청서 신청자 확인 칸(만 14세 이상 여부·법정대리인 확인) ② 641~1024px 공통 떠 있는 버튼 가림 해소
+   ① hidden 속성이 .form-field·.agree-box label 의 display 규칙보다 우선하도록 · 동의 요약 한 줄
+   ② 641~1024px(태블릿)에서 공통 .sig-float(카톡·시범수업·전화 3개)가 PC용 큰 버튼으로 본문 오른쪽을 가리던 문제 → 640px 이하와 같은 화면 아래 가로 띠로 표시
+      · 지역 페이지 버튼(.rg-float)은 제외(기존 52px 버튼·본문 여백 그대로) · 1025px 이상 PC와 640px 이하 모바일은 변경 없음
+   되돌리기: 이 블록 삭제 */
+.consult-form [hidden] { display: none !important; }
+.cf-compact .form-field.cf-age { flex-wrap: wrap; row-gap: 6px; }
+.cf-compact .form-field.cf-age .form-hint { flex-basis: 100%; margin: 0; }
+.agree-box label + label { margin-top: 8px; }
+.agree-box .agree-sum { margin: 6px 0 0 24px; color: #6f7684; font-size: 12.5px; line-height: 1.6; word-break: keep-all; }
+@media (min-width: 641px) and (max-width: 1024px) {
+  .sig-float:not(.rg-float) { left: 0; right: 0; bottom: 0; flex-direction: row; gap: 0; padding-bottom: env(safe-area-inset-bottom); background: #fff; box-shadow: 0 -6px 18px rgba(16, 42, 75, 0.12); }
+  .sig-float:not(.rg-float) a { flex: 1 1 0; min-width: 0; justify-content: center; gap: 8px; padding: 16px 8px; border-radius: 0; font-size: 15px; box-shadow: none; }
+  .sig-float:not(.rg-float) a:hover, .sig-float:not(.rg-float) a:focus-visible { transform: none; box-shadow: none; }
+  .sig-float:not(.rg-float) svg { width: 20px; height: 20px; }
+  body.has-sig-float { padding-bottom: calc(52px + env(safe-area-inset-bottom)); }
+}

@@ -70,7 +70,26 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<!-- [278차] 메인 전용 글꼴 로딩 최적화 (Pretendard는 그대로 jsdelivr에서 사용)
+     ① 첫 화면을 먼저 그린 뒤 Pretendard CSS를 불러옴(첫 화면 표시를 막지 않음) + jsdelivr 미리 연결
+     ② 첫 화면(머리말·대문·떠 있는 버튼) 글자에 필요한 Pretendard 조각을 모두 받은 뒤 한 번에 전환(조각마다 줄바꿈이 바뀌며 화면이 밀리는 것 방지) · 6초 안에 못 받으면 그때부터 기존처럼 전환
+     ③ 그동안 보이는 대체 글꼴 중 맑은 고딕(Windows)만 한글·영문을 84%로 맞춰 Pretendard와 줄바꿈을 같게 함(☎ 같은 기호는 원래 크기)
+     · 자바스크립트가 꺼져 있으면 noscript로 기존처럼 바로 불러옴 · 되돌리기: 이 블록 전체를 아래 한 줄로 교체
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"> -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<style>
+@font-face{font-family:"Malgun Gothic";src:local("Malgun Gothic");font-weight:100 550}
+@font-face{font-family:"Malgun Gothic";src:local("Malgun Gothic Bold");font-weight:551 1000}
+@font-face{font-family:"Malgun Gothic";src:local("Malgun Gothic");font-weight:100 550;size-adjust:84%;unicode-range:U+0000-00FF,U+2000-206F,U+1100-11FF,U+3130-318F,U+AC00-D7A3}
+@font-face{font-family:"Malgun Gothic";src:local("Malgun Gothic Bold");font-weight:551 1000;size-adjust:84%;unicode-range:U+0000-00FF,U+2000-206F,U+1100-11FF,U+3130-318F,U+AC00-D7A3}
+html.pf-wait body, html.pf-wait body *{font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif !important}
+</style>
+<script>(function(){var d=document,h=d.documentElement,u='https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css',done=false;h.classList.add('pf-wait');
+function show(){if(!done){done=true;h.classList.remove('pf-wait');}}
+function load(){var l=d.createElement('link');l.rel='stylesheet';l.href=u;l.onload=function(){var t='';['header','#hero-slider','.sig-float','.hero-overlap-cards'].forEach(function(q){var e=d.querySelector(q);if(e)t+=e.textContent;});try{Promise.all(['400','700','900'].map(function(w){return d.fonts.load(w+' 1em "Pretendard Variable"',t);})).then(show,show);}catch(e){show();}};l.onerror=show;d.head.appendChild(l);setTimeout(show,6000);}
+function go(){requestAnimationFrame(function(){setTimeout(load,0);});}
+if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',go);}else{go();}})();</script>
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
 <link rel="stylesheet" href="css/style.css">
 
 </head>

@@ -8034,3 +8034,31 @@ body.page-area.page-region #consult-check .mt-check-grid > li.mt-check { justify
 @media (min-width: 1025px) and (max-width: 1359px) {
   body.page-area-hub main .container { width: min(1160px, calc(100% - 200px)); }
 }
+/* ---------- [271차] 상담 신청서 디자인(consult.html .consult-form.cf-v2 전용 — 다른 페이지 영향 없음)
+   · 가운데 제목 영역(배지·제목·안내) · 입력 칸 여백 정리 · 관심 과목 버튼(.cf-chip) · 동의 2개 상자 간격 · '무료 상담 신청하기' 버튼
+   · 네이비 #102a4b · 골드 #b78a46/#8f6b2f · 크림 #faf7f1/#fdfcf9 기존 색 그대로 / 입력 칸·검증·동의 기능은 HTML·JS 그대로
+   되돌리기: 이 블록 삭제 + consult.html 폼 머리말·순서를 git 94fdfb5 상태로 */
+.consult-form.cf-v2 { padding: 40px 40px 36px; border-top: 4px solid #b78a46; }
+.cf-v2 .cf-head { margin: 0 0 26px; padding: 0 0 22px; border-bottom: 1px solid #efe7da; text-align: center; }
+.cf-v2 .cf-badge { display: inline-block; padding: 5px 12px; border-radius: 999px; background: #f7f1e7; color: #8f6b2f; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; }
+.consult-form.cf-v2 .cf-head h2 { margin: 12px 0 8px; color: #102a4b; font-size: 28px; letter-spacing: -0.03em; }
+.cf-v2 .cf-lead { margin: 0; color: #4b5563; font-size: 15.5px; line-height: 1.6; word-break: keep-all; }
+.cf-v2 .cf-req-note { margin: 10px 0 0; color: #8a909c; font-size: 12.5px; }
+.cf-v2 .cf-compact { gap: 20px 18px; }
+.cf-v2 .cf-opt { color: #8a909c; font-size: 12.5px; font-weight: 600; }
+.cf-v2 .cf-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.cf-v2 .cf-chip { padding: 9px 16px; border: 1px solid #ddd3c3; border-radius: 999px; background: #fdfcf9; color: #4b5563; font: inherit; font-size: 14px; font-weight: 700; line-height: 1.2; cursor: pointer; transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease; }
+.cf-v2 .cf-chip:hover { border-color: #b78a46; color: #102a4b; }
+.cf-v2 .cf-chip[aria-pressed="true"] { border-color: #102a4b; background: #102a4b; color: #fff; }
+.cf-v2 .cf-chip:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(183, 138, 70, 0.3); }
+.cf-v2 .agree-box { border: 1px solid #efe7da; }
+.cf-v2 .agree-transfer { margin-top: -6px; }
+.cf-v2 .form-submit .btn-navy { min-height: 58px; border-radius: 14px; font-size: 17px; font-weight: 800; letter-spacing: -0.01em; }
+@media (max-width: 640px) {
+  .consult-form.cf-v2 { padding: 28px 18px 24px; }
+  .cf-v2 .cf-head { margin-bottom: 20px; padding-bottom: 18px; }
+  .consult-form.cf-v2 .cf-head h2 { font-size: 23px; }
+  .cf-v2 .cf-lead { font-size: 14.5px; }
+  .cf-v2 .cf-compact { gap: 16px; }
+  .cf-v2 .cf-chip { padding: 9px 14px; font-size: 13.5px; }
+}

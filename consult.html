@@ -74,24 +74,31 @@
       <!-- [97차] js/script.js의 MAKE_WEBHOOK_URL(Make Webhook → Discord 상담문의 채널)로만 전송합니다.
            [224차] 구 Google Sheets(Apps Script) 접수 경로·연결 안내(docs/) 삭제 -->
 
-      <form class="consult-form" id="consultForm" method="post" autocomplete="on">
-        <h2>상담 신청서</h2>
-        <p><span class="req" aria-hidden="true">*</span> 표시는 필수 입력 항목입니다.</p>
+      <!-- [271차] 상담 신청서 디자인 개선: 제목·안내 / 학생 이름·연락처(PC 2열) / 지역 / 학년·학교(PC 2열) / 관심 과목 버튼 / 신청자 확인 / 동의 2개(별도) / '무료 상담 신청하기'
+           입력 칸 name·id·검증·Make 전송 필드 11개·동의 기록은 그대로 (스타일은 css/style.css [271차] 블록, .cf-v2 범위만) -->
+      <form class="consult-form cf-v2" id="consultForm" method="post" autocomplete="on">
+        <div class="cf-head">
+          <span class="cf-badge">FREE CONSULTATION</span>
+          <h2>시그니처과외 무료 상담</h2>
+          <p class="cf-lead">학생의 학습 상황을 남겨주시면 순차적으로 연락드립니다.</p>
+          <p class="cf-req-note"><span class="req" aria-hidden="true">*</span> 표시는 필수 입력 항목입니다.</p>
+        </div>
         <!-- [102차] 상담폼 간소화: 학생이름 / 지역·학교 / 학년·문의과목 / 휴대폰번호 / 신청자(학부모·학생) / 개인정보 동의 (수업 방식·기타 요청사항 삭제)
              Make 전송 필드명(name·phone·grade·subject·region·message)은 그대로 · message = "학교: ○○ / 신청자: 학부모" (js/script.js) -->
         <div class="form-grid cf-compact">
-          <div class="form-field full">
-            <label for="cfName">학생이름<span class="req" aria-hidden="true">*</span></label>
+          <div class="form-field">
+            <label for="cfName">학생 이름<span class="req" aria-hidden="true">*</span></label>
             <input type="text" id="cfName" name="name" maxlength="30" placeholder="학생 이름" autocomplete="off" required><!-- [269차] 브라우저가 신청자(학부모) 본인 이름을 자동으로 채우지 않도록 autocomplete=off -->
           </div>
           <div class="form-field">
+            <label for="cfPhone">연락받을 휴대폰번호<span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="cfPhone" name="phone" inputmode="numeric" maxlength="13" placeholder="010-0000-0000" autocomplete="tel" pattern="01[0-9]-?[0-9]{3,4}-?[0-9]{4}" aria-describedby="cfPhoneHint" required>
+            <p class="form-hint" id="cfPhoneHint">학부모 신청은 학부모 번호, 학생 본인 신청은 학생 번호</p>
+          </div>
+          <div class="form-field full">
             <label for="cfRegion">지역<span class="req" aria-hidden="true">*</span></label>
             <input type="text" id="cfRegion" name="region" maxlength="100" placeholder="예: 부산광역시 부산진구 부암동 / ○○아파트" autocomplete="address-level2" aria-describedby="cfRegionHint" required>
             <p class="form-hint" id="cfRegionHint">시·도, 시·구, 동까지 (아파트명은 선택)</p><!-- [99차] 시·도 + 시·구 + 동 기준 — 형식 확인은 js/script.js looksRegion -->
-          </div>
-          <div class="form-field">
-            <label for="cfSchool">학교</label>
-            <input type="text" id="cfSchool" name="school" maxlength="40" placeholder="학교명" autocomplete="off">
           </div>
           <div class="form-field">
             <label for="cfGrade">학년<span class="req" aria-hidden="true">*</span></label>
@@ -112,13 +119,23 @@
             </select>
           </div>
           <div class="form-field">
-            <label for="cfSubject">문의과목<span class="req" aria-hidden="true">*</span></label>
-            <input type="text" id="cfSubject" name="subject" maxlength="50" placeholder="예: 수학, 영어" required>
+            <label for="cfSchool">학교 <small class="cf-opt">(선택)</small></label>
+            <input type="text" id="cfSchool" name="school" maxlength="40" placeholder="학교명" autocomplete="off">
           </div>
+          <!-- [271차] 관심 과목: 버튼을 누르면 아래 칸(subject)에 넣고 빼기 · 직접 입력도 가능 · 전송 값은 기존과 같은 subject 글자 (js/script.js) -->
           <div class="form-field full">
-            <label for="cfPhone">연락받을 휴대폰번호<span class="req" aria-hidden="true">*</span></label>
-            <input type="tel" id="cfPhone" name="phone" inputmode="numeric" maxlength="13" placeholder="010-0000-0000" autocomplete="tel" pattern="01[0-9]-?[0-9]{3,4}-?[0-9]{4}" aria-describedby="cfPhoneHint" required>
-            <p class="form-hint" id="cfPhoneHint">학부모가 신청하면 학부모 번호, 학생 본인이 신청하면 학생 번호를 적어 주세요.</p>
+            <label for="cfSubject">관심 과목<span class="req" aria-hidden="true">*</span></label>
+            <div class="cf-chips" role="group" aria-label="관심 과목 선택">
+              <button type="button" class="cf-chip" data-subject="국어" aria-pressed="false">국어</button>
+              <button type="button" class="cf-chip" data-subject="영어" aria-pressed="false">영어</button>
+              <button type="button" class="cf-chip" data-subject="수학" aria-pressed="false">수학</button>
+              <button type="button" class="cf-chip" data-subject="과학" aria-pressed="false">과학</button>
+              <button type="button" class="cf-chip" data-subject="사회·한국사" aria-pressed="false">사회·한국사</button>
+              <button type="button" class="cf-chip" data-subject="영어회화" aria-pressed="false">영어회화</button>
+              <button type="button" class="cf-chip" data-subject="코딩" aria-pressed="false">코딩</button>
+              <button type="button" class="cf-chip" data-subject="검정고시" aria-pressed="false">검정고시</button>
+            </div>
+            <input type="text" id="cfSubject" name="subject" maxlength="50" placeholder="위에서 고르거나 직접 입력 (예: 수학, 영어)" required>
           </div>
           <!-- [269차] 신청자 확인: 학생 본인 신청 → 만 14세 이상 여부 선택(미만이면 신청 차단) / 학부모 신청 → 법정대리인 확인(동의 칸) · 학년으로 나이를 추정하지 않음 · 보이기/숨기기·검사는 js/script.js -->
           <div class="form-field full cf-inline">
@@ -156,7 +173,7 @@
                고지 내용을 바꾸면 privacy.html 5번과 js/script.js CONSENT_VERSION도 함께 바꿀 것 -->
           <div class="agree-box agree-transfer">
             <label><input type="checkbox" name="agree_transfer"> [필수] 개인정보 국외 이전에 동의합니다.</label>
-            <p class="agree-sum">신청서는 해외 서비스 Make(EU 지역)와 Discord(미국 등)를 거쳐 운영자에게 전달됩니다.</p>
+            <p class="agree-sum">상담 신청 내용을 담당자에게 전달하기 위해 해외 서비스(Make·Discord)를 이용합니다. (Make: EU 지역 · Discord: 미국 등)</p>
             <details>
               <summary>국외 이전 내용 보기</summary>
               <ul>
@@ -177,7 +194,7 @@
           </div>
           <div class="form-message" role="status" aria-live="polite"></div>
           <div class="form-submit">
-            <button type="submit" class="btn-navy">상담 신청하기</button>
+            <button type="submit" class="btn-navy">무료 상담 신청하기</button>
           </div>
           <noscript><p class="form-hint">브라우저에서 자바스크립트가 꺼져 있어 신청서를 보낼 수 없습니다. 전화·카카오톡 상담을 이용해 주세요.</p></noscript><!-- [269차] JS 미실행 시 전송 불가 안내 -->
         </div>

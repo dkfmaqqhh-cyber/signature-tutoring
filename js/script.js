@@ -370,6 +370,22 @@ window.addEventListener("load", function(){
   form.addEventListener('change', function (e) { if (e.target && e.target.name === 'applicant') syncApplicant(); });
   syncApplicant();
 
+  /* [271차] 관심 과목 버튼(.cf-chip): 누르면 subject 칸에 과목을 넣고 빼기("수학, 영어") · 직접 입력과 함께 사용 · 버튼이 없으면 아무 일도 하지 않음 */
+  var chips = form.querySelectorAll('.cf-chip[data-subject]');
+  function subjTokens() { return f.subject.value.split(',').map(function (s) { return s.trim(); }).filter(Boolean); }
+  function syncChips() {
+    var t = subjTokens();
+    for (var i = 0; i < chips.length; i++) chips[i].setAttribute('aria-pressed', t.indexOf(chips[i].getAttribute('data-subject')) >= 0 ? 'true' : 'false');
+  }
+  for (var ci = 0; ci < chips.length; ci++) chips[ci].addEventListener('click', function () {
+    var s = this.getAttribute('data-subject'), t = subjTokens(), k = t.indexOf(s);
+    if (k >= 0) t.splice(k, 1); else t.push(s);
+    f.subject.value = t.join(', ').slice(0, 50);
+    f.subject.removeAttribute('aria-invalid');
+    syncChips();
+  });
+  f.subject.addEventListener('input', syncChips);
+
   /* [102차] 간소화한 폼에는 문의내용 칸이 없으므로 message = "학교: ○○ / 신청자: 학부모" (학교 미입력 시 '미입력')
      [269차] 신청자 뒤에 확인 내용을 붙임: "신청자: 학부모(법정대리인 확인)" / "신청자: 학생(만 14세 이상 확인)" — applicant_type 값(학부모·학생)은 그대로 */
   /* [269·270 마무리] 동의 기록: 기존 Make 전송 필드 11개는 그대로 두고 message 끝에 "동의: 수집·이용, 국외 이전(고지 2026-10-25판)"을 붙임
@@ -425,6 +441,7 @@ window.addEventListener("load", function(){
     var invalid = form.querySelectorAll('[aria-invalid]');
     for (var k = 0; k < invalid.length; k++) invalid[k].removeAttribute('aria-invalid');
     syncApplicant(); /* [269차] 신청자 선택이 초기화되면 확인 칸도 숨김 */
+    syncChips(); /* [271차] 과목 버튼 선택 표시도 초기화 */
     loadedAt = Date.now();
   }
 
@@ -442,7 +459,7 @@ window.addEventListener("load", function(){
     if (!region) return fail(f.region, '지역을 입력해 주세요.');
     if (!looksRegion(region)) return fail(f.region, '지역은 시·도, 시·구, 동까지 입력해 주세요. (예: 부산광역시 부산진구 부암동)');
     if (!f.grade.value) return fail(f.grade, '학년을 선택해 주세요.');
-    if (!f.subject.value.trim()) return fail(f.subject, '문의 과목을 입력해 주세요.');
+    if (!f.subject.value.trim()) return fail(f.subject, '관심 과목을 고르거나 입력해 주세요.');
     if (!/^01[0-9]{8,9}$/.test(phone)) return fail(f.phone, '휴대폰번호를 정확히 입력해 주세요. (예: 010-1234-5678)');
     if (!f.applicant.value) return fail(f.applicant, '신청자(학부모 · 학생)를 선택해 주세요.');
     /* [269차] 만 14세 미만 학생 본인 신청 차단 · 학부모 신청은 법정대리인 확인 필수 */

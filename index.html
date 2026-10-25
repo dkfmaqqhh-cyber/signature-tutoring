@@ -87,8 +87,11 @@ html.pf-wait body, html.pf-wait body *{font-family:"Apple SD Gothic Neo","Malgun
 <script>(function(){var d=document,h=d.documentElement,u='https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css',done=false;h.classList.add('pf-wait');
 function show(){if(!done){done=true;h.classList.remove('pf-wait');}}
 function load(){var l=d.createElement('link');l.rel='stylesheet';l.href=u;l.onload=function(){var t='';['header','#hero-slider','.sig-float','.hero-overlap-cards'].forEach(function(q){var e=d.querySelector(q);if(e)t+=e.textContent;});try{Promise.all(['400','700','900'].map(function(w){return d.fonts.load(w+' 1em "Pretendard Variable"',t);})).then(show,show);}catch(e){show();}};l.onerror=show;d.head.appendChild(l);setTimeout(show,6000);}
-function go(){requestAnimationFrame(function(){setTimeout(load,0);});}
-if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',go);}else{go();}})();</script>
+var started=false;function start(){if(!started){started=true;setTimeout(load,0);}}
+var P=window.PerformanceObserver,ok=P&&P.supportedEntryTypes&&P.supportedEntryTypes.indexOf('paint')>=0;
+if(ok){new P(function(l){l.getEntries().forEach(function(e){if(e.name==='first-contentful-paint')start();});}).observe({type:'paint',buffered:true});}
+else{var go=function(){requestAnimationFrame(function(){setTimeout(start,0);});};if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',go);}else{go();}}
+})();</script><!-- [279차] 글꼴 불러오기 시작 시점을 '첫 화면이 실제로 그려진 뒤(first-contentful-paint)'로 확정 · paint 기록을 지원하지 않는 브라우저는 기존 방식(DOMContentLoaded 다음 프레임) -->
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
 <link rel="stylesheet" href="css/style.css">
 
@@ -162,7 +165,7 @@ if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',go);}else{go(
     </div>
     <div class="about-hero-fixed-visual">
       <div class="about-hero-fixed-photo-frame">
-        <img loading="lazy" decoding="async" src="images/signature-teacher-team.png" alt="과외마루 선생님들" class="about-hero-fixed-photo about-team-photo">
+        <img loading="lazy" decoding="async" src="images/signature-teacher-team.webp" alt="과외마루 선생님들" class="about-hero-fixed-photo about-team-photo"><!-- [279차] PNG 2.1MB → 같은 크기 WebP 105KB(원본 .png는 보관) -->
       </div>
     </div>
   </div>

@@ -8106,6 +8106,9 @@ body.page-area.page-region #consult-check .mt-check-grid > li.mt-check { justify
   .cf-compact .form-field.cf-inline { gap: 10px; }
   .cf-v2 .choice-row span { padding: 8px 13px; white-space: nowrap; }
 }
+/* [274차] 국외 이전: 체크박스 없는 안내 줄(.cf-transfer-note) — 제목·요약을 왼쪽 끝에 맞춤 */
+.cf-v2 .cf-transfer-title { margin: 0; color: #28364e; font-size: 14px; font-weight: 800; }
+.cf-v2 .cf-transfer-note .agree-sum { margin-left: 0; }
 /* ---------- [273차] 상담 페이지(consult.html) 상단: 제목 '상담 신청'만 남기고 바로 신청서로 이어지게 여백 축소 · 같은 크림 배경으로 경계선 없이 연결
    되돌리기: 이 블록 삭제 + consult.html 상단·5단계 섹션을 커밋 ae0e8cc 상태로 */
 .page-hero.consult-hero { padding: 44px 0 20px; background: #fbf8f3; border-bottom: 0; }

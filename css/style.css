@@ -7762,9 +7762,7 @@ body.page-subject .mt-school-wrap.gr-school-one.is-compact { max-width: 960px; }
 /* ---------- [190-2차] 상담 페이지 바로 상담 링크·5단계 흐름 + 서울 구 페이지(허브 page-gu-hub · 과목/학년/사회 page-subarea.page-subject) 떠 있는 버튼 글자 가림 방지
    · 1024px 이하에서만: 떠 있는 버튼 52px·오른쪽 8px로 소폭 축소 + 본문 컨테이너 오른쪽 여백 64px (HERO 제외) · 서울 외 지역(page-subject 없음)과 PC 1025px 이상은 영향 없음
    되돌리기: 이 블록 삭제 */
-.consult-quick { margin: 14px 0 0; font-size: 15px; font-weight: 700; color: #10233F; }
-.consult-quick a { color: #10233F; text-decoration: underline; text-underline-offset: 3px; }
-.consult-flow .mt-check p { margin: 0; color: #4B5563; font-size: 14px; line-height: 1.6; text-align: center; word-break: keep-all; }
+/* [273차] 상담 페이지 '바로 상담하기' 줄(.consult-quick)·5단계 섹션(.consult-flow) 삭제에 따라 해당 규칙 3줄 삭제 */
 /* PC에서 학교 출처 안내문(.ar-topic-note)이 오른쪽 떠 있는 버튼 아래까지 길게 이어지지 않도록 폭 제한 (서울 과목·학년·사회 페이지만) */
 body.page-subarea.page-subject .ar-topic-note, body.page-subarea.page-subject .ar-cta-box h2 { max-width: 900px; margin-left: auto; margin-right: auto; }
 @media (max-width: 1024px) {
@@ -8107,4 +8105,15 @@ body.page-area.page-region #consult-check .mt-check-grid > li.mt-check { justify
   .cf-v2 .cf-consent { padding: 10px 12px 2px; }
   .cf-compact .form-field.cf-inline { gap: 10px; }
   .cf-v2 .choice-row span { padding: 8px 13px; white-space: nowrap; }
+}
+/* ---------- [273차] 상담 페이지(consult.html) 상단: 제목 '상담 신청'만 남기고 바로 신청서로 이어지게 여백 축소 · 같은 크림 배경으로 경계선 없이 연결
+   되돌리기: 이 블록 삭제 + consult.html 상단·5단계 섹션을 커밋 ae0e8cc 상태로 */
+.page-hero.consult-hero { padding: 44px 0 20px; background: #fbf8f3; border-bottom: 0; }
+.page-hero.no-visual.consult-hero .page-hero-inner { max-width: none; }
+.page-hero.consult-hero h1 { margin: 0; font-size: 38px; }
+.page-section.consult-main { padding-top: 0; }
+@media (max-width: 640px) {
+  .page-hero.consult-hero { padding: 26px 0 14px; }
+  .page-hero.consult-hero h1 { font-size: 28px; }
+  .page-section.consult-main { padding-bottom: 48px; }
 }

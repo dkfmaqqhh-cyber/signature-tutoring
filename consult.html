@@ -82,7 +82,7 @@
         <div class="form-grid cf-compact">
           <div class="form-field full">
             <label for="cfName">학생이름<span class="req" aria-hidden="true">*</span></label>
-            <input type="text" id="cfName" name="name" maxlength="30" placeholder="학생 이름" autocomplete="name" required>
+            <input type="text" id="cfName" name="name" maxlength="30" placeholder="학생 이름" autocomplete="off" required><!-- [269차] 브라우저가 신청자(학부모) 본인 이름을 자동으로 채우지 않도록 autocomplete=off -->
           </div>
           <div class="form-field">
             <label for="cfRegion">지역<span class="req" aria-hidden="true">*</span></label>
@@ -116,27 +116,58 @@
             <input type="text" id="cfSubject" name="subject" maxlength="50" placeholder="예: 수학, 영어" required>
           </div>
           <div class="form-field full">
-            <label for="cfPhone">휴대폰번호<span class="req" aria-hidden="true">*</span></label>
-            <input type="tel" id="cfPhone" name="phone" inputmode="numeric" maxlength="13" placeholder="010-0000-0000" autocomplete="tel" pattern="01[0-9]-?[0-9]{3,4}-?[0-9]{4}" required>
+            <label for="cfPhone">연락받을 휴대폰번호<span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="cfPhone" name="phone" inputmode="numeric" maxlength="13" placeholder="010-0000-0000" autocomplete="tel" pattern="01[0-9]-?[0-9]{3,4}-?[0-9]{4}" aria-describedby="cfPhoneHint" required>
+            <p class="form-hint" id="cfPhoneHint">학부모가 신청하면 학부모 번호, 학생 본인이 신청하면 학생 번호를 적어 주세요.</p>
           </div>
+          <!-- [269차] 신청자 확인: 학생 본인 신청 → 만 14세 이상 여부 선택(미만이면 신청 차단) / 학부모 신청 → 법정대리인 확인(동의 칸) · 학년으로 나이를 추정하지 않음 · 보이기/숨기기·검사는 js/script.js -->
           <div class="form-field full cf-inline">
             <span class="form-label" id="cfApplicantLabel">신청자<span class="req" aria-hidden="true">*</span></span>
             <div class="choice-row" role="radiogroup" aria-labelledby="cfApplicantLabel">
               <label><input type="radio" name="applicant" value="학부모" required><span>학부모</span></label>
-              <label><input type="radio" name="applicant" value="학생"><span>학생</span></label>
+              <label><input type="radio" name="applicant" value="학생"><span>학생 본인</span></label>
             </div>
           </div>
+          <div class="form-field full cf-inline cf-age" id="cfAgeBox" hidden>
+            <span class="form-label" id="cfAgeLabel">학생 나이<span class="req" aria-hidden="true">*</span></span>
+            <div class="choice-row" role="radiogroup" aria-labelledby="cfAgeLabel" aria-describedby="cfAgeHint">
+              <label><input type="radio" name="age14" value="over"><span>만 14세 이상</span></label>
+              <label><input type="radio" name="age14" value="under"><span>만 14세 미만</span></label>
+            </div>
+            <p class="form-hint" id="cfAgeHint">만 14세 미만 학생은 법정대리인(부모 등)의 동의가 필요해 학부모님이 신청해 주셔야 합니다.</p>
+          </div>
           <div class="agree-box">
+            <label id="cfGuardianBox" hidden><input type="checkbox" name="guardian"> [필수] 학생의 법정대리인(부모 등)으로서 학생의 정보를 대신 제공하고 동의합니다.</label>
             <label><input type="checkbox" name="agree" required> [필수] 개인정보 수집·이용에 동의합니다.</label>
+            <p class="agree-sum">상담 안내 목적 · 보관: 수업 미연결 시 접수일부터 6개월, 수업 연결 시 수업 종료 시까지</p>
             <details>
               <summary>수집·이용 내용 보기</summary>
               <ul>
-                <li>수집 목적: 과외 상담 신청 확인 및 상담 안내, 방문수업 가능 여부 및 수업 상담을 위한 지역 확인</li>
-                <li>수집 항목: 학생 이름, 휴대폰번호, 학년, 문의 과목, 지역(시·도, 시·구, 동 / 아파트 거주 시 아파트 이름 선택), 학교(선택), 신청자 구분(학부모·학생), 접수 관련 시스템 정보</li>
-                <li>보유 기간: 개인정보처리방침에 따릅니다.</li>
-                <li>동의를 거부할 수 있으며, 거부 시 온라인 상담 신청이 제한됩니다.</li>
+                <li>목적: 상담 신청 확인과 연락, 수업 안내, 방문수업 가능 지역 확인</li>
+                <li>항목: 학생 이름, 연락받을 휴대폰번호, 학년, 문의 과목, 지역(시·도, 시·구, 동 / 아파트 이름은 선택), 학교(선택), 신청자 구분과 확인 내용, 접수 시각·신청 페이지</li>
+                <li>보관 기간: 수업이 연결되지 않으면 상담 접수일부터 6개월, 수업이 연결되면 수업 종료 시까지 보관한 뒤 삭제합니다. 법령상 보존해야 하는 기록은 해당 기간 동안 별도 보관합니다.</li>
+                <li>동의를 거부할 수 있으며, 거부하시면 온라인 상담 신청이 제한됩니다.</li>
+                <li>신청서는 해외 서비스(Make·Discord)를 거쳐 운영자에게 전달되며, 이 국외 이전은 아래에서 따로 동의를 받습니다.</li>
               </ul>
               <p class="agree-link"><a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침 전문 보기 (새 창)</a></p><!-- [102차] 링크를 '수집·이용 내용 보기' 안으로 옮겨 동의 영역을 짧게 -->
+            </details>
+          </div>
+          <!-- [269·270 마무리] 개인정보 국외 이전 별도 동의(개인정보 보호법 제28조의8 제1항 제1호 · 제2항 5개 항목 고지) · 기본 미선택 · 동의하지 않으면 js/script.js가 Make로 전송하지 않음
+               고지 내용을 바꾸면 privacy.html 5번과 js/script.js CONSENT_VERSION도 함께 바꿀 것 -->
+          <div class="agree-box agree-transfer">
+            <label><input type="checkbox" name="agree_transfer"> [필수] 개인정보 국외 이전에 동의합니다.</label>
+            <p class="agree-sum">신청서는 해외 서비스 Make(EU 지역)와 Discord(미국 등)를 거쳐 운영자에게 전달됩니다.</p>
+            <details>
+              <summary>국외 이전 내용 보기</summary>
+              <ul>
+                <li>이전 항목: 이 신청서의 입력 항목과 신청자 확인 내용, 접수 시각·신청 페이지</li>
+                <li>이전받는 자·연락처: Celonis, Inc.(Make, privacy@make.com) / Discord Inc.(privacy@discord.com)</li>
+                <li>이전 국가: Make는 유럽연합(EU) 지역 데이터센터(운영사 소재지 미국) / Discord는 미국 등</li>
+                <li>시기·방법: 신청서 제출 즉시 암호화 연결(HTTPS)로 Make에 전송되고, Make가 운영자의 Discord 채널로 자동 전달</li>
+                <li>이용 목적: 상담 신청서 접수·전달과 운영자 확인</li>
+                <li>보유 기간: Make는 실행 기록에 신청 내용을 저장하지 않도록 설정했으며 서비스 계약 기간 동안만 처리 / Discord는 수업 미연결 시 접수일부터 6개월, 수업 연결 시 수업 종료 시까지 보관 후 운영자가 삭제</li>
+                <li>거부 방법·불이익: 동의하지 않으시면 신청서가 전송되지 않습니다. 이 경우 전화 상담으로 신청해 주세요.</li>
+              </ul>
             </details>
           </div>
           <!-- [14.5차] 스팸 방지용 숨김 칸(honeypot): 사람에게 보이지 않음. 값이 들어오면 전송하지 않음 -->
@@ -148,6 +179,7 @@
           <div class="form-submit">
             <button type="submit" class="btn-navy">상담 신청하기</button>
           </div>
+          <noscript><p class="form-hint">브라우저에서 자바스크립트가 꺼져 있어 신청서를 보낼 수 없습니다. 전화·카카오톡 상담을 이용해 주세요.</p></noscript><!-- [269차] JS 미실행 시 전송 불가 안내 -->
         </div>
       </form>
 

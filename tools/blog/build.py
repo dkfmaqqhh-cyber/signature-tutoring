@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""시그니처과외 학습정보 자동 발행 도구.
+"""과외마루 학습정보 자동 발행 도구.
 
 사용법:
   python3 tools/blog/build.py tools/blog/posts/<slug>.json      # 글 생성 + 목록·사이트맵·로드맵 반영
@@ -101,8 +101,8 @@ def build_post(spec, today):
     iso = today.isoformat()
     tpl = tpl.replace('"inLanguage": "ko-KR",\n      "articleSection"',
                       f'"inLanguage": "ko-KR",\n      "datePublished": "{iso}",\n      "dateModified": "{iso}",\n      "articleSection"', 1)
-    tpl = tpl.replace('<div class="post-meta"><span>시그니처과외 학습정보</span></div>',
-                      f'<div class="post-meta"><span>시그니처과외 학습정보</span><span>작성일 {today:%Y.%m.%d}</span></div>', 1)
+    tpl = tpl.replace('<div class="post-meta"><span>과외마루 학습정보</span></div>',
+                      f'<div class="post-meta"><span>과외마루 학습정보</span><span>작성일 {today:%Y.%m.%d}</span></div>', 1)
     (ROOT / "info" / f"{slug}.html").write_text(tpl, encoding="utf-8")
     return tpl
 

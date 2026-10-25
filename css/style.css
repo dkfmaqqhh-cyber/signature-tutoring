@@ -2867,7 +2867,7 @@ main section[id],
   }
 }
 
-/* ===== 숫자 영역 (SIGNATURE DATA) 새 디자인 ===== */
+/* ===== 숫자 영역 (GWAOEMARU DATA) 새 디자인 ===== */
 .sig-stats-section {
   padding: 28px 0 44px !important;
   background: transparent !important;
@@ -6245,7 +6245,7 @@ body.page-visit main .vs-fit .check-item { padding: 15px 20px; font-size: 17px; 
   .vs-grade-points li::before { font-size: 15px; }
 }
 
-/* ---------- [81차] 방문과외 + 실시간 화상수업 통합 페이지 (tutoring/index.html, body.page-visit.page-tutoring): 방문과외 확정 디자인 재사용 + 수업방식 탭 · 선택 카드 · 공통 핵심 · 배지 · 시그니처 2카드 · 비교 하단 CTA
+/* ---------- [81차] 방문과외 + 실시간 화상수업 통합 페이지 (tutoring/index.html, body.page-visit.page-tutoring): 방문과외 확정 디자인 재사용 + 수업방식 탭 · 선택 카드 · 공통 핵심 · 배지 · 과외마루 2카드 · 비교 하단 CTA
    되돌리기: 이 블록 삭제 + tutoring/index.html 삭제 + backup/81차수정전 파일 복원 */
 body.page-tutoring [id] { scroll-margin-top: 84px; }
 /* 대문: 수업방식 선택 탭 */
@@ -6279,7 +6279,7 @@ body.page-tutoring .vs-hf-lead { margin-bottom: 22px; }
 .tu-core-ico svg { width: 30px; height: 30px; }
 .tu-core-item strong { color: #16233a; font-size: 20px; font-weight: 800; letter-spacing: -0.03em; word-break: keep-all; }
 .tu-core-item p { margin: 10px 0 0; color: #4e5a6b; font-size: 16px; line-height: 1.65; word-break: keep-all; }
-/* 시그니처수업: 방문/화상 큰 카드 2개 */
+/* 과외마루 수업: 방문/화상 큰 카드 2개 */
 @media (max-width: 1199px) {
   .tu-mode-tabs { margin-bottom: 24px; }
 }
@@ -6308,7 +6308,7 @@ body.page-tutoring .vs-hf-lead { margin-bottom: 22px; }
   .tu-core-item p { align-self: start; margin-top: 4px; font-size: 15px; }
 }
 
-/* ---------- [82차] 통합 과외 페이지(body.page-tutoring) 다듬기: 두 가지 방식 카드 대표 이미지·가운데 정렬 / 추천합니다!! 이미지:카드 50:50·높이 맞춤·공통 카드 / 시그니처수업 글자 확대·가운데 정렬·핵심 키워드 색 강조
+/* ---------- [82차] 통합 과외 페이지(body.page-tutoring) 다듬기: 두 가지 방식 카드 대표 이미지·가운데 정렬 / 추천합니다!! 이미지:카드 50:50·높이 맞춤·공통 카드 / 과외마루 수업 글자 확대·가운데 정렬·핵심 키워드 색 강조
    (비교 섹션은 HTML에서 삭제, 전용 스타일 .tu-compare-cta·.tu-badge 함께 삭제 · .vs-compare는 tutoring/visit.html에서 계속 사용)
    되돌리기: 이 블록 삭제 + backup/82차수정전 파일 복원 */
 /* 두 가지 방식: 이미지가 핵심 비주얼 */
@@ -6327,7 +6327,7 @@ body.page-tutoring #recommended .vs-fit-img img { height: 100%; aspect-ratio: au
 body.page-tutoring #recommended .check-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 12px; }
 body.page-tutoring main #recommended .vs-fit .check-item { flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 20px 18px; font-size: 17px; text-align: center; word-break: keep-all; border-radius: 18px; }
 body.page-tutoring main #recommended .vs-fit .check-item::before { flex: none; width: 30px; height: 30px; }
-/* 시그니처수업: 제목·설명 확대, 카드 제목·설명 가운데, 핵심 키워드 색 강조 */
+/* 과외마루 수업: 제목·설명 확대, 카드 제목·설명 가운데, 핵심 키워드 색 강조 */
 @media (max-width: 980px) {
   body.page-tutoring #recommended .vs-fit { grid-template-columns: 1fr; }
   body.page-tutoring #recommended .vs-fit-img { height: auto; }
@@ -6389,8 +6389,8 @@ body.page-tutoring .vs-hf-btn { min-height: 56px; }
   .tu-stats { margin-top: 22px; padding: 16px 18px 14px 0; border-radius: 0 18px 18px 0; background: var(--hf-navy, #133d65); }
 }@media (min-width: 1500px) { .tu-stats { width: 690px; } .tu-stats li { padding-left: 20px; } .tu-stats li:first-child { padding-left: 0; } }
 
-/* ---------- [84차] 통합 1:1수업(body.page-tutoring): 섹션 순서 재배치 · 두가지 방식 카드에 핵심 키워드 통합(시그니처수업 섹션 삭제) · 추천 카드 의미별 라인 아이콘 · REAL RESULTS 이동(과목과외 → 여기) · 섹션별 파스텔 배경
-   (기존 body.page-sj #results / .page-subject .rs-* 규칙은 선택자를 body.page-tutoring #results 로 바꿔 그대로 재사용 · 시그니처수업 전용 .tu-sig-* / .tu-cta-* 규칙 삭제)
+/* ---------- [84차] 통합 1:1수업(body.page-tutoring): 섹션 순서 재배치 · 두가지 방식 카드에 핵심 키워드 통합(과외마루 수업 섹션 삭제) · 추천 카드 의미별 라인 아이콘 · REAL RESULTS 이동(과목과외 → 여기) · 섹션별 파스텔 배경
+   (기존 body.page-sj #results / .page-subject .rs-* 규칙은 선택자를 body.page-tutoring #results 로 바꿔 그대로 재사용 · 과외마루 수업 전용 .tu-sig-* / .tu-cta-* 규칙 삭제)
    되돌리기: 이 블록 삭제 + backup/84차수정전 파일 복원 */
 /* 섹션 배경: 채도 낮은 파스텔 · 카드는 흰색 그대로 */
 body.page-tutoring main > section.page-section { border-top: 1px solid rgba(16, 42, 75, 0.05); }
@@ -6643,7 +6643,7 @@ body.page-tutoring main #areas { background: #fff; }
   .tu-area-tags li { padding: 6px 12px; font-size: 13.5px; }
 }
 
-/* ---------- [101차] 통합 1:1수업(body.page-tutoring): ① 수업 두가지 방식 카드 소개용으로 축소(PC 카드 폭 469→290px · 이미지 높이 292→155px · 섹션 여백 축소, 모바일은 1열·화면 폭 93% 유지하며 소폭만) ② '시그니처과외 가능 수업' 제목 확대·설명 삭제·카드 가운데 정렬 + 카드별 강조 배지·좌측 포인트 라인 ③ TRIAL CLASS "먼저 경험해보세요." 2초 주기 부드러운 pulse(버튼은 기존 그대로)
+/* ---------- [101차] 통합 1:1수업(body.page-tutoring): ① 수업 두가지 방식 카드 소개용으로 축소(PC 카드 폭 469→290px · 이미지 높이 292→155px · 섹션 여백 축소, 모바일은 1열·화면 폭 93% 유지하며 소폭만) ② '과외마루 가능 수업' 제목 확대·설명 삭제·카드 가운데 정렬 + 카드별 강조 배지·좌측 포인트 라인 ③ TRIAL CLASS "먼저 경험해보세요." 2초 주기 부드러운 pulse(버튼은 기존 그대로)
    되돌리기: 이 블록 삭제 + backup/101차수정전 파일 복원 */
 /* ① 수업 두가지 방식 */
 body.page-tutoring main #choose { padding-top: 44px; padding-bottom: 46px; }
@@ -6668,7 +6668,7 @@ body.page-tutoring .tu-choose-card .tu-kw li { padding: 6px 4px; border-radius: 
   body.page-tutoring .tu-choose-card ul.tu-kw { width: calc(100% - 36px); }
   body.page-tutoring .tu-choose-card .tu-kw li { padding: 8px 6px; font-size: 15px; }
 }
-/* ② 시그니처과외 가능 수업 */
+/* ② 과외마루 가능 수업 */
 body.page-tutoring #areas .section-head { margin-bottom: 32px; }
 body.page-tutoring #areas .section-head h2 { margin-bottom: 0; font-size: 46px; font-weight: 900; letter-spacing: -0.04em; }
 .tu-area { --area-c: #e0a800; --area-badge: #fff0bf; --area-badge-t: #7a5300; position: relative; align-items: center; gap: 0; padding: 30px 28px 30px 34px; border-left: 6px solid var(--area-c); text-align: center; }
@@ -6993,7 +6993,7 @@ body.page-region main .rg-gus { background: #FFFFFF; }
   body.page-area .ar-cta .ar-cta-btn { font-size: 14px; padding: 0 8px; gap: 4px; }
 }
 
-/* ---------- [113차] 지역 페이지 하단 '시그니처과외 수업 안내'(.sc-*): 수업 분야 4카드(PC 한 줄·모바일 1열) + 과외수업 전체 보기(상담 CTA보다 약한 테두리 버튼)
+/* ---------- [113차] 지역 페이지 하단 '과외마루 수업 안내'(.sc-*): 수업 분야 4카드(PC 한 줄·모바일 1열) + 과외수업 전체 보기(상담 CTA보다 약한 테두리 버튼)
    되돌리기: 이 블록 삭제 + backup/113차수정전 파일 복원 */
 body.page-area main .sc-sec { background: #FBF8F2; }
 .sc-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; max-width: 1080px; margin: 0 auto; }
@@ -7519,7 +7519,7 @@ body.page-area-hub .ah-sj #nationwide .kicker { display: inline-block; padding: 
 }
 /* ---------- [138차] /area/ 흐름 정리(body.page-area-hub 전용 · 다른 페이지 영향 없음)
    · 섹션 위아래 여백 약 15~20% 축소(PC·태블릿) · 모바일은 52px 이상 유지
-   · 시그니처과외 수업 안내 = 빠른 선택(퀵메뉴)형 카드(.sc-grid.ah-quick)
+   · 과외마루 수업 안내 = 빠른 선택(퀵메뉴)형 카드(.sc-grid.ah-quick)
    · FAQ = 질문만 보이는 접힘형(details.ah-faq) · 이미지·카드 크기는 줄이지 않음
    되돌리기: 이 블록 삭제 + backup/138차수정전 파일 복원 */
 @media (min-width: 641px) {
@@ -7774,7 +7774,7 @@ body.page-subarea.page-subject .ar-topic-note, body.page-subarea.page-subject .a
 }
 /* [225차] 메인 푸터 운영자 정보(운영자·이메일) — index.html .site-footer-operator 에만 적용
    PC: 기존 구분선(|) 한 줄 / 모바일(600px 이하): 항목별 한 줄, 구분선 숨김. 메일 링크는 밑줄로 링크임을 표시
-   되돌리기: 이 블록 삭제 + index.html의 site-footer-operator 문단을 기존 <p class="site-footer-info"><span>시그니처과외</span></p>로 */
+   되돌리기: 이 블록 삭제 + index.html의 site-footer-operator 문단을 기존 <p class="site-footer-info"><span>과외마루</span></p>로 */
 .site-footer-operator { color: #5d6474; }
 .site-footer-operator a { color: #28364e; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
 .site-footer-operator a:hover { color: #b78a46; }

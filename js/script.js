@@ -372,9 +372,12 @@ window.addEventListener("load", function(){
 
   /* [102차] 간소화한 폼에는 문의내용 칸이 없으므로 message = "학교: ○○ / 신청자: 학부모" (학교 미입력 시 '미입력')
      [269차] 신청자 뒤에 확인 내용을 붙임: "신청자: 학부모(법정대리인 확인)" / "신청자: 학생(만 14세 이상 확인)" — applicant_type 값(학부모·학생)은 그대로 */
+  /* [269·270 마무리] 동의 기록: 기존 Make 전송 필드 11개는 그대로 두고 message 끝에 "동의: 수집·이용, 국외 이전(고지 2026-10-25판)"을 붙임
+     · 동의 시각 = 같은 전송의 submitted_at(제출 때 두 동의를 모두 확인한 뒤에만 전송) · 고지문(consult.html·privacy.html 5번)을 바꾸면 CONSENT_VERSION도 바꿀 것 */
+  var CONSENT_VERSION = '2026-10-25';
   function buildMessage() {
     var who = f.applicant.value, note = who === '학부모' ? '(법정대리인 확인)' : who === '학생' ? '(만 14세 이상 확인)' : '';
-    return '학교: ' + (f.school.value.trim() || '미입력') + ' / 신청자: ' + who + note;
+    return '학교: ' + (f.school.value.trim() || '미입력') + ' / 신청자: ' + who + note + ' / 동의: 수집·이용, 국외 이전(고지 ' + CONSENT_VERSION + '판)';
   }
 
   /* [97차] Make Webhook 전송 데이터: 기본 6개(name·phone·grade·subject·region·message) + 접수 페이지·제출 시간 ([102차] 수업방식 lesson_type 삭제) */
@@ -449,6 +452,8 @@ window.addEventListener("load", function(){
     }
     if (f.applicant.value === '학부모' && !f.guardian.checked) return fail(f.guardian, '학생의 법정대리인(부모 등)인지 확인해 주세요. 법정대리인이 아니시면 전화로 문의해 주세요.');
     if (!f.agree.checked) return fail(f.agree, '개인정보 수집·이용에 동의하셔야 상담을 신청할 수 있습니다.');
+    /* [269·270 마무리] 국외 이전 별도 동의가 없으면 Make로 보내지 않음(전화 상담 안내) */
+    if (!f.agree_transfer || !f.agree_transfer.checked) return fail(f.agree_transfer || f.agree, '개인정보 국외 이전에 동의하지 않으시면 온라인 신청서를 보낼 수 없습니다. 전화 상담으로 신청해 주세요.');
 
     /* 스팸 방지: 너무 빠른 제출 차단 */
     if (Date.now() - loadedAt < MIN_FILL_MS) return show('error', '입력 내용을 확인하고 있습니다. 잠시 후 다시 신청해 주세요.');

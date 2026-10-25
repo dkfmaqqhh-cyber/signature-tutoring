@@ -234,5 +234,24 @@
       }
     ],
     "lens": false
+  },
+  "csat-final-checklist": {
+    "palette": "red",
+    "badge": "수능 준비 · 마무리 점검",
+    "title": "수능 준비물\n*체크리스트*\n전날·당일까지",
+    "keys": [
+      "반입 금지 물품",
+      "수능 시간표"
+    ],
+    "cardTitle": "가방에 넣기 전 확인",
+    "cardTag": "체크",
+    "cardType": "checks",
+    "items": [
+      "수험표 · 실물 신분증",
+      "아날로그 시계",
+      "도시락 · 겉옷",
+      "휴대전화는 집에"
+    ],
+    "lens": false
   }
 }

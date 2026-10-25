@@ -8052,7 +8052,6 @@ body.page-area.page-region #consult-check .mt-check-grid > li.mt-check { justify
 .cf-v2 .cf-chip[aria-pressed="true"] { border-color: #102a4b; background: #102a4b; color: #fff; }
 .cf-v2 .cf-chip:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(183, 138, 70, 0.3); }
 .cf-v2 .agree-box { border: 1px solid #efe7da; }
-.cf-v2 .agree-transfer { margin-top: -6px; }
 .cf-v2 .form-submit .btn-navy { min-height: 58px; border-radius: 14px; font-size: 17px; font-weight: 800; letter-spacing: -0.01em; }
 @media (max-width: 640px) {
   .consult-form.cf-v2 { padding: 28px 18px 24px; }
@@ -8062,3 +8061,23 @@ body.page-area.page-region #consult-check .mt-check-grid > li.mt-check { justify
   .cf-v2 .cf-compact { gap: 16px; }
   .cf-v2 .cf-chip { padding: 9px 14px; font-size: 13.5px; }
 }
+/* ---------- [271차 2] 상담 페이지 다듬기(consult.html 전용)
+   ① 동의 카드 1개(.cf-consent): 안에 수집·이용 / 국외 이전 동의 2줄(.cf-consent-item, 각각 별도 체크박스·펼쳐보기) — 사이에 가는 선
+   ② 전화·오픈채팅: 큰 색 상자 → 흰 바탕 작은 카드 2개(.cf-mini, 아이콘·제목·한 줄) 가로 배치 · 노란 큰 배경 제거(카톡 아이콘 원만 노랑)
+   되돌리기: 이 블록 삭제 + consult.html 동의·연락 카드 부분을 커밋 ebd7cbf 상태로 */
+.cf-v2 .cf-consent { padding: 16px 18px 6px; }
+.cf-v2 .cf-consent-title { margin: 0 0 10px; color: #102a4b; font-size: 14.5px; font-weight: 800; }
+.cf-v2 .cf-consent-title span { margin-left: 6px; color: #8a909c; font-size: 12.5px; font-weight: 600; }
+.cf-v2 .cf-consent > label[id="cfGuardianBox"] { margin: 0 0 10px; }
+.cf-v2 .cf-consent-item { padding: 12px 0; border-top: 1px solid #ece4d6; }
+.cf-v2 .cf-consent-item .agree-sum { margin-top: 4px; }
+.cf-v2 .cf-consent-item details { margin-top: 4px; font-size: 13px; }
+.cf-v2 .cf-consent-item summary { font-size: 13px; }
+.contact-side .cf-contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.contact-side .contact-card.cf-mini { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 16px; border: 1px solid #e9e2d8; border-radius: 16px; background: #fff; color: #102a4b; transition: border-color 0.18s ease, box-shadow 0.18s ease; }
+.contact-side .contact-card.cf-mini:hover, .contact-side .contact-card.cf-mini:focus-visible { border-color: #b78a46; box-shadow: 0 8px 18px rgba(16, 42, 75, 0.08); }
+.contact-side .cf-mini-ico { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; margin-bottom: 8px; border-radius: 50%; }
+.contact-side .cf-mini.phone .cf-mini-ico { background: #102a4b; color: #fff; }
+.contact-side .cf-mini.kakao .cf-mini-ico { background: #fee500; color: #191600; }
+.contact-side .contact-card.cf-mini strong { margin: 0; color: #102a4b; font-size: 15px; letter-spacing: -0.02em; }
+.contact-side .contact-card.cf-mini p { margin: 0; color: #6f7684; font-size: 12.5px; line-height: 1.5; opacity: 1; }

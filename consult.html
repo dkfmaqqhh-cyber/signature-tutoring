@@ -153,8 +153,11 @@
             </div>
             <p class="form-hint" id="cfAgeHint">만 14세 미만 학생은 법정대리인(부모 등)의 동의가 필요해 학부모님이 신청해 주셔야 합니다.</p>
           </div>
-          <div class="agree-box">
+          <!-- [271차 2] 동의 카드 1개로 묶음: 안에 수집·이용 동의(agree)와 국외 이전 동의(agree_transfer)를 각각 따로 체크(기본 미선택) · 펼쳐보기 2개 그대로 · 검증·전송 차단·동의 기록은 js/script.js 그대로 -->
+          <div class="agree-box cf-consent">
+            <p class="cf-consent-title">개인정보 동의 <span>필수 2개 · 각각 체크해 주세요</span></p>
             <label id="cfGuardianBox" hidden><input type="checkbox" name="guardian"> [필수] 학생의 법정대리인(부모 등)으로서 학생의 정보를 대신 제공하고 동의합니다.</label>
+            <div class="cf-consent-item">
             <label><input type="checkbox" name="agree" required> [필수] 개인정보 수집·이용에 동의합니다.</label>
             <p class="agree-sum">상담 안내 목적 · 보관: 수업 미연결 시 접수일부터 6개월, 수업 연결 시 수업 종료 시까지</p>
             <details>
@@ -168,10 +171,10 @@
               </ul>
               <p class="agree-link"><a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침 전문 보기 (새 창)</a></p><!-- [102차] 링크를 '수집·이용 내용 보기' 안으로 옮겨 동의 영역을 짧게 -->
             </details>
-          </div>
-          <!-- [269·270 마무리] 개인정보 국외 이전 별도 동의(개인정보 보호법 제28조의8 제1항 제1호 · 제2항 5개 항목 고지) · 기본 미선택 · 동의하지 않으면 js/script.js가 Make로 전송하지 않음
-               고지 내용을 바꾸면 privacy.html 5번과 js/script.js CONSENT_VERSION도 함께 바꿀 것 -->
-          <div class="agree-box agree-transfer">
+            </div>
+            <!-- [269·270 마무리] 개인정보 국외 이전 별도 동의(개인정보 보호법 제28조의8 제1항 제1호 · 제2항 5개 항목 고지) · 기본 미선택 · 동의하지 않으면 js/script.js가 Make로 전송하지 않음
+                 고지 내용을 바꾸면 privacy.html 5번과 js/script.js CONSENT_VERSION도 함께 바꿀 것 -->
+            <div class="cf-consent-item agree-transfer">
             <label><input type="checkbox" name="agree_transfer"> [필수] 개인정보 국외 이전에 동의합니다.</label>
             <p class="agree-sum">상담 신청 내용을 담당자에게 전달하기 위해 해외 서비스(Make·Discord)를 이용합니다. (Make: EU 지역 · Discord: 미국 등)</p>
             <details>
@@ -186,6 +189,7 @@
                 <li>거부 방법·불이익: 동의하지 않으시면 신청서가 전송되지 않습니다. 이 경우 전화 상담으로 신청해 주세요.</li>
               </ul>
             </details>
+            </div>
           </div>
           <!-- [14.5차] 스팸 방지용 숨김 칸(honeypot): 사람에게 보이지 않음. 값이 들어오면 전송하지 않음 -->
           <div class="hp-field" aria-hidden="true">
@@ -212,18 +216,19 @@
           </ul>
           <p class="consult-guide-note" id="consultStatusNote">신청서 접수가 어렵거나 바로 상담을 원하시면 아래 전화·카카오톡으로 연락해 주세요.</p><!-- [14.5차] 접수 주소(MAKE_WEBHOOK_URL, [224차] 이름 정정) 연결 시 js가 문구를 자동 변경 · [190-2차] JS 미실행 시 보이는 기본 문구를 사실과 맞게 수정(현재 js/script.js에 Make 웹훅 연결됨 → 접수 성공 응답일 때만 '접수되었습니다' 표시) -->
         </div>
-        <!-- [19차] 전화 상담 연결 (index.html과 동일) -->
-        <a class="contact-card phone" href="tel:01058701109" aria-label="전화 상담 연결">
-          <span class="contact-label">전화 상담</span>
-          <strong>전화로 상담하기</strong>
-          <p>전화로 바로 상담하실 수 있습니다.</p>
-        </a>
-        <!-- [19차] 카카오톡 오픈채팅 연결 (index.html과 동일) -->
-        <a class="contact-card kakao" href="https://open.kakao.com/o/gL2WvLQi" target="_blank" rel="noopener">
-          <span class="contact-label">카카오톡 상담</span>
-          <strong>오픈채팅으로 상담하기</strong>
-          <p>카카오톡 오픈채팅이 새 창에서 열립니다.</p>
-        </a>
+        <!-- [19차] 전화·카카오톡 오픈채팅 연결 (index.html과 동일 주소) · [271차 2] 작은 카드 2개(아이콘·제목·한 줄 설명)로 가로 배치 · 전화번호 숫자 미표시 -->
+        <div class="cf-contact-row">
+          <a class="contact-card phone cf-mini" href="tel:01058701109" aria-label="전화 상담 연결">
+            <span class="cf-mini-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg></span>
+            <strong>전화 상담</strong>
+            <p>바로 전화로 상담</p>
+          </a>
+          <a class="contact-card kakao cf-mini" href="https://open.kakao.com/o/gL2WvLQi" target="_blank" rel="noopener" aria-label="카카오톡 오픈채팅 상담 (새 창)">
+            <span class="cf-mini-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 3C6.5 3 2 6.5 2 10.8c0 2.8 1.9 5.2 4.7 6.6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8c.5.1 1 .1 1.5.1 5.5 0 10-3.5 10-7.9S17.5 3 12 3z"/></svg></span>
+            <strong>오픈채팅 상담</strong>
+            <p>카카오톡 새 창</p>
+          </a>
+        </div>
       </div>
 
     </div>

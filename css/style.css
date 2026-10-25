@@ -8019,3 +8019,18 @@ body.page-area.page-region #consult-check .mt-check-grid > li.mt-check { justify
   .sig-float:not(.rg-float) svg { width: 20px; height: 20px; }
   body.has-sig-float { padding-bottom: calc(52px + env(safe-area-inset-bottom)); }
 }
+/* ---------- [270차] PC(1025~1559px) 공통 떠 있는 버튼(.sig-float · 카톡·시범수업·전화) 본문 가림 해소
+   · 원인: 본문 폭 1160px + 오른쪽 아래 168px 알약 버튼 3개 → 화면이 약 1560px보다 좁으면 버튼이 본문 오른쪽 글자를 가림(1280px에서 4~16줄)
+   · 1025~1559px: 같은 색·같은 아이콘·같은 순서의 64px 네모 버튼(지역 페이지 버튼과 같은 모양)으로 줄이고, 본문·푸터 폭을 화면 - 168px까지로 제한(가운데 정렬 유지)
+     → 1328px 이상은 본문 폭 1160px 그대로, 그보다 좁을 때만 양쪽 여백이 84px가 되도록 조금 좁아짐 · 상단 메뉴(header)는 그대로
+   · 1560px 이상 PC는 기존 알약 버튼 그대로 · 641~1024px([269차] 아래 가로 띠)·640px 이하·지역 페이지 버튼(.rg-float)은 변경 없음
+   되돌리기: 이 블록 삭제 */
+@media (min-width: 1025px) and (max-width: 1559px) {
+  .sig-float:not(.rg-float) { right: 12px; bottom: 24px; gap: 8px; align-items: stretch; }
+  .sig-float:not(.rg-float) a { flex-direction: column; justify-content: center; gap: 4px; width: 64px; min-width: 0; height: 64px; padding: 0 4px; border-radius: 18px; font-size: 11.5px; line-height: 1.15; white-space: normal; text-align: center; word-break: keep-all; box-shadow: 0 6px 14px rgba(16, 42, 75, 0.18); }
+  .sig-float:not(.rg-float) svg { width: 20px; height: 20px; }
+  body.has-sig-float main .container, body.has-sig-float .site-footer .container { width: min(1160px, calc(100% - 168px)); }
+}/* [270차] /area/ 지역별 과외 대문(page-area-hub)만: 72px 지역 버튼(.rg-float, 오른쪽 20px)이 1280px 부근에서 본문 끝 글자 1줄을 가림 → 1025~1359px에서 본문 폭을 화면 - 200px까지로 제한(가운데 정렬) · 다른 지역 페이지는 이미 가림 0이라 변경 없음 */
+@media (min-width: 1025px) and (max-width: 1359px) {
+  body.page-area-hub main .container { width: min(1160px, calc(100% - 200px)); }
+}

@@ -8081,3 +8081,30 @@ body.page-area.page-region #consult-check .mt-check-grid > li.mt-check { justify
 .contact-side .cf-mini.kakao .cf-mini-ico { background: #fee500; color: #191600; }
 .contact-side .contact-card.cf-mini strong { margin: 0; color: #102a4b; font-size: 15px; letter-spacing: -0.02em; }
 .contact-side .contact-card.cf-mini p { margin: 0; color: #6f7684; font-size: 12.5px; line-height: 1.5; opacity: 1; }
+/* ---------- [272차] 상담 신청서 간결화(consult.html .cf-v2 전용): 머리말·입력 칸 간격·동의 카드 여백 축소 · 색(네이비·골드·크림)·동의 2개·전송 기능 그대로
+   되돌리기: 이 블록 삭제 + consult.html 문구를 커밋 04899c0 상태로 */
+.consult-form.cf-v2 { padding: 32px 34px 30px; }
+.cf-v2 .cf-head { margin-bottom: 18px; padding-bottom: 16px; }
+.consult-form.cf-v2 .cf-head h2 { margin: 10px 0 6px; }
+.cf-v2 .cf-lead { font-size: 15px; }
+.cf-v2 .cf-lead .cf-req-note { margin: 0 0 0 6px; white-space: nowrap; }
+.cf-v2 .cf-compact { gap: 14px 16px; }
+.cf-v2 .form-field { gap: 6px; }
+.cf-v2 .form-hint { font-size: 12.5px; line-height: 1.45; }
+.consult-form.cf-v2 .cf-compact input[type="text"], .consult-form.cf-v2 .cf-compact input[type="tel"], .consult-form.cf-v2 .cf-compact select { height: 46px; }
+.cf-v2 .cf-chips { gap: 6px; }
+.cf-v2 .cf-chip { padding: 8px 14px; }
+.cf-v2 .choice-row span { padding: 8px 15px; }
+.cf-v2 .cf-consent { padding: 12px 16px 4px; }
+.cf-v2 .cf-consent-title { margin-bottom: 6px; }
+.cf-v2 .cf-consent-item { padding: 9px 0; }
+.cf-v2 .agree-box ul { line-height: 1.65; }
+@media (max-width: 640px) {
+  .consult-form.cf-v2 { padding: 22px 16px 20px; }
+  .cf-v2 .cf-head { margin-bottom: 14px; padding-bottom: 14px; }
+  .cf-v2 .cf-compact { gap: 12px; }
+  .cf-v2 .cf-chip { padding: 8px 12px; }
+  .cf-v2 .cf-consent { padding: 10px 12px 2px; }
+  .cf-compact .form-field.cf-inline { gap: 10px; }
+  .cf-v2 .choice-row span { padding: 8px 13px; white-space: nowrap; }
+}

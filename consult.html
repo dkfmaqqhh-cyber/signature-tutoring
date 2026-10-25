@@ -59,8 +59,8 @@
       </ol>
       <span class="page-kicker">FREE CONSULTATION</span>
       <h1>무료 상담 신청</h1>
-      <p class="page-lead">과외를 결정하기 전, 먼저 아이의 현재 상황부터 확인하세요.<br>학생의 학년 · 희망과목 · 현재 고민을 알려주시면 상담에 필요한 내용을 순서대로 확인할 수 있습니다.</p>
-      <p class="note-box">시그니처과외 주요 수업은 상담 후 무료수업을 통해 수업 방식과 학습 방향을 확인할 수 있습니다. 구체적인 진행 방식과 조건은 상담 시 안내드립니다.</p>
+      <p class="page-lead">학년·과목·지역만 남겨주시면 상담 담당자가 순서대로 연락드립니다.</p><!-- [272차] 설명 짧게 -->
+      <p class="note-box">주요 수업은 상담 후 무료수업으로 수업 방식을 먼저 확인할 수 있습니다. (진행 조건은 상담 시 안내)</p>
       <!-- [190-2차] 바로 상담 채널(실제 연결된 전화·카카오톡 오픈채팅만) -->
       <p class="consult-quick">바로 상담하기: <a href="tel:01058701109" aria-label="전화 상담 연결">전화 상담</a><span aria-hidden="true"> · </span><a href="https://open.kakao.com/o/gL2WvLQi" target="_blank" rel="noopener" title="카카오톡 오픈채팅이 새 창에서 열립니다">카카오톡 상담</a></p>
     </div>
@@ -80,8 +80,7 @@
         <div class="cf-head">
           <span class="cf-badge">FREE CONSULTATION</span>
           <h2>시그니처과외 무료 상담</h2>
-          <p class="cf-lead">학생의 학습 상황을 남겨주시면 순차적으로 연락드립니다.</p>
-          <p class="cf-req-note"><span class="req" aria-hidden="true">*</span> 표시는 필수 입력 항목입니다.</p>
+          <p class="cf-lead">한 번만 입력하시면 바로 접수됩니다. <span class="cf-req-note"><span class="req" aria-hidden="true">*</span> 필수</span></p><!-- [272차] 안내 1줄로 -->
         </div>
         <!-- [102차] 상담폼 간소화: 학생이름 / 지역·학교 / 학년·문의과목 / 휴대폰번호 / 신청자(학부모·학생) / 개인정보 동의 (수업 방식·기타 요청사항 삭제)
              Make 전송 필드명(name·phone·grade·subject·region·message)은 그대로 · message = "학교: ○○ / 신청자: 학부모" (js/script.js) -->
@@ -93,12 +92,12 @@
           <div class="form-field">
             <label for="cfPhone">연락받을 휴대폰번호<span class="req" aria-hidden="true">*</span></label>
             <input type="tel" id="cfPhone" name="phone" inputmode="numeric" maxlength="13" placeholder="010-0000-0000" autocomplete="tel" pattern="01[0-9]-?[0-9]{3,4}-?[0-9]{4}" aria-describedby="cfPhoneHint" required>
-            <p class="form-hint" id="cfPhoneHint">학부모 신청은 학부모 번호, 학생 본인 신청은 학생 번호</p>
+            <p class="form-hint" id="cfPhoneHint">신청하시는 분(학부모 또는 학생 본인) 번호</p>
           </div>
           <div class="form-field full">
             <label for="cfRegion">지역<span class="req" aria-hidden="true">*</span></label>
             <input type="text" id="cfRegion" name="region" maxlength="100" placeholder="예: 부산광역시 부산진구 부암동 / ○○아파트" autocomplete="address-level2" aria-describedby="cfRegionHint" required>
-            <p class="form-hint" id="cfRegionHint">시·도, 시·구, 동까지 (아파트명은 선택)</p><!-- [99차] 시·도 + 시·구 + 동 기준 — 형식 확인은 js/script.js looksRegion -->
+            <p class="form-hint" id="cfRegionHint">시·도, 시·구, 동까지 (아파트명 선택)</p><!-- [99차] 시·도 + 시·구 + 동 기준 — 형식 확인은 js/script.js looksRegion -->
           </div>
           <div class="form-field">
             <label for="cfGrade">학년<span class="req" aria-hidden="true">*</span></label>
@@ -155,7 +154,7 @@
           </div>
           <!-- [271차 2] 동의 카드 1개로 묶음: 안에 수집·이용 동의(agree)와 국외 이전 동의(agree_transfer)를 각각 따로 체크(기본 미선택) · 펼쳐보기 2개 그대로 · 검증·전송 차단·동의 기록은 js/script.js 그대로 -->
           <div class="agree-box cf-consent">
-            <p class="cf-consent-title">개인정보 동의 <span>필수 2개 · 각각 체크해 주세요</span></p>
+            <p class="cf-consent-title">개인정보 동의 <span>필수 2개 · 각각 체크</span></p>
             <label id="cfGuardianBox" hidden><input type="checkbox" name="guardian"> [필수] 학생의 법정대리인(부모 등)으로서 학생의 정보를 대신 제공하고 동의합니다.</label>
             <div class="cf-consent-item">
             <label><input type="checkbox" name="agree" required> [필수] 개인정보 수집·이용에 동의합니다.</label>

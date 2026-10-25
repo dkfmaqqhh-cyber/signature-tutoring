@@ -1,4 +1,4 @@
-# 시그니처과외 학습정보 자동 발행 지침 (예약 작업용)
+# 과외마루 학습정보 자동 발행 지침 (예약 작업용)
 
 월·목 오전 예약 작업이 이 문서를 그대로 따라 글 1편을 작성·게시합니다.
 사이트: https://signaturetutoring.co.kr (GitHub Pages, 저장소 `dkfmaqqhh-cyber/signature-tutoring`, `main` 브랜치 푸시 → 약 1분 뒤 반영)

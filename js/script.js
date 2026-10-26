@@ -272,9 +272,18 @@ window.addEventListener("load", function(){
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') setOpen(false);
   });
-  window.addEventListener('resize', function () {
-    if (window.innerWidth > 980) setOpen(false);
-  });
+  /* [282차] PC 폭(981px 이상)이 되면 메뉴 닫기 — resize마다 innerWidth를 읽던 방식(첫 배치를 스크립트 안에서 강제 실행)을 너비 조건이 바뀔 때만 실행하도록 변경
+     · matchMedia가 없는 브라우저는 기존 방식 그대로 · 되돌리기: backup/282차수정전/js/script.js */
+  var wideMq = window.matchMedia ? window.matchMedia('(min-width: 981px)') : null;
+  if (wideMq) {
+    var onWide = function (e) { if (e.matches) setOpen(false); };
+    if (wideMq.addEventListener) wideMq.addEventListener('change', onWide);
+    else if (wideMq.addListener) wideMq.addListener(onWide);
+  } else {
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 980) setOpen(false);
+    });
+  }
 })();
 
 /* 상담 신청 폼(consult.html): 입력 확인 → Make Webhook 접수 ([224차] 구 Google Sheets 경로 삭제)
@@ -536,7 +545,11 @@ sec.addEventListener('mouseenter',function(){paused=true;});
 sec.addEventListener('mouseleave',function(){paused=false;});
 t.addEventListener('touchstart',function(){paused=true;},{passive:true});
 t.addEventListener('touchend',function(){setTimeout(function(){paused=false;},4000);},{passive:true});
-if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))start();})();
+/* [282차] 자동 넘김은 선생님 미리보기가 화면에 보일 때만 실행·화면 밖이면 정지(화면 밖에서 2초마다 위치를 읽던 강제 배치 제거)
+   · IntersectionObserver가 없는 브라우저는 기존처럼 바로 시작 · 되돌리기: backup/282차수정전/js/script.js */
+if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){
+if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)start();else stop();});},{rootMargin:'100px 0px'}).observe(sec||t);}
+else start();}})();
 
 /* [48차] 메인: 학생 후기 순차 등장 + 신뢰 수치 카운트업 (한 번만 실행, IntersectionObserver)
    · 후기: #rvxPanel 안 .rvx-item 이 위→아래로 0.35초 간격 등장 (기존 [20차] 후기 가로 슬라이드 코드는 제거)

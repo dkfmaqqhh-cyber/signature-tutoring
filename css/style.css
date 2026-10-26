@@ -5525,7 +5525,7 @@ body.page-home #learning + #faq { padding-top: 64px; border-top: 1px solid var(-
 .menu-card::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(14, 28, 51, 0.12) 0%, rgba(14, 28, 51, 0.62) 62%, rgba(14, 28, 51, 0.8) 100%); }
 .menu-card.mc-learning { background-image: url("../images/reason-basic.jpg"); }
 .menu-card.mc-consult { background-image: url("../images/lesson-visit.jpg"); }
-.menu-card.mc-faq { background-image: url("../images/faq-card-bg.png"); background-position: 72% 35%; } /* [49차] FAQ 카드 배경 교체 (인물이 오른쪽에 있어 오른쪽 기준) */
+.menu-card.mc-faq { background-image: url("../images/faq-card-bg.webp"); background-position: 72% 35%; } /* [49차] FAQ 카드 배경 교체 (인물이 오른쪽에 있어 오른쪽 기준) · [279차] PNG 1.5MB → 같은 크기 WebP 58KB(원본 .png 보관, 메인 페이지 전용 규칙) */
 .menu-card-kicker { color: var(--brand-gold-light); font-size: 12px; font-weight: 900; letter-spacing: 0.1em; }
 .menu-card strong { color: #fff; font-size: 23px; letter-spacing: -0.03em; }
 .menu-card-desc { max-width: 26ch; color: rgba(255, 255, 255, 0.9); font-size: 15px; line-height: 1.6; word-break: keep-all; }

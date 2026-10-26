@@ -253,5 +253,90 @@
       "휴대전화는 집에"
     ],
     "lens": false
+  },
+  "pre-middle1-winter-prep": {
+    "palette": "teal",
+    "badge": "학년 전환 · 예비 중1",
+    "title": "예비 중1\n*겨울방학*\n준비 5가지",
+    "keys": [
+      "자유학기제",
+      "중학교 성적"
+    ],
+    "cardTitle": "중학교 가기 전 체크",
+    "cardTag": "체크",
+    "cardType": "checks",
+    "items": [
+      "초등 수학 빈틈 점검",
+      "설명 글 읽고 요약",
+      "영어 짧은 문장 쓰기",
+      "주간 계획 · 생활 리듬"
+    ],
+    "lens": false
+  },
+  "pre-high1-winter-guide": {
+    "palette": "indigo",
+    "badge": "학년 전환 · 예비 고1",
+    "title": "예비 고1\n*겨울방학*\n총정리",
+    "keys": [
+      "고교학점제",
+      "내신 5등급"
+    ],
+    "cardTitle": "내신 5등급 누적 비율",
+    "cardTag": "교육부",
+    "cardType": "rows",
+    "items": [
+      {
+        "label": "1등급",
+        "percent": 10,
+        "value": "10%"
+      },
+      {
+        "label": "2등급",
+        "percent": 34,
+        "value": "34%"
+      },
+      {
+        "label": "3등급",
+        "percent": 66,
+        "value": "66%"
+      },
+      {
+        "label": "4등급",
+        "percent": 90,
+        "value": "90%"
+      }
+    ],
+    "lens": false
+  },
+  "ged-2027-first-exam": {
+    "palette": "green",
+    "badge": "검정고시 · 일정",
+    "title": "2027 검정고시\n*일정 흐름*\n미리 보기",
+    "keys": [
+      "공고·접수",
+      "합격 기준"
+    ],
+    "cardTitle": "제1회 흐름 (2026년 기준)",
+    "cardTag": "참고",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "2월 초",
+        "text": "교육청 공고"
+      },
+      {
+        "label": "2월 중",
+        "text": "현장·온라인 접수"
+      },
+      {
+        "label": "4월",
+        "text": "시험"
+      },
+      {
+        "label": "5월",
+        "text": "합격 발표"
+      }
+    ],
+    "lens": false
   }
 }

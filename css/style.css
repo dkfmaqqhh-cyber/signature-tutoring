@@ -8159,8 +8159,7 @@ body.vz297 main .vz-head { display: grid; grid-template-columns: minmax(0, 1fr) 
 body.vz297 main .vz-head .section-head { max-width: none; margin: 0; text-align: left; }
 body.vz297 main .vz-media { aspect-ratio: 16 / 10; border-radius: 18px; overflow: hidden; background: #F7F1E7; }
 body.vz297 main .vz-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
-body.vz297 main .vz-media.is-slot { display: grid; place-items: center; border: 1px solid #EEE7DA; color: #B8924A; }
-body.vz297 main .vz-media.is-slot .vz-slot-svg { width: 72px; height: 72px; stroke-width: 1.1; }
+body.vz297 main .vz-media[data-img-slot="subjects-study-desk"] img { object-position: center 62%; }
 body.vz297 main .vz-ico { display: inline-grid; place-items: center; align-self: flex-start; width: 40px; height: 40px; margin-bottom: 4px; border: 1px solid rgba(16, 35, 63, 0.08); border-radius: 12px; background: rgba(255, 255, 255, 0.9); color: #10233F; }
 body.vz297 main .vz-ico svg, body.vz297 main .vz-cico svg { width: 22px; height: 22px; }
 body.vz297 main .vz-card .vz-cico { display: inline-grid; place-items: center; align-self: flex-start; width: 38px; height: 38px; border-radius: 50%; background: #F7F1E7; color: #8F6B2F; }
@@ -8172,6 +8171,23 @@ body.vz297 main .vz-hico svg { width: 22px; height: 22px; }
 }
 @media (max-width: 640px) {
   body.vz297 main .vz-media { aspect-ratio: 16 / 9; border-radius: 14px; }
-  body.vz297 main .vz-media.is-slot .vz-slot-svg { width: 56px; height: 56px; }
   body.vz297 main .vz-ico { width: 36px; height: 36px; border-radius: 10px; }
+}
+/* [297-2차 시범] EXAM PREP·BY GRADE·LESSON EXAMPLE 원형 번호 배지 삭제 → 작은 선형 아이콘(.vz-sico) · EXAM PREP 3카드 가운데 3열 · 카드 안 아이콘·제목·설명 가운데 정렬 · 모바일 세로 1열도 가운데 정렬
+   · 범위: body.vz297(안산 중학생 1페이지)만 */
+body.vz297 main .vz-sico { display: grid; place-items: center; flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%; background: #F7F1E7; color: #10233F; }
+body.vz297 main .vz-sico svg { width: 22px; height: 22px; }
+body.vz297 main :is(#plan, #years) .ar-steps.mt-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; max-width: 960px; margin: 0 auto; }
+body.vz297 main :is(#plan, #years) .ar-step { justify-content: flex-start; align-items: center; gap: 12px; padding: 28px 22px 26px; text-align: center; }
+body.vz297 main :is(#plan, #years) .ar-step + .ar-step::after { left: -21px; }
+body.vz297 main #how .mt-check-grid > li.mt-check { justify-content: flex-start; gap: 12px; padding: 28px 22px 26px; }
+@media (max-width: 980px) {
+  body.vz297 main :is(#plan, #years) .ar-steps.mt-steps { gap: 14px; }
+  body.vz297 main :is(#plan, #years) .ar-step { padding: 22px 16px; }
+}
+@media (max-width: 640px) {
+  body.vz297 main :is(#plan, #years) .ar-steps.mt-steps { grid-template-columns: minmax(0, 1fr); gap: 12px; max-width: 460px; }
+  body.vz297 main :is(#plan, #years) .mt-steps .ar-step { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 20px 18px; text-align: center; }
+  body.vz297 main #how .mt-check-grid > li.mt-check { gap: 10px; padding: 20px 18px; }
+  body.vz297 main .vz-sico { width: 40px; height: 40px; }
 }

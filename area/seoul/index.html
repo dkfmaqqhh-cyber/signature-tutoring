@@ -225,9 +225,7 @@
   </div>
 </section>
 
-<!-- 2. 서울 25개 구 (가나다순 · 구 페이지가 아직 없어 링크 없는 비활성 카드)
-     구 페이지를 만들면 해당 줄의 <span class="ar-region rg-gu is-soon" aria-disabled="true" data-href="gangnam/">…</span> 을
-     <a class="ar-region rg-gu" href="gangnam/">…</a> 로 바꾸고 <small>준비 중</small> 만 지우면 됩니다. -->
+<!-- 2. 서울 25개 구 (가나다순 · [131차] 25개 구 모두 실제 페이지로 연결됨, 비활성 카드 없음) -->
 <section class="page-section ar-regions rg-gus" id="districts" aria-labelledby="rgGuTitle">
   <div class="container">
     <div class="section-head center">
@@ -266,22 +264,24 @@
   </div>
 </section>
 
-<!-- [110차] 서울에서 많이 찾는 수업 (세부 페이지가 아직 없어 링크 없는 표시만 · 생성 시 span → <a class="ar-topic" href="…/"> 로 교체) -->
+<!-- [110차] 서울 인기 수업 영역 · [302차] 부산 대문 201차 방식으로 정리: 소제목 "서울 구별 과외 수업 안내"(검색량 근거 없는 "많이 찾는" 표현 대신)
+     · 서울 전체 단위 과목 페이지는 없으므로 비활성 칩 대신 실제 구 과목·학년 페이지로 연결(새 페이지·허위 URL 없음)
+     · 배정 기준: 각 구 대문 학교 목록 수 상위 7개 구에 과목·학년을 1개씩 — 노원·송파·강남·강서·은평·양천·강동 -->
 <section class="page-section ar-topics rg-popular" id="popular" aria-labelledby="rgPopTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">POPULAR</div>
-      <h2 id="rgPopTitle">서울에서 많이 찾는 수업</h2>
-      <p>지역과 과목, 학년을 함께 찾을 수 있도록 앞으로 세부 페이지를 연결합니다.</p>
+      <h2 id="rgPopTitle">서울 구별 과외 수업 안내</h2>
+      <p>구별 과목·학년 과외 페이지를 바로 확인할 수 있습니다. 다른 구는 위 지역 카드에서 선택해 주세요.</p>
     </div>
     <ul class="ar-topic-list">
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="seoul" data-topic="math">서울 수학과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="seoul" data-topic="english">서울 영어과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="seoul" data-topic="korean">서울 국어과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="seoul" data-topic="science">서울 과학과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="seoul" data-topic="elementary">서울 초등과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="seoul" data-topic="middle">서울 중학생과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="seoul" data-topic="high">서울 고등학생과외</span></li>
+      <li><a class="ar-topic" href="nowon/math/" data-area="seoul-nowon" data-topic="math">노원구 수학과외</a></li>
+      <li><a class="ar-topic" href="songpa/english/" data-area="seoul-songpa" data-topic="english">송파구 영어과외</a></li>
+      <li><a class="ar-topic" href="gangnam/korean/" data-area="seoul-gangnam" data-topic="korean">강남구 국어과외</a></li>
+      <li><a class="ar-topic" href="gangseo/science/" data-area="seoul-gangseo" data-topic="science">강서구 과학과외</a></li>
+      <li><a class="ar-topic" href="eunpyeong/elementary/" data-area="seoul-eunpyeong" data-topic="elementary">은평구 초등학생과외</a></li>
+      <li><a class="ar-topic" href="yangcheon/middle/" data-area="seoul-yangcheon" data-topic="middle">양천구 중학생과외</a></li>
+      <li><a class="ar-topic" href="gangdong/high/" data-area="seoul-gangdong" data-topic="high">강동구 고등학생과외</a></li>
     </ul>
   </div>
 </section>

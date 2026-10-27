@@ -8126,3 +8126,128 @@ body.page-area.page-region .rgs-desc.bs-hero3 .bs-nw { white-space: nowrap; }
   body.page-area.page-region .rg-hero .rgs-desc.bs-hero3 { max-width: none; }
   body.page-area.page-region .rgs-desc.bs-hero3 .bs-l { display: block; white-space: nowrap; }
 }
+
+
+/* [295차] 학년 페이지 지역 확인 정보(LOCAL GUIDE) — 간결한 출처 줄(.mt-note.bs-src, 288차 부산 규칙과 동일) · 학교 수가 적은 지역의 1~3카드 배치(.lg-1/.lg-2/.lg-3) · 초등 학년군 3단계(.ar-steps.mt-steps.lg-three) · 되돌리기: 이 블록 삭제 */
+body.page-area.page-region .mt-note.bs-src { max-width: 820px; font-size: 13px; font-weight: 500; line-height: 1.6; color: #5b6370; }
+body.page-area.page-region .mt-note.bs-src a { color: #1d4f91; text-decoration: underline; text-underline-offset: 2px; }
+body.page-area.page-region #needs .sc-card p, body.page-area.page-region #needs .sc-card h3, body.page-area.page-region .rg-faq-item p { overflow-wrap: anywhere; }
+body.page-area.page-region .sc-grid.mt-diag-grid.lg-1 { grid-template-columns: minmax(0, 1fr); max-width: 560px; }
+body.page-area.page-region .sc-grid.mt-diag-grid.lg-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 860px; }
+body.page-area.page-region .sc-grid.mt-diag-grid.lg-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1040px; }
+body.page-area.page-region .ar-steps.mt-steps.lg-three { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 960px; }
+@media (max-width: 980px) {
+  body.page-area.page-region .sc-grid.mt-diag-grid.lg-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  body.page-area.page-region .sc-grid.mt-diag-grid.lg-2, body.page-area.page-region .sc-grid.mt-diag-grid.lg-3, body.page-area.page-region .ar-steps.mt-steps.lg-three { grid-template-columns: 1fr; }
+}
+
+/* [296-2차] 학년 페이지 중간 상담 박스·하단 상담 CTA 삭제(296차 중간 박스 여백 규칙도 삭제) · 경기 93개 LESSON EXAMPLE(#how)을 MORE OPTIONS(#related) 안 하위 블록으로 통합
+   · 범위: #related 안 .gg-how-in만(학년 페이지에만 있음) · 되돌리기: 이 블록 삭제 + backup/296-2차수정전 복원 */
+body.page-subject main #related .gg-how-in { max-width: 1040px; margin: 56px auto 0; padding-top: 52px; border-top: 1px solid #EEE7DA; }
+body.page-subject main #related .gg-how-in .mt-check-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 960px; }
+@media (max-width: 640px) {
+  body.page-subject main #related .gg-how-in { margin-top: 40px; padding-top: 36px; }
+  body.page-subject main #related .gg-how-in .mt-check-grid { grid-template-columns: 1fr; }
+}
+
+/* [297차 시범] 학년 페이지 비주얼 — body.vz297(안산 중학생 1페이지)에만 적용 · 690개 확대 전 시범
+   · 섹션 대표 이미지(.vz-head 제목+이미지 · PC 2열 / 태블릿·모바일 제목 아래) · 과목 카드 아이콘(.vz-ico) · LOCAL GUIDE 카드 아이콘(.vz-cico) · FAQ 제목 아이콘(.vz-hico)
+   · 이미지는 테두리·그림자 없이 둥근 모서리만, 비율 고정(aspect-ratio)으로 레이아웃 이동 없음 · 되돌리기: 이 블록 삭제 + backup/297차수정전 복원 */
+body.vz297 main .vz-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); align-items: center; gap: 48px; max-width: 1080px; margin: 0 auto 40px; }
+body.vz297 main .vz-head .section-head { max-width: none; margin: 0; text-align: left; }
+body.vz297 main .vz-media { aspect-ratio: 16 / 10; border-radius: 18px; overflow: hidden; background: #F7F1E7; }
+body.vz297 main .vz-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+body.vz297 main .vz-media[data-img-slot="subjects-study-desk"] img { object-position: center 62%; }
+body.vz297 main .vz-ico { display: inline-grid; place-items: center; align-self: flex-start; width: 40px; height: 40px; margin-bottom: 4px; border: 1px solid rgba(16, 35, 63, 0.08); border-radius: 12px; background: rgba(255, 255, 255, 0.9); color: #10233F; }
+body.vz297 main .vz-ico svg, body.vz297 main .vz-cico svg { width: 22px; height: 22px; }
+body.vz297 main .vz-card .vz-cico { display: inline-grid; place-items: center; align-self: flex-start; width: 38px; height: 38px; border-radius: 50%; background: #F7F1E7; color: #8F6B2F; }
+body.vz297 main .vz-hico { display: grid; place-items: center; width: 40px; height: 40px; margin: 12px auto 0; border: 1px solid #EADFC9; border-radius: 50%; background: #FFFFFF; color: #8F6B2F; }
+body.vz297 main .vz-hico svg { width: 22px; height: 22px; }
+@media (max-width: 860px) {
+  body.vz297 main .vz-head { grid-template-columns: minmax(0, 1fr); gap: 22px; max-width: 640px; margin-bottom: 30px; }
+  body.vz297 main .vz-head .section-head { text-align: center; }
+}
+@media (max-width: 640px) {
+  body.vz297 main .vz-media { aspect-ratio: 16 / 9; border-radius: 14px; }
+  body.vz297 main .vz-ico { width: 36px; height: 36px; border-radius: 10px; }
+}
+/* [297-2차 시범] EXAM PREP·BY GRADE·LESSON EXAMPLE 원형 번호 배지 삭제 → 작은 선형 아이콘(.vz-sico) · EXAM PREP 3카드 가운데 3열 · 카드 안 아이콘·제목·설명 가운데 정렬 · 모바일 세로 1열도 가운데 정렬
+   · 범위: body.vz297(안산 중학생 1페이지)만 */
+body.vz297 main .vz-sico { display: grid; place-items: center; flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%; background: #F7F1E7; color: #10233F; }
+body.vz297 main .vz-sico svg { width: 22px; height: 22px; }
+body.vz297 main :is(#plan, #years) .ar-steps.mt-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; max-width: 960px; margin: 0 auto; }
+body.vz297 main :is(#plan, #years) .ar-step { justify-content: flex-start; align-items: center; gap: 12px; padding: 28px 22px 26px; text-align: center; }
+body.vz297 main :is(#plan, #years) .ar-step + .ar-step::after { left: -21px; }
+body.vz297 main #how .mt-check-grid > li.mt-check { justify-content: flex-start; gap: 12px; padding: 28px 22px 26px; }
+@media (max-width: 980px) {
+  body.vz297 main :is(#plan, #years) .ar-steps.mt-steps { gap: 14px; }
+  body.vz297 main :is(#plan, #years) .ar-step { padding: 22px 16px; }
+}
+@media (max-width: 640px) {
+  body.vz297 main :is(#plan, #years) .ar-steps.mt-steps { grid-template-columns: minmax(0, 1fr); gap: 12px; max-width: 460px; }
+  body.vz297 main :is(#plan, #years) .mt-steps .ar-step { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 20px 18px; text-align: center; }
+  body.vz297 main #how .mt-check-grid > li.mt-check { gap: 10px; padding: 20px 18px; }
+  body.vz297 main .vz-sico { width: 40px; height: 40px; }
+}
+/* [297-3차 시범] 안산 중학생 1페이지(body.vz297)만 — MORE OPTIONS 제목 두 줄(.vz-l)·이동 버튼 앞 장식 점 삭제·버튼 높이 통일 · EXAM PREP 카드 사이 화살표 삭제
+   · PARENTS ASK 1열 아코디언(details/summary · 최대 900px · Q 유지 · 오른쪽 +/− 표시) · 되돌리기: 이 블록 삭제 + backup/297차수정전 복원 */
+body.vz297 main #related .vz-l { display: block; white-space: nowrap; }
+body.vz297 main #related .ar-topic-list { gap: 10px; }
+body.vz297 main #related .ar-topic { box-sizing: border-box; justify-content: center; min-height: 44px; padding: 0 20px; text-align: center; }
+body.vz297 main #related .ar-topic::before, body.vz297 main #related .ar-topic::after { content: none; display: none; }
+body.vz297 main #plan .ar-step + .ar-step::after { content: none; display: none; }
+body.vz297 main .rg-faq-grid.vz-faq { grid-template-columns: minmax(0, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
+body.vz297 main .vz-faq-item { padding: 0; border: 1px solid #ECE4D6; border-radius: 14px; background: #FFFFFF; box-shadow: none; }
+body.vz297 main .vz-faq-item > summary { display: flex; align-items: center; gap: 16px; padding: 20px 22px; border-radius: 14px; cursor: pointer; list-style: none; }
+body.vz297 main .vz-faq-item > summary::-webkit-details-marker { display: none; }
+body.vz297 main .vz-faq-item > summary::marker { content: ""; }
+body.vz297 main .vz-faq-item > summary:focus-visible { outline: 2px solid #C9A15F; outline-offset: 2px; }
+body.vz297 main .vz-faq-item > summary h3 { flex: 1 1 auto; min-width: 0; margin: 0; color: #10233F; font-weight: 800; }
+body.vz297 main .vz-faq-sign { position: relative; flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #F7F1E7; }
+body.vz297 main .vz-faq-sign::before, body.vz297 main .vz-faq-sign::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; margin: -1px 0 0 -6px; border-radius: 2px; background: #8F6B2F; }
+body.vz297 main .vz-faq-sign::after { transform: rotate(90deg); }
+body.vz297 main .vz-faq-item[open] .vz-faq-sign::after { transform: none; }
+body.vz297 main .vz-faq-item[open] > summary { padding-bottom: 10px; }
+body.vz297 main .vz-faq-item > p { padding: 0 22px 22px 52px; }
+@media (max-width: 640px) {
+  body.vz297 main #related .ar-topic { min-height: 40px; padding: 0 16px; }
+  body.vz297 main .vz-faq-item > summary { gap: 12px; padding: 16px; }
+  body.vz297 main .vz-faq-item > p { padding: 0 16px 18px; }
+}
+/* [298차] 297차 시범 디자인 전국 학년 페이지 690개 공통화 — body.vz297(학년 페이지에만 붙인 클래스) 범위만 · 메인·과목·서비스 페이지 영향 없음
+   · BY GRADE 초등(#grades)·WHEN(#when) 카드도 같은 아이콘·가운데 정렬 · 카드 사이 화살표 전부 삭제(#plan·#years·#grades) · EXAM PREP 5카드는 PC 5열 / 태블릿 3+2 가운데 / 모바일 1열
+   · 1024px 이하 가운데 정렬: [190-2차] 떠 있는 버튼용 오른쪽 64px 여백 때문에 본문이 32px 왼쪽으로 치우침 → 학년 페이지는 상담·전화 버튼을 화면 아래 가로 띠로(사이트 [269차] 모바일 방식) + 본문 아래 띠 높이만큼 여백, 오른쪽 여백 0
+   · 되돌리기: 이 블록 삭제 + backup/298차수정전 복원 */
+body.vz297 main #grades .ar-steps.mt-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; max-width: 960px; margin: 0 auto; }
+body.vz297 main #grades .ar-step { justify-content: flex-start; align-items: center; gap: 12px; padding: 28px 22px 26px; text-align: center; }
+body.vz297 main :is(#plan, #years, #grades) .ar-step + .ar-step::after { content: none; display: none; }
+body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; max-width: 1180px; }
+body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) > .ar-step { padding: 26px 16px 24px; }
+body.vz297 main #when .mt-reason-grid { gap: 20px; max-width: 960px; }
+body.vz297 main #when .mt-reason-grid > li.mt-reason { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 12px; padding: 28px 24px 26px; text-align: center; }
+body.vz297 main #when .mt-reason-grid > li.mt-reason::before { content: none; display: none; }
+body.vz297 main #when .mt-reason h3 { margin: 0; }
+@media (max-width: 1100px) and (min-width: 641px) {
+  body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; max-width: 960px; }
+  body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) > .ar-step { grid-column: span 2; }
+  body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) > .ar-step:nth-child(4) { grid-column: 2 / span 2; }
+  body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) > .ar-step:nth-child(5) { grid-column: 4 / span 2; }
+}
+@media (max-width: 1024px) {
+  body.vz297.page-subarea.page-subject main section:not(.rg-hero-solid) > .container, body.vz297.page-subarea.page-subject .rg-updated .container, body.vz297.page-subarea.page-subject .site-footer .container { padding-right: 0; }
+  body.vz297.page-subarea.page-subject { padding-bottom: calc(54px + env(safe-area-inset-bottom)) !important; } /* 공통 body { padding-bottom: 0 !important }보다 우선 */
+  body.vz297.page-subarea.page-subject .sig-float.rg-float { left: 0; right: 0; bottom: 0; flex-direction: row; align-items: stretch; gap: 0; padding: 0 0 env(safe-area-inset-bottom); border-top: 1px solid #E8E1D4; background: #FFFFFF; box-shadow: none; }
+  body.vz297.page-subarea.page-subject .sig-float.rg-float a { flex: 1 1 0; flex-direction: row; justify-content: center; align-items: center; gap: 8px; width: auto; min-width: 0; height: 54px; border-radius: 0; font-size: 15px; box-shadow: none; }
+  body.vz297.page-subarea.page-subject .sig-float.rg-float a:hover, body.vz297.page-subarea.page-subject .sig-float.rg-float a:focus-visible { transform: none; box-shadow: none; }
+  body.vz297.page-subarea.page-subject .sig-float.rg-float svg { width: 18px; height: 18px; }
+  body.vz297 main #grades .ar-steps.mt-steps { gap: 14px; }
+  body.vz297 main #grades .ar-step { padding: 22px 16px; }
+}
+@media (max-width: 640px) {
+  body.vz297 main #grades .ar-steps.mt-steps, body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) { grid-template-columns: minmax(0, 1fr); gap: 12px; max-width: 460px; }
+  body.vz297 main #grades .mt-steps .ar-step, body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) > .ar-step { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 20px 18px; text-align: center; }
+  body.vz297 main #when .mt-reason-grid { gap: 12px; max-width: 460px; }
+  body.vz297 main #when .mt-reason-grid > li.mt-reason { gap: 10px; padding: 20px 18px; }
+}

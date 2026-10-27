@@ -8151,3 +8151,27 @@ body.page-subject main #related .gg-how-in .mt-check-grid { grid-template-column
   body.page-subject main #related .gg-how-in { margin-top: 40px; padding-top: 36px; }
   body.page-subject main #related .gg-how-in .mt-check-grid { grid-template-columns: 1fr; }
 }
+
+/* [297차 시범] 학년 페이지 비주얼 — body.vz297(안산 중학생 1페이지)에만 적용 · 690개 확대 전 시범
+   · 섹션 대표 이미지(.vz-head 제목+이미지 · PC 2열 / 태블릿·모바일 제목 아래) · 과목 카드 아이콘(.vz-ico) · LOCAL GUIDE 카드 아이콘(.vz-cico) · FAQ 제목 아이콘(.vz-hico)
+   · 이미지는 테두리·그림자 없이 둥근 모서리만, 비율 고정(aspect-ratio)으로 레이아웃 이동 없음 · 되돌리기: 이 블록 삭제 + backup/297차수정전 복원 */
+body.vz297 main .vz-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); align-items: center; gap: 48px; max-width: 1080px; margin: 0 auto 40px; }
+body.vz297 main .vz-head .section-head { max-width: none; margin: 0; text-align: left; }
+body.vz297 main .vz-media { aspect-ratio: 16 / 10; border-radius: 18px; overflow: hidden; background: #F7F1E7; }
+body.vz297 main .vz-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+body.vz297 main .vz-media.is-slot { display: grid; place-items: center; border: 1px solid #EEE7DA; color: #B8924A; }
+body.vz297 main .vz-media.is-slot .vz-slot-svg { width: 72px; height: 72px; stroke-width: 1.1; }
+body.vz297 main .vz-ico { display: inline-grid; place-items: center; align-self: flex-start; width: 40px; height: 40px; margin-bottom: 4px; border: 1px solid rgba(16, 35, 63, 0.08); border-radius: 12px; background: rgba(255, 255, 255, 0.9); color: #10233F; }
+body.vz297 main .vz-ico svg, body.vz297 main .vz-cico svg { width: 22px; height: 22px; }
+body.vz297 main .vz-card .vz-cico { display: inline-grid; place-items: center; align-self: flex-start; width: 38px; height: 38px; border-radius: 50%; background: #F7F1E7; color: #8F6B2F; }
+body.vz297 main .vz-hico { display: grid; place-items: center; width: 40px; height: 40px; margin: 12px auto 0; border: 1px solid #EADFC9; border-radius: 50%; background: #FFFFFF; color: #8F6B2F; }
+body.vz297 main .vz-hico svg { width: 22px; height: 22px; }
+@media (max-width: 860px) {
+  body.vz297 main .vz-head { grid-template-columns: minmax(0, 1fr); gap: 22px; max-width: 640px; margin-bottom: 30px; }
+  body.vz297 main .vz-head .section-head { text-align: center; }
+}
+@media (max-width: 640px) {
+  body.vz297 main .vz-media { aspect-ratio: 16 / 9; border-radius: 14px; }
+  body.vz297 main .vz-media.is-slot .vz-slot-svg { width: 56px; height: 56px; }
+  body.vz297 main .vz-ico { width: 36px; height: 36px; border-radius: 10px; }
+}

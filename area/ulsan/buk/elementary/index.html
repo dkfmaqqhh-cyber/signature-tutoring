@@ -170,7 +170,7 @@
 }
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../../../../css/style.css?v=295">
+<link rel="stylesheet" href="../../../../css/style.css?v=296">
 <!-- [215차] 긴 학교명 태그 보정: 1024px 이하에서 학교 카드가 그리드 칸 폭에 맞게 줄어들고(min-width:0), 공백 없는 긴 학교명(예: 울산스포츠과학고등학교·울산기술공업고등학교)만 칸 안에서 자연스럽게 줄바꿈(overflow-wrap:anywhere) · 서울·부산 [206차]·대구 [205차]·인천 [208차]·광주 [211차]·대전 [213차]와 같은 규칙 · 글자 삭제·줄임표 없음 · PC 1025px 이상 영향 없음 · 되돌리기: 이 style 삭제 -->
 <style>
 @media (max-width: 1024px) {
@@ -234,26 +234,8 @@
   </div>
 </section>
 
-<!-- [295차] 지역 확인 정보(LOCAL GUIDE · 유형 A): 이 페이지 학교 목록 23곳을 전국초중등학교위치표준데이터(공공데이터포털 15021148, 2026-10-01)와 대조해 소재 동·설립 구분·관할만 표시 · 이전 공통 '핵심 검색 의도' 카드 대체 · 되돌리기: backup/295차수정전 -->
-<section class="page-section mt-bg-cream" id="needs" aria-labelledby="grNeedTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">LOCAL GUIDE</div>
-      <h2 id="grNeedTitle">울산 북구 초등학교와 관할, 상담 전에 확인할 네 가지</h2>
-      <p>울산 북구 초등학교 목록 23곳이 어느 동에 있는지와 설립 구분, 관할을 정리했습니다. 수업 진도는 아이가 다니는 학교의 교과서 단원을 기준으로 맞춥니다.</p>
-    </div>
-    <div class="sc-grid mt-diag-grid">
-      <article class="sc-card"><h3>중산·천곡동 각 3곳</h3><p>중산동에 약수초·이화초·중산초, 천곡동에 동천초·상안초·천곡초가 있습니다.</p></article>
-      <article class="sc-card"><h3>호계동 3곳 · 매곡동 2곳</h3><p>호계동에 농소초·은월초·호계초, 매곡동에 매곡초·매산초가 있습니다.</p></article>
-      <article class="sc-card"><h3>그 밖의 10개 동</h3><p>신천·화봉동에 각 2곳, 달천·명촌·산하·송정·양정·연암·염포·효문동에 각 1곳이 있습니다.</p></article>
-      <article class="sc-card"><h3>공립 23곳 · 강북교육지원청</h3><p>23곳 모두 공립이며 울산광역시강북교육지원청 관할입니다. 가장 최근 설립된 학교는 2025년 설립된 울산효문초등학교입니다.</p></article>
-    </div>
-    <p class="mt-note bs-src">출처: 전국초중등학교위치표준데이터(2026.10.1 기준), 교육부 2022 개정 교육과정 확정 발표(2022.12.22)</p>
-  </div>
-</section>
-
 <!-- 3. 과목 5 (국어·영어·수학·사회·한국사·과학 · 북구 과목 페이지 실제 링크 · is-five) -->
-<section class="page-section mt-bg-blue" id="areas" aria-labelledby="grAreaTitle">
+<section class="page-section mt-bg-white" id="areas" aria-labelledby="grAreaTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">SUBJECTS</div>
@@ -287,7 +269,7 @@
 </section>
 
 <!-- [295차] 초등 학년군 안내: 교육부 2022 개정 교육과정 확정 발표(2022.12.22, korea.kr 정책뉴스 148909720)에서 확인한 사실만 · 지역별 학습 특성 없음 · 되돌리기: 이 섹션 삭제 -->
-<section class="page-section mt-bg-white" id="grades" aria-labelledby="grGradeTitle">
+<section class="page-section mt-bg-blue" id="grades" aria-labelledby="grGradeTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">BY GRADE</div>
@@ -304,7 +286,7 @@
 </section>
 
 <!-- 5. 중간 CTA -->
-<section class="page-section mt-bg-white mt-midcta" aria-labelledby="grMidTitle">
+<section class="page-section mt-bg-blue mt-midcta" aria-labelledby="grMidTitle">
   <div class="container">
     <div class="mt-midcta-box">
       <h2 id="grMidTitle">아이의 기초와 공부습관, 어디서부터 잡아야 할까요?</h2>
@@ -314,20 +296,55 @@
   </div>
 </section>
 
-<!-- 6. 상담 확인 항목 5 -->
-<section class="page-section mt-bg-blue" id="consult-check" aria-labelledby="grCheckTitle">
+<!-- 다른 학년 2 + 과목 4 (모두 실제 페이지) -->
+<section class="page-section mt-bg-white" id="related" aria-labelledby="grRelTitle">
   <div class="container">
     <div class="section-head center">
-      <div class="kicker">CONSULTATION</div>
-      <h2 id="grCheckTitle">북구 초등학생과외 상담 때 확인하는 다섯 가지</h2>
+      <div class="kicker">MORE OPTIONS</div>
+      <h2 id="grRelTitle">북구 다른 학년과 과목 과외</h2>
     </div>
-    <ul class="mt-check-grid">
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">1</span><h3>학년과 사는 동</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">2</span><h3>다니는 학교</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">3</span><h3>어려워하는 과목</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">4</span><h3>공부습관과 학습 목표</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">5</span><h3>방문·화상 및 가능한 시간</h3></li>
+    <ul class="ar-topic-list">
+      <li><a class="ar-topic" href="../middle/" data-area="ulsan-buk" data-topic="middle">북구 중학생과외</a></li>
+      <li><a class="ar-topic" href="../high/" data-area="ulsan-buk" data-topic="high">북구 고등학생과외</a></li>
+      <li><a class="ar-topic" href="../korean/" data-area="ulsan-buk" data-topic="korean">북구 국어과외</a></li>
+      <li><a class="ar-topic" href="../english/" data-area="ulsan-buk" data-topic="english">북구 영어과외</a></li>
+      <li><a class="ar-topic" href="../math/" data-area="ulsan-buk" data-topic="math">북구 수학과외</a></li>
+      <li><a class="ar-topic" href="../social/" data-area="ulsan-buk" data-topic="social">북구 사회·한국사과외</a></li>
+      <li><a class="ar-topic" href="../science/" data-area="ulsan-buk" data-topic="science">북구 과학과외</a></li>
     </ul>
+  </div>
+</section>
+
+<!-- 상위 지역 링크 (실제 페이지만) -->
+<section class="page-section mt-bg-cream" id="area-links" aria-labelledby="grAreaLinkTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">BUK-GU AREAS</div>
+      <h2 id="grAreaLinkTitle">북구·울산·전국 과외 안내 보기</h2>
+    </div>
+    <div class="gn-uplinks">
+      <a class="gn-uplink" href="../">북구 과외 전체 보기 <span aria-hidden="true">→</span></a>
+      <a class="gn-uplink" href="../../">울산 지역별 과외 <span aria-hidden="true">→</span></a>
+      <a class="gn-uplink" href="../../../">전국 지역별 과외 <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- [295차] 지역 확인 정보(LOCAL GUIDE · 유형 A): 이 페이지 학교 목록 23곳을 전국초중등학교위치표준데이터(공공데이터포털 15021148, 2026-10-01)와 대조해 소재 동·설립 구분·관할만 표시 · 이전 공통 '핵심 검색 의도' 카드 대체 · 되돌리기: backup/295차수정전 -->
+<section class="page-section mt-bg-blue" id="needs" aria-labelledby="grNeedTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">LOCAL GUIDE</div>
+      <h2 id="grNeedTitle">울산 북구 초등학교와 관할, 상담 전에 확인할 네 가지</h2>
+      <p>울산 북구 초등학교 목록 23곳이 어느 동에 있는지와 설립 구분, 관할을 정리했습니다. 수업 진도는 아이가 다니는 학교의 교과서 단원을 기준으로 맞춥니다.</p>
+    </div>
+    <div class="sc-grid mt-diag-grid">
+      <article class="sc-card"><h3>중산·천곡동 각 3곳</h3><p>중산동에 약수초·이화초·중산초, 천곡동에 동천초·상안초·천곡초가 있습니다.</p></article>
+      <article class="sc-card"><h3>호계동 3곳 · 매곡동 2곳</h3><p>호계동에 농소초·은월초·호계초, 매곡동에 매곡초·매산초가 있습니다.</p></article>
+      <article class="sc-card"><h3>그 밖의 10개 동</h3><p>신천·화봉동에 각 2곳, 달천·명촌·산하·송정·양정·연암·염포·효문동에 각 1곳이 있습니다.</p></article>
+      <article class="sc-card"><h3>공립 23곳 · 강북교육지원청</h3><p>23곳 모두 공립이며 울산광역시강북교육지원청 관할입니다. 가장 최근 설립된 학교는 2025년 설립된 울산효문초등학교입니다.</p></article>
+    </div>
+    <p class="mt-note bs-src">출처: 전국초중등학교위치표준데이터(2026.10.1 기준), 교육부 2022 개정 교육과정 확정 발표(2022.12.22)</p>
   </div>
 </section>
 
@@ -412,40 +429,6 @@
         <h3>시범수업을 먼저 받아볼 수 있나요?</h3>
         <p>네, 상담 후 무료 시범수업으로 선생님의 설명 방식과 수업 흐름을 먼저 확인하실 수 있습니다. 시범수업 뒤 정식 수업 여부를 정하시면 되며, 세부 조건은 상담 시 안내드립니다.</p>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- 다른 학년 2 + 과목 4 (모두 실제 페이지) -->
-<section class="page-section mt-bg-white" id="related" aria-labelledby="grRelTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">MORE OPTIONS</div>
-      <h2 id="grRelTitle">북구 다른 학년과 과목 과외</h2>
-    </div>
-    <ul class="ar-topic-list">
-      <li><a class="ar-topic" href="../middle/" data-area="ulsan-buk" data-topic="middle">북구 중학생과외</a></li>
-      <li><a class="ar-topic" href="../high/" data-area="ulsan-buk" data-topic="high">북구 고등학생과외</a></li>
-      <li><a class="ar-topic" href="../korean/" data-area="ulsan-buk" data-topic="korean">북구 국어과외</a></li>
-      <li><a class="ar-topic" href="../english/" data-area="ulsan-buk" data-topic="english">북구 영어과외</a></li>
-      <li><a class="ar-topic" href="../math/" data-area="ulsan-buk" data-topic="math">북구 수학과외</a></li>
-      <li><a class="ar-topic" href="../social/" data-area="ulsan-buk" data-topic="social">북구 사회·한국사과외</a></li>
-      <li><a class="ar-topic" href="../science/" data-area="ulsan-buk" data-topic="science">북구 과학과외</a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- 상위 지역 링크 (실제 페이지만) -->
-<section class="page-section mt-bg-cream" id="area-links" aria-labelledby="grAreaLinkTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">BUK-GU AREAS</div>
-      <h2 id="grAreaLinkTitle">북구·울산·전국 과외 안내 보기</h2>
-    </div>
-    <div class="gn-uplinks">
-      <a class="gn-uplink" href="../">북구 과외 전체 보기 <span aria-hidden="true">→</span></a>
-      <a class="gn-uplink" href="../../">울산 지역별 과외 <span aria-hidden="true">→</span></a>
-      <a class="gn-uplink" href="../../../">전국 지역별 과외 <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>

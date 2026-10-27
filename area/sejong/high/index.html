@@ -164,7 +164,7 @@
 }
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../../../css/style.css?v=295">
+<link rel="stylesheet" href="../../../css/style.css?v=296">
 <!-- [218차] 긴 학교명 태그 보정: 1024px 이하에서 학교 카드가 그리드 칸 폭에 맞게 줄어들고(min-width:0), 공백 없는 긴 학교명(예: 세종과학예술영재학교·조치원신봉초등학교)만 칸 안에서 자연스럽게 줄바꿈(overflow-wrap:anywhere) · 울산 [215차]와 같은 규칙 · 글자 삭제·줄임표 없음 · PC 1025px 이상 영향 없음 · 되돌리기: 이 style 삭제 -->
 <!-- [218차] 세종 공통 페이지 읍·면·동 링크 두 줄 간격(.sjc-dong-links) (되돌리기: 이 style 삭제) -->
 <style>
@@ -231,26 +231,8 @@ body.page-subject .sjc-dong-links { margin-top: 12px; }
   </div>
 </section>
 
-<!-- [295차] 지역 확인 정보(LOCAL GUIDE · 유형 A): 이 페이지 학교 목록 22곳을 전국초중등학교위치표준데이터(공공데이터포털 15021148, 2026-10-01)와 대조해 소재 읍·면·동·설립 구분·관할만 표시 · 이전 공통 '핵심 검색 의도' 카드 대체 · 되돌리기: backup/295차수정전 -->
-<section class="page-section mt-bg-cream" id="needs" aria-labelledby="grNeedTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">LOCAL GUIDE</div>
-      <h2 id="grNeedTitle">세종 고등학교와 관할, 상담 전에 확인할 네 가지</h2>
-      <p>세종 고등학교 목록 22곳이 어느 읍·면·동에 있는지와 설립 구분, 관할을 정리했습니다. 내신 준비는 다니는 학교의 과목 편성과 시험 범위를 기준으로 맞춥니다.</p>
-    </div>
-    <div class="sc-grid mt-diag-grid">
-      <article class="sc-card"><h3>아름동 3곳</h3><p>아름동에 세종과학예술영재학교·세종국제고·아름고가 있어 세종에서 고등학교가 가장 많습니다.</p></article>
-      <article class="sc-card"><h3>고운·도담동·조치원읍 각 2곳</h3><p>고운동에 고운고·두루고, 도담동에 도담고·양지고, 조치원읍에 세종고·세종여자고가 있습니다.</p></article>
-      <article class="sc-card"><h3>그 밖의 13개 면·동</h3><p>금남·부강면·다정·반곡·보람·산울·새롬·세종·소담·어진·종촌·한솔·해밀동에 각 1곳이 있습니다.</p></article>
-      <article class="sc-card"><h3>공립 21곳 · 사립 1곳</h3><p>22곳 가운데 세종대성고 1곳이 사립, 21곳이 공립이며 모두 세종특별자치시교육청 관할입니다. 가장 최근 설립된 학교는 2025년 설립된 세종캠퍼스고등학교입니다.</p></article>
-    </div>
-    <p class="mt-note bs-src">출처: 전국초중등학교위치표준데이터(2026.10.1 기준), 교육부 2028 대학입시제도 개편안(2023.12.27)</p>
-  </div>
-</section>
-
 <!-- 3. 과목 5 (국어·영어·수학·사회·한국사·과학 · 세종 과목 페이지 실제 링크 · is-five) -->
-<section class="page-section mt-bg-blue" id="areas" aria-labelledby="grAreaTitle">
+<section class="page-section mt-bg-white" id="areas" aria-labelledby="grAreaTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">SUBJECTS</div>
@@ -301,7 +283,7 @@ body.page-subject .sjc-dong-links { margin-top: 12px; }
 </section>
 
 <!-- 5. 중간 CTA -->
-<section class="page-section mt-bg-white mt-midcta" aria-labelledby="grMidTitle">
+<section class="page-section mt-bg-blue mt-midcta" aria-labelledby="grMidTitle">
   <div class="container">
     <div class="mt-midcta-box">
       <h2 id="grMidTitle">내신과 모의고사 사이에서 무엇을 먼저 해야 할까요?</h2>
@@ -311,20 +293,84 @@ body.page-subject .sjc-dong-links { margin-top: 12px; }
   </div>
 </section>
 
-<!-- 6. 상담 확인 항목 5 -->
-<section class="page-section mt-bg-blue" id="consult-check" aria-labelledby="grCheckTitle">
+<!-- 다른 학년 2 + 과목 4 (모두 실제 페이지) -->
+<section class="page-section mt-bg-white" id="related" aria-labelledby="grRelTitle">
   <div class="container">
     <div class="section-head center">
-      <div class="kicker">CONSULTATION</div>
-      <h2 id="grCheckTitle">세종 고등학생과외 상담 때 확인하는 다섯 가지</h2>
+      <div class="kicker">MORE OPTIONS</div>
+      <h2 id="grRelTitle">세종 다른 학년과 과목 과외</h2>
     </div>
-    <ul class="mt-check-grid">
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">1</span><h3>학년과 사는 읍·면·동</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">2</span><h3>다니는 고등학교</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">3</span><h3>취약 과목과 단원</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">4</span><h3>내신·모의고사 등 목표</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">5</span><h3>방문·화상 및 가능한 시간</h3></li>
+    <ul class="ar-topic-list">
+      <li><a class="ar-topic" href="../elementary/" data-area="sejong" data-topic="elementary">세종 초등학생과외</a></li>
+      <li><a class="ar-topic" href="../middle/" data-area="sejong" data-topic="middle">세종 중학생과외</a></li>
+      <li><a class="ar-topic" href="../korean/" data-area="sejong" data-topic="korean">세종 국어과외</a></li>
+      <li><a class="ar-topic" href="../english/" data-area="sejong" data-topic="english">세종 영어과외</a></li>
+      <li><a class="ar-topic" href="../math/" data-area="sejong" data-topic="math">세종 수학과외</a></li>
+      <li><a class="ar-topic" href="../social/" data-area="sejong" data-topic="social">세종 사회·한국사과외</a></li>
+      <li><a class="ar-topic" href="../science/" data-area="sejong" data-topic="science">세종 과학과외</a></li>
     </ul>
+  </div>
+</section>
+
+<!-- [218차] 세종 25개 읍·면·동 허브 실제 링크 + 상위 링크 (읍·면은 화상수업 우선 안내) -->
+<section class="page-section mt-bg-cream" id="area-links" aria-labelledby="grAreaLinkTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">SEJONG AREAS</div>
+      <h2 id="grAreaLinkTitle">세종 읍·면·동별 과외 안내 보기</h2>
+      <p>사는 읍·면·동을 고르면 그 지역의 학교와 지역 소개를 볼 수 있습니다. 읍·면 지역은 실시간 화상수업을 먼저 안내하고, 방문은 사는 마을과 일정을 확인한 뒤 가능 여부를 알려드립니다.</p>
+    </div>
+    <ul class="ar-topic-list" aria-label="세종 1읍 9면">
+      <li><a class="ar-topic" href="../jochiwon/">조치원읍</a></li>
+      <li><a class="ar-topic" href="../yeongi/">연기면</a></li>
+      <li><a class="ar-topic" href="../yeondong/">연동면</a></li>
+      <li><a class="ar-topic" href="../bugang/">부강면</a></li>
+      <li><a class="ar-topic" href="../geumnam/">금남면</a></li>
+      <li><a class="ar-topic" href="../janggun/">장군면</a></li>
+      <li><a class="ar-topic" href="../yeonseo/">연서면</a></li>
+      <li><a class="ar-topic" href="../jeonui/">전의면</a></li>
+      <li><a class="ar-topic" href="../jeondong/">전동면</a></li>
+      <li><a class="ar-topic" href="../sojeong/">소정면</a></li>
+    </ul>
+    <ul class="ar-topic-list sjc-dong-links" aria-label="세종 15개 행정동">
+      <li><a class="ar-topic" href="../hansol/">한솔동</a></li>
+      <li><a class="ar-topic" href="../saerom/">새롬동</a></li>
+      <li><a class="ar-topic" href="../naseong/">나성동</a></li>
+      <li><a class="ar-topic" href="../dajeong/">다정동</a></li>
+      <li><a class="ar-topic" href="../dodam/">도담동</a></li>
+      <li><a class="ar-topic" href="../eojin/">어진동</a></li>
+      <li><a class="ar-topic" href="../haemil/">해밀동</a></li>
+      <li><a class="ar-topic" href="../areum/">아름동</a></li>
+      <li><a class="ar-topic" href="../jongchon/">종촌동</a></li>
+      <li><a class="ar-topic" href="../goun/">고운동</a></li>
+      <li><a class="ar-topic" href="../boram/">보람동</a></li>
+      <li><a class="ar-topic" href="../daepyeong/">대평동</a></li>
+      <li><a class="ar-topic" href="../sodam/">소담동</a></li>
+      <li><a class="ar-topic" href="../bangok/">반곡동</a></li>
+      <li><a class="ar-topic" href="../jiphyeon/">집현동</a></li>
+    </ul>
+    <div class="gn-uplinks">
+      <a class="gn-uplink" href="../">세종 과외 전체 보기 <span aria-hidden="true">→</span></a>
+      <a class="gn-uplink" href="../../">전국 지역별 과외 <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- [295차] 지역 확인 정보(LOCAL GUIDE · 유형 A): 이 페이지 학교 목록 22곳을 전국초중등학교위치표준데이터(공공데이터포털 15021148, 2026-10-01)와 대조해 소재 읍·면·동·설립 구분·관할만 표시 · 이전 공통 '핵심 검색 의도' 카드 대체 · 되돌리기: backup/295차수정전 -->
+<section class="page-section mt-bg-blue" id="needs" aria-labelledby="grNeedTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">LOCAL GUIDE</div>
+      <h2 id="grNeedTitle">세종 고등학교와 관할, 상담 전에 확인할 네 가지</h2>
+      <p>세종 고등학교 목록 22곳이 어느 읍·면·동에 있는지와 설립 구분, 관할을 정리했습니다. 내신 준비는 다니는 학교의 과목 편성과 시험 범위를 기준으로 맞춥니다.</p>
+    </div>
+    <div class="sc-grid mt-diag-grid">
+      <article class="sc-card"><h3>아름동 3곳</h3><p>아름동에 세종과학예술영재학교·세종국제고·아름고가 있어 세종에서 고등학교가 가장 많습니다.</p></article>
+      <article class="sc-card"><h3>고운·도담동·조치원읍 각 2곳</h3><p>고운동에 고운고·두루고, 도담동에 도담고·양지고, 조치원읍에 세종고·세종여자고가 있습니다.</p></article>
+      <article class="sc-card"><h3>그 밖의 13개 면·동</h3><p>금남·부강면·다정·반곡·보람·산울·새롬·세종·소담·어진·종촌·한솔·해밀동에 각 1곳이 있습니다.</p></article>
+      <article class="sc-card"><h3>공립 21곳 · 사립 1곳</h3><p>22곳 가운데 세종대성고 1곳이 사립, 21곳이 공립이며 모두 세종특별자치시교육청 관할입니다. 가장 최근 설립된 학교는 2025년 설립된 세종캠퍼스고등학교입니다.</p></article>
+    </div>
+    <p class="mt-note bs-src">출처: 전국초중등학교위치표준데이터(2026.10.1 기준), 교육부 2028 대학입시제도 개편안(2023.12.27)</p>
   </div>
 </section>
 
@@ -408,69 +454,6 @@ body.page-subject .sjc-dong-links { margin-top: 12px; }
         <h3>시범수업을 먼저 받아볼 수 있나요?</h3>
         <p>네, 상담 후 무료 시범수업으로 선생님의 설명 방식과 수업 흐름을 먼저 확인하실 수 있습니다. 시범수업 뒤 정식 수업 여부를 정하시면 되며, 세부 조건은 상담 시 안내드립니다.</p>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- 다른 학년 2 + 과목 4 (모두 실제 페이지) -->
-<section class="page-section mt-bg-white" id="related" aria-labelledby="grRelTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">MORE OPTIONS</div>
-      <h2 id="grRelTitle">세종 다른 학년과 과목 과외</h2>
-    </div>
-    <ul class="ar-topic-list">
-      <li><a class="ar-topic" href="../elementary/" data-area="sejong" data-topic="elementary">세종 초등학생과외</a></li>
-      <li><a class="ar-topic" href="../middle/" data-area="sejong" data-topic="middle">세종 중학생과외</a></li>
-      <li><a class="ar-topic" href="../korean/" data-area="sejong" data-topic="korean">세종 국어과외</a></li>
-      <li><a class="ar-topic" href="../english/" data-area="sejong" data-topic="english">세종 영어과외</a></li>
-      <li><a class="ar-topic" href="../math/" data-area="sejong" data-topic="math">세종 수학과외</a></li>
-      <li><a class="ar-topic" href="../social/" data-area="sejong" data-topic="social">세종 사회·한국사과외</a></li>
-      <li><a class="ar-topic" href="../science/" data-area="sejong" data-topic="science">세종 과학과외</a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- [218차] 세종 25개 읍·면·동 허브 실제 링크 + 상위 링크 (읍·면은 화상수업 우선 안내) -->
-<section class="page-section mt-bg-cream" id="area-links" aria-labelledby="grAreaLinkTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">SEJONG AREAS</div>
-      <h2 id="grAreaLinkTitle">세종 읍·면·동별 과외 안내 보기</h2>
-      <p>사는 읍·면·동을 고르면 그 지역의 학교와 지역 소개를 볼 수 있습니다. 읍·면 지역은 실시간 화상수업을 먼저 안내하고, 방문은 사는 마을과 일정을 확인한 뒤 가능 여부를 알려드립니다.</p>
-    </div>
-    <ul class="ar-topic-list" aria-label="세종 1읍 9면">
-      <li><a class="ar-topic" href="../jochiwon/">조치원읍</a></li>
-      <li><a class="ar-topic" href="../yeongi/">연기면</a></li>
-      <li><a class="ar-topic" href="../yeondong/">연동면</a></li>
-      <li><a class="ar-topic" href="../bugang/">부강면</a></li>
-      <li><a class="ar-topic" href="../geumnam/">금남면</a></li>
-      <li><a class="ar-topic" href="../janggun/">장군면</a></li>
-      <li><a class="ar-topic" href="../yeonseo/">연서면</a></li>
-      <li><a class="ar-topic" href="../jeonui/">전의면</a></li>
-      <li><a class="ar-topic" href="../jeondong/">전동면</a></li>
-      <li><a class="ar-topic" href="../sojeong/">소정면</a></li>
-    </ul>
-    <ul class="ar-topic-list sjc-dong-links" aria-label="세종 15개 행정동">
-      <li><a class="ar-topic" href="../hansol/">한솔동</a></li>
-      <li><a class="ar-topic" href="../saerom/">새롬동</a></li>
-      <li><a class="ar-topic" href="../naseong/">나성동</a></li>
-      <li><a class="ar-topic" href="../dajeong/">다정동</a></li>
-      <li><a class="ar-topic" href="../dodam/">도담동</a></li>
-      <li><a class="ar-topic" href="../eojin/">어진동</a></li>
-      <li><a class="ar-topic" href="../haemil/">해밀동</a></li>
-      <li><a class="ar-topic" href="../areum/">아름동</a></li>
-      <li><a class="ar-topic" href="../jongchon/">종촌동</a></li>
-      <li><a class="ar-topic" href="../goun/">고운동</a></li>
-      <li><a class="ar-topic" href="../boram/">보람동</a></li>
-      <li><a class="ar-topic" href="../daepyeong/">대평동</a></li>
-      <li><a class="ar-topic" href="../sodam/">소담동</a></li>
-      <li><a class="ar-topic" href="../bangok/">반곡동</a></li>
-      <li><a class="ar-topic" href="../jiphyeon/">집현동</a></li>
-    </ul>
-    <div class="gn-uplinks">
-      <a class="gn-uplink" href="../">세종 과외 전체 보기 <span aria-hidden="true">→</span></a>
-      <a class="gn-uplink" href="../../">전국 지역별 과외 <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>

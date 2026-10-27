@@ -8142,3 +8142,7 @@ body.page-area.page-region .ar-steps.mt-steps.lg-three { grid-template-columns: 
 @media (max-width: 640px) {
   body.page-area.page-region .sc-grid.mt-diag-grid.lg-2, body.page-area.page-region .sc-grid.mt-diag-grid.lg-3, body.page-area.page-region .ar-steps.mt-steps.lg-three { grid-template-columns: 1fr; }
 }
+
+/* [296차] 학년 페이지 섹션 순서 통일 — BY GRADE(#years·#grades)와 같은 연한 네이비 배경으로 이어지는 중간 상담 박스는 위 여백만 줄여 한 덩어리로 보이게
+   · 범위: 학년 페이지에서 BY GRADE 바로 뒤 .mt-midcta.mt-bg-blue만(다른 페이지에는 이 조합 없음) · 되돌리기: 이 블록 삭제 + backup/296차수정전 복원 */
+body.page-subject main :is(#years, #grades).mt-bg-blue + .mt-midcta.mt-bg-blue { padding-top: 0; }

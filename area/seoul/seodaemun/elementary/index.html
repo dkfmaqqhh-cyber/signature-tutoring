@@ -170,7 +170,7 @@
 }
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../../../../css/style.css?v=295">
+<link rel="stylesheet" href="../../../../css/style.css?v=296">
 <!-- [206차] 긴 학교명 태그 보정: 1024px 이하에서 학교 카드가 그리드 칸 폭에 맞게 줄어들고(min-width:0), 공백 없는 긴 학교명만 칸 안에서 자연스럽게 줄바꿈(overflow-wrap:anywhere) · 서울 서대문구 [202차]·대구 [205차]와 같은 규칙 · 글자 삭제·줄임표 없음 · PC 1025px 이상 영향 없음 · 되돌리기: 이 style 삭제 -->
 <style>
 @media (max-width: 1024px) {
@@ -234,26 +234,8 @@
   </div>
 </section>
 
-<!-- [295차] 지역 확인 정보(LOCAL GUIDE · 유형 A): 이 페이지 학교 목록 19곳을 전국초중등학교위치표준데이터(공공데이터포털 15021148, 2026-10-01)와 대조해 소재 동·설립 구분·관할만 표시 · 이전 공통 '핵심 검색 의도' 카드 대체 · 되돌리기: backup/295차수정전 -->
-<section class="page-section mt-bg-cream" id="needs" aria-labelledby="grNeedTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">LOCAL GUIDE</div>
-      <h2 id="grNeedTitle">서대문구 초등학교와 관할, 상담 전에 확인할 네 가지</h2>
-      <p>서대문구 초등학교 목록 19곳이 어느 동에 있는지와 설립 구분, 관할을 정리했습니다. 수업 진도는 아이가 다니는 학교의 교과서 단원을 기준으로 맞춥니다.</p>
-    </div>
-    <div class="sc-grid mt-diag-grid">
-      <article class="sc-card"><h3>홍제동 4곳</h3><p>홍제동에 서울고은초·서울안산초·서울인왕초·서울홍은초가 있어 서대문구에서 초등학교가 가장 많습니다.</p></article>
-      <article class="sc-card"><h3>홍은·남가좌·북아현동</h3><p>홍은동에 명지초·서울홍연초·서울홍제초, 남가좌동에 서울가재울초·서울연가초, 북아현동에 서울북성초·추계초가 있습니다.</p></article>
-      <article class="sc-card"><h3>그 밖의 8개 동</h3><p>대신·대현·미근·북가좌·연희·창천·천연동·충정로2가에 각 1곳이 있습니다.</p></article>
-      <article class="sc-card"><h3>공립 15곳 · 사립 4곳</h3><p>19곳 가운데 4곳이 사립, 15곳이 공립이며 모두 서울특별시서부교육지원청 관할입니다. 가장 최근 설립된 학교는 2016년 설립된 서울가재울초등학교입니다.</p></article>
-    </div>
-    <p class="mt-note bs-src">출처: 전국초중등학교위치표준데이터(2026.10.1 기준), 교육부 2022 개정 교육과정 확정 발표(2022.12.22)</p>
-  </div>
-</section>
-
 <!-- 3. 과목 5 (국어·영어·수학·사회·한국사·과학 · 서대문구 과목 페이지 실제 링크 · is-five) -->
-<section class="page-section mt-bg-blue" id="areas" aria-labelledby="grAreaTitle">
+<section class="page-section mt-bg-white" id="areas" aria-labelledby="grAreaTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">SUBJECTS</div>
@@ -287,7 +269,7 @@
 </section>
 
 <!-- [295차] 초등 학년군 안내: 교육부 2022 개정 교육과정 확정 발표(2022.12.22, korea.kr 정책뉴스 148909720)에서 확인한 사실만 · 지역별 학습 특성 없음 · 되돌리기: 이 섹션 삭제 -->
-<section class="page-section mt-bg-white" id="grades" aria-labelledby="grGradeTitle">
+<section class="page-section mt-bg-blue" id="grades" aria-labelledby="grGradeTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">BY GRADE</div>
@@ -304,7 +286,7 @@
 </section>
 
 <!-- 5. 중간 CTA -->
-<section class="page-section mt-bg-white mt-midcta" aria-labelledby="grMidTitle">
+<section class="page-section mt-bg-blue mt-midcta" aria-labelledby="grMidTitle">
   <div class="container">
     <div class="mt-midcta-box">
       <h2 id="grMidTitle">아이의 기초와 공부습관, 어디서부터 잡아야 할까요?</h2>
@@ -314,20 +296,55 @@
   </div>
 </section>
 
-<!-- 6. 상담 확인 항목 5 -->
-<section class="page-section mt-bg-blue" id="consult-check" aria-labelledby="grCheckTitle">
+<!-- 다른 학년 2 + 과목 4 (모두 실제 페이지) -->
+<section class="page-section mt-bg-white" id="related" aria-labelledby="grRelTitle">
   <div class="container">
     <div class="section-head center">
-      <div class="kicker">CONSULTATION</div>
-      <h2 id="grCheckTitle">서대문구 초등학생과외 상담 때 확인하는 다섯 가지</h2>
+      <div class="kicker">MORE OPTIONS</div>
+      <h2 id="grRelTitle">서대문구 다른 학년과 과목 과외</h2>
     </div>
-    <ul class="mt-check-grid">
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">1</span><h3>학년과 사는 동</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">2</span><h3>다니는 학교</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">3</span><h3>어려워하는 과목</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">4</span><h3>공부습관과 학습 목표</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">5</span><h3>방문·화상 및 가능한 시간</h3></li>
+    <ul class="ar-topic-list">
+      <li><a class="ar-topic" href="../middle/" data-area="seoul-seodaemun" data-topic="middle">서대문구 중학생과외</a></li>
+      <li><a class="ar-topic" href="../high/" data-area="seoul-seodaemun" data-topic="high">서대문구 고등학생과외</a></li>
+      <li><a class="ar-topic" href="../korean/" data-area="seoul-seodaemun" data-topic="korean">서대문구 국어과외</a></li>
+      <li><a class="ar-topic" href="../english/" data-area="seoul-seodaemun" data-topic="english">서대문구 영어과외</a></li>
+      <li><a class="ar-topic" href="../math/" data-area="seoul-seodaemun" data-topic="math">서대문구 수학과외</a></li>
+      <li><a class="ar-topic" href="../social/" data-area="seoul-seodaemun" data-topic="social">서대문구 사회·한국사과외</a></li>
+      <li><a class="ar-topic" href="../science/" data-area="seoul-seodaemun" data-topic="science">서대문구 과학과외</a></li>
     </ul>
+  </div>
+</section>
+
+<!-- 상위 지역 링크 (실제 페이지만) -->
+<section class="page-section mt-bg-cream" id="area-links" aria-labelledby="grAreaLinkTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">SEODAEMUN AREAS</div>
+      <h2 id="grAreaLinkTitle">서대문구·서울·전국 과외 안내 보기</h2>
+    </div>
+    <div class="gn-uplinks">
+      <a class="gn-uplink" href="../">서대문구 과외 전체 보기 <span aria-hidden="true">→</span></a>
+      <a class="gn-uplink" href="../../">서울 지역별 과외 <span aria-hidden="true">→</span></a>
+      <a class="gn-uplink" href="../../../">전국 지역별 과외 <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- [295차] 지역 확인 정보(LOCAL GUIDE · 유형 A): 이 페이지 학교 목록 19곳을 전국초중등학교위치표준데이터(공공데이터포털 15021148, 2026-10-01)와 대조해 소재 동·설립 구분·관할만 표시 · 이전 공통 '핵심 검색 의도' 카드 대체 · 되돌리기: backup/295차수정전 -->
+<section class="page-section mt-bg-blue" id="needs" aria-labelledby="grNeedTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">LOCAL GUIDE</div>
+      <h2 id="grNeedTitle">서대문구 초등학교와 관할, 상담 전에 확인할 네 가지</h2>
+      <p>서대문구 초등학교 목록 19곳이 어느 동에 있는지와 설립 구분, 관할을 정리했습니다. 수업 진도는 아이가 다니는 학교의 교과서 단원을 기준으로 맞춥니다.</p>
+    </div>
+    <div class="sc-grid mt-diag-grid">
+      <article class="sc-card"><h3>홍제동 4곳</h3><p>홍제동에 서울고은초·서울안산초·서울인왕초·서울홍은초가 있어 서대문구에서 초등학교가 가장 많습니다.</p></article>
+      <article class="sc-card"><h3>홍은·남가좌·북아현동</h3><p>홍은동에 명지초·서울홍연초·서울홍제초, 남가좌동에 서울가재울초·서울연가초, 북아현동에 서울북성초·추계초가 있습니다.</p></article>
+      <article class="sc-card"><h3>그 밖의 8개 동</h3><p>대신·대현·미근·북가좌·연희·창천·천연동·충정로2가에 각 1곳이 있습니다.</p></article>
+      <article class="sc-card"><h3>공립 15곳 · 사립 4곳</h3><p>19곳 가운데 4곳이 사립, 15곳이 공립이며 모두 서울특별시서부교육지원청 관할입니다. 가장 최근 설립된 학교는 2016년 설립된 서울가재울초등학교입니다.</p></article>
+    </div>
+    <p class="mt-note bs-src">출처: 전국초중등학교위치표준데이터(2026.10.1 기준), 교육부 2022 개정 교육과정 확정 발표(2022.12.22)</p>
   </div>
 </section>
 
@@ -408,40 +425,6 @@
         <h3>시범수업을 먼저 받아볼 수 있나요?</h3>
         <p>네, 상담 후 무료 시범수업으로 선생님의 설명 방식과 수업 흐름을 먼저 확인하실 수 있습니다. 시범수업 뒤 정식 수업 여부를 정하시면 되며, 세부 조건은 상담 시 안내드립니다.</p>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- 다른 학년 2 + 과목 4 (모두 실제 페이지) -->
-<section class="page-section mt-bg-white" id="related" aria-labelledby="grRelTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">MORE OPTIONS</div>
-      <h2 id="grRelTitle">서대문구 다른 학년과 과목 과외</h2>
-    </div>
-    <ul class="ar-topic-list">
-      <li><a class="ar-topic" href="../middle/" data-area="seoul-seodaemun" data-topic="middle">서대문구 중학생과외</a></li>
-      <li><a class="ar-topic" href="../high/" data-area="seoul-seodaemun" data-topic="high">서대문구 고등학생과외</a></li>
-      <li><a class="ar-topic" href="../korean/" data-area="seoul-seodaemun" data-topic="korean">서대문구 국어과외</a></li>
-      <li><a class="ar-topic" href="../english/" data-area="seoul-seodaemun" data-topic="english">서대문구 영어과외</a></li>
-      <li><a class="ar-topic" href="../math/" data-area="seoul-seodaemun" data-topic="math">서대문구 수학과외</a></li>
-      <li><a class="ar-topic" href="../social/" data-area="seoul-seodaemun" data-topic="social">서대문구 사회·한국사과외</a></li>
-      <li><a class="ar-topic" href="../science/" data-area="seoul-seodaemun" data-topic="science">서대문구 과학과외</a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- 상위 지역 링크 (실제 페이지만) -->
-<section class="page-section mt-bg-cream" id="area-links" aria-labelledby="grAreaLinkTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">SEODAEMUN AREAS</div>
-      <h2 id="grAreaLinkTitle">서대문구·서울·전국 과외 안내 보기</h2>
-    </div>
-    <div class="gn-uplinks">
-      <a class="gn-uplink" href="../">서대문구 과외 전체 보기 <span aria-hidden="true">→</span></a>
-      <a class="gn-uplink" href="../../">서울 지역별 과외 <span aria-hidden="true">→</span></a>
-      <a class="gn-uplink" href="../../../">전국 지역별 과외 <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>

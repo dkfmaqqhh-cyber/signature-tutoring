@@ -170,7 +170,7 @@
 }
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../../../../css/style.css?v=294">
+<link rel="stylesheet" href="../../../../css/style.css?v=296">
 <!-- [211차] 긴 학교명 태그 보정: 1024px 이하에서 학교 카드가 그리드 칸 폭에 맞게 줄어들고(min-width:0), 공백 없는 긴 학교명(예: 광주교육대학교광주부설초등학교·광주소프트웨어마이스터고등학교)만 칸 안에서 자연스럽게 줄바꿈(overflow-wrap:anywhere) · 서울·부산 [206차]·대구 [205차]·인천 [208차]와 같은 규칙 · 글자 삭제·줄임표 없음 · PC 1025px 이상 영향 없음 · 되돌리기: 이 style 삭제 -->
 <style>
 @media (max-width: 1024px) {
@@ -234,25 +234,8 @@
   </div>
 </section>
 
-<!-- 2. 초등학생 핵심 검색 의도 4 -->
-<section class="page-section mt-bg-cream" id="needs" aria-labelledby="grNeedTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">CHECK FIRST</div>
-      <h2 id="grNeedTitle">서구 초등학생과외, 학교 수업 이해와 공부습관부터 봅니다</h2>
-      <p>서구 학생은 숙제장과 단원평가지를 보며 기초 단원을 다시 보는 데 시간이 얼마나 필요한지 먼저 가늠합니다.</p>
-    </div>
-    <div class="sc-grid mt-diag-grid">
-      <article class="sc-card"><h3>숙제를 미루거나 오래 걸리는 경우</h3><p>숙제를 시작하기까지 걸리는 시간과 진행 순서를 확인하고, 아이에게 맞는 공부 순서를 함께 정합니다.</p></article>
-      <article class="sc-card"><h3>연산은 되는데 문장제를 어려워하는 경우</h3><p>문제를 끝까지 읽고 식으로 바꾸는 과정을 확인해 문장제 풀이 순서를 함께 연습합니다.</p></article>
-      <article class="sc-card"><h3>영어 읽기를 부담스러워하는 경우</h3><p>파닉스와 기초 단어, 짧은 문장 읽기 가운데 현재 단계를 확인해 부담을 덜 느끼는 순서로 진행합니다.</p></article>
-      <article class="sc-card"><h3>사회·과학 교과서 용어를 어려워하는 경우</h3><p>교과서 용어의 뜻과 지도·표·그림 같은 자료, 역사 단원의 인물·사건을 읽는 방법부터 차근차근 확인합니다.</p></article>
-    </div>
-  </div>
-</section>
-
 <!-- 3. 과목 5 (국어·영어·수학·사회·한국사·과학 · 서구 과목 페이지 실제 링크 · is-five) -->
-<section class="page-section mt-bg-blue" id="areas" aria-labelledby="grAreaTitle">
+<section class="page-section mt-bg-white" id="areas" aria-labelledby="grAreaTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">SUBJECTS</div>
@@ -286,7 +269,7 @@
 </section>
 
 <!-- 5. 중간 CTA -->
-<section class="page-section mt-bg-white mt-midcta" aria-labelledby="grMidTitle">
+<section class="page-section mt-bg-blue mt-midcta" aria-labelledby="grMidTitle">
   <div class="container">
     <div class="mt-midcta-box">
       <h2 id="grMidTitle">아이의 기초와 공부습관, 어디서부터 잡아야 할까요?</h2>
@@ -296,20 +279,54 @@
   </div>
 </section>
 
-<!-- 6. 상담 확인 항목 5 -->
-<section class="page-section mt-bg-blue" id="consult-check" aria-labelledby="grCheckTitle">
+<!-- 다른 학년 2 + 과목 4 (모두 실제 페이지) -->
+<section class="page-section mt-bg-white" id="related" aria-labelledby="grRelTitle">
   <div class="container">
     <div class="section-head center">
-      <div class="kicker">CONSULTATION</div>
-      <h2 id="grCheckTitle">서구 초등학생과외 상담 때 확인하는 다섯 가지</h2>
+      <div class="kicker">MORE OPTIONS</div>
+      <h2 id="grRelTitle">서구 다른 학년과 과목 과외</h2>
     </div>
-    <ul class="mt-check-grid">
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">1</span><h3>학년과 사는 동</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">2</span><h3>다니는 학교</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">3</span><h3>어려워하는 과목</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">4</span><h3>공부습관과 학습 목표</h3></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">5</span><h3>방문·화상 및 가능한 시간</h3></li>
+    <ul class="ar-topic-list">
+      <li><a class="ar-topic" href="../middle/" data-area="gwangju-seo" data-topic="middle">서구 중학생과외</a></li>
+      <li><a class="ar-topic" href="../high/" data-area="gwangju-seo" data-topic="high">서구 고등학생과외</a></li>
+      <li><a class="ar-topic" href="../korean/" data-area="gwangju-seo" data-topic="korean">서구 국어과외</a></li>
+      <li><a class="ar-topic" href="../english/" data-area="gwangju-seo" data-topic="english">서구 영어과외</a></li>
+      <li><a class="ar-topic" href="../math/" data-area="gwangju-seo" data-topic="math">서구 수학과외</a></li>
+      <li><a class="ar-topic" href="../social/" data-area="gwangju-seo" data-topic="social">서구 사회·한국사과외</a></li>
+      <li><a class="ar-topic" href="../science/" data-area="gwangju-seo" data-topic="science">서구 과학과외</a></li>
     </ul>
+  </div>
+</section>
+
+<!-- 상위 지역 링크 (실제 페이지만) -->
+<section class="page-section mt-bg-cream" id="area-links" aria-labelledby="grAreaLinkTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">SEO-GU AREAS</div>
+      <h2 id="grAreaLinkTitle">서구·광주·전국 과외 안내 보기</h2>
+    </div>
+    <div class="gn-uplinks">
+      <a class="gn-uplink" href="../">서구 과외 전체 보기 <span aria-hidden="true">→</span></a>
+      <a class="gn-uplink" href="../../">광주 지역별 과외 <span aria-hidden="true">→</span></a>
+      <a class="gn-uplink" href="../../../">전국 지역별 과외 <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. 초등학생 핵심 검색 의도 4 -->
+<section class="page-section mt-bg-blue" id="needs" aria-labelledby="grNeedTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">CHECK FIRST</div>
+      <h2 id="grNeedTitle">서구 초등학생과외, 학교 수업 이해와 공부습관부터 봅니다</h2>
+      <p>서구 학생은 숙제장과 단원평가지를 보며 기초 단원을 다시 보는 데 시간이 얼마나 필요한지 먼저 가늠합니다.</p>
+    </div>
+    <div class="sc-grid mt-diag-grid">
+      <article class="sc-card"><h3>숙제를 미루거나 오래 걸리는 경우</h3><p>숙제를 시작하기까지 걸리는 시간과 진행 순서를 확인하고, 아이에게 맞는 공부 순서를 함께 정합니다.</p></article>
+      <article class="sc-card"><h3>연산은 되는데 문장제를 어려워하는 경우</h3><p>문제를 끝까지 읽고 식으로 바꾸는 과정을 확인해 문장제 풀이 순서를 함께 연습합니다.</p></article>
+      <article class="sc-card"><h3>영어 읽기를 부담스러워하는 경우</h3><p>파닉스와 기초 단어, 짧은 문장 읽기 가운데 현재 단계를 확인해 부담을 덜 느끼는 순서로 진행합니다.</p></article>
+      <article class="sc-card"><h3>사회·과학 교과서 용어를 어려워하는 경우</h3><p>교과서 용어의 뜻과 지도·표·그림 같은 자료, 역사 단원의 인물·사건을 읽는 방법부터 차근차근 확인합니다.</p></article>
+    </div>
   </div>
 </section>
 
@@ -401,40 +418,6 @@
         <h3>시범수업을 먼저 받아볼 수 있나요?</h3>
         <p>네, 상담 후 무료 시범수업으로 선생님의 설명 방식과 수업 흐름을 먼저 확인하실 수 있습니다. 시범수업 뒤 정식 수업 여부를 정하시면 되며, 세부 조건은 상담 시 안내드립니다.</p>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- 다른 학년 2 + 과목 4 (모두 실제 페이지) -->
-<section class="page-section mt-bg-white" id="related" aria-labelledby="grRelTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">MORE OPTIONS</div>
-      <h2 id="grRelTitle">서구 다른 학년과 과목 과외</h2>
-    </div>
-    <ul class="ar-topic-list">
-      <li><a class="ar-topic" href="../middle/" data-area="gwangju-seo" data-topic="middle">서구 중학생과외</a></li>
-      <li><a class="ar-topic" href="../high/" data-area="gwangju-seo" data-topic="high">서구 고등학생과외</a></li>
-      <li><a class="ar-topic" href="../korean/" data-area="gwangju-seo" data-topic="korean">서구 국어과외</a></li>
-      <li><a class="ar-topic" href="../english/" data-area="gwangju-seo" data-topic="english">서구 영어과외</a></li>
-      <li><a class="ar-topic" href="../math/" data-area="gwangju-seo" data-topic="math">서구 수학과외</a></li>
-      <li><a class="ar-topic" href="../social/" data-area="gwangju-seo" data-topic="social">서구 사회·한국사과외</a></li>
-      <li><a class="ar-topic" href="../science/" data-area="gwangju-seo" data-topic="science">서구 과학과외</a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- 상위 지역 링크 (실제 페이지만) -->
-<section class="page-section mt-bg-cream" id="area-links" aria-labelledby="grAreaLinkTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">SEO-GU AREAS</div>
-      <h2 id="grAreaLinkTitle">서구·광주·전국 과외 안내 보기</h2>
-    </div>
-    <div class="gn-uplinks">
-      <a class="gn-uplink" href="../">서구 과외 전체 보기 <span aria-hidden="true">→</span></a>
-      <a class="gn-uplink" href="../../">광주 지역별 과외 <span aria-hidden="true">→</span></a>
-      <a class="gn-uplink" href="../../../">전국 지역별 과외 <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>

@@ -8191,3 +8191,28 @@ body.vz297 main #how .mt-check-grid > li.mt-check { justify-content: flex-start;
   body.vz297 main #how .mt-check-grid > li.mt-check { gap: 10px; padding: 20px 18px; }
   body.vz297 main .vz-sico { width: 40px; height: 40px; }
 }
+/* [297-3차 시범] 안산 중학생 1페이지(body.vz297)만 — MORE OPTIONS 제목 두 줄(.vz-l)·이동 버튼 앞 장식 점 삭제·버튼 높이 통일 · EXAM PREP 카드 사이 화살표 삭제
+   · PARENTS ASK 1열 아코디언(details/summary · 최대 900px · Q 유지 · 오른쪽 +/− 표시) · 되돌리기: 이 블록 삭제 + backup/297차수정전 복원 */
+body.vz297 main #related .vz-l { display: block; white-space: nowrap; }
+body.vz297 main #related .ar-topic-list { gap: 10px; }
+body.vz297 main #related .ar-topic { box-sizing: border-box; justify-content: center; min-height: 44px; padding: 0 20px; text-align: center; }
+body.vz297 main #related .ar-topic::before, body.vz297 main #related .ar-topic::after { content: none; display: none; }
+body.vz297 main #plan .ar-step + .ar-step::after { content: none; display: none; }
+body.vz297 main .rg-faq-grid.vz-faq { grid-template-columns: minmax(0, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
+body.vz297 main .vz-faq-item { padding: 0; border: 1px solid #ECE4D6; border-radius: 14px; background: #FFFFFF; box-shadow: none; }
+body.vz297 main .vz-faq-item > summary { display: flex; align-items: center; gap: 16px; padding: 20px 22px; border-radius: 14px; cursor: pointer; list-style: none; }
+body.vz297 main .vz-faq-item > summary::-webkit-details-marker { display: none; }
+body.vz297 main .vz-faq-item > summary::marker { content: ""; }
+body.vz297 main .vz-faq-item > summary:focus-visible { outline: 2px solid #C9A15F; outline-offset: 2px; }
+body.vz297 main .vz-faq-item > summary h3 { flex: 1 1 auto; min-width: 0; margin: 0; color: #10233F; font-weight: 800; }
+body.vz297 main .vz-faq-sign { position: relative; flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #F7F1E7; }
+body.vz297 main .vz-faq-sign::before, body.vz297 main .vz-faq-sign::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; margin: -1px 0 0 -6px; border-radius: 2px; background: #8F6B2F; }
+body.vz297 main .vz-faq-sign::after { transform: rotate(90deg); }
+body.vz297 main .vz-faq-item[open] .vz-faq-sign::after { transform: none; }
+body.vz297 main .vz-faq-item[open] > summary { padding-bottom: 10px; }
+body.vz297 main .vz-faq-item > p { padding: 0 22px 22px 52px; }
+@media (max-width: 640px) {
+  body.vz297 main #related .ar-topic { min-height: 40px; padding: 0 16px; }
+  body.vz297 main .vz-faq-item > summary { gap: 12px; padding: 16px; }
+  body.vz297 main .vz-faq-item > p { padding: 0 16px 18px; }
+}

@@ -306,7 +306,8 @@ window.addEventListener("load", function(){
   var MSG_FAIL = '상담 접수 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.';
   var MSG_MAKE_SUCCESS = '상담 신청이 접수되었습니다.'; /* [97차] */
   var MSG_MAKE_FAIL = '접수 중 오류가 발생했습니다. 잠시 후 다시 시도하시거나 전화·카카오톡 상담으로 연락해 주세요.'; /* [269차] 실패 시 다른 상담 경로 안내 */
-  var MSG_REPEAT = '방금 상담 신청이 접수되었습니다. 추가 문의는 잠시 후 다시 신청하시거나 전화로 연락해 주세요.';
+  var MSG_MAKE_UNKNOWN = '응답이 늦어 접수 여부를 확인하지 못했습니다. 이미 접수됐을 수 있으니, 다시 신청하시기 전에 전화·카카오톡으로 확인해 주세요.'; /* [302차] 시간 초과 */
+  var MSG_REPEAT ='방금 상담 신청이 접수되었습니다. 추가 문의는 잠시 후 다시 신청하시거나 전화로 연락해 주세요.';
   var REPEAT_MS = 60000; /* [97차] 접수 성공 후 1분 안의 반복 제출 차단 */
   var REPEAT_KEY = 'sigConsultLastSent';
   var lastSentAt = 0;
@@ -357,16 +358,37 @@ window.addEventListener("load", function(){
     f.region.placeholder = rule.placeholder;
   }
 
+  /* [302차] 지역 페이지에서 상담 버튼으로 들어오면 직전 페이지(같은 사이트 /area/{시도}/{구·시·군}/…)의 지역 이름을 지역 칸에 미리 채움
+     · 이름은 js/area-regions.js(지역 대문 Schema areaServed 값) 표에 있는 것만 · 시·도, 시·구(군)까지만(동·상세주소는 채우지 않음)
+     · 브라우저 저장소에 아무것도 저장하지 않음(document.referrer만 읽음) · 칸에 이미 값이 있으면 건드리지 않음 */
+  (function prefillRegion() {
+    try {
+      var map = window.SIG_AREA_REGIONS;
+      if (!map || !document.referrer || f.region.value.trim()) return;
+      var ref = new URL(document.referrer);
+      if (ref.origin !== location.origin) return;
+      var m = ref.pathname.match(/\/area\/([a-z-]+)\/(?:([a-z-]+)\/)?/);
+      if (!m) return;
+      var name = (m[2] && map[m[1] + '/' + m[2]]) || map[m[1]];
+      if (!name) return;
+      f.region.value = name + ' ';
+      if (regionHint) regionHint.textContent = '보시던 지역 페이지의 지역을 넣어 두었습니다. 동까지 덧붙이시거나, 다른 지역이면 고쳐 주세요.';
+    } catch (e) {}
+  })();
+
   /* [99차] 거주 지역 형식 확인: 주소 API·도로명 검증 없이 띄어쓰기 단위로만 확인
      첫 단어 = 시·도(부산광역시·서울·경기도 등) → 시/구/군으로 끝나는 단어(세종은 생략 가능) → 동/읍/면/가/리로 끝나는 단어.
      그 뒤(아파트명 등)는 자유. 도로명·번지·동호수·우편번호는 요구하지 않음 */
-  var SIDO = /^(서울|부산|대구|인천|광주|대전|울산|세종|경기|강원|충북|충남|충청|전북|전남|전라|경북|경남|경상|제주)/;
+  /* [302차] 형식 완화: 시·도 생략·동 생략·띄어쓰기 없음도 허용 → 시·구(군)를 알 수 있으면 통과
+     · 한 단어만 쓴 경우: 시·구·군이 들어 있어야 함(해운대구 / 부산진구부암동 / 세종시). 시·도 이름만(부산, 서울시)이나 동 이름만(대치동)은 다시 입력
+     · 두 단어 이상 한글(예: 부산 해운대, 강남 대치동, 성남 분당)은 통과 — 정확한 동은 상담 때 확인 */
+  var SIDO_ONLY = /^(서울|부산|대구|인천|광주|대전|울산)(특별시|광역시|시)?$|^(경기|강원|충북|충남|전북|전남|경북|경남|제주|충청북|충청남|전라북|전라남|경상북|경상남)(특별자치도|도)?$|^(강원|전북|제주)특별자치도$|^전남광주(통합특별시)?$/;
   function looksRegion(v) {
-    var t = v.split(/\s+/), i = 1, sigu = false;
-    if (v.replace(/\s/g, '').length < 7 || t.length < 2 || !SIDO.test(t[0])) return false;
-    while (i < t.length && /^[가-힣0-9]+[시구군]$/.test(t[i])) { sigu = true; i++; }
-    if (!sigu && !/^세종/.test(t[0])) return false;
-    return i < t.length && /^[가-힣0-9·.]+[동읍면가리]$/.test(t[i]);
+    var t = v.trim().split(/\s+/), c = t.join('');
+    if (c.length < 2 || !/[가-힣]/.test(c)) return false;
+    if (t.length >= 2) return c.length >= 3 && t.filter(function (w) { return /[가-힣]/.test(w); }).length >= 2;
+    if (/^세종/.test(c)) return true;
+    return !SIDO_ONLY.test(c) && /[가-힣][시군구]/.test(c);
   }
 
   /* [269차] 신청자 확인: 학생 본인 → 만 14세 이상 여부(age14) / 학부모 → 법정대리인 확인(guardian) 칸만 보이기 · 학년으로 나이를 추정하지 않음 */
@@ -467,7 +489,7 @@ window.addEventListener("load", function(){
     /* [102차] 화면 순서대로 확인: 학생이름 → 지역 → 학년 → 문의과목 → 휴대폰번호 → 신청자 → 개인정보 동의 (학교는 선택) */
     if (!f.name.value.trim()) return fail(f.name, '학생 이름을 입력해 주세요.');
     if (!region) return fail(f.region, '지역을 입력해 주세요.');
-    if (!looksRegion(region)) return fail(f.region, '지역은 시·도, 시·구, 동까지 입력해 주세요. (예: 부산광역시 부산진구 부암동)');
+    if (!looksRegion(region)) return fail(f.region, '지역을 시·구(군)까지 입력해 주세요. 동까지 적어 주시면 방문수업 가능 여부를 더 빨리 확인해 드립니다. (예: 부산 해운대구 우동)');
     if (!f.grade.value) return fail(f.grade, '학년을 선택해 주세요.');
     if (!f.subject.value.trim()) return fail(f.subject, '관심 과목을 고르거나 입력해 주세요.');
     if (!/^01[0-9]{8,9}$/.test(phone)) return fail(f.phone, '휴대폰번호를 정확히 입력해 주세요. (예: 010-1234-5678)');
@@ -495,8 +517,15 @@ window.addEventListener("load", function(){
     var ctrl = window.AbortController ? new AbortController() : null;
     var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, TIMEOUT_MS) : null;
 
-    /* [97차] Make Webhook: JSON(UTF-8)으로 Make에만 전송. Make는 정상 수신 시 200 "Accepted"를 돌려줌 */
+    /* [97차] Make Webhook: JSON(UTF-8)으로 Make에만 전송. Make는 정상 수신 시 200 "Accepted"를 돌려줌
+       [302차] 결과를 3가지로 구분 — ok(2xx 응답) / fail(2xx 아닌 응답·네트워크 오류·오프라인: 접수 안 됨) / unknown(15초 시간 초과: 접수됐을 수도 있음)
+       · 'ok'일 때만 접수 완료 표시·입력 초기화·1분 반복 제출 차단·generate_lead · 화면 처리 중 오류가 나도 실패로 바뀌어 표시되지 않게 결과 판정과 화면 처리를 분리 */
     if (useMake) {
+      if (navigator.onLine === false) {
+        if (timer) clearTimeout(timer);
+        setSubmitting(false);
+        return show('error', MSG_MAKE_FAIL);
+      }
       fetch(makeUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json; charset=utf-8' },
@@ -504,18 +533,23 @@ window.addEventListener("load", function(){
         signal: ctrl ? ctrl.signal : undefined
       })
         .then(function (res) {
-          if (!res.ok) throw new Error('http');
-          setLastSent();
-          resetAfterSuccess();
-          show('success', MSG_MAKE_SUCCESS);
-          try { window.sigTrack.lead(submitId); } catch (err) {} /* [221차] Make 2xx 확인 후에만 generate_lead */
+          return res && res.ok ? 'ok' : 'fail';
+        }, function (err) {
+          return err && err.name === 'AbortError' ? 'unknown' : 'fail';
         })
-        .catch(function () {
-          show('error', MSG_MAKE_FAIL); /* 입력 내용 유지 */
-        })
-        .then(function () {
+        .then(function (result) {
           if (timer) clearTimeout(timer);
           setSubmitting(false);
+          if (result === 'ok') {
+            setLastSent();
+            try { resetAfterSuccess(); } catch (err) {}
+            show('success', MSG_MAKE_SUCCESS);
+            try { window.sigTrack.lead(submitId); } catch (err) {} /* [221차] Make 2xx 확인 후에만 generate_lead */
+          } else if (result === 'unknown') {
+            show('error', MSG_MAKE_UNKNOWN); /* 입력 내용 유지 · 중복 접수를 막기 위해 다시 보내기 전 확인 안내 */
+          } else {
+            show('error', MSG_MAKE_FAIL); /* 입력 내용 유지 */
+          }
         });
     }
   });

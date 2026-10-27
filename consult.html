@@ -89,7 +89,7 @@
           <div class="form-field full">
             <label for="cfRegion">지역<span class="req" aria-hidden="true">*</span></label>
             <input type="text" id="cfRegion" name="region" maxlength="100" placeholder="예: 부산광역시 부산진구 부암동 / ○○아파트" autocomplete="address-level2" aria-describedby="cfRegionHint" required>
-            <p class="form-hint" id="cfRegionHint">시·도, 시·구, 동까지 (아파트명 선택)</p><!-- [99차] 시·도 + 시·구 + 동 기준 — 형식 확인은 js/script.js looksRegion -->
+            <p class="form-hint" id="cfRegionHint">시·구(군)까지 입력 · 동까지 적어 주시면 더 빨리 안내해 드립니다 (아파트명 선택)</p><!-- [99차] 시·도 + 시·구 + 동 기준 → [302차] 시·구(군)까지 필수·동 권장으로 완화 — 형식 확인은 js/script.js looksRegion · 지역 페이지에서 오면 prefillRegion이 이 안내를 바꿈 -->
           </div>
           <div class="form-field">
             <label for="cfGrade">학년<span class="req" aria-hidden="true">*</span></label>
@@ -231,6 +231,7 @@
   </div>
 </footer>
 
+<script src="js/area-regions.js"></script><!-- [302차] 지역 페이지에서 왔을 때 지역 칸 자동 입력용 이름 표 (상담 페이지에서만 불러옴) -->
 <script src="js/script.js"></script>
 </body>
 </html>

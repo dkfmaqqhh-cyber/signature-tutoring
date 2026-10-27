@@ -216,16 +216,14 @@
   </div>
 </section>
 
-<!-- 2. 대표 지역 선택 (최상위 허브: /area/{시도}/ → {구·시}/ → {동}/ → {학년}/ → {과목}/ 순서로 확장 예정)
-     ※ 세부 페이지가 아직 없어 404 방지를 위해 링크 없이 비활성 카드(span.ar-region.is-soon)로 표시.
-       페이지를 만들면 해당 줄의 <span class="ar-region is-soon" aria-disabled="true" data-href="seoul/">…</span> 을
-       <a class="ar-region" href="seoul/">…</a> 로 바꾸고 '준비 중' 표시만 지우면 됩니다. -->
+<!-- 2. 대표 지역 선택 (최상위 허브: /area/{시도}/ → {구·시·군}/ → {과목·학년}/)
+     ※ [127차] 17개 시·도 카드 모두 실제 페이지로 연결됨 (비활성 카드 없음) -->
 <section class="page-section ar-regions" id="regions" aria-labelledby="arRegionsTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">SELECT AREA</div>
       <h2 id="arRegionsTitle">지역을 선택해 주세요</h2>
-      <p>시·도별 세부 안내는 순차적으로 열립니다. 아직 열리지 않은 지역도 상담으로 수업 가능 여부를 바로 확인하실 수 있습니다.</p>
+      <p>17개 시·도 모두 구·시·군별 안내를 확인하실 수 있습니다. 원하는 동네가 목록에 없어도 상담으로 수업 가능 여부를 바로 확인하실 수 있습니다.</p><!-- [302차] '순차적으로 열립니다' → 17개 시·도 모두 연결된 현재 상태로 -->
     </div>
     <ul class="ar-region-grid ar-sido-grid">
       <li><a class="ar-region" href="seoul/"><strong>서울</strong><em>강남 · 송파 · 서초 등</em><small>25개 지역 보기 →</small></a></li><!-- [108차] 서울 페이지 연결 -->
@@ -249,25 +247,25 @@
   </div>
 </section>
 
-<!-- [110차] 3. 지역 + 과목으로 찾기 (서울 기준 · 세부 페이지가 아직 없어 링크 없는 표시만)
-     페이지를 만들면 <span class="ar-topic is-soon" …>서울 수학과외</span> 를 <a class="ar-topic" href="seoul/…/">서울 수학과외</a> 로 바꾸면 됩니다. -->
+<!-- [110차] 3. 지역 + 과목으로 찾기
+     [302차] 비활성 칩(서울 단위 과목 페이지는 없음)·'준비 중입니다' 삭제 → 실제 있는 구·시·군 과목·학년 페이지로 연결(새 페이지 없음)
+     칩 선택 = 서울은 서울 대문 302차 칩의 첫 항목, 나머지는 각 시·도 대문 POPULAR 칩에 이미 있는 항목을 과목·학년이 겹치지 않게 1개씩 -->
 <section class="page-section ar-topics" id="topics" aria-labelledby="arTopicTitle">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">AREA + SUBJECT</div>
       <h2 id="arTopicTitle">지역과 과목으로 찾기</h2>
-      <p>지역 페이지가 열리면 수학·영어·국어·과학 등 과목별 수업까지 연결됩니다.</p>
+      <p>구·시·군 페이지마다 수학·영어·국어·과학 등 과목별, 초·중·고 학년별 과외 안내가 있습니다. 아래 예시 외의 지역은 위에서 시·도를 선택해 주세요.</p>
     </div>
     <ul class="ar-topic-list">
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="seoul" data-topic="math">서울 수학과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="seoul" data-topic="english">서울 영어과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="seoul" data-topic="korean">서울 국어과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="seoul" data-topic="science">서울 과학과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="seoul" data-topic="elementary">서울 초등과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="seoul" data-topic="middle">서울 중학생과외</span></li>
-      <li><span class="ar-topic is-soon" aria-disabled="true" data-area="seoul" data-topic="high">서울 고등학생과외</span></li>
+      <li><a class="ar-topic" href="seoul/nowon/math/" data-area="seoul-nowon" data-topic="math">서울 노원구 수학과외</a></li>
+      <li><a class="ar-topic" href="gyeonggi/yongin/english/" data-area="gyeonggi-yongin" data-topic="english">경기 용인시 영어과외</a></li>
+      <li><a class="ar-topic" href="daegu/suseong/korean/" data-area="daegu-suseong" data-topic="korean">대구 수성구 국어과외</a></li>
+      <li><a class="ar-topic" href="gwangju/buk/science/" data-area="gwangju-buk" data-topic="science">광주 북구 과학과외</a></li>
+      <li><a class="ar-topic" href="busan/dongnae/elementary/" data-area="busan-dongnae" data-topic="elementary">부산 동래구 초등학생과외</a></li>
+      <li><a class="ar-topic" href="daejeon/seo/middle/" data-area="daejeon-seo" data-topic="middle">대전 서구 중학생과외</a></li>
+      <li><a class="ar-topic" href="incheon/bupyeong/high/" data-area="incheon-bupyeong" data-topic="high">인천 부평구 고등학생과외</a></li>
     </ul>
-    <p class="ar-topic-note">과목·학년별 세부 안내는 준비 중입니다.</p>
   </div>
 </section>
 

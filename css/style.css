@@ -8216,3 +8216,38 @@ body.vz297 main .vz-faq-item > p { padding: 0 22px 22px 52px; }
   body.vz297 main .vz-faq-item > summary { gap: 12px; padding: 16px; }
   body.vz297 main .vz-faq-item > p { padding: 0 16px 18px; }
 }
+/* [298차] 297차 시범 디자인 전국 학년 페이지 690개 공통화 — body.vz297(학년 페이지에만 붙인 클래스) 범위만 · 메인·과목·서비스 페이지 영향 없음
+   · BY GRADE 초등(#grades)·WHEN(#when) 카드도 같은 아이콘·가운데 정렬 · 카드 사이 화살표 전부 삭제(#plan·#years·#grades) · EXAM PREP 5카드는 PC 5열 / 태블릿 3+2 가운데 / 모바일 1열
+   · 1024px 이하 가운데 정렬: [190-2차] 떠 있는 버튼용 오른쪽 64px 여백 때문에 본문이 32px 왼쪽으로 치우침 → 학년 페이지는 상담·전화 버튼을 화면 아래 가로 띠로(사이트 [269차] 모바일 방식) + 본문 아래 띠 높이만큼 여백, 오른쪽 여백 0
+   · 되돌리기: 이 블록 삭제 + backup/298차수정전 복원 */
+body.vz297 main #grades .ar-steps.mt-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; max-width: 960px; margin: 0 auto; }
+body.vz297 main #grades .ar-step { justify-content: flex-start; align-items: center; gap: 12px; padding: 28px 22px 26px; text-align: center; }
+body.vz297 main :is(#plan, #years, #grades) .ar-step + .ar-step::after { content: none; display: none; }
+body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; max-width: 1180px; }
+body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) > .ar-step { padding: 26px 16px 24px; }
+body.vz297 main #when .mt-reason-grid { gap: 20px; max-width: 960px; }
+body.vz297 main #when .mt-reason-grid > li.mt-reason { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 12px; padding: 28px 24px 26px; text-align: center; }
+body.vz297 main #when .mt-reason-grid > li.mt-reason::before { content: none; display: none; }
+body.vz297 main #when .mt-reason h3 { margin: 0; }
+@media (max-width: 1100px) and (min-width: 641px) {
+  body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; max-width: 960px; }
+  body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) > .ar-step { grid-column: span 2; }
+  body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) > .ar-step:nth-child(4) { grid-column: 2 / span 2; }
+  body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) > .ar-step:nth-child(5) { grid-column: 4 / span 2; }
+}
+@media (max-width: 1024px) {
+  body.vz297.page-subarea.page-subject main section:not(.rg-hero-solid) > .container, body.vz297.page-subarea.page-subject .rg-updated .container, body.vz297.page-subarea.page-subject .site-footer .container { padding-right: 0; }
+  body.vz297.page-subarea.page-subject { padding-bottom: calc(54px + env(safe-area-inset-bottom)) !important; } /* 공통 body { padding-bottom: 0 !important }보다 우선 */
+  body.vz297.page-subarea.page-subject .sig-float.rg-float { left: 0; right: 0; bottom: 0; flex-direction: row; align-items: stretch; gap: 0; padding: 0 0 env(safe-area-inset-bottom); border-top: 1px solid #E8E1D4; background: #FFFFFF; box-shadow: none; }
+  body.vz297.page-subarea.page-subject .sig-float.rg-float a { flex: 1 1 0; flex-direction: row; justify-content: center; align-items: center; gap: 8px; width: auto; min-width: 0; height: 54px; border-radius: 0; font-size: 15px; box-shadow: none; }
+  body.vz297.page-subarea.page-subject .sig-float.rg-float a:hover, body.vz297.page-subarea.page-subject .sig-float.rg-float a:focus-visible { transform: none; box-shadow: none; }
+  body.vz297.page-subarea.page-subject .sig-float.rg-float svg { width: 18px; height: 18px; }
+  body.vz297 main #grades .ar-steps.mt-steps { gap: 14px; }
+  body.vz297 main #grades .ar-step { padding: 22px 16px; }
+}
+@media (max-width: 640px) {
+  body.vz297 main #grades .ar-steps.mt-steps, body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) { grid-template-columns: minmax(0, 1fr); gap: 12px; max-width: 460px; }
+  body.vz297 main #grades .mt-steps .ar-step, body.vz297 main #plan .ar-steps.mt-steps:has(> li:nth-child(5)) > .ar-step { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 20px 18px; text-align: center; }
+  body.vz297 main #when .mt-reason-grid { gap: 12px; max-width: 460px; }
+  body.vz297 main #when .mt-reason-grid > li.mt-reason { gap: 10px; padding: 20px 18px; }
+}

@@ -178,7 +178,7 @@
 }
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../../../../css/style.css?v=296">
+<link rel="stylesheet" href="../../../../css/style.css?v=297">
 <!-- [230차] 긴 학교명 태그 보정: 1024px 이하에서 학교 카드가 그리드 칸 폭에 맞게 줄어들고(min-width:0), 공백 없는 긴 학교명(예: 용인한국외국어대학교부설고등학교)만 칸 안에서 자연스럽게 줄바꿈(overflow-wrap:anywhere) · 서울·부산 [206차]·대구 [205차]·인천·광주·대전·울산과 같은 규칙 · 글자 삭제·줄임표 없음 · PC 1025px 이상 영향 없음 · 되돌리기: 이 style 삭제 -->
 <style>
 @media (max-width: 1024px) {
@@ -299,34 +299,6 @@ body.page-subject .ar-steps.mt-steps.gg-three { grid-template-columns: repeat(3,
   </div>
 </section>
 
-<!-- 5. 중간 CTA -->
-<section class="page-section mt-bg-blue mt-midcta" aria-labelledby="grMidTitle">
-  <div class="container">
-    <div class="mt-midcta-box">
-      <h2 id="grMidTitle">아이의 기초와 공부습관, 어디서부터 잡아야 할까요?</h2>
-      <p>아이의 학년과 학교, 요즘 공부하는 모습을 알려주시면 필요한 수업 방향을 함께 확인합니다.</p>
-      <a class="ar-cta-btn gr-cta-btn" href="../../../../consult.html">양주시 초등학생과외 상담 신청 <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- 6. 상담 확인 항목 5 -->
-<!-- [230차] 양주시 초등학생과외 수업 진행 3단계 (시별 수업 방식을 이 과목·학년에 맞춰 직접 작성 · 성과·수치 표현 없음) -->
-<section class="page-section mt-bg-cream" id="how" aria-labelledby="ggHowTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">LESSON EXAMPLE</div>
-      <h2 id="ggHowTitle">양주시 초등학생과외, 이런 순서로 진행할 수 있습니다</h2>
-      <p>아래는 상담에서 안내하는 진행 예시입니다. 실제 수업 순서와 시간 배분은 학생의 수준과 일정에 따라 선생님과 함께 정합니다.</p>
-    </div>
-    <ol class="mt-check-grid gg-flow">
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">1</span><h3>풀이 시간 함께 적기</h3><p>연산이나 문장제를 풀 때 걸린 시간을 아이와 함께 적어 봅니다.</p></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">2</span><h3>읍·면 지역은 화상 상담</h3><p>백석읍·광적면 같은 읍·면 지역은 실시간 화상수업으로 상담하실 수 있고, 방문 가능 여부는 상담 시 확인합니다.</p></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">3</span><h3>시간보다 정확히</h3><p>시간을 줄이기보다 먼저 정확히 푸는 것을 확인하고, 익숙해지면 시간을 봅니다.</p></li>
-    </ol>
-  </div>
-</section>
-
 <!-- 다른 학년 2 + 과목 4 (모두 실제 페이지) -->
 <section class="page-section mt-bg-white" id="related" aria-labelledby="grRelTitle">
   <div class="container">
@@ -343,6 +315,19 @@ body.page-subject .ar-steps.mt-steps.gg-three { grid-template-columns: repeat(3,
       <li><a class="ar-topic" href="../social/" data-area="gyeonggi-yangju" data-topic="social">양주시 사회·한국사과외</a></li>
       <li><a class="ar-topic" href="../science/" data-area="gyeonggi-yangju" data-topic="science">양주시 과학과외</a></li>
     </ul>
+    <!-- [296-2차] 원래 독립 섹션이던 LESSON EXAMPLE을 MORE OPTIONS 안으로 옮김(id·내용 그대로) · [230차] 양주시 초등학생과외 수업 진행 3단계 (시별 수업 방식을 이 과목·학년에 맞춰 직접 작성 · 성과·수치 표현 없음) -->
+    <section class="gg-how-in" id="how" aria-labelledby="ggHowTitle">
+      <div class="section-head center">
+        <div class="kicker">LESSON EXAMPLE</div>
+        <h2 id="ggHowTitle">양주시 초등학생과외, 이런 순서로 진행할 수 있습니다</h2>
+        <p>아래는 상담에서 안내하는 진행 예시입니다. 실제 수업 순서와 시간 배분은 학생의 수준과 일정에 따라 선생님과 함께 정합니다.</p>
+      </div>
+      <ol class="mt-check-grid gg-flow">
+        <li class="mt-check"><span class="mt-check-num" aria-hidden="true">1</span><h3>풀이 시간 함께 적기</h3><p>연산이나 문장제를 풀 때 걸린 시간을 아이와 함께 적어 봅니다.</p></li>
+        <li class="mt-check"><span class="mt-check-num" aria-hidden="true">2</span><h3>읍·면 지역은 화상 상담</h3><p>백석읍·광적면 같은 읍·면 지역은 실시간 화상수업으로 상담하실 수 있고, 방문 가능 여부는 상담 시 확인합니다.</p></li>
+        <li class="mt-check"><span class="mt-check-num" aria-hidden="true">3</span><h3>시간보다 정확히</h3><p>시간을 줄이기보다 먼저 정확히 푸는 것을 확인하고, 익숙해지면 시간을 봅니다.</p></li>
+      </ol>
+    </section>
   </div>
 </section>
 
@@ -481,17 +466,6 @@ body.page-subject .ar-steps.mt-steps.gg-three { grid-template-columns: repeat(3,
         <h3>시범수업을 먼저 받아볼 수 있나요?</h3>
         <p>네, 상담 후 무료 시범수업으로 선생님의 설명 방식과 수업 흐름을 먼저 확인하실 수 있습니다. 시범수업 뒤 정식 수업 여부를 정하시면 되며, 세부 조건은 상담 시 안내드립니다.</p>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- 하단 상담 CTA -->
-<section class="ar-cta" id="consult" aria-labelledby="grCtaTitle">
-  <div class="container">
-    <div class="ar-cta-box">
-      <h2 id="grCtaTitle">양주시에서 아이의 기초와 공부습관을 함께 챙길 과외를 찾고 계신가요?</h2>
-      <p>사는 읍·면·동과 다니는 학교, 공부에서 시간이 오래 걸리는 부분을 알려주시면 양주시 초등학생과외 상담에서 화상수업 방법을 먼저 안내하고, 방문 가능 여부는 따로 확인해 알려드립니다.</p>
-      <a class="ar-cta-btn gr-cta-btn" href="../../../../consult.html">양주시 초등학생과외 무료 상담 신청 <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>

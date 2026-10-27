@@ -178,7 +178,7 @@
 }
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../../../../css/style.css?v=296">
+<link rel="stylesheet" href="../../../../css/style.css?v=297">
 <!-- [230차] 긴 학교명 태그 보정: 1024px 이하에서 학교 카드가 그리드 칸 폭에 맞게 줄어들고(min-width:0), 공백 없는 긴 학교명(예: 용인한국외국어대학교부설고등학교)만 칸 안에서 자연스럽게 줄바꿈(overflow-wrap:anywhere) · 서울·부산 [206차]·대구 [205차]·인천·광주·대전·울산과 같은 규칙 · 글자 삭제·줄임표 없음 · PC 1025px 이상 영향 없음 · 되돌리기: 이 style 삭제 -->
 <style>
 @media (max-width: 1024px) {
@@ -296,34 +296,6 @@ body.page-subject .ar-steps.mt-steps.gg-three { grid-template-columns: repeat(3,
   </div>
 </section>
 
-<!-- 5. 중간 CTA -->
-<section class="page-section mt-bg-blue mt-midcta" aria-labelledby="grMidTitle">
-  <div class="container">
-    <div class="mt-midcta-box">
-      <h2 id="grMidTitle">첫 내신과 시험대비, 무엇부터 준비해야 할까요?</h2>
-      <p>학생의 학년과 학교, 과목별 상황을 알려주시면 필요한 수업 방향을 함께 확인합니다.</p>
-      <a class="ar-cta-btn gr-cta-btn" href="../../../../consult.html">양주시 중학생과외 상담 신청 <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- 6. 상담 확인 항목 5 -->
-<!-- [230차] 양주시 중학생과외 수업 진행 3단계 (시별 수업 방식을 이 과목·학년에 맞춰 직접 작성 · 성과·수치 표현 없음) -->
-<section class="page-section mt-bg-cream" id="how" aria-labelledby="ggHowTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">LESSON EXAMPLE</div>
-      <h2 id="ggHowTitle">양주시 중학생과외, 이런 순서로 진행할 수 있습니다</h2>
-      <p>아래는 상담에서 안내하는 진행 예시입니다. 실제 수업 순서와 시간 배분은 학생의 수준과 일정에 따라 선생님과 함께 정합니다.</p>
-    </div>
-    <ol class="mt-check-grid gg-flow">
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">1</span><h3>과목별 시간 기록</h3><p>시험 범위 문제를 풀 때 과목별로 걸린 시간을 기록합니다.</p></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">2</span><h3>시간 많이 드는 과목 먼저</h3><p>시간이 많이 드는 과목과 단원을 먼저 보완합니다.</p></li>
-      <li class="mt-check"><span class="mt-check-num" aria-hidden="true">3</span><h3>시험 형식 연습</h3><p>학교 시험 분량에 맞춰 시간 안에 푸는 연습을 합니다.</p></li>
-    </ol>
-  </div>
-</section>
-
 <!-- 다른 학년 2 + 과목 4 (모두 실제 페이지) -->
 <section class="page-section mt-bg-white" id="related" aria-labelledby="grRelTitle">
   <div class="container">
@@ -340,6 +312,19 @@ body.page-subject .ar-steps.mt-steps.gg-three { grid-template-columns: repeat(3,
       <li><a class="ar-topic" href="../social/" data-area="gyeonggi-yangju" data-topic="social">양주시 사회·한국사과외</a></li>
       <li><a class="ar-topic" href="../science/" data-area="gyeonggi-yangju" data-topic="science">양주시 과학과외</a></li>
     </ul>
+    <!-- [296-2차] 원래 독립 섹션이던 LESSON EXAMPLE을 MORE OPTIONS 안으로 옮김(id·내용 그대로) · [230차] 양주시 중학생과외 수업 진행 3단계 (시별 수업 방식을 이 과목·학년에 맞춰 직접 작성 · 성과·수치 표현 없음) -->
+    <section class="gg-how-in" id="how" aria-labelledby="ggHowTitle">
+      <div class="section-head center">
+        <div class="kicker">LESSON EXAMPLE</div>
+        <h2 id="ggHowTitle">양주시 중학생과외, 이런 순서로 진행할 수 있습니다</h2>
+        <p>아래는 상담에서 안내하는 진행 예시입니다. 실제 수업 순서와 시간 배분은 학생의 수준과 일정에 따라 선생님과 함께 정합니다.</p>
+      </div>
+      <ol class="mt-check-grid gg-flow">
+        <li class="mt-check"><span class="mt-check-num" aria-hidden="true">1</span><h3>과목별 시간 기록</h3><p>시험 범위 문제를 풀 때 과목별로 걸린 시간을 기록합니다.</p></li>
+        <li class="mt-check"><span class="mt-check-num" aria-hidden="true">2</span><h3>시간 많이 드는 과목 먼저</h3><p>시간이 많이 드는 과목과 단원을 먼저 보완합니다.</p></li>
+        <li class="mt-check"><span class="mt-check-num" aria-hidden="true">3</span><h3>시험 형식 연습</h3><p>학교 시험 분량에 맞춰 시간 안에 푸는 연습을 합니다.</p></li>
+      </ol>
+    </section>
   </div>
 </section>
 
@@ -451,17 +436,6 @@ body.page-subject .ar-steps.mt-steps.gg-three { grid-template-columns: repeat(3,
         <h3>시범수업을 먼저 받아볼 수 있나요?</h3>
         <p>네, 상담 후 무료 시범수업으로 선생님의 설명 방식과 수업 흐름을 먼저 확인하실 수 있습니다. 시범수업 뒤 정식 수업 여부를 정하시면 되며, 세부 조건은 상담 시 안내드립니다.</p>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- 하단 상담 CTA -->
-<section class="ar-cta" id="consult" aria-labelledby="grCtaTitle">
-  <div class="container">
-    <div class="ar-cta-box">
-      <h2 id="grCtaTitle">양주시에서 내신과 시험대비를 함께할 중학생과외를 찾고 계신가요?</h2>
-      <p>사는 읍·면·동과 다니는 학교, 과목에서 시간이 오래 걸리는 부분을 알려주시면 양주시 중학생과외 상담에서 화상수업 방법을 먼저 안내하고, 방문 가능 여부는 따로 확인해 알려드립니다.</p>
-      <a class="ar-cta-btn gr-cta-btn" href="../../../../consult.html">양주시 중학생과외 무료 상담 신청 <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>

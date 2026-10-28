@@ -8251,3 +8251,7 @@ body.vz297 main #when .mt-reason h3 { margin: 0; }
   body.vz297 main #when .mt-reason-grid { gap: 12px; max-width: 460px; }
   body.vz297 main #when .mt-reason-grid > li.mt-reason { gap: 10px; padding: 20px 18px; }
 }
+
+
+/* [309차] 메인 수업 안내(#tuition) 문단 안 학년별 텍스트 링크 표시 — 되돌리기: 이 블록 삭제 */
+#tuition .section-head p a { text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }

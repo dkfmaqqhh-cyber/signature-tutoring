@@ -289,7 +289,7 @@ window.addEventListener("load", function(){
 /* 상담 신청 폼(consult.html): 입력 확인 → Make Webhook 접수 ([224차] 구 Google Sheets 경로 삭제)
    ※ MAKE_WEBHOOK_URL(이 파일 맨 위)이 올바른 Make 주소일 때만 전송합니다.
      형식이 맞지 않으면 네트워크 요청을 보내지 않고 '연결되지 않았습니다' 안내만 표시합니다.
-     Make가 2xx를 돌려준 경우에만 '접수되었습니다' 문구를 표시합니다.
+     [304차] Make가 Discord 전달 뒤 200 + 본문 DELIVERED를 돌려준 경우에만 '접수되었습니다' 문구를 표시합니다.
      민감정보 보호를 위해 입력값을 console에 출력하지 않습니다. */
 (function () {
   var form = document.getElementById('consultForm');
@@ -307,6 +307,9 @@ window.addEventListener("load", function(){
   var MSG_MAKE_SUCCESS = '상담 신청이 접수되었습니다.'; /* [97차] */
   var MSG_MAKE_FAIL = '접수 중 오류가 발생했습니다. 잠시 후 다시 시도하시거나 전화·카카오톡 상담으로 연락해 주세요.'; /* [269차] 실패 시 다른 상담 경로 안내 */
   var MSG_MAKE_UNKNOWN = '응답이 늦어 접수 여부를 확인하지 못했습니다. 이미 접수됐을 수 있으니, 다시 신청하시기 전에 전화·카카오톡으로 확인해 주세요.'; /* [302차] 시간 초과 */
+  var MSG_MAKE_CHECK = '접수 확인이 완료되지 않았습니다. 이미 접수됐을 수 있으니, 다시 신청하시기 전에 전화·카카오톡으로 확인해 주세요.'; /* [304차] 전달 확인(DELIVERED) 없음 */
+  var MSG_MAKE_NETWORK = '연결 문제로 접수 여부를 확인하지 못했습니다. 이미 접수됐을 수 있으니, 다시 신청하시기 전에 전화·카카오톡으로 확인해 주세요.'; /* [304차] 응답을 받지 못함 */
+  var DELIVERED_BODY = 'DELIVERED'; /* [304차] Make Webhook response(Discord 전달 뒤) 본문 */
   var MSG_REPEAT ='방금 상담 신청이 접수되었습니다. 추가 문의는 잠시 후 다시 신청하시거나 전화로 연락해 주세요.';
   var REPEAT_MS = 60000; /* [97차] 접수 성공 후 1분 안의 반복 제출 차단 */
   var REPEAT_KEY = 'sigConsultLastSent';
@@ -459,6 +462,21 @@ window.addEventListener("load", function(){
     return base;
   }
 
+  /* [304차] Make 응답 판정 — 시나리오: Webhook → (필터) → Discord → Webhook response(200, DELIVERED)
+     · 'ok' = 200 + 본문 DELIVERED(Discord 전달 확인)일 때만
+     · 'check' = 2xx인데 본문이 DELIVERED 아님(기본 응답 Accepted = 필터 차단·응답 모듈 미도달)·5xx·본문 읽기 오류 → 전달 여부 모름
+     · 'fail' = 4xx(400 형식 오류·410 웹훅 없음/꺼짐·429 요청 과다 등 — Make가 처리하지 않음)
+     · 'unknown' = 15초 시간 초과(본문 읽는 중 포함) / 'network' = 응답을 받지 못함(네트워크 오류·CORS 차단 — 이미 처리됐을 수 있음) */
+  function judgeMake(res) {
+    if (res.status >= 400 && res.status < 500) return 'fail';
+    if (res.status !== 200) return 'check';
+    return res.text().then(function (body) {
+      return String(body).trim() === DELIVERED_BODY ? 'ok' : 'check';
+    }, function (err) {
+      return err && err.name === 'AbortError' ? 'unknown' : 'check';
+    });
+  }
+
   function setSubmitting(on) {
     submitting = on;
     if (!submitBtn) return;
@@ -519,6 +537,7 @@ window.addEventListener("load", function(){
 
     /* [97차] Make Webhook: JSON(UTF-8)으로 Make에만 전송. Make는 정상 수신 시 200 "Accepted"를 돌려줌
        [302차] 결과를 3가지로 구분 — ok(2xx 응답) / fail(2xx 아닌 응답·네트워크 오류·오프라인: 접수 안 됨) / unknown(15초 시간 초과: 접수됐을 수도 있음)
+       [304차] 판정은 judgeMake(위) — ok는 200 + DELIVERED만, 그 밖의 2xx·5xx·본문 오류는 check, 응답 없음은 network
        · 'ok'일 때만 접수 완료 표시·입력 초기화·1분 반복 제출 차단·generate_lead · 화면 처리 중 오류가 나도 실패로 바뀌어 표시되지 않게 결과 판정과 화면 처리를 분리 */
     if (useMake) {
       if (navigator.onLine === false) {
@@ -532,11 +551,10 @@ window.addEventListener("load", function(){
         body: JSON.stringify(buildMakePayload()),
         signal: ctrl ? ctrl.signal : undefined
       })
-        .then(function (res) {
-          return res && res.ok ? 'ok' : 'fail';
-        }, function (err) {
-          return err && err.name === 'AbortError' ? 'unknown' : 'fail';
+        .then(judgeMake, function (err) {
+          return err && err.name === 'AbortError' ? 'unknown' : 'network'; /* [304차] 응답 없음은 '접수 안 됨'으로 단정하지 않음 */
         })
+        .then(null, function () { return 'check'; }) /* [304차] 판정 중 예외도 성공으로 보지 않음 */
         .then(function (result) {
           if (timer) clearTimeout(timer);
           setSubmitting(false);
@@ -547,6 +565,10 @@ window.addEventListener("load", function(){
             try { window.sigTrack.lead(submitId); } catch (err) {} /* [221차] Make 2xx 확인 후에만 generate_lead */
           } else if (result === 'unknown') {
             show('error', MSG_MAKE_UNKNOWN); /* 입력 내용 유지 · 중복 접수를 막기 위해 다시 보내기 전 확인 안내 */
+          } else if (result === 'check') {
+            show('error', MSG_MAKE_CHECK); /* [304차] 입력 내용 유지 · 다시 보내기 전 확인 안내 */
+          } else if (result === 'network') {
+            show('error', MSG_MAKE_NETWORK); /* [304차] 입력 내용 유지 · 다시 보내기 전 확인 안내 */
           } else {
             show('error', MSG_MAKE_FAIL); /* 입력 내용 유지 */
           }

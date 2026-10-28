@@ -128,7 +128,8 @@
             </div>
             <input type="text" id="cfSubject" name="subject" maxlength="50" placeholder="위에서 고르거나 직접 입력 (예: 수학, 영어)" required>
           </div>
-          <!-- [269차] 신청자 확인: 학생 본인 신청 → 만 14세 이상 여부 선택(미만이면 신청 차단) / 학부모 신청 → 법정대리인 확인(동의 칸) · 학년으로 나이를 추정하지 않음 · 보이기/숨기기·검사는 js/script.js -->
+          <!-- [269차] 신청자 확인: 학생 본인 신청 → 만 14세 이상 여부 선택(미만이면 신청 차단) / 학부모 신청 → 법정대리인 확인(동의 칸) · 학년으로 나이를 추정하지 않음 · 보이기/숨기기·검사는 js/script.js
+               [305차] 학부모 신청의 별도 법정대리인 체크박스(guardian) 삭제 → 수집·이용 동의 문구에 '학생이 만 14세 미만이면 법정대리인으로서 동의' 한 줄(학부모 선택 때만 보임)로 통합 · 되돌리기: backup/305차수정전/consult.html -->
           <div class="form-field full cf-inline">
             <span class="form-label" id="cfApplicantLabel">신청자<span class="req" aria-hidden="true">*</span></span>
             <div class="choice-row" role="radiogroup" aria-labelledby="cfApplicantLabel">
@@ -147,9 +148,8 @@
           <!-- [271차 2] 동의 카드 1개로 묶음: 안에 수집·이용 동의(agree, 기본 미선택) + [274차] 국외 이전 안내(체크박스 없음) · 펼쳐보기 2개 그대로 · 검증·전송 차단·동의 기록은 js/script.js 그대로 -->
           <div class="agree-box cf-consent">
             <p class="cf-consent-title">개인정보 동의 <span>필수</span></p>
-            <label id="cfGuardianBox" hidden><input type="checkbox" name="guardian"> [필수] 학생의 법정대리인(부모 등)으로서 학생의 정보를 대신 제공하고 동의합니다.</label>
             <div class="cf-consent-item">
-            <label><input type="checkbox" name="agree" required> [필수] 개인정보 수집·이용에 동의합니다.</label>
+            <label><input type="checkbox" name="agree" required> <span>[필수] 개인정보 수집·이용에 동의합니다.<span id="cfAgreeGuardian" hidden> 학생이 만 14세 미만이면 법정대리인(부모 등)으로서 동의합니다.</span></span></label>
             <p class="agree-sum">상담 안내 목적 · 보관: 수업 미연결 시 접수일부터 6개월, 수업 연결 시 수업 종료 시까지</p>
             <details>
               <summary>수집·이용 내용 보기</summary>

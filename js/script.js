@@ -395,11 +395,12 @@ window.addEventListener("load", function(){
   }
 
   /* [269차] 신청자 확인: 학생 본인 → 만 14세 이상 여부(age14) / 학부모 → 법정대리인 확인(guardian) 칸만 보이기 · 학년으로 나이를 추정하지 않음 */
-  var ageBox = document.getElementById('cfAgeBox'), guardianBox = document.getElementById('cfGuardianBox');
+  /* [305차] 학부모 → 별도 체크박스 대신 수집·이용 동의 문구 안 법정대리인 동의 한 줄(cfAgreeGuardian)만 보이기 */
+  var ageBox = document.getElementById('cfAgeBox'), agreeGuardian = document.getElementById('cfAgreeGuardian');
   function syncApplicant() {
     var who = f.applicant.value;
     if (ageBox) ageBox.hidden = who !== '학생';
-    if (guardianBox) guardianBox.hidden = who !== '학부모';
+    if (agreeGuardian) agreeGuardian.hidden = who !== '학부모';
   }
   form.addEventListener('change', function (e) { if (e.target && e.target.name === 'applicant') syncApplicant(); });
   syncApplicant();
@@ -425,9 +426,11 @@ window.addEventListener("load", function(){
   /* [269·270 마무리] 동의 기록: 기존 Make 전송 필드 11개는 그대로 두고 message 끝에 "동의: 수집·이용, 국외 이전(고지 2026-10-25판)"을 붙임
      · 동의 시각 = 같은 전송의 submitted_at(제출 때 두 동의를 모두 확인한 뒤에만 전송) · 고지문(consult.html·privacy.html 5번)을 바꾸면 CONSENT_VERSION도 바꿀 것 */
   /* [274차] 국외 이전 별도 동의 삭제 → 기록은 "동의: 수집·이용(고지 ○판)"만 · 고지판 = privacy.html 시행일 2026-10-25의 두 번째 판(같은 날 이전 판 '2026-10-25'와 구분) */
-  var CONSENT_VERSION = '2026-10-25-2';
+  /* [305차] 신청서 동의 문구 변경(학부모 법정대리인 동의를 수집·이용 동의에 통합) → '2026-10-25-3' · privacy.html 내용·시행일은 그대로(기존 문구와 일치)
+     · 학부모 기록 "(법정대리인 확인)" → "(만 14세 미만 시 법정대리인 동의)" · "동의: 수집·이용(고지 " 앞부분은 그대로(Make 필터 호환) */
+  var CONSENT_VERSION = '2026-10-25-3';
   function buildMessage() {
-    var who = f.applicant.value, note = who === '학부모' ? '(법정대리인 확인)' : who === '학생' ? '(만 14세 이상 확인)' : '';
+    var who = f.applicant.value, note = who === '학부모' ? '(만 14세 미만 시 법정대리인 동의)' : who === '학생' ? '(만 14세 이상 확인)' : '';
     return '학교: ' + (f.school.value.trim() || '미입력') + ' / 신청자: ' + who + note + ' / 동의: 수집·이용(고지 ' + CONSENT_VERSION + '판)';
   }
 
@@ -517,7 +520,7 @@ window.addEventListener("load", function(){
       if (!f.age14.value) return fail(f.age14, '학생 나이(만 14세 이상 · 미만)를 선택해 주세요.');
       if (f.age14.value !== 'over') return fail(f.age14, '만 14세 미만 학생은 법정대리인(부모 등)의 동의가 필요합니다. 학부모님이 신청자를 \'학부모\'로 선택해 신청해 주세요.');
     }
-    if (f.applicant.value === '학부모' && !f.guardian.checked) return fail(f.guardian, '학생의 법정대리인(부모 등)인지 확인해 주세요. 법정대리인이 아니시면 전화로 문의해 주세요.');
+    /* [305차] 학부모 신청의 별도 법정대리인 체크(guardian) 삭제 → 아래 수집·이용 동의(학부모일 때 법정대리인 동의 문구 포함) 하나로 확인 */
     if (!f.agree.checked) return fail(f.agree, '개인정보 수집·이용에 동의하셔야 상담을 신청할 수 있습니다.');
     /* [274차] 국외 이전 별도 동의 체크 삭제(consult.html 안내·privacy.html 5번 공개로 대체) */
 

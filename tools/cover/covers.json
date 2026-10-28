@@ -338,5 +338,34 @@
       }
     ],
     "lens": false
+  },
+  "high-school-5-grade-system": {
+    "palette": "navy",
+    "badge": "입시·내신 · 고등",
+    "title": "내신 5등급제\n*9등급과*\n무엇이 다를까",
+    "keys": [
+      "등급 비율",
+      "성취도 A~E"
+    ],
+    "cardTitle": "1등급 범위 비교",
+    "cardTag": "교육부",
+    "cardType": "compare",
+    "items": [
+      {
+        "title": "9등급제",
+        "lines": [
+          "1등급 상위 4%",
+          "2등급 누적 11%"
+        ]
+      },
+      {
+        "title": "5등급제",
+        "lines": [
+          "1등급 상위 10%",
+          "2등급 누적 34%"
+        ]
+      }
+    ],
+    "lens": false
   }
 }

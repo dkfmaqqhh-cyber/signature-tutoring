@@ -367,5 +367,36 @@
       }
     ],
     "lens": false
+  },
+  "middle-winter-math-review": {
+    "palette": "blue",
+    "badge": "중등 수학 · 겨울방학",
+    "title": "중학생 겨울방학\n수학 *복습*이\n먼저인 경우",
+    "keys": [
+      "선행 vs 복습",
+      "8주 계획"
+    ],
+    "cardTitle": "겨울방학 수학 순서",
+    "cardTag": "예시",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "1주",
+        "text": "지난 학기 단원 진단"
+      },
+      {
+        "label": "2~5주",
+        "text": "약한 단원 복습 · 오답"
+      },
+      {
+        "label": "6~7주",
+        "text": "다음 학기 첫 단원 개념"
+      },
+      {
+        "label": "8주",
+        "text": "복습 · 예습 섞어 점검"
+      }
+    ],
+    "lens": false
   }
 }

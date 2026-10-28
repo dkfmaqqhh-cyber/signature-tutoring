@@ -8265,3 +8265,9 @@ body.vz297 main #when .mt-reason h3 { margin: 0; }
    되돌리기: 이 블록 삭제 */
 @media (max-width: 640px) { body.has-sig-float { padding-bottom: calc(50px + env(safe-area-inset-bottom)) !important; } }
 @media (min-width: 641px) and (max-width: 1024px) { body.has-sig-float { padding-bottom: calc(52px + env(safe-area-inset-bottom)) !important; } }
+
+/* [319차] 개인정보처리방침(privacy.html) 320px 가로 넘침 49px 해소
+   · 원인: 국외 이전 표(3열)의 끊을 수 없는 긴 단어(privacy@discord.com, Discord(디스코드) 등) 때문에 표가 화면 폭보다 넓어짐(292px 칸에 354px)
+   · 수정: 640px 이하에서 처리방침 표 칸 안 글자만 필요할 때 줄바꿈 → 표가 화면 폭 안에 들어오고 내용은 잘리거나 숨겨지지 않음 (문구·HTML 변경 없음, 비교표 .compare-table 은 제외)
+   되돌리기: 이 블록 삭제 */
+@media (max-width: 640px) { .policy-doc .policy-table th, .policy-doc .policy-table td { overflow-wrap: anywhere; } }

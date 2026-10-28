@@ -398,5 +398,25 @@
       }
     ],
     "lens": false
+  },
+  "midterm-report-tutoring-start": {
+    "palette": "blue",
+    "badge": "과외 준비 · 학부모 가이드",
+    "title": "과외 시작 전\n*확인할 7가지*\n성적표부터",
+    "keys": [
+      "시작 시기",
+      "첫 상담 준비"
+    ],
+    "cardTitle": "과외 시작 전 체크",
+    "cardTag": "체크",
+    "cardType": "checks",
+    "items": [
+      "실점 유형을 표시했나요?",
+      "기말까지 남은 기간은?",
+      "방문·화상 중 맞는 방식은?",
+      "상담 질문을 준비했나요?",
+      "신고증명서·반환 기준 확인"
+    ],
+    "lens": false
   }
 }

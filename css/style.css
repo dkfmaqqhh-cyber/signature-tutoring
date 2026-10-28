@@ -8255,3 +8255,6 @@ body.vz297 main #when .mt-reason h3 { margin: 0; }
 
 /* [309차] 메인 수업 안내(#tuition) 문단 안 학년별 텍스트 링크 표시 — 되돌리기: 이 블록 삭제 */
 #tuition .section-head p a { text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+
+/* [310차] 메인·1:1과외수업 학습 사례 아래 재구성 안내 문구 — 되돌리기: 이 블록 삭제 */
+.rvx-note { max-width: 980px; margin: 14px auto 0; color: #6b7280; font-size: 13px; line-height: 1.6; text-align: center; word-break: keep-all; }

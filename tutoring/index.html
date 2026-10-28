@@ -49,36 +49,119 @@
 <style>
 .tu-price { background: #fff; }
 .tu-price .section-head p { max-width: 640px; margin-left: auto; margin-right: auto; }
-.tu-price-label { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 0 18px; color: #10233F; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
-.tu-price-label span { padding: 4px 12px; border-radius: 999px; background: #10233F; color: #F4C84A; font-size: 13px; font-weight: 800; letter-spacing: 0.02em; }
-.tu-price-basis { margin: -8px 0 22px; color: #6B7280; font-size: 15px; text-align: center; word-break: keep-all; }
-.tu-price-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; max-width: 1080px; margin: 0 auto; padding: 0; list-style: none; }
-.tu-price-card { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 0; padding: 26px 16px 24px; border: 1px solid #E8DFCF; border-top: 4px solid #D7B56D; border-radius: 16px; background: #FBF8F2; text-align: center; }
-.tu-price-card h3 { margin: 0; color: #10233F; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; word-break: keep-all; }
-.tu-price-amount { margin: 4px 0 0; color: #10233F; font-size: 30px; font-weight: 900; line-height: 1.15; letter-spacing: -0.03em; white-space: nowrap; }
-.tu-price-amount small { margin-left: 2px; font-size: 16px; font-weight: 800; }
-.tu-price-unit { color: #8A6D2F; font-size: 14px; font-weight: 700; line-height: 1.45; }
-.tu-price-unit > span { white-space: nowrap; }
-.tu-price-online { display: flex; align-items: center; justify-content: space-between; gap: 18px; max-width: 1080px; margin: 28px auto 0; padding: 26px 30px; border-radius: 18px; background: linear-gradient(135deg, #0f2747 0%, #133d65 100%); color: #fff; }
-.tu-price-online h3 { margin: 0 0 6px; color: #fff; font-size: 20px; font-weight: 800; }
-.tu-price-online p { margin: 0; color: rgba(255, 255, 255, 0.8); font-size: 15px; line-height: 1.6; word-break: keep-all; }
-.tu-price-online .tu-price-amount { margin: 0; color: #F4C84A; font-size: 32px; font-weight: 900; line-height: 1.15; }
-.tu-price-notes { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 14px; max-width: 1080px; margin: 24px auto 0; padding: 0; list-style: none; }
+/* [321-2차] 수업료 카드 4장 + 화상 띠 → 비교표 1개(행 = 수업 방식, 열 = 학년) · 모바일(≤640)은 행마다 세로 목록으로 펼침 */
+.tu-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.tu-ptable-wrap { max-width: 1080px; margin: 0 auto; border: 1px solid #E8DFCF; border-radius: 18px; overflow: hidden; background: #FBF8F2; box-shadow: 0 14px 32px rgba(16, 42, 75, 0.07); }
+.tu-ptable { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.tu-ptable thead th { padding: 16px 10px; background: #10233F; color: #F4C84A; font-size: 15px; font-weight: 800; letter-spacing: -0.01em; text-align: center; word-break: keep-all; }
+.tu-ptable thead th:first-child { width: 23%; color: rgba(255, 255, 255, 0.78); font-weight: 700; }
+.tu-ptable tbody th { padding: 22px 20px; background: #F6EFE2; color: #10233F; text-align: left; vertical-align: middle; word-break: keep-all; }
+.tu-ptable tbody tr + tr > * { border-top: 1px solid #E8DFCF; }
+.tu-ptable-tag { display: inline-block; margin-bottom: 6px; padding: 2px 9px; border-radius: 999px; background: #10233F; color: #F4C84A; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; }
+.tu-ptable tbody th strong { display: block; font-size: 19px; font-weight: 800; letter-spacing: -0.02em; }
+.tu-ptable tbody th small { display: block; margin-top: 4px; color: #8A6D2F; font-size: 13px; font-weight: 700; line-height: 1.45; }
+.tu-ptable td { padding: 22px 8px; background: #fff; color: #10233F; text-align: center; vertical-align: middle; }
+.tu-ptable td + td { border-left: 1px solid #F0E8DA; }
+.tu-ptable-m { margin-right: 3px; color: #8A6D2F; font-size: 14px; font-weight: 800; }
+.tu-ptable td b { font-size: 26px; font-weight: 900; letter-spacing: -0.03em; white-space: nowrap; }
+.tu-ptable-u { margin-left: 2px; font-size: 14px; font-weight: 800; white-space: nowrap; }
+.tu-price-notes { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 14px; max-width: 1080px; margin: 22px auto 0; padding: 0; list-style: none; }
 .tu-price-notes li { padding: 10px 16px; border: 1px solid #E8DFCF; border-radius: 999px; background: #FBF8F2; color: #10233F; font-size: 15px; font-weight: 700; word-break: keep-all; }
 .tu-price-notes li strong { color: #8A6D2F; }
-@media (max-width: 1024px) { .tu-price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 1024px) {
+  .tu-ptable thead th { font-size: 14px; }
+  .tu-ptable tbody th { padding: 18px 14px; }
+  .tu-ptable tbody th strong { font-size: 17px; }
+  .tu-ptable td b { font-size: 21px; }
+  .tu-ptable-m, .tu-ptable-u { font-size: 13px; }
+}
 @media (max-width: 640px) {
-  .tu-price-label { font-size: 18px; }
-  .tu-price-grid { gap: 10px; }
-  .tu-price-card { padding: 20px 10px 18px; }
-  .tu-price-card h3 { font-size: 16px; }
-  .tu-price-amount { font-size: 23px; }
-  .tu-price-amount small { font-size: 14px; margin-left: 1px; }
-  .tu-price-online { flex-direction: column; align-items: flex-start; padding: 22px 20px; }
-  .tu-price-online .tu-price-amount { font-size: 26px; }
-  .tu-price-online .tu-price-amount small { font-size: 16px; }
-  .tu-price-notes { flex-direction: column; align-items: stretch; }
+  .tu-ptable-wrap { border: 0; border-radius: 0; background: none; box-shadow: none; overflow: visible; }
+  .tu-ptable, .tu-ptable tbody, .tu-ptable tr, .tu-ptable th, .tu-ptable td { display: block; width: auto; }
+  .tu-ptable thead { display: none; }
+  .tu-ptable tbody tr { margin-bottom: 14px; border: 1px solid #E8DFCF; border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 10px 24px rgba(16, 42, 75, 0.06); }
+  .tu-ptable tbody tr + tr > * { border-top: 0; }
+  .tu-ptable tbody th { padding: 16px 18px; background: #10233F; color: #fff; }
+  .tu-ptable tbody th strong { font-size: 18px; }
+  .tu-ptable tbody th small { color: #F4C84A; }
+  .tu-ptable-tag { background: #F4C84A; color: #10233F; }
+  .tu-ptable td { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 14px 18px; text-align: right; }
+  .tu-ptable td + td { border-left: 0; border-top: 1px solid #F0E8DA; }
+  .tu-ptable td::before { content: attr(data-label); flex: 0 0 auto; color: #10233F; font-size: 15px; font-weight: 800; text-align: left; }
+  .tu-ptable td > .tu-ptable-price { white-space: nowrap; }
+  .tu-ptable td b { font-size: 22px; }
+  .tu-price-notes { flex-direction: column; align-items: stretch; margin-top: 8px; }
   .tu-price-notes li { border-radius: 12px; text-align: center; }
+}
+
+/* [321-2차] 학습지원 4가지 — 왼쪽 글(번호 목록, 카드 아님) + 오른쪽 겹친 문서 4장(HTML/CSS 자체 제작 예시, 애니메이션 없음) · 모바일은 글 위·문서 아래 */
+/* [321-3차] 파스텔톤 전환: 항목·문서마다 --p(파스텔 바탕)/--d(같은 계열 진한 색) — 민트=진단, 블루=맞춤 문제, 연보라=피드백, 피치=복습 · 네이비는 글자만 · 골드 제거 */
+.tu-ls { background: linear-gradient(180deg, #FDFBF7 0%, #F6F8FC 100%); }
+.tu-ls .is-mint { --p: #E4F3EF; --d: #3E9C86; }
+.tu-ls .is-blue { --p: #E8EEFA; --d: #5677C4; }
+.tu-ls .is-lilac { --p: #F0EAF8; --d: #8467B8; }
+.tu-ls .is-peach { --p: #FFF0E7; --d: #DB7F52; }
+.tu-ls-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 56px; align-items: center; }
+.tu-ls .section-head { margin-bottom: 26px; }
+.tu-ls .section-head p { word-break: keep-all; }
+.tu-ls-list { margin: 0; padding: 0; list-style: none; }
+.tu-ls-list li { display: flex; gap: 18px; align-items: center; padding: 16px 4px; border-bottom: 1px solid #ECE8E1; }
+.tu-ls-list li:first-child { border-top: 1px solid #ECE8E1; }
+.tu-ls-ico { flex: 0 0 auto; display: grid; place-items: center; width: 58px; height: 58px; border-radius: 18px; background: var(--p); color: var(--d); }
+.tu-ls-ico svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.tu-ls-no { display: block; margin-bottom: 2px; color: var(--d); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; }
+.tu-ls-list strong { display: block; color: #10233F; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; word-break: keep-all; }
+.tu-ls-list p { margin: 3px 0 0; color: #5B6472; font-size: 15px; line-height: 1.55; word-break: keep-all; }
+.tu-ls-visual { margin: 0; }
+.tu-ls-stack { position: relative; height: 460px; }
+.tu-ls-stack::before { content: ""; position: absolute; inset: 12% 10% 8% 12%; border-radius: 50%; background: radial-gradient(circle at 30% 35%, #E4F3EF 0%, rgba(228, 243, 239, 0) 60%), radial-gradient(circle at 72% 65%, #F0EAF8 0%, rgba(240, 234, 248, 0) 62%); }
+.tu-ls-doc { position: absolute; display: flex; flex-direction: column; gap: 10px; width: 58%; height: 58%; padding: 0 18px 16px; border: 1px solid #ECE7E0; border-radius: 14px; background: #fff; box-shadow: 0 16px 34px rgba(60, 72, 100, 0.11); overflow: hidden; }
+.tu-ls-doc.d1 { left: 3%; top: 3%; transform: rotate(-6deg); }
+.tu-ls-doc.d2 { right: 3%; top: 1%; transform: rotate(5deg); }
+.tu-ls-doc.d3 { left: 6%; top: 37%; transform: rotate(-2deg); }
+.tu-ls-doc.d4 { right: 4%; top: 40%; transform: rotate(2.5deg); box-shadow: 0 22px 44px rgba(60, 72, 100, 0.16); }
+.tu-ls-dh { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 -18px 4px; padding: 13px 18px; background: var(--p); }
+.tu-ls-dh b { color: #10233F; font-size: 14px; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; }
+.tu-ls-dh i { padding: 2px 8px; border-radius: 999px; background: #fff; color: var(--d); font-size: 10px; font-style: normal; font-weight: 800; letter-spacing: 0.04em; white-space: nowrap; }
+.tu-ls-ln { display: block; height: 7px; border-radius: 4px; background: #ECEAE6; }
+.tu-ls-ln.w90 { width: 90%; } .tu-ls-ln.w75 { width: 75%; } .tu-ls-ln.w60 { width: 60%; } .tu-ls-ln.w45 { width: 45%; }
+.tu-ls-bars { display: flex; flex-direction: column; gap: 9px; margin-top: 2px; }
+.tu-ls-bar { display: grid; grid-template-columns: 28% 1fr; gap: 8px; align-items: center; }
+.tu-ls-bar > span:first-child { height: 7px; border-radius: 4px; background: #ECEAE6; }
+.tu-ls-bar > span:last-child { position: relative; height: 10px; border-radius: 5px; background: #EFF5F3; overflow: hidden; }
+.tu-ls-bar > span:last-child::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: var(--v); border-radius: 5px; background: #7CC3B2; }
+.tu-ls-bar.is-weak > span:last-child::after { background: #F4B391; }
+.tu-ls-q { display: flex; gap: 8px; align-items: center; }
+.tu-ls-q em { flex: 0 0 auto; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--p); color: var(--d); font-size: 10px; font-style: normal; font-weight: 800; }
+.tu-ls-q .tu-ls-ln { flex: 1 1 auto; }
+.tu-ls-chk { display: flex; gap: 8px; align-items: center; }
+.tu-ls-chk::before { content: ""; flex: 0 0 auto; width: 12px; height: 12px; border: 2px solid #F0B597; border-radius: 4px; }
+.tu-ls-chk.on::before { border-color: #F0B597; background: #F7CDB7; }
+.tu-ls-chk .tu-ls-ln { flex: 1 1 auto; }
+.tu-ls-memo { margin-top: auto; padding: 8px 10px; border-radius: 8px; background: var(--p); }
+.tu-ls-memo .tu-ls-ln { background: rgba(255, 255, 255, 0.85); }
+.tu-ls-memo .tu-ls-ln + .tu-ls-ln { margin-top: 6px; }
+.tu-ls-visual figcaption { margin-top: 14px; color: #8A8F99; font-size: 13px; text-align: center; word-break: keep-all; }
+@media (max-width: 1024px) {
+  .tu-ls-inner { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .tu-ls-stack { max-width: 560px; margin: 0 auto; }
+}
+@media (max-width: 640px) {
+  .tu-ls-list li { gap: 14px; padding: 14px 2px; }
+  .tu-ls-ico { width: 50px; height: 50px; border-radius: 15px; }
+  .tu-ls-ico svg { width: 26px; height: 26px; }
+  .tu-ls-list strong { font-size: 17px; }
+  .tu-ls-list p { font-size: 14px; }
+  .tu-ls-stack { height: auto; aspect-ratio: 1 / 1; }
+  .tu-ls-doc { width: 60%; height: 57%; gap: 7px; padding: 0 12px 10px; border-radius: 11px; }
+  .tu-ls-dh { margin: 0 -12px 2px; padding: 10px 12px; }
+  .tu-ls-dh b { font-size: 12px; }
+  .tu-ls-dh i { font-size: 9px; padding: 1px 6px; }
+  .tu-ls-ln { height: 6px; }
+  .tu-ls-bars { gap: 7px; }
+  .tu-ls-bar > span:last-child { height: 8px; }
+  .tu-ls-q em { width: 16px; height: 16px; font-size: 9px; }
+  .tu-ls-memo { padding: 6px 8px; }
 }
 </style>
 </head>
@@ -462,25 +545,83 @@
       <h2 id="tuPriceTitle">수업료 안내</h2>
       <p>학년별 1:1 수업료의 시작 금액을 안내합니다. 수업 횟수·시간 등 세부 조건과 최종 수업료는 상담에서 확정합니다.</p><!-- [321차] 공개 금액 = 시작 금액, 최종 수업료 = 상담 확정 (금액·기준 미변경) -->
     </div>
-    <h3 class="tu-price-label"><span>VISIT</span>방문과외</h3>
-    <p class="tu-price-basis">한 달 주 2회 · 1회 60분 기준</p>
-    <ul class="tu-price-grid">
-      <li class="tu-price-card"><h3>초등학생</h3><p class="tu-price-amount">256,000<small>원부터</small></p><span class="tu-price-unit"><span>한 달 주 2회</span> · <span>1회 60분 기준</span></span></li>
-      <li class="tu-price-card"><h3>중학생</h3><p class="tu-price-amount">296,000<small>원부터</small></p><span class="tu-price-unit"><span>한 달 주 2회</span> · <span>1회 60분 기준</span></span></li>
-      <li class="tu-price-card"><h3>고등 1·2학년</h3><p class="tu-price-amount">336,000<small>원부터</small></p><span class="tu-price-unit"><span>한 달 주 2회</span> · <span>1회 60분 기준</span></span></li>
-      <li class="tu-price-card"><h3>고등 3학년 · 성인</h3><p class="tu-price-amount">376,000<small>원부터</small></p><span class="tu-price-unit"><span>한 달 주 2회</span> · <span>1회 60분 기준</span></span></li>
-    </ul>
-    <div class="tu-price-online">
-      <div>
-        <h3>화상과외</h3>
-        <p>수업 횟수와 시간은 상담에서 학생에게 맞춰 정합니다.</p>
-      </div>
-      <p class="tu-price-amount">230,000<small>원부터</small></p>
+    <!-- [321-2차] 카드형 → 비교표 (금액·기준 미변경: 방문 = 한 달 주 2회·1회 60분 기준) · [321-3차] 화상과외 행·230,000원 삭제(사용자 요청) -->
+    <div class="tu-ptable-wrap">
+      <table class="tu-ptable">
+        <caption class="tu-sr">과외마루 1:1 수업료 비교표 (시작 금액, 최종 수업료는 상담에서 확정)</caption>
+        <thead>
+          <tr><th scope="col">수업 방식</th><th scope="col">초등학생</th><th scope="col">중학생</th><th scope="col">고등 1·2학년</th><th scope="col">고등 3학년·성인</th></tr>
+        </thead>
+        <tbody>
+          <tr class="is-visit">
+            <th scope="row"><span class="tu-ptable-tag">VISIT</span><strong>방문과외</strong><small>한 달 주 2회 · 1회 60분 기준</small></th>
+            <td data-label="초등학생"><span class="tu-ptable-price"><span class="tu-ptable-m">월</span><b>256,000</b><span class="tu-ptable-u">원부터</span></span></td>
+            <td data-label="중학생"><span class="tu-ptable-price"><span class="tu-ptable-m">월</span><b>296,000</b><span class="tu-ptable-u">원부터</span></span></td>
+            <td data-label="고등 1·2학년"><span class="tu-ptable-price"><span class="tu-ptable-m">월</span><b>336,000</b><span class="tu-ptable-u">원부터</span></span></td>
+            <td data-label="고등 3학년·성인"><span class="tu-ptable-price"><span class="tu-ptable-m">월</span><b>376,000</b><span class="tu-ptable-u">원부터</span></span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <ul class="tu-price-notes">
       <li><strong>90분·120분</strong> 수업료는 상담 후 안내</li>
       <li><strong>무료 시범수업</strong> 제공</li>
     </ul>
+  </div>
+</section>
+
+<!-- [321-2차] 학습지원 4가지 (TUITION 다음 · TRIAL CLASS 앞) — 왼쪽 글·번호 목록 / 오른쪽 HTML·CSS로 만든 예시 문서 4장 겹침(실제 자료 아님, 장식용 aria-hidden) · 자료 제공물(PDF·워크북·보고서) 문구 없음 -->
+<section class="page-section tu-ls" id="support" aria-labelledby="tuLsTitle">
+  <div class="container tu-ls-inner">
+    <div class="tu-ls-copy">
+      <div class="section-head">
+        <div class="kicker">LEARNING SUPPORT</div>
+        <h2 id="tuLsTitle">수업과 함께하는 학습지원 서비스</h2>
+        <p>학생의 학습 수준을 확인하고, 부족한 부분을 보완할 수 있도록 학습 과정을 함께 관리합니다.</p>
+      </div>
+      <ol class="tu-ls-list">
+        <li class="is-mint"><span class="tu-ls-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 20.5h17"/><path d="M6 17v-5M10 17V8"/><circle cx="16" cy="10" r="4"/><path d="M19 13l2.5 2.5"/></svg></span><div><span class="tu-ls-no">01</span><strong>AI 학습 진단</strong><p>학생의 취약 단원과 학습 수준 확인</p></div></li>
+        <li class="is-blue"><span class="tu-ls-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 8h6M9 12h4"/><path d="M9 16.2l1.8 1.8 4-4"/></svg></span><div><span class="tu-ls-no">02</span><strong>수준별 맞춤 문제</strong><p>학생의 이해도에 맞춘 문제 학습</p></div></li>
+        <li class="is-lilac"><span class="tu-ls-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 4.5h10a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-3.5 3v-3h-1a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2z"/><path d="M6.5 8.3h6M6.5 10.8h4"/><path d="M19.5 9.5a2 2 0 0 1 1.5 2v4.5a2 2 0 0 1-2 2v2.5l-3-2.5h-4.5"/></svg></span><div><span class="tu-ls-no">03</span><strong>수업 피드백 및 학습 현황 공유</strong><p>수업 내용과 이해도, 학습 진행 상황 공유</p></div></li>
+        <li class="is-peach"><span class="tu-ls-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.35-5.65"/><path d="M20 4.5v4.2h-4.2"/><path d="M12 8v4.2l2.8 1.8"/></svg></span><div><span class="tu-ls-no">04</span><strong>취약 단원 복습 안내</strong><p>부족한 개념을 확인하고 복습 방향 안내</p></div></li>
+      </ol>
+    </div>
+    <figure class="tu-ls-visual">
+      <div class="tu-ls-stack" aria-hidden="true">
+        <div class="tu-ls-doc d1 is-lilac">
+          <div class="tu-ls-dh"><b>수업 피드백</b><i>03</i></div>
+          <span class="tu-ls-ln w90"></span><span class="tu-ls-ln w75"></span><span class="tu-ls-ln w90"></span><span class="tu-ls-ln w60"></span>
+          <div class="tu-ls-memo"><span class="tu-ls-ln w75"></span><span class="tu-ls-ln w45"></span></div>
+        </div>
+        <div class="tu-ls-doc d2 is-peach">
+          <div class="tu-ls-dh"><b>복습 안내</b><i>04</i></div>
+          <div class="tu-ls-chk on"><span class="tu-ls-ln w75"></span></div>
+          <div class="tu-ls-chk on"><span class="tu-ls-ln w60"></span></div>
+          <div class="tu-ls-chk"><span class="tu-ls-ln w90"></span></div>
+          <div class="tu-ls-chk"><span class="tu-ls-ln w45"></span></div>
+        </div>
+        <div class="tu-ls-doc d3 is-blue">
+          <div class="tu-ls-dh"><b>맞춤 문제</b><i>02</i></div>
+          <div class="tu-ls-q"><em>1</em><span class="tu-ls-ln w90"></span></div>
+          <span class="tu-ls-ln w60"></span>
+          <div class="tu-ls-q"><em>2</em><span class="tu-ls-ln w75"></span></div>
+          <span class="tu-ls-ln w45"></span>
+          <div class="tu-ls-q"><em>3</em><span class="tu-ls-ln w90"></span></div>
+        </div>
+        <div class="tu-ls-doc d4 is-mint">
+          <div class="tu-ls-dh"><b>학습 진단</b><i>01</i></div>
+          <div class="tu-ls-bars">
+            <div class="tu-ls-bar" style="--v: 82%"><span></span><span></span></div>
+            <div class="tu-ls-bar is-weak" style="--v: 38%"><span></span><span></span></div>
+            <div class="tu-ls-bar" style="--v: 66%"><span></span><span></span></div>
+            <div class="tu-ls-bar is-weak" style="--v: 45%"><span></span><span></span></div>
+            <div class="tu-ls-bar" style="--v: 74%"><span></span><span></span></div>
+          </div>
+          <div class="tu-ls-memo"><span class="tu-ls-ln w90"></span><span class="tu-ls-ln w60"></span></div>
+        </div>
+      </div>
+      <figcaption>※ 학습지원 흐름을 보여 드리기 위해 자체 제작한 예시 그림입니다.</figcaption>
+    </figure>
   </div>
 </section>
 

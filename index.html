@@ -12,17 +12,16 @@
 <meta property="og:description" content="초등·중학생·고등학생을 위한 1:1 맞춤 방문과외·화상과외. 학년·과목·목표에 맞는 선생님과 내신·시험 대비 수업을 상담합니다.">
 <meta property="og:site_name" content="과외마루">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="images/og-image.jpg">
+<meta property="og:url" content="https://signaturetutoring.co.kr/">
+<meta property="og:image" content="https://signaturetutoring.co.kr/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="과외마루 - 공부에 집중하는 학생">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#102a4b">
 <!--
-  [도메인 연결 후 할 일] 아래 주석을 풀고 https://도메인 부분을 실제 주소로 바꿔 주세요.
-  og:image 도 절대주소(https://도메인/images/og-image.jpg)로 바꿔야 카카오톡·네이버 공유 미리보기에 이미지가 정확히 표시됩니다.
-  <link rel="canonical" href="https://도메인/">
-  <meta property="og:url" content="https://도메인/">
+  [330차] og:url 추가 · og:image 절대주소(images/og-image.jpg 1200×630 실제 파일)로 변경 → 위 '도메인 연결 후 할 일' 중 canonical·og:url·og:image는 완료되어 예시 줄 삭제
+  [남은 할 일] 검색엔진 소유 확인을 meta 태그로 할 경우에만 실제 인증코드로 추가하세요(다른 방법으로 확인했다면 필요 없음).
   <meta name="naver-site-verification" content="네이버 서치어드바이저 인증코드">
   <meta name="google-site-verification" content="구글 서치콘솔 인증코드">
 -->
@@ -36,8 +35,9 @@
   "@graph": [
     {
       "@type": "EducationalOrganization",
-      "@id": "#organization",
+      "@id": "https://signaturetutoring.co.kr/#organization",
       "name": "과외마루",
+      "alternateName": "GWAOEMARU",
       "url": "https://signaturetutoring.co.kr/",
       "description": "초등학생부터 고등학생까지 학년·과목·학습 수준·목표에 맞춰 1:1 방문과외와 화상과외를 연결하는 과외 서비스",
       "logo": "https://signaturetutoring.co.kr/images/logo.webp",
@@ -45,15 +45,17 @@
     },
     {
       "@type": "WebSite",
+      "@id": "https://signaturetutoring.co.kr/#website",
+      "url": "https://signaturetutoring.co.kr/",
       "name": "과외마루",
       "inLanguage": "ko-KR",
-      "publisher": { "@id": "#organization" }
+      "publisher": { "@id": "https://signaturetutoring.co.kr/#organization" }
     },
     {
       "@type": "Service",
       "name": "초중고 1:1 방문과외·화상과외",
       "serviceType": ["방문과외", "화상과외", "내신 대비", "시험 대비"],
-      "provider": { "@id": "#organization" },
+      "provider": { "@id": "https://signaturetutoring.co.kr/#organization" },
       "areaServed": { "@type": "Country", "name": "대한민국" },
       "audience": { "@type": "EducationalAudience", "educationalRole": "student", "audienceType": "초등학생, 중학생, 고등학생" },
       "description": "수학·영어·국어·과학 등 과목별 전문 선생님과 학생 맞춤 커리큘럼으로 진행하는 1:1 과외"
@@ -537,6 +539,7 @@ else{var go=function(){requestAnimationFrame(function(){setTimeout(start,0);});}
       </article>
     </div>
     <p class="rvx-note">※ 위 내용은 학습 사례를 참고해 재구성한 예시이며, 학생·학부모가 직접 작성한 후기가 아닙니다. 학생마다 수업 과정과 결과는 다를 수 있습니다.</p><!-- [310차] 재구성 사례 안내 · 별점·성적 수치·실명 이니셜 삭제, 직접 발언 → 사례 설명 · 되돌리기: backup/310차수정전/ -->
+    <p class="rvx-results-link"><a href="tutoring/#results">실제 성적 변화 보기 →</a></p><!-- [330차] 1:1과외수업 페이지 실제 성적 사례(#results)로 연결 · 수치는 그 페이지 그대로 -->
 
 
 

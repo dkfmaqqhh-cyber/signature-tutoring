@@ -8265,6 +8265,9 @@ body.vz297 main #when .mt-reason h3 { margin: 0; }
 
 /* [310차] 메인·1:1과외수업 학습 사례 아래 재구성 안내 문구 — 되돌리기: 이 블록 삭제 */
 .rvx-note { max-width: 980px; margin: 14px auto 0; color: #6b7280; font-size: 13px; line-height: 1.6; text-align: center; word-break: keep-all; }
+.rvx-results-link { margin: 16px 0 0; text-align: center; } /* [330차] 메인 학습 사례 → tutoring/#results 텍스트 링크 */
+.rvx-results-link a { color: #102a4b; font-size: 15px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.rvx-results-link a:hover { color: #8a6d2f; }
 
 /* [317차] 모바일·태블릿 하단 고정 상담바(.sig-float, 카톡·시범수업·전화)가 푸터 저작권 문구를 8px 가리던 문제
    · 원인: 예전 블록의 body { padding-bottom: 0 !important } 가 body.has-sig-float 의 바 높이 여백(50·52px)을 무시함

@@ -333,15 +333,66 @@ window.addEventListener("load", function(){
     msg.textContent = text;
     msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
+  /* [338차] 오류 안내를 해당 칸 바로 아래(.cf-field-error)에 표시 → 칸을 화면 가운데로 스크롤한 뒤 포커스 · aria-invalid + aria-describedby(오류 안내 id, 기존 안내 문구 id 유지)
+     · 검사 조건·순서·문구, 전송·동의 코드는 그대로 (이전에는 신청 버튼 위 .form-message에만 표시돼, 칸으로 이동하면 안내가 화면 밖에 있었음)
+     · 칸을 고치면(input·change·과목 버튼) 그 칸의 안내와 오류 표시를 지움 · 되돌리기: backup/338차수정전/js/script.js */
+  function fieldEls(name) {
+    var x = name ? f[name] : null;
+    if (!x) return [];
+    return x.tagName ? [x] : Array.prototype.slice.call(x);
+  }
+  function errAnchor(el) {
+    if (el.type === 'radio') return el.closest('.choice-row') || el;
+    if (el.type === 'checkbox') return el.closest('label') || el;
+    return el;
+  }
+  function clearErr(name) {
+    if (!name) return;
+    var id = 'cfErr-' + name, box = document.getElementById(id);
+    fieldEls(name).forEach(function (el) {
+      el.removeAttribute('aria-invalid');
+      var d = (el.getAttribute('aria-describedby') || '').split(/\s+/).filter(function (v) { return v && v !== id; });
+      if (d.length) el.setAttribute('aria-describedby', d.join(' ')); else el.removeAttribute('aria-describedby');
+    });
+    if (box && box.parentNode) box.parentNode.removeChild(box);
+  }
+  function clearAllErr() {
+    var boxes = form.querySelectorAll('.cf-field-error');
+    for (var k = 0; k < boxes.length; k++) clearErr(boxes[k].getAttribute('data-for'));
+  }
   function fail(field, text) {
     var el = field.length && !field.tagName ? field[0] : field;
-    if (el.setAttribute && el.type !== 'radio' && el.type !== 'checkbox') el.setAttribute('aria-invalid', 'true');
+    var name = el.name;
     try { window.sigTrack.event('form_error', { field: el.name || 'unknown' }); } catch (err) {} /* [221차] 틀린 칸 이름만 (입력값 없음) */
-    show('error', text);
-    el.focus();
+    clearAllErr();
+    msg.className = 'form-message';
+    msg.textContent = '';
+    var box = document.createElement('p');
+    box.className = 'cf-field-error';
+    box.id = 'cfErr-' + name;
+    box.setAttribute('data-for', name);
+    box.textContent = text;
+    var at = errAnchor(el);
+    at.parentNode.insertBefore(box, at.nextSibling);
+    fieldEls(name).forEach(function (x) {
+      x.setAttribute('aria-invalid', 'true');
+      var d = (x.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean);
+      d.unshift(box.id);
+      x.setAttribute('aria-describedby', d.join(' '));
+    });
+    var wrap = el.closest('.form-field, .cf-consent-item') || at;
+    var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    try { el.focus({ preventScroll: true }); } catch (err) { el.focus(); }
+    wrap.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'center' });
   }
   form.addEventListener('input', function (e) {
     if (e.target.removeAttribute) e.target.removeAttribute('aria-invalid');
+    clearErr(e.target.name);
+  });
+  form.addEventListener('change', function (e) {
+    var n = e.target && e.target.name;
+    clearErr(n);
+    if (n === 'applicant') clearErr('age14'); /* 신청자를 바꾸면 나이 칸 안내도 지움 */
   });
 
   /* 접수 주소가 연결되면 사이드 안내의 '준비 중' 문구를 자동으로 바꿈 */
@@ -417,6 +468,7 @@ window.addEventListener("load", function(){
     if (k >= 0) t.splice(k, 1); else t.push(s);
     f.subject.value = t.join(', ').slice(0, 50);
     f.subject.removeAttribute('aria-invalid');
+    clearErr('subject'); /* [338차] 과목 버튼으로 고쳐도 칸 아래 안내 지움 */
     syncChips();
   });
   f.subject.addEventListener('input', syncChips);
@@ -493,6 +545,7 @@ window.addEventListener("load", function(){
     applyRegionGuide(REGION_DEFAULT); /* 주소 안내를 기본 상태로 */
     var invalid = form.querySelectorAll('[aria-invalid]');
     for (var k = 0; k < invalid.length; k++) invalid[k].removeAttribute('aria-invalid');
+    clearAllErr(); /* [338차] 칸 아래 오류 안내도 초기화 */
     syncApplicant(); /* [269차] 신청자 선택이 초기화되면 확인 칸도 숨김 */
     syncChips(); /* [271차] 과목 버튼 선택 표시도 초기화 */
     loadedAt = Date.now();
@@ -522,6 +575,7 @@ window.addEventListener("load", function(){
     }
     /* [305차] 학부모 신청의 별도 법정대리인 체크(guardian) 삭제 → 아래 수집·이용 동의(학부모일 때 법정대리인 동의 문구 포함) 하나로 확인 */
     if (!f.agree.checked) return fail(f.agree, '개인정보 수집·이용에 동의하셔야 상담을 신청할 수 있습니다.');
+    clearAllErr(); /* [338차] 모든 칸 확인 통과 → 남은 칸 아래 안내 지움 (아래 전송 흐름은 그대로) */
     /* [274차] 국외 이전 별도 동의 체크 삭제(consult.html 안내·privacy.html 5번 공개로 대체) */
 
     /* 스팸 방지: 너무 빠른 제출 차단 */
@@ -594,14 +648,17 @@ function cur(){var x=t.scrollLeft,b=0,d=1e9;for(var k=0;k<cards.length;k++){var 
 function go(dir){var max=t.scrollWidth-t.clientWidth,k=cur()+dir;
 if(dir>0&&t.scrollLeft>=max-4)k=0;else if(dir<0&&t.scrollLeft<=4)k=-1;
 var x=k<0?max:Math.min(pos(k),max);t.scrollTo({left:x,behavior:'smooth'});}
-var timer=null,paused=false;
-function start(){stop();timer=setInterval(function(){if(!paused&&!document.hidden)go(1);},2000);}
+var timer=null,paused=false,focused=false;
+function start(){stop();timer=setInterval(function(){if(!paused&&!focused&&!document.hidden)go(1);},2000);}
 function stop(){if(timer)clearInterval(timer);timer=null;}
 document.getElementById('tpNext').addEventListener('click',function(){go(1);start();});
 document.getElementById('tpPrev').addEventListener('click',function(){go(-1);start();});
 var sec=document.getElementById('teacher-preview');
 sec.addEventListener('mouseenter',function(){paused=true;});
 sec.addEventListener('mouseleave',function(){paused=false;});
+/* [338차] 키보드 포커스가 선생님 미리보기 안에 있는 동안 자동 넘김 정지 → 밖으로 나가면 다시 진행 (마우스 클릭으로 생긴 포커스는 제외 · hover·터치 정지는 그대로) */
+sec.addEventListener('focusin',function(e){var k=true;try{k=e.target.matches(':focus-visible');}catch(x){}if(k)focused=true;});
+sec.addEventListener('focusout',function(e){if(!e.relatedTarget||!sec.contains(e.relatedTarget))focused=false;});
 t.addEventListener('touchstart',function(){paused=true;},{passive:true});
 t.addEventListener('touchend',function(){setTimeout(function(){paused=false;},4000);},{passive:true});
 /* [282차] 자동 넘김은 선생님 미리보기가 화면에 보일 때만 실행·화면 밖이면 정지(화면 밖에서 2초마다 위치를 읽던 강제 배치 제거)

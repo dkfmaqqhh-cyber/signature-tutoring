@@ -8281,3 +8281,24 @@ body.vz297 main #when .mt-reason h3 { margin: 0; }
    · 수정: 640px 이하에서 처리방침 표 칸 안 글자만 필요할 때 줄바꿈 → 표가 화면 폭 안에 들어오고 내용은 잘리거나 숨겨지지 않음 (문구·HTML 변경 없음, 비교표 .compare-table 은 제외)
    되돌리기: 이 블록 삭제 */
 @media (max-width: 640px) { .policy-doc .policy-table th, .policy-doc .policy-table td { overflow-wrap: anywhere; } }
+
+/* [338차] 상담 신청서 오류 표시·모바일 입력·진행 순서·메인 수업료 링크
+   ① 잘못된 칸 빨간 테두리: 기존 [aria-invalid] 규칙(.consult-form [aria-invalid="true"])이 입력 칸 기본·포커스 규칙보다 약해 보이지 않던 문제 → .cf-v2 범위로 우선순위를 높임(포커스 중에도 빨강)
+   ② 칸 바로 아래 오류 안내(.cf-field-error, js/script.js가 넣고 지움) · 신청자 선택 버튼·동의 체크박스도 빨간 표시
+   ③ 모바일(640px 이하) 입력 글자 16px(아이폰에서 칸을 누를 때 화면이 확대되지 않게) · 색·배치·버튼 디자인은 그대로
+   ④ 상담 페이지 제목 아래 진행 순서 한 줄(.consult-steps) ⑤ 메인 수업 프로그램 아래 '방문과외 수업료 보기 →'(.tuition-price-link, 330차 .rvx-results-link와 같은 모양)
+   되돌리기: 이 블록 삭제 + backup/338차수정전/ */
+.consult-form.cf-v2 input[aria-invalid="true"], .consult-form.cf-v2 select[aria-invalid="true"] { border-color: #c4572f; background: #fffaf8; }
+.consult-form.cf-v2 input[aria-invalid="true"]:focus, .consult-form.cf-v2 select[aria-invalid="true"]:focus { border-color: #c4572f; box-shadow: 0 0 0 3px rgba(196, 87, 47, 0.18); }
+.consult-form.cf-v2 .choice-row input[aria-invalid="true"] + span { border-color: #c4572f; }
+.consult-form.cf-v2 input[type="checkbox"][aria-invalid="true"] { outline: 2px solid #c4572f; outline-offset: 2px; }
+.cf-v2 .cf-field-error { margin: 2px 0 0; color: #a2442a; font-size: 13.5px; font-weight: 700; line-height: 1.5; word-break: keep-all; }
+.cf-v2 .cf-consent-item .cf-field-error { margin: 6px 0 2px; }
+@media (max-width: 640px) {
+  .consult-form.cf-v2 .cf-compact input[type="text"], .consult-form.cf-v2 .cf-compact input[type="tel"], .consult-form.cf-v2 .cf-compact select { font-size: 16px; }
+}
+.page-hero.consult-hero .consult-steps { margin: 10px 0 0; color: #5b6476; font-size: 15px; font-weight: 700; line-height: 1.6; word-break: keep-all; }
+@media (max-width: 640px) { .page-hero.consult-hero .consult-steps { margin-top: 8px; font-size: 14px; } }
+.tuition-price-link { margin: 22px 0 0; text-align: center; }
+.tuition-price-link a { color: #102a4b; font-size: 15px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.tuition-price-link a:hover { color: #8a6d2f; }

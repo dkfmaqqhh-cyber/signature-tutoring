@@ -65,6 +65,9 @@
 .tu-ptable-m { margin-right: 3px; color: #8A6D2F; font-size: 14px; font-weight: 800; }
 .tu-ptable td b { font-size: 26px; font-weight: 900; letter-spacing: -0.03em; white-space: nowrap; }
 .tu-ptable-u { margin-left: 2px; font-size: 14px; font-weight: 800; white-space: nowrap; }
+.tu-price-guide { max-width: 1080px; margin: 18px auto 0; padding: 18px 22px; border: 1px solid #E8DFCF; border-radius: 14px; background: #fff; text-align: center; word-break: keep-all; } /* [328차] 표 아래 방문과외 수업료 기준 안내 */
+.tu-price-guide strong { display: block; margin-bottom: 6px; color: #10233F; font-size: 17px; font-weight: 800; }
+.tu-price-guide p { margin: 0; color: #4A5568; font-size: 15px; line-height: 1.7; }
 .tu-price-notes { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 14px; max-width: 1080px; margin: 22px auto 0; padding: 0; list-style: none; }
 .tu-price-notes li { padding: 10px 16px; border: 1px solid #E8DFCF; border-radius: 999px; background: #FBF8F2; color: #10233F; font-size: 15px; font-weight: 700; word-break: keep-all; }
 .tu-price-notes li strong { color: #8A6D2F; }
@@ -90,6 +93,9 @@
   .tu-ptable td::before { content: attr(data-label); flex: 0 0 auto; color: #10233F; font-size: 15px; font-weight: 800; text-align: left; }
   .tu-ptable td > .tu-ptable-price { white-space: nowrap; }
   .tu-ptable td b { font-size: 22px; }
+  .tu-price-guide { margin-top: 4px; padding: 16px 18px; text-align: left; }
+  .tu-price-guide strong { font-size: 16px; }
+  .tu-price-guide p { font-size: 14.5px; }
   .tu-price-notes { flex-direction: column; align-items: stretch; margin-top: 8px; }
   .tu-price-notes li { border-radius: 12px; text-align: center; }
 }
@@ -543,7 +549,7 @@
     <div class="section-head center">
       <div class="kicker">TUITION</div>
       <h2 id="tuPriceTitle">수업료 안내</h2>
-      <p>학년별 1:1 수업료의 시작 금액을 안내합니다. 수업 횟수·시간 등 세부 조건과 최종 수업료는 상담에서 확정합니다.</p><!-- [321차] 공개 금액 = 시작 금액, 최종 수업료 = 상담 확정 (금액·기준 미변경) -->
+      <p>학년별 1:1 방문과외 수업료의 시작 금액을 안내합니다.</p><!-- [321차] 공개 금액 = 시작 금액, 최종 수업료 = 상담 확정 (금액·기준 미변경) · [328차] '세부 조건·최종 수업료는 상담에서 확정' 문장은 표 아래 '방문과외 수업료 안내'로 통합(중복 제거) -->
     </div>
     <!-- [321-2차] 카드형 → 비교표 (금액·기준 미변경: 방문 = 한 달 주 2회·1회 60분 기준) · [321-3차] 화상과외 행·230,000원 삭제(사용자 요청) -->
     <div class="tu-ptable-wrap">
@@ -562,6 +568,10 @@
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="tu-price-guide"><!-- [328차] 방문과외 수업료 기준(주 2회·1회 60분·월 8회) + 상담 확정 안내 · 금액·표 디자인 미변경 -->
+      <strong>방문과외 수업료 안내</strong>
+      <p>모든 학년의 기본 수업료는 주 2회, 1회 60분, 월 8회 기준입니다. 학년별 시작 수업료를 확인하신 후 상담을 통해 수업 조건과 최종 금액을 안내받으실 수 있습니다.</p>
     </div>
     <ul class="tu-price-notes">
       <li><strong>90분·120분</strong> 수업료는 상담 후 안내</li>

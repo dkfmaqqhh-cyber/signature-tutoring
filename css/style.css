@@ -8302,3 +8302,8 @@ body.vz297 main #when .mt-reason h3 { margin: 0; }
 .tuition-price-link { margin: 22px 0 0; text-align: center; }
 .tuition-price-link a { color: #102a4b; font-size: 15px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
 .tuition-price-link a:hover { color: #8a6d2f; }
+/* [340차] 지역 허브 신뢰정보 카드: '화상 수업' / '방문은 상담 시 확인' 두 줄로 끊기게 · 색상·카드 모양 그대로 */
+body.page-gu-hub .sbh-trust .sbh-txt { display: block; }
+body.page-gu-hub .sbh-trust .sbh-sep { display: none; }
+body.page-gu-hub .sbh-trust .sbh-nw { white-space: nowrap; }
+@media (max-width: 360px) { body.page-gu-hub .sbh-trust li { padding: 8px 6px; gap: 5px; } }

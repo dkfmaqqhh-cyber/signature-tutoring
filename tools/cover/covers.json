@@ -418,5 +418,25 @@
       "신고증명서·반환 기준 확인"
     ],
     "lens": false
+  },
+  "high-school-credit-system": {
+    "palette": "plum",
+    "badge": "입시·내신 · 고교학점제",
+    "title": "고교학점제\n*선택과목*\n고르는 5단계",
+    "keys": [
+      "이수 기준",
+      "수강신청 시기"
+    ],
+    "cardTitle": "과목 고르는 순서",
+    "cardTag": "체크",
+    "cardType": "checks",
+    "items": [
+      "관심 계열 2~3개 적기",
+      "학교 편성표 확인",
+      "선수 과목 잇기",
+      "대학 권장과목 대조",
+      "학습 부담 점검"
+    ],
+    "lens": false
   }
 }

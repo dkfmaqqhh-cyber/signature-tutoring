@@ -159,7 +159,7 @@
         "고교학점제 전면 시행 시기와 이수 기준(교육부)",
         "선택과목 체계(공통·일반선택·진로선택·융합선택)"
       ],
-      "status": "todo",
+      "status": "done",
       "keywords": [
         "고교학점제",
         "고교학점제선택과목",
@@ -172,7 +172,8 @@
       },
       "season_until": null,
       "date": "2026-11-05",
-      "parent_questions": []
+      "parent_questions": [],
+      "published": "2026-11-02"
     },
     {
       "no": 7,

@@ -438,5 +438,36 @@
       "학습 부담 점검"
     ],
     "lens": false
+  },
+  "final-exam-english-naesin": {
+    "palette": "blue",
+    "badge": "내신 관리 · 영어",
+    "title": "영어 내신\n*기말고사 4주*\n준비 순서",
+    "keys": [
+      "본문·변형문제",
+      "서술형 대비"
+    ],
+    "cardTitle": "기말 영어 4주 계획",
+    "cardTag": "예시",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "4주 전",
+        "text": "범위 · 본문 이해"
+      },
+      {
+        "label": "3주 전",
+        "text": "문법 · 핵심 문장"
+      },
+      {
+        "label": "2주 전",
+        "text": "변형 · 서술형"
+      },
+      {
+        "label": "1주 전",
+        "text": "오답 · 실전"
+      }
+    ],
+    "lens": false
   }
 }

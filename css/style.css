@@ -4669,7 +4669,11 @@ main, main * {
 .post-cta{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:36px;padding:24px 26px;border-radius:16px;background:#102a4b;color:#fff}
 .post-cta strong{font-size:17px}
 .post-cta p{margin:4px 0 0;font-size:14px;color:rgba(255,255,255,.78)}
-.post-cta .btn-navy{background:#b78a46!important;border-color:#b78a46!important;color:#fff!important;white-space:nowrap}
+/* [357차] 학습정보 본문 아래 상담 박스 버튼: 골드(#b78a46) → 사이트 밝은 노랑(--sj-yellow·--sj-yellow-dark 값과 같음) + 진한 네이비 글자 · .post-cta 안 버튼만 적용 */
+.post-cta .btn-navy{background:#f4c84a!important;border-color:#f4c84a!important;color:#10233f!important;white-space:nowrap;box-shadow:0 8px 18px rgba(244,200,74,.28)}
+.post-cta .btn-navy:hover{background:#e6b52f!important;border-color:#e6b52f!important;box-shadow:0 12px 24px rgba(230,181,47,.34)}
+.post-cta .btn-navy:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.post-cta .btn-navy:active{background:#d9a826!important;border-color:#d9a826!important;transform:translateY(0);box-shadow:0 4px 10px rgba(230,181,47,.3)}
 .post-related{margin-top:40px}
 .post-related-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .post-related-card{display:block;padding:18px;border:1px solid #e8e1d4;border-radius:14px;text-decoration:none;color:#102a4b;transition:.2s}

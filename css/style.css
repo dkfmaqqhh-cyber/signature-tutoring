@@ -8312,3 +8312,8 @@ body.page-gu-hub .sbh-trust .sbh-txt { display: block; }
 body.page-gu-hub .sbh-trust .sbh-sep { display: none; }
 body.page-gu-hub .sbh-trust .sbh-nw { white-space: nowrap; }
 @media (max-width: 360px) { body.page-gu-hub .sbh-trust li { padding: 8px 6px; gap: 5px; } }
+/* [364차] 시·군·구 대표 페이지(body.page-gu-hub) 하단 상담 버튼 320px 글자 넘침 수정
+   · 원인: [112차] body.page-area .ar-cta .ar-cta-btn 폭 calc(100vw - 166px)는 옛 떠 있는 버튼 62px 기준 → 320px에서 154px라 긴 지역명 문구가 넘침(가장 긴 '강원 고성군 과외 무료 상담 신청 →' 187px 필요)
+   · 구 허브 떠 있는 버튼은 [190-2차] 52px·오른쪽 8px → 오른쪽 떠 있는 버튼과 36px 이상 간격을 두고 폭을 calc(100vw - 128px)로(320px에서 192px, 실측) · 색·문구·높이·글자 크기·한 줄 그대로 · 시·도/지역 대문·하위 페이지는 영향 없음
+   · 363차 부산진구 페이지 개별 규칙을 이 공통 규칙으로 대체 · 되돌리기: 이 블록 삭제 + 구 허브 style.css?v=364 → 이전 값 */
+@media (max-width: 640px) { body.page-gu-hub .ar-cta .ar-cta-btn { width: calc(100vw - 128px); } }

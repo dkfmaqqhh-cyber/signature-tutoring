@@ -5,14 +5,14 @@ published: false
 
 # 전국 지역 학년·과목 페이지 학습 안내 고유화 진행 현황
 
-- 최종 갱신: 2026-11-06 (386차)
+- 최종 갱신: 2026-11-06 (387차)
 - 대상: sitemap.xml 2,145 URL 중 `area/<시·도>/<시·군·구>/<elementary|middle|high|math|english|korean|science|social>/` 1,832페이지
 - 제외: 메인·안내 등 비지역 33, 지역 대문 1, 시·도 대문 17, 시·군·구 대문 262 (학년·과목 페이지가 아니라 구조가 다름). 세종은 대문만 있고 학년·과목 페이지 없음
 - 고유화 판정: 페이지 첫 학습 안내 목록(초등 `mt-reason` 4, 중·고 `ar-step` 5, 과목 `mt-reason` 4)의 항목이 같은 유형의 다른 어떤 페이지와도 겹치지 않으면 완료. 부산 371·372차의 2항목 목록 8페이지는 Git 기록상 완료
 
 ## 시·도별 현황
 
-| 시·도 | 시·군·구 | 대상 | 완료 | 미완료 | 386차 변경 |
+| 시·도 | 시·군·구 | 대상 | 완료 | 미완료 | 387차 변경 |
 |---|---:|---:|---:|---:|---:|
 | 서울 | 25 | 200 | 200 | 0 | 0 |
 | 부산 | 16 | 128 | 128 | 0 | 0 |
@@ -22,7 +22,7 @@ published: false
 | 광주 | 5 | 40 | 40 | 0 | 0 |
 | 울산 | 5 | 40 | 40 | 0 | 0 |
 | 세종 | 0 | 0 | 0 | 0 | 0 |
-| 경기 | 31 | 248 | 40 | 208 | 39 |
+| 경기 | 31 | 248 | 80 | 168 | 40 |
 | 강원 | 18 | 144 | 1 | 143 | 0 |
 | 충북 | 11 | 88 | 0 | 88 | 0 |
 | 충남 | 15 | 120 | 0 | 120 | 0 |
@@ -31,7 +31,7 @@ published: false
 | 경북 | 22 | 176 | 0 | 176 | 0 |
 | 경남 | 18 | 144 | 0 | 144 | 0 |
 | 제주 | 2 | 16 | 0 | 16 | 0 |
-| **합계** | | **1832** | **650** | **1182** | **39** |
+| **합계** | | **1832** | **690** | **1142** | **40** |
 
 ## 완료 기록 (다시 수정하지 않음)
 
@@ -51,13 +51,14 @@ published: false
 | 383차 | 05be25e4 | 대전 동·중·서·유성·대덕구 40페이지 (대전 5개 구 40페이지 완료) |
 | 384차 | 804c823f | 광주 동·서(영어 제외)·남·북·광산구 39페이지 (368차 서구 영어 포함 광주 40페이지 완료) |
 | 385차 | ed430d4a | 울산 중·남·동·북구·울주군 40페이지 (울산 완료, 광역시 전체 완료) |
-| 386차 | (이 차수 커밋) | 경기 가평·고양·과천·광명·광주시(과학 제외) 39페이지 |
+| 386차 | 3f8c5287 | 경기 가평·고양·과천·광명·광주시(과학 제외) 39페이지 |
+| 387차 | (이 차수 커밋) | 경기 구리·군포·김포·남양주·동두천시 40페이지 |
 
 ## 미완료 페이지 (시·도 → 시·군·구, sitemap 순서)
 
 시·군·구별 표기: 미완료 페이지 수. 8 미만이면 일부 페이지(368차 시범)가 이미 완료된 곳으로, 표기된 페이지만 수정합니다.
 
-- **경기** (208페이지): guri, gunpo, gimpo, namyangju, dongducheon, bucheon, seongnam, suwon, siheung, ansan, anseong, anyang, yangju, yangpyeong, yeoju, yeoncheon, osan, yongin, uiwang, uijeongbu, icheon, paju, pyeongtaek, pocheon, hanam, hwaseong
+- **경기** (168페이지): bucheon, seongnam, suwon, siheung, ansan, anseong, anyang, yangju, yangpyeong, yeoju, yeoncheon, osan, yongin, uiwang, uijeongbu, icheon, paju, pyeongtaek, pocheon, hanam, hwaseong
 - **강원** (143페이지): chuncheon, wonju, gangneung, donghae, taebaek, sokcho, samcheok, hongcheon, hoengseong, yeongwol, pyeongchang, jeongseon, cheorwon, hwacheon, yanggu, inje, goseong, yangyang(7: korean·english·social·science·elementary·middle·high)
 - **충북** (88페이지): cheongju, chungju, jecheon, boeun, okcheon, yeongdong, jeungpyeong, jincheon, goesan, eumseong, danyang
 - **충남** (120페이지): cheonan, gongju, boryeong, asan, seosan, nonsan, gyeryong, dangjin, geumsan, buyeo, seocheon, cheongyang, hongseong, yesan, taean
@@ -76,7 +77,8 @@ published: false
 - 384차: 광주 동·서·남·북구·광산구 39페이지 완료 (광주 완료)
 - 385차: 울산 중·남·동·북구·울주군 40페이지 완료 (울산 완료, 서울·부산·인천·대구·대전·광주·울산 광역시 전체 완료)
 - 386차: 경기 가평군·고양시·과천시·광명시·광주시(과학 제외) 39페이지 완료
-- 387차: 경기 구리·군포·김포·남양주·동두천시 40페이지 → 이후 경기 sitemap 순서대로 약 40페이지씩
+- 387차: 경기 구리·군포·김포·남양주·동두천시 40페이지 완료
+- 388차: 경기 부천·성남·수원·시흥·안산시 40페이지 → 이후 경기 sitemap 순서대로 약 40페이지씩
 - 이후: 경기 247 → 강원 143 → 충북 88 → 충남 120 → 전북 112 → 전남 175 → 경북 176 → 경남 144 → 제주 16
 
 ## 작업 원칙

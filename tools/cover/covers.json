@@ -469,5 +469,36 @@
       }
     ],
     "lens": false
+  },
+  "dropout-ged-process": {
+    "palette": "teal",
+    "badge": "검정고시 · 응시 안내",
+    "title": "자퇴 후 검정고시\n*응시 시점*\n접수 5단계",
+    "keys": [
+      "공고일 기준",
+      "제적증명서"
+    ],
+    "cardTitle": "접수 전 확인 순서",
+    "cardTag": "정리",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "1",
+        "text": "공고문 확인"
+      },
+      {
+        "label": "2",
+        "text": "자퇴일·기준일 대조"
+      },
+      {
+        "label": "3",
+        "text": "제적증명서 발급"
+      },
+      {
+        "label": "4",
+        "text": "현장·온라인 접수"
+      }
+    ],
+    "lens": false
   }
 }

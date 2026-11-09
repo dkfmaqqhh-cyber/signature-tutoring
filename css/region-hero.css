@@ -1,5 +1,5 @@
 /* [411차] 전국 17개 시·도 대표 대문 공통 HERO — 공통 학습 공간 이미지(images/area/hero-region-common.webp) 위에 실제 HTML 지역명·설명·상담 버튼·특징 카드 3개
-   · 17개 대문(area/{시·도}/index.html)에서만 불러옴 · 기존 .rg-hero-img(이미지 속 글자)·.rg-hero-solid(네이비 단색) 대신 .rg-hero-common
+   · 17개 대문(area/{시·도}/index.html)에서만 불러옴 · [412차] HERO '홈으로' 버튼 삭제(상담 버튼 1개) · 기존 .rg-hero-img(이미지 속 글자)·.rg-hero-solid(네이비 단색) 대신 .rg-hero-common
    · PC(901px 이상): 이미지가 대문 전체 배경, 왼쪽 크림 여백에 글자 · 900px 이하: 이미지를 위쪽 띠로, 글자는 아래 크림 바탕(배경 때문에 제목이 안 읽히는 일 없음) */
 .ar-hero.rg-hero-common { position: relative; overflow: hidden; padding: 0; background: #FBF6EC; color: #10233F; text-align: left; border-bottom: 1px solid #EFE6D4; }
 .rg-hero-common .rgc-media { position: absolute; inset: 0; margin: 0; }
@@ -21,8 +21,6 @@
 .rg-hero-common .rgs-btns { justify-content: flex-start; margin-top: 28px; }
 .rg-hero-common .rgs-btns .ar-cta-btn { background: #10233F; color: #FFFFFF; box-shadow: 0 10px 22px rgba(16, 35, 63, 0.2); }
 .rg-hero-common .rgs-btns .ar-cta-btn:hover, .rg-hero-common .rgs-btns .ar-cta-btn:focus-visible { background: #1C3A63; color: #FFFFFF; }
-.rg-hero-common .rgs-btn-sub { border-color: rgba(16, 35, 63, 0.35); background: rgba(255, 255, 255, 0.7); color: #10233F; }
-.rg-hero-common .rgs-btn-sub:hover, .rg-hero-common .rgs-btn-sub:focus-visible { border-color: #10233F; background: #FFFFFF; color: #10233F; }
 .rg-hero-common .rgc-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 40px 0 0; padding: 0; list-style: none; }
 .rg-hero-common .rgc-card { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border: 1px solid rgba(232, 223, 207, 0.9); border-radius: 18px; background: rgba(255, 255, 255, 0.94); box-shadow: 0 10px 26px rgba(16, 35, 63, 0.08); }
 .rg-hero-common .rgc-ico { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; }
@@ -59,7 +57,7 @@
   .rg-hero-common .rgs-sub { margin-top: 14px; font-size: 17px; }
   .rg-hero-common .rgs-desc { font-size: 15.5px; }
   .rg-hero-common .rgs-btns { flex-direction: column; align-items: stretch; gap: 10px; margin-top: 22px; }
-  .rg-hero-common .rgs-btns .ar-cta-btn, .rg-hero-common .rgs-btn-sub { width: 100%; max-width: 340px; min-height: 52px; padding: 0 16px; font-size: 16px; }
+  .rg-hero-common .rgs-btns .ar-cta-btn { width: 100%; max-width: 340px; min-height: 52px; padding: 0 16px; font-size: 16px; }
   .rg-hero-common .rgc-card { padding: 14px 16px; border-radius: 14px; }
   .rg-hero-common .rgc-ico { width: 42px; height: 42px; }
   .rg-hero-common .rgc-ico svg { width: 22px; height: 22px; }

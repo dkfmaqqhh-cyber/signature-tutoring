@@ -493,6 +493,18 @@ window.addEventListener("load", function(){
     return d.getUTCFullYear() + '-' + p(d.getUTCMonth() + 1) + '-' + p(d.getUTCDate()) + ' ' +
       p(d.getUTCHours()) + ':' + p(d.getUTCMinutes()) + ':' + p(d.getUTCSeconds()) + ' (KST)';
   }
+  /* [406차] 같은 사이트 주소일 때만 경로(쿼리·# 제외) · 다른 사이트·직접 접속은 경로 대신 안내 문구 · 메일 주소·긴 숫자가 들어간 경로는 기록하지 않음 */
+  function consultSourcePage() {
+    try {
+      if (!document.referrer) return '(직접 접속 또는 외부 유입)';
+      var ref = new URL(document.referrer);
+      if (ref.origin !== location.origin) return '(직접 접속 또는 외부 유입)';
+      var p = ref.pathname || '/';
+      try { p = decodeURI(p); } catch (e) {}
+      if (/@/.test(p) || /\d{7,}/.test(p)) return '(기록 제외)';
+      return p.slice(0, 120);
+    } catch (err) { return '(확인 불가)'; }
+  }
   function buildMakePayload() {
     var base = {
       name: f.name.value.trim(),
@@ -507,6 +519,8 @@ window.addEventListener("load", function(){
       page_title: document.title,
       submitted_at: kstNow()
     };
+    /* [406차] 상담 신청서로 오기 직전에 본 이 홈페이지 페이지의 경로 (기존 11개 필드 뒤 새 필드 · document.referrer만 읽고 브라우저에 저장하지 않음) */
+    base.consult_source_page = consultSourcePage();
     /* [221차] 유입 필드(landing_page 등)는 ATTRIBUTION_TO_MAKE = true 일 때만 기존 11개 필드 뒤에 추가 (기존 필드 이름·값 변경 없음) */
     try {
       if (typeof ATTRIBUTION_TO_MAKE !== 'undefined' && ATTRIBUTION_TO_MAKE === true) {

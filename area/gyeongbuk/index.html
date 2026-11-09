@@ -163,6 +163,7 @@
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../css/style.css?v=131">
+<link rel="stylesheet" href="../../css/region-hero.css?v=411"><!-- [411차] 시·도 대문 공통 HERO -->
 <!-- [202차] 모바일 떠 있는 상담·전화 버튼 본문 가림 보정: 서울 대문 [197차]·부산 대문 [201차]와 같은 규칙 — 1024px 이하에서 버튼 52px·오른쪽 8px + 본문 컨테이너 오른쪽 여백 64px (HERO 제외) (공용 css 미수정 · PC 1025px 이상 영향 없음 · 되돌리기: 이 style 삭제) -->
 <style>
 @media (max-width: 1024px) {
@@ -210,22 +211,33 @@
 
 <!-- 1. 대문 ([121차 대구와 같은 .rg-hero-solid] 네이비 #10233F + 골드 #F4C542 단색형 · 지역 사진 없음 · 그래픽 요소는 제목 아래 골드 선 1개만
      · H1(경북 지역별 맞춤 과외)은 화면에서만 숨김(rg-sr-only) · 큰 제목 '경북 어디서나 / 과외마루'는 표시용 문구 -->
-<section class="ar-hero rg-hero rg-hero-solid" aria-labelledby="rgTitle">
-  <div class="container">
+<!-- [411차] 공통 학습 공간 이미지 대문(css/region-hero.css) — 지역명·설명·상담 버튼·특징 카드 3개는 실제 HTML · 이전 구조: 네이비 단색 대문(.rg-hero-solid) -->
+<section class="ar-hero rg-hero rg-hero-common" aria-labelledby="rgTitle">
+  <div class="rgc-media"><img src="../../images/area/hero-region-common.webp" alt="" width="1678" height="937" fetchpriority="high" decoding="async"></div>
+  <div class="container rgc-top">
     <ol class="breadcrumb ar-breadcrumb">
-      <li><a href="../../index.html">홈</a></li>
-      <li><a href="../">지역별 과외</a></li>
-      <li>경북</li>
-    </ol>
-    <h1 id="rgTitle" class="rg-sr-only">경북 지역별 맞춤 과외</h1>
-    <span class="ar-kicker">경북 지역별 과외</span>
-    <p class="rgs-title"><span>경북 어디서나</span> <strong>과외마루</strong></p>
-    <p class="rgs-sub">경북 지역별 맞춤 수업 안내</p>
-    <p class="rgs-desc">학생의 학년과 과목, 현재 학습 수준을 확인한 후 맞춤 수업 방향을 안내합니다.</p>
-    <div class="rgs-btns">
-      <a class="ar-cta-btn rgs-btn" href="../../consult.html">우리 지역 과외 상담 <span aria-hidden="true">→</span></a>
-      <a class="rgs-btn-sub" href="../../index.html">홈으로</a>
+          <li><a href="../../index.html">홈</a></li>
+          <li><a href="../">지역별 과외</a></li>
+          <li>경북</li>
+        </ol>
+  </div>
+  <div class="container rgc-body">
+    <div class="rgc-copy">
+      <h1 id="rgTitle" class="rg-sr-only">경북 지역별 맞춤 과외</h1>
+      <span class="ar-kicker">경북 지역별 과외</span>
+      <p class="rgs-title"><span>경북 어디서나</span> <strong>과외마루</strong></p>
+      <p class="rgs-sub">경북 지역별 맞춤 수업 안내</p>
+      <p class="rgs-desc">학생의 학년과 과목, 현재 학습 수준을 확인한 후 맞춤 수업 방향을 안내합니다.</p>
+      <div class="rgs-btns">
+        <a class="ar-cta-btn rgs-btn" href="../../consult.html" aria-label="경북 과외 무료 상담 신청">무료 상담 신청 <span aria-hidden="true">→</span></a>
+        <a class="rgs-btn-sub" href="../../index.html">홈으로</a>
+      </div>
     </div>
+    <ul class="rgc-cards">
+        <li class="rgc-card is-blue"><span class="rgc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><circle cx="16.5" cy="9" r="2.6"/><path d="M3.5 19c0-3.2 2.5-5.6 5.5-5.6s5.5 2.4 5.5 5.6"/><path d="M14.8 14.2c2.9-.5 5.7 1.6 5.7 4.8"/></svg></span><div><strong>경북 방문/화상</strong><span>1:1 맞춤 수업</span></div></li>
+        <li class="rgc-card is-pink"><span class="rgc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 12.5h6M9 16h4"/></svg></span><div><strong>학생 맞춤 커리큘럼</strong><span>학년·수준별 수업</span></div></li>
+        <li class="rgc-card is-green"><span class="rgc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6.5 16.5v-4M10.5 16.5V9M14.5 16.5v-6M18.5 16.5V5.5"/></svg></span><div><strong>내신·성적 집중 관리</strong><span>지속적인 학습 케어</span></div></li>
+    </ul>
   </div>
 </section>
 

@@ -1,0 +1,68 @@
+/* [411차] 전국 17개 시·도 대표 대문 공통 HERO — 공통 학습 공간 이미지(images/area/hero-region-common.webp) 위에 실제 HTML 지역명·설명·상담 버튼·특징 카드 3개
+   · 17개 대문(area/{시·도}/index.html)에서만 불러옴 · 기존 .rg-hero-img(이미지 속 글자)·.rg-hero-solid(네이비 단색) 대신 .rg-hero-common
+   · PC(901px 이상): 이미지가 대문 전체 배경, 왼쪽 크림 여백에 글자 · 900px 이하: 이미지를 위쪽 띠로, 글자는 아래 크림 바탕(배경 때문에 제목이 안 읽히는 일 없음) */
+.ar-hero.rg-hero-common { position: relative; overflow: hidden; padding: 0; background: #FBF6EC; color: #10233F; text-align: left; border-bottom: 1px solid #EFE6D4; }
+.rg-hero-common .rgc-media { position: absolute; inset: 0; margin: 0; }
+.rg-hero-common .rgc-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: right center; }
+.rg-hero-common .rgc-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #FBF6EC 0%, rgba(251, 246, 236, 0.94) 30%, rgba(251, 246, 236, 0.55) 46%, rgba(251, 246, 236, 0) 62%); }
+.rg-hero-common > .container { position: relative; z-index: 1; }
+.rg-hero-common .rgc-top { padding-top: 22px; }
+.rg-hero-common .ar-breadcrumb { justify-content: flex-start; margin: 0; color: #6B7280; }
+.rg-hero-common .ar-breadcrumb a { color: #10233F; }
+.rg-hero-common .ar-breadcrumb li + li::before { color: #C9C2B3; }
+.rg-hero-common .rgc-body { padding: 34px 0 44px; }
+.rg-hero-common .rgc-copy { max-width: 540px; }
+.rg-hero-common .ar-kicker { letter-spacing: 0.04em; font-size: 13.5px; }
+.rg-hero-common .rgs-title { margin: 18px 0 0; color: #10233F; font-size: 50px; line-height: 1.2; }
+.rg-hero-common .rgs-title strong { color: #9A6A1C; }
+.rg-hero-common .rgs-title::after { margin: 22px 0 0; background: #C99A3D; }
+.rg-hero-common .rgs-sub { margin: 20px 0 0; color: #9A6A1C; }
+.rg-hero-common .rgs-desc { max-width: 500px; margin: 10px 0 0; color: #3F4A5A; }
+.rg-hero-common .rgs-btns { justify-content: flex-start; margin-top: 28px; }
+.rg-hero-common .rgs-btns .ar-cta-btn { background: #10233F; color: #FFFFFF; box-shadow: 0 10px 22px rgba(16, 35, 63, 0.2); }
+.rg-hero-common .rgs-btns .ar-cta-btn:hover, .rg-hero-common .rgs-btns .ar-cta-btn:focus-visible { background: #1C3A63; color: #FFFFFF; }
+.rg-hero-common .rgs-btn-sub { border-color: rgba(16, 35, 63, 0.35); background: rgba(255, 255, 255, 0.7); color: #10233F; }
+.rg-hero-common .rgs-btn-sub:hover, .rg-hero-common .rgs-btn-sub:focus-visible { border-color: #10233F; background: #FFFFFF; color: #10233F; }
+.rg-hero-common .rgc-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 40px 0 0; padding: 0; list-style: none; }
+.rg-hero-common .rgc-card { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border: 1px solid rgba(232, 223, 207, 0.9); border-radius: 18px; background: rgba(255, 255, 255, 0.94); box-shadow: 0 10px 26px rgba(16, 35, 63, 0.08); }
+.rg-hero-common .rgc-ico { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; }
+.rg-hero-common .rgc-ico svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.rg-hero-common .rgc-card.is-blue .rgc-ico { background: #E7F0FF; color: #2F6FE4; }
+.rg-hero-common .rgc-card.is-pink .rgc-ico { background: #FFE9EE; color: #E0386B; }
+.rg-hero-common .rgc-card.is-green .rgc-ico { background: #E3F6EC; color: #14935A; }
+.rg-hero-common .rgc-card strong { display: block; color: #10233F; font-size: 17px; font-weight: 800; line-height: 1.35; letter-spacing: -0.02em; word-break: keep-all; }
+.rg-hero-common .rgc-card div > span { display: block; margin-top: 3px; color: #5B6575; font-size: 14.5px; line-height: 1.45; word-break: keep-all; }
+@media (max-width: 1100px) {
+  .rg-hero-common .rgs-title { font-size: 44px; }
+  .rg-hero-common .rgc-card { padding: 16px; gap: 12px; }
+  .rg-hero-common .rgc-ico { width: 46px; height: 46px; }
+  .rg-hero-common .rgc-card strong { font-size: 16px; }
+}
+/* 1024px 이하: 대문 페이지의 떠 있는 상담·전화 버튼(오른쪽 8px·52px)이 글자·버튼·카드를 가리지 않게 본문과 같은 오른쪽 여백 64px ([202차] 규칙과 같은 값) */
+@media (max-width: 1024px) {
+  .rg-hero-common .rgc-body { padding-right: 64px; }
+}
+@media (max-width: 900px) {
+  .ar-hero.rg-hero-common { display: flex; flex-direction: column; }
+  .rg-hero-common .rgc-top { order: 1; padding-top: 14px; padding-bottom: 12px; }
+  .rg-hero-common .rgc-media { position: relative; order: 2; height: clamp(170px, 42vw, 300px); }
+  .rg-hero-common .rgc-media img { object-position: 78% 62%; }
+  .rg-hero-common .rgc-media::after { background: linear-gradient(180deg, rgba(251, 246, 236, 0) 70%, #FBF6EC 100%); }
+  .rg-hero-common .rgc-body { order: 3; padding-top: 20px; padding-bottom: 32px; }
+  .rg-hero-common .rgc-copy { max-width: none; }
+  .rg-hero-common .rgc-cards { grid-template-columns: 1fr; gap: 10px; margin-top: 28px; }
+}
+@media (max-width: 760px) {
+  .rg-hero-common .ar-kicker { font-size: 12.5px; }
+  .rg-hero-common .rgs-title { margin-top: 14px; font-size: 34px; }
+  .rg-hero-common .rgs-title::after { width: 44px; margin-top: 16px; }
+  .rg-hero-common .rgs-sub { margin-top: 14px; font-size: 17px; }
+  .rg-hero-common .rgs-desc { font-size: 15.5px; }
+  .rg-hero-common .rgs-btns { flex-direction: column; align-items: stretch; gap: 10px; margin-top: 22px; }
+  .rg-hero-common .rgs-btns .ar-cta-btn, .rg-hero-common .rgs-btn-sub { width: 100%; max-width: 340px; min-height: 52px; padding: 0 16px; font-size: 16px; }
+  .rg-hero-common .rgc-card { padding: 14px 16px; border-radius: 14px; }
+  .rg-hero-common .rgc-ico { width: 42px; height: 42px; }
+  .rg-hero-common .rgc-ico svg { width: 22px; height: 22px; }
+  .rg-hero-common .rgc-card strong { font-size: 15.5px; }
+  .rg-hero-common .rgc-card div > span { font-size: 13.5px; }
+}

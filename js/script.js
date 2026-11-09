@@ -480,7 +480,8 @@ window.addEventListener("load", function(){
   /* [274차] 국외 이전 별도 동의 삭제 → 기록은 "동의: 수집·이용(고지 ○판)"만 · 고지판 = privacy.html 시행일 2026-10-25의 두 번째 판(같은 날 이전 판 '2026-10-25'와 구분) */
   /* [305차] 신청서 동의 문구 변경(학부모 법정대리인 동의를 수집·이용 동의에 통합) → '2026-10-25-3' · privacy.html 내용·시행일은 그대로(기존 문구와 일치)
      · 학부모 기록 "(법정대리인 확인)" → "(만 14세 미만 시 법정대리인 동의)" · "동의: 수집·이용(고지 " 앞부분은 그대로(Make 필터 호환) */
-  var CONSENT_VERSION = '2026-10-25-3';
+  /* [406차] privacy.html 1번 수집 항목(상담 직전 내부 페이지 경로) 추가·시행일 2026-11-09 → '2026-11-09' · 앞부분 형식 그대로 */
+  var CONSENT_VERSION = '2026-11-09';
   function buildMessage() {
     var who = f.applicant.value, note = who === '학부모' ? '(만 14세 미만 시 법정대리인 동의)' : who === '학생' ? '(만 14세 이상 확인)' : '';
     return '학교: ' + (f.school.value.trim() || '미입력') + ' / 신청자: ' + who + note + ' / 동의: 수집·이용(고지 ' + CONSENT_VERSION + '판)';
@@ -492,6 +493,18 @@ window.addEventListener("load", function(){
     function p(n) { return (n < 10 ? '0' : '') + n; }
     return d.getUTCFullYear() + '-' + p(d.getUTCMonth() + 1) + '-' + p(d.getUTCDate()) + ' ' +
       p(d.getUTCHours()) + ':' + p(d.getUTCMinutes()) + ':' + p(d.getUTCSeconds()) + ' (KST)';
+  }
+  /* [406차] 같은 사이트 주소일 때만 경로(쿼리·# 제외) · 다른 사이트·직접 접속은 경로 대신 안내 문구 · 메일 주소·긴 숫자가 들어간 경로는 기록하지 않음 */
+  function consultSourcePage() {
+    try {
+      if (!document.referrer) return '(직접 접속 또는 외부 유입)';
+      var ref = new URL(document.referrer);
+      if (ref.origin !== location.origin) return '(직접 접속 또는 외부 유입)';
+      var p = ref.pathname || '/';
+      try { p = decodeURI(p); } catch (e) {}
+      if (/@/.test(p) || /\d{7,}/.test(p)) return '(기록 제외)';
+      return p.slice(0, 120);
+    } catch (err) { return '(확인 불가)'; }
   }
   function buildMakePayload() {
     var base = {
@@ -507,6 +520,8 @@ window.addEventListener("load", function(){
       page_title: document.title,
       submitted_at: kstNow()
     };
+    /* [406차] 상담 신청서로 오기 직전에 본 이 홈페이지 페이지의 경로 (기존 11개 필드 뒤 새 필드 · document.referrer만 읽고 브라우저에 저장하지 않음) */
+    base.consult_source_page = consultSourcePage();
     /* [221차] 유입 필드(landing_page 등)는 ATTRIBUTION_TO_MAKE = true 일 때만 기존 11개 필드 뒤에 추가 (기존 필드 이름·값 변경 없음) */
     try {
       if (typeof ATTRIBUTION_TO_MAKE !== 'undefined' && ATTRIBUTION_TO_MAKE === true) {

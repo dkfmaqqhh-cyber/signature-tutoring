@@ -473,6 +473,24 @@ window.addEventListener("load", function(){
   });
   f.subject.addEventListener('input', syncChips);
 
+  /* [410차] 과목 페이지에서 상담 버튼으로 들어오면 직전 페이지(같은 사이트) 주소의 과목 slug로 관심 과목 버튼을 미리 선택
+     · /area/…/{korean|english|math|science|social}/ 와 /subject/{korean|english|math|science}.html 만 · 학년 페이지·메인·외부·직접 접속은 선택하지 않음
+     · prefillRegion과 같이 document.referrer만 읽고 브라우저에 저장하지 않음 · 칸에 이미 값이 있으면 건드리지 않음 · 버튼을 다시 눌러 바꿀 수 있음 */
+  (function prefillSubject() {
+    try {
+      var SUBJECT_BY_SLUG = { korean: '국어', english: '영어', math: '수학', science: '과학', social: '사회·한국사' };
+      if (!chips.length || !document.referrer || f.subject.value.trim()) return;
+      var ref = new URL(document.referrer);
+      if (ref.origin !== location.origin) return;
+      var m = ref.pathname.match(/^\/area\/(?:[a-z0-9-]+\/)+(korean|english|math|science|social)\/(?:index\.html)?$/) ||
+        ref.pathname.match(/^\/subject\/(korean|english|math|science)\.html$/);
+      var s = m && SUBJECT_BY_SLUG[m[1]];
+      if (!s || !form.querySelector('.cf-chip[data-subject="' + s + '"]')) return;
+      f.subject.value = s;
+      syncChips();
+    } catch (e) {}
+  })();
+
   /* [102차] 간소화한 폼에는 문의내용 칸이 없으므로 message = "학교: ○○ / 신청자: 학부모" (학교 미입력 시 '미입력')
      [269차] 신청자 뒤에 확인 내용을 붙임: "신청자: 학부모(법정대리인 확인)" / "신청자: 학생(만 14세 이상 확인)" — applicant_type 값(학부모·학생)은 그대로 */
   /* [269·270 마무리] 동의 기록: 기존 Make 전송 필드 11개는 그대로 두고 message 끝에 "동의: 수집·이용, 국외 이전(고지 2026-10-25판)"을 붙임

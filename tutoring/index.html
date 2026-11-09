@@ -71,6 +71,11 @@
 .tu-price-notes { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 14px; max-width: 1080px; margin: 22px auto 0; padding: 0; list-style: none; }
 .tu-price-notes li { padding: 10px 16px; border: 1px solid #E8DFCF; border-radius: 999px; background: #FBF8F2; color: #10233F; font-size: 15px; font-weight: 700; word-break: keep-all; }
 .tu-price-notes li strong { color: #8A6D2F; }
+.tu-price-check { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; max-width: 1080px; margin: 14px auto 0; } /* [405차] 수업료 결정 기준 + 상담 전 확인 항목 (금액·정책 추가 없음) */
+.tu-price-check > div { padding: 18px 22px; border: 1px solid #E8DFCF; border-radius: 14px; background: #fff; word-break: keep-all; }
+.tu-price-check strong { display: block; margin-bottom: 8px; color: #10233F; font-size: 16px; font-weight: 800; }
+.tu-price-check ul { margin: 0; padding-left: 18px; color: #4A5568; font-size: 15px; line-height: 1.7; }
+.tu-price-check li + li { margin-top: 2px; }
 @media (max-width: 1024px) {
   .tu-ptable thead th { font-size: 14px; }
   .tu-ptable tbody th { padding: 18px 14px; }
@@ -98,6 +103,9 @@
   .tu-price-guide p { font-size: 14.5px; }
   .tu-price-notes { flex-direction: column; align-items: stretch; margin-top: 8px; }
   .tu-price-notes li { border-radius: 12px; text-align: center; }
+  .tu-price-check { grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
+  .tu-price-check > div { padding: 16px 18px; }
+  .tu-price-check ul { font-size: 14.5px; }
 }
 
 /* [321-2차] 학습지원 4가지 — 왼쪽 글(번호 목록, 카드 아님) + 오른쪽 겹친 문서 4장(HTML/CSS 자체 제작 예시, 애니메이션 없음) · 모바일은 글 위·문서 아래 */
@@ -573,7 +581,27 @@
       <strong>방문과외 수업료 안내</strong>
       <p>모든 학년의 기본 수업료는 주 2회, 1회 60분, 월 8회 기준입니다. 학년별 시작 수업료를 확인하신 후 상담을 통해 수업 조건과 최종 금액을 안내받으실 수 있습니다.</p>
     </div>
+    <div class="tu-price-check"><!-- [405차] 결정 기준 = 메인 FAQ '과외비는 어떻게 정해지나요?' 답변과 같은 5가지 · 교재비·보강·환불 등 미확정 정책은 내용 없이 '상담에서 확인할 항목'으로만 표기 -->
+      <div>
+        <strong>수업료가 정해지는 기준</strong>
+        <ul>
+          <li>학년과 과목</li>
+          <li>수업 방식(방문·화상)</li>
+          <li>주당 수업 횟수와 1회 수업 시간</li>
+        </ul>
+      </div>
+      <div>
+        <strong>상담 전에 정리해 두면 좋은 내용</strong>
+        <ul>
+          <li>학년, 배우고 싶은 과목, 원하는 수업 방식</li>
+          <li>가능한 요일·시간대와 원하는 주당 횟수</li>
+          <li>최근 성적이나 현재 어려운 부분, 목표</li>
+          <li>교재 준비 방법, 일정 변경·보강, 환불 기준은 상담에서 함께 확인해 주세요</li>
+        </ul>
+      </div>
+    </div>
     <ul class="tu-price-notes">
+      <li><strong>화상과외</strong> 수업료는 상담 시 안내</li>
       <li><strong>90분·120분</strong> 수업료는 상담 후 안내</li>
       <li><strong>무료 시범수업</strong> 제공</li>
     </ul>

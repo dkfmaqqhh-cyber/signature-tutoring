@@ -36,7 +36,7 @@
       "name": "부산광역시 1:1 맞춤과외",
       "url": "https://signaturetutoring.co.kr/area/busan/",
       "inLanguage": "ko-KR",
-      "dateModified": "2026-10-14",
+      "dateModified": "2026-11-10",
       "description": "부산 구·군별 유아·초등·중등·고등 1:1 과외를 확인하세요. 사는 구·군과 학년, 과목, 현재 학습 수준에 맞춰 방문과외와 실시간 화상수업을 안내합니다.",
       "isPartOf": {
         "@type": "WebSite",
@@ -168,6 +168,10 @@
 <link rel="stylesheet" href="../../css/region-hero.css?v=412"><!-- [411차] 시·도 대문 공통 HERO -->
 <!-- [201차] 부산 대문 전용: 서울 대문 [197차]와 같은 규칙 — 1024px 이하에서 떠 있는 버튼 52px·오른쪽 8px + 본문 컨테이너 오른쪽 여백 64px (HERO 제외) · [233차] 16개 구·군 집계 줄(.rgb-stats) 삭제 (공용 css 미수정 · 되돌리기: 이 style 삭제) -->
 <style>
+/* [424차] 과목별 구·군 바로가기 소제목 — 울산 대문 [215차] .rgb-group-title과 같은 스타일 (되돌리기: 이 4줄 삭제) */
+body.page-region .rgb-group-title { margin: 30px auto 14px; color: #10233F; font-size: 18px; font-weight: 800; line-height: 1.5; text-align: center; word-break: keep-all; }
+body.page-region .rgb-group-title span { margin-left: 6px; color: #8F6B2F; font-size: 15px; font-weight: 800; }
+@media (max-width: 640px) { body.page-region .rgb-group-title { font-size: 16.5px; } }
 @media (max-width: 1024px) {
   body.page-region .sig-float.rg-float { right: 8px; gap: 8px; }
   body.page-region .sig-float.rg-float a { width: 52px; height: 52px; gap: 3px; border-radius: 16px; font-size: 10.5px; }
@@ -291,6 +295,45 @@
       <li><a class="ar-topic" href="nam/middle/" data-area="busan-nam" data-topic="middle">남구 중학생과외</a></li>
       <li><a class="ar-topic" href="geumjeong/high/" data-area="busan-geumjeong" data-topic="high">금정구 고등학생과외</a></li>
     </ul>
+    <!-- [424차] 지역+과목 검색 사용자를 위한 수학·영어 구·군별 바로가기 (모든 주소는 실제 존재하는 구·군 과목 페이지) -->
+    <h3 class="rgb-group-title">부산 수학과외 <span>구·군별</span></h3>
+    <ul class="ar-topic-list">
+      <li><a class="ar-topic" href="gangseo/math/" data-area="busan-gangseo" data-topic="math">강서구 수학과외</a></li>
+      <li><a class="ar-topic" href="geumjeong/math/" data-area="busan-geumjeong" data-topic="math">금정구 수학과외</a></li>
+      <li><a class="ar-topic" href="gijang/math/" data-area="busan-gijang" data-topic="math">기장군 수학과외</a></li>
+      <li><a class="ar-topic" href="nam/math/" data-area="busan-nam" data-topic="math">남구 수학과외</a></li>
+      <li><a class="ar-topic" href="dong/math/" data-area="busan-dong" data-topic="math">동구 수학과외</a></li>
+      <li><a class="ar-topic" href="dongnae/math/" data-area="busan-dongnae" data-topic="math">동래구 수학과외</a></li>
+      <li><a class="ar-topic" href="busanjin/math/" data-area="busan-busanjin" data-topic="math">부산진구 수학과외</a></li>
+      <li><a class="ar-topic" href="buk/math/" data-area="busan-buk" data-topic="math">북구 수학과외</a></li>
+      <li><a class="ar-topic" href="sasang/math/" data-area="busan-sasang" data-topic="math">사상구 수학과외</a></li>
+      <li><a class="ar-topic" href="saha/math/" data-area="busan-saha" data-topic="math">사하구 수학과외</a></li>
+      <li><a class="ar-topic" href="seo/math/" data-area="busan-seo" data-topic="math">서구 수학과외</a></li>
+      <li><a class="ar-topic" href="suyeong/math/" data-area="busan-suyeong" data-topic="math">수영구 수학과외</a></li>
+      <li><a class="ar-topic" href="yeonje/math/" data-area="busan-yeonje" data-topic="math">연제구 수학과외</a></li>
+      <li><a class="ar-topic" href="yeongdo/math/" data-area="busan-yeongdo" data-topic="math">영도구 수학과외</a></li>
+      <li><a class="ar-topic" href="jung/math/" data-area="busan-jung" data-topic="math">중구 수학과외</a></li>
+      <li><a class="ar-topic" href="haeundae/math/" data-area="busan-haeundae" data-topic="math">해운대구 수학과외</a></li>
+    </ul>
+    <h3 class="rgb-group-title">부산 영어과외 <span>구·군별</span></h3>
+    <ul class="ar-topic-list">
+      <li><a class="ar-topic" href="gangseo/english/" data-area="busan-gangseo" data-topic="english">강서구 영어과외</a></li>
+      <li><a class="ar-topic" href="geumjeong/english/" data-area="busan-geumjeong" data-topic="english">금정구 영어과외</a></li>
+      <li><a class="ar-topic" href="gijang/english/" data-area="busan-gijang" data-topic="english">기장군 영어과외</a></li>
+      <li><a class="ar-topic" href="nam/english/" data-area="busan-nam" data-topic="english">남구 영어과외</a></li>
+      <li><a class="ar-topic" href="dong/english/" data-area="busan-dong" data-topic="english">동구 영어과외</a></li>
+      <li><a class="ar-topic" href="dongnae/english/" data-area="busan-dongnae" data-topic="english">동래구 영어과외</a></li>
+      <li><a class="ar-topic" href="busanjin/english/" data-area="busan-busanjin" data-topic="english">부산진구 영어과외</a></li>
+      <li><a class="ar-topic" href="buk/english/" data-area="busan-buk" data-topic="english">북구 영어과외</a></li>
+      <li><a class="ar-topic" href="sasang/english/" data-area="busan-sasang" data-topic="english">사상구 영어과외</a></li>
+      <li><a class="ar-topic" href="saha/english/" data-area="busan-saha" data-topic="english">사하구 영어과외</a></li>
+      <li><a class="ar-topic" href="seo/english/" data-area="busan-seo" data-topic="english">서구 영어과외</a></li>
+      <li><a class="ar-topic" href="suyeong/english/" data-area="busan-suyeong" data-topic="english">수영구 영어과외</a></li>
+      <li><a class="ar-topic" href="yeonje/english/" data-area="busan-yeonje" data-topic="english">연제구 영어과외</a></li>
+      <li><a class="ar-topic" href="yeongdo/english/" data-area="busan-yeongdo" data-topic="english">영도구 영어과외</a></li>
+      <li><a class="ar-topic" href="jung/english/" data-area="busan-jung" data-topic="english">중구 영어과외</a></li>
+      <li><a class="ar-topic" href="haeundae/english/" data-area="busan-haeundae" data-topic="english">해운대구 영어과외</a></li>
+    </ul>
   </div>
 </section>
 
@@ -406,7 +449,7 @@
 </section>
 
 <!-- 8. 최종 업데이트 (JSON-LD dateModified와 같은 날짜 · 콘텐츠 수정 시 둘 다 직접 변경) -->
-<div class="rg-updated"><div class="container"><p>최종 업데이트: <time datetime="2026-10-14">2026.10.14</time></p></div></div>
+<div class="rg-updated"><div class="container"><p>최종 업데이트: <time datetime="2026-11-10">2026.11.10</time></p></div></div>
 </main>
 
 <footer class="site-footer">

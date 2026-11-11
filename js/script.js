@@ -491,23 +491,20 @@ window.addEventListener("load", function(){
     } catch (e) {}
   })();
 
-  /* [436차] 신청 목적: 주소의 ?type= 값 중 허용 목록(diagnosis)만 인정 · 그 밖의 값·값 없음 = 일반 상담(기존 화면 그대로)
-     · 진단이면 신청서 위에 안내를 보이고, 전송 때 새 필드 consult_type으로 운영자에게 전달 (기존 필드 이름·값은 그대로) */
-  var PURPOSES = { diagnosis: '10분 학습 진단' };
-  var consultPurpose = '일반 상담';
+  /* [436·437차] 진단 신청 화면: 주소의 ?type= 값 중 허용 목록(diagnosis)만 인정 · 그 밖의 값·값 없음 = 일반 상담(기존 화면 그대로)
+     · 진단이면 신청서 제목·제출 버튼 문구를 바꾸고 안내 한 줄을 보임 · 화면 문구만 바꾸며 전송 데이터(기존 12개 필드)는 일반 상담과 같음 */
+  var PURPOSES = { diagnosis: { title: '10분 학습 진단 신청', button: '10분 학습 진단 신청하기', note: '10분 학습 진단을 원하시면 아래 신청서를 작성해 주세요.' } };
   (function applyPurpose() {
     try {
       var key = new URLSearchParams(location.search).get('type');
       if (!key || !Object.prototype.hasOwnProperty.call(PURPOSES, key)) return;
-      consultPurpose = PURPOSES[key];
+      var p = PURPOSES[key];
+      var h2 = form.querySelector('.cf-head h2');
+      if (h2) h2.textContent = p.title;
+      if (submitBtn) { submitLabel = p.button; submitBtn.textContent = p.button; } /* 전송 중 '접수 중...' 뒤에도 이 문구로 되돌림 */
       var box = document.getElementById('cfPurpose');
       if (!box) return;
-      var strong = document.createElement('strong');
-      strong.textContent = consultPurpose + ' 신청';
-      var note = document.createElement('span');
-      note.textContent = '이 신청서는 ‘' + consultPurpose + ' 신청’으로 접수됩니다.';
-      box.appendChild(strong);
-      box.appendChild(note);
+      box.textContent = p.note;
       box.hidden = false;
     } catch (e) {}
   })();
@@ -561,8 +558,6 @@ window.addEventListener("load", function(){
     };
     /* [406차] 상담 신청서로 오기 직전에 본 이 홈페이지 페이지의 경로 (기존 11개 필드 뒤 새 필드 · document.referrer만 읽고 브라우저에 저장하지 않음) */
     base.consult_source_page = consultSourcePage();
-    /* [436차] 신청 목적 '일반 상담' 또는 '10분 학습 진단' (consult_source_page 뒤 새 필드 · Make·Discord 매핑 추가 필요) */
-    base.consult_type = consultPurpose;
     /* [221차] 유입 필드(landing_page 등)는 ATTRIBUTION_TO_MAKE = true 일 때만 기존 11개 필드 뒤에 추가 (기존 필드 이름·값 변경 없음) */
     try {
       if (typeof ATTRIBUTION_TO_MAKE !== 'undefined' && ATTRIBUTION_TO_MAKE === true) {

@@ -41,6 +41,7 @@ published: false
 - **링크**: 내부 링크·앵커 깨짐 0건, 상담·전화·카카오톡·수업료(`/tutoring/#price`) 링크 정상.
 - **SEO 보존**: title, description, canonical, robots, H1, OG, JSON-LD, FAQ(화면 질문·답변과 FAQ JSON-LD 일치)를 수정 전과 비교해 의도한 변경 외 차이 0건.
 - **sitemap**: XML 파싱 정상, 기존 URL 수·순서 유지, 중복 0건.
+- **수업료**: `tutoring/index.html` `#price`나 가격을 적은 FAQ를 바꿨다면 `node tools/price/check-price-consistency.mjs` 통과(불일치 0건). 점검 대상과 함께 볼 위치는 `tools/price/README.md`.
 - 검사 스크립트와 임시 파일은 저장소가 아닌 작업용 임시 폴더에 둡니다.
 
 ## 4. 콘텐츠·사이트 보호 규칙

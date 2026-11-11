@@ -173,7 +173,25 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<!-- [449차] 글꼴 로딩 = /tutoring/ [446차]·울산 남구 [448차] 방식 · 첫 화면 대상 header·.rg-hero·.sig-float · 도구: tools/perf/font-defer.mjs · 되돌리기: 이 블록 전체를 아래 한 줄로 교체
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"> -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<style>
+@font-face{font-family:"Malgun Gothic";src:local("Malgun Gothic");font-weight:100 550}
+@font-face{font-family:"Malgun Gothic";src:local("Malgun Gothic Bold");font-weight:551 1000}
+@font-face{font-family:"Malgun Gothic";src:local("Malgun Gothic");font-weight:100 550;size-adjust:84%;unicode-range:U+0000-00FF,U+2000-206F,U+1100-11FF,U+3130-318F,U+AC00-D7A3}
+@font-face{font-family:"Malgun Gothic";src:local("Malgun Gothic Bold");font-weight:551 1000;size-adjust:84%;unicode-range:U+0000-00FF,U+2000-206F,U+1100-11FF,U+3130-318F,U+AC00-D7A3}
+html.pf-wait body, html.pf-wait body *{font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif !important}
+</style>
+<script>(function(){var d=document,h=d.documentElement,u='https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css',done=false;h.classList.add('pf-wait');
+function show(){if(!done){done=true;h.classList.remove('pf-wait');}}
+function load(){var l=d.createElement('link');l.rel='stylesheet';l.href=u;l.onload=function(){var t='';['header','.rg-hero','.sig-float'].forEach(function(q){var e=d.querySelector(q);if(e)t+=e.textContent;});try{Promise.all(['400','700','900'].map(function(w){return d.fonts.load(w+' 1em "Pretendard Variable"',t);})).then(show,show);}catch(e){show();}};l.onerror=show;d.head.appendChild(l);setTimeout(show,6000);}
+var started=false;function start(){if(!started){started=true;setTimeout(load,0);}}
+var P=window.PerformanceObserver,ok=P&&P.supportedEntryTypes&&P.supportedEntryTypes.indexOf('paint')>=0;
+if(ok){new P(function(l){l.getEntries().forEach(function(e){if(e.name==='first-contentful-paint')start();});}).observe({type:'paint',buffered:true});}
+else{var go=function(){requestAnimationFrame(function(){setTimeout(start,0);});};if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',go);}else{go();}}
+})();</script>
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
 <link rel="stylesheet" href="../../../../css/style.css?v=301">
 <!-- [208차] 긴 학교명 태그 보정: 1024px 이하에서 학교 카드가 그리드 칸 폭에 맞게 줄어들고(min-width:0), 공백 없는 긴 학교명(예: 인하대학교사범대학부속중학교·인천과학예술영재학교)만 칸 안에서 자연스럽게 줄바꿈(overflow-wrap:anywhere) · 서울·부산 [206차]·대구 [205차]와 같은 규칙 · 글자 삭제·줄임표 없음 · PC 1025px 이상 영향 없음 · 되돌리기: 이 style 삭제 -->
 <style>

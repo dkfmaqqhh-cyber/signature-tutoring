@@ -6,7 +6,7 @@
 const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/pmov2v7wclcd95n8esvydrp6c16tadel";
 
 /* [221차] GA4 상담 전환 추적 설정
-   · ANALYTICS_ENABLED = false 이면 Google 태그를 불러오지 않고 아무것도 전송하지 않습니다(추적 모듈 전체 비활성).
+   · ANALYTICS_ENABLED = false 이면 Google 태그를 불러오지 않고 아무것도 전송하지 않습니다([454차] 이후 아래 모듈은 JOURNEY_IN_MESSAGE 때문에 탭 기록만 동작, Google 전송은 없음).
      개인정보처리방침·동의 문구 확정과 운영 승인 후에만 true 로 바꾸세요.
    · ATTRIBUTION_TO_MAKE = false 이면 Make 전송 데이터는 기존 11개 필드 그대로입니다.
      Make 테스트 시나리오에서 신규 필드(landing_page 등) 수신을 확인한 뒤에만 true 로 바꾸세요.
@@ -14,6 +14,9 @@ const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/pmov2v7wclcd95n8esvydrp6c16t
 const GA4_ID = "G-JQ98E36W6G";
 const ANALYTICS_ENABLED = false;
 const ATTRIBUTION_TO_MAKE = false;
+/* [454차] 상담 접수 경로를 기존 message 끝 [접수 경로] 블록으로만 전달 (새 Make 필드 없음 · 기존 12개 필드 그대로 · GA4는 계속 꺼짐)
+   · 아래 [221차] 모듈의 탭 단위 sessionStorage 기록(최초 방문·상담 클릭)만 사용 · false 로 두면 [접수 경로] 블록 없이 이전과 같음 */
+const JOURNEY_IN_MESSAGE = true;
 
 /* [221차] 상담 전환 추적 모듈 (window.sigTrack)
    · 클릭 추적: 문서 전체 이벤트 위임 — 상담(consult.html)·전화(tel:)·카카오(open/pf.kakao.com) 링크의 기존 목적지·동작은 바꾸지 않음
@@ -23,7 +26,7 @@ const ATTRIBUTION_TO_MAKE = false;
 (function () {
   var noop = function () {};
   window.sigTrack = { event: noop, lead: noop, attribution: function () { return null; } };
-  var ACTIVE = (typeof ANALYTICS_ENABLED !== 'undefined' && ANALYTICS_ENABLED === true) || (typeof ATTRIBUTION_TO_MAKE !== 'undefined' && ATTRIBUTION_TO_MAKE === true);
+  var ACTIVE = (typeof ANALYTICS_ENABLED !== 'undefined' && ANALYTICS_ENABLED === true) || (typeof ATTRIBUTION_TO_MAKE !== 'undefined' && ATTRIBUTION_TO_MAKE === true) || (typeof JOURNEY_IN_MESSAGE !== 'undefined' && JOURNEY_IN_MESSAGE === true);
   if (!ACTIVE || window.__sigTrackInit) return;
   window.__sigTrackInit = true;
   try {
@@ -62,11 +65,21 @@ const ATTRIBUTION_TO_MAKE = false;
       return o;
     };
     var PAGE = cleanPath(location.pathname);
-    /* 최초 랜딩 (탭에서 한 번만) */
-    if (!ssGet(KEY_LP)) {
-      var lp = { path: PAGE, ref: cleanRef(), t: Date.now() }, u = utm();
-      for (var k in u) lp[k] = u[k];
+    var IS_CONSULT = /\/consult\.html$/.test(location.pathname);
+    /* 최초 랜딩 (탭에서 한 번만) · [454차] 다른 사이트에서 새로 들어오거나 utm이 붙은 주소로 들어오면 그 방문을 새 '첫 방문'으로 기록 */
+    var curRef = cleanRef(), curUtm = utm(), hasUtm = false;
+    for (var uk in curUtm) hasUtm = true;
+    var lp0 = ssGet(KEY_LP);
+    if (!lp0 || hasUtm || (curRef !== 'internal' && curRef !== 'direct' && curRef !== 'unknown' && !(lp0.path === PAGE && lp0.ref === curRef))) {
+      var lp = { path: PAGE, ref: curRef, t: Date.now() };
+      for (var k in curUtm) lp[k] = curUtm[k];
       ssSet(KEY_LP, lp);
+    }
+    /* [454차] 상담 클릭 기록은 '바로 앞 페이지에서 누른 상담 링크' 하나만 유효 — 상담 페이지가 아닌 페이지가 열리면(뒤로가기 복원 포함) 이전 클릭 기록을 지움 */
+    var clearCta = function () { try { sessionStorage.removeItem(KEY_CTA); } catch (e) {} };
+    if (!IS_CONSULT) {
+      clearCta();
+      window.addEventListener('pageshow', function (ev) { if (ev.persisted) clearCta(); });
     }
     /* GA4 (허용 키만 전송) */
     var ALLOW = { cta_type: 1, page_path: 1, form_id: 1, landing_page: 1, landing_ref: 1, cta_page: 1, field: 1, transport_type: 1 };
@@ -109,6 +122,7 @@ const ATTRIBUTION_TO_MAKE = false;
     /* 클릭 위임 (기존 목적지·기본 동작 유지 · 같은 링크 1초 안 반복 무시) */
     var last = { el: null, t: 0 };
     var ctaType = function (a) {
+      if (a.closest('.sig-mobile-menu')) return 'mobile_menu'; /* [454차] 모바일 메뉴는 헤더 안에 있어 먼저 구분 */
       if (a.closest('.sig-header')) return 'header';
       if (a.closest('.sig-float')) return a.closest('.rg-float') ? 'float' : 'auto_float';
       if (a.closest('.ar-hero, .rg-hero, .hero, .tu-hero, .page-hero')) return 'hero';
@@ -116,23 +130,51 @@ const ATTRIBUTION_TO_MAKE = false;
       if (a.closest('.consult-quick, .consult-guide')) return 'consult_page';
       return 'body';
     };
-    document.addEventListener('click', function (e) {
+    /* [454차] 버튼 문구: aria-label 또는 보이는 글자 · 줄바꿈·제어문자 제거 · 40자 · 메일 주소·긴 숫자가 있으면 기록하지 않음 */
+    var ctaLabel = function (a) {
+      var v = String(a.getAttribute('aria-label') || a.textContent || '').replace(/[\u0000-\u001f\u007f\u200b-\u200f\u2028\u2029]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 40);
+      return cleanText(v);
+    };
+    var onLink = function (e, aux) {
       try {
         var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
         if (!a) return;
-        var href = a.getAttribute('href') || '', name = null;
+        var href = a.getAttribute('href') || '', name = null, url = null;
         if (/^tel:/i.test(href)) name = 'click_call';
         else if (/^https?:\/\/(open|pf)\.kakao\.com\//i.test(href)) name = 'click_kakao';
-        else { var url = new URL(a.href, location.href); if (url.origin === location.origin && /\/consult\.html$/.test(url.pathname)) name = 'click_consult'; }
+        else { url = new URL(a.href, location.href); if (url.origin === location.origin && /\/consult\.html$/.test(url.pathname)) name = 'click_consult'; }
         if (!name) return;
         var now = Date.now();
-        if (last.el === a && now - last.t < 1000) return;
+        if (!aux && last.el === a && now - last.t < 1000) return;
         last = { el: a, t: now };
         var type = ctaType(a);
-        ssSet(KEY_CTA, { page: PAGE, type: type, channel: name.replace('click_', ''), t: now });
-        send(name, { cta_type: type, page_path: PAGE, transport_type: 'beacon' });
+        /* [454차] 상담 링크만 기록(전화·카카오·그 밖의 클릭은 저장하지 않음) · 상담 페이지 안의 클릭은 기존 출처를 덮어쓰지 않음
+           · 새 탭·새 창으로 여는 클릭(가운데 버튼·Ctrl/⌘/Shift·target=_blank)은 이어진 신청서인지 확실하지 않아 '새 탭'으로만 표시 */
+        if (name === 'click_consult' && !IS_CONSULT) {
+          var dest = url.searchParams.get('type') === 'diagnosis' ? 'diagnosis' : 'general';
+          var newTab = !!aux || e.ctrlKey || e.metaKey || e.shiftKey || (a.target && a.target !== '_self');
+          ssSet(KEY_CTA, { page: PAGE, type: type, label: ctaLabel(a), dest: dest, newTab: newTab, t: now });
+        }
+        if (!aux) send(name, { cta_type: type, page_path: PAGE, transport_type: 'beacon' });
       } catch (err) {}
-    }, true);
+    };
+    document.addEventListener('click', function (e) { onLink(e, false); }, true);
+    document.addEventListener('auxclick', function (e) { if (e.button === 1) onLink(e, true); }, true);
+    /* [454차] 상담 페이지가 열릴 때 한 번 판정: 바로 앞 페이지(같은 사이트 referrer 경로)·30분 안·같은 신청 화면(일반/진단)일 때만 그 클릭을 이번 신청의 출처로 인정 */
+    var JOURNEY_MAX_MS = 30 * 60 * 1000;
+    var entry = null;
+    if (IS_CONSULT) {
+      entry = { clickPage: '', clickType: '', clickLabel: '', status: 'none' };
+      try {
+        var c0 = ssGet(KEY_CTA), refPath = '';
+        try { var r0 = new URL(document.referrer); if (r0.origin === location.origin) refPath = cleanPath(r0.pathname); } catch (e) {}
+        var dest0 = new URLSearchParams(location.search).get('type') === 'diagnosis' ? 'diagnosis' : 'general';
+        if (c0 && refPath && c0.page === refPath && c0.dest === dest0 && Date.now() - (c0.t || 0) < JOURNEY_MAX_MS) {
+          if (c0.newTab) entry.status = 'newtab';
+          else entry = { clickPage: c0.page, clickType: c0.type || '', clickLabel: c0.label || '', status: 'ok' };
+        }
+      } catch (e) {}
+    }
     /* 상담 접수 성공(서버 2xx 확인 후)에만 호출 · 같은 제출 ID는 한 번만 */
     var leadSent = {};
     window.sigTrack = {
@@ -145,7 +187,17 @@ const ATTRIBUTION_TO_MAKE = false;
           send('generate_lead', { form_id: 'consult', landing_page: at.landing_page, landing_ref: at.landing_ref, cta_page: at.cta_page, cta_type: at.cta_type });
         } catch (e) {}
       },
-      attribution: function () { try { return attribution(); } catch (e) { return null; } }
+      attribution: function () { try { return attribution(); } catch (e) { return null; } },
+      /* [454차] 상담 페이지에서만: 첫 방문 기록 + 이번 신청으로 이어진 상담 클릭(판정 결과) */
+      journey: function () {
+        try {
+          if (!IS_CONSULT) return null;
+          /* 탭 기록이 없으면(저장 차단 등) 상담 페이지의 referrer가 다른 사이트일 때만 '이 페이지로 처음 들어옴'으로 봄 */
+          var l = ssGet(KEY_LP) || (curRef !== 'internal' && curRef !== 'direct' && curRef !== 'unknown' ? { path: PAGE, ref: curRef } : {});
+          return { landingPath: l.path || '', landingRef: l.ref || '', utm_source: l.utm_source || '', utm_medium: l.utm_medium || '', utm_campaign: l.utm_campaign || '',
+            clickPage: entry.clickPage, clickType: entry.clickType, clickLabel: entry.clickLabel, clickStatus: entry.status };
+        } catch (e) { return null; }
+      }
     };
   } catch (err) {
     window.sigTrack = { event: noop, lead: noop, attribution: function () { return null; } };
@@ -520,10 +572,57 @@ window.addEventListener("load", function(){
   /* [305차] 신청서 동의 문구 변경(학부모 법정대리인 동의를 수집·이용 동의에 통합) → '2026-10-25-3' · privacy.html 내용·시행일은 그대로(기존 문구와 일치)
      · 학부모 기록 "(법정대리인 확인)" → "(만 14세 미만 시 법정대리인 동의)" · "동의: 수집·이용(고지 " 앞부분은 그대로(Make 필터 호환) */
   /* [406차] privacy.html 1번 수집 항목(상담 직전 내부 페이지 경로) 추가·시행일 2026-11-09 → '2026-11-09' · 앞부분 형식 그대로 */
-  var CONSENT_VERSION = '2026-11-09';
+  /* [454차] privacy.html 1번 자동 생성 항목(접수 경로)·브라우저 탭 임시 저장 안내 추가·시행일 2026-11-11 → '2026-11-11' */
+  var CONSENT_VERSION = '2026-11-11';
   function buildMessage() {
     var who = f.applicant.value, note = who === '학부모' ? '(만 14세 미만 시 법정대리인 동의)' : who === '학생' ? '(만 14세 이상 확인)' : '';
-    return '학교: ' + (f.school.value.trim() || '미입력') + ' / 신청자: ' + who + note + ' / 동의: 수집·이용(고지 ' + CONSENT_VERSION + '판)';
+    var base = '학교: ' + (f.school.value.trim() || '미입력') + ' / 신청자: ' + who + note + ' / 동의: 수집·이용(고지 ' + CONSENT_VERSION + '판)';
+    if (typeof JOURNEY_IN_MESSAGE === 'undefined' || JOURNEY_IN_MESSAGE !== true) return base;
+    var block = '';
+    try { block = journeyBlock(); } catch (err) { block = ''; }
+    return block ? base + '\n\n' + block : base; /* [454차] 기존 문구(동의 기록 포함) 그대로 + 끝에 [접수 경로] */
+  }
+
+  /* [454차] [접수 경로] 블록 — 실제 확인된 값만 · 확인 못 한 항목은 '확인 불가'
+     · 유입은 첫 방문의 referrer 호스트(전체 주소 아님)와 utm 3종을 따로 표시 · 검색어·광고 여부·AI 추천 여부는 만들지 않음
+     · Discord 표시 안전: 줄바꿈·제어문자 제거, @·<·> 바꿈(멘션 방지), 서식 문자 이스케이프, 항목별·전체 길이 제한 */
+  function safeLine(v, max) {
+    v = String(v == null ? '' : v).replace(/[\u0000-\u001f\u007f\u200b-\u200f\u2028\u2029\u2060\ufeff]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max);
+    return v.replace(/@/g, '＠').replace(/</g, '‹').replace(/>/g, '›').replace(/([\\*_~`|])/g, '\\$1');
+  }
+  var CTA_PLACE = { header: '헤더', mobile_menu: '모바일 메뉴', hero: '첫 화면', cta_section: '본문 상담 영역', float: '떠 있는 상담 버튼', auto_float: '떠 있는 상담 버튼', body: '본문' };
+  function refSource(host) {
+    if (!host || host === 'direct' || host === 'internal' || host === 'unknown') return '직접·확인 불가';
+    var h = String(host).toLowerCase(), label = '외부 사이트';
+    if (/(^|\.)naver\.com$/.test(h)) label = '네이버';
+    else if (/^(www\.)?google\.[a-z.]{2,8}$/.test(h)) label = '구글';
+    else if (h === 'chatgpt.com' || h === 'chat.openai.com') label = 'ChatGPT';
+    return label + ' (' + safeLine(h, 60) + ')';
+  }
+  function journeyBlock() {
+    var j = null;
+    try { j = window.sigTrack && typeof window.sigTrack.journey === 'function' ? window.sigTrack.journey() : null; } catch (e) { j = null; }
+    if (!j) { /* 브라우저 저장이 막혔거나 기록 모듈 오류 → 지금 페이지의 referrer만 사용 */
+      var host = '';
+      try { if (document.referrer) { var r = new URL(document.referrer); host = r.origin === location.origin ? 'internal' : r.hostname; } } catch (e) {}
+      j = { landingPath: host && host !== 'internal' ? location.pathname : '', landingRef: host, clickStatus: 'none' };
+    }
+    var utmParts = [];
+    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { if (j[k]) utmParts.push(k.replace('utm_', '') + '=' + safeLine(j[k], 50)); });
+    var key = '';
+    try { key = new URLSearchParams(location.search).get('type') || ''; } catch (e) {}
+    var purpose = key && Object.prototype.hasOwnProperty.call(PURPOSES, key) ? '10분 학습 진단' : '일반 상담'; /* applyPurpose와 같은 판별 */
+    var ok = j.clickStatus === 'ok', why = j.clickStatus === 'newtab' ? '확인 불가(새 탭으로 열림)' : '확인 불가';
+    var lines = [
+      '[접수 경로]',
+      '유입(referrer): ' + refSource(j.landingRef),
+      '유입(UTM): ' + (utmParts.length ? utmParts.join(' / ') : '없음'),
+      '첫 방문: ' + (j.landingPath ? safeLine(j.landingPath, 80) : '확인 불가'),
+      '상담 클릭 페이지: ' + (ok ? safeLine(j.clickPage, 80) : why),
+      '누른 버튼: ' + (ok ? (safeLine(j.clickLabel, 40) || '(문구 없음)') + (CTA_PLACE[j.clickType] ? ' (' + CTA_PLACE[j.clickType] + ')' : '') : why),
+      '신청 화면: ' + purpose
+    ];
+    return lines.join('\n').slice(0, 600);
   }
 
   /* [97차] Make Webhook 전송 데이터: 기본 6개(name·phone·grade·subject·region·message) + 접수 페이지·제출 시간 ([102차] 수업방식 lesson_type 삭제) */

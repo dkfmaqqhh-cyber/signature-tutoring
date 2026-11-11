@@ -191,6 +191,14 @@
 @media (max-width: 640px) {
   .tu-hero-price { display: flex; justify-content: center; margin-top: 6px; font-size: 15px; }
 }
+/* [442차] 수업료 핵심 안내 문단 + 바로가기 한 묶음 */
+.tu-hero-pricebox { margin-top: 14px; max-width: 520px; }
+.tu-hero-pricenote { margin: 0; color: rgba(255, 255, 255, 0.88); font-size: 14.5px; line-height: 1.65; word-break: keep-all; }
+.tu-hero-pricebox .tu-hero-price { margin-top: 4px; }
+@media (max-width: 640px) {
+  .tu-hero-pricebox { margin-left: auto; margin-right: auto; text-align: center; }
+  .tu-hero-pricenote { font-size: 14px; }
+}
 /* [435차] 980px 이하 '추천합니다!!' 사진 틀이 지연 로드 전 너비 0(높이 0)으로 접혔다가 로드 순간 커져 #price 이동 위치가 밀리던 문제 → 로드 후와 같은 너비를 미리 지정 */
 @media (max-width: 980px) {
   #recommended .tu-rec-photo { width: min(100%, 529px); }
@@ -268,7 +276,10 @@ html:not(.tu-loaded) { scroll-behavior: auto; }
         <svg class="vs-hf-btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       </div>
-      <a class="tu-hero-price" href="#price">학년별 방문과외 수업료 확인</a><!-- [434차] 수업료 표 바로가기 -->
+      <div class="tu-hero-pricebox"><!-- [442차] 수업료 핵심 안내 (금액·기준 = #price 방문과외 표와 동일, 화상수업 금액 미표기) -->
+        <p class="tu-hero-pricenote">방문과외는 주 2회, 1회 60분·월 8회 기준으로 초등학생 월 256,000원부터 시작합니다. 학년별 수업료와 수업 시간에 따른 안내를 확인해 보세요.</p>
+        <a class="tu-hero-price" href="#price">학년별 방문과외 수업료 확인</a><!-- [434차] 수업료 표 바로가기 -->
+      </div>
       <!-- [190-2차] 근거 자료가 프로젝트에 없는 신뢰 수치(누적 방문자·학부모 만족도·전문 선생님 수) 제거. 원본: backup/190-2차_서울전환신뢰보완수정전/tutoring/index.html -->
     </div>
   </div>

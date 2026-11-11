@@ -493,12 +493,15 @@ window.addEventListener("load", function(){
 
   /* [436·437차] 진단 신청 화면: 주소의 ?type= 값 중 허용 목록(diagnosis)만 인정 · 그 밖의 값·값 없음 = 일반 상담(기존 화면 그대로)
      · 진단이면 신청서 제목·제출 버튼 문구를 바꾸고 안내 한 줄을 보임 · 화면 문구만 바꾸며 전송 데이터(기존 12개 필드)는 일반 상담과 같음 */
-  var PURPOSES = { diagnosis: { title: '10분 학습 진단 신청', button: '10분 학습 진단 신청하기', note: '10분 학습 진단을 원하시면 아래 신청서를 작성해 주세요.' } };
+  /* [438차] 진단이면 신청서 위 영문 배지도 FREE CONSULTATION → LEARNING DIAGNOSIS (일반 상담은 HTML 기본값 그대로) */
+  var PURPOSES = { diagnosis: { badge: 'LEARNING DIAGNOSIS', title: '10분 학습 진단 신청', button: '10분 학습 진단 신청하기', note: '10분 학습 진단을 원하시면 아래 신청서를 작성해 주세요.' } };
   (function applyPurpose() {
     try {
       var key = new URLSearchParams(location.search).get('type');
       if (!key || !Object.prototype.hasOwnProperty.call(PURPOSES, key)) return;
       var p = PURPOSES[key];
+      var badge = form.querySelector('.cf-head .cf-badge');
+      if (badge) badge.textContent = p.badge;
       var h2 = form.querySelector('.cf-head h2');
       if (h2) h2.textContent = p.title;
       if (submitBtn) { submitLabel = p.button; submitBtn.textContent = p.button; } /* 전송 중 '접수 중...' 뒤에도 이 문구로 되돌림 */

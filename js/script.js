@@ -491,6 +491,27 @@ window.addEventListener("load", function(){
     } catch (e) {}
   })();
 
+  /* [436차] 신청 목적: 주소의 ?type= 값 중 허용 목록(diagnosis)만 인정 · 그 밖의 값·값 없음 = 일반 상담(기존 화면 그대로)
+     · 진단이면 신청서 위에 안내를 보이고, 전송 때 새 필드 consult_type으로 운영자에게 전달 (기존 필드 이름·값은 그대로) */
+  var PURPOSES = { diagnosis: '10분 학습 진단' };
+  var consultPurpose = '일반 상담';
+  (function applyPurpose() {
+    try {
+      var key = new URLSearchParams(location.search).get('type');
+      if (!key || !Object.prototype.hasOwnProperty.call(PURPOSES, key)) return;
+      consultPurpose = PURPOSES[key];
+      var box = document.getElementById('cfPurpose');
+      if (!box) return;
+      var strong = document.createElement('strong');
+      strong.textContent = consultPurpose + ' 신청';
+      var note = document.createElement('span');
+      note.textContent = '이 신청서는 ‘' + consultPurpose + ' 신청’으로 접수됩니다.';
+      box.appendChild(strong);
+      box.appendChild(note);
+      box.hidden = false;
+    } catch (e) {}
+  })();
+
   /* [102차] 간소화한 폼에는 문의내용 칸이 없으므로 message = "학교: ○○ / 신청자: 학부모" (학교 미입력 시 '미입력')
      [269차] 신청자 뒤에 확인 내용을 붙임: "신청자: 학부모(법정대리인 확인)" / "신청자: 학생(만 14세 이상 확인)" — applicant_type 값(학부모·학생)은 그대로 */
   /* [269·270 마무리] 동의 기록: 기존 Make 전송 필드 11개는 그대로 두고 message 끝에 "동의: 수집·이용, 국외 이전(고지 2026-10-25판)"을 붙임
@@ -540,6 +561,8 @@ window.addEventListener("load", function(){
     };
     /* [406차] 상담 신청서로 오기 직전에 본 이 홈페이지 페이지의 경로 (기존 11개 필드 뒤 새 필드 · document.referrer만 읽고 브라우저에 저장하지 않음) */
     base.consult_source_page = consultSourcePage();
+    /* [436차] 신청 목적 '일반 상담' 또는 '10분 학습 진단' (consult_source_page 뒤 새 필드 · Make·Discord 매핑 추가 필요) */
+    base.consult_type = consultPurpose;
     /* [221차] 유입 필드(landing_page 등)는 ATTRIBUTION_TO_MAKE = true 일 때만 기존 11개 필드 뒤에 추가 (기존 필드 이름·값 변경 없음) */
     try {
       if (typeof ATTRIBUTION_TO_MAKE !== 'undefined' && ATTRIBUTION_TO_MAKE === true) {

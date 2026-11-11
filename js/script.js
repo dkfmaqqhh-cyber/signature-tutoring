@@ -491,6 +491,24 @@ window.addEventListener("load", function(){
     } catch (e) {}
   })();
 
+  /* [436·437차] 진단 신청 화면: 주소의 ?type= 값 중 허용 목록(diagnosis)만 인정 · 그 밖의 값·값 없음 = 일반 상담(기존 화면 그대로)
+     · 진단이면 신청서 제목·제출 버튼 문구를 바꾸고 안내 한 줄을 보임 · 화면 문구만 바꾸며 전송 데이터(기존 12개 필드)는 일반 상담과 같음 */
+  var PURPOSES = { diagnosis: { title: '10분 학습 진단 신청', button: '10분 학습 진단 신청하기', note: '10분 학습 진단을 원하시면 아래 신청서를 작성해 주세요.' } };
+  (function applyPurpose() {
+    try {
+      var key = new URLSearchParams(location.search).get('type');
+      if (!key || !Object.prototype.hasOwnProperty.call(PURPOSES, key)) return;
+      var p = PURPOSES[key];
+      var h2 = form.querySelector('.cf-head h2');
+      if (h2) h2.textContent = p.title;
+      if (submitBtn) { submitLabel = p.button; submitBtn.textContent = p.button; } /* 전송 중 '접수 중...' 뒤에도 이 문구로 되돌림 */
+      var box = document.getElementById('cfPurpose');
+      if (!box) return;
+      box.textContent = p.note;
+      box.hidden = false;
+    } catch (e) {}
+  })();
+
   /* [102차] 간소화한 폼에는 문의내용 칸이 없으므로 message = "학교: ○○ / 신청자: 학부모" (학교 미입력 시 '미입력')
      [269차] 신청자 뒤에 확인 내용을 붙임: "신청자: 학부모(법정대리인 확인)" / "신청자: 학생(만 14세 이상 확인)" — applicant_type 값(학부모·학생)은 그대로 */
   /* [269·270 마무리] 동의 기록: 기존 Make 전송 필드 11개는 그대로 두고 message 끝에 "동의: 수집·이용, 국외 이전(고지 2026-10-25판)"을 붙임

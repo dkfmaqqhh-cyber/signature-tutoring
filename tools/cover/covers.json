@@ -500,5 +500,36 @@
       }
     ],
     "lens": false
+  },
+  "exam-week-routine": {
+    "palette": "red",
+    "badge": "내신 관리 · 시험 준비",
+    "title": "시험 1주일 전\n*공부 계획표*\nD-7 → D-1",
+    "keys": [
+      "과목 순서",
+      "수면·컨디션"
+    ],
+    "cardTitle": "시험 1주일 계획",
+    "cardTag": "예시",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "D-7~5",
+        "text": "범위 확인 · 전 과목 훑기"
+      },
+      {
+        "label": "D-4",
+        "text": "오답 다시 풀기"
+      },
+      {
+        "label": "D-3~2",
+        "text": "실전 · 한 장 요약"
+      },
+      {
+        "label": "D-1",
+        "text": "첫날 과목 · 일찍 자기"
+      }
+    ],
+    "lens": false
   }
 }

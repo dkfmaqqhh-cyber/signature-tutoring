@@ -179,6 +179,14 @@
   .tu-ls-q em { width: 16px; height: 16px; font-size: 9px; }
   .tu-ls-memo { padding: 6px 8px; }
 }
+/* [434차] 대문 버튼 아래 수업료 바로가기 (보조 텍스트 링크) */
+.tu-hero-price { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: 10px; color: #fff; font-size: 15.5px; font-weight: 700; text-decoration: underline; text-decoration-color: rgba(246, 199, 57, 0.85); text-underline-offset: 5px; word-break: keep-all; }
+.tu-hero-price::after { content: "→"; text-decoration: none; transition: transform 0.2s; }
+.tu-hero-price:hover::after, .tu-hero-price:focus-visible::after { transform: translateX(3px); }
+.tu-hero-price:hover, .tu-hero-price:focus-visible { color: var(--hf-yellow, #f6c739); }
+@media (max-width: 640px) {
+  .tu-hero-price { display: flex; justify-content: center; margin-top: 6px; font-size: 15px; }
+}
 </style>
 </head>
 <body class="page-visit page-tutoring"><!-- [81차] page-visit: 방문과외 페이지에서 확정한 디자인 재사용 · page-tutoring: 통합 페이지 전용 -->
@@ -243,6 +251,7 @@
         <svg class="vs-hf-btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       </div>
+      <a class="tu-hero-price" href="#price">학년별 방문과외 수업료 확인</a><!-- [434차] 수업료 표 바로가기 -->
       <!-- [190-2차] 근거 자료가 프로젝트에 없는 신뢰 수치(누적 방문자·학부모 만족도·전문 선생님 수) 제거. 원본: backup/190-2차_서울전환신뢰보완수정전/tutoring/index.html -->
     </div>
   </div>

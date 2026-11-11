@@ -187,7 +187,14 @@
 @media (max-width: 640px) {
   .tu-hero-price { display: flex; justify-content: center; margin-top: 6px; font-size: 15px; }
 }
+/* [435차] 980px 이하 '추천합니다!!' 사진 틀이 지연 로드 전 너비 0(높이 0)으로 접혔다가 로드 순간 커져 #price 이동 위치가 밀리던 문제 → 로드 후와 같은 너비를 미리 지정 */
+@media (max-width: 980px) {
+  #recommended .tu-rec-photo { width: min(100%, 529px); }
+}
+/* [435차] /tutoring/#price 직접 진입: 부드러운 스크롤이 웹폰트 적용 전 위치를 목표로 잡아 제목이 헤더 뒤로 지나치던 문제 → 페이지 로드가 끝날 때까지만 즉시 이동(브라우저가 목표 위치를 계속 맞춤), load 뒤 기존 부드러운 스크롤 복원 */
+html:not(.tu-loaded) { scroll-behavior: auto; }
 </style>
+<script>addEventListener('load', function () { document.documentElement.classList.add('tu-loaded'); });</script>
 </head>
 <body class="page-visit page-tutoring"><!-- [81차] page-visit: 방문과외 페이지에서 확정한 디자인 재사용 · page-tutoring: 통합 페이지 전용 -->
 

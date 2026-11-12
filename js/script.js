@@ -151,16 +151,15 @@ const JOURNEY_IN_MESSAGE = true;
         /* [454차] 상담 링크만 기록(전화·카카오·그 밖의 클릭은 저장하지 않음) · 상담 페이지 안의 클릭은 기존 출처를 덮어쓰지 않음
            · 새 탭·새 창으로 여는 클릭(가운데 버튼·Ctrl/⌘/Shift·target=_blank)은 이어진 신청서인지 확실하지 않아 '새 탭'으로만 표시 */
         if (name === 'click_consult' && !IS_CONSULT) {
-          var dest = url.searchParams.get('type') === 'diagnosis' ? 'diagnosis' : 'general';
           var newTab = !!aux || e.ctrlKey || e.metaKey || e.shiftKey || (a.target && a.target !== '_self');
-          ssSet(KEY_CTA, { page: PAGE, type: type, label: ctaLabel(a), dest: dest, newTab: newTab, t: now });
+          ssSet(KEY_CTA, { page: PAGE, type: type, label: ctaLabel(a), newTab: newTab, t: now });
         }
         if (!aux) send(name, { cta_type: type, page_path: PAGE, transport_type: 'beacon' });
       } catch (err) {}
     };
     document.addEventListener('click', function (e) { onLink(e, false); }, true);
     document.addEventListener('auxclick', function (e) { if (e.button === 1) onLink(e, true); }, true);
-    /* [454차] 상담 페이지가 열릴 때 한 번 판정: 바로 앞 페이지(같은 사이트 referrer 경로)·30분 안·같은 신청 화면(일반/진단)일 때만 그 클릭을 이번 신청의 출처로 인정 */
+    /* [454차] 상담 페이지가 열릴 때 한 번 판정: 바로 앞 페이지(같은 사이트 referrer 경로)·30분 안일 때만 그 클릭을 이번 신청의 출처로 인정 · [465차] 진단 신청 화면 삭제로 신청 화면 비교 없음 */
     var JOURNEY_MAX_MS = 30 * 60 * 1000;
     var entry = null;
     if (IS_CONSULT) {
@@ -168,8 +167,7 @@ const JOURNEY_IN_MESSAGE = true;
       try {
         var c0 = ssGet(KEY_CTA), refPath = '';
         try { var r0 = new URL(document.referrer); if (r0.origin === location.origin) refPath = cleanPath(r0.pathname); } catch (e) {}
-        var dest0 = new URLSearchParams(location.search).get('type') === 'diagnosis' ? 'diagnosis' : 'general';
-        if (c0 && refPath && c0.page === refPath && c0.dest === dest0 && Date.now() - (c0.t || 0) < JOURNEY_MAX_MS) {
+        if (c0 && refPath && c0.page === refPath && Date.now() - (c0.t || 0) < JOURNEY_MAX_MS) {
           if (c0.newTab) entry.status = 'newtab';
           else entry = { clickPage: c0.page, clickType: c0.type || '', clickLabel: c0.label || '', status: 'ok' };
         }
@@ -543,26 +541,7 @@ window.addEventListener("load", function(){
     } catch (e) {}
   })();
 
-  /* [436·437차] 진단 신청 화면: 주소의 ?type= 값 중 허용 목록(diagnosis)만 인정 · 그 밖의 값·값 없음 = 일반 상담(기존 화면 그대로)
-     · 진단이면 신청서 제목·제출 버튼 문구를 바꾸고 안내 한 줄을 보임 · 화면 문구만 바꾸며 전송 데이터(기존 12개 필드)는 일반 상담과 같음 */
-  /* [438차] 진단이면 신청서 위 영문 배지도 FREE CONSULTATION → LEARNING DIAGNOSIS (일반 상담은 HTML 기본값 그대로) */
-  var PURPOSES = { diagnosis: { badge: 'LEARNING DIAGNOSIS', title: '10분 학습 진단 신청', button: '10분 학습 진단 신청하기', note: '10분 학습 진단을 원하시면 아래 신청서를 작성해 주세요.' } };
-  (function applyPurpose() {
-    try {
-      var key = new URLSearchParams(location.search).get('type');
-      if (!key || !Object.prototype.hasOwnProperty.call(PURPOSES, key)) return;
-      var p = PURPOSES[key];
-      var badge = form.querySelector('.cf-head .cf-badge');
-      if (badge) badge.textContent = p.badge;
-      var h2 = form.querySelector('.cf-head h2');
-      if (h2) h2.textContent = p.title;
-      if (submitBtn) { submitLabel = p.button; submitBtn.textContent = p.button; } /* 전송 중 '접수 중...' 뒤에도 이 문구로 되돌림 */
-      var box = document.getElementById('cfPurpose');
-      if (!box) return;
-      box.textContent = p.note;
-      box.hidden = false;
-    } catch (e) {}
-  })();
+  /* [465차] 10분 학습 진단 신청 화면(?type=diagnosis 분기·PURPOSES·applyPurpose) 삭제 — 무료 시범수업과 중복 · ?type=diagnosis로 들어와도 일반 상담 화면·접수 그대로 */
 
   /* [102차] 간소화한 폼에는 문의내용 칸이 없으므로 message = "학교: ○○ / 신청자: 학부모" (학교 미입력 시 '미입력')
      [269차] 신청자 뒤에 확인 내용을 붙임: "신청자: 학부모(법정대리인 확인)" / "신청자: 학생(만 14세 이상 확인)" — applicant_type 값(학부모·학생)은 그대로 */
@@ -609,9 +588,7 @@ window.addEventListener("load", function(){
     }
     var utmParts = [];
     ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { if (j[k]) utmParts.push(k.replace('utm_', '') + '=' + safeLine(j[k], 50)); });
-    var key = '';
-    try { key = new URLSearchParams(location.search).get('type') || ''; } catch (e) {}
-    var purpose = key && Object.prototype.hasOwnProperty.call(PURPOSES, key) ? '10분 학습 진단' : '일반 상담'; /* applyPurpose와 같은 판별 */
+    var purpose = '일반 상담'; /* [465차] 진단 신청 화면 삭제 → 신청 화면은 항상 일반 상담 */
     var ok = j.clickStatus === 'ok', why = j.clickStatus === 'newtab' ? '확인 불가(새 탭으로 열림)' : '확인 불가';
     var lines = [
       '[접수 경로]',

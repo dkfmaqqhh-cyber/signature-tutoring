@@ -147,11 +147,15 @@
 /* [466차-2] 대문 핵심 안내 3항목 — PC 3칸 / 760px 이하 세로 목록 */
 .cv7-keys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; max-width: 600px; margin: 22px 0 0; padding: 0; list-style: none; }
 .cv7-keys li { display: flex; flex-direction: column; gap: 10px; padding: 14px 14px 16px; border: 1px solid var(--line); border-radius: 16px; background: #fff; min-width: 0; }
-.cv7-key-ico { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--brand-cream-deep); color: var(--brand-navy); }
-.cv7-key-ico svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cv7-key-ico { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 22px; height: 22px; color: #a8854a; } /* [466차-4] 사각 배경 없음 · 차분한 골드 */
+.cv7-key-ico svg { display: block; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .cv7-keys p { margin: 0; display: flex; flex-direction: column; gap: 2px; }
 .cv7-keys strong { color: var(--brand-gold-text); font-size: 13px; font-weight: 800; line-height: 1.4; word-break: keep-all; } /* [466차-3] 항목 이름 */
 .cv7-keys p span { color: var(--brand-navy); font-size: 15px; font-weight: 700; line-height: 1.45; word-break: keep-all; }
+/* [466차-4] 대문 주 버튼(회화 무료 시범수업 상담 신청)만 연한 골드 · 그림자 약하게 · 초점 테두리 명확히 */
+body.page-cv .cv7-hero .cv7-actions .btn-navy { background: #F8E7AD; color: #143454; border: 1px solid #E8D08B; box-shadow: 0 6px 16px rgba(20, 52, 84, 0.08); }
+body.page-cv .cv7-hero .cv7-actions .btn-navy:hover { background: #F2DA92; color: #143454; filter: none; transform: translateY(-1px); box-shadow: 0 8px 18px rgba(20, 52, 84, 0.1); }
+body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid #143454; outline-offset: 3px; }
 .cv7-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 24px; }
 .cv7-textlink { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; color: var(--brand-navy); font-size: 15px; font-weight: 700; text-decoration: underline; text-decoration-color: var(--brand-gold); text-underline-offset: 5px; word-break: keep-all; }
 .cv7-textlink:hover { color: var(--brand-gold-text); }
@@ -297,9 +301,9 @@
       <p class="page-lead">처음 시작하는 회화부터 여행과 업무에 필요한 표현, 어학 시험 준비까지. 현재 수준과 배우려는 목적을 상담에서 확인하고, <span class="cv7-nowrap">화상·전화</span> 수업을 안내합니다.</p>
       <!-- [466차-3] 핵심 안내 3항목(수강 대상 / 수업 방식 / 선생님) · 무료 시범수업은 주 버튼 문구로 전달 · 아이콘은 장식(aria-hidden) -->
       <ul class="cv7-keys" aria-label="수업 핵심 안내">
-        <li><span class="cv7-key-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M15.5 14.6c2.3-.4 4.3.9 5 3.9"/></svg></span><p><strong>수강 대상</strong><span>초·중·고 학생부터 성인까지</span></p></li>
-        <li><span class="cv7-key-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="6" width="12" height="11" rx="2"/><path d="M15.5 10.5l5-3v9l-5-3"/></svg></span><p><strong>수업 방식</strong><span>화상·전화 1:1</span></p></li>
-        <li><span class="cv7-key-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.6 4-5.2 7-5.2s5.8 1.6 7 5.2"/></svg></span><p><strong>선생님</strong><span>원어민·교포 상담 가능</span></p></li>
+        <li><span class="cv7-key-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="8.5" cy="8" r="3.2"/><path d="M2.8 19.5c.7-3.3 2.9-5.1 5.7-5.1s5 1.8 5.7 5.1"/><circle cx="16.3" cy="9.2" r="2.6"/><path d="M15.6 14.5c2.7-.3 4.9 1.2 5.6 4.6"/></svg></span><p><strong>수강 대상</strong><span>초·중·고 학생부터 성인까지</span></p></li>
+        <li><span class="cv7-key-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4.5 14.5V12a7.5 7.5 0 0 1 15 0v2.5"/><rect x="3.5" y="13.5" width="4" height="6" rx="1.6"/><rect x="16.5" y="13.5" width="4" height="6" rx="1.6"/><path d="M18.5 19.5v.3a2.2 2.2 0 0 1-2.2 2.2H13"/></svg></span><p><strong>수업 방식</strong><span>화상·전화 1:1</span></p></li>
+        <li><span class="cv7-key-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="8.5" cy="9.5" r="3.2"/><path d="M2.8 21c.7-3.3 2.9-5.1 5.7-5.1s5 1.8 5.7 5.1"/><path d="M14.5 3h5.5a1.5 1.5 0 0 1 1.5 1.5v3.5a1.5 1.5 0 0 1-1.5 1.5h-2.6L15 11.6V9.5h-.5A1.5 1.5 0 0 1 13 8V4.5A1.5 1.5 0 0 1 14.5 3z"/></svg></span><p><strong>선생님</strong><span>원어민·교포 상담 가능</span></p></li>
       </ul>
       <div class="page-actions cv7-actions">
         <a href="../consult.html" class="btn-navy">회화 무료 시범수업 상담 신청</a>

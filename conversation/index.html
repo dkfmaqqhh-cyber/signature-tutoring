@@ -205,6 +205,7 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
   .cv7-purpose, .cv7-compare-col, .cv7-panel { padding: 20px 18px; }
   .cv7-purpose-grid, .cv7-compare, .cv7-two, .cv7-steps, .cv7-levels { gap: 12px; }
   .cv7-purpose { gap: 8px; }
+  .cv7-purpose-media { margin: -20px -18px 4px; } /* [470차-2] 모바일 카드 여백에 맞춤 */
   .cv7-compare-col { gap: 10px; }
   .cv7-lead { margin-bottom: 12px; }
   .cv7-mode { padding: 14px 16px; }
@@ -321,23 +322,27 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
       <p>목적에 따라 연습할 주제와 표현이 달라집니다. 필요한 상황을 먼저 정하고 1:1로 진행합니다.</p>
     </div>
     <div class="cv7-purpose-grid">
-      <!-- [459차] 한글 제목 먼저 · 영문 배지는 보조(스크린리더 제외) · [470차] 카드별 언어 배지 삭제 → 카드 아래 언어 안내 1회 · 상단 사진 자리 = .cv7-purpose-media(목적별 사진 확보 후 <figure class="cv7-purpose-media"><img …></figure>를 카드 맨 앞에 추가) -->
+      <!-- [459차] 한글 제목 먼저 · 영문 배지는 보조(스크린리더 제외) · [470차] 카드별 언어 배지 삭제 → 카드 아래 언어 안내 1회 · 상단 사진 = .cv7-purpose-media(운영자 제공 4분할 AI 이미지를 3:2 WebP 480·720으로 분리, 지연 로딩) -->
       <article class="cv7-purpose">
+        <figure class="cv7-purpose-media"><img src="../images/conversation-purpose-student-720.webp" srcset="../images/conversation-purpose-student-480.webp 480w, ../images/conversation-purpose-student-720.webp 720w" sizes="(max-width: 520px) calc(100vw - 40px), (max-width: 1024px) 45vw, 270px" width="720" height="480" alt="헤드셋을 쓴 학생이 노트북 화상 수업에서 선생님과 회화하는 모습 — AI 생성 예시" loading="lazy" decoding="async"></figure>
         <div class="cv7-ph"><h3>학생 회화</h3><span class="cv7-badge" aria-hidden="true">STUDENT</span></div>
         <p>외국어로 말할 기회가 적었던 학생, 새 언어를 기초부터 시작하려는 학생</p>
         <ul><li>간단한 질문에 짧게 대답하기</li><li>짧은 문장을 이어서 길게 말하기</li></ul>
       </article>
       <article class="cv7-purpose">
+        <figure class="cv7-purpose-media"><img src="../images/conversation-purpose-adult-720.webp" srcset="../images/conversation-purpose-adult-480.webp 480w, ../images/conversation-purpose-adult-720.webp 720w" sizes="(max-width: 520px) calc(100vw - 40px), (max-width: 1024px) 45vw, 270px" width="720" height="480" alt="성인 학습자가 집에서 노트북 화상으로 편하게 회화하는 모습 — AI 생성 예시" loading="lazy" decoding="async"></figure>
         <div class="cv7-ph"><h3>성인 기초·생활 회화</h3><span class="cv7-badge" aria-hidden="true">ADULT</span></div>
         <p>쉬운 말하기부터 다시 시작하고 싶은 성인</p>
         <ul><li>자주 쓰는 문장 익히기</li><li>생활 속 상황별 표현 늘리기</li></ul>
       </article>
       <article class="cv7-purpose">
+        <figure class="cv7-purpose-media"><img src="../images/conversation-purpose-travel-720.webp" srcset="../images/conversation-purpose-travel-480.webp 480w, ../images/conversation-purpose-travel-720.webp 720w" sizes="(max-width: 520px) calc(100vw - 40px), (max-width: 1024px) 45vw, 270px" width="720" height="480" alt="여행 가방과 지도를 옆에 두고 화상으로 여행 회화를 연습하는 모습 — AI 생성 예시" loading="lazy" decoding="async"></figure>
         <div class="cv7-ph"><h3>여행 회화</h3><span class="cv7-badge" aria-hidden="true">TRAVEL</span></div>
         <p>여행 중 필요한 대화를 미리 준비하고 싶은 분</p>
         <ul><li>공항·숙소·식당 상황별 표현</li><li>묻고 답하는 짧은 대화 연습</li></ul>
       </article>
       <article class="cv7-purpose">
+        <figure class="cv7-purpose-media"><img src="../images/conversation-purpose-business-720.webp" srcset="../images/conversation-purpose-business-480.webp 480w, ../images/conversation-purpose-business-720.webp 720w" sizes="(max-width: 520px) calc(100vw - 40px), (max-width: 1024px) 45vw, 270px" width="720" height="480" alt="셔츠 차림의 직장인이 화상으로 업무 회화를 연습하는 모습 — AI 생성 예시" loading="lazy" decoding="async"></figure>
         <div class="cv7-ph"><h3>업무 회화</h3><span class="cv7-badge" aria-hidden="true">BUSINESS</span></div>
         <p>일에 필요한 외국어 회화를 준비하는 분</p>
         <ul><li>회의·이메일·업무 통화 표현</li><li>영어 면접·발표 말하기 연습</li></ul>

@@ -183,16 +183,19 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid
 .page-subject main .cv7-dark .section-head p, .cv7-dark .cv7-note { color: rgba(255, 255, 255, .85); }
 .cv7-dark .kicker { color: var(--brand-gold-light); }
 .cv7-loop { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; counter-reset: none; }
-.cv7-loop li { position: relative; padding: 22px 20px; border: 1px solid rgba(255, 255, 255, .16); border-radius: var(--radius-sm); background: rgba(255, 255, 255, .06); }
+.cv7-loop li { position: relative; display: flex; flex-direction: column; padding: 0; border: 1px solid rgba(255, 255, 255, .16); border-radius: var(--radius-sm); background: rgba(255, 255, 255, .06); }
 .cv7-ico { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; }
 .cv7-ico svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .cv7-loop .cv7-ico { background: rgba(212, 173, 106, .16); color: var(--brand-gold-light); }
-.cv7-loop li strong { display: block; margin: 12px 0 6px; color: #fff; font-size: 18px; }
-.cv7-loop li p { margin: 0; color: rgba(255, 255, 255, .82); font-size: 14.5px; word-break: keep-all; }
+.cv7-loop-photo { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-sm) var(--radius-sm) 0 0; background: rgba(255, 255, 255, .08); } /* [468차] width·height 속성 + height:auto로 비율 고정(늘어남 방지) */
+.cv7-loop li strong { display: block; margin: 16px 20px 6px; color: #fff; font-size: 18px; }
+.cv7-loop li p { margin: 0 20px 22px; color: rgba(255, 255, 255, .82); font-size: 14.5px; word-break: keep-all; }
+.cv7-loop-cap { margin: 10px 0 0; color: rgba(255, 255, 255, .6); font-size: 12.5px; text-align: right; } /* [468차] 사진 영역 1회 표시 */
 .cv7-loop li + li::before { content: "→"; position: absolute; left: -13px; top: 50%; transform: translate(-50%, -50%); color: var(--brand-gold-light); font-size: 18px; }
 .cv7-subhead { margin: 40px 0 16px; font-size: 20px; text-align: center; word-break: keep-all; }
 .cv7-levels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .cv7-levels article { padding: 20px; border-radius: var(--radius-sm); background: #fff; }
+.cv7-lv-ico { display: block; width: 48px; height: 48px; margin: 0 0 12px; object-fit: contain; } /* [468차-2] */
 .cv7-lv { display: inline-block; padding: 2px 10px; border-radius: 999px; background: var(--brand-cream-deep); color: var(--brand-gold-text); font-size: 12.5px; font-weight: 800; }
 .cv7-levels strong { display: block; margin: 8px 0 6px; color: var(--brand-navy); font-size: 16.5px; word-break: keep-all; }
 .cv7-levels p { margin: 0; color: var(--text-body); font-size: 14.5px; word-break: keep-all; }
@@ -235,10 +238,11 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid
   .cv7-compare-col { gap: 10px; }
   .cv7-lead { margin-bottom: 12px; }
   .cv7-mode { padding: 14px 16px; }
-  .cv7-loop li, .cv7-steps li { padding: 18px; }
-  .cv7-loop li, .cv7-steps li { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; align-items: start; }
-  .cv7-loop .cv7-ico, .cv7-steps .cv7-ico { grid-row: span 2; }
-  .cv7-loop li strong, .cv7-steps li strong { margin: 2px 0 4px; }
+  .cv7-steps li { padding: 18px; }
+  .cv7-steps li { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; align-items: start; }
+  .cv7-steps .cv7-ico { grid-row: span 2; }
+  .cv7-steps li strong { margin: 2px 0 4px; }
+  .cv7-loop li strong { margin: 14px 18px 4px; } .cv7-loop li p { margin: 0 18px 18px; } /* [468차] 사진 카드는 세로 배치 유지 */
 }
 .cv7-exam { display: flex; gap: 14px; align-items: flex-start; max-width: 860px; margin: 22px auto 0; padding: 18px 20px; border: 1px solid var(--brand-gold); border-radius: var(--radius-sm); background: #fff; }
 .cv7-exam .cv7-ico { flex: 0 0 auto; background: var(--brand-cream-deep); color: var(--brand-navy); }
@@ -246,6 +250,26 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid
 .cv7-exam p { margin: 4px 0 0; color: var(--text-body); font-size: 14.5px; word-break: keep-all; }
 .cv7-mode-note { margin: 12px 0 0; color: var(--text-body); font-size: 14.5px; word-break: keep-all; }
 .cv7-steps.is-five { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+/* [469차] 선생님 프로필 예시 슬라이드 — PC 3장 · 태블릿 2장 · 모바일 1장 */
+.cv7-tslider { --per: 3; --gap: 16px; max-width: 1000px; margin: 0 auto 28px; }
+.cv7-ts-viewport { overflow: hidden; border-radius: var(--radius-sm); touch-action: pan-y; }
+.cv7-ts-track { position: relative; display: flex; gap: var(--gap); margin: 0; padding: 0; list-style: none; transition: transform .6s ease; }
+.cv7-ts-slide { flex: 0 0 calc((100% - var(--gap) * (var(--per) - 1)) / var(--per)); min-width: 0; }
+.cv7-ts-slide figure { position: relative; margin: 0; border-radius: var(--radius-sm); overflow: hidden; background: var(--brand-cream); }
+.cv7-ts-slide img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; -webkit-user-drag: none; user-select: none; }
+.cv7-ts-slide figcaption { position: absolute; left: 10px; bottom: 10px; padding: 3px 10px; border-radius: 999px; background: rgba(255, 255, 255, .9); color: var(--brand-navy); font-size: 12px; font-weight: 700; line-height: 1.5; }
+.cv7-ts-controls { display: flex; justify-content: center; gap: 10px; margin-top: 14px; }
+.cv7-ts-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: #fff; color: var(--brand-navy); cursor: pointer; }
+.cv7-ts-btn:hover { background: var(--brand-cream); }
+.cv7-ts-btn:focus-visible { outline: 3px solid #143454; outline-offset: 2px; }
+.cv7-ts-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cv7-ts-toggle .ts-ico-play { display: none; fill: currentColor; }
+.cv7-tslider.is-paused .cv7-ts-toggle .ts-ico-play { display: inline; }
+.cv7-tslider.is-paused .cv7-ts-toggle .ts-ico-pause { display: none; }
+.cv7-ts-note { margin: 12px 0 0; color: var(--text-body); font-size: 14.5px; text-align: center; word-break: keep-all; }
+@media (max-width: 1024px) { .cv7-tslider { --per: 2; } }
+@media (max-width: 560px) { .cv7-tslider { --per: 1; --gap: 12px; } }
+@media (prefers-reduced-motion: reduce) { .cv7-ts-track { transition: none; } }
 @media (max-width: 1024px) { .cv7-steps.is-five { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cv7-steps.is-five li:last-child { grid-column: 1 / -1; } }
 @media (max-width: 520px) { .cv7-steps.is-five { grid-template-columns: 1fr; } .cv7-steps.is-five li:last-child { grid-column: auto; } .cv7-exam { padding: 16px; } }
 </style>
@@ -394,17 +418,19 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid
       <h2 id="cvHowTitle">수업은 이렇게 진행됩니다</h2>
       <p>말하고, 피드백 받고, 다시 말하는 과정을 반복하며 표현을 내 것으로 만듭니다.</p>
     </div>
-    <!-- [459차] 번호 대신 장식 아이콘(aria-hidden) · 순서는 ol 목록 의미로 전달 · 모바일에서 화살표 생략 -->
+    <!-- [468차] 카드 상단 AI 생성 수업 예시 사진(3:2 WebP 480·720, 지연 로딩) · 순서는 ol 목록 의미로 전달 · 모바일에서 화살표 생략 -->
     <ol class="cv7-loop">
-      <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-5 4v-4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01"/></svg></span><strong>직접 말하기</strong><p>목표에 맞는 주제로 직접 말하는 연습을 합니다.</p></li>
-      <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20l4-1 10-10-3-3L5 16z"/><path d="M13 7l3 3"/></svg></span><strong>바로 피드백</strong><p>표현, 발음, 문장 구성을 바로 짚어 드립니다.</p></li>
-      <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 0 1 13-5.1"/><path d="M18 3.5v4h-4"/><path d="M19.5 12a7.5 7.5 0 0 1-13 5.1"/><path d="M6 20.5v-4h4"/></svg></span><strong>다시 말하기</strong><p>고친 표현을 다시 말해 보며 익숙해질 때까지 연습합니다.</p></li>
+      <li><img class="cv7-loop-photo" src="../images/conversation-how-speak-720.webp" srcset="../images/conversation-how-speak-480.webp 480w, ../images/conversation-how-speak-720.webp 720w" sizes="(max-width: 760px) calc(100vw - 40px), 360px" width="720" height="480" alt="화상 수업에서 학생이 선생님과 대화하며 직접 말하는 모습" loading="lazy" decoding="async"><strong>직접 말하기</strong><p>목표에 맞는 주제로 직접 말하는 연습을 합니다.</p></li>
+      <li><img class="cv7-loop-photo" src="../images/conversation-how-feedback-720.webp" srcset="../images/conversation-how-feedback-480.webp 480w, ../images/conversation-how-feedback-720.webp 720w" sizes="(max-width: 760px) calc(100vw - 40px), 360px" width="720" height="480" alt="헤드셋을 쓴 선생님이 화상 수업에서 표현을 설명하는 모습" loading="lazy" decoding="async"><strong>바로 피드백</strong><p>표현, 발음, 문장 구성을 바로 짚어 드립니다.</p></li>
+      <li><img class="cv7-loop-photo" src="../images/conversation-how-repeat-720.webp" srcset="../images/conversation-how-repeat-480.webp 480w, ../images/conversation-how-repeat-720.webp 720w" sizes="(max-width: 760px) calc(100vw - 40px), 360px" width="720" height="480" alt="학생이 화상 수업 화면을 보며 고친 표현을 다시 말해 보는 모습" loading="lazy" decoding="async"><strong>다시 말하기</strong><p>고친 표현을 다시 말해 보며 익숙해질 때까지 연습합니다.</p></li>
     </ol>
+    <p class="cv7-loop-cap">AI 생성 수업 예시 이미지</p>
     <h3 class="cv7-subhead">현재 수준에 맞는 단계에서 시작합니다</h3>
+    <!-- [468차-2] 수준 카드 상단 파스텔 아이콘(초급 말풍선 1 · 중급 말풍선 2 · 고급 지구본+말풍선, 192px 투명 WebP를 48px 표시) · 장식 alt="" -->
     <div class="cv7-levels">
-      <article><span class="cv7-lv">초급</span><strong>단어와 짧은 문장부터 말하기</strong><p>기본 단어와 자주 쓰는 문장을 익히고, 간단한 질문에 짧게 대답하며 말하는 부담을 줄입니다.</p></article>
-      <article><span class="cv7-lv">중급</span><strong>실생활 표현과 문장 확장</strong><p>생활 속 상황별 표현을 늘리고, 짧은 문장을 이어 내 생각과 경험을 설명합니다.</p></article>
-      <article><span class="cv7-lv">고급</span><strong>자연스러운 표현과 상황별 회화</strong><p>주제를 정해 의견을 나누고, 업무·여행 등 목적별 실전 회화를 연습합니다.</p></article>
+      <article><img class="cv7-lv-ico" src="../images/conversation-level-basic.webp" width="48" height="48" alt="" loading="lazy" decoding="async"><span class="cv7-lv">초급</span><strong>단어와 짧은 문장부터 말하기</strong><p>기본 단어와 자주 쓰는 문장을 익히고, 간단한 질문에 짧게 대답하며 말하는 부담을 줄입니다.</p></article>
+      <article><img class="cv7-lv-ico" src="../images/conversation-level-mid.webp" width="48" height="48" alt="" loading="lazy" decoding="async"><span class="cv7-lv">중급</span><strong>실생활 표현과 문장 확장</strong><p>생활 속 상황별 표현을 늘리고, 짧은 문장을 이어 내 생각과 경험을 설명합니다.</p></article>
+      <article><img class="cv7-lv-ico" src="../images/conversation-level-advanced.webp" width="48" height="48" alt="" loading="lazy" decoding="async"><span class="cv7-lv">고급</span><strong>자연스러운 표현과 상황별 회화</strong><p>주제를 정해 의견을 나누고, 업무·여행 등 목적별 실전 회화를 연습합니다.</p></article>
     </div>
     <p class="cv7-note">영어·일본어 모두 학생의 속도에 맞춰 다음 단계로 넘어갑니다.</p>
   </div>
@@ -416,6 +442,24 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid
     <div class="section-head center">
       <div class="kicker">TEACHERS &amp; LESSON MODE</div>
       <h2 id="cvTeacherTitle">선생님과 수업 방식은 이렇게 정합니다</h2>
+    </div>
+    <!-- [469차] 선생님 프로필 예시 슬라이드(AI 생성 인물 5장, 4:5 WebP 400·640) · 이름·국적·경력·자격·담당 과정은 붙이지 않음 · 페이지 전용 스크립트(하단 [469차] script) -->
+    <div class="cv7-tslider" role="region" aria-roledescription="슬라이드 모음" aria-label="선생님 프로필 예시 사진">
+      <div class="cv7-ts-viewport">
+        <ul class="cv7-ts-track" aria-live="off">
+        <li class="cv7-ts-slide" role="group" aria-roledescription="슬라이드" aria-label="5장 중 1번째"><figure><img src="../images/conversation-tutor-1-640.webp" srcset="../images/conversation-tutor-1-400.webp 400w, ../images/conversation-tutor-1-640.webp 640w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 1024px) 45vw, 330px" width="640" height="800" alt="연보라 카디건을 입고 손을 흔드는 인물 — AI 생성 프로필 예시" loading="lazy" decoding="async"><figcaption>AI 생성 프로필 예시</figcaption></figure></li>
+        <li class="cv7-ts-slide" role="group" aria-roledescription="슬라이드" aria-label="5장 중 2번째"><figure><img src="../images/conversation-tutor-2-640.webp" srcset="../images/conversation-tutor-2-400.webp 400w, ../images/conversation-tutor-2-640.webp 640w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 1024px) 45vw, 330px" width="640" height="800" alt="연두색 카디건을 입고 웃는 인물 — AI 생성 프로필 예시" loading="lazy" decoding="async"><figcaption>AI 생성 프로필 예시</figcaption></figure></li>
+        <li class="cv7-ts-slide" role="group" aria-roledescription="슬라이드" aria-label="5장 중 3번째"><figure><img src="../images/conversation-tutor-3-640.webp" srcset="../images/conversation-tutor-3-400.webp 400w, ../images/conversation-tutor-3-640.webp 640w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 1024px) 45vw, 330px" width="640" height="800" alt="하늘색 셔츠를 입고 손짓하며 웃는 인물 — AI 생성 프로필 예시" loading="lazy" decoding="async"><figcaption>AI 생성 프로필 예시</figcaption></figure></li>
+        <li class="cv7-ts-slide" role="group" aria-roledescription="슬라이드" aria-label="5장 중 4번째"><figure><img src="../images/conversation-tutor-4-640.webp" srcset="../images/conversation-tutor-4-400.webp 400w, ../images/conversation-tutor-4-640.webp 640w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 1024px) 45vw, 330px" width="640" height="800" alt="하늘색 카디건을 입고 웃는 인물 — AI 생성 프로필 예시" loading="lazy" decoding="async"><figcaption>AI 생성 프로필 예시</figcaption></figure></li>
+        <li class="cv7-ts-slide" role="group" aria-roledescription="슬라이드" aria-label="5장 중 5번째"><figure><img src="../images/conversation-tutor-5-640.webp" srcset="../images/conversation-tutor-5-400.webp 400w, ../images/conversation-tutor-5-640.webp 640w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 1024px) 45vw, 330px" width="640" height="800" alt="연보라 셔츠를 입고 웃는 인물 — AI 생성 프로필 예시" loading="lazy" decoding="async"><figcaption>AI 생성 프로필 예시</figcaption></figure></li>
+        </ul>
+      </div>
+      <div class="cv7-ts-controls">
+        <button type="button" class="cv7-ts-btn" data-ts="prev" aria-label="이전 사진"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg></button>
+        <button type="button" class="cv7-ts-btn cv7-ts-toggle" data-ts="toggle" aria-label="자동 넘김 일시정지"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="ts-ico-pause" d="M9 6v12M15 6v12"/><path class="ts-ico-play" d="M8.5 5.5v13l10-6.5z"/></svg></button>
+        <button type="button" class="cv7-ts-btn" data-ts="next" aria-label="다음 사진"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg></button>
+      </div>
+      <p class="cv7-ts-note">실제 배정 선생님의 정보는 상담 시 안내드립니다.</p>
     </div>
     <div class="cv7-two">
       <div class="cv7-panel">
@@ -527,6 +571,55 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid
   </div>
 </footer>
 
+<script>
+/* [469차] 선생님 프로필 예시 슬라이드 — 5초 자동 넘김 · 이전/다음/재생·일시정지 · 마우스·키보드 초점 시 정지 · 손가락 넘기기 · 화면 밖·동작 줄이기 설정에서 자동 넘김 안 함 */
+(function () {
+  var root = document.querySelector('.cv7-tslider'); if (!root) return;
+  var track = root.querySelector('.cv7-ts-track'), vp = root.querySelector('.cv7-ts-viewport');
+  var slides = Array.prototype.slice.call(track.children), tog = root.querySelector('[data-ts="toggle"]');
+  var rm = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
+  var i = 0, playing = !rm.matches, hover = false, focused = false, inView = false, timer = null;
+  function per() { return parseInt(getComputedStyle(root).getPropertyValue('--per'), 10) || 1; }
+  function go(n) {
+    var p = per(), m = Math.max(0, slides.length - p);
+    i = n > m ? 0 : (n < 0 ? m : n);
+    track.style.transform = 'translateX(' + (-slides[i].offsetLeft) + 'px)';
+    slides.forEach(function (s, k) { s.setAttribute('aria-hidden', k >= i && k < i + p ? 'false' : 'true'); });
+  }
+  function sync() {
+    var run = playing && !hover && !focused && inView && !document.hidden;
+    if (run && !timer) timer = setInterval(function () { go(i + 1); }, 5000);
+    if (!run && timer) { clearInterval(timer); timer = null; }
+    root.classList.toggle('is-paused', !playing);
+    tog.setAttribute('aria-label', playing ? '자동 넘김 일시정지' : '자동 넘김 시작');
+    track.setAttribute('aria-live', playing ? 'off' : 'polite');
+  }
+  function step(d) { go(i + d); if (timer) { clearInterval(timer); timer = null; } sync(); }
+  root.querySelector('[data-ts="prev"]').addEventListener('click', function () { step(-1); });
+  root.querySelector('[data-ts="next"]').addEventListener('click', function () { step(1); });
+  tog.addEventListener('click', function () { playing = !playing; sync(); });
+  root.addEventListener('mouseenter', function () { hover = true; sync(); });
+  root.addEventListener('mouseleave', function () { hover = false; sync(); });
+  root.addEventListener('focusin', function () { focused = true; sync(); });
+  root.addEventListener('focusout', function (e) { if (!root.contains(e.relatedTarget)) { focused = false; sync(); } });
+  root.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); } else if (e.key === 'ArrowRight') { e.preventDefault(); step(1); } });
+  var sx = null, sy = 0;
+  vp.addEventListener('pointerdown', function (e) { sx = e.clientX; sy = e.clientY; });
+  vp.addEventListener('pointerup', function (e) { if (sx === null) return; var dx = e.clientX - sx, dy = e.clientY - sy; sx = null; if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) step(dx < 0 ? 1 : -1); });
+  vp.addEventListener('pointercancel', function () { sx = null; });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      inView = es[0].isIntersecting;
+      if (inView) root.querySelectorAll('img[loading="lazy"]').forEach(function (im) { im.loading = 'eager'; }); // 가로로 숨은 사진도 미리 받아 넘길 때 빈 칸 없게
+      sync();
+    }, { threshold: 0.25 }).observe(root);
+  } else { inView = true; }
+  document.addEventListener('visibilitychange', sync);
+  window.addEventListener('resize', function () { go(i); });
+  if (rm.addEventListener) rm.addEventListener('change', function () { if (rm.matches) { playing = false; sync(); } });
+  go(0); sync();
+})();
+</script>
 <script src="../js/script.js"></script>
 </body>
 </html>

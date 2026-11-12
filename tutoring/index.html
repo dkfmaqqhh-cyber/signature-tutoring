@@ -218,6 +218,13 @@ else{var go=function(){requestAnimationFrame(function(){setTimeout(start,0);});}
   .tu-hero-pricebox { margin-left: auto; margin-right: auto; text-align: center; }
   .tu-hero-pricenote { font-size: 14px; }
 }
+/* [462차] 대문 breadcrumb 다시 표시 — [78차] 공통 대문(.vs-hf-text .breadcrumb)은 breadcrumb를 1px로 잘라 숨겨, '홈' 링크가 보이지 않는데도 Tab 초점을 받고 클릭할 곳이 없었음
+   · 이 페이지만 숨김을 풀어 실제 자리에 표시(z-index 조정 없음) · 공통 CSS·visit.html 미수정 · 링크 클릭 영역은 안쪽 여백으로 넓힘 */
+body.page-tutoring .vs-hf-text .breadcrumb { position: static; width: auto; height: auto; margin: 0 0 12px; overflow: visible; clip: auto; white-space: normal; color: rgba(255, 255, 255, 0.72); }
+body.page-tutoring .vs-hf-text .breadcrumb li + li::before { color: rgba(255, 255, 255, 0.5); }
+body.page-tutoring .vs-hf-text .breadcrumb a { display: inline-block; margin: -8px -6px; padding: 8px 6px; border-radius: 6px; color: #fff; text-decoration: underline; text-decoration-color: rgba(246, 199, 57, 0.7); text-underline-offset: 3px; }
+body.page-tutoring .vs-hf-text .breadcrumb a:hover { color: var(--hf-yellow, #f6c739); }
+body.page-tutoring .vs-hf-text .breadcrumb a:focus-visible { outline: 2px solid var(--hf-yellow, #f6c739); outline-offset: 2px; }
 /* [435차] 980px 이하 '추천합니다!!' 사진 틀이 지연 로드 전 너비 0(높이 0)으로 접혔다가 로드 순간 커져 #price 이동 위치가 밀리던 문제 → 로드 후와 같은 너비를 미리 지정 */
 @media (max-width: 980px) {
   #recommended .tu-rec-photo { width: min(100%, 529px); }

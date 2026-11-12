@@ -70,6 +70,14 @@
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../css/style.css">
+<style>/* [463차] 대문 breadcrumb 다시 표시 — [78차] 공통 대문(.vs-hf-text .breadcrumb)이 breadcrumb를 1px로 잘라 숨겨, '홈' 링크가 보이지 않는데도 Tab 초점을 받던 문제
+   · tutoring/index.html [462차]와 같은 방식: 이 페이지만 숨김을 풀어 실제 자리에 표시(z-index 조정 없음) · 공통 CSS 미수정 · 링크 클릭 영역은 안쪽 여백으로 넓힘 */
+body.page-visit .vs-hf-text .breadcrumb { position: static; width: auto; height: auto; margin: 0 0 12px; overflow: visible; clip: auto; white-space: normal; color: rgba(255, 255, 255, 0.72); }
+body.page-visit .vs-hf-text .breadcrumb li + li::before { color: rgba(255, 255, 255, 0.5); }
+body.page-visit .vs-hf-text .breadcrumb a { display: inline-block; margin: -8px -6px; padding: 8px 6px; border-radius: 6px; color: #fff; text-decoration: underline; text-decoration-color: rgba(246, 199, 57, 0.7); text-underline-offset: 3px; }
+body.page-visit .vs-hf-text .breadcrumb a:hover { color: var(--hf-yellow, #f6c739); }
+body.page-visit .vs-hf-text .breadcrumb a:focus-visible { outline: 2px solid var(--hf-yellow, #f6c739); outline-offset: 2px; }
+</style>
 </head>
 <body class="page-visit"><!-- [75차] 방문과외 전용 글자 크기·구성 스타일용 클래스 -->
 

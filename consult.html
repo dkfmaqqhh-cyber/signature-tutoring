@@ -25,11 +25,6 @@
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="css/style.css">
-<style>
-/* [436·437차] ?type=diagnosis로 들어온 경우에만 보이는 진단 신청 안내 한 줄 (js/script.js applyPurpose) */
-.cf-v2 .cf-purpose { margin: 14px auto 0; max-width: 460px; padding: 12px 16px; border: 1px solid #f0d9a8; border-radius: 12px; background: #fff8e8; color: #102a4b; font-size: 15px; font-weight: 600; line-height: 1.55; text-align: center; word-break: keep-all; }
-.cf-v2 .cf-purpose[hidden] { display: none; }
-</style>
 </head>
 <body>
 
@@ -90,7 +85,6 @@
           <span class="cf-badge">FREE CONSULTATION</span>
           <h2>과외마루 무료 상담</h2>
           <p class="cf-lead">한 번만 입력하시면 바로 접수됩니다. <span class="cf-req-note"><span class="req" aria-hidden="true">*</span> 필수</span></p><!-- [272차] 안내 1줄로 -->
-          <p class="cf-purpose" id="cfPurpose" role="status" hidden></p><!-- [436차] 진단 신청 링크(?type=diagnosis)로 들어온 경우에만 js가 문구를 넣고 보임 · 일반 상담은 숨김 -->
         </div>
         <!-- [102차] 상담폼 간소화: 학생이름 / 지역·학교 / 학년·문의과목 / 휴대폰번호 / 신청자(학부모·학생) / 개인정보 동의 (수업 방식·기타 요청사항 삭제)
              Make 전송 필드명(name·phone·grade·subject·region·message)은 그대로 · message = "학교: ○○ / 신청자: 학부모" (js/script.js) -->

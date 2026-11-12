@@ -195,6 +195,7 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid
 .cv7-subhead { margin: 40px 0 16px; font-size: 20px; text-align: center; word-break: keep-all; }
 .cv7-levels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .cv7-levels article { padding: 20px; border-radius: var(--radius-sm); background: #fff; }
+.cv7-lv-ico { display: block; width: 48px; height: 48px; margin: 0 0 12px; object-fit: contain; } /* [468차-2] */
 .cv7-lv { display: inline-block; padding: 2px 10px; border-radius: 999px; background: var(--brand-cream-deep); color: var(--brand-gold-text); font-size: 12.5px; font-weight: 800; }
 .cv7-levels strong { display: block; margin: 8px 0 6px; color: var(--brand-navy); font-size: 16.5px; word-break: keep-all; }
 .cv7-levels p { margin: 0; color: var(--text-body); font-size: 14.5px; word-break: keep-all; }
@@ -405,10 +406,11 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid
     </ol>
     <p class="cv7-loop-cap">AI 생성 수업 예시 이미지</p>
     <h3 class="cv7-subhead">현재 수준에 맞는 단계에서 시작합니다</h3>
+    <!-- [468차-2] 수준 카드 상단 파스텔 아이콘(초급 말풍선 1 · 중급 말풍선 2 · 고급 지구본+말풍선, 192px 투명 WebP를 48px 표시) · 장식 alt="" -->
     <div class="cv7-levels">
-      <article><span class="cv7-lv">초급</span><strong>단어와 짧은 문장부터 말하기</strong><p>기본 단어와 자주 쓰는 문장을 익히고, 간단한 질문에 짧게 대답하며 말하는 부담을 줄입니다.</p></article>
-      <article><span class="cv7-lv">중급</span><strong>실생활 표현과 문장 확장</strong><p>생활 속 상황별 표현을 늘리고, 짧은 문장을 이어 내 생각과 경험을 설명합니다.</p></article>
-      <article><span class="cv7-lv">고급</span><strong>자연스러운 표현과 상황별 회화</strong><p>주제를 정해 의견을 나누고, 업무·여행 등 목적별 실전 회화를 연습합니다.</p></article>
+      <article><img class="cv7-lv-ico" src="../images/conversation-level-basic.webp" width="48" height="48" alt="" loading="lazy" decoding="async"><span class="cv7-lv">초급</span><strong>단어와 짧은 문장부터 말하기</strong><p>기본 단어와 자주 쓰는 문장을 익히고, 간단한 질문에 짧게 대답하며 말하는 부담을 줄입니다.</p></article>
+      <article><img class="cv7-lv-ico" src="../images/conversation-level-mid.webp" width="48" height="48" alt="" loading="lazy" decoding="async"><span class="cv7-lv">중급</span><strong>실생활 표현과 문장 확장</strong><p>생활 속 상황별 표현을 늘리고, 짧은 문장을 이어 내 생각과 경험을 설명합니다.</p></article>
+      <article><img class="cv7-lv-ico" src="../images/conversation-level-advanced.webp" width="48" height="48" alt="" loading="lazy" decoding="async"><span class="cv7-lv">고급</span><strong>자연스러운 표현과 상황별 회화</strong><p>주제를 정해 의견을 나누고, 업무·여행 등 목적별 실전 회화를 연습합니다.</p></article>
     </div>
     <p class="cv7-note">영어·일본어 모두 학생의 속도에 맞춰 다음 단계로 넘어갑니다.</p>
   </div>

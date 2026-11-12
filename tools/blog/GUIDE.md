@@ -1,7 +1,8 @@
 # 과외마루 학습정보 자동 발행 지침 (예약 작업용)
 
-월·목 오전 예약 작업이 이 문서를 그대로 따라 글 1편을 작성·게시합니다.
-사이트: https://signaturetutoring.co.kr (GitHub Pages, 저장소 `dkfmaqqhh-cyber/signature-tutoring`, `main` 브랜치 푸시 → 약 1분 뒤 반영)
+월~금(주 5회) 오전 예약 작업이 이 문서를 그대로 따라 글 1편을 작성·게시합니다.
+사이트: https://signaturetutoring.co.kr (GitHub Pages, 저장소 `dkfmaqqhh-cyber/signature-tutoring`, `main` 병합 → 약 1분 뒤 반영)
+저장소 루트 `CLAUDE.md`(작업 규칙)를 함께 따릅니다. `main` 직접 푸시는 금지이므로 게시는 6절의 작업 브랜치 → PR → 병합 순서로 합니다.
 
 ## 0. 준비
 1. 저장소가 없으면 `add_repo`(owner `dkfmaqqhh-cyber`, repo `signature-tutoring`, access `push`)로 연결한 뒤 안내된 명령으로 clone.
@@ -9,10 +10,13 @@
 3. 커밋 작성자: `git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit ...`
 
 ## 1. 오늘 쓸 글 고르기
-- `tools/blog/roadmap.json` 에서 `status`가 `todo`인 글 중 **번호가 가장 작은 1편**. (date는 계획일일 뿐, 밀려도 순서대로 발행)
+- **분야 순환**: `roadmap.json`의 `rotation`(학습 → 검정고시 → 코딩 → 회화) 순서로 하루 1분야씩 돌아갑니다. 오늘 쓸 분야는 `next_track`입니다.
+- `next_track`과 `track`이 같고 `status`가 `todo`인 글 중 **번호가 가장 작은 1편**을 씁니다. (date는 계획일일 뿐, 밀려도 순서대로 발행)
+- 그 분야에 `todo`가 없으면: 그 분야 새 주제 5개를 같은 형식(`track` 포함, `search_volume`은 조회 못 하면 null)으로 `roadmap.json`에 추가하고 그 첫 글을 씁니다. 분야별 기준 — 학습: 초중고 내신·학년별·과목별·학부모 가이드 / 검정고시: 중졸·고졸 검정고시 절차·과목·공부법·합격 후 / 코딩: 블록코딩·파이썬·자바·학교 정보 교과·자격증·진로 / 회화: 영어·일본어 회화, 말하기 시험, 면접·발표.
+- 발행 후 `build.py`가 `next_track`을 다음 분야로 자동으로 넘깁니다. 직접 바꾸지 않습니다.
 - **시기 확인**: 고른 글의 `season_until`이 오늘(한국 날짜)보다 이전이면 시기가 지난 글입니다. `status`를 `skipped`로 바꾸고 다음 글을 고릅니다. (예: 수능이 끝난 뒤의 '수능 3주 전' 글)
 - 시기가 맞는 글이라도 본문에 '지금 시기'를 반영합니다. 예: 시험 기간이면 이번 기말고사 기준, 방학 전이면 방학 시작 전 준비 기준으로 씁니다.
-- `todo`가 하나도 없으면: 같은 형식으로 다음 12주(24편) 로드맵을 새로 만들어 `roadmap.json`에 추가·커밋하고, 그 첫 글을 작성합니다. 주제는 시기(시험·방학·새 학기·검정고시 공고), 사이트 서비스(초중고 1:1, 방문·화상, 검정고시, 영어·일본어 회화, 코딩), 이미 쓴 글과 겹치지 않는 것으로.
+- `todo`가 하나도 없으면: 같은 형식으로 다음 5주(분야별 6편 안팎) 로드맵을 새로 만들어 `roadmap.json`에 추가·커밋하고, 그 첫 글을 작성합니다. 주제는 시기(시험·방학·새 학기·검정고시 공고), 사이트 서비스(초중고 1:1, 방문·화상, 검정고시, 영어·일본어 회화, 코딩), 이미 쓴 글과 겹치지 않는 것으로.
 
 ## 2. 사실 확인 (가장 중요)
 - `need_check` 항목과, 본문에 넣을 **모든 제도·수치·일정**은 WebSearch/WebFetch 로 공식 출처에서 확인합니다.
@@ -92,14 +96,17 @@ python3 tools/blog/build.py tools/blog/posts/<slug>.json
 - "검사 실패"가 나오면 JSON을 고쳐 다시 실행 (통과할 때까지 푸시 금지).
 - 화면 확인: Playwright(Chromium `/opt/pw-browsers/...`)로 `info/<slug>.html`을 모바일(390px)과 PC(1280px) 전체 화면 캡처해 직접 보고, 글자 넘침·표 깨짐·이미지 누락이 없는지 확인. 대표 이미지(`images/info/<slug>.jpg`)도 열어서 글자가 잘리지 않는지 확인.
 
-## 6. 게시
+## 6. 게시 (CLAUDE.md 2장 순서)
 ```bash
+git fetch origin
+git worktree add --no-track -b work/blog-<번호>-<slug> <새 폴더> origin/main   # 이 폴더에서 1~5절 작업
 git add info/<slug>.html images/info/<slug>.* tools/ learning/index.html sitemap.xml
-git commit -m "content: 학습정보 새 글 - <제목> (자동 발행 <번호>번)" -m "<트레일러>"
-git push origin main
+git -c gc.auto=0 commit -m "content: 학습정보 새 글 - <제목> (자동 발행 <번호>번)" -m "<트레일러>"
+git push -u origin work/blog-<번호>-<slug>
 ```
-- 푸시 거절 시 `git pull --rebase` 후 다시 푸시. 충돌이 이 글과 무관한 파일이면 원격 내용을 우선.
-- 약 1~2분 뒤 `https://signaturetutoring.co.kr/info/<slug>.html` 이 열리는지 WebFetch로 확인.
+- GitHub MCP로 `main` 대상 PR을 만들고, PR 변경 파일 목록이 로컬 커밋 파일 목록과 같은지·mergeable인지 확인한 뒤 **이번에 만든 PR만** merge 방식으로 병합합니다. 다른 PR(특히 #1)은 건드리지 않습니다.
+- 병합 커밋의 `pages build and deployment`가 `completed / success`인지 `https://api.github.com/repos/dkfmaqqhh-cyber/signature-tutoring/actions/runs?head_sha=<병합 커밋>` 으로 확인합니다.
+- 새 글 주소(`https://signaturetutoring.co.kr/info/<slug>.html`)가 열리는지 확인합니다. 작업 환경에서 접속이 막히면 배포 성공으로 갈음하고 보고에 그 사실을 적습니다.
 
 ## 7. 완료 보고 (사용자에게 한국어로)
 - 글 제목, 주소, 주 키워드, 확인한 출처, 확인 못 해 뺀 내용(있다면).

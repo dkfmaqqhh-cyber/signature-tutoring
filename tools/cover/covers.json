@@ -531,5 +531,36 @@
       }
     ],
     "lens": false
+  },
+  "high-school-ged-subjects": {
+    "palette": "brown",
+    "badge": "검정고시 · 과목",
+    "title": "고졸 검정고시\n*7과목*과\n합격 기준",
+    "keys": [
+      "평균 60점",
+      "과목합격"
+    ],
+    "cardTitle": "합격 기준 한눈에",
+    "cardTag": "공고 기준",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "과목",
+        "text": "필수 6 + 선택 1"
+      },
+      {
+        "label": "합격",
+        "text": "전 과목 평균 60점"
+      },
+      {
+        "label": "결시",
+        "text": "1과목만 빠져도 불합격"
+      },
+      {
+        "label": "과목합격",
+        "text": "60점 이상, 다음 회 면제"
+      }
+    ],
+    "lens": false
   }
 }

@@ -138,6 +138,12 @@
 <link rel="stylesheet" href="../css/style.css">
 <style>/* [457차] 회화 대표 페이지 재구성 전용 스타일(.cv7-*) · 공통 style.css 미수정 · 색 = 브랜드 변수(네이비·골드·크림) */
 .cv7-hero .page-lead { max-width: 560px; }
+/* [466차] 대문 사진(AI 생성 예시) — 일러스트용 공통 규칙(mix-blend-mode·아래 음수 여백·폭 제한)을 이 페이지 사진에만 되돌림 · 4:3 비율 그대로, 자르지 않음 */
+.page-en .en-hero-visual.cv7-photo { margin: 0; align-self: center; }
+.page-en .en-hero-visual.cv7-photo img { width: 100%; max-width: 560px; height: auto; aspect-ratio: 4 / 3; margin: 0 auto; object-fit: contain; mix-blend-mode: normal; border-radius: 22px; box-shadow: var(--shadow-card-strong); background: var(--brand-cream-deep); }
+.cv7-photo-cap { max-width: 560px; margin: 10px auto 0; color: var(--muted); font-size: 12.5px; line-height: 1.4; text-align: right; }
+@media (max-width: 1024px) { .page-en .en-hero-visual.cv7-photo img { max-width: 520px; } .cv7-photo-cap { max-width: 520px; } }
+@media (max-width: 760px) { .page-en .en-hero-visual.cv7-photo img { max-width: 100%; border-radius: 18px; } .cv7-photo-cap { max-width: 100%; } }
 .cv7-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 18px; max-width: 540px; margin: 18px 0 0; padding: 14px 18px; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
 .cv7-facts div { display: flex; gap: 10px; align-items: baseline; min-width: 0; }
 .cv7-facts dt { flex: 0 0 auto; color: var(--brand-gold-text); font-size: 13px; font-weight: 800; }
@@ -296,11 +302,11 @@
         <a href="#how" class="cv7-textlink">수업 진행 방식 보기 <span aria-hidden="true">↓</span></a>
       </div>
     </div>
-    <div class="sj-hero-visual en-hero-visual">
-      <img src="../images/program-online-english.webp" alt="화상으로 진행하는 1:1 회화 수업 일러스트" loading="eager" decoding="async">
-      <span class="en-bubble b1" lang="en" aria-hidden="true">How was your day?</span>
-      <span class="en-bubble b2" lang="ja" aria-hidden="true">はじめまして！</span>
-    </div>
+    <!-- [466차] 대문 이미지 = 운영자 제공 AI 생성 사진(4:3, 원본 1448×1086 PNG → WebP 1200·720) · 기존 만화 일러스트·장식 말풍선 삭제 · 잘리지 않게 비율 그대로 표시 -->
+    <figure class="sj-hero-visual en-hero-visual cv7-photo">
+      <img src="../images/conversation-hero-ai-1200.webp" srcset="../images/conversation-hero-ai-720.webp 720w, ../images/conversation-hero-ai-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 40px), 560px" width="1200" height="900" alt="노트북으로 1:1 화상 회화를 연습하는 모습을 표현한 AI 생성 이미지" loading="eager" fetchpriority="high" decoding="async">
+      <figcaption class="cv7-photo-cap">AI 생성 수업 예시 이미지</figcaption>
+    </figure>
   </div>
 </section>
 

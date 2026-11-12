@@ -237,6 +237,12 @@ def main():
         if p["slug"] == spec["slug"]:
             p["status"] = "done"
             p["published"] = today.isoformat()
+    # 분야 순환: 이번 글이 next_track 분야였으면 다음 분야로 넘김 (같은 글을 다시 빌드해도 두 번 넘어가지 않음)
+    track = next((p.get("track") for p in rm["posts"] if p["slug"] == spec["slug"]), None)
+    rot = rm.get("rotation") or []
+    if track in rot and rm.get("next_track") == track:
+        rm["next_track"] = rot[(rot.index(track) + 1) % len(rot)]
+        print(f"다음 분야: {rm['next_track']}")
     save_json(rm_p, rm)
     print(f"완료: info/{spec['slug']}.html ({today.isoformat()})")
 

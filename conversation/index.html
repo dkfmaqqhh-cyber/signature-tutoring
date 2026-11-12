@@ -121,18 +121,19 @@
 .cv7-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 24px; }
 .cv7-textlink { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; color: var(--brand-navy); font-size: 15px; font-weight: 700; text-decoration: underline; text-decoration-color: var(--brand-gold); text-underline-offset: 5px; word-break: keep-all; }
 .cv7-textlink:hover { color: var(--brand-gold-text); }
-.cv7-sec .section-head h2 { word-break: keep-all; }
+.cv7-sec .section-head h2, #faq .section-head h2 { word-break: keep-all; text-wrap: balance; } /* [459차] 섹션 제목을 의미 단위로 고르게 줄바꿈(강제 줄바꿈 없음) */
 .cv7-note { max-width: 760px; margin: 22px auto 0; color: var(--text-body); font-size: 15px; text-align: center; word-break: keep-all; }
-.cv7-purpose-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.cv7-purpose-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: start; } /* [459차] 높이 맞춤용 빈 공간 없음 */
 .cv7-purpose { display: flex; flex-direction: column; gap: 10px; padding: 22px 20px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; box-shadow: var(--shadow-card); }
-.cv7-badge { align-self: flex-start; padding: 3px 10px; border-radius: 999px; background: var(--brand-navy); color: #fff; font-size: 11.5px; font-weight: 800; letter-spacing: .06em; }
-.cv7-purpose h3 { margin: 2px 0 0; color: var(--brand-navy); font-size: 19px; word-break: keep-all; }
+.cv7-ph { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 10px; }
+.cv7-badge { color: var(--brand-gold-text); font-size: 11px; font-weight: 800; letter-spacing: .08em; opacity: .85; } /* [459차] 영문 배지는 보조 표시 */
+.cv7-purpose h3 { margin: 0; color: var(--brand-navy); font-size: 19px; word-break: keep-all; }
 .cv7-purpose > p { margin: 0; color: var(--text-body); font-size: 14.5px; line-height: 1.65; word-break: keep-all; }
 .cv7-purpose ul, .cv7-compare ul, .cv7-check { margin: 0; padding: 0; list-style: none; }
 .cv7-purpose li, .cv7-compare li, .cv7-check li { position: relative; padding-left: 18px; color: var(--ink); font-size: 14.5px; line-height: 1.6; word-break: keep-all; }
 .cv7-purpose li::before, .cv7-compare li::before, .cv7-check li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--brand-gold); }
 .cv7-purpose li + li, .cv7-compare li + li, .cv7-check li + li { margin-top: 6px; }
-.cv7-langs { display: flex; gap: 6px; margin: auto 0 0 !important; padding-top: 6px; }
+.cv7-langs { display: flex; gap: 6px; margin: 2px 0 0 !important; }
 .cv7-langs span { padding: 2px 10px; border: 1px solid var(--brand-gold); border-radius: 999px; color: var(--brand-gold-text); font-size: 12.5px; font-weight: 700; }
 .cv7-compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 920px; margin: 0 auto; }
 .cv7-compare-col { display: flex; flex-direction: column; gap: 12px; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--brand-cream); }
@@ -145,8 +146,10 @@
 .cv7-dark .kicker { color: var(--brand-gold-light); }
 .cv7-loop { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; counter-reset: none; }
 .cv7-loop li { position: relative; padding: 22px 20px; border: 1px solid rgba(255, 255, 255, .16); border-radius: var(--radius-sm); background: rgba(255, 255, 255, .06); }
-.cv7-loop li span { color: var(--brand-gold-light); font-size: 13px; font-weight: 800; letter-spacing: .08em; }
-.cv7-loop li strong { display: block; margin: 6px 0 6px; color: #fff; font-size: 18px; }
+.cv7-ico { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; }
+.cv7-ico svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cv7-loop .cv7-ico { background: rgba(212, 173, 106, .16); color: var(--brand-gold-light); }
+.cv7-loop li strong { display: block; margin: 12px 0 6px; color: #fff; font-size: 18px; }
 .cv7-loop li p { margin: 0; color: rgba(255, 255, 255, .82); font-size: 14.5px; word-break: keep-all; }
 .cv7-loop li + li::before { content: "→"; position: absolute; left: -13px; top: 50%; transform: translate(-50%, -50%); color: var(--brand-gold-light); font-size: 18px; }
 .cv7-subhead { margin: 40px 0 16px; font-size: 20px; text-align: center; word-break: keep-all; }
@@ -161,15 +164,14 @@
 .cv7-lead { margin: 0 0 16px; color: var(--ink); font-size: 15.5px; word-break: keep-all; }
 .cv7-lead strong { color: var(--brand-navy); }
 .cv7-label { margin: 0 0 8px; color: var(--brand-gold-text); font-size: 13.5px; font-weight: 800; }
-.cv7-small { margin: 14px 0 0; color: var(--muted); font-size: 13.5px; word-break: keep-all; }
 .cv7-mode { padding: 16px 18px; border-radius: 14px; background: var(--brand-cream); }
 .cv7-mode + .cv7-mode { margin-top: 10px; }
 .cv7-mode strong { color: var(--brand-navy); font-size: 16px; }
 .cv7-mode p { margin: 4px 0 0; color: var(--text-body); font-size: 14.5px; word-break: keep-all; }
 .cv7-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
 .cv7-steps li { padding: 20px 18px; border-top: 3px solid var(--brand-gold); border-radius: 0 0 var(--radius-sm) var(--radius-sm); background: var(--brand-cream); }
-.cv7-steps li span { color: var(--brand-gold-text); font-size: 12.5px; font-weight: 800; letter-spacing: .06em; }
-.cv7-steps li strong { display: block; margin: 6px 0; color: var(--brand-navy); font-size: 17px; word-break: keep-all; }
+.cv7-steps .cv7-ico { background: #fff; color: var(--brand-navy); box-shadow: 0 6px 14px rgba(16, 42, 75, .08); }
+.cv7-steps li strong { display: block; margin: 12px 0 6px; color: var(--brand-navy); font-size: 17px; word-break: keep-all; }
 .cv7-steps li p { margin: 0; color: var(--text-body); font-size: 14.5px; word-break: keep-all; }
 @media (max-width: 1024px) {
   .cv7-purpose-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -178,13 +180,23 @@
 @media (max-width: 760px) {
   .cv7-facts { grid-template-columns: 1fr; }
   .cv7-compare, .cv7-two, .cv7-levels { grid-template-columns: 1fr; }
-  .cv7-loop { grid-template-columns: 1fr; gap: 26px; }
-  .cv7-loop li + li::before { content: "↓"; left: 50%; top: -14px; }
+  .cv7-loop { grid-template-columns: 1fr; gap: 12px; }
+  .cv7-loop li + li::before { display: none; } /* [459차] 모바일에서는 연결 화살표 생략 */
+  .cv7-subhead { margin-top: 32px; }
 }
 @media (max-width: 520px) {
   .cv7-purpose-grid, .cv7-steps { grid-template-columns: 1fr; }
   .cv7-actions .btn-navy { width: 100%; justify-content: center; text-align: center; }
   .cv7-purpose, .cv7-compare-col, .cv7-panel { padding: 20px 18px; }
+  .cv7-purpose-grid, .cv7-compare, .cv7-two, .cv7-steps, .cv7-levels { gap: 12px; }
+  .cv7-purpose { gap: 8px; }
+  .cv7-compare-col { gap: 10px; }
+  .cv7-lead { margin-bottom: 12px; }
+  .cv7-mode { padding: 14px 16px; }
+  .cv7-loop li, .cv7-steps li { padding: 18px; }
+  .cv7-loop li, .cv7-steps li { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; align-items: start; }
+  .cv7-loop .cv7-ico, .cv7-steps .cv7-ico { grid-row: span 2; }
+  .cv7-loop li strong, .cv7-steps li strong { margin: 2px 0 4px; }
 }
 </style>
 </head>
@@ -266,32 +278,29 @@
       <p>목적에 따라 연습할 주제와 표현이 달라집니다. 필요한 상황을 먼저 정하고 1:1로 진행합니다.</p>
     </div>
     <div class="cv7-purpose-grid">
+      <!-- [459차] 한글 제목 먼저 · 영문 배지는 보조(스크린리더 제외) · 소개와 연습 항목의 같은 뜻 반복 정리(항목 추가 없음) -->
       <article class="cv7-purpose">
-        <span class="cv7-badge">STUDENT</span>
-        <h3>학생 회화</h3>
-        <p>영어로 말할 기회가 적어 대답이 쉽게 나오지 않는 학생, 일본어를 기초부터 시작하고 싶은 학생</p>
+        <div class="cv7-ph"><h3>학생 회화</h3><span class="cv7-badge" aria-hidden="true">STUDENT</span></div>
+        <p>영어로 말할 기회가 적었던 학생, 일본어를 기초부터 시작하려는 학생</p>
         <ul><li>간단한 질문에 짧게 대답하기</li><li>짧은 문장을 이어서 길게 말하기</li></ul>
         <p class="cv7-langs"><span>영어</span><span>일본어</span></p>
       </article>
       <article class="cv7-purpose">
-        <span class="cv7-badge">ADULT</span>
-        <h3>성인 기초·생활 회화</h3>
-        <p>오랜만에 다시 시작해 쉬운 말하기부터 차근차근 하고 싶은 성인</p>
+        <div class="cv7-ph"><h3>성인 기초·생활 회화</h3><span class="cv7-badge" aria-hidden="true">ADULT</span></div>
+        <p>쉬운 말하기부터 다시 시작하고 싶은 성인</p>
         <ul><li>자주 쓰는 문장 익히기</li><li>생활 속 상황별 표현 늘리기</li></ul>
         <p class="cv7-langs"><span>영어</span><span>일본어</span></p>
       </article>
       <article class="cv7-purpose">
-        <span class="cv7-badge">TRAVEL</span>
-        <h3>여행 회화</h3>
-        <p>공항·숙소·식당 등 여행 중 꼭 필요한 대화를 준비하고 싶은 분</p>
-        <ul><li>여행지에서 바로 쓰는 상황별 표현</li><li>묻고 답하는 짧은 대화 연습</li></ul>
+        <div class="cv7-ph"><h3>여행 회화</h3><span class="cv7-badge" aria-hidden="true">TRAVEL</span></div>
+        <p>여행 중 필요한 대화를 미리 준비하고 싶은 분</p>
+        <ul><li>공항·숙소·식당 상황별 표현</li><li>묻고 답하는 짧은 대화 연습</li></ul>
         <p class="cv7-langs"><span>영어</span><span>일본어</span></p>
       </article>
       <article class="cv7-purpose">
-        <span class="cv7-badge">BUSINESS</span>
-        <h3>업무 회화</h3>
-        <p>회의·이메일·업무 통화 등 일에 필요한 회화, 영어 면접·발표를 앞둔 분</p>
-        <ul><li>업무 상황별 표현 준비</li><li>면접·발표 말하기 연습</li></ul>
+        <div class="cv7-ph"><h3>업무 회화</h3><span class="cv7-badge" aria-hidden="true">BUSINESS</span></div>
+        <p>일에 필요한 영어 회화를 준비하는 분</p>
+        <ul><li>회의·이메일·업무 통화 표현</li><li>면접·발표 말하기 연습</li></ul>
         <p class="cv7-langs"><span>영어</span></p>
       </article>
     </div>
@@ -318,7 +327,7 @@
         <a class="cv7-textlink" href="#how">회화 수업 진행 보기 <span aria-hidden="true">↓</span></a>
       </div>
     </div>
-    <p class="cv7-note">어느 쪽이 필요한지 모르겠다면 상담에서 학생 상황을 듣고 함께 정합니다.</p>
+    <!-- [459차] '어느 쪽이 필요한지 모르겠다면…' 안내는 FAQ 같은 답변과 중복이라 삭제 -->
   </div>
 </section>
 
@@ -330,10 +339,11 @@
       <h2 id="cvHowTitle">수업은 이렇게 진행됩니다</h2>
       <p>말하고, 피드백 받고, 다시 말하는 과정을 반복하며 표현을 내 것으로 만듭니다.</p>
     </div>
+    <!-- [459차] 번호 대신 장식 아이콘(aria-hidden) · 순서는 ol 목록 의미로 전달 · 모바일에서 화살표 생략 -->
     <ol class="cv7-loop">
-      <li><span>01</span><strong>직접 말하기</strong><p>목표에 맞는 주제로 직접 말하는 연습을 합니다.</p></li>
-      <li><span>02</span><strong>바로 피드백</strong><p>표현, 발음, 문장 구성을 바로 짚어 드립니다.</p></li>
-      <li><span>03</span><strong>다시 말하기</strong><p>고친 표현을 다시 말해 보며 익숙해질 때까지 연습합니다.</p></li>
+      <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-5 4v-4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01"/></svg></span><strong>직접 말하기</strong><p>목표에 맞는 주제로 직접 말하는 연습을 합니다.</p></li>
+      <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20l4-1 10-10-3-3L5 16z"/><path d="M13 7l3 3"/></svg></span><strong>바로 피드백</strong><p>표현, 발음, 문장 구성을 바로 짚어 드립니다.</p></li>
+      <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 0 1 13-5.1"/><path d="M18 3.5v4h-4"/><path d="M19.5 12a7.5 7.5 0 0 1-13 5.1"/><path d="M6 20.5v-4h4"/></svg></span><strong>다시 말하기</strong><p>고친 표현을 다시 말해 보며 익숙해질 때까지 연습합니다.</p></li>
     </ol>
     <h3 class="cv7-subhead">현재 수준에 맞는 단계에서 시작합니다</h3>
     <div class="cv7-levels">
@@ -358,7 +368,7 @@
         <p class="cv7-lead">수업 목적과 학습 수준에 따라 <strong>원어민·교포 선생님</strong> 수업 상담 및 배정이 가능합니다.</p>
         <p class="cv7-label">상담에서 함께 확인하는 것</p>
         <ul class="cv7-check"><li>배우고 싶은 언어와 현재 회화 수준</li><li>수업 목적(일상·여행·업무 등)</li><li>원어민·교포 선생님 중 희망하는 방향</li><li>희망 수업 방식과 가능한 시간</li></ul>
-        <p class="cv7-small">선생님 배정 기준과 절차는 상담 시 안내드립니다.</p>
+        <!-- [459차] '배정 기준과 절차는 상담 시 안내' 문장은 FAQ '선생님은 어떻게 정해지나요?' 답변과 중복이라 삭제 -->
       </div>
       <div class="cv7-panel">
         <h3>수업 방식</h3>
@@ -376,13 +386,13 @@
       <div class="kicker">GETTING STARTED</div>
       <h2 id="cvStartTitle">상담부터 수업 시작까지</h2>
     </div>
+    <!-- [459차] STEP 번호 대신 장식 아이콘(aria-hidden) · 순서는 ol 목록 의미로 전달 · '세부 진행 방식과 조건은 상담 시 안내' 문장은 바로 아래 최종 상담 안내와 중복이라 삭제 -->
     <ol class="cv7-steps">
-      <li><span>STEP 01</span><strong>상담 신청</strong><p>배우고 싶은 언어와 회화가 필요한 상황을 남겨 주세요.</p></li>
-      <li><span>STEP 02</span><strong>현재 수준 확인</strong><p>대화를 나누며 말하기 수준과 어려운 부분을 확인합니다.</p></li>
-      <li><span>STEP 03</span><strong>목표·방식 정하기</strong><p>회화 목표와 수업 방식, 희망하는 선생님 방향을 함께 정합니다.</p></li>
-      <li><span>STEP 04</span><strong>선생님 안내·수업 시작</strong><p>언어·수준·목적에 맞는 선생님을 안내해 드리고 1:1 수업을 시작합니다.</p></li>
+      <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8.5h6M9 12h6M9 15.5h3.5"/></svg></span><strong>상담 신청</strong><p>배우고 싶은 언어와 회화가 필요한 상황을 남겨 주세요.</p></li>
+      <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 19v-4M12 19V10M18 19V5"/></svg></span><strong>현재 수준 확인</strong><p>대화를 나누며 말하기 수준과 어려운 부분을 확인합니다.</p></li>
+      <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 12h.01"/></svg></span><strong>목표·방식 정하기</strong><p>회화 목표와 수업 방식, 희망하는 선생님 방향을 함께 정합니다.</p></li>
+      <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.6 4-5.2 7-5.2s5.8 1.6 7 5.2"/></svg></span><strong>선생님 안내·수업 시작</strong><p>언어·수준·목적에 맞는 선생님을 안내해 드리고 1:1 수업을 시작합니다.</p></li>
     </ol>
-    <p class="cv7-note">세부 진행 방식과 조건은 상담 시 안내드립니다.</p>
   </div>
 </section>
 

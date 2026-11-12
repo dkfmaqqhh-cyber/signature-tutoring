@@ -146,10 +146,10 @@
 @media (max-width: 760px) { .page-en .en-hero-visual.cv7-photo img { max-width: 100%; border-radius: 18px; } .cv7-photo-cap { max-width: 100%; } }
 /* [466차-2] 대문 핵심 안내 3항목 — PC 3칸 / 760px 이하 세로 목록 */
 .cv7-keys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; max-width: 600px; margin: 22px 0 0; padding: 0; list-style: none; }
-.cv7-keys li { display: flex; flex-direction: column; gap: 10px; padding: 14px 14px 16px; border: 1px solid var(--line); border-radius: 16px; background: #fff; min-width: 0; }
-.cv7-key-ico { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 22px; height: 22px; color: #a8854a; } /* [466차-4] 사각 배경 없음 · 차분한 골드 */
-.cv7-key-ico svg { display: block; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-.cv7-keys p { margin: 0; display: flex; flex-direction: column; gap: 2px; }
+.cv7-keys li { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 14px 12px 16px; border: 1px solid var(--line); border-radius: 16px; background: #fff; min-width: 0; }
+.cv7-key-ico { display: block; flex: 0 0 auto; width: 36px; height: 36px; } /* [466차-6] 파스텔 입체 아이콘 36px(원본 144px 투명 WebP) · 사각 배경 없음 */
+.cv7-key-ico img { display: block; width: 36px; height: 36px; object-fit: contain; }
+.cv7-keys p { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; } /* [466차-5] 카드 글자 가운데 */
 .cv7-keys strong { color: var(--brand-gold-text); font-size: 13px; font-weight: 800; line-height: 1.4; word-break: keep-all; } /* [466차-3] 항목 이름 */
 .cv7-keys p span { color: var(--brand-navy); font-size: 15px; font-weight: 700; line-height: 1.45; word-break: keep-all; }
 /* [466차-4] 대문 주 버튼(회화 무료 시범수업 상담 신청)만 연한 골드 · 그림자 약하게 · 초점 테두리 명확히 */
@@ -216,8 +216,10 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid
   .cv7-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
-  .cv7-keys { grid-template-columns: 1fr; gap: 8px; }
-  .cv7-keys li { flex-direction: row; align-items: center; gap: 12px; padding: 12px 14px; }
+  .cv7-keys { gap: 6px; } /* [466차-6] 모바일도 3칸 가운데 카드 */
+  .cv7-keys li { gap: 6px; padding: 12px 6px 13px; border-radius: 14px; }
+  .cv7-keys strong { font-size: 12.5px; }
+  .cv7-keys p span { font-size: 14px; line-height: 1.4; }
   .cv7-compare, .cv7-two, .cv7-levels { grid-template-columns: 1fr; }
   .cv7-loop { grid-template-columns: 1fr; gap: 12px; }
   .cv7-loop li + li::before { display: none; } /* [459차] 모바일에서는 연결 화살표 생략 */
@@ -226,7 +228,7 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid
 @media (max-width: 520px) {
   .cv7-purpose-grid, .cv7-steps { grid-template-columns: 1fr; }
   .cv7-actions .btn-navy { width: 100%; justify-content: center; text-align: center; }
-  .cv7-keys { margin-top: 18px; gap: 6px; } .cv7-keys li { padding: 9px 12px; } .cv7-actions { margin-top: 18px; gap: 6px 20px; } /* [466차-3] 320px 첫 화면에서 보조 링크가 하단 고정 상담 띠에 걸리지 않게 간격만 줄임(글자 크기 유지) */
+  .cv7-keys { margin-top: 14px; gap: 5px; } .cv7-keys li { padding: 10px 4px 11px; } .cv7-actions { margin-top: 18px; gap: 6px 20px; } /* [466차-3] 320px 첫 화면에서 보조 링크가 하단 고정 상담 띠에 걸리지 않게 간격만 줄임(글자 크기 유지) */
   .cv7-purpose, .cv7-compare-col, .cv7-panel { padding: 20px 18px; }
   .cv7-purpose-grid, .cv7-compare, .cv7-two, .cv7-steps, .cv7-levels { gap: 12px; }
   .cv7-purpose { gap: 8px; }
@@ -299,11 +301,11 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid
       <span class="page-kicker">영어·일본어 회화</span>
       <h1>배우고 싶은 회화,<br><em>내 목표에 맞는 1:1 수업</em></h1>
       <p class="page-lead">처음 시작하는 회화부터 여행과 업무에 필요한 표현, 어학 시험 준비까지. 현재 수준과 배우려는 목적을 상담에서 확인하고, <span class="cv7-nowrap">화상·전화</span> 수업을 안내합니다.</p>
-      <!-- [466차-3] 핵심 안내 3항목(수강 대상 / 수업 방식 / 선생님) · 무료 시범수업은 주 버튼 문구로 전달 · 아이콘은 장식(aria-hidden) -->
+      <!-- [466차-3] 핵심 안내 3항목(수강 대상 / 수업 방식 / 선생님) · 무료 시범수업은 주 버튼 문구로 전달 · 아이콘은 장식 이미지(alt="") -->
       <ul class="cv7-keys" aria-label="수업 핵심 안내">
-        <li><span class="cv7-key-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="8.5" cy="8" r="3.2"/><path d="M2.8 19.5c.7-3.3 2.9-5.1 5.7-5.1s5 1.8 5.7 5.1"/><circle cx="16.3" cy="9.2" r="2.6"/><path d="M15.6 14.5c2.7-.3 4.9 1.2 5.6 4.6"/></svg></span><p><strong>수강 대상</strong><span>초·중·고 학생부터 성인까지</span></p></li>
-        <li><span class="cv7-key-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4.5 14.5V12a7.5 7.5 0 0 1 15 0v2.5"/><rect x="3.5" y="13.5" width="4" height="6" rx="1.6"/><rect x="16.5" y="13.5" width="4" height="6" rx="1.6"/><path d="M18.5 19.5v.3a2.2 2.2 0 0 1-2.2 2.2H13"/></svg></span><p><strong>수업 방식</strong><span>화상·전화 1:1</span></p></li>
-        <li><span class="cv7-key-ico" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="8.5" cy="9.5" r="3.2"/><path d="M2.8 21c.7-3.3 2.9-5.1 5.7-5.1s5 1.8 5.7 5.1"/><path d="M14.5 3h5.5a1.5 1.5 0 0 1 1.5 1.5v3.5a1.5 1.5 0 0 1-1.5 1.5h-2.6L15 11.6V9.5h-.5A1.5 1.5 0 0 1 13 8V4.5A1.5 1.5 0 0 1 14.5 3z"/></svg></span><p><strong>선생님</strong><span>원어민·교포 상담 가능</span></p></li>
+        <li><span class="cv7-key-ico"><img src="../images/conversation-key-learners.webp" alt="" decoding="async"></span><p><strong>수강 대상</strong><span><span class="cv7-nowrap">초·중·고</span> <span class="cv7-nowrap">학생부터</span> <span class="cv7-nowrap">성인까지</span></span></p></li>
+        <li><span class="cv7-key-ico"><img src="../images/conversation-key-method.webp" alt="" decoding="async"></span><p><strong>수업 방식</strong><span>화상·전화 1:1</span></p></li>
+        <li><span class="cv7-key-ico"><img src="../images/conversation-key-teacher.webp" alt="" decoding="async"></span><p><strong>선생님</strong><span><span class="cv7-nowrap">원어민·교포</span> <span class="cv7-nowrap">상담 가능</span></span></p></li>
       </ul>
       <div class="page-actions cv7-actions">
         <a href="../consult.html" class="btn-navy">회화 무료 시범수업 상담 신청</a>

@@ -243,8 +243,15 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
 @media (prefers-reduced-motion: reduce) { .cv7-ts-track { transition: none; } }
 @media (max-width: 520px) { .cv7-exam { padding: 16px; } } /* [472차] 5단계(.is-five) 규칙 삭제 → 기본 .cv7-steps 4열/2열/1열 사용 */
 /* [472차] 회원 후기 — 흰 카드 · PC 3열 / 태블릿 2열 / 760px 이하 1열 · 접힌 상태 본문 4줄 미리보기(JS 동작 시에만) · 제목·작성자는 항상 표시 */
-.cv7-rv { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 1080px; margin: 0 auto; padding: 0; list-style: none; }
-.cv7-rv-card { display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 24px 22px 20px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; box-shadow: var(--shadow-card); }
+/* [472차-2] 한 줄 슬라이드: --per = 보이는 장 수(PC 3 · 1024px 이하 2 · 760px 이하 1) · 트랙은 줄바꿈 없는 flex(같은 높이 = stretch, 펼친 카드 높이에 맞춰 영역이 늘어남) */
+.cv7-rslider { --per: 3; --gap: 16px; max-width: 1080px; margin: 0 auto; }
+.cv7-rs-viewport { overflow: hidden; touch-action: pan-y; padding: 2px 2px 12px; margin: -2px -2px 0; }
+.cv7-rv { position: relative; display: flex; flex-wrap: nowrap; align-items: stretch; gap: var(--gap); margin: 0; padding: 0; list-style: none; transition: transform .6s ease; }
+.cv7-rv-card { flex: 0 0 calc((100% - var(--gap) * (var(--per) - 1)) / var(--per)); display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 24px 22px 20px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; box-shadow: 0 6px 16px rgba(16, 42, 75, .06); -webkit-user-drag: none; }
+.cv7-rslider.is-paused .cv7-ts-toggle .ts-ico-play { display: inline; }
+.cv7-rslider.is-paused .cv7-ts-toggle .ts-ico-pause { display: none; }
+.cv7-rslider .cv7-ts-controls { margin-top: 8px; }
+@media (prefers-reduced-motion: reduce) { .cv7-rv { transition: none; } }
 .cv7-rv-title { margin: 0; color: var(--brand-navy); font-size: 17px; line-height: 1.5; word-break: keep-all; }
 .cv7-rv-title::before { content: "\201C"; color: var(--brand-gold-text); } .cv7-rv-title::after { content: "\201D"; color: var(--brand-gold-text); }
 .cv7-rv-body p { margin: 0; color: var(--text-body); font-size: 14.5px; line-height: 1.7; word-break: keep-all; }
@@ -256,8 +263,8 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
 .cv7-rv-toggle:focus-visible { outline: 3px solid #143454; outline-offset: 2px; border-radius: 4px; }
 .cv7-rv-author { margin: auto 0 0; padding-top: 12px; border-top: 1px solid var(--line); color: var(--brand-navy); font-size: 14px; font-weight: 700; word-break: keep-all; }
 .cv7-rv-note { max-width: 860px; margin: 20px auto 0; color: var(--text-body); font-size: 14px; text-align: center; word-break: keep-all; }
-@media (max-width: 1024px) { .cv7-rv { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 760px) { .cv7-rv { grid-template-columns: 1fr; max-width: 560px; gap: 12px; } .cv7-rv-card { padding: 20px 18px 18px; } }
+@media (max-width: 1024px) { .cv7-rslider { --per: 2; } }
+@media (max-width: 760px) { .cv7-rslider { --per: 1; --gap: 12px; max-width: 560px; } .cv7-rv-card { padding: 20px 18px 18px; } }
 /* [471차] 화상·전화 비교표 · 회화 수업료 안내 · 상담 전 준비사항 (이 페이지 전용) */
 .cv7-mode-table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--brand-cream); font-size: 14.5px; }
 .cv7-mode-table th, .cv7-mode-table td { padding: 14px 16px; text-align: left; vertical-align: top; word-break: keep-all; line-height: 1.6; }
@@ -442,7 +449,10 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
       <h2 id="cvReviewTitle">회원들이 전하는 회화 수업 이야기</h2>
       <p>과외마루에서 안내하는 파워잉글리쉬 상품의 수강 후기입니다.</p>
     </div>
-    <ul class="cv7-rv">
+    <!-- [472차-2] 후기 한 줄 슬라이드(PC 3장/태블릿 2장/모바일 1장, 2초 간격 순환) · 페이지 전용 스크립트(하단 [472차-2]) · 선생님 슬라이드(.cv7-tslider)와 별도 루트·상태·타이머 · 순환용 복제 카드는 스크립트가 만들고 id 제거·aria-hidden·inert 처리 -->
+    <div class="cv7-rslider" role="region" aria-roledescription="슬라이드 모음" aria-label="회원 후기">
+    <div class="cv7-rs-viewport">
+    <ul class="cv7-rv cv7-rs-track" aria-live="off">
       <li class="cv7-rv-card">
         <h3 class="cv7-rv-title">영어를 싫어하던 제가 재미를 느끼고 변할 수 있었습니다.</h3>
         <div class="cv7-rv-body" id="cvRv1"><p>부끄럽지만 영어 테스트를 하면 초등 수준이 나올 정도로 부족했습니다. 파워잉글리시는 1:1 화상 수업이다 보니 모르는 것이 있으면 바로 여쭤볼 수 있었는데요~ 덕분에 많은 단어를 외우게 되었고 문장 해석을 하고, 하루에 영어를 공부하는 시간이 더 길어졌습니다. 코치님은 영어에 너무 자신감이 없던 저를 격려해 주시고, 수업이 아닐 때에도 영어를 생활화할 수 있도록 알려주셨습니다. 그래서 '다음엔 더 잘 해야지' 라는 마음으로 성장할 수 있었습니다.</p></div>
@@ -474,6 +484,13 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
         <p class="cv7-rv-author">초등학교 5학년 방O현 회원</p>
       </li>
     </ul>
+    </div>
+      <div class="cv7-ts-controls">
+        <button type="button" class="cv7-ts-btn" data-rs="prev" aria-label="이전 후기"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg></button>
+        <button type="button" class="cv7-ts-btn cv7-ts-toggle" data-rs="toggle" aria-label="후기 자동 넘김 일시정지"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="ts-ico-pause" d="M9 6v12M15 6v12"/><path class="ts-ico-play" d="M8.5 5.5v13l10-6.5z"/></svg></button>
+        <button type="button" class="cv7-ts-btn" data-rs="next" aria-label="다음 후기"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg></button>
+      </div>
+    </div>
     <p class="cv7-rv-note">개인의 수강 경험이며, 학습 과정과 결과는 수강생마다 다를 수 있습니다.</p>
   </div>
 </section>
@@ -702,9 +719,18 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
   if (rm.addEventListener) rm.addEventListener('change', function () { if (rm.matches) { playing = false; sync(); } });
   go(0); sync();
 })();
-/* [472차] 회원 후기 '후기 더 보기' — 본문이 4줄을 넘는 카드만 버튼 표시 · button(Enter/Space 기본 지원) + aria-expanded · JS가 없으면 전체 본문 표시 */
+/* [472차-2] 회원 후기 — '후기 더 보기'(본문 4줄 넘는 카드만, button + aria-expanded) + 한 줄 슬라이드
+   · 2초 간격 한 장씩 이동, 마지막 다음 처음으로 순환(앞쪽 카드 복제본으로 이어 붙인 뒤 처음 위치로 즉시 되돌림)
+   · 이전/다음/재생·일시정지 · 손가락 넘기기 · 마우스·키보드 초점 시 정지 · 펼치면 정지(재생 버튼을 누를 때까지 유지)
+   · 화면 밖·다른 탭·동작 줄이기 설정에서 자동 이동 안 함 · 선생님 슬라이드(.cv7-tslider)와 루트·상태·타이머 분리 · JS가 없으면 전체 본문 표시 */
 (function () {
-  var cards = document.querySelectorAll('.cv7-rv-card'); if (!cards.length) return;
+  var root = document.querySelector('.cv7-rslider'); if (!root) return;
+  var track = root.querySelector('.cv7-rs-track'), vp = root.querySelector('.cv7-rs-viewport'), tog = root.querySelector('[data-rs="toggle"]');
+  var cards = Array.prototype.slice.call(track.children), n = cards.length;
+  var rm = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
+  var DELAY = 2000, DUR = 600;
+  var i = 0, playing = !rm.matches, hover = false, focused = false, inView = false, timer = null, wrapT = null, clones = [];
+  function per() { return parseInt(getComputedStyle(root).getPropertyValue('--per'), 10) || 1; }
   function measure(card) {
     var body = card.querySelector('.cv7-rv-body'), btn = card.querySelector('.cv7-rv-toggle');
     if (btn.getAttribute('aria-expanded') === 'true') return;
@@ -713,17 +739,77 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
     if (!over) body.classList.remove('is-clamped');
     btn.hidden = !over;
   }
-  Array.prototype.forEach.call(cards, function (card) {
+  function syncClone(k) {
+    var cl = clones[k]; if (!cl) return;
+    var a = cards[k].querySelector('.cv7-rv-body'), b = cards[k].querySelector('.cv7-rv-toggle');
+    cl.querySelector('.cv7-rv-body').className = a.className;
+    var cb = cl.querySelector('.cv7-rv-toggle'); cb.hidden = b.hidden; cb.textContent = b.textContent; cb.setAttribute('aria-expanded', b.getAttribute('aria-expanded'));
+  }
+  function setX(animate) {
+    track.style.transition = animate && !rm.matches ? '' : 'none';
+    track.style.transform = 'translateX(' + (-track.children[i].offsetLeft) + 'px)';
+  }
+  function go(t) {
+    clearTimeout(wrapT);
+    if (i >= n) { i -= n; t -= n; setX(false); void track.offsetWidth; } // 복제본 위치에 있으면 같은 모습의 원래 위치로 먼저 옮김
+    if (t < 0) { i = n; setX(false); void track.offsetWidth; t = n - 1; } // 처음에서 이전: 복제본 위치로 옮긴 뒤 한 장 뒤로
+    i = t; setX(true);
+    if (i >= n) wrapT = setTimeout(function () { i -= n; setX(false); void track.offsetWidth; }, rm.matches ? 0 : DUR + 40);
+  }
+  function sync() {
+    var run = playing && !hover && !focused && inView && !document.hidden;
+    if (run && !timer) timer = setInterval(function () { go(i + 1); }, DELAY);
+    if (!run && timer) { clearInterval(timer); timer = null; }
+    root.classList.toggle('is-paused', !playing);
+    tog.setAttribute('aria-label', playing ? '후기 자동 넘김 일시정지' : '후기 자동 넘김 시작');
+    track.setAttribute('aria-live', run ? 'off' : 'polite');
+  }
+  function step(d) { go(i + d); if (timer) { clearInterval(timer); timer = null; } sync(); }
+  cards.forEach(function (card, k) {
     var body = card.querySelector('.cv7-rv-body'), btn = card.querySelector('.cv7-rv-toggle');
     btn.addEventListener('click', function () {
       var open = btn.getAttribute('aria-expanded') !== 'true';
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       body.classList.toggle('is-clamped', !open);
       btn.textContent = open ? '후기 접기' : '후기 더 보기';
+      if (open) playing = false; // 펼친 뒤에는 재생 버튼을 누를 때까지 정지
+      syncClone(k); sync();
     });
     measure(card);
   });
-  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(function () { Array.prototype.forEach.call(cards, measure); }, 150); });
+  // 순환용 복제본(보이는 최대 장 수만큼) — id·aria-controls 제거, 화면 읽기·키보드 초점 제외
+  cards.slice(0, Math.min(3, n)).forEach(function (card, k) {
+    var cl = card.cloneNode(true);
+    Array.prototype.forEach.call(cl.querySelectorAll('[id]'), function (e) { e.removeAttribute('id'); });
+    Array.prototype.forEach.call(cl.querySelectorAll('[aria-controls]'), function (e) { e.removeAttribute('aria-controls'); });
+    Array.prototype.forEach.call(cl.querySelectorAll('button, a'), function (e) { e.setAttribute('tabindex', '-1'); });
+    cl.setAttribute('aria-hidden', 'true'); cl.setAttribute('inert', ''); cl.classList.add('is-clone');
+    track.appendChild(cl); clones.push(cl); syncClone(k);
+  });
+  root.querySelector('[data-rs="prev"]').addEventListener('click', function () { step(-1); });
+  root.querySelector('[data-rs="next"]').addEventListener('click', function () { step(1); });
+  tog.addEventListener('click', function () { playing = !playing; sync(); });
+  root.addEventListener('mouseenter', function () { hover = true; sync(); });
+  root.addEventListener('mouseleave', function () { hover = false; sync(); });
+  root.addEventListener('focusin', function (e) {
+    focused = true;
+    var k = cards.indexOf(e.target.closest ? e.target.closest('.cv7-rv-card') : null), cur = i % n, p = per();
+    if (k > -1 && (k - cur + n) % n >= p) go(k); // 화면 밖 카드로 초점이 가면 그 카드를 보여 줌
+    sync();
+  });
+  root.addEventListener('focusout', function (e) { if (!root.contains(e.relatedTarget)) { focused = false; sync(); } });
+  root.addEventListener('keydown', function (e) { if (e.target.closest && e.target.closest('.cv7-rv-card')) return; if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); } else if (e.key === 'ArrowRight') { e.preventDefault(); step(1); } });
+  var sx = null, sy = 0;
+  vp.addEventListener('pointerdown', function (e) { sx = e.clientX; sy = e.clientY; });
+  vp.addEventListener('pointerup', function (e) { if (sx === null) return; var dx = e.clientX - sx, dy = e.clientY - sy; sx = null; if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) step(dx < 0 ? 1 : -1); });
+  vp.addEventListener('pointercancel', function () { sx = null; });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { inView = es[0].isIntersecting; sync(); }, { threshold: 0.25 }).observe(root);
+  } else { inView = true; }
+  document.addEventListener('visibilitychange', sync);
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { cards.forEach(function (c, k) { measure(c); syncClone(k); }); if (i >= n) i -= n; setX(false); }, 150); });
+  if (rm.addEventListener) rm.addEventListener('change', function () { if (rm.matches) { playing = false; sync(); } });
+  setX(false); sync();
 })();
 </script>
 <script src="../js/script.js"></script>

@@ -242,6 +242,22 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
 @media (max-width: 560px) { .cv7-tslider { --per: 1; --gap: 12px; } }
 @media (prefers-reduced-motion: reduce) { .cv7-ts-track { transition: none; } }
 @media (max-width: 520px) { .cv7-exam { padding: 16px; } } /* [472차] 5단계(.is-five) 규칙 삭제 → 기본 .cv7-steps 4열/2열/1열 사용 */
+/* [472차] 회원 후기 — 흰 카드 · PC 3열 / 태블릿 2열 / 760px 이하 1열 · 접힌 상태 본문 4줄 미리보기(JS 동작 시에만) · 제목·작성자는 항상 표시 */
+.cv7-rv { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 1080px; margin: 0 auto; padding: 0; list-style: none; }
+.cv7-rv-card { display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 24px 22px 20px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; box-shadow: var(--shadow-card); }
+.cv7-rv-title { margin: 0; color: var(--brand-navy); font-size: 17px; line-height: 1.5; word-break: keep-all; }
+.cv7-rv-title::before { content: "\201C"; color: var(--brand-gold-text); } .cv7-rv-title::after { content: "\201D"; color: var(--brand-gold-text); }
+.cv7-rv-body p { margin: 0; color: var(--text-body); font-size: 14.5px; line-height: 1.7; word-break: keep-all; }
+.cv7-rv-body p + p { margin-top: 6px; }
+.cv7-rv-body.is-clamped { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; line-clamp: 4; overflow: hidden; }
+.cv7-rv-body.is-clamped p + p { margin-top: 0; } .cv7-rv-body.is-clamped p { display: inline; } .cv7-rv-body.is-clamped p + p::before { content: " "; }
+.cv7-rv-toggle { align-self: flex-start; display: inline-flex; align-items: center; min-height: 40px; padding: 0 2px; border: 0; background: none; color: var(--brand-navy); font: inherit; font-size: 14.5px; font-weight: 700; text-decoration: underline; text-decoration-color: var(--brand-gold); text-underline-offset: 5px; cursor: pointer; }
+.cv7-rv-toggle:hover { color: var(--brand-gold-text); }
+.cv7-rv-toggle:focus-visible { outline: 3px solid #143454; outline-offset: 2px; border-radius: 4px; }
+.cv7-rv-author { margin: auto 0 0; padding-top: 12px; border-top: 1px solid var(--line); color: var(--brand-navy); font-size: 14px; font-weight: 700; word-break: keep-all; }
+.cv7-rv-note { max-width: 860px; margin: 20px auto 0; color: var(--text-body); font-size: 14px; text-align: center; word-break: keep-all; }
+@media (max-width: 1024px) { .cv7-rv { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .cv7-rv { grid-template-columns: 1fr; max-width: 560px; gap: 12px; } .cv7-rv-card { padding: 20px 18px 18px; } }
 /* [471차] 화상·전화 비교표 · 회화 수업료 안내 · 상담 전 준비사항 (이 페이지 전용) */
 .cv7-mode-table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--brand-cream); font-size: 14.5px; }
 .cv7-mode-table th, .cv7-mode-table td { padding: 14px 16px; text-align: left; vertical-align: top; word-break: keep-all; line-height: 1.6; }
@@ -413,6 +429,52 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
       <article><img class="cv7-lv-ico" src="../images/conversation-level-advanced.webp" width="48" height="48" alt="" loading="lazy" decoding="async"><span class="cv7-lv">고급</span><strong>자연스러운 표현과 상황별 회화</strong><p>주제를 정해 의견을 나누고, 업무·여행 등 목적별 실전 회화를 연습합니다.</p></article>
     </div>
     <p class="cv7-note">학습자의 이해도와 말하기 속도에 맞춰 다음 단계로 이어갑니다.</p>
+  </div>
+</section>
+
+<!-- [472차] 회원 후기 5개 — 운영자 확인: 같은 회사 상품(파워잉글리쉬)의 실제 후기, 과외마루 홈페이지 사용 가능 · 첨부 캡처 3장에서 중복(황O은 회원 학부모님) 제외 5개
+     · 제목·본문·작성자(마스킹 포함)를 원문 글자 그대로 옮김(표기 차이 '파워잉글리쉬'·'파워잉글리시'도 원문대로) · 각색·추가 없음 · 원본 상단 홍보 제목 문구는 미사용 · 과외마루 직접 접수 후기로 표현하지 않음
+     · '6개월 만에 모의고사 8등급에서 4등급'은 해당 회원 경험으로만 표시(대문·일반 결과로 재사용 금지) · 별점·평균 평점·리뷰 수 구조화 데이터 없음 · 자동 슬라이드 없음 · 펼침 = 하단 [472차] script(button + aria-expanded) -->
+<section class="page-section cv7-sec" id="reviews" aria-labelledby="cvReviewTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">REVIEWS</div>
+      <h2 id="cvReviewTitle">회원들이 전하는 회화 수업 이야기</h2>
+      <p>과외마루에서 안내하는 파워잉글리쉬 상품의 수강 후기입니다.</p>
+    </div>
+    <ul class="cv7-rv">
+      <li class="cv7-rv-card">
+        <h3 class="cv7-rv-title">영어를 싫어하던 제가 재미를 느끼고 변할 수 있었습니다.</h3>
+        <div class="cv7-rv-body" id="cvRv1"><p>부끄럽지만 영어 테스트를 하면 초등 수준이 나올 정도로 부족했습니다. 파워잉글리시는 1:1 화상 수업이다 보니 모르는 것이 있으면 바로 여쭤볼 수 있었는데요~ 덕분에 많은 단어를 외우게 되었고 문장 해석을 하고, 하루에 영어를 공부하는 시간이 더 길어졌습니다. 코치님은 영어에 너무 자신감이 없던 저를 격려해 주시고, 수업이 아닐 때에도 영어를 생활화할 수 있도록 알려주셨습니다. 그래서 '다음엔 더 잘 해야지' 라는 마음으로 성장할 수 있었습니다.</p></div>
+        <button type="button" class="cv7-rv-toggle" aria-expanded="false" aria-controls="cvRv1" hidden>후기 더 보기</button>
+        <p class="cv7-rv-author">성인 최O연 회원</p>
+      </li>
+      <li class="cv7-rv-card">
+        <h3 class="cv7-rv-title">6개월 만에 모의고사 8등급에서 4등급으로 향상되었어요</h3>
+        <div class="cv7-rv-body" id="cvRv2"><p>중학교 때 운동선수 생활로 인해 공부를 제대로 해본 적이 없고 단어 또한 많이 부족해서, 영어에 어려움을 겪었고 성적 또한 밑바닥이었습니다.</p><p>하지만 전화영어를 통해서 매일 영어를 익숙하게 듣고 선생님과의 대화를 통해 친숙하게 영어에 접근할 수 있었습니다.</p><p>현재 제 성적이 상위권이라고 할 순 없지만, 듣기 만점을 받고 자신감도 향상되고 상위권을 바라볼 수 있는 점수대로 진입했다고 생각합니다!</p></div>
+        <button type="button" class="cv7-rv-toggle" aria-expanded="false" aria-controls="cvRv2" hidden>후기 더 보기</button>
+        <p class="cv7-rv-author">고등학교 3학년 장OO회원</p>
+      </li>
+      <li class="cv7-rv-card">
+        <h3 class="cv7-rv-title">영어에 대한 두려움은 사라지고 흥미와 자신감이 생겼더라고요</h3>
+        <div class="cv7-rv-body" id="cvRv3"><p>1년 정도 수업하고 있는데, 무엇보다 진도를 나가기 위함이 아니라, 아이 실력에 맞춰 수업이 진행되는게 가장 좋아요.</p><p>선생님이 교과서와 적절히 연계해 수업을 해주시고 아이가 익숙해질 때까지 반복 질문해 주어 결국 스스로 터득할 수 있게 이끌어 주세요.</p><p>수업을 하면서 아이가 영어를 대하는 태도가 진지해지고 자연스럽게 실력도 향상되었고, 말하기에 대한 두려움도 사라지고 자신감이 생겼답니다!</p></div>
+        <button type="button" class="cv7-rv-toggle" aria-expanded="false" aria-controls="cvRv3" hidden>후기 더 보기</button>
+        <p class="cv7-rv-author">초등학교 3학년 황O은 회원 학부모님</p>
+      </li>
+      <li class="cv7-rv-card">
+        <h3 class="cv7-rv-title">꼼꼼한 수업 준비는 물론 친절하고 세심하게 가르쳐주세요</h3>
+        <div class="cv7-rv-body" id="cvRv4"><p>저의 회화 실력을 점검이라도 받아보자는 생각에 파워잉글리쉬와 연이 닿아 본격적으로 회화 공부를 시작하게 되었습니다.</p><p>전화 수업은 생각보다 장점이 많았고, 시간과 장소 제한 없이 영어를 학습할 수 있다는 것이 성인인 저의 부담을 확 줄여 주었습니다. 무엇보다 프리토킹을 원하는 저에게 맞는 자료를 매 수업마다 준비해 주시고, 강사님과 개인적으로 소통할 수 있다는 부분도 타사와 비교하여 좋은 점이라 생각합니다.</p></div>
+        <button type="button" class="cv7-rv-toggle" aria-expanded="false" aria-controls="cvRv4" hidden>후기 더 보기</button>
+        <p class="cv7-rv-author">성인 한O현 회원</p>
+      </li>
+      <li class="cv7-rv-card">
+        <h3 class="cv7-rv-title">너무나도 좋은 선생님과 함께해서 시간 가는 줄 모르겠어요</h3>
+        <div class="cv7-rv-body" id="cvRv5"><p>저는 국제학교를 가기 위해 파워잉글리시를 시작하게 되었는데요~ 미국 교과서를 처음 봤을 때는 온통 처음 보는 단어라 너무 힘들었는데, 지금은 문맥 속에서 이해하기도 하고, 어려운 단어는 선생님께서 예를 들어 설명해 주셔서 그 의미를 확실히 알 수 있게 되었어요. 수업도 제가 자연스럽게 이야기할 수 있도록 이끌어 주고 항상 밝게 맞이해 주셔서 전혀 지루하지 않아요. 영어 시간이 너무 즐겁고 매번 수업 시간을 기다리고 있어요!</p></div>
+        <button type="button" class="cv7-rv-toggle" aria-expanded="false" aria-controls="cvRv5" hidden>후기 더 보기</button>
+        <p class="cv7-rv-author">초등학교 5학년 방O현 회원</p>
+      </li>
+    </ul>
+    <p class="cv7-rv-note">개인의 수강 경험이며, 학습 과정과 결과는 수강생마다 다를 수 있습니다.</p>
   </div>
 </section>
 
@@ -639,6 +701,29 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
   window.addEventListener('resize', function () { go(i); });
   if (rm.addEventListener) rm.addEventListener('change', function () { if (rm.matches) { playing = false; sync(); } });
   go(0); sync();
+})();
+/* [472차] 회원 후기 '후기 더 보기' — 본문이 4줄을 넘는 카드만 버튼 표시 · button(Enter/Space 기본 지원) + aria-expanded · JS가 없으면 전체 본문 표시 */
+(function () {
+  var cards = document.querySelectorAll('.cv7-rv-card'); if (!cards.length) return;
+  function measure(card) {
+    var body = card.querySelector('.cv7-rv-body'), btn = card.querySelector('.cv7-rv-toggle');
+    if (btn.getAttribute('aria-expanded') === 'true') return;
+    body.classList.add('is-clamped');
+    var over = body.scrollHeight > body.clientHeight + 1;
+    if (!over) body.classList.remove('is-clamped');
+    btn.hidden = !over;
+  }
+  Array.prototype.forEach.call(cards, function (card) {
+    var body = card.querySelector('.cv7-rv-body'), btn = card.querySelector('.cv7-rv-toggle');
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      body.classList.toggle('is-clamped', !open);
+      btn.textContent = open ? '후기 접기' : '후기 더 보기';
+    });
+    measure(card);
+  });
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(function () { Array.prototype.forEach.call(cards, measure); }, 150); });
 })();
 </script>
 <script src="../js/script.js"></script>

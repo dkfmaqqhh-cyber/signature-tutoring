@@ -220,7 +220,7 @@
   </div>
 </section>
 
-<!-- [474차] SELECT AREA(#regions)·AREA + SUBJECT(#topics) 두 영역은 OUR TEACHERS(#teachers) 바로 앞으로 이동 -->
+<!-- [474차] SELECT AREA(#regions)·AREA + SUBJECT(#topics) 두 영역은 아래로 이동 ([474-2차] SELECT AREA = SUBJECT TUTORING 위, AREA + SUBJECT = OUR TEACHERS 앞) -->
 
 <!-- [138차] '지역은 이렇게 세분화됩니다'(시·도→구·시·군→동→학년·과목 4단계) 섹션 삭제 — 지역 선택·지역+과목 찾기와 중복 -->
 
@@ -266,6 +266,38 @@
       <article class="sc-card"><h3>회화·외국어</h3><p>학생·성인 목표에 맞춘 외국어 수업</p><p class="sc-tags">영어회화 · 스피킹 · 라이팅</p></article>
       <article class="sc-card"><h3>특별과정</h3><p>교과 외에 필요한 과정까지 안내</p><p class="sc-tags">검정고시 · 코딩 · 학습코칭</p></article>
     </div>
+  </div>
+</section>
+
+<!-- [474-2차] SELECT AREA(#regions)는 SUBJECT TUTORING(아래 과외수업 이식 감싸개) 바로 위 · AREA + SUBJECT(#topics)는 OUR TEACHERS 바로 앞 그대로 -->
+<!-- 2. 대표 지역 선택 (최상위 허브: /area/{시도}/ → {구·시·군}/ → {과목·학년}/)
+     ※ [127차] 17개 시·도 카드 모두 실제 페이지로 연결됨 (비활성 카드 없음) -->
+<section class="page-section ar-regions" id="regions" aria-labelledby="arRegionsTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">SELECT AREA</div>
+      <h2 id="arRegionsTitle">지역을 선택해 주세요</h2>
+      <p>17개 시·도 모두 구·시·군별 안내를 확인하실 수 있습니다. 원하는 동네가 목록에 없어도 상담으로 수업 가능 여부를 바로 확인하실 수 있습니다.</p><!-- [302차] '순차적으로 열립니다' → 17개 시·도 모두 연결된 현재 상태로 -->
+    </div>
+    <ul class="ar-region-grid ar-sido-grid">
+      <li><a class="ar-region" href="seoul/"><strong>서울</strong><em>강남 · 송파 · 서초 등</em><small>25개 지역 보기 →</small></a></li><!-- [108차] 서울 페이지 연결 -->
+      <li><a class="ar-region" href="gyeonggi/"><strong>경기</strong><em>수원 · 성남 · 용인 등</em><small>31개 지역 보기 →</small></a></li><!-- [118차] 경기 페이지 연결 -->
+      <li><a class="ar-region" href="incheon/"><strong>인천</strong><em>연수 · 남동 · 부평 등</em><small>11개 지역 보기 →</small></a></li><!-- [118차] 인천 페이지 연결 · [119차] 2026.7.1 개편 기준 11개 군·구 -->
+      <li><a class="ar-region" href="busan/"><strong>부산</strong><em>해운대 · 수영 · 동래 등</em><small>16개 지역 보기 →</small></a></li><!-- [118차] 부산 페이지 연결 -->
+      <li><a class="ar-region" href="daegu/"><strong>대구</strong><em>수성 · 달서 · 북구 등</em><small>9개 지역 보기 →</small></a></li><!-- [121차] 대구 페이지 연결 · 7구 2군(군위군 포함) -->
+      <li><a class="ar-region" href="daejeon/"><strong>대전</strong><em>유성 · 서구 · 중구 등</em><small>5개 지역 보기 →</small></a></li><!-- [122차] 대전 페이지 연결 · 5개 자치구 -->
+      <li><a class="ar-region" href="gwangju/"><strong>광주</strong><em>전남광주통합특별시 · 광주권</em><small>5개 지역 보기 →</small></a></li><!-- [123차] 광주 페이지 연결 · 5개 자치구 · [125차] 2026.7.1 전남광주통합특별시 출범 반영(카드 이름 '광주'·URL 유지) -->
+      <li><a class="ar-region" href="ulsan/"><strong>울산</strong><em>남구 · 북구 · 울주 등</em><small>5개 지역 보기 →</small></a></li><!-- [123차] 울산 페이지 연결 · 4구 1군 -->
+      <li><a class="ar-region" href="sejong/"><strong>세종</strong><em>조치원 · 도담 · 아름 등</em><small>세부 지역 보기 →</small></a></li><!-- [124차] 세종 페이지 연결 · 1읍 9면 15동 -->
+      <li><a class="ar-region" href="gangwon/"><strong>강원</strong><em>춘천 · 원주 · 강릉 등</em><small>18개 지역 보기 →</small></a></li><!-- [124차] 강원 페이지 연결 · 7시 11군 -->
+      <li><a class="ar-region" href="chungbuk/"><strong>충북</strong><em>청주 · 충주 · 제천 등</em><small>11개 지역 보기 →</small></a></li><!-- [124차] 충북 페이지 연결 · 3시 8군 -->
+      <li><a class="ar-region" href="chungnam/"><strong>충남</strong><em>천안 · 아산 · 서산 등</em><small>15개 지역 보기 →</small></a></li><!-- [124차] 충남 페이지 연결 · 8시 7군 -->
+      <li><a class="ar-region" href="jeonbuk/"><strong>전북</strong><em>전주 · 군산 · 익산 등</em><small>14개 지역 보기 →</small></a></li><!-- [126차] 전북 페이지 연결 · 6시 8군 -->
+      <li><a class="ar-region" href="jeonnam/"><strong>전남</strong><em>전남광주통합특별시 · 전남권</em><small>22개 지역 보기 →</small></a></li><!-- [126차] 전남 페이지 연결 · [125차] 기준: /area/jeonnam/ = 전남권 검색 랜딩 · H1 '전남 지역별 맞춤 과외' · Schema areaServed '전남광주통합특별시' · 안내문 '※ 현재 행정구역 기준 전남광주통합특별시 내 전남권 수업 안내입니다.' -->
+      <li><a class="ar-region" href="gyeongbuk/"><strong>경북</strong><em>포항 · 구미 · 경주 등</em><small>22개 지역 보기 →</small></a></li><!-- [127차] 경북 페이지 연결 · 10시 12군 -->
+      <li><a class="ar-region" href="gyeongnam/"><strong>경남</strong><em>창원 · 김해 · 진주 등</em><small>18개 지역 보기 →</small></a></li><!-- [127차] 경남 페이지 연결 · 8시 10군 -->
+      <li><a class="ar-region" href="jeju/"><strong>제주</strong><em>제주 · 서귀포</em><small>2개 지역 보기 →</small></a></li><!-- [127차] 제주 페이지 연결 · 2개 행정시 · 17개 대표지역 모두 연결 완료 -->
+    </ul>
   </div>
 </section>
 
@@ -365,38 +397,7 @@
   </div>
 </section>
 
-</div><!-- [474차] 과외수업 이식 감싸개(#subject-class)를 여기서 닫음 — 아래 지역 선택·지역+과목 두 영역은 원래처럼 감싸개(.ah-sj) 밖에 둠(디자인 그대로) -->
-
-<!-- 2. 대표 지역 선택 (최상위 허브: /area/{시도}/ → {구·시·군}/ → {과목·학년}/)
-     ※ [127차] 17개 시·도 카드 모두 실제 페이지로 연결됨 (비활성 카드 없음) -->
-<section class="page-section ar-regions" id="regions" aria-labelledby="arRegionsTitle">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">SELECT AREA</div>
-      <h2 id="arRegionsTitle">지역을 선택해 주세요</h2>
-      <p>17개 시·도 모두 구·시·군별 안내를 확인하실 수 있습니다. 원하는 동네가 목록에 없어도 상담으로 수업 가능 여부를 바로 확인하실 수 있습니다.</p><!-- [302차] '순차적으로 열립니다' → 17개 시·도 모두 연결된 현재 상태로 -->
-    </div>
-    <ul class="ar-region-grid ar-sido-grid">
-      <li><a class="ar-region" href="seoul/"><strong>서울</strong><em>강남 · 송파 · 서초 등</em><small>25개 지역 보기 →</small></a></li><!-- [108차] 서울 페이지 연결 -->
-      <li><a class="ar-region" href="gyeonggi/"><strong>경기</strong><em>수원 · 성남 · 용인 등</em><small>31개 지역 보기 →</small></a></li><!-- [118차] 경기 페이지 연결 -->
-      <li><a class="ar-region" href="incheon/"><strong>인천</strong><em>연수 · 남동 · 부평 등</em><small>11개 지역 보기 →</small></a></li><!-- [118차] 인천 페이지 연결 · [119차] 2026.7.1 개편 기준 11개 군·구 -->
-      <li><a class="ar-region" href="busan/"><strong>부산</strong><em>해운대 · 수영 · 동래 등</em><small>16개 지역 보기 →</small></a></li><!-- [118차] 부산 페이지 연결 -->
-      <li><a class="ar-region" href="daegu/"><strong>대구</strong><em>수성 · 달서 · 북구 등</em><small>9개 지역 보기 →</small></a></li><!-- [121차] 대구 페이지 연결 · 7구 2군(군위군 포함) -->
-      <li><a class="ar-region" href="daejeon/"><strong>대전</strong><em>유성 · 서구 · 중구 등</em><small>5개 지역 보기 →</small></a></li><!-- [122차] 대전 페이지 연결 · 5개 자치구 -->
-      <li><a class="ar-region" href="gwangju/"><strong>광주</strong><em>전남광주통합특별시 · 광주권</em><small>5개 지역 보기 →</small></a></li><!-- [123차] 광주 페이지 연결 · 5개 자치구 · [125차] 2026.7.1 전남광주통합특별시 출범 반영(카드 이름 '광주'·URL 유지) -->
-      <li><a class="ar-region" href="ulsan/"><strong>울산</strong><em>남구 · 북구 · 울주 등</em><small>5개 지역 보기 →</small></a></li><!-- [123차] 울산 페이지 연결 · 4구 1군 -->
-      <li><a class="ar-region" href="sejong/"><strong>세종</strong><em>조치원 · 도담 · 아름 등</em><small>세부 지역 보기 →</small></a></li><!-- [124차] 세종 페이지 연결 · 1읍 9면 15동 -->
-      <li><a class="ar-region" href="gangwon/"><strong>강원</strong><em>춘천 · 원주 · 강릉 등</em><small>18개 지역 보기 →</small></a></li><!-- [124차] 강원 페이지 연결 · 7시 11군 -->
-      <li><a class="ar-region" href="chungbuk/"><strong>충북</strong><em>청주 · 충주 · 제천 등</em><small>11개 지역 보기 →</small></a></li><!-- [124차] 충북 페이지 연결 · 3시 8군 -->
-      <li><a class="ar-region" href="chungnam/"><strong>충남</strong><em>천안 · 아산 · 서산 등</em><small>15개 지역 보기 →</small></a></li><!-- [124차] 충남 페이지 연결 · 8시 7군 -->
-      <li><a class="ar-region" href="jeonbuk/"><strong>전북</strong><em>전주 · 군산 · 익산 등</em><small>14개 지역 보기 →</small></a></li><!-- [126차] 전북 페이지 연결 · 6시 8군 -->
-      <li><a class="ar-region" href="jeonnam/"><strong>전남</strong><em>전남광주통합특별시 · 전남권</em><small>22개 지역 보기 →</small></a></li><!-- [126차] 전남 페이지 연결 · [125차] 기준: /area/jeonnam/ = 전남권 검색 랜딩 · H1 '전남 지역별 맞춤 과외' · Schema areaServed '전남광주통합특별시' · 안내문 '※ 현재 행정구역 기준 전남광주통합특별시 내 전남권 수업 안내입니다.' -->
-      <li><a class="ar-region" href="gyeongbuk/"><strong>경북</strong><em>포항 · 구미 · 경주 등</em><small>22개 지역 보기 →</small></a></li><!-- [127차] 경북 페이지 연결 · 10시 12군 -->
-      <li><a class="ar-region" href="gyeongnam/"><strong>경남</strong><em>창원 · 김해 · 진주 등</em><small>18개 지역 보기 →</small></a></li><!-- [127차] 경남 페이지 연결 · 8시 10군 -->
-      <li><a class="ar-region" href="jeju/"><strong>제주</strong><em>제주 · 서귀포</em><small>2개 지역 보기 →</small></a></li><!-- [127차] 제주 페이지 연결 · 2개 행정시 · 17개 대표지역 모두 연결 완료 -->
-    </ul>
-  </div>
-</section>
+</div><!-- [474차] 과외수업 이식 감싸개(#subject-class)를 여기서 닫음 — 아래 지역+과목 영역은 원래처럼 감싸개(.ah-sj) 밖에 둠(디자인 그대로) -->
 
 <!-- [110차] 3. 지역 + 과목으로 찾기
      [302차] 비활성 칩(서울 단위 과목 페이지는 없음)·'준비 중입니다' 삭제 → 실제 있는 구·시·군 과목·학년 페이지로 연결(새 페이지 없음)

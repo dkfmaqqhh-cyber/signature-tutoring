@@ -263,6 +263,43 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
 .cv7-rv-toggle:focus-visible { outline: 3px solid #143454; outline-offset: 2px; border-radius: 4px; }
 .cv7-rv-author { margin: auto 0 0; padding-top: 12px; border-top: 1px solid var(--line); color: var(--brand-navy); font-size: 14px; font-weight: 700; word-break: keep-all; }
 .cv7-rv-note { max-width: 860px; margin: 20px auto 0; color: var(--text-body); font-size: 14px; text-align: center; word-break: keep-all; }
+/* [472차-3] 무료 레벨테스트 고정 배너 — 연한 노랑·네이비 글자 · PC 아래 가운데(최대 960px, 오른쪽 빠른 상담 버튼 피해 양쪽 112px 여유) · 화살표만 약하게 움직임 */
+html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배너·하단 띠에 가리지 않게(이 페이지 전용 style) */
+.cv-lt { position: fixed; left: 50%; bottom: 24px; z-index: 91; display: flex; align-items: center; gap: 4px; width: min(960px, calc(100% - 224px)); padding: 0 8px 0 0; border: 1px solid #EED88F; border-radius: 999px; background: #FFF4C7; color: var(--brand-navy); box-shadow: 0 8px 22px rgba(16, 42, 75, .14); opacity: 0; visibility: hidden; transform: translate(-50%, calc(100% + 40px)); transition: transform .3s ease, opacity .3s ease, visibility 0s linear .3s; }
+.cv-lt.is-shown { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: transform .3s ease, opacity .3s ease, visibility 0s; }
+.cv-lt-link { flex: 1 1 auto; display: flex; align-items: center; gap: 12px; min-width: 0; min-height: 56px; padding: 8px 12px 8px 16px; border-radius: 999px; color: var(--brand-navy); text-decoration: none; }
+.cv-lt-link:focus-visible { outline: 3px solid #143454; outline-offset: 2px; }
+.cv-lt-ico { flex: 0 0 auto; width: 36px; height: 36px; object-fit: contain; }
+.cv-lt-text { display: flex; flex: 1 1 auto; align-items: center; gap: 4px 16px; min-width: 0; }
+.cv-lt-q { font-size: 16px; font-weight: 800; line-height: 1.3; white-space: nowrap; }
+.cv-lt-cta { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; font-size: 15.5px; font-weight: 800; line-height: 1.3; white-space: nowrap; }
+.cv-lt-ctxt { text-decoration: underline; text-decoration-color: var(--brand-gold); text-underline-offset: 5px; } /* 문구 한 덩어리로 밑줄(화살표 제외) */
+.cv-lt-arrow { display: inline-block; animation: cvLtNudge 1.6s ease-in-out infinite; }
+@keyframes cvLtNudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+.cv-lt:hover .cv-lt-arrow, .cv-lt:focus-within .cv-lt-arrow { animation: none; } /* 마우스 올림·키보드 초점 시 정지 */
+.cv-lt-close { flex: 0 0 auto; display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--brand-navy); cursor: pointer; }
+.cv-lt-close:hover { background: rgba(16, 42, 75, .08); }
+.cv-lt-close:focus-visible { outline: 3px solid #143454; outline-offset: 1px; }
+.cv-lt-close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+@media (max-width: 1024px) {
+  /* 모바일·태블릿: 새 띠를 쌓지 않고 기존 하단 상담 띠(.sig-float) 자리·높이로 전환 */
+  .cv-lt { left: 0; right: 0; bottom: 0; width: auto; padding: 0 4px env(safe-area-inset-bottom) 0; border: 0; border-radius: 0; box-shadow: inset 0 1px 0 #EED88F, 0 -6px 18px rgba(16, 42, 75, .12); transform: translateY(100%); } /* 위 선은 그림자로(테두리 1px 때문에 기존 띠보다 높아지지 않게) */
+  .cv-lt.is-shown { transform: none; }
+  .cv-lt-link { height: 52px; min-height: 0; padding: 0 8px 0 16px; gap: 10px; border-radius: 0; }
+  .cv-lt-link:focus-visible { outline-offset: -3px; }
+  .cv-lt-ico { width: 30px; height: 30px; }
+  .cv-lt-q { font-size: 15px; } .cv-lt-cta { margin-left: 0; font-size: 15px; } .cv-lt-pc { display: none; }
+  body.page-cv.cv-lt-on .sig-float:not(.rg-float) { visibility: hidden; opacity: 0; pointer-events: none; }
+}
+@media (max-width: 640px) {
+  .cv-lt-link { height: 48px; padding: 0 4px 0 12px; gap: 8px; }
+  .cv-lt-ico { width: 28px; height: 28px; }
+  .cv-lt-text { flex-direction: column; align-items: flex-start; gap: 1px; } /* 좁은 화면: 질문·신청 문구 두 줄 */
+  .cv-lt-q { font-size: 12.5px; font-weight: 700; line-height: 1.25; } .cv-lt-cta { font-size: 14px; line-height: 1.3; } .cv-lt-ctxt { text-underline-offset: 3px; }
+  .cv-lt-close { width: 40px; height: 40px; }
+}
+@media (prefers-reduced-motion: reduce) { .cv-lt, .cv-lt.is-shown { transition: none; } .cv-lt-arrow { animation: none; } }
+@media print { .cv-lt { display: none; } }
 @media (max-width: 1024px) { .cv7-rslider { --per: 2; } }
 @media (max-width: 760px) { .cv7-rslider { --per: 1; --gap: 12px; max-width: 560px; } .cv7-rv-card { padding: 20px 18px 18px; } }
 /* [471차] 화상·전화 비교표 · 회화 수업료 안내 · 상담 전 준비사항 (이 페이지 전용) */
@@ -644,7 +681,7 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
             </span>
           </a>
         </div>
-        <a href="../consult.html" class="btn-gold sj-trial-btn">회화 무료 시범수업 상담 신청</a>
+        <a href="../consult.html" class="btn-gold sj-trial-btn">회화 무료 시범수업 상담 신청</a><!-- [472차-3] 레벨테스트 배너는 이 최종 상담 영역이 보이면 숨김 -->
       </div>
       <div class="sj-trial-visual" aria-hidden="true">
         <div class="sj-trial-photo"><img src="../images/free-trial-teacher.png" alt="" width="800" height="1000" loading="lazy" decoding="async"></div>
@@ -652,6 +689,17 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
     </div>
   </div>
 </section>
+<!-- [472차-3] 무료 레벨테스트 고정 배너(회화 페이지 전용) — 기존 consult.html 연결(새 신청서·접수 필드 없음) · 레벨테스트는 무료 시범수업에서 진행(즉시 온라인 검사 아님)
+     · PC(1025px~): 화면 아래 가운데 얇은 띠(최대 960px, 오른쪽 빠른 상담 버튼과 겹치지 않는 폭) · 모바일·태블릿(~1024px): 기존 하단 상담 띠(.sig-float) 자리에 같은 높이로 전환
+     · 대문을 지나면 0.3초 등장, 최종 상담 영역부터 숨김 · 닫으면 이 탭 세션 동안 표시 안 함(sessionStorage) · 숨김 상태 = inert + visibility hidden(Tab 초점 없음)
+     · 클릭 기록 = 공통 script.js 상담 링크 기록 그대로(페이지 /conversation/ · 위치 body · 문구 = 링크 글자) · 동작 = 하단 [472차-3] script -->
+<aside class="cv-lt" id="cvLevelTest" aria-label="무료 레벨테스트 안내" aria-hidden="true" inert>
+  <a class="cv-lt-link" href="../consult.html">
+    <img class="cv-lt-ico" src="../images/conversation-level-mid.webp" width="36" height="36" alt="" decoding="async">
+    <span class="cv-lt-text"><span class="cv-lt-q">나의 회화 실력은 어디쯤?</span> <span class="cv-lt-cta"><span class="cv-lt-ctxt">무료 레벨테스트 신청<span class="cv-lt-pc">하기</span></span> <span class="cv-lt-arrow" aria-hidden="true">→</span></span></span>
+  </a>
+  <button type="button" class="cv-lt-close" aria-label="레벨테스트 안내 닫기"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button>
+</aside>
 </main>
 
 <footer class="site-footer">
@@ -810,6 +858,39 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
   var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { cards.forEach(function (c, k) { measure(c); syncClone(k); }); if (i >= n) i -= n; setX(false); }, 150); });
   if (rm.addEventListener) rm.addEventListener('change', function () { if (rm.matches) { playing = false; sync(); } });
   setX(false); sync();
+})();
+/* [472차-3] 무료 레벨테스트 고정 배너 — 대문을 지나면 표시, 최종 상담 영역부터 숨김 · 닫으면 이 탭 세션 동안 숨김 · 스크롤은 requestAnimationFrame 1회 계산(타이머 없음 · 슬라이드와 무관)
+   · 표시 중에는 body.cv-lt-on → 1024px 이하에서 기존 하단 상담 띠를 숨기고 같은 자리에 배너 표시 */
+(function () {
+  var bar = document.getElementById('cvLevelTest'), hero = document.querySelector('.cv7-hero'), fin = document.getElementById('free-consult');
+  if (!bar || !hero || !fin) return;
+  var KEY = 'cv_level_banner_closed', closed = false, shown = false, raf = 0;
+  try { closed = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+  function set(on) {
+    if (on === shown) return;
+    shown = on;
+    bar.classList.toggle('is-shown', on);
+    if (on) bar.removeAttribute('inert'); else bar.setAttribute('inert', '');
+    bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+    document.body.classList.toggle('cv-lt-on', on);
+  }
+  function check() {
+    raf = 0;
+    if (closed) { set(false); return; }
+    var h = hero.getBoundingClientRect(), f = fin.getBoundingClientRect();
+    set(h.bottom <= 0 && f.top >= window.innerHeight);
+  }
+  function req() { if (!raf) raf = requestAnimationFrame(check); }
+  window.addEventListener('scroll', req, { passive: true });
+  window.addEventListener('resize', req);
+  bar.querySelector('.cv-lt-close').addEventListener('click', function () {
+    var hadFocus = bar.contains(document.activeElement);
+    closed = true;
+    try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+    set(false);
+    if (hadFocus) { var t = document.querySelector('.sig-float .sf-trial') || document.querySelector('.cv7-hero .btn-navy'); if (t) t.focus({ preventScroll: true }); } // 닫은 뒤 초점이 사라지지 않게 가까운 상담 버튼으로
+  });
+  check();
 })();
 </script>
 <script src="../js/script.js"></script>

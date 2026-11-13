@@ -277,6 +277,9 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
 .cv-lt-arrow { display: inline-block; animation: cvLtNudge 1.6s ease-in-out infinite; }
 @keyframes cvLtNudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
 .cv-lt:hover .cv-lt-arrow, .cv-lt:focus-within .cv-lt-arrow { animation: none; } /* 마우스 올림·키보드 초점 시 정지 */
+/* [472차-4] 안내 캐릭터 — 신청 문구와 닫기 버튼 사이 전용 자리(PC 100px) · 높이 110px, 배너 아래선에 맞춰 머리가 위로 나옴 · 클릭 통과 */
+.cv-lt-guide { position: relative; flex: 0 0 100px; align-self: stretch; pointer-events: none; }
+.cv-lt-guide img { position: absolute; right: 0; bottom: 0; width: auto; height: 110px; max-width: none; pointer-events: none; user-select: none; -webkit-user-drag: none; }
 .cv-lt-close { flex: 0 0 auto; display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--brand-navy); cursor: pointer; }
 .cv-lt-close:hover { background: rgba(16, 42, 75, .08); }
 .cv-lt-close:focus-visible { outline: 3px solid #143454; outline-offset: 1px; }
@@ -290,7 +293,9 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
   .cv-lt-ico { width: 30px; height: 30px; }
   .cv-lt-q { font-size: 15px; } .cv-lt-cta { margin-left: 0; font-size: 15px; } .cv-lt-pc { display: none; }
   body.page-cv.cv-lt-on .sig-float:not(.rg-float) { visibility: hidden; opacity: 0; pointer-events: none; }
+  .cv-lt-guide { flex-basis: 52px; } .cv-lt-guide img { height: 56px; } /* 모바일·태블릿 56px, 띠 높이는 그대로 */
 }
+@media (max-width: 360px) { .cv-lt-guide { display: none; } } /* 320px대: 글자·닫기 버튼 공간 확보를 위해 캐릭터만 숨김 */
 @media (max-width: 640px) {
   .cv-lt-link { height: 48px; padding: 0 4px 0 12px; gap: 8px; }
   .cv-lt-ico { width: 28px; height: 28px; }
@@ -698,6 +703,8 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
     <img class="cv-lt-ico" src="../images/conversation-level-mid.webp" width="36" height="36" alt="" decoding="async">
     <span class="cv-lt-text"><span class="cv-lt-q">나의 회화 실력은 어디쯤?</span> <span class="cv-lt-cta"><span class="cv-lt-ctxt">무료 레벨테스트 신청<span class="cv-lt-pc">하기</span></span> <span class="cv-lt-arrow" aria-hidden="true">→</span></span></span>
   </a>
+  <!-- [472차-4] 안내 캐릭터(운영자 제공 이미지, 투명 WebP 109×120·218×240) · 장식용 alt="" · 클릭 통과(pointer-events:none) · 반복 움직임 없음 · 320px대(360px 이하)에서는 숨김 -->
+  <span class="cv-lt-guide" aria-hidden="true"><img src="../images/conversation-level-guide-120.webp" srcset="../images/conversation-level-guide-120.webp 109w, ../images/conversation-level-guide-240.webp 218w" sizes="(max-width: 1024px) 51px, 100px" width="218" height="240" alt="" decoding="async"></span>
   <button type="button" class="cv-lt-close" aria-label="레벨테스트 안내 닫기"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button>
 </aside>
 </main>

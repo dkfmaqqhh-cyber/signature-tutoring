@@ -222,6 +222,104 @@ body.page-home .home-tu #areas .section-head h2 { margin-bottom: 0; font-size: 4
   body.page-home .home-tu #areas .section-head { margin-bottom: 24px; }
   body.page-home .home-tu #areas .section-head h2 { font-size: 34px; }
 }
+/* [473-3차] 성적 기록(#results) 규칙 — css/style.css body.page-tutoring #results → body.page-home .home-tu #results (성과 카드 순차 등장 rs-anim 제외) */
+body.page-home .home-tu #results .rs-card { border-radius: 18px; }
+body.page-home .home-tu #results .rs-grid { align-items: stretch; }
+body.page-home .home-tu #results .rs-name { font-size: 13px; font-weight: 600; color: #7a8394; }
+body.page-home .home-tu #results .rs-after { font-size: 34px; }
+body.page-home .home-tu #results .rs-before { font-size: 15px; }
+body.page-home .home-tu #results .rs-gain { padding: 4px 10px; border: 1px solid #e3c88f; background: #fbf3e2; color: var(--brand-gold-text); font-size: 12px; letter-spacing: -0.01em; }
+body.page-home .home-tu #results .rs-point { margin-top: auto; color: #1f2a3c; font-size: 15.5px; }
+body.page-home .home-tu #results .rs-care { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 10px; margin-top: 26px; }
+body.page-home .home-tu #results .rs-care li { padding: 8px 15px; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 999px; background: transparent; font-size: 14px; font-weight: 700; }
+@media (max-width: 640px) {
+  body.page-home .home-tu #results .rs-after { font-size: 32px; }
+  body.page-home .home-tu #results .rs-care li { padding: 7px 12px; font-size: 13px; }
+}
+body.page-home .home-tu #results .rs-arrow { color: #9aa6b8; }
+body.page-home .home-tu #results .rs-gain { background: var(--sj-yellow-soft); border-color: var(--sj-yellow); color: var(--sj-navy); }
+body.page-home .home-tu #results .rs-after { font-weight: 700 !important; }
+body.page-home .home-tu #results .rs-quote { display: block; max-width: 1080px; margin: 56px auto 6px; color: #fff; font-size: 38px; font-weight: 800; line-height: 1.35; letter-spacing: -0.03em; text-align: center; word-break: keep-all; text-wrap: balance; }
+body.page-home .home-tu #results .rs-quote::before,
+body.page-home .home-tu #results .rs-quote::after { content: ""; display: inline-block; width: 80px; height: 2px; margin: 0 22px; vertical-align: middle; border-radius: 2px; background: linear-gradient(90deg, rgba(244, 200, 74, 0), var(--brand-gold-light)); }
+body.page-home .home-tu #results .rs-quote::after { background: linear-gradient(90deg, var(--brand-gold-light), rgba(244, 200, 74, 0)); }
+body.page-home .home-tu #results .rs-quote em { color: var(--brand-gold-light); font-weight: 800; font-style: normal; }
+@media (max-width: 980px) {
+  body.page-home .home-tu #results .rs-quote { font-size: 32px; }
+  body.page-home .home-tu #results .rs-quote::before,
+body.page-home .home-tu #results .rs-quote::after { width: 48px; margin: 0 14px; }
+}
+@media (max-width: 640px) {
+  body.page-home .home-tu #results .rs-quote { margin-top: 40px; font-size: 25px; line-height: 1.4; }
+  body.page-home .home-tu #results .rs-quote::before,
+body.page-home .home-tu #results .rs-quote::after { content: none; }
+}
+body.page-home .home-tu #results .rs-proof { margin-top: 56px; }
+body.page-home .home-tu #results .rs-proof-head { margin-bottom: 24px; text-align: center; }
+body.page-home .home-tu #results .rs-proof-head h3 { margin: 0 0 8px; color: #fff; font-size: 28px; font-weight: 800; letter-spacing: -0.03em; }
+body.page-home .home-tu #results .rs-proof-head h3 em { color: var(--brand-gold-light); font-style: normal; }
+body.page-home .home-tu #results .rs-proof-head p { margin: 0; color: rgba(255, 255, 255, 0.72); font-size: 16px; }
+body.page-home .home-tu #results .rs-proof-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+body.page-home .home-tu #results .rs-proof-card { display: flex; flex-direction: column; margin: 0; overflow: hidden; border-radius: 18px; background: #fff; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18); }
+body.page-home .home-tu #results .rs-proof-img { aspect-ratio: 3 / 2; overflow: hidden; background: #f4f6fb; }
+body.page-home .home-tu #results .rs-proof-img img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transition: transform 0.35s; }
+body.page-home .home-tu #results .rs-proof-card.is-contain .rs-proof-img { background: #fff; }
+body.page-home .home-tu #results .rs-proof-card.is-contain .rs-proof-img img { padding: 10px; object-fit: contain; }
+body.page-home .home-tu #results .rs-proof-card:hover .rs-proof-img img { transform: scale(1.04); }
+body.page-home .home-tu #results .rs-proof-card figcaption { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 18px; border-top: 1px solid #edf0f5; }
+body.page-home .home-tu #results .rs-proof-tag { align-self: flex-start; padding: 3px 10px; border-radius: 999px; background: #e3f8f4; color: #0f8f86; font-size: 12px; font-weight: 800; }
+body.page-home .home-tu #results .rs-proof-card strong { color: var(--brand-navy); font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+body.page-home .home-tu #results .rs-proof-card p { margin: 0; color: #4e5a6b; font-size: 15px; line-height: 1.6; word-break: keep-all; }
+@media (max-width: 980px) {
+  body.page-home .home-tu #results .rs-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  body.page-home .home-tu #results .rs-proof { margin-top: 40px; }
+  body.page-home .home-tu #results .rs-proof-head h3 { font-size: 22px; }
+  body.page-home .home-tu #results .rs-proof-head p { font-size: 14.5px; }
+  body.page-home .home-tu #results .rs-proof-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 82%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px 14px 12px; margin: 0 -14px; scroll-padding-left: 14px; }
+  body.page-home .home-tu #results .rs-proof-grid::-webkit-scrollbar { display: none; }
+  body.page-home .home-tu #results .rs-proof-card { scroll-snap-align: start; }
+  body.page-home .home-tu #results .rs-proof-card strong { font-size: 17px; }
+  body.page-home .home-tu #results .rs-proof-card p { font-size: 14.5px; }
+}
+body.page-home .home-tu #results { background: #f2faf7; }
+body.page-home .home-tu #results .rs-card,
+body.page-home .home-tu #results .rs-proof-card { border: 1px solid #e1eee8; box-shadow: 0 12px 26px rgba(16, 42, 75, 0.08); }
+body.page-home .home-tu #results .rs-after { font-weight: 800 !important; color: var(--v-navy, #102a4b); }
+body.page-home .home-tu #results .rs-arrow { color: var(--v-orange, #f15a32); }
+body.page-home .home-tu #results .rs-gain { border: 1px solid var(--v-yellow, #f4c84a); background: var(--v-yellow-soft, #fff3c4); color: var(--v-navy, #102a4b); font-weight: 800; }
+body.page-home .home-tu #results .rs-proof-head h3 { color: #16233a; }
+body.page-home .home-tu #results .rs-proof-head h3 em,
+body.page-home .home-tu #results .rs-quote em { color: var(--v-orange, #f15a32); }
+body.page-home .home-tu #results .rs-proof-head p { color: #4e5a6b; }
+body.page-home .home-tu #results .rs-care li { border-color: #cfe6dd; background: #fff; color: #16233a; }
+body.page-home .home-tu #results .rs-quote { color: #16233a; }
+body.page-home .home-tu #results { background: linear-gradient(180deg, #e9f6f1 0%, #f3faf7 55%, #eef8f4 100%); border-top: 1px solid #d5ece3; border-bottom: 1px solid #d5ece3; }
+body.page-home .home-tu #results .rs-card { transition: box-shadow 0.25s ease, transform 0.25s ease; }
+body.page-home .home-tu #results .rs-before { color: #8a94a5; }
+body.page-home .home-tu #results .rs-arrow { color: #a3adbd; }
+body.page-home .home-tu #results .rs-after { color: var(--v-navy, #102a4b); font-size: 36px; font-weight: 800 !important; }
+body.page-home .home-tu #results .rs-gain { margin-top: 6px; padding: 5px 12px; border: 0; background: #fff0ea; color: #e2512b; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+@media (hover: hover) and (min-width: 981px) {
+  body.page-home .home-tu #results .rs-card:hover { transform: translateY(-3px); box-shadow: 0 18px 34px rgba(16, 42, 75, 0.12); }
+}
+body.page-home .home-tu #results .rs-proof { margin-top: 64px; }
+body.page-home .home-tu #results .rs-proof-label { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 10px; color: #0f8f86; font-size: 13px; font-weight: 800; letter-spacing: 0.12em; }
+body.page-home .home-tu #results .rs-proof-label::before,
+body.page-home .home-tu #results .rs-proof-label::after { content: ""; width: 40px; height: 1.5px; border-radius: 2px; background: #9fd6c9; }
+body.page-home .home-tu #results .rs-proof-head h3 { font-size: 30px; }
+body.page-home .home-tu #results .rs-proof-head p { font-size: 17px; }
+@media (max-width: 640px) {
+  body.page-home .home-tu #results .rs-after { font-size: 30px; }
+  body.page-home .home-tu #results .rs-gain { font-size: 16.5px; }
+  body.page-home .home-tu #results .rs-proof { margin-top: 44px; }
+  body.page-home .home-tu #results .rs-proof-head h3 { font-size: 23px; }
+  body.page-home .home-tu #results .rs-proof-head p { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.page-home .home-tu #results .rs-card { opacity: 1; transform: none; transition: none; }
+}
 /* ── ② 수업료 (tutoring/index.html 그대로) ── */
 .tu-price { background: #fff; }
 .tu-price .section-head p { max-width: 640px; margin-left: auto; margin-right: auto; }
@@ -302,6 +400,65 @@ html.hero-cta-ready .home-hero-cta { position: absolute; padding: 0; }
 }
 /* [473-2차] 학년별 안내 텍스트 링크 — 옛 #tuition [309차] 표시와 같게 */
 #by-grade .section-head p a { text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+
+/* [473-3차] 과외 상품 2종(#lesson-program) — 옛 홈 #tuition 전용 표시(css/style.css body.page-home #tuition …)를 이 id로 그대로 · PC·태블릿 같은 크기 2열 / 모바일 1열 */
+body.page-home #lesson-program.signature-tuition { background: linear-gradient(180deg, #f4f6fb 0%, #edf1f7 100%) !important; }
+body.page-home #lesson-program .section-head h2 { color: #102a4b !important; font-size: 42px !important; font-weight: 800; line-height: 1.25 !important; letter-spacing: -0.04em; margin-bottom: 12px; word-break: keep-all; }
+body.page-home #lesson-program .section-head p { color: #5d6676 !important; font-size: 17px; }
+body.page-home #lesson-program .section-head .kicker { background: #f7f1e7 !important; color: #8f6b2f !important; }
+body.page-home #lesson-program .tuition-plan-card { border-color: var(--line); }
+body.page-home #lesson-program .tuition-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 880px; margin: 0 auto; }
+@media (max-width: 760px) {
+  body.page-home #lesson-program .tuition-card-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  body.page-home #lesson-program .section-head h2 { font-size: 30px !important; line-height: 1.3 !important; }
+  body.page-home #lesson-program .section-head p { font-size: 16px; }
+}
+
+/* [473-3차] 학습 사례 영역 소제목 — ① 재구성한 학습 사례 예시 ② 실제 성적 기록(#results) 구분 */
+.rv-part-head { margin: 8px auto 22px; text-align: center; word-break: keep-all; }
+.rv-part-label { display: inline-block; margin-bottom: 8px; padding: 4px 12px; border-radius: 999px; background: #fff; color: #6a5aa8; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; }
+.rv-part-title { margin: 0; color: #102a4b; font-size: 26px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.35; }
+.rv-part-head p { margin: 8px 0 0; color: #4e5a6b; font-size: 16px; line-height: 1.6; }
+body.page-home .home-tu #results.home-results { margin-top: 64px; padding: 44px 40px 36px; border: 1px solid #e3def2; border-radius: 24px; background: #fff; box-shadow: 0 16px 34px rgba(46, 38, 92, 0.08); }
+#results .rv-part-head { margin-top: 0; margin-bottom: 28px; }
+#results .rv-part-label { background: #e3f8f4; color: #0f8f86; }
+.rs-note { margin: 22px 0 0; color: #5b6576; font-size: 14px; line-height: 1.6; text-align: center; word-break: keep-all; }
+@media (max-width: 640px) {
+  .rv-part-title { font-size: 21px; }
+  .rv-part-head p { font-size: 15px; }
+  body.page-home .home-tu #results.home-results { margin-top: 44px; padding: 28px 16px 24px; border-radius: 18px; }
+  .rs-note { font-size: 13px; text-align: left; }
+}
+
+/* [473-3차] 성적·공부 기록 확대 보기 — 사진 버튼 + 확대 창(dialog) */
+#results .rs-zoom { position: relative; display: block; width: 100%; height: 100%; margin: 0; padding: 0; border: 0; background: none; cursor: zoom-in; }
+#results .rs-zoom:focus-visible { outline: 3px solid #f15a32; outline-offset: -3px; }
+.rs-zoom-ico { position: absolute; right: 10px; bottom: 10px; padding: 4px 10px; border-radius: 999px; background: rgba(16, 42, 75, 0.78); color: #fff; font-size: 12px; font-weight: 700; pointer-events: none; }
+.rs-lightbox { width: min(1040px, 94vw); max-width: none; max-height: 92vh; padding: 0; border: 0; border-radius: 16px; background: #fff; color: #102a4b; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35); }
+.rs-lightbox[open] { display: flex; flex-direction: column; }
+.rs-lightbox::backdrop { background: rgba(10, 20, 35, 0.72); }
+.rs-lightbox-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding: 12px 14px 12px 18px; border-bottom: 1px solid #edf0f5; }
+.rs-lightbox-bar strong { flex: 1 1 auto; min-width: 0; font-size: 17px; font-weight: 800; word-break: keep-all; }
+.rs-lightbox-bar button { min-height: 40px; padding: 0 14px; border: 1px solid #cfd6e2; border-radius: 999px; background: #fff; color: #102a4b; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.rs-lightbox-bar .rs-lightbox-close { border-color: #102a4b; background: #102a4b; color: #fff; }
+.rs-lightbox-bar button:focus-visible { outline: 3px solid #f15a32; outline-offset: 2px; }
+.rs-lightbox-body { flex: 1 1 auto; min-height: 0; display: grid; place-items: center; overflow: auto; background: #f4f6fb; }
+.rs-lightbox-body img { display: block; max-width: 100%; max-height: calc(92vh - 150px); width: auto; height: auto; }
+.rs-lightbox.is-full .rs-lightbox-body { place-items: start; }
+.rs-lightbox.is-full .rs-lightbox-body img { max-width: none; max-height: none; }
+.rs-lightbox-cap { margin: 0; padding: 12px 18px 14px; color: #4e5a6b; font-size: 14.5px; line-height: 1.6; word-break: keep-all; }
+html.rs-lb-open { overflow: hidden; }
+@media (max-width: 640px) {
+  .rs-lightbox { width: 100vw; max-height: 100dvh; height: 100dvh; border-radius: 0; }
+  .rs-lightbox-body img { max-height: none; }
+  .rs-lightbox-bar strong { flex-basis: 100%; font-size: 16px; }
+}
+
+/* [473-3차] 선생님 카드 학력·경력·자격 배지(.tp-badge, 공통 CSS 원본 스타일) — 긴 배지는 이름 아래 줄로 · 예시 이미지 안내문 */
+#teacher-preview .tp-foot { flex-wrap: wrap; align-content: center; row-gap: 4px; }
+#teacher-preview .tp-badge { white-space: nowrap; }
 </style>
 <script>addEventListener('load', function () { document.documentElement.classList.add('tu-loaded'); });</script>
 
@@ -597,7 +754,43 @@ html.hero-cta-ready .home-hero-cta { position: absolute; padding: 0; }
     </div>
   </div>
 </section>
+</div>
 
+<!-- [473-3차] 과외 상품 2종 (운영자 확인: 교과 1:1 과외 · 프리미엄 1:1 과외) = 기준 커밋 5ad7d87c 홈 LESSON PROGRAM의 해당 두 카드 문구 그대로
+     · 'AI 전문 1:1 과외' 카드는 상품이 아니라 복원하지 않음 · '주간 학습 상담 연계'·'심화 관리 및 정기 상담'은 원래 카드에만
+     · 설명문 '세 가지' → '두 가지'만 변경 · 수업료 링크는 홈 #price (금액은 방문과외 공개 시작 금액 표 그대로) -->
+<section id="lesson-program" class="signature-tuition home-program">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">LESSON PROGRAM</div>
+      <h2>우리 아이에게 맞는 1:1 과외를 선택하세요</h2>
+      <p>학년과 과목, 목표에 맞춰 두 가지 1:1 과외 중 알맞은 수업을 안내해 드립니다.<br>무료 상담에서 학생 상황을 확인한 뒤 수업 방향을 함께 정합니다.</p>
+    </div>
+    <div class="tuition-card-grid">
+      <article class="tuition-plan-card">
+        <h3>과외마루 교과 1:1 과외</h3>
+        <ul>
+          <li>전 과목 1:1 맞춤 과외</li>
+          <li>방문 또는 화상 수업 선택</li>
+          <li>진도 체크 및 학습 코칭</li>
+          <li>주간 학습 상담 연계</li>
+        </ul>
+      </article>
+      <article class="tuition-plan-card">
+        <h3>프리미엄 1:1 과외</h3>
+        <ul>
+          <li>과목별 전문 선생님 매칭</li>
+          <li>학생 목표별 맞춤 설계</li>
+          <li>심화 관리 및 정기 상담</li>
+          <li>입시 · 내신 대비 집중 가능</li>
+        </ul>
+      </article>
+    </div>
+    <p class="tuition-price-link"><a href="#price">방문과외 수업료 보기 →</a></p>
+  </div>
+</section>
+
+<div class="home-tu">
 <!-- [318차] CHOOSE YOUR CLASS를 RECOMMENDED FOR 다음으로 이동 · 2. 과외마루 수업 두가지 방식 ([84차] 제목 변경 · 삭제한 '과외마루 수업' 섹션의 핵심 키워드를 카드 안으로 통합 · 링크 없음 · 대문 탭 #visit/#online 이동 위치) -->
 <section class="page-section tu-choose" id="choose">
   <div class="container">
@@ -659,7 +852,7 @@ html.hero-cta-ready .home-hero-cta { position: absolute; padding: 0; }
           <p class="tp-tags">#개념학습<br>#문제해결력 키우기<br>#내신대비</p>
         </div>
         <img class="tp-img" src="images/teacher-math.webp" alt="수학 선생님 예시 이미지" loading="lazy" decoding="async">
-        <div class="tp-foot"><strong>수학 선생님</strong></div>
+        <div class="tp-foot"><strong>수학 선생님</strong><span class="tp-badge">수능 1등급</span></div>
       </a>
       <a class="tp-card c2" href="subject/english.html">
         <div class="tp-copy">
@@ -668,7 +861,7 @@ html.hero-cta-ready .home-hero-cta { position: absolute; padding: 0; }
           <p class="tp-tags">#영어문법<br>#독해<br>#내신대비</p>
         </div>
         <img class="tp-img" src="images/teacher-english.webp" alt="영어 선생님 예시 이미지" loading="lazy" decoding="async">
-        <div class="tp-foot"><strong>영어 선생님</strong></div>
+        <div class="tp-foot"><strong>영어 선생님</strong><span class="tp-badge">대치동 영어강사 경력</span></div>
       </a>
       <a class="tp-card c7" href="conversation/index.html">
         <div class="tp-copy">
@@ -677,7 +870,7 @@ html.hero-cta-ready .home-hero-cta { position: absolute; padding: 0; }
           <p class="tp-tags">#영어회화<br>#여행·비즈니스<br>#TOEIC·IELTS</p>
         </div>
         <img class="tp-img" src="images/teacher-english-conversation.webp" alt="영어회화 선생님 예시 이미지" loading="lazy" decoding="async">
-        <div class="tp-foot"><strong>영어회화 선생님</strong></div>
+        <div class="tp-foot"><strong>영어회화 선생님</strong><span class="tp-badge">원어민·교포 선생님</span></div>
       </a>
       <a class="tp-card c8" href="conversation/index.html">
         <div class="tp-copy">
@@ -686,7 +879,7 @@ html.hero-cta-ready .home-hero-cta { position: absolute; padding: 0; }
           <p class="tp-tags">#일본어회화<br>#여행·비즈니스<br>#JLPT·JPT</p>
         </div>
         <img class="tp-img" src="images/teacher-japanese.webp" alt="일본어회화 선생님 예시 이미지" loading="lazy" decoding="async">
-        <div class="tp-foot"><strong>일본어회화 선생님</strong></div>
+        <div class="tp-foot"><strong>일본어회화 선생님</strong><span class="tp-badge">원어민·교포 선생님</span></div>
       </a>
       <a class="tp-card c3" href="subject/korean.html">
         <div class="tp-copy">
@@ -704,7 +897,7 @@ html.hero-cta-ready .home-hero-cta { position: absolute; padding: 0; }
           <p class="tp-tags">#개념학습<br>#개념부터 차근차근<br>#내신대비</p>
         </div>
         <img class="tp-img" src="images/teacher-science.webp" alt="과학 선생님 예시 이미지" loading="lazy" decoding="async">
-        <div class="tp-foot"><strong>과학 선생님</strong></div>
+        <div class="tp-foot"><strong>과학 선생님</strong><span class="tp-badge">자사고 등 상위권 전문</span></div>
       </a>
       <a class="tp-card c4" href="coding/index.html">
         <div class="tp-copy">
@@ -722,9 +915,14 @@ html.hero-cta-ready .home-hero-cta { position: absolute; padding: 0; }
           <p class="tp-tags">#기초부터 차근차근<br>#과목별 개념정리<br>#학습관리</p>
         </div>
         <img class="tp-img" src="images/teacher-geomjeong.webp" alt="검정고시 선생님 예시 이미지" loading="lazy" decoding="async">
-        <div class="tp-foot"><strong>검정고시 선생님</strong></div>
+        <div class="tp-foot"><strong>검정고시 선생님</strong><span class="tp-badge">하위권 성적 향상 경험 多</span></div>
       </a>
     </div>
+    <!-- [473-3차] 카드 아래쪽 배지 = [5.5차]에서 교체되기 전 홈 원본(OneDrive 문서\GitHub\signature-tutoring\backup\루트백업파일\시그니처과외-홈_1차수정전백업.html 5044~5114행) 해시태그 중 학력·경력·자격 표현만 원문대로 복원
+         (수학 #수능 1등급 · 영어 #대치동 영어강사 경력 · 영어회화·일본어회화 #원어민·교포 선생님 · 과학 #자사고 등 상위권 전문 · 검정고시 #하위권 성적 향상 경험 多)
+         · 복원 안 함: 영어 #학부모 상담 만족도 上(만족도), 검정고시 #수포자·노베이스 전문(지도 대상), 그 밖의 수업 특징 태그 · 국어·코딩 카드는 원본에 학력·경력·자격 표현 없음
+         · 선생님 사진은 예시 이미지(alt 표기) → 아래 안내문으로 화면에도 표시 (teachers.html [323차] 안내문 표현) -->
+    <p class="tp-note">※ 선생님 이미지는 예시로 표시됩니다. 실제 배정 선생님은 상담 시 학력·경력·수업 스타일을 자세히 안내해 드릴게요.</p>
     <p class="tp-all"><a href="teachers.html">과외마루 선생님 프로필 보기 <span aria-hidden="true">→</span></a></p><!-- [323차] 선생님 소개 페이지(teachers.html) 연결 -->
   </div>
 </section>
@@ -806,6 +1004,10 @@ html.hero-cta-ready .home-hero-cta { position: absolute; padding: 0; }
       <h2>학습 사례로 보는 수업 변화</h2>
       <p>학생들이 자주 겪는 학습 고민과 1:1 수업에서 함께 바꿔 가는 과정을 사례로 정리했습니다.</p>
     </div>
+    <div class="rv-part-head"><!-- [473-3차] 재구성 예시와 실제 성적 기록을 소제목으로 구분 -->
+      <span class="rv-part-label">CASE EXAMPLES</span>
+      <h3 class="rv-part-title">재구성한 학습 사례 예시</h3>
+    </div>
     <div class="rvx-panel" id="rvxPanel">
       <article class="rvx-item">
         <div class="rvx-top"><span class="rvx-avatar" aria-hidden="true">영</span><strong class="rvx-who">고2 · 영어</strong><span class="rvx-badge">오답 정리</span></div>
@@ -825,7 +1027,84 @@ html.hero-cta-ready .home-hero-cta { position: absolute; padding: 0; }
       </article>
     </div>
     <p class="rvx-note">※ 위 내용은 학습 사례를 참고해 재구성한 예시이며, 학생·학부모가 직접 작성한 후기가 아닙니다. 학생마다 수업 과정과 결과는 다를 수 있습니다.</p><!-- [310차] 재구성 사례 안내 · 별점·성적 수치·실명 이니셜 삭제, 직접 발언 → 사례 설명 · 되돌리기: backup/310차수정전/ -->
-<!-- [473-2차] '실제 성적 변화 보기 → tutoring/#results' 링크 삭제(점수 기록 확인 대기) · 학습 사례(#reviews)를 가리키게 바꾸면 이 영역 자기 자신으로 이동하므로 링크 자체 삭제 -->
+<!-- [473-2차] '실제 성적 변화 보기 → tutoring/#results' 링크 삭제 · [473-3차] 운영자 지시로 성적 기록을 이 영역 안(아래 #results)에 복원, 링크는 되살리지 않음 -->
+<!-- [473-3차] 실제 성적 기록 = 기준 커밋 tutoring/index.html #results(REAL RESULTS) 원문·수치·사진 그대로 (머리말만 소제목 h3로)
+     · 사진 2장은 식별 정보만 가린 홈 전용 사본: results-concept-notes-masked.webp(플래너 이름 문구·메신저 대화방 이름·프로필 사진·말풍선 이름), results-online-class-masked.webp(화상수업 참여자 목록)
+     · 사진은 비율 그대로, 누르면 확대 보기(#rsLightbox) · 성과 카드 순차 등장 효과(js page-tutoring 전용)는 홈에서 동작 안 함(처음부터 최종 상태) -->
+<div class="home-tu">
+<div class="home-results" id="results">
+    <div class="rv-part-head">
+      <span class="rv-part-label">REAL RESULTS</span>
+      <h3 class="rv-part-title">실제 수업으로 확인한 학습 변화</h3>
+      <p>학생에게 맞는 공부 방법을 찾고 꾸준히 관리한 결과입니다.</p>
+    </div>
+    <div class="rs-grid">
+      <article class="rs-card">
+        <div class="rs-top"><span class="rs-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5C6.5 4.5 9 4.6 12 6v13c-3-1.4-5.5-1.5-8-.5z"/><path d="M20 5.5c-2.5-1-5-.9-8 .5v13c3-1.4 5.5-1.5 8-.5z"/></svg></span><div><strong class="rs-type">중학생 영어 내신</strong><span class="rs-name">김** 학생</span></div></div>
+        <div class="rs-result"><span class="rs-before">62점</span><span class="rs-arrow" aria-hidden="true">→</span><strong class="rs-after">91<small>점</small></strong><span class="rs-gain">▲ 29점 상승</span></div>
+        <p class="rs-point">단어·내신 관리</p>
+      </article>
+      <article class="rs-card">
+        <div class="rs-top"><span class="rs-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></svg></span><div><strong class="rs-type">고등 수학 성적</strong><span class="rs-name">박** 학생</span></div></div>
+        <div class="rs-result"><span class="rs-before">68점</span><span class="rs-arrow" aria-hidden="true">→</span><strong class="rs-after">96<small>점</small></strong><span class="rs-gain">▲ 28점 상승</span></div>
+        <p class="rs-point">오답정리·유형 점검</p>
+      </article>
+      <article class="rs-card">
+        <div class="rs-top"><span class="rs-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 16v-3M12 16V9M17 16V5"/><path d="M14 5h3v3"/></svg></span><div><strong class="rs-type">영어 등급 향상</strong><span class="rs-name">이** 학생</span></div></div>
+        <div class="rs-result"><span class="rs-before">4등급</span><span class="rs-arrow" aria-hidden="true">→</span><strong class="rs-after">2<small>등급</small></strong><span class="rs-gain">▲ 2등급 상승</span></div>
+        <p class="rs-point">취약영역 보완</p>
+      </article>
+      <article class="rs-card">
+        <div class="rs-top"><span class="rs-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></span><div><strong class="rs-type">수능 영어 관리</strong><span class="rs-name">최** 학생</span></div></div>
+        <div class="rs-result"><span class="rs-before">5등급</span><span class="rs-arrow" aria-hidden="true">→</span><strong class="rs-after">2<small>등급</small></strong><span class="rs-gain">▲ 3등급 상승</span></div>
+        <p class="rs-point">1:1 맞춤 학습</p>
+      </article>
+    </div>
+    <!-- [69차] 성적 숫자 + 실제 학습 기록 사진 6장 (images/results-*.webp · 학생 이름·얼굴이 드러나지 않는 이미지만 사용, 교체 시 같은 파일명으로 덮어쓰기)
+         PC 3열 2줄 · 모바일 가로 스와이프 -->
+    <div class="rs-proof">
+      <div class="rs-proof-head"><!-- [90차] 결과 카드와 이어지는 근거 영역 라벨 -->
+        <span class="rs-proof-label">STUDY RECORDS</span>
+        <h3>점수 뒤에 있는 <em>실제 공부 기록</em></h3>
+        <p>성적이 오르기까지 학생이 직접 남긴 수업 화면, 노트, 계획표입니다.</p>
+      </div>
+      <div class="rs-proof-grid">
+      <figure class="rs-proof-card is-contain">
+        <div class="rs-proof-img"><button type="button" class="rs-zoom" aria-haspopup="dialog" aria-label="1:1 화상수업 사진 크게 보기"><img src="images/results-online-class-masked.webp" alt="1:1 화상수업 화면 예시" loading="lazy" decoding="async"><span class="rs-zoom-ico" aria-hidden="true">크게 보기</span></button></div>
+        <figcaption><span class="rs-proof-tag">수업 현장</span><strong>1:1 화상수업</strong><p>화면을 함께 보며 실시간으로 질문하고 바로 피드백합니다.</p></figcaption>
+      </figure>
+      <figure class="rs-proof-card is-contain">
+        <div class="rs-proof-img"><button type="button" class="rs-zoom" aria-haspopup="dialog" aria-label="성적표로 확인한 결과 사진 크게 보기"><img src="images/results-report-card.webp" alt="성적이 오른 실제 성적표 일부" loading="lazy" decoding="async"><span class="rs-zoom-ico" aria-hidden="true">크게 보기</span></button></div>
+        <figcaption><span class="rs-proof-tag">성적 변화</span><strong>성적표로 확인한 결과</strong><p>지필·수행 점수가 오른 실제 성적표 일부입니다.</p></figcaption>
+      </figure>
+      <figure class="rs-proof-card">
+        <div class="rs-proof-img"><button type="button" class="rs-zoom" aria-haspopup="dialog" aria-label="끝까지 써 보는 풀이 사진 크게 보기"><img src="images/results-math-notes.webp" alt="학생이 직접 풀이한 수학 노트" loading="lazy" decoding="async"><span class="rs-zoom-ico" aria-hidden="true">크게 보기</span></button></div>
+        <figcaption><span class="rs-proof-tag">풀이 노트</span><strong>끝까지 써 보는 풀이</strong><p>풀이 과정을 직접 쓰고, 틀린 부분은 다시 풀어 확인합니다.</p></figcaption>
+      </figure>
+      <figure class="rs-proof-card">
+        <div class="rs-proof-img"><button type="button" class="rs-zoom" aria-haspopup="dialog" aria-label="과목별 개념 정리 사진 크게 보기"><img src="images/results-concept-notes-masked.webp" alt="과목별 개념 정리 노트와 단어장" loading="lazy" decoding="async"><span class="rs-zoom-ico" aria-hidden="true">크게 보기</span></button></div>
+        <figcaption><span class="rs-proof-tag">개념 정리</span><strong>과목별 개념 정리</strong><p>영어 지문 분석, 과학 구조도, 단어장까지 스스로 정리합니다.</p></figcaption>
+      </figure>
+      <figure class="rs-proof-card">
+        <div class="rs-proof-img"><button type="button" class="rs-zoom" aria-haspopup="dialog" aria-label="공부 계획과 시간 관리 사진 크게 보기"><img src="images/results-study-plan.webp" alt="학생의 공부 노트와 시간 계획표" loading="lazy" decoding="async"><span class="rs-zoom-ico" aria-hidden="true">크게 보기</span></button></div>
+        <figcaption><span class="rs-proof-tag">계획·관리</span><strong>공부 계획과 시간 관리</strong><p>하루 공부 시간을 계획하고 지켰는지 함께 점검합니다.</p></figcaption>
+      </figure>
+      <figure class="rs-proof-card">
+        <div class="rs-proof-img"><button type="button" class="rs-zoom" aria-haspopup="dialog" aria-label="스스로 돌아보는 습관 사진 크게 보기"><img src="images/results-reflection.webp" alt="학생이 쓴 다짐과 감사 노트" loading="lazy" decoding="async"><span class="rs-zoom-ico" aria-hidden="true">크게 보기</span></button></div>
+        <figcaption><span class="rs-proof-tag">태도 변화</span><strong>스스로 돌아보는 습관</strong><p>목표를 적고 돌아보며 공부를 대하는 태도가 달라집니다.</p></figcaption>
+      </figure>
+      </div>
+    </div>
+    <ul class="rs-care">
+      <li>개인 맞춤 관리</li>
+      <li>오답/취약영역 점검</li>
+      <li>내신·수능 집중 관리</li>
+      <li>1:1 학습 코칭</li>
+    </ul>
+    <p class="rs-quote">결과는 공부시간이 아닌 <em>공부방법</em>에서 달라집니다</p>
+    <p class="rs-note">※ 위 점수와 기록은 일부 학생의 개별 사례이며, 모든 학생의 성적 향상을 보장하지 않습니다. 학생마다 수업 과정과 결과는 다를 수 있습니다.</p>
+</div>
+</div>
 
 
 
@@ -840,6 +1119,43 @@ html.hero-cta-ready .home-hero-cta { position: absolute; padding: 0; }
 
   </div>
 </section>
+
+<!-- [473-3차] 성적·공부 기록 확대 보기 (이 페이지 전용) — 닫기 버튼·Esc·바깥 누르기로 닫힘, 닫으면 누른 사진 버튼으로 초점 복귀 · 큰 사진은 '원본 크기로 보기'로 가로·세로 스크롤 -->
+<dialog class="rs-lightbox" id="rsLightbox" aria-labelledby="rsLightboxTitle">
+  <div class="rs-lightbox-bar">
+    <strong id="rsLightboxTitle">기록 크게 보기</strong>
+    <button type="button" class="rs-lightbox-size" id="rsLightboxSize" aria-pressed="false">원본 크기로 보기</button>
+    <button type="button" class="rs-lightbox-close" id="rsLightboxClose">닫기 <span aria-hidden="true">✕</span></button>
+  </div>
+  <div class="rs-lightbox-body" id="rsLightboxBody"><img id="rsLightboxImg" src="data:," alt=""></div>
+  <p class="rs-lightbox-cap" id="rsLightboxCap"></p>
+</dialog>
+<script>
+(function () {
+  var dlg = document.getElementById('rsLightbox'); if (!dlg || typeof dlg.showModal !== 'function') return; /* dialog 미지원 브라우저: 확대 없이 사진만 표시 */
+  var img = document.getElementById('rsLightboxImg'), title = document.getElementById('rsLightboxTitle'), cap = document.getElementById('rsLightboxCap');
+  var body = document.getElementById('rsLightboxBody'), size = document.getElementById('rsLightboxSize'), opener = null;
+  function setFull(on) { dlg.classList.toggle('is-full', on); size.setAttribute('aria-pressed', on ? 'true' : 'false'); size.textContent = on ? '화면에 맞추기' : '원본 크기로 보기'; body.scrollTop = 0; body.scrollLeft = 0; }
+  function checkSize() { setFull(false); size.hidden = !(img.naturalWidth > img.clientWidth + 24 || img.naturalHeight > img.clientHeight + 24); }
+  document.querySelectorAll('#results .rs-zoom').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var s = b.querySelector('img'), fig = b.closest('figure');
+      opener = b;
+      img.src = s.currentSrc || s.src; img.alt = s.alt;
+      title.textContent = (fig.querySelector('figcaption strong') || {}).textContent || '기록 크게 보기';
+      cap.textContent = (fig.querySelector('figcaption p') || {}).textContent || '';
+      setFull(false); size.hidden = true;
+      dlg.showModal(); document.documentElement.classList.add('rs-lb-open');
+      document.getElementById('rsLightboxClose').focus();
+      if (img.complete) checkSize(); else img.onload = checkSize;
+    });
+  });
+  size.addEventListener('click', function () { setFull(!dlg.classList.contains('is-full')); });
+  document.getElementById('rsLightboxClose').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); }); /* 어두운 바깥 누르기 */
+  dlg.addEventListener('close', function () { document.documentElement.classList.remove('rs-lb-open'); if (opener) { opener.focus(); opener = null; } });
+})();
+</script>
 
 <!-- [473차] ⑥ 학년별 방문과외 수업료 = tutoring/index.html #price 원문 그대로 (가격 점검 도구 원본은 tutoring/#price 그대로) -->
 <div class="home-tu">

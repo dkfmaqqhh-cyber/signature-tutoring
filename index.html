@@ -29,7 +29,8 @@
 <link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<link rel="preload" as="image" href="images/hero-student.webp" fetchpriority="high">
+<link rel="preload" as="image" href="images/hero-tutoring-lesson-1080.webp" media="(min-width: 641px)" fetchpriority="high"><!-- [473-5차] 대문 첫 장 사진 교체(아래 picture와 같은 파일·같은 기준 너비) -->
+<link rel="preload" as="image" href="images/hero-tutoring-lesson-m800.webp" media="(max-width: 640px)" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -500,6 +501,9 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
 @media (max-width: 360px) { .hm-tb-guide { display: none; } } /* 320px대: 글자·닫기 버튼 공간 확보를 위해 캐릭터만 숨김(회화 배너와 같음) */
 @media (prefers-reduced-motion: reduce) { .hm-tb, .hm-tb.is-shown { transition: none; } .hm-tb-arrow { animation: none; } }
 @media print { .hm-tb { display: none; } }
+
+/* [473-5차] 대문 첫 장 사진 picture — 레이아웃에 끼지 않게(img가 기존처럼 사진 틀의 직접 자식으로 배치) */
+.sig-hero-picture { display: contents; }
 </style>
 <script>addEventListener('load', function () { document.documentElement.classList.add('tu-loaded'); });</script>
 
@@ -556,7 +560,13 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
       
     </div>
     <div class="sig-hero-photo-wrap">
-      <img fetchpriority="high" src="images/hero-student.webp" class="sig-hero-photo" alt="공부에 집중하는 학생">
+      <!-- [473-5차] 대문 첫 장 사진 교체: 운영자 제공 '따뜻한 홈 스터디룸 수학 수업'(1536×1024) → 왼쪽 빈 벽을 줄이고 두 사람 중심으로 크롭한 WebP 2종(확대 없음)
+           · PC·태블릿(641px~) hero-tutoring-lesson-1080.webp = 원본 x330·y110·1206×904 → 1080×810(4:3) · 모바일(~640px) hero-tutoring-lesson-m800.webp = 원본 x470·y140·1066×884 → 800×663
+           · 기존 images/hero-student.webp는 삭제하지 않음 · 첫 화면 이미지라 지연 로딩 없음 · picture는 display:contents(기존 .sig-hero-photo 배치 그대로) -->
+      <picture class="sig-hero-picture">
+        <source media="(max-width: 640px)" srcset="images/hero-tutoring-lesson-m800.webp" width="800" height="663">
+        <img fetchpriority="high" src="images/hero-tutoring-lesson-1080.webp" width="1080" height="810" class="sig-hero-photo" alt="밝은 공부방에서 선생님이 학생 옆에 앉아 노트의 수학 문제 풀이를 짚어 주며 설명하는 1:1 과외 수업 장면">
+      </picture>
     </div>
   </div>
     </div>

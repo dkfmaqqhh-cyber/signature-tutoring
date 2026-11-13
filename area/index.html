@@ -170,6 +170,23 @@
   body.page-area main section:not(.ar-hero) > .container, body.page-area .rg-updated .container, body.page-area .site-footer .container { padding-right: 64px; }
 }
 </style>
+<!-- [474-3차] 섹션 배경 그라데이션 흐름(이 페이지 전용 · 공용 css 미수정) — 밝은 섹션이 크림·흰색으로 번갈아 끊기던 것을
+     섹션마다 세로 그라데이션으로 바꾸고, 한 섹션의 아래 색 = 다음 섹션의 위 색으로 이어 경계가 보이지 않게 함
+     · 흐름: 크림 → 흰색(지역 카드) → 아이보리 → 연베이지 → (남색 강조) → 크림 → 연베이지 → (남색 상담)
+     · 남색 강조 섹션(전국 1:1·3가지 이유·하단 상담)은 그대로, 전국 1:1·3가지 이유만 아래쪽을 살짝 밝게 · 글자색·카드·여백 미변경 · 되돌리기: 이 style 삭제 -->
+<style>
+body.page-area-hub main .ar-hero { background: linear-gradient(180deg, #FDFBF6 0%, #F6F1E7 100%) !important; border-bottom-color: transparent !important; }
+body.page-area-hub main #nationwide, body.page-area-hub main #why-signature { background: linear-gradient(180deg, #0E1C33 0%, #12294A 100%) !important; }
+body.page-area-hub main #classes { background: linear-gradient(180deg, #F6F1E7 0%, #FBF8F2 100%) !important; }
+body.page-area-hub main #regions { background: linear-gradient(180deg, #FBF8F2 0%, #FFFFFF 100%) !important; }
+body.page-area-hub .ah-sj .page-hero.ah-sj-intro { background: radial-gradient(circle at 85% 10%, rgba(244, 200, 74, 0.18), transparent 42%), linear-gradient(180deg, #FFFFFF 0%, #FFFAEE 100%) !important; border-bottom-color: transparent !important; }
+body.page-area-hub main #reasons { background: linear-gradient(180deg, #FFFAEE 0%, #FDF6EA 100%) !important; }
+body.page-area-hub main #by-grade { background: linear-gradient(180deg, #FDF6EA 0%, #FCF8F1 100%) !important; }
+body.page-area-hub main #topics { background: linear-gradient(180deg, #FCF8F1 0%, #F9F4EA 100%) !important; }
+body.page-area-hub main #teachers { background: linear-gradient(180deg, #F9F4EA 0%, #F5EFE3 100%) !important; }
+body.page-area-hub main #free-trial { background: linear-gradient(180deg, #F6F1E7 0%, #FBF8F2 100%) !important; }
+body.page-area-hub main #faq { background: linear-gradient(180deg, #FBF8F2 0%, #F4EEE2 100%) !important; }
+</style>
 </head>
 <!-- [134차] page-area-hub = /area/ 허브 전용 클래스(과외수업 통합형 섹션 CSS 범위 제한용 · 지역 페이지는 page-area만 있음) -->
 <body class="page-area page-area-hub">

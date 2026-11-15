@@ -562,5 +562,36 @@
       }
     ],
     "lens": false
+  },
+  "kids-coding-start": {
+    "palette": "indigo",
+    "badge": "코딩 · 시작 가이드",
+    "title": "초등·중등 코딩\n*무엇부터*\n시작할까",
+    "keys": [
+      "블록코딩",
+      "텍스트 코딩"
+    ],
+    "cardTitle": "코딩 시작 순서",
+    "cardTag": "예시",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "1",
+        "text": "순서대로 명령하기"
+      },
+      {
+        "label": "2",
+        "text": "반복·조건 블록"
+      },
+      {
+        "label": "3",
+        "text": "작품 완성하기"
+      },
+      {
+        "label": "4",
+        "text": "텍스트 코딩 전환"
+      }
+    ],
+    "lens": false
   }
 }

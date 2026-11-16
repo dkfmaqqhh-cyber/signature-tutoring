@@ -202,9 +202,16 @@ const JOURNEY_IN_MESSAGE = true;
   }
 })();
 
-window.addEventListener("load",function(){
-  if(!location.hash){window.scrollTo(0,0);}
-});
+/* [480차] load 때 맨 위 이동은 그대로 두되, 로딩 중 사용자가 이미 움직였거나(휠·터치·키·포인터, 또는 새 진입인데 스크롤 위치가 0이 아님) 뒤로·앞으로 가기(브라우저 복원)일 때는 건너뜀 · 해시(#price 등) 진입은 기존처럼 건드리지 않음 */
+(function(){
+  var moved=false;function mark(){moved=true;}
+  ["wheel","touchmove","keydown","pointerdown"].forEach(function(t){window.addEventListener(t,mark,{passive:true,once:true});});
+  window.addEventListener("load",function(){
+    var nav=(window.performance&&performance.getEntriesByType)?performance.getEntriesByType("navigation")[0]:null,type=nav?nav.type:"";
+    if(location.hash||moved||type==="back_forward"||(type==="navigate"&&window.scrollY>0)){return;}
+    window.scrollTo(0,0);
+  });
+})();
 
 window.addEventListener("load", function(){
   const slider = document.getElementById("hero-slider");

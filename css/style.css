@@ -8317,3 +8317,16 @@ body.page-gu-hub .sbh-trust .sbh-nw { white-space: nowrap; }
    · 구 허브 떠 있는 버튼은 [190-2차] 52px·오른쪽 8px → 오른쪽 떠 있는 버튼과 36px 이상 간격을 두고 폭을 calc(100vw - 128px)로(320px에서 192px, 실측) · 색·문구·높이·글자 크기·한 줄 그대로 · 시·도/지역 대문·하위 페이지는 영향 없음
    · 363차 부산진구 페이지 개별 규칙을 이 공통 규칙으로 대체 · 되돌리기: 이 블록 삭제 + 구 허브 style.css?v=364 → 이전 값 */
 @media (max-width: 640px) { body.page-gu-hub .ar-cta .ar-cta-btn { width: calc(100vw - 128px); } }
+
+/* [475차] 지역별 과외 허브(/area/) 대문 바로가기 2개: '지역 찾기'(→ 기존 #regions, 고정 헤더 높이는 main section[id] scroll-margin-top 80px로 보정) · '무료 상담 신청'(consult.html)
+   · 색: 네이비 #10233F / 골드 #F4C542(떠 있는 상담 버튼과 같음) · 모바일도 한 줄 2개 · 되돌리기: 이 블록 삭제 + area/index.html 버튼 div 삭제·style.css?v=140 */
+body.page-area-hub .ar-hero-actions { display: flex; justify-content: center; gap: 10px; margin: 22px auto 0; max-width: 420px; }
+body.page-area-hub .ar-hero-btn { flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 50px; padding: 0 18px; border-radius: 999px; font-size: 16px; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+body.page-area-hub .ar-hero-find { background: #10233F; color: #FFFFFF; box-shadow: 0 8px 18px rgba(16, 35, 63, 0.16); }
+body.page-area-hub .ar-hero-find:hover, body.page-area-hub .ar-hero-find:focus-visible { background: #1c3a63; color: #FFFFFF; transform: translateY(-2px); }
+body.page-area-hub .ar-hero-consult { background: #F4C542; color: #10233F; box-shadow: 0 8px 18px rgba(201, 154, 61, 0.22); }
+body.page-area-hub .ar-hero-consult:hover, body.page-area-hub .ar-hero-consult:focus-visible { background: #ffd65c; color: #10233F; transform: translateY(-2px); }
+@media (max-width: 640px) {
+  body.page-area-hub .ar-hero-actions { gap: 8px; margin-top: 18px; }
+  body.page-area-hub .ar-hero-btn { min-height: 48px; padding: 0 10px; font-size: 15px; }
+}

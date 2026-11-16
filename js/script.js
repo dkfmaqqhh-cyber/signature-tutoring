@@ -381,7 +381,9 @@ window.addEventListener("load", function(){
   function show(type, text) {
     msg.className = 'form-message is-' + type;
     msg.textContent = text;
-    msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    /* [476차] 'nearest'는 안내를 화면 맨 아래에 붙여 모바일 하단 고정 버튼 줄(.sig-float)에 가려짐 → 칸 오류 안내([338차])와 같이 화면 가운데로 · 움직임 줄이기 설정이면 즉시 이동 */
+    var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    msg.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'center' });
   }
   /* [338차] 오류 안내를 해당 칸 바로 아래(.cf-field-error)에 표시 → 칸을 화면 가운데로 스크롤한 뒤 포커스 · aria-invalid + aria-describedby(오류 안내 id, 기존 안내 문구 id 유지)
      · 검사 조건·순서·문구, 전송·동의 코드는 그대로 (이전에는 신청 버튼 위 .form-message에만 표시돼, 칸으로 이동하면 안내가 화면 밖에 있었음)

@@ -6,6 +6,7 @@ Pretendard 글꼴 CSS(jsdelivr)를 `<link rel="stylesheet">`로 바로 불러오
 ## 파일
 - `font-defer.mjs` — 대상 분류·적용. 인자 없이 실행하면 점검만 하고, `--apply`일 때만 파일을 바꿉니다.
   이미 블록이 있는 파일은 '기적용'으로 건너뛰므로 여러 번 실행해도 블록이 늘지 않습니다. `--json 파일`로 분류 결과를 저장합니다.
+  `--check`는 [479차] 누락 검사입니다. 블록이 빠진 대상 페이지가 있으면 목록을 출력하고 종료 코드 1로 끝납니다(파일 수정 없음).
 - `verify-font-defer.mjs [기준 커밋]` — 적용 뒤 점검(파일 수정 없음). 바뀐 HTML이 모두 대상 그룹인지,
   블록을 원래 한 줄로 되돌리면 기준 커밋 원본과 같은지(블록 외 변경 0), 동기 링크·noscript·선택자·태그 짝을 확인합니다.
   Windows에서 git이 PATH에 없으면 `GIT` 환경변수로 git.exe 경로를 지정합니다.
@@ -34,3 +35,8 @@ Pretendard 글꼴 CSS(jsdelivr)를 `<link rel="stylesheet">`로 바로 불러오
 ## 생성 도구와의 관계
 지역 페이지 생성기는 저장소에 없습니다(작업 당시 임시 폴더에서만 사용). 나중에 생성기로 지역 페이지를 다시 만들면 이 블록이 빠지므로,
 재생성 뒤 `node tools/perf/font-defer.mjs --apply`를 다시 실행하거나 생성 템플릿의 글꼴 링크를 이 블록으로 바꿔 주세요.
+저장소에는 생성기와 배포 워크플로가 없으므로(GitHub Pages가 main을 그대로 배포), 누락 검사는 CLAUDE.md 3장 커밋 전 검사에 `node tools/perf/font-defer.mjs --check`로 연결했습니다 [479차].
+
+## 메인·수업안내 글꼴 전환 나눠 적용 [479차]
+`index.html`·`tutoring/index.html`의 [278·446차] 블록은 이 도구 대상이 아닙니다. 479차에 전환 시 화면 밖 섹션(`main > *`, `body > footer`)을 `pf-later`로 잠시 두고
+프레임마다 한 섹션씩 바꾸도록 했습니다(첫 화면 전환 시점은 그대로). trace상 긴 작업의 대부분이 글자 모양 계산(`InlineNode::ShapeTextIncludingFirstLine`)과 웹 글꼴 해독이었고, JS 실행은 작았습니다.

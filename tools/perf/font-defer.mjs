@@ -3,12 +3,14 @@
 //   node tools/perf/font-defer.mjs            → 점검만 (대상·기적용·제외 목록 출력, 파일 수정 없음)
 //   node tools/perf/font-defer.mjs --apply    → 대상 파일에만 적용 (이미 적용된 파일은 건너뜀 → 여러 번 실행해도 블록이 늘지 않음)
 //   node tools/perf/font-defer.mjs --json out.json  → 분류 결과를 JSON으로 저장
+//   node tools/perf/font-defer.mjs --check    → [479차] 누락 검사: 블록이 빠진 대상(지역 페이지 재생성 등)이 있으면 목록을 출력하고 종료 코드 1 (파일 수정 없음)
 // 대상 그룹은 아래 GROUPS에 적힌 구조 조건이 모두 일치하는 파일만. 새 그룹은 대표 페이지 측정(448차 방식) 후에만 추가.
 import fs from 'node:fs';
 import path from 'node:path';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')), '../..');
 const APPLY = process.argv.includes('--apply');
+const CHECK = process.argv.includes('--check');
 const JSON_OUT = process.argv.includes('--json') ? process.argv[process.argv.indexOf('--json') + 1] : null;
 
 const FONT_URL = 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css';
@@ -119,4 +121,6 @@ if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(im
   }
   for (const x of res.exclude) console.log(`  제외 ${x.rel} — ${x.reasons.join(', ')}`);
   if (JSON_OUT) fs.writeFileSync(JSON_OUT, JSON.stringify(res, null, 1));
+  if (CHECK && !APPLY && res.target.length) { for (const x of res.target) console.log(`  누락 ${x.rel}`); console.log(`글꼴 지연 블록 누락 ${res.target.length}개 → node tools/perf/font-defer.mjs --apply 실행 후 verify-font-defer.mjs로 확인`); process.exitCode = 1; }
+  else if (CHECK) console.log('글꼴 지연 블록 누락 0개');
 }

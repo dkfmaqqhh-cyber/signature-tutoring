@@ -15,9 +15,13 @@ Pretendard 글꼴 CSS(jsdelivr)를 `<link rel="stylesheet">`로 바로 불러오
 |---|---|---|---|---|
 | area-subject-math | `area/{시도}/{구}/math/` (세종 `area/sejong/math/` 포함) | `page-area page-region page-subarea page-subject gu-v2` | `style.css?v=168` | 울산 남구 수학 (448차) |
 | area-grade-middle | `area/{시도}/{구}/middle/` (세종 포함) | `… gu-v2 vz297` | `style.css?v=301` | 울산 남구 중학생 (448차) |
+| area-subject-other | `area/{시도}/{구}/{english·korean·science·social}/` (세종 포함) | 수학과 같음 | `style.css?v=168` | 강남구 영어 (478차) |
+| area-hub | `area/index.html` | `page-area page-area-hub` | `style.css?v=475` | 지역 허브 (478차) |
+| consult | `consult.html` | 없음 | `css/style.css` | 상담 신청 (478차) |
 
-공통 조건: `<header class="sig-header">`, `<section class="ar-hero rg-hero rg-hero-solid"`, `<nav class="sig-float`, 동기 글꼴 링크 정확히 1개.
-첫 화면 글꼴 대상 선택자: `header`, `.rg-hero`, `.sig-float`.
+공통 조건: `<header class="sig-header">`, 그룹의 첫 화면 구조(기본 `<section class="ar-hero rg-hero rg-hero-solid"`), `<nav class="sig-float`(상담 페이지는 script.js가 만들어 확인 안 함), 동기 글꼴 링크 정확히 1개.
+첫 화면 글꼴 대상 선택자: 기본 `header`, `.rg-hero`, `.sig-float` · 지역 허브 `header`, `.ar-hero`, `.sig-float` · 상담 `header`, `.consult-hero`, `.consult-main`.
+478차 측정(Lighthouse 12.6.1 모바일 기본 조건, gzip 로컬 서버, 3회 중앙값) LCP: 상담 3.44→1.81초 · 지역 허브 2.58→2.13초 · 강남 영어 3.01→2.18초, CLS 0.003 이하.
 
 449차 제외(구조 다름): `area/seoul/gwangjin/math/`·`middle/`(gu-v2 없음), `area/seoul/seongbuk/math/`(style.css?v=155).
 강남 학년×과목 구버전(`area/seoul/gangnam/{학년}/math/`, noindex)은 경로 조건에서 빠집니다.

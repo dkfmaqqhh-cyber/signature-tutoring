@@ -16,16 +16,27 @@ const SYNC_LINK = `<link rel="stylesheet" href="${FONT_URL}">`;
 const MARK = '글꼴 로딩'; // 블록 첫 주석에 들어가는 표식 (446·448·449차 공통)
 
 // 448차에서 측정·검증한 그룹 (울산 남구 math·middle이 대표) · 경로 = area/{시도}/{구}/… 또는 세종처럼 area/{시도}/… (강남 학년×과목 구버전 area/seoul/gangnam/{학년}/math/는 경로부터 제외)
+// [478차] 그룹 추가: 같은 과목 템플릿(english·korean·science·social, 강남 영어 측정) · 지역 허브(/area/) · 상담(consult.html)
+//   그룹별 선택 항목: hero(첫 화면 구조 표식) · float(false면 .sig-float를 HTML에서 확인하지 않음 — 상담 페이지는 script.js가 만듦) · sel(첫 화면 글자 선택자) · head(블록 첫 주석)
+//   hero·sel·head를 적지 않은 그룹은 449차 블록과 글자 하나까지 같음
+const HERO = '<section class="ar-hero rg-hero rg-hero-solid"';
+const SELECTORS = "['header','.rg-hero','.sig-float']";
+const HEAD449 = `[449차] ${MARK} = /tutoring/ [446차]·울산 남구 [448차] 방식 · 첫 화면 대상 header·.rg-hero·.sig-float`;
 const GROUPS = [
   { name: 'area-subject-math', file: /^area\/[^/]+\/(?:[^/]+\/)?math\/index\.html$/, body: 'page-area page-region page-subarea page-subject gu-v2', css: 'style.css?v=168' },
   { name: 'area-grade-middle', file: /^area\/[^/]+\/(?:[^/]+\/)?middle\/index\.html$/, body: 'page-area page-region page-subarea page-subject gu-v2 vz297', css: 'style.css?v=301' },
+  { name: 'area-subject-other', file: /^area\/[^/]+\/(?:[^/]+\/)?(?:english|korean|science|social)\/index\.html$/, body: 'page-area page-region page-subarea page-subject gu-v2', css: 'style.css?v=168',
+    head: `[478차] ${MARK} = 수학 과목 템플릿 [449차]와 같은 블록(같은 과목 템플릿 영어·국어·과학·사회) · 첫 화면 대상 header·.rg-hero·.sig-float` },
+  { name: 'area-hub', file: /^area\/index\.html$/, body: 'page-area page-area-hub', css: 'style.css?v=475', hero: '<section class="ar-hero" aria-labelledby="arTitle">', sel: "['header','.ar-hero','.sig-float']",
+    head: `[478차] ${MARK} = /tutoring/ [446차] 방식 · 지역별 과외 허브 · 첫 화면 대상 header·.ar-hero·.sig-float` },
+  { name: 'consult', file: /^consult\.html$/, body: undefined, css: 'href="css/style.css"', hero: '<section class="page-hero no-visual consult-hero">', float: false, sel: "['header','.consult-hero','.consult-main']",
+    head: `[478차] ${MARK} = /tutoring/ [446차] 방식 · 상담 신청 · 첫 화면 대상 header·.consult-hero·.consult-main(신청서)` },
 ];
-const HERO = '<section class="ar-hero rg-hero rg-hero-solid"';
-const SELECTORS = "['header','.rg-hero','.sig-float']";
+export const selOf = g => (g && g.sel) || SELECTORS;
 
-// 446차(/tutoring/)·448차(울산 남구)에서 검증한 블록과 같은 내용 · 첫 화면 대상 선택자만 지역 페이지용
-const block = nl => [
-  `<!-- [449차] ${MARK} = /tutoring/ [446차]·울산 남구 [448차] 방식 · 첫 화면 대상 header·.rg-hero·.sig-float · 도구: tools/perf/font-defer.mjs · 되돌리기: 이 블록 전체를 아래 한 줄로 교체`,
+// 446차(/tutoring/)·448차(울산 남구)에서 검증한 블록과 같은 내용 · 첫 화면 대상 선택자만 그룹별
+const block = (nl, g) => [
+  `<!-- ${(g && g.head) || HEAD449} · 도구: tools/perf/font-defer.mjs · 되돌리기: 이 블록 전체를 아래 한 줄로 교체`,
   `       ${SYNC_LINK} -->`,
   `<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>`,
   `<style>`,
@@ -37,7 +48,7 @@ const block = nl => [
   `</style>`,
   `<script>(function(){var d=document,h=d.documentElement,u='${FONT_URL}',done=false;h.classList.add('pf-wait');`,
   `function show(){if(!done){done=true;h.classList.remove('pf-wait');}}`,
-  `function load(){var l=d.createElement('link');l.rel='stylesheet';l.href=u;l.onload=function(){var t='';${SELECTORS}.forEach(function(q){var e=d.querySelector(q);if(e)t+=e.textContent;});try{Promise.all(['400','700','900'].map(function(w){return d.fonts.load(w+' 1em "Pretendard Variable"',t);})).then(show,show);}catch(e){show();}};l.onerror=show;d.head.appendChild(l);setTimeout(show,6000);}`,
+  `function load(){var l=d.createElement('link');l.rel='stylesheet';l.href=u;l.onload=function(){var t='';${selOf(g)}.forEach(function(q){var e=d.querySelector(q);if(e)t+=e.textContent;});try{Promise.all(['400','700','900'].map(function(w){return d.fonts.load(w+' 1em "Pretendard Variable"',t);})).then(show,show);}catch(e){show();}};l.onerror=show;d.head.appendChild(l);setTimeout(show,6000);}`,
   `var started=false;function start(){if(!started){started=true;setTimeout(load,0);}}`,
   `var P=window.PerformanceObserver,ok=P&&P.supportedEntryTypes&&P.supportedEntryTypes.indexOf('paint')>=0;`,
   `if(ok){new P(function(l){l.getEntries().forEach(function(e){if(e.name==='first-contentful-paint')start();});}).observe({type:'paint',buffered:true});}`,
@@ -58,9 +69,9 @@ export function classify(rel, html) {
   const reasons = [];
   if (body !== g.body) reasons.push(`body="${body}"`);
   if (!live.includes(g.css)) reasons.push(`css≠${g.css}`);
-  if (!live.includes(HERO)) reasons.push('hero 구조 다름');
+  if (!live.includes(g.hero || HERO)) reasons.push('hero 구조 다름');
   if (!/<header class="sig-header"/.test(live)) reasons.push('header 없음');
-  if (!/<nav class="sig-float/.test(live)) reasons.push('.sig-float 없음');
+  if (g.float !== false && !/<nav class="sig-float/.test(live)) reasons.push('.sig-float 없음');
   if (pfScript > 0 || html.includes(MARK)) {
     if (pfScript === 1 && sync - noscript === 0 && noscript === 1) return { status: 'applied', group: g.name };
     return { status: 'exclude', group: g.name, reasons: [...reasons, `기적용 형태 이상(pf ${pfScript}, sync ${sync}, noscript ${noscript})`] };
@@ -68,16 +79,19 @@ export function classify(rel, html) {
   if (sync !== 1) reasons.push(`동기 글꼴 링크 ${sync}개`);
   return reasons.length ? { status: 'exclude', group: g.name, reasons } : { status: 'target', group: g.name };
 }
-export function transform(html) {
+export const groupOf = rel => GROUPS.find(x => x.file.test(rel));
+export function transform(html, rel) {
+  const g = groupOf(rel);
+  if (!g) throw new Error('대상 그룹 아님: ' + rel);
   const nl = html.includes('\r\n') ? '\r\n' : '\n';
   const i = html.indexOf(SYNC_LINK);
   if (i < 0 || html.indexOf(SYNC_LINK, i + 1) >= 0) throw new Error('동기 글꼴 링크가 정확히 1개가 아님');
-  return html.slice(0, i) + block(nl) + html.slice(i + SYNC_LINK.length);
+  return html.slice(0, i) + block(nl, g) + html.slice(i + SYNC_LINK.length);
 }
-// 되돌린 결과가 원본과 같은지 점검용: 블록을 원래 한 줄로 바꿈
-export function revert(html) {
+// 되돌린 결과가 원본과 같은지 점검용: 블록을 원래 한 줄로 바꿈 · [478차] 그룹별 블록이라 경로(rel)도 받음
+export function revert(html, rel) {
   const nl = html.includes('\r\n') ? '\r\n' : '\n';
-  const b = block(nl);
+  const b = block(nl, groupOf(rel));
   return html.includes(b) ? html.replace(b, SYNC_LINK) : html;
 }
 
@@ -91,13 +105,13 @@ function walk(dir, out = []) {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1'))) {
   const res = { target: [], applied: [], exclude: [] };
-  for (const f of walk(path.join(ROOT, 'area'))) {
+  for (const f of [...walk(path.join(ROOT, 'area')), path.join(ROOT, 'consult.html')]) { // [478차] 상담 페이지 추가
     const rel = path.relative(ROOT, f).split(path.sep).join('/');
     const html = fs.readFileSync(f, 'utf8');
     const c = classify(rel, html);
     if (c.status === 'out') continue;
     res[c.status].push({ rel, group: c.group, reasons: c.reasons });
-    if (APPLY && c.status === 'target') fs.writeFileSync(f, transform(html), 'utf8');
+    if (APPLY && c.status === 'target') fs.writeFileSync(f, transform(html, rel), 'utf8');
   }
   for (const g of GROUPS) {
     const n = k => res[k].filter(x => x.group === g.name).length;

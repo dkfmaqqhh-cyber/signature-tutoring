@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+<!-- [485차] 상담 신청: 클립보드 신청서 · 파스텔 입체 · 가짜 글자 없음 · 장식용 -->
+<defs>
+  <radialGradient id="sh"><stop offset="0" stop-color="#1f3557" stop-opacity=".2"/><stop offset="1" stop-color="#1f3557" stop-opacity="0"/></radialGradient>
+  <linearGradient id="board" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe2a0"/><stop offset="1" stop-color="#e0b25a"/></linearGradient>
+  <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf7"/><stop offset="1" stop-color="#f1e7d0"/></linearGradient>
+</defs>
+<ellipse cx="80" cy="142" rx="50" ry="9" fill="url(#sh)"/>
+<rect x="34" y="28" width="92" height="110" rx="14" fill="#c4923f"/>
+<rect x="34" y="22" width="92" height="110" rx="14" fill="url(#board)"/>
+<rect x="44" y="38" width="72" height="86" rx="7" fill="url(#paper)"/>
+<rect x="60" y="14" width="40" height="18" rx="7" fill="#3b5584"/>
+<rect x="66" y="18" width="28" height="5" rx="2.5" fill="#8ea6d3"/>
+<g stroke-linecap="round">
+  <path d="M54 56h52M54 72h52M54 88h36" stroke="#d6cdb8" stroke-width="5"/>
+  <circle cx="98" cy="106" r="10" fill="#bfe6cf"/><path d="M93 106l3.5 3.5 6-6.5" stroke="#2f7a55" stroke-width="3" fill="none" stroke-linejoin="round"/>
+</g>
+<ellipse cx="54" cy="30" rx="12" ry="3.5" fill="#fff" opacity=".5"/>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+<!-- [485차] 수업 방식(화상·전화): 노트북 + 화면 속 말풍선 · 파스텔 입체 · 장식용 -->
+<defs>
+  <radialGradient id="sh"><stop offset="0" stop-color="#1f3557" stop-opacity=".2"/><stop offset="1" stop-color="#1f3557" stop-opacity="0"/></radialGradient>
+  <linearGradient id="lid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5f7aae"/><stop offset="1" stop-color="#3b5584"/></linearGradient>
+  <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef4fc"/><stop offset="1" stop-color="#c3d6ef"/></linearGradient>
+  <linearGradient id="base" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf8ee"/><stop offset="1" stop-color="#e2d6bc"/></linearGradient>
+</defs>
+<ellipse cx="80" cy="140" rx="62" ry="9" fill="url(#sh)"/>
+<rect x="28" y="24" width="104" height="74" rx="12" fill="url(#lid)"/>
+<rect x="36" y="31" width="88" height="58" rx="7" fill="url(#screen)"/>
+<rect x="46" y="42" width="44" height="26" rx="10" fill="#bfe6cf"/><path d="M54 66l-3 9 11-7z" fill="#bfe6cf"/>
+<circle cx="59" cy="55" r="3" fill="#fff"/><circle cx="68" cy="55" r="3" fill="#fff"/><circle cx="77" cy="55" r="3" fill="#fff"/>
+<rect x="80" y="62" width="34" height="18" rx="8" fill="#f8d98e"/>
+<path d="M14 104h132l6 14c1 4-1 6-5 6H13c-4 0-6-2-5-6z" fill="#cdbf9f"/>
+<path d="M14 100h132l6 14c1 4-1 6-5 6H13c-4 0-6-2-5-6z" fill="url(#base)"/>
+<rect x="62" y="102" width="36" height="5" rx="2.5" fill="#d9cbb0"/>
+<ellipse cx="46" cy="34" rx="10" ry="3" fill="#fff" opacity=".35"/>
+</svg>

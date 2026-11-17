@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+<!-- [485차] 정규 수업 결정: 체크 원 · 파스텔 입체 · 장식용 -->
+<defs>
+  <radialGradient id="sh"><stop offset="0" stop-color="#1f3557" stop-opacity=".2"/><stop offset="1" stop-color="#1f3557" stop-opacity="0"/></radialGradient>
+  <radialGradient id="mint" cx="35%" cy="28%" r="80%"><stop offset="0" stop-color="#e4f6ec"/><stop offset=".6" stop-color="#a9dcc0"/><stop offset="1" stop-color="#7cc39e"/></radialGradient>
+</defs>
+<ellipse cx="80" cy="142" rx="50" ry="9" fill="url(#sh)"/>
+<circle cx="80" cy="78" r="52" fill="#5fae86"/>
+<circle cx="80" cy="72" r="52" fill="url(#mint)"/>
+<path d="M56 72l17 17 32-34" stroke="#fff" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M56 72l17 17 32-34" stroke="#2f7a55" stroke-opacity=".12" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(0 3)"/>
+<path d="M56 72l17 17 32-34" stroke="#fff" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<ellipse cx="62" cy="40" rx="15" ry="6" fill="#fff" opacity=".55" transform="rotate(-25 62 40)"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+<!-- [485차] 선생님·방식 협의: 대화 말풍선 두 개 · 파스텔 입체 · 장식용 -->
+<defs>
+  <radialGradient id="sh"><stop offset="0" stop-color="#1f3557" stop-opacity=".2"/><stop offset="1" stop-color="#1f3557" stop-opacity="0"/></radialGradient>
+  <radialGradient id="a" cx="32%" cy="25%" r="85%"><stop offset="0" stop-color="#f1f6fd"/><stop offset=".6" stop-color="#c3d6ef"/><stop offset="1" stop-color="#93b0dc"/></radialGradient>
+  <radialGradient id="b" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#fff1e7"/><stop offset=".6" stop-color="#ffd2b4"/><stop offset="1" stop-color="#f2ae85"/></radialGradient>
+</defs>
+<ellipse cx="80" cy="142" rx="56" ry="9" fill="url(#sh)"/>
+<g transform="translate(0 5)" fill="#7f9bcb"><rect x="14" y="26" width="88" height="62" rx="24"/><path d="M34 84l-6 20 22-18z"/></g>
+<rect x="14" y="26" width="88" height="62" rx="24" fill="url(#a)"/><path d="M34 84l-6 20 22-18z" fill="#a8c1e5"/>
+<circle cx="40" cy="57" r="5" fill="#fff"/><circle cx="58" cy="57" r="5" fill="#fff"/><circle cx="76" cy="57" r="5" fill="#fff"/>
+<g transform="translate(0 5)" fill="#d98a5c"><rect x="66" y="66" width="78" height="54" rx="22"/><path d="M126 116l8 18-22-14z"/></g>
+<rect x="66" y="66" width="78" height="54" rx="22" fill="url(#b)"/><path d="M126 116l8 18-22-14z" fill="#f6c09c"/>
+<circle cx="90" cy="93" r="4.5" fill="#fff"/><circle cx="105" cy="93" r="4.5" fill="#fff"/><circle cx="120" cy="93" r="4.5" fill="#fff"/>
+<ellipse cx="36" cy="36" rx="12" ry="4" fill="#fff" opacity=".55"/>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+<!-- [483차] 해외 주재원·동반 가족 아이콘: 지구본 + 여행가방 · 파스텔 입체(클레이) 스타일 · 네이비·크림·골드 · 장식용(alt="") -->
+<defs>
+  <radialGradient id="sh" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#1f3557" stop-opacity=".22"/><stop offset="1" stop-color="#1f3557" stop-opacity="0"/></radialGradient>
+  <radialGradient id="sea" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#d4e5f7"/><stop offset=".65" stop-color="#9fbde3"/><stop offset="1" stop-color="#6f8fc4"/></radialGradient>
+  <radialGradient id="land" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#d7f0e2"/><stop offset="1" stop-color="#9fd2b7"/></radialGradient>
+  <linearGradient id="case" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe2a0"/><stop offset=".7" stop-color="#f0c766"/><stop offset="1" stop-color="#d9a84a"/></linearGradient>
+  <linearGradient id="caseSide" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d5a24a"/><stop offset="1" stop-color="#b9873a"/></linearGradient>
+  <clipPath id="globeClip"><circle cx="66" cy="68" r="48"/></clipPath>
+</defs>
+<ellipse cx="82" cy="141" rx="60" ry="10" fill="url(#sh)"/>
+<!-- 지구본 -->
+<circle cx="66" cy="68" r="48" fill="url(#sea)"/>
+<g clip-path="url(#globeClip)">
+  <path d="M30 40c10-10 26-14 36-8 6 4 2 12-6 14-9 2-10 10-4 16 7 7 2 16-8 15-10-1-16-8-22-16z" fill="url(#land)"/>
+  <path d="M74 26c12-2 26 4 34 14 4 6-2 10-9 8-8-2-12 4-8 10 5 7 14 6 16 14 2 9-6 18-16 18-8 0-10-8-8-16 2-8-6-12-12-10-8 3-14-4-10-12 4-9 6-20 13-26z" fill="url(#land)"/>
+  <path d="M36 92c8-4 18-2 22 4 3 6-2 14-10 16-8 2-16-4-16-10z" fill="url(#land)"/>
+</g>
+<ellipse cx="50" cy="42" rx="16" ry="9" fill="#fff" opacity=".35" transform="rotate(-30 50 42)"/>
+<!-- 여행가방: 손잡이 → 옆면 → 앞면 -->
+<path d="M100 82v-9a7 7 0 0 1 7-7h16a7 7 0 0 1 7 7v9" stroke="#1f3557" stroke-opacity=".75" stroke-width="7" stroke-linecap="round" fill="none"/>
+<rect x="86" y="84" width="62" height="52" rx="13" fill="url(#caseSide)"/>
+<rect x="86" y="78" width="62" height="52" rx="13" fill="url(#case)"/>
+<rect x="102" y="80" width="7" height="48" rx="3.5" fill="#2f4770" opacity=".85"/>
+<rect x="125" y="80" width="7" height="48" rx="3.5" fill="#2f4770" opacity=".85"/>
+<rect x="92" y="84" width="34" height="6" rx="3" fill="#fff" opacity=".5"/>
+<circle cx="140" cy="122" r="3" fill="#fffaf0" opacity=".8"/>
+</svg>

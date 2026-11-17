@@ -170,6 +170,15 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid
 .cv7-kp .cv7-ico { background: var(--brand-cream-deep); color: var(--brand-navy); }
 .cv7-kp h3 { margin: 4px 0 0; color: var(--brand-navy); font-size: 18px; line-height: 1.4; word-break: keep-all; }
 .cv7-kp p { margin: 0; color: var(--text-body); font-size: 14.5px; line-height: 1.65; word-break: keep-all; }
+/* [484차] 키포인트 아래 버튼 2개 — 일본어(흰 배경·네이비 테두리) · 상담(네이비 배경·흰 글자) · PC 가로 가운데 / 520px 이하 세로 */
+.cv7-kp-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 14px; margin: 32px 0 0; }
+.cv7-kp-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 54px; padding: 0 28px; border: 2px solid var(--brand-navy); border-radius: 999px; font-size: 16.5px; font-weight: 800; text-decoration: none; word-break: keep-all; transition: background .2s ease, color .2s ease; }
+.cv7-kp-btn.is-line { background: #fff; color: var(--brand-navy); }
+.cv7-kp-btn.is-line:hover { background: var(--brand-cream); color: var(--brand-navy); }
+.cv7-kp-btn.is-navy { background: var(--brand-navy); color: #fff; }
+.cv7-kp-btn.is-navy:hover { background: #0b2140; border-color: #0b2140; color: #fff; }
+.cv7-kp-btn:focus-visible { outline: 3px solid #143454; outline-offset: 3px; }
+@media (max-width: 520px) { .cv7-kp-actions { flex-direction: column; align-items: stretch; max-width: 420px; margin: 24px auto 0; gap: 10px; } }
 .cv7-dark { background: var(--brand-navy); }
 .page-subject main .cv7-dark .section-head h2, .cv7-dark .cv7-subhead { color: #fff; } /* 공통 .page-subject main .section-head h2(네이비)보다 우선 */
 .page-subject main .cv7-dark .section-head p, .cv7-dark .cv7-note { color: rgba(255, 255, 255, .85); }
@@ -517,6 +526,11 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
       <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20.5s-6.5-6-6.5-10.7a6.5 6.5 0 0 1 13 0c0 4.7-6.5 10.7-6.5 10.7z"/><circle cx="12" cy="9.8" r="2.3"/></svg></span><h3>실제 사용할 상황 중심</h3><p>생활·여행·업무 회화, 어학 시험 준비, 한국어 학습 등 배우려는 목적에 맞춰 연습할 내용을 정합니다.</p></li>
       <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 11a7.5 7.5 0 0 1 13.2-4.6L19.5 8.5M19.5 4v4.5H15"/><path d="M19.5 13a7.5 7.5 0 0 1-13.2 4.6L4.5 15.5M4.5 20v-4.5H9"/></svg></span><h3>말하기와 피드백의 반복</h3><p>직접 말하고, 표현·발음·문장 구성의 피드백을 받은 뒤 다시 말하며 연습합니다.</p></li>
     </ul>
+    <!-- [484차] 일본어 전용 페이지(/conversation/japanese/) 연결 + 기존 상담 페이지 · 대문에는 언어 버튼 추가 안 함 -->
+    <div class="cv7-kp-actions">
+      <a href="japanese/" class="cv7-kp-btn is-line">일본어 수업 자세히 보기 <span aria-hidden="true">→</span></a>
+      <a href="../consult.html" class="cv7-kp-btn is-navy">회화 무료 시범수업 상담 <span aria-hidden="true">→</span></a>
+    </div>
   </div>
 </section>
 

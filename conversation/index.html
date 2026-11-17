@@ -158,7 +158,6 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid
 .cv7-purpose-media { margin: -22px -20px 4px; overflow: hidden; border-radius: var(--radius-sm) var(--radius-sm) 0 0; background: var(--brand-cream); } /* [470차] 목적별 사진 자리(사진 확보 후 사용) · 모든 카드 3:2 */
 .cv7-purpose-media img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
 .cv7-purpose > ul { flex: 1 1 auto; } /* [470차] 내용 영역 유연 — 짧은 카드도 같은 높이 안에서 정렬 */
-.cv7-lang-note { max-width: 860px; margin: 22px auto 0; padding: 14px 20px; border-radius: var(--radius-sm); background: #fff; color: var(--ink); font-size: 15.5px; line-height: 1.65; text-align: center; word-break: keep-all; }
 .cv7-purpose h3 { margin: 0; color: var(--brand-navy); font-size: 19px; word-break: keep-all; }
 .cv7-purpose > p { margin: 0; color: var(--text-body); font-size: 14.5px; line-height: 1.65; word-break: keep-all; }
 .cv7-purpose ul, .cv7-check { margin: 0; padding: 0; list-style: none; } /* [472차] 비교 영역(.cv7-compare*) 삭제에 따라 해당 선택자 정리 */
@@ -244,10 +243,6 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
   .cv7-steps li strong { margin: 10px 0 4px; }
   .cv7-loop li strong { margin: 14px 18px 4px; } .cv7-loop li p { margin: 0 18px 18px; } /* [468차] 사진 카드는 세로 배치 유지 */
 }
-.cv7-exam { display: flex; gap: 14px; align-items: flex-start; max-width: 860px; margin: 22px auto 0; padding: 18px 20px; border: 1px solid var(--brand-gold); border-radius: var(--radius-sm); background: #fff; }
-.cv7-exam .cv7-ico { flex: 0 0 auto; background: var(--brand-cream-deep); color: var(--brand-navy); }
-.cv7-exam strong { display: block; color: var(--brand-navy); font-size: 16.5px; word-break: keep-all; }
-.cv7-exam p { margin: 4px 0 0; color: var(--text-body); font-size: 14.5px; word-break: keep-all; }
 .cv7-mode-note { margin: 12px 0 0; color: var(--text-body); font-size: 14.5px; word-break: keep-all; }
 /* [469차] 선생님 프로필 예시 슬라이드 — PC 3장 · 태블릿 2장 · 모바일 1장 */
 .cv7-tslider { --per: 3; --gap: 16px; max-width: 1000px; margin: 0 auto 28px; }
@@ -268,7 +263,7 @@ body.page-cv #faq .cv7-faq summary { white-space: normal; word-break: keep-all; 
 @media (max-width: 1024px) { .cv7-tslider { --per: 2; } }
 @media (max-width: 560px) { .cv7-tslider { --per: 1; --gap: 12px; } }
 @media (prefers-reduced-motion: reduce) { .cv7-ts-track { transition: none; } }
-@media (max-width: 520px) { .cv7-exam { padding: 16px; } } /* [472차] 5단계(.is-five) 규칙 삭제 → 기본 .cv7-steps 4열/2열/1열 사용 */
+/* [472차] 5단계(.is-five) 규칙 삭제 → 기본 .cv7-steps 4열/2열/1열 사용 */
 /* [472차] 회원 후기 — 흰 카드 · PC 3열 / 태블릿 2열 / 760px 이하 1열 · 접힌 상태 본문 4줄 미리보기(JS 동작 시에만) · 제목·작성자는 항상 표시 */
 /* [472차-2] 한 줄 슬라이드: --per = 보이는 장 수(PC 3 · 1024px 이하 2 · 760px 이하 1) · 트랙은 줄바꿈 없는 flex(같은 높이 = stretch, 펼친 카드 높이에 맞춰 영역이 늘어남) */
 .cv7-rslider { --per: 3; --gap: 16px; max-width: 1080px; margin: 0 auto; }
@@ -352,15 +347,48 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
 .cv7-prep .cv7-check { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 20px; }
 .cv7-prep .cv7-check li + li { margin-top: 0; }
 @media (max-width: 760px) { .cv7-fee { grid-template-columns: 1fr; } .cv7-prep .cv7-check { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-/* [481차] 추가 대상 3카드(국제학교·해외 주재원·한국어) — PC·태블릿 3열 / 760px 이하 1열 · 사진 대신 기존 선 아이콘 · 해외 거주자 안내 박스(.cv7-exam 모양 재사용) */
-.cv7-more-head { margin: 44px 0 16px; color: var(--brand-navy); }
-.cv7-more-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
-.cv7-more-grid .cv7-ico { background: var(--brand-cream-deep); color: var(--brand-navy); }
-.cv7-purpose h4 { margin: 0; color: var(--brand-navy); font-size: 19px; line-height: 1.4; word-break: keep-all; }
-.cv7-abroad a { color: var(--brand-navy); font-weight: 700; text-decoration: underline; text-decoration-color: var(--brand-gold); text-underline-offset: 4px; }
-.cv7-abroad + .cv7-exam { margin-top: 12px; }
-@media (max-width: 760px) { .cv7-more-grid { grid-template-columns: 1fr; } .cv7-more-head { margin-top: 32px; } }
-@media (max-width: 520px) { .cv7-more-grid { gap: 12px; } }
+/* [482차] 국제학교·해외 생활(#global) 2카드 · 한글·한국어 가로형(#korean) · 준비사항 안의 해외 안내 — 이 페이지 전용 · 카드 높이 고정 없음(내용 높이, 같은 줄은 stretch) */
+.cv7-ico-lg { width: 60px; height: 60px; border-radius: 16px; }
+.cv7-ico-lg svg { width: 30px; height: 30px; stroke-width: 1.6; }
+.cv7-gl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 920px; margin: 0 auto; align-items: stretch; }
+.cv7-gl { display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 30px 28px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; box-shadow: var(--shadow-card); }
+.cv7-gl .cv7-ico { background: var(--brand-cream-deep); color: var(--brand-navy); }
+.cv7-gl h3 { margin: 6px 0 0; color: var(--brand-navy); font-size: 20px; line-height: 1.4; word-break: keep-all; }
+.cv7-gl > p { margin: 0; color: var(--text-body); font-size: 15.5px; line-height: 1.7; word-break: keep-all; }
+.cv7-gl .cv7-check { margin-top: 4px; padding-top: 16px; border-top: 1px solid var(--line); }
+.cv7-gl .cv7-check li, .cv7-ko .cv7-check li { font-size: 15.5px; line-height: 1.65; }
+.cv7-gl .cv7-check li + li, .cv7-ko .cv7-check li + li { margin-top: 8px; }
+.cv7-ko-sec { padding-bottom: 24px; } /* 다음 후기 영역(흰 배경)과 사이 빈 공간이 두 배가 되지 않게 */
+.cv7-ko { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 24px 48px; align-items: center; max-width: 1000px; margin: 0 auto; padding: 40px 44px; border: 1px solid var(--brand-gold); border-radius: var(--radius-sm); background: var(--brand-cream); }
+.cv7-ko .cv7-ico { background: #fff; color: var(--brand-navy); }
+.cv7-ko .kicker { margin: 18px 0 6px; color: var(--brand-gold-text); font-size: 13px; font-weight: 800; letter-spacing: .12em; }
+.cv7-ko h2 { margin: 0; color: var(--brand-navy); font-size: 30px; line-height: 1.35; word-break: keep-all; }
+.cv7-ko-who { margin: 16px 0 0; color: var(--ink); font-size: 16px; line-height: 1.65; word-break: keep-all; }
+.cv7-ko-who strong { display: block; margin-bottom: 2px; color: var(--brand-gold-text); font-size: 13.5px; font-weight: 800; }
+.cv7-ko-body { min-width: 0; padding-left: 44px; border-left: 1px solid rgba(201, 161, 95, .45); }
+.cv7-ko-note { margin: 16px 0 0; color: var(--text-body); font-size: 15px; line-height: 1.7; word-break: keep-all; }
+.cv7-prep-abroad { margin-top: 18px; padding: 16px 18px; border-radius: 12px; background: var(--brand-cream); }
+.cv7-prep-abroad .cv7-label { margin: 0 0 6px; }
+.cv7-prep-abroad p:last-child { margin: 0; color: var(--text-body); font-size: 15px; line-height: 1.7; word-break: keep-all; }
+.cv7-prep-abroad strong { color: var(--brand-navy); }
+.cv7-prep-abroad a { color: var(--brand-navy); font-weight: 700; text-decoration: underline; text-decoration-color: var(--brand-gold); text-underline-offset: 4px; }
+@media (max-width: 760px) {
+  .cv7-gl-grid { grid-template-columns: 1fr; max-width: 560px; gap: 14px; }
+  .cv7-ko { grid-template-columns: 1fr; gap: 20px; padding: 30px 24px; }
+  .cv7-ko h2 { font-size: 25px; }
+  .cv7-ko-body { padding: 20px 0 0; border-left: 0; border-top: 1px solid rgba(201, 161, 95, .45); }
+}
+@media (max-width: 520px) { .cv7-gl { padding: 24px 20px; } .cv7-ko { padding: 26px 20px; } .cv7-prep-abroad { padding: 14px 16px; } }
+/* [482차] 모바일 첫 화면: '수업 과정 살펴보기'가 하단 고정 상담 띠에 반쯤 걸리지 않게 대문 안 세로 여백만 줄임(글자 크기·순서 유지) · 높이 667px 이상 화면 기준 */
+@media (max-width: 520px) {
+  body.page-cv .cv7-hero { padding-top: 20px; }
+  body.page-cv .cv7-hero .breadcrumb { margin-bottom: 12px; }
+  body.page-cv .cv7-hero .page-kicker { margin-bottom: 10px; }
+  body.page-cv .cv7-hero h1 { margin-bottom: 12px; }
+  body.page-cv .cv7-hero .page-lead { margin-bottom: 16px; }
+  body.page-cv .cv7-hero .cv7-actions { margin-top: 12px; gap: 4px 20px; }
+  body.page-cv .cv7-hero .cv7-keys { margin-top: 12px; } body.page-cv .cv7-hero .cv7-keys li { padding-top: 8px; padding-bottom: 9px; }
+}
 @media (max-width: 520px) { .cv7-fee { gap: 12px; } .cv7-fee-price { padding: 22px 18px; } .cv7-fee-amount { font-size: 30px; } .cv7-prep { padding: 20px 18px; } .cv7-prep .cv7-check { grid-template-columns: 1fr; } .cv7-mode-table th, .cv7-mode-table td { padding: 12px 12px; } }
 </style>
 </head>
@@ -440,7 +468,7 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
     <div class="section-head center">
       <div class="kicker">PURPOSE</div>
       <h2 id="cvPurposeTitle">어떤 회화가 필요하신가요?</h2>
-      <p>목적에 따라 연습할 주제와 표현이 달라집니다. 필요한 상황을 먼저 정하고 1:1로 진행합니다.</p>
+      <p>영어·일본어·중국어·프랑스어 등 배우려는 언어와 목적에 따라 연습할 주제와 표현이 달라집니다. 필요한 상황을 먼저 정하고 1:1로 진행합니다.</p>
     </div>
     <div class="cv7-purpose-grid">
       <!-- [459차] 한글 제목 먼저 · 영문 배지는 보조(스크린리더 제외) · [470차] 카드별 언어 배지 삭제 → 카드 아래 언어 안내 1회 · 상단 사진 = .cv7-purpose-media(운영자 제공 4분할 AI 이미지를 3:2 WebP 480·720으로 분리, 지연 로딩) -->
@@ -469,39 +497,7 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
         <ul><li>회의·이메일·업무 통화 표현</li><li>영어 면접·발표 말하기 연습</li></ul>
       </article>
     </div>
-    <!-- [481차] 추가 대상 3카드(사진 없음 → 페이지 기존 선 아이콘 .cv7-ico) · PC·태블릿 3열 / 760px 이하 1열 · 입학·성적 보장, 한국어 연령 제한·자격시험 과정 미기재 -->
-    <h3 class="cv7-subhead cv7-more-head">국제학교·해외 생활·한국어 학습도 상담합니다</h3>
-    <div class="cv7-more-grid">
-      <article class="cv7-purpose">
-        <span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 9.5 12 5l8.5 4.5L12 14z"/><path d="M7 11.6v4.2c1.3 1.3 3 2 5 2s3.7-.7 5-2v-4.2"/><path d="M20.5 9.5v5"/></svg></span>
-        <div class="cv7-ph"><h4>국제학교 준비·재학생</h4><span class="cv7-badge" aria-hidden="true">INTERNATIONAL SCHOOL</span></div>
-        <p>국제학교 입학을 준비하거나 재학 중인 학생</p>
-        <ul><li>학교생활 의사소통과 수업 참여를 위한 말하기</li><li>발표·토론 등 필요한 학습 목적은 상담에서 확인</li></ul>
-      </article>
-      <article class="cv7-purpose">
-        <span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.3 2.4 3.4 5.2 3.4 8.5s-1.1 6.1-3.4 8.5c-2.3-2.4-3.4-5.2-3.4-8.5S9.7 5.9 12 3.5z"/></svg></span>
-        <div class="cv7-ph"><h4>해외 주재원·동반 가족</h4><span class="cv7-badge" aria-hidden="true">GLOBAL FAMILY</span></div>
-        <p>해외 근무를 준비하거나 현지에 거주하는 주재원과 가족</p>
-        <ul><li>업무 소통에 필요한 회화</li><li>현지 생활에 필요한 상황별 표현</li></ul>
-      </article>
-      <article class="cv7-purpose">
-        <span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 5.5h6.5a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4.5z"/><path d="M19.5 5.5H13a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6.5z"/></svg></span>
-        <div class="cv7-ph"><h4>한글·한국어</h4><span class="cv7-badge" aria-hidden="true">KOREAN</span></div>
-        <p>한국어가 필요한 외국인, 재외동포, 해외 거주 자녀 등</p>
-        <ul><li>한글 읽기·쓰기부터 한국어 말하기까지</li><li>현재 수준과 학습 목적에 맞춰 상담</li></ul>
-      </article>
-    </div>
-    <p class="cv7-lang-note">영어·일본어·중국어·프랑스어 등 다양한 외국어와 한글·한국어 수업을 상담할 수 있습니다. 희망 언어의 수업 방식과 일정은 상담 시 확인해 드립니다.</p>
-    <!-- [481차] 해외 거주자 안내 · 수업 가능 시간·연결 방식은 상담 후 확인(24시간·국가별 전화 수업 조건 없음) · 상담 폼 휴대폰 칸은 국내 번호 형식이라 카카오톡 상담 함께 안내 -->
-    <div class="cv7-exam cv7-abroad">
-      <span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
-      <div><strong>해외에 계셔도 상담할 수 있습니다</strong><p>국내뿐 아니라 해외 거주자도 상담할 수 있습니다. 상담할 때 거주 국가와 시간대, 희망 언어, 학습 목적을 알려 주세요. 시차에 따른 실제 수업 가능 시간과 연결 방식은 상담 후 확인해 안내드립니다. 국내 휴대폰 번호가 없으시면 <a href="https://open.kakao.com/o/sB24cATi" target="_blank" rel="noopener">카카오톡 오픈채팅</a>으로 상담해 주세요.</p></div>
-    </div>
-    <!-- [460차] 시험 준비 = 운영자 확인(어학 인증시험 상담 가능) · 시험별 언어·과목·방식·점수 보장은 넣지 않음 -->
-    <div class="cv7-exam">
-      <span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3.5h7l4 4v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-15a1 1 0 0 1 1-1z"/><path d="M14 3.5v4h4"/><path d="M9 13l2 2 4-4"/></svg></span>
-      <div><strong>어학 시험 준비도 상담할 수 있습니다</strong><p>TOEIC·TOEFL·OPIc·JLPT 등 어학 인증시험 준비를 현재 수준과 목표를 확인한 뒤 수업 방향과 함께 안내해 드립니다.</p></div>
-    </div>
+    <!-- [482차] 481차 추가 카드 3개·언어 안내 박스·해외 안내 박스·어학 시험 박스를 이 영역에서 분리(국제학교·해외 생활 → #global, 한국어 → #korean, 해외 상담 → #start 준비사항, 언어 안내 → 위 설명 문장, 어학 시험 → FAQ 유지) -->
   </div>
 </section>
 
@@ -541,6 +537,51 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
       <article><img class="cv7-lv-ico" src="../images/conversation-level-advanced.webp" width="48" height="48" alt="" loading="lazy" decoding="async"><span class="cv7-lv">고급</span><strong>자연스러운 표현과 상황별 회화</strong><p>주제를 정해 의견을 나누고, 업무·여행 등 목적별 실전 회화를 연습합니다.</p></article>
     </div>
     <p class="cv7-note">학습자의 이해도와 말하기 속도에 맞춰 다음 단계로 이어갑니다.</p>
+  </div>
+</section>
+
+<!-- [482차] 국제학교·해외 생활 (481차 목적 영역 추가 카드에서 분리) · 카드 2개 PC·태블릿 2열 / 모바일 1열 · 큰 선 아이콘 · 영문 배지 없음 · '상담에서 확인'은 카드 아래 1문장으로 묶음 · 입학·성적 보장 미기재 -->
+<section class="page-section soft cv7-sec" id="global" aria-labelledby="cvGlobalTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">INTERNATIONAL SCHOOL &amp; ABROAD</div>
+      <h2 id="cvGlobalTitle">국제학교·해외 생활을 준비하시나요?</h2>
+      <p>학교와 현지 생활에서 필요한 말하기를 목적에 맞춰 준비합니다.</p>
+    </div>
+    <div class="cv7-gl-grid">
+      <article class="cv7-gl">
+        <span class="cv7-ico cv7-ico-lg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 9.5 12 5l8.5 4.5L12 14z"/><path d="M7 11.6v4.2c1.3 1.3 3 2 5 2s3.7-.7 5-2v-4.2"/><path d="M20.5 9.5v5"/></svg></span>
+        <h3>국제학교 준비·재학생</h3>
+        <p>국제학교 입학을 준비하거나 재학 중인 학생</p>
+        <ul class="cv7-check"><li>학교생활 의사소통과 수업 참여를 위한 말하기</li><li>발표·토론 등 학습 목적에 맞춘 연습</li></ul>
+      </article>
+      <article class="cv7-gl">
+        <span class="cv7-ico cv7-ico-lg" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.3 2.4 3.4 5.2 3.4 8.5s-1.1 6.1-3.4 8.5c-2.3-2.4-3.4-5.2-3.4-8.5S9.7 5.9 12 3.5z"/></svg></span>
+        <h3>해외 주재원·동반 가족</h3>
+        <p>해외 근무를 준비하거나 현지에 거주하는 주재원과 가족</p>
+        <ul class="cv7-check"><li>업무 소통에 필요한 회화</li><li>현지 생활에 필요한 상황별 표현</li></ul>
+      </article>
+    </div>
+    <p class="cv7-note">필요한 학습 목적과 수업 방향은 상담에서 함께 확인해 안내드립니다.</p>
+  </div>
+</section>
+
+<!-- [482차] 한글·한국어 가로형 안내 (481차 카드에서 분리) · PC 좌(제목·대상) / 우(학습 내용) · 760px 이하 위아래 · 새 이미지 없이 기존 선 아이콘 · 연령 제한·자격시험 과정 미기재 -->
+<section class="page-section cv7-sec cv7-ko-sec" id="korean" aria-labelledby="cvKoreanTitle">
+  <div class="container">
+    <div class="cv7-ko">
+      <div class="cv7-ko-head">
+        <span class="cv7-ico cv7-ico-lg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 5.5h6.5a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4.5z"/><path d="M19.5 5.5H13a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6.5z"/></svg></span>
+        <div class="kicker">KOREAN</div>
+        <h2 id="cvKoreanTitle">한글부터 한국어 회화까지</h2>
+        <p class="cv7-ko-who"><strong>이런 분께</strong>한국어가 필요한 외국인·재외동포·해외 거주 자녀</p>
+      </div>
+      <div class="cv7-ko-body">
+        <p class="cv7-label">이렇게 배웁니다</p>
+        <ul class="cv7-check"><li>한글 읽기·쓰기부터 차근차근</li><li>현재 수준에 맞춘 한국어 말하기</li></ul>
+        <p class="cv7-ko-note">학습자의 현재 수준과 목적을 확인한 뒤 수업 방식과 일정을 상담에서 안내합니다.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -687,7 +728,7 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
     </div>
     <!-- [459차] STEP 번호 대신 장식 아이콘(aria-hidden) · 순서는 ol 목록 의미로 전달 · [472차] 4단계(수준·목표 확인 단계 삭제 → 무료 시범수업·레벨테스트로 통합, 운영자 확인: 무료 시범수업에서 레벨테스트 진행) · 가운데 정렬 · PC 4열/태블릿 2열/모바일 1열 · 시범수업 시간·횟수·취소 조건 미기재 -->
     <ol class="cv7-steps">
-      <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8.5h6M9 12h6M9 15.5h3.5"/></svg></span><strong>상담 신청</strong><p>배우고 싶은 언어와 수업 목적, 가능한 시간대를 남겨 주세요. 해외에 계시면 거주 국가도 알려 주세요.</p></li>
+      <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8.5h6M9 12h6M9 15.5h3.5"/></svg></span><strong>상담 신청</strong><p>배우고 싶은 언어와 수업 목적, 가능한 시간대를 남겨 주세요.</p></li>
       <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h10a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H8l-4 3V7a1 1 0 0 1 1-1z"/><path d="M15 9h4a1 1 0 0 1 1 1v8l-3-2.5h-5a1 1 0 0 1-1-1V14"/></svg></span><strong>선생님·방식 협의</strong><p>희망하는 선생님 방향과 화상·전화 수업 방식을 상담합니다.</p></li>
       <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.2 5.3L20 9l-4.4 3.8L17 18.5 12 15.5 7 18.5l1.4-5.7L4 9l5.8-.7z"/></svg></span><strong>무료 시범수업·레벨테스트</strong><p>무료 시범수업에서 현재 수준과 수업 방식을 확인합니다.</p></li>
       <li><span class="cv7-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.4 2.4 4.8-5"/></svg></span><strong>정규 수업 여부 결정</strong><p>시범수업 후 수업 조건과 안내받은 수업료를 확인하고 정규 수업 진행 여부를 결정합니다.</p></li>
@@ -702,8 +743,12 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
         <li>가능한 시간대</li>
         <li>희망 수업 횟수: 주 2·3·5회</li>
         <li>희망 수강 기간</li>
-        <li>해외 거주 시 거주 국가·시간대</li><!-- [481차] -->
       </ul>
+      <!-- [482차] 481차 해외 안내 박스를 준비사항에 통합 · 희망 언어·목적은 위 목록과 중복하지 않고 거주 국가·시간대만 추가 · 카카오톡 안내 유지(상담 폼 휴대폰 칸은 국내 번호 형식) -->
+      <div class="cv7-prep-abroad">
+        <p class="cv7-label">해외에 거주하신다면</p>
+        <p>위 내용과 함께 <strong>거주 국가와 시간대</strong>를 알려 주세요. 시차와 희망 언어에 따른 수업 가능 시간과 연결 방식은 상담 후 안내드립니다. 국내 휴대폰 번호가 없으시면 <a href="https://open.kakao.com/o/sB24cATi" target="_blank" rel="noopener">카카오톡 오픈채팅</a>으로 상담해 주세요.</p>
+      </div>
     </div>
   </div>
 </section>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+<!-- [483차] 국제학교 아이콘: 학사모 + 책 · 파스텔 입체(클레이) 스타일 · 네이비·크림·골드 · 장식용(alt="") -->
+<defs>
+  <radialGradient id="sh" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#1f3557" stop-opacity=".22"/><stop offset="1" stop-color="#1f3557" stop-opacity="0"/></radialGradient>
+  <linearGradient id="cover" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9cbe9"/><stop offset="1" stop-color="#86a0cf"/></linearGradient>
+  <linearGradient id="coverDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7f97c4"/><stop offset="1" stop-color="#5f78a8"/></linearGradient>
+  <linearGradient id="pages" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#eee2c6"/></linearGradient>
+  <linearGradient id="board" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6f86b3"/><stop offset="1" stop-color="#3b5584"/></linearGradient>
+  <linearGradient id="boardSide" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34497a"/><stop offset="1" stop-color="#26385f"/></linearGradient>
+  <linearGradient id="skull" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4c669a"/><stop offset="1" stop-color="#30466f"/></linearGradient>
+  <radialGradient id="gold" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffe7a6"/><stop offset=".6" stop-color="#f0c766"/><stop offset="1" stop-color="#cf9f42"/></radialGradient>
+</defs>
+<ellipse cx="80" cy="140" rx="58" ry="10" fill="url(#sh)"/>
+<!-- 책: 아래 표지 → 종이 → 위 표지 -->
+<rect x="24" y="104" width="112" height="28" rx="12" fill="url(#coverDark)"/>
+<rect x="30" y="100" width="104" height="24" rx="8" fill="url(#pages)"/>
+<path d="M34 108h96M34 114h96M34 120h96" stroke="#e2d3b0" stroke-width="1.6" stroke-linecap="round"/>
+<rect x="22" y="88" width="112" height="20" rx="10" fill="url(#cover)"/>
+<rect x="30" y="91" width="70" height="5" rx="2.5" fill="#fff" opacity=".45"/>
+<rect x="112" y="88" width="10" height="20" fill="#f0c766" opacity=".9"/>
+<!-- 학사모: 머리 부분 → 판 옆면 → 판 윗면 -->
+<path d="M50 60v20c0 6 13.5 11 30 11s30-5 30-11V60z" fill="url(#skull)"/>
+<path d="M58 70c6 4 14 5 22 5" stroke="#fff" stroke-opacity=".25" stroke-width="3" stroke-linecap="round" fill="none"/>
+<path d="M18 52 80 77l62-25v7L80 84 18 59z" fill="url(#boardSide)"/>
+<path d="M80 27 142 52 80 77 18 52z" fill="url(#board)"/>
+<path d="M80 33 128 52" stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>
+<!-- 술 -->
+<path d="M80 52 C100 56 116 58 124 60 V84" stroke="#e1b34f" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+<circle cx="80" cy="52" r="6" fill="url(#gold)"/>
+<rect x="118" y="82" width="12" height="16" rx="5" fill="url(#gold)"/>
+<path d="M121 86v9M127 86v9" stroke="#c9963b" stroke-width="1.4" stroke-linecap="round"/>
+</svg>

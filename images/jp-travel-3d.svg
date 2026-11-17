@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+<!-- [485차] 일본 여행: 비행기 + 여행가방 · 파스텔 입체 · 장식용 -->
+<defs>
+  <radialGradient id="sh"><stop offset="0" stop-color="#1f3557" stop-opacity=".2"/><stop offset="1" stop-color="#1f3557" stop-opacity="0"/></radialGradient>
+  <linearGradient id="case" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd9bf"/><stop offset=".7" stop-color="#f6b98f"/><stop offset="1" stop-color="#e59d6e"/></linearGradient>
+  <linearGradient id="caseSide" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d98a5c"/><stop offset="1" stop-color="#c47648"/></linearGradient>
+  <linearGradient id="plane" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c9d9f0"/></linearGradient>
+  <linearGradient id="wing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9cdec"/><stop offset="1" stop-color="#86a2d2"/></linearGradient>
+</defs>
+<ellipse cx="70" cy="142" rx="52" ry="9" fill="url(#sh)"/>
+<!-- 비행기 자국 -->
+<path d="M18 52C40 40 60 44 78 52" stroke="#c9d9f0" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 10" fill="none"/>
+<!-- 비행기 -->
+<g transform="translate(112 44) rotate(-24)">
+  <path d="M-8 -5 L-22 -32 L-11 -32 L12 -5Z" fill="url(#wing)"/>
+  <path d="M-8 5 L-22 32 L-11 32 L12 5Z" fill="#7f9bcb"/>
+  <path d="M-30 -4 L-40 -18 L-33 -18 L-22 -4Z" fill="url(#wing)"/>
+  <rect x="-38" y="-8" width="76" height="16" rx="8" fill="url(#plane)"/>
+  <path d="M30 -8a8 8 0 0 1 0 16" fill="#9fbde3"/>
+  <circle cx="-14" cy="-1" r="2.2" fill="#6f8fc4"/><circle cx="-5" cy="-1" r="2.2" fill="#6f8fc4"/><circle cx="4" cy="-1" r="2.2" fill="#6f8fc4"/><circle cx="13" cy="-1" r="2.2" fill="#6f8fc4"/>
+</g>
+<!-- 여행가방 -->
+<path d="M50 72v-9a7 7 0 0 1 7-7h18a7 7 0 0 1 7 7v9" stroke="#2f4770" stroke-width="7" stroke-linecap="round" fill="none"/>
+<rect x="28" y="78" width="80" height="58" rx="14" fill="url(#caseSide)"/>
+<rect x="28" y="72" width="80" height="58" rx="14" fill="url(#case)"/>
+<rect x="46" y="74" width="8" height="54" rx="4" fill="#fff6ec" opacity=".85"/>
+<rect x="82" y="74" width="8" height="54" rx="4" fill="#fff6ec" opacity=".85"/>
+<rect x="34" y="78" width="40" height="6" rx="3" fill="#fff" opacity=".45"/>
+<circle cx="40" cy="138" r="5" fill="#2f4770"/><circle cx="96" cy="138" r="5" fill="#2f4770"/>
+</svg>

@@ -624,5 +624,36 @@
       }
     ],
     "lens": false
+  },
+  "high1-common-math2-final": {
+    "palette": "indigo",
+    "badge": "내신 관리 · 고등 수학",
+    "title": "고1 기말고사\n*공통수학2*\n점검 순서",
+    "keys": [
+      "단원 흐름",
+      "4주 계획"
+    ],
+    "cardTitle": "공통수학2 세 영역",
+    "cardTag": "정리",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "1",
+        "text": "도형의 방정식"
+      },
+      {
+        "label": "2",
+        "text": "집합과 명제"
+      },
+      {
+        "label": "3",
+        "text": "함수와 그래프"
+      },
+      {
+        "label": "점검",
+        "text": "오답 · 서술형"
+      }
+    ],
+    "lens": false
   }
 }

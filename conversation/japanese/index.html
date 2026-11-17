@@ -269,6 +269,45 @@ body.page-jp .sj-trial-photo { background: #fbf3e6; } body.page-jp .sj-trial-box
   .jp-fee-lead { padding: 24px 20px; } .jp-fee-amount { font-size: 30px; }
   .jp-abroad .jp-3d { margin: 0 auto; } .jp-abroad h3 { text-align: center; }
 }
+/* [486차] 일본어 무료 레벨테스트 고정 배너(.jp-lt) — 회화 페이지 [472차-3] .cv-lt 구조 재사용, 이 페이지 전용
+   · 연한 크림 배경 · 네이비 글자 · 노란 버튼(#FFE34D) · PC: 아래 가운데 띠(문구 왼쪽·버튼 오른쪽, 오른쪽 떠 있는 상담 버튼 3개와 겹치지 않는 폭)
+   · 1024px 이하: 기존 하단 상담 띠 자리로 바뀌어 하나만 표시 · 600px 이하: 세로 배치 · 실제 배너 높이(--jp-lt-h)만큼 본문 아래 여백 */
+.jp-lt { position: fixed; left: 50%; bottom: 20px; z-index: 91; width: min(860px, calc(100% - 432px)); padding: 14px 64px 14px 20px; border: 1px solid #EAD9A8; border-radius: 20px; background: #FFF8E6; color: var(--brand-navy); box-shadow: 0 10px 26px rgba(16, 42, 75, .16); opacity: 0; visibility: hidden; transform: translate(-50%, calc(100% + 40px)); transition: transform .3s ease, opacity .3s ease, visibility 0s linear .3s; }
+.jp-lt.is-shown { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: transform .3s ease, opacity .3s ease, visibility 0s; }
+.jp-lt-inner { display: flex; align-items: center; gap: 16px; }
+.jp-lt-ico { flex: 0 0 auto; width: 52px; height: 52px; }
+.jp-lt-text { flex: 1 1 auto; min-width: 0; }
+.jp-lt-title { margin: 0; color: var(--brand-navy); font-size: 17px; font-weight: 800; line-height: 1.4; word-break: keep-all; }
+.jp-lt-desc { margin: 2px 0 0; color: #3a4658; font-size: 14.5px; line-height: 1.5; word-break: keep-all; text-wrap: balance; }
+.jp-lt-btn { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 48px; padding: 0 22px; border: 1px solid #F2CF2A; border-radius: 999px; background: #FFE34D; color: #102D4E; font-size: 15.5px; font-weight: 800; text-decoration: none; white-space: nowrap; }
+.jp-lt-btn:hover { background: #FFD91A; color: #102D4E; }
+.jp-lt-btn:focus-visible, .jp-lt-close:focus-visible { outline: 3px solid #102D4E; outline-offset: 2px; }
+.jp-lt-close { position: absolute; top: 50%; right: 10px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--brand-navy); cursor: pointer; transform: translateY(-50%); }
+.jp-lt-close:hover { background: rgba(16, 42, 75, .08); }
+.jp-lt-close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+body.page-jp.jp-lt-on { padding-bottom: var(--jp-lt-h, 0px) !important; } /* 배너가 보이는 동안 실제 높이만큼 아래 여백 · 공통 body{padding-bottom:0 !important}·하단 띠 여백(!important)보다 우선(선택자 더 구체적) */
+html.jp-lt-html { scroll-padding-bottom: calc(var(--jp-lt-sp, 0px) + 16px); } /* 키보드 초점 이동 시 배너에 가리지 않게 — 배너를 닫지 않은 동안 항상 배너 높이(숨김 → 표시로 바뀌어도 가리지 않음) */
+@media (max-width: 1024px) {
+  .jp-lt { left: 0; right: 0; bottom: 0; width: auto; padding: 12px 56px calc(12px + env(safe-area-inset-bottom)) 16px; border-width: 1px 0 0; border-radius: 18px 18px 0 0; box-shadow: 0 -6px 18px rgba(16, 42, 75, .12); transform: translateY(100%); }
+  .jp-lt.is-shown { transform: none; }
+  body.page-jp.jp-lt-on .sig-float { visibility: hidden; opacity: 0; pointer-events: none; } /* 하단 상담 띠 대신 배너 하나만 */
+  .jp-lt-ico { width: 44px; height: 44px; }
+  .jp-lt-close { right: 6px; }
+}
+@media (max-width: 600px) {
+  .jp-lt { padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); }
+  .jp-lt-inner { flex-direction: column; align-items: stretch; gap: 10px; }
+  .jp-lt-ico { display: none; }
+  .jp-lt-text { padding-right: 40px; }
+  .jp-lt-title { font-size: 16px; }
+  .jp-lt-desc { font-size: 13.5px; }
+  .jp-lt-btn { width: 100%; min-height: 46px; font-size: 15px; }
+  .jp-lt-close { top: 4px; right: 4px; transform: none; }
+}
+@media (max-width: 600px) and (max-height: 640px) { .jp-lt-desc { display: none; } .jp-lt-inner { gap: 8px; } .jp-lt-btn { min-height: 44px; } } /* 낮은 화면: 제목·버튼만 */
+@media (max-height: 420px) and (orientation: landscape) { .jp-lt { padding-top: 8px; padding-bottom: calc(8px + env(safe-area-inset-bottom)); } .jp-lt-inner { flex-direction: row; align-items: center; } .jp-lt-desc, .jp-lt-ico { display: none; } .jp-lt-text { padding-right: 0; } .jp-lt-btn { width: auto; min-height: 42px; } .jp-lt-close { top: 50%; transform: translateY(-50%); } .jp-lt { padding-right: 56px; } } /* 모바일 가로 화면: 한 줄 */
+@media (prefers-reduced-motion: reduce) { .jp-lt, .jp-lt.is-shown { transition: none; } }
+@media print { .jp-lt { display: none; } }
 </style>
 </head>
 <body class="page-subject page-jp">
@@ -478,6 +517,22 @@ body.page-jp .sj-trial-photo { background: #fbf3e6; } body.page-jp .sj-trial-box
   </div>
 </section>
 
+<!-- [486차] 일본어 무료 레벨테스트 고정 배너 — 레벨테스트는 무료 시범수업에서 진행(즉시 온라인 시험·점수 아님) · 기존 상담 페이지(consult.html)로 연결(새 신청서·필드·매개변수 없음)
+     · 신청 목적 전달 = 공통 script.js [454차] 상담 클릭 기록: 메시지 끝 [접수 경로]에 '상담 클릭 페이지: /conversation/japanese/'·'누른 버튼: 일본어 무료 레벨테스트 신청 (본문)'
+       (버튼 이름 aria-label이 보이는 글자 '무료 레벨테스트 신청'을 포함) · 신청 화면은 일반 상담
+     · 위치 = FAQ 앞(Tab 순서: 해외 안내 카카오톡 링크 → 배너 신청·닫기 → FAQ) · 대문을 지나면 표시, 마지막 상담 영역 근처부터 숨김 · 닫으면 이 탭 세션 동안 숨김(회화 페이지와 다른 키 jp_level_banner_closed) · 숨김 = inert + visibility hidden · 동작 = 아래 [486차] script -->
+<aside class="jp-lt" id="jpLevelTest" aria-label="일본어 무료 레벨테스트 안내" aria-hidden="true" inert>
+  <div class="jp-lt-inner">
+    <img class="jp-lt-ico" src="../../images/jp-exam-3d.svg" width="52" height="52" alt="" decoding="async">
+    <div class="jp-lt-text">
+      <p class="jp-lt-title">나의 일본어 실력은 어디쯤?</p>
+      <p class="jp-lt-desc">무료 시범수업·레벨테스트로 현재 수준과 수업 방향을 확인해 보세요.</p>
+    </div>
+    <a class="jp-lt-btn" href="../../consult.html" aria-label="일본어 무료 레벨테스트 신청">무료 레벨테스트 신청 <span aria-hidden="true">→</span></a>
+  </div>
+  <button type="button" class="jp-lt-close" aria-label="레벨테스트 안내 닫기"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button>
+</aside>
+
 <!-- 7. FAQ (FAQPage 구조화 데이터와 같은 원문) -->
 <section class="page-section soft" id="faq">
   <div class="container">
@@ -551,6 +606,49 @@ body.page-jp .sj-trial-photo { background: #fbf3e6; } body.page-jp .sj-trial-box
   </div>
 </footer>
 
+<script>
+/* [486차] 일본어 무료 레벨테스트 배너 — 대문을 지나면 표시, 마지막 상담 영역이 배너 높이만큼 가까워지면 숨김(그 위 본문이 가리지 않게)
+   · 표시 중: body.jp-lt-on(1024px 이하 하단 상담 띠 숨김) + 실제 배너 높이 --jp-lt-h(본문 아래 여백) · 닫기 전까지 --jp-lt-sp(키보드 초점 여백)
+   · 닫기(버튼·Esc) → 이 탭 세션 동안 숨김, 하단 상담 띠 복원, 초점은 가까운 상담 버튼으로 · 화면 크기·방향·배너 높이가 바뀌면 다시 계산 */
+(function () {
+  var bar = document.getElementById('jpLevelTest'), hero = document.querySelector('.jp-hero'), fin = document.getElementById('free-consult');
+  if (!bar || !hero || !fin) return;
+  var KEY = 'jp_level_banner_closed', closed = false, shown = false, raf = 0, root = document.documentElement, body = document.body;
+  try { closed = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+  function barH() { var cs = getComputedStyle(bar); return Math.ceil(bar.offsetHeight + (parseFloat(cs.bottom) || 0)); }
+  function setVar() { var h = barH(); body.style.setProperty('--jp-lt-h', (shown ? h : 0) + 'px'); root.style.setProperty('--jp-lt-sp', (closed ? 0 : h) + 'px'); root.classList.toggle('jp-lt-html', !closed); }
+  function set(on) {
+    if (on === shown) return;
+    shown = on;
+    bar.classList.toggle('is-shown', on);
+    if (on) bar.removeAttribute('inert'); else bar.setAttribute('inert', '');
+    bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+    body.classList.toggle('jp-lt-on', on);
+    setVar();
+  }
+  function check() {
+    raf = 0;
+    if (closed) { set(false); return; }
+    var h = hero.getBoundingClientRect(), f = fin.getBoundingClientRect();
+    set(h.bottom <= 0 && f.top >= window.innerHeight + barH());
+  }
+  function req() { if (!raf) raf = requestAnimationFrame(check); }
+  function close() {
+    var hadFocus = bar.contains(document.activeElement);
+    closed = true;
+    try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+    set(false); setVar();
+    if (hadFocus) { var t = document.querySelector('.sig-float .sf-trial') || document.querySelector('.jp-hero .jp-btn'); if (t) t.focus({ preventScroll: true }); }
+  }
+  window.addEventListener('scroll', req, { passive: true });
+  window.addEventListener('resize', function () { setVar(); req(); });
+  window.addEventListener('orientationchange', function () { setVar(); req(); });
+  if ('ResizeObserver' in window) new ResizeObserver(function () { setVar(); }).observe(bar);
+  bar.querySelector('.jp-lt-close').addEventListener('click', close);
+  bar.addEventListener('keydown', function (e) { if (e.key === 'Escape') { e.preventDefault(); close(); } });
+  setVar(); check();
+})();
+</script>
 <script src="../../js/script.js"></script>
 </body>
 </html>

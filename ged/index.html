@@ -90,6 +90,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap">
 <link rel="stylesheet" href="../css/style.css">
+<style>
+/* [492차] 대문 인물 이미지: 누끼(배경 없는 서 있는 사진) → 공통 상담 인물 사진(4:5, 배경 있음)으로 교체 · 사진 틀 폭(360·300·220px)은 기존 규칙 그대로
+   · 배경이 있는 사진이라 아래로 걸치는 음수 여백 대신 둥근 사진 카드로 표시 · 얼굴·정수리가 잘리지 않게 위쪽 기준 · 이 페이지 전용(공통 style.css 미수정) */
+.page-ged .sj-hero-visual.is-cutout.is-photo img { aspect-ratio: 4 / 5; height: auto; margin-bottom: 0; border-radius: 24px; object-fit: cover; object-position: 50% 20%; box-shadow: 0 18px 40px rgba(16, 42, 75, .14); }
+</style>
 </head>
 <body class="page-subject page-ged">
 
@@ -141,7 +146,7 @@
         <a href="../consult.html" class="btn-navy">검정고시 무료 상담 신청</a>
       </div>
     </div>
-    <div class="sj-hero-visual is-cutout"><img src="../images/teacher-geomjeong.webp" alt="검정고시 수업을 안내하는 과외마루 선생님" loading="eager" decoding="async"></div>
+    <div class="sj-hero-visual is-cutout is-photo"><img src="../images/consult-guide-portrait.webp" alt="검정고시 상담 안내 인물 이미지" width="800" height="1000" loading="eager" fetchpriority="high" decoding="async"></div><!-- [492차] 대문 인물 = 공통 상담 인물 사진(teacher-geomjeong.webp는 선생님 카드에서 계속 사용, 파일 유지) -->
   </div>
 </section>
 

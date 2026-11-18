@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+<!-- [495차] 검정고시 진단 - 과목별 현재 수준: 펼친 책 + 확인 배지 · 파스텔 입체 · 가짜 글자 없음 · 장식용 -->
+<defs>
+  <radialGradient id="sh"><stop offset="0" stop-color="#1f3557" stop-opacity=".2"/><stop offset="1" stop-color="#1f3557" stop-opacity="0"/></radialGradient>
+  <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf7"/><stop offset="1" stop-color="#efe4cb"/></linearGradient>
+  <linearGradient id="cv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fbde3"/><stop offset="1" stop-color="#6f93c4"/></linearGradient>
+  <radialGradient id="mint" cx="35%" cy="28%" r="80%"><stop offset="0" stop-color="#e4f6ec"/><stop offset=".6" stop-color="#a9dcc0"/><stop offset="1" stop-color="#7cc39e"/></radialGradient>
+</defs>
+<ellipse cx="78" cy="142" rx="58" ry="9" fill="url(#sh)"/>
+<path d="M14 54 Q46 44 78 58 Q110 44 142 54 V124 Q110 114 78 128 Q46 114 14 124Z" fill="url(#cv)"/>
+<path d="M20 46 Q48 36 76 50 V120 Q48 106 20 116Z" fill="url(#pg)"/>
+<path d="M136 46 Q108 36 80 50 V120 Q108 106 136 116Z" fill="url(#pg)"/>
+<path d="M78 50 V122" stroke="#d6cdb8" stroke-width="3"/>
+<g stroke="#d6cdb8" stroke-width="4.5" stroke-linecap="round" fill="none">
+  <path d="M30 62 Q46 56 66 64"/><path d="M30 76 Q46 70 66 78"/><path d="M30 90 Q46 84 60 90"/>
+  <path d="M90 64 Q108 56 124 60"/><path d="M90 78 Q104 72 116 74"/>
+</g>
+<circle cx="118" cy="98" r="22" fill="#5fae86"/>
+<circle cx="118" cy="95" r="22" fill="url(#mint)"/>
+<path d="M107 95l8 8 14-15" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

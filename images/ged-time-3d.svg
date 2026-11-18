@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+<!-- [495차] 검정고시 진단 - 학습 가능 시간: 달력 + 시계 · 파스텔 입체 · 가짜 글자 없음 · 장식용 -->
+<defs>
+  <radialGradient id="sh"><stop offset="0" stop-color="#1f3557" stop-opacity=".2"/><stop offset="1" stop-color="#1f3557" stop-opacity="0"/></radialGradient>
+  <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf7"/><stop offset="1" stop-color="#efe4cb"/></linearGradient>
+  <linearGradient id="head" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9cdf2"/><stop offset="1" stop-color="#b6a5e0"/></linearGradient>
+  <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe2a0"/><stop offset=".55" stop-color="#f0c766"/><stop offset="1" stop-color="#d4a149"/></linearGradient>
+</defs>
+<ellipse cx="80" cy="142" rx="58" ry="9" fill="url(#sh)"/>
+<rect x="20" y="30" width="92" height="96" rx="14" fill="#cbbd9f"/>
+<rect x="18" y="24" width="92" height="96" rx="14" fill="url(#pg)"/>
+<path d="M18 38 a14 14 0 0 1 14 -14 h64 a14 14 0 0 1 14 14 v10 h-92z" fill="url(#head)"/>
+<rect x="38" y="16" width="8" height="18" rx="4" fill="#6f5fa8"/><rect x="82" y="16" width="8" height="18" rx="4" fill="#6f5fa8"/>
+<g fill="#e6dcc6">
+  <rect x="30" y="58" width="14" height="12" rx="3"/><rect x="50" y="58" width="14" height="12" rx="3"/><rect x="70" y="58" width="14" height="12" rx="3" fill="#bfe6cf"/><rect x="90" y="58" width="12" height="12" rx="3"/>
+  <rect x="30" y="78" width="14" height="12" rx="3"/><rect x="50" y="78" width="14" height="12" rx="3"/><rect x="70" y="78" width="14" height="12" rx="3"/>
+  <rect x="30" y="98" width="14" height="12" rx="3"/><rect x="50" y="98" width="14" height="12" rx="3"/>
+</g>
+<circle cx="110" cy="102" r="33" fill="#c99a45"/>
+<circle cx="110" cy="99" r="33" fill="url(#rim)"/>
+<circle cx="110" cy="99" r="25" fill="#fffaf0"/>
+<g stroke="#d6cdb8" stroke-width="3" stroke-linecap="round"><path d="M110 78v4"/><path d="M110 116v4"/><path d="M89 99h4"/><path d="M127 99h4"/></g>
+<path d="M110 99 V85" stroke="#1f3557" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M110 99 L121 105" stroke="#1f3557" stroke-width="4.5" stroke-linecap="round"/>
+<circle cx="110" cy="99" r="3.5" fill="#1f3557"/>
+<ellipse cx="97" cy="80" rx="9" ry="4" fill="#fff" opacity=".6" transform="rotate(-30 97 80)"/>
+</svg>

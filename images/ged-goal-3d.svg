@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+<!-- [495차] 검정고시 진단 - 목표 시험 확인: 목표판 + 체크리스트 · 파스텔 입체 · 가짜 글자 없음 · 장식용 -->
+<defs>
+  <radialGradient id="sh"><stop offset="0" stop-color="#1f3557" stop-opacity=".2"/><stop offset="1" stop-color="#1f3557" stop-opacity="0"/></radialGradient>
+  <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf7"/><stop offset="1" stop-color="#efe4cb"/></linearGradient>
+  <radialGradient id="ring" cx="38%" cy="30%" r="80%"><stop offset="0" stop-color="#fbe3dc"/><stop offset=".65" stop-color="#f3b8a8"/><stop offset="1" stop-color="#e3917d"/></radialGradient>
+</defs>
+<ellipse cx="80" cy="142" rx="58" ry="9" fill="url(#sh)"/>
+<g transform="rotate(-8 50 90)">
+  <rect x="18" y="62" width="58" height="72" rx="10" fill="#d9ccae"/>
+  <rect x="16" y="57" width="58" height="72" rx="10" fill="url(#pg)"/>
+  <g stroke-linecap="round">
+    <circle cx="29" cy="78" r="5.5" fill="#bfe6cf"/><path d="M26.3 78l2 2 3.6-4" stroke="#2f7a55" stroke-width="2.2" fill="none"/><path d="M40 78h24" stroke="#d6cdb8" stroke-width="4.5"/>
+    <circle cx="29" cy="96" r="5.5" fill="#bfe6cf"/><path d="M26.3 96l2 2 3.6-4" stroke="#2f7a55" stroke-width="2.2" fill="none"/><path d="M40 96h20" stroke="#d6cdb8" stroke-width="4.5"/>
+    <circle cx="29" cy="114" r="5.5" fill="none" stroke="#c9d3e6" stroke-width="2.2"/><path d="M40 114h22" stroke="#d6cdb8" stroke-width="4.5"/>
+  </g>
+</g>
+<circle cx="102" cy="70" r="44" fill="#d97d68"/>
+<circle cx="102" cy="66" r="44" fill="url(#ring)"/>
+<circle cx="102" cy="66" r="31" fill="#fffaf0"/>
+<circle cx="102" cy="66" r="20" fill="url(#ring)"/>
+<circle cx="102" cy="66" r="9" fill="#fffaf0"/>
+<path d="M102 66 L138 32" stroke="#5f84b8" stroke-width="6" stroke-linecap="round"/>
+<path d="M134 26 l12 -4 -4 12 -8 2z" fill="#f0c766"/>
+<circle cx="102" cy="66" r="4" fill="#1f3557"/>
+<ellipse cx="82" cy="38" rx="12" ry="5" fill="#fff" opacity=".55" transform="rotate(-30 82 38)"/>
+</svg>

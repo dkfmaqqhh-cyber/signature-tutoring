@@ -106,10 +106,18 @@
         },
         {
           "@type": "Question",
-          "name": "수업료와 화상 수업 준비사항은 어떻게 확인하나요?",
+          "name": "검정고시 수업료는 얼마인가요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "선택 과목·수업 횟수·1회 수업 시간을 확인한 뒤 비용을 안내합니다. 인터넷 연결과 카메라·마이크 사용 환경을 준비해 주시고, 필요한 기기와 접속 방법은 상담에서 확인해 주세요."
+            "text": "중졸 검정고시는 과목당 월 268,000원, 고졸 검정고시는 과목당 월 308,000원입니다. 주 2회·1회 60분·한 달 기준이며, 실제 수업 시간과 수강 과목은 상담 후 정합니다. 수업 구성 변경에 따른 최종 비용과 초졸 과정 수업료는 상담에서 안내합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "화상 수업을 위해 무엇을 준비해야 하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "인터넷 연결과 카메라·마이크 사용 환경을 준비해 주세요. 필요한 기기와 접속 방법은 상담에서 확인해 주세요."
           }
         }
       ]
@@ -143,30 +151,57 @@
 .page-ged .ged-online { max-width: 880px; margin: 0 auto; padding: 36px 40px; border: 1px solid #d6e5f4; border-radius: 24px; background: #f1f7fd; }
 .page-ged .ged-online-head { display: flex; align-items: center; gap: 18px; margin-bottom: 22px; }
 .page-ged .ged-online-head img { flex: none; }
-.page-ged .ged-online h2, .page-ged .ged-fee h2 { margin: 4px 0 0; color: var(--brand-navy); font-size: 28px; line-height: 1.35; word-break: keep-all; }
+.page-ged .ged-online h2 { margin: 4px 0 0; color: var(--brand-navy); font-size: 28px; line-height: 1.35; word-break: keep-all; }
 .page-ged .ged-online-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
 .page-ged .ged-online-list li { position: relative; padding-left: 28px; color: #3a4556; font-size: 16.5px; line-height: 1.75; word-break: keep-all; }
 .page-ged .ged-online-list li::before { content: ""; position: absolute; left: 4px; top: .62em; width: 10px; height: 10px; border-radius: 50%; background: var(--brand-gold, #c9a15f); }
 .page-ged .ged-online-list a { color: var(--brand-navy); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
 .page-ged .ged-online-note { margin: 22px 0 0; padding: 14px 18px; border-radius: 14px; background: #fff; color: #5f6775; font-size: 15px; line-height: 1.7; word-break: keep-all; }
-.page-ged .ged-fee { display: flex; align-items: flex-start; gap: 22px; max-width: 880px; margin: 0 auto; padding: 34px 40px; border: 1px solid #e7dcc6; border-radius: 24px; background: #fffaf0; }
-.page-ged .ged-fee img { flex: none; }
-.page-ged .ged-fee p { margin: 12px 0 0; color: #3a4556; font-size: 16.5px; line-height: 1.8; word-break: keep-all; }
 .page-ged .ged-related { max-width: 860px; margin: 32px auto 0; padding: 22px 26px; border: 1px solid #e7dcc6; border-radius: 18px; background: #fffaf0; }
 .page-ged .ged-related h3 { margin: 0 0 10px; color: var(--brand-navy); font-size: 17px; }
 .page-ged .ged-related ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
 .page-ged .ged-related a { color: var(--brand-navy); font-size: 16px; line-height: 1.6; text-decoration: underline; text-underline-offset: 3px; word-break: keep-all; }
+/* [495차] 카드 내용 가운데 정렬(카드형 영역만 · 대문·FAQ·긴 안내문은 기존 정렬) */
+.page-ged .sj-reach-item, .page-ged .ged-subject, .page-ged .ged-course-item, .page-ged #diagnosis .point-card, .page-ged .ged-step { text-align: center; }
+.page-ged .ged-rec .rec-card { align-items: center; text-align: center; }
+.page-ged .ged-rec .rec-badge { align-self: center; }
+.page-ged .ged-rec .rec-card h3, .page-ged .ged-rec .rec-card p { width: 100%; }
+.page-ged .ged-rec .rec-tags { width: 100%; justify-content: center; }
+.page-ged .ged-rec-ico { margin: 0 auto; }
+/* [495차] 진단 입체 아이콘(번호 대체) */
+.page-ged .ged-diag-ico { display: block; width: 68px; height: 68px; margin: 0 auto 16px; }
+/* [495차] 검정고시 과목별 수업료 카드 */
+.page-ged .ged-price-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; max-width: 760px; margin: 0 auto; }
+.page-ged .ged-price-card { padding: 30px 24px 28px; border: 1px solid #e7dcc6; border-top: 3px solid var(--brand-gold, #c9a15f); border-radius: 22px; background: #fffaf0; text-align: center; box-shadow: 0 10px 24px rgba(16, 42, 75, .06); }
+.page-ged .ged-price-card.is-high { background: #f1f7fd; border-color: #d6e5f4; border-top-color: var(--brand-gold, #c9a15f); }
+.page-ged .ged-price-card h3 { margin: 0; color: var(--brand-navy); font-size: 20px; letter-spacing: -0.03em; }
+.page-ged .ged-price { margin: 14px 0 0; color: var(--brand-navy); line-height: 1.3; word-break: keep-all; }
+.page-ged .ged-price span { display: block; color: #5f6775; font-size: 15px; font-weight: 700; }
+.page-ged .ged-price strong { display: block; margin-top: 4px; font-size: 36px; font-weight: 900; letter-spacing: -0.02em; white-space: nowrap; }
+.page-ged .ged-price-basis { display: inline-block; margin: 14px 0 0; padding: 6px 14px; border-radius: 999px; background: rgba(255, 255, 255, .8); color: #3a4556; font-size: 15px; font-weight: 700; word-break: keep-all; }
+.page-ged .ged-price-note { max-width: 760px; margin: 20px auto 0; text-align: center; }
+.page-ged .ged-price-note p { margin: 0; color: #5f6775; font-size: 15.5px; line-height: 1.8; word-break: keep-all; }
+.page-ged .ged-price-note .ged-price-elem { margin-top: 10px; color: var(--brand-navy); font-weight: 800; }
+/* [495차] 하단 상담 신청 버튼: 밝은 노란색 + 네이비 글자(이 버튼만) */
+.page-ged main #free-trial .sj-trial-btn { background: #FFE34D; background-image: none; border-color: #FFE34D; color: #102D4E; filter: none; box-shadow: 0 10px 22px rgba(0, 0, 0, .18); }
+.page-ged main #free-trial .sj-trial-btn:hover { background: #FFD91F; border-color: #FFD91F; color: #102D4E; filter: none; box-shadow: 0 14px 26px rgba(0, 0, 0, .22); }
+.page-ged main #free-trial .sj-trial-btn:active { background: #F7CF00; border-color: #F7CF00; color: #102D4E; transform: translateY(0); }
+.page-ged main #free-trial .sj-trial-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; box-shadow: 0 0 0 7px rgba(255, 227, 77, .45); }
+@media (max-width: 640px) {
+  .page-ged .ged-price-grid { grid-template-columns: 1fr; gap: 14px; }
+  .page-ged .ged-price-card { padding: 24px 18px 22px; }
+  .page-ged .ged-price strong { font-size: 32px; }
+  .page-ged .ged-price-note p { font-size: 15px; }
+}
 .page-ged .ged-nowrap { white-space: nowrap; } /* [494차] 대문 제목·설명 끊김 방지 */
 @media (max-width: 900px) { .page-ged .ged-br { display: none; } }
 @media (max-width: 640px) {
   .page-ged .ged-hero .page-actions a { white-space: normal; text-align: center; }
-  .page-ged .ged-online, .page-ged .ged-fee { padding: 26px 20px; }
+  .page-ged .ged-online { padding: 26px 20px; }
   .page-ged .ged-online-head { align-items: flex-start; gap: 14px; }
   .page-ged .ged-online-head img { width: 56px; height: 56px; }
-  .page-ged .ged-online h2, .page-ged .ged-fee h2 { font-size: 22px; }
-  .page-ged .ged-fee { flex-direction: column; gap: 12px; }
-  .page-ged .ged-fee img { width: 56px; height: 56px; }
-  .page-ged .ged-online-list li, .page-ged .ged-fee p { font-size: 16px; }
+  .page-ged .ged-online h2 { font-size: 22px; }
+  .page-ged .ged-online-list li { font-size: 16px; }
   .page-ged .ged-related { padding: 18px 18px; }
 }
 /* [494차] 대문 학습 책상 사진(4:5): 사진 틀 폭(360·300·220px)은 기존 규칙 그대로 · 아래로 걸치는 음수 여백 대신 둥근 사진 카드 · 문제집·답안지가 보이게 아래쪽 기준 */
@@ -362,7 +397,7 @@
   </div>
 </section>
 
-<!-- 5. 개인별 맞춤 학습 진단 -->
+<!-- 5. 개인별 맞춤 학습 진단 ([495차] 번호 01~04 → 의미별 입체 아이콘: 책·확인 / 돋보기 / 목표판·체크리스트 / 달력·시계) -->
 <section class="page-section soft" id="diagnosis">
   <div class="container">
     <div class="section-head center">
@@ -372,22 +407,22 @@
     </div>
     <div class="point-grid cols-4">
       <div class="point-card">
-        <span class="point-num">01</span>
+        <img class="ged-diag-ico" src="../images/ged-level-3d.svg" width="68" height="68" alt="" loading="lazy" decoding="async">
         <h3>과목별 현재 수준</h3>
         <p>과목마다 어느 단계까지 이해하고 있는지 먼저 확인합니다.</p>
       </div>
       <div class="point-card">
-        <span class="point-num">02</span>
+        <img class="ged-diag-ico" src="../images/ged-weak-3d.svg" width="68" height="68" alt="" loading="lazy" decoding="async">
         <h3>취약 영역 확인</h3>
         <p>자주 막히는 단원과 유형을 찾아 우선 보완할 부분을 정합니다.</p>
       </div>
       <div class="point-card">
-        <span class="point-num">03</span>
+        <img class="ged-diag-ico" src="../images/ged-goal-3d.svg" width="68" height="68" alt="" loading="lazy" decoding="async">
         <h3>목표 시험 확인</h3>
         <p>초·중·고졸 과정과 응시하려는 회차를 기준으로 과목별 학습 분량과 순서를 나눕니다.</p>
       </div>
       <div class="point-card">
-        <span class="point-num">04</span>
+        <img class="ged-diag-ico" src="../images/ged-time-3d.svg" width="68" height="68" alt="" loading="lazy" decoding="async">
         <h3>학습 가능 시간</h3>
         <p>생활 패턴과 학습 가능 시간, 해외 거주 시 시간대에 맞춰 무리 없는 수업 일정을 잡습니다.</p>
       </div>
@@ -451,16 +486,28 @@
   </div>
 </section>
 
-<!-- 6-2. 수업료 안내 ([493차] 저장소에 검정고시 확정 가격 자료 없음 → 금액 없이 안내만) -->
+<!-- 6-2. 수업료 안내 ([495차] 사용자 지시 금액: 중졸 과목당 월 268,000원 · 고졸 과목당 월 308,000원, 주 2회 · 1회 60분 · 한 달 기준 · 초졸 금액 미전달 → 상담 안내) -->
 <section class="page-section soft" id="fee">
   <div class="container">
-    <div class="ged-fee">
-      <img src="../images/jp-form-3d.svg" width="64" height="64" alt="" loading="lazy" decoding="async">
-      <div>
-        <div class="kicker">TUITION</div>
-        <h2>필요한 과목과 수업 일정에 맞춰 안내합니다</h2>
-        <p>수업료는 선택 과목, 주당 횟수와 1회 수업 시간에 따라 달라집니다. <br class="ged-br">희망 과정과 학습 상황을 확인한 뒤 수업 구성과 비용을 안내합니다.</p>
+    <div class="section-head center">
+      <div class="kicker">TUITION</div>
+      <h2>검정고시 과목별 수업료</h2>
+    </div>
+    <div class="ged-price-grid">
+      <div class="ged-price-card">
+        <h3>중졸 검정고시</h3>
+        <p class="ged-price"><span>과목당 월</span> <strong>268,000원</strong></p>
+        <p class="ged-price-basis">주 2회 · 1회 60분 · 한 달 기준</p>
       </div>
+      <div class="ged-price-card is-high">
+        <h3>고졸 검정고시</h3>
+        <p class="ged-price"><span>과목당 월</span> <strong>308,000원</strong></p>
+        <p class="ged-price-basis">주 2회 · 1회 60분 · 한 달 기준</p>
+      </div>
+    </div>
+    <div class="ged-price-note">
+      <p>위 금액은 과목별 한 달 수업 기준입니다.<br>실제 수업 시간과 수강 과목은 상담 후 정합니다.<br>수업 구성 변경에 따른 최종 비용은 상담에서 안내합니다.</p>
+      <p class="ged-price-elem">초졸 과정 수업료는 상담 시 안내합니다.</p>
     </div>
   </div>
 </section>
@@ -533,7 +580,8 @@
       <details><summary>검정고시 수업은 방문으로도 진행하나요?</summary><div class="faq-answer">검정고시 수업은 1:1 화상으로만 진행합니다. 방문수업은 진행하지 않습니다.</div></details>
       <details><summary>해외에 거주해도 수업을 받을 수 있나요?</summary><div class="faq-answer">해외 거주자도 상담할 수 있습니다. 거주 국가와 시간대, 희망 과목과 가능한 시간을 확인해 수업 가능 여부와 일정을 안내합니다. 국내 휴대폰 번호가 없다면 카카오톡으로 상담해 주세요.</div></details>
       <details><summary>성인이나 직장인도 수업을 신청할 수 있나요?</summary><div class="faq-answer">성인·직장인도 상담 가능합니다. 현재 수준과 학습 가능한 시간을 확인해 필요한 과목과 수업 일정을 안내합니다.</div></details>
-      <details><summary>수업료와 화상 수업 준비사항은 어떻게 확인하나요?</summary><div class="faq-answer">선택 과목·수업 횟수·1회 수업 시간을 확인한 뒤 비용을 안내합니다. 인터넷 연결과 카메라·마이크 사용 환경을 준비해 주시고, 필요한 기기와 접속 방법은 상담에서 확인해 주세요.</div></details>
+      <details><summary>검정고시 수업료는 얼마인가요?</summary><div class="faq-answer">중졸 검정고시는 과목당 월 268,000원, 고졸 검정고시는 과목당 월 308,000원입니다. 주 2회·1회 60분·한 달 기준이며, 실제 수업 시간과 수강 과목은 상담 후 정합니다. 수업 구성 변경에 따른 최종 비용과 초졸 과정 수업료는 상담에서 안내합니다.</div></details>
+      <details><summary>화상 수업을 위해 무엇을 준비해야 하나요?</summary><div class="faq-answer">인터넷 연결과 카메라·마이크 사용 환경을 준비해 주세요. 필요한 기기와 접속 방법은 상담에서 확인해 주세요.</div></details>
     </div>
     <div class="ged-related" aria-labelledby="gedRelatedTitle"><!-- [493차] 직접 관련된 학습정보 글 2개만 연결 -->
       <h3 id="gedRelatedTitle">함께 보면 좋은 학습정보</h3>

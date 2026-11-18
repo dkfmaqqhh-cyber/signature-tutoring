@@ -100,7 +100,7 @@
           "name": "코딩 수업료는 어떻게 되나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "일반 과목수업과 같은 수업료 기준입니다. 실제 수업 시간과 과정은 상담 후 정하며, 구성에 따른 최종 비용을 안내합니다."
+            "text": "코딩 수업료는 주 2회, 1회 60분, 한 달 기준 월 300,000원입니다. 실제 수업 시간과 과정은 상담 후 정하며, 구성 변경에 따른 최종 비용은 상담에서 안내합니다."
           }
         },
         {
@@ -124,6 +124,9 @@
 <style>
 /* [498차] 코딩 페이지 전용: 수업료 안내 한 줄 · 관련 학습정보 링크 */
 .page-cd .cd-nowrap { white-space: nowrap; }
+/* [500차] 코딩 수업료 카드 */
+.page-cd .cd-fee .cd-fee-price { margin: 2px 0 2px; color: #fff; font-size: 30px; font-weight: 900; letter-spacing: -0.02em; white-space: nowrap; }
+.page-cd .cd-fee .cd-fee-basis { margin: 0 0 8px; color: var(--brand-gold-light); font-size: 15.5px; font-weight: 800; }
 /* [499차] 방학·내신 안내 상자 */
 .page-cd .cd-season { margin-top: 20px; padding: 30px 32px; border: 1px solid #e7dcc6; border-radius: 22px; background: #fffaf0; }
 .page-cd .cd-season h3 { margin: 0 0 10px; color: var(--brand-navy); font-size: 22px; line-height: 1.4; letter-spacing: -0.03em; word-break: keep-all; }
@@ -345,9 +348,11 @@
         <strong>화상전용 실시간 1:1</strong>
         <p>PC 또는 노트북과 안정적인 인터넷, 카메라·마이크 환경에서 진행합니다. 과정별 필요한 프로그램과 설치 방법은 상담에서 안내합니다</p>
       </div>
-      <div class="ged-course-item"><!-- [499차] 운영자 확인: 일반 과목수업과 같은 수업료 기준 · 공개된 일반 과목 금액은 방문과외 기준뿐(화상 금액은 상담 안내) → 금액 표시 없음 -->
-        <strong>수업료</strong>
-        <p>일반 과목수업과 같은 수업료 기준입니다. 실제 수업 시간과 과정은 상담 후 정하며, 구성에 따른 최종 비용을 안내합니다.</p>
+      <div class="ged-course-item cd-fee"><!-- [500차] 운영자 확인 코딩 수업료: 월 300,000원 · 주 2회 · 1회 60분 · 한 달 기준 (학년별 구분·부터·할인 없음) -->
+        <strong>코딩 수업료</strong>
+        <p class="cd-fee-price">월 300,000원</p>
+        <p class="cd-fee-basis">주 2회 · 1회 60분 · 한 달 기준</p>
+        <p>실제 수업 시간과 과정은 상담 후 정하며, 구성 변경에 따른 최종 비용은 상담에서 안내합니다.</p>
       </div>
     </div>
     <figure class="cd-case is-reverse">
@@ -524,7 +529,7 @@
       <details><summary>학교 정보·코딩 내신이나 방학 집중수업도 가능한가요?</summary><div class="faq-answer">네, 방학에는 코딩의 기본 개념과 실습을 집중적으로 익히고, 학기 중에는 학교 정보·프로그래밍 수업 내용을 이해하도록 내신 대비 수업을 진행합니다. 학교·학년별 교육과정과 평가 범위가 다르므로 실제 수업 계획은 상담에서 확인합니다. 자격증 준비도 상담할 수 있으며, 준비 가능한 세부 과정은 상담 시 안내드립니다.</div></details>
       <details><summary>직장인도 수업을 받을 수 있나요?</summary><div class="faq-answer">네, 직장인도 자바·파이썬 학습과 자격증 준비를 위한 1:1 화상수업을 받을 수 있습니다.</div></details>
       <details><summary>화상 수업은 어떻게 준비하나요?</summary><div class="faq-answer">코딩 수업은 1:1 화상으로만 진행합니다. 인터넷 연결과 카메라·마이크 사용 환경을 확인해 주세요. 과정별로 필요한 기기·프로그램과 설치 방법은 상담에서 안내합니다.</div></details>
-      <details><summary>코딩 수업료는 어떻게 되나요?</summary><div class="faq-answer">일반 과목수업과 같은 수업료 기준입니다. 실제 수업 시간과 과정은 상담 후 정하며, 구성에 따른 최종 비용을 안내합니다.</div></details>
+      <details><summary>코딩 수업료는 어떻게 되나요?</summary><div class="faq-answer">코딩 수업료는 주 2회, 1회 60분, 한 달 기준 월 300,000원입니다. 실제 수업 시간과 과정은 상담 후 정하며, 구성 변경에 따른 최종 비용은 상담에서 안내합니다.</div></details>
       <details><summary>코딩도 무료 체험수업을 받을 수 있나요?</summary><div class="faq-answer">네, 코딩도 무료 체험수업이 가능합니다. 무료 체험수업으로 현재 수준과 수업 방식을 먼저 확인해 보세요. 희망 과정과 일정에 맞춰 진행 방법을 안내합니다.</div></details>
     </div>
     <p class="cd-related">함께 읽어 보세요: <a href="../info/kids-coding-start.html">스크래치 코딩·엔트리 코딩, 초등·중등은 무엇부터 시작할까</a></p><!-- [498차] 코딩 관련 학습정보 글 1개(글 본문에는 이미 코딩 페이지 링크 있음) -->

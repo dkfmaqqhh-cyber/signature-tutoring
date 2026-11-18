@@ -750,5 +750,32 @@
       }
     ],
     "lens": false
+  },
+  "ged-no-base-prep-period": {
+    "palette": "brown",
+    "badge": "검정고시 · 준비 기간",
+    "title": "노베이스\n고졸 검정고시\n*준비 기간*",
+    "keys": [
+      "평균 60점",
+      "기출문제"
+    ],
+    "cardTitle": "남은 기간별 계획",
+    "cardTag": "예시",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "3개월",
+        "text": "개념 → 기출 반복"
+      },
+      {
+        "label": "4개월",
+        "text": "기초 → 개념 2회독"
+      },
+      {
+        "label": "6개월",
+        "text": "기초 다지기부터"
+      }
+    ],
+    "lens": false
   }
 }

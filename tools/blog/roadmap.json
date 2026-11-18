@@ -1231,7 +1231,7 @@
       "need_check": [
         "검정고시 수학 출제 범위·문항 수·시험 시간(시·도교육청 공고/kice)"
       ],
-      "status": "todo",
+      "status": "skipped",
       "parent_questions": [
         "검정고시 수학 노베이스는 어디서부터 하나요?",
         "검정고시 수학 기출만 풀어도 되나요?"
@@ -1244,12 +1244,13 @@
         "노베이스수학": null
       },
       "date": "2026-12-07",
-      "track": "검정고시"
+      "track": "검정고시",
+      "merged_into": "ged-english-math-basics"
     },
     {
       "no": 43,
-      "slug": "ged-english-study",
-      "title": "검정고시 영어, 단어부터 독해까지 준비하는 4단계",
+      "slug": "ged-english-math-basics",
+      "title": "검정고시 영어·수학 기초가 부족할 때, 공부 시작점 찾는 법",
       "category": "검정고시 · 영어",
       "palette": "teal",
       "keywords": [
@@ -1263,7 +1264,7 @@
         "검정고시 영어 출제 범위·문항 수(공고)",
         "기출문제 공개 위치(시·도교육청)"
       ],
-      "status": "todo",
+      "status": "done",
       "parent_questions": [
         "검정고시 영어 단어는 얼마나 외워야 하나요?",
         "검정고시 영어 기출문제는 어디서 보나요?"
@@ -1276,7 +1277,8 @@
         "검정고시기출문제": null
       },
       "date": "2026-12-11",
-      "track": "검정고시"
+      "track": "검정고시",
+      "published": "2026-11-18"
     },
     {
       "no": 44,

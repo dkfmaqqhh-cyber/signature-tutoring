@@ -717,5 +717,38 @@
       }
     ],
     "lens": false
+  },
+  "ged-english-math-basics": {
+    "palette": "brown",
+    "badge": "검정고시 · 영어·수학",
+    "title": "검정고시\n*영어·수학*\n시작점 찾기",
+    "keys": [
+      "기초 단계 확인",
+      "오답 정리"
+    ],
+    "cardTitle": "기초 확인 순서",
+    "cardTag": "제안",
+    "cardType": "compare",
+    "items": [
+      {
+        "title": "영어",
+        "lines": [
+          "단어 뜻",
+          "주어·동사",
+          "문장 의미",
+          "짧은 지문"
+        ]
+      },
+      {
+        "title": "수학",
+        "lines": [
+          "기본 계산",
+          "분수·소수·부호",
+          "문자식",
+          "방정식"
+        ]
+      }
+    ],
+    "lens": false
   }
 }

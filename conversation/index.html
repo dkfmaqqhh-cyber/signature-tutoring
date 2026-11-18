@@ -774,6 +774,21 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
   </div>
 </section>
 
+<!-- [472차-3] 무료 레벨테스트 고정 배너(회화 페이지 전용) — 기존 consult.html 연결(새 신청서·접수 필드 없음) · 레벨테스트는 무료 시범수업에서 진행(즉시 온라인 검사 아님)
+     · PC(1025px~): 화면 아래 가운데 얇은 띠(최대 960px, 오른쪽 빠른 상담 버튼과 겹치지 않는 폭) · 모바일·태블릿(~1024px): 기존 하단 상담 띠(.sig-float) 자리에 같은 높이로 전환
+     · 대문을 지나면 0.3초 등장, 최종 상담 영역부터 숨김 · 닫으면 이 탭 세션 동안 표시 안 함(sessionStorage) · 숨김 상태 = inert + visibility hidden(Tab 초점 없음)
+     · [489차] 위치 = FAQ 앞(원래 </main> 바로 앞 = 최종 상담 영역 뒤라 Tab으로 가면 최종 상담 영역이 화면에 들어와 배너가 숨겨져 키보드로 닿을 수 없었음 · 일본어 페이지 [486차]와 같은 방식)
+       Tab 순서: 6. 시작 안내(해외 거주 카카오톡 링크) → 배너 신청·닫기 → FAQ · Esc = 닫기 · 표시 조건·닫기 상태 키·신청 링크는 그대로
+     · 클릭 기록 = 공통 script.js 상담 링크 기록 그대로(페이지 /conversation/ · 위치 body · 문구 = 링크 글자) · 동작 = 하단 [472차-3] script -->
+<aside class="cv-lt" id="cvLevelTest" aria-label="무료 레벨테스트 안내" aria-hidden="true" inert>
+  <a class="cv-lt-link" href="../consult.html">
+    <span class="cv-lt-text"><span class="cv-lt-q">나의 회화 실력은 어디쯤?</span> <span class="cv-lt-cta"><span class="cv-lt-ctxt">무료 레벨테스트 신청<span class="cv-lt-pc">하기</span></span> <span class="cv-lt-arrow" aria-hidden="true">→</span></span></span>
+  </a>
+  <!-- [472차-4] 안내 캐릭터(운영자 제공 이미지, 투명 WebP 109×120·218×240) · 장식용 alt="" · 클릭 통과(pointer-events:none) · 반복 움직임 없음 · 320px대(360px 이하)에서는 숨김 · [472차-5] 왼쪽 말풍선 아이콘은 캐릭터와 중복이라 삭제 -->
+  <span class="cv-lt-guide" aria-hidden="true"><img src="../images/conversation-level-guide-120.webp" srcset="../images/conversation-level-guide-120.webp 109w, ../images/conversation-level-guide-240.webp 218w" sizes="(max-width: 640px) 44px, (max-width: 1024px) 47px, 100px" width="218" height="240" alt="" decoding="async"></span>
+  <button type="button" class="cv-lt-close" aria-label="레벨테스트 안내 닫기"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button>
+</aside>
+
 <!-- 7. FAQ (FAQPage 구조화데이터와 문구 동일하게 유지) -->
 <section class="page-section soft" id="faq">
   <div class="container">
@@ -828,18 +843,6 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
     </div>
   </div>
 </section>
-<!-- [472차-3] 무료 레벨테스트 고정 배너(회화 페이지 전용) — 기존 consult.html 연결(새 신청서·접수 필드 없음) · 레벨테스트는 무료 시범수업에서 진행(즉시 온라인 검사 아님)
-     · PC(1025px~): 화면 아래 가운데 얇은 띠(최대 960px, 오른쪽 빠른 상담 버튼과 겹치지 않는 폭) · 모바일·태블릿(~1024px): 기존 하단 상담 띠(.sig-float) 자리에 같은 높이로 전환
-     · 대문을 지나면 0.3초 등장, 최종 상담 영역부터 숨김 · 닫으면 이 탭 세션 동안 표시 안 함(sessionStorage) · 숨김 상태 = inert + visibility hidden(Tab 초점 없음)
-     · 클릭 기록 = 공통 script.js 상담 링크 기록 그대로(페이지 /conversation/ · 위치 body · 문구 = 링크 글자) · 동작 = 하단 [472차-3] script -->
-<aside class="cv-lt" id="cvLevelTest" aria-label="무료 레벨테스트 안내" aria-hidden="true" inert>
-  <a class="cv-lt-link" href="../consult.html">
-    <span class="cv-lt-text"><span class="cv-lt-q">나의 회화 실력은 어디쯤?</span> <span class="cv-lt-cta"><span class="cv-lt-ctxt">무료 레벨테스트 신청<span class="cv-lt-pc">하기</span></span> <span class="cv-lt-arrow" aria-hidden="true">→</span></span></span>
-  </a>
-  <!-- [472차-4] 안내 캐릭터(운영자 제공 이미지, 투명 WebP 109×120·218×240) · 장식용 alt="" · 클릭 통과(pointer-events:none) · 반복 움직임 없음 · 320px대(360px 이하)에서는 숨김 · [472차-5] 왼쪽 말풍선 아이콘은 캐릭터와 중복이라 삭제 -->
-  <span class="cv-lt-guide" aria-hidden="true"><img src="../images/conversation-level-guide-120.webp" srcset="../images/conversation-level-guide-120.webp 109w, ../images/conversation-level-guide-240.webp 218w" sizes="(max-width: 640px) 44px, (max-width: 1024px) 47px, 100px" width="218" height="240" alt="" decoding="async"></span>
-  <button type="button" class="cv-lt-close" aria-label="레벨테스트 안내 닫기"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button>
-</aside>
 </main>
 
 <footer class="site-footer">
@@ -1023,13 +1026,15 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
   function req() { if (!raf) raf = requestAnimationFrame(check); }
   window.addEventListener('scroll', req, { passive: true });
   window.addEventListener('resize', req);
-  bar.querySelector('.cv-lt-close').addEventListener('click', function () {
+  function close() {
     var hadFocus = bar.contains(document.activeElement);
     closed = true;
     try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
     set(false);
     if (hadFocus) { var t = document.querySelector('.sig-float .sf-trial') || document.querySelector('.cv7-hero .btn-navy'); if (t) t.focus({ preventScroll: true }); } // 닫은 뒤 초점이 사라지지 않게 가까운 상담 버튼으로
-  });
+  }
+  bar.querySelector('.cv-lt-close').addEventListener('click', close);
+  bar.addEventListener('keydown', function (e) { if (e.key === 'Escape') { e.preventDefault(); close(); } }); // [489차] 배너 안 초점에서 Esc = 닫기(일본어 [486차]와 같음)
   check();
 })();
 </script>

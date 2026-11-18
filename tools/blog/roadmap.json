@@ -881,8 +881,8 @@
     },
     {
       "no": 30,
-      "slug": "english-conversation-practice",
-      "title": "영어 회화 수업 효과 높이는 방법, 말하기 연습 루틴",
+      "slug": "english-conversation-start",
+      "title": "기초 영어회화 공부 순서, 단어를 알아도 말하기 어려울 때",
       "category": "회화 · 영어",
       "palette": "blue",
       "keywords": [
@@ -893,7 +893,7 @@
       ],
       "angle": "수업 전 준비, 수업 중 질문법, 수업 후 복습 루틴, 녹음 활용.",
       "need_check": [],
-      "status": "todo",
+      "status": "done",
       "parent_questions": [
         "영어 회화 실력은 어떻게 늘리나요?",
         "원어민 수업을 잘 활용하려면?"
@@ -906,7 +906,8 @@
         "영어회화과외": 490
       },
       "date": "2026-11-23",
-      "track": "회화"
+      "track": "회화",
+      "published": "2026-11-18"
     },
     {
       "no": 31,

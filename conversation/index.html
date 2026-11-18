@@ -357,6 +357,7 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
 .cv7-prep .cv7-check li + li { margin-top: 0; }
 @media (max-width: 760px) { .cv7-fee { grid-template-columns: 1fr; } .cv7-prep .cv7-check { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .cv7-inline-link { color: var(--brand-navy); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; } /* [497차] 목적 안내 문장 속 일본어 전용 페이지 링크 */
+body.page-cv .cv7-related { max-width: 860px; margin: 28px auto 0; color: #3a4556; font-size: 16px; line-height: 1.7; text-align: center; word-break: keep-all; } /* [510차] FAQ 아래 관련 학습정보 1줄 */
 /* [482차] 국제학교·해외 생활(#global) 2카드 · 한글·한국어 가로형(#korean) · 준비사항 안의 해외 안내 — 이 페이지 전용 · 카드 높이 고정 없음(내용 높이, 같은 줄은 stretch) */
 .cv7-gl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 920px; margin: 0 auto; align-items: stretch; }
 .cv7-gl { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; min-width: 0; padding: 30px 28px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; box-shadow: var(--shadow-card); }
@@ -820,6 +821,7 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy, body.page-cv .cv7-hero .cv7-actio
       <details><summary>해외에 거주하거나 주재원으로 나가는 경우에도 수업할 수 있나요?</summary><div class="faq-answer">네, 국내뿐 아니라 해외에 거주하는 분도 상담할 수 있습니다. 해외 근무를 준비하거나 현지에 거주하는 주재원과 동반 가족은 업무 소통과 현지 생활에 필요한 회화를 중심으로 상담합니다. 상담 시 거주 국가와 시간대, 희망 언어, 학습 목적을 알려 주시면 시차에 따른 실제 수업 가능 시간과 연결 방식을 확인해 안내드립니다. 국내 휴대폰 번호가 없으시면 카카오톡 오픈채팅으로 상담해 주세요.</div></details>
       <details><summary>한글·한국어 수업도 받을 수 있나요?</summary><div class="faq-answer">네, 한글 읽기·쓰기부터 한국어 말하기까지 수업을 상담할 수 있습니다. 한국어가 필요한 외국인, 재외동포, 해외에 거주하는 자녀 등 학습자의 현재 수준과 학습 목적을 확인한 뒤 수업 방향을 안내해 드립니다. 수업 방식과 일정, 수업료는 상담에서 확인해 드립니다.</div></details>
     </div>
+    <p class="cv7-related">관련 학습정보: <a href="../info/english-conversation-start.html" class="cv7-inline-link">기초 영어회화 공부 순서, 단어를 알아도 말하기 어려울 때</a></p><!-- [510차] 관련 학습정보 1줄(영어회화 입문 글) · 일본어 학습정보는 일본어 페이지에서 연결 유지 -->
   </div>
 </section>
 

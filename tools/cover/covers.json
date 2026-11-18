@@ -655,5 +655,36 @@
       }
     ],
     "lens": false
+  },
+  "python-beginner-study": {
+    "palette": "teal",
+    "badge": "코딩 · 파이썬",
+    "title": "파이썬\n*처음 배울 때*\n공부 순서",
+    "keys": [
+      "방학 공부",
+      "학교 수업 준비"
+    ],
+    "cardTitle": "파이썬 공부 순서",
+    "cardTag": "제안",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "1",
+        "text": "출력과 입력"
+      },
+      {
+        "label": "2",
+        "text": "변수와 자료형"
+      },
+      {
+        "label": "3",
+        "text": "조건문·반복문"
+      },
+      {
+        "label": "4",
+        "text": "간단한 프로그램"
+      }
+    ],
+    "lens": false
   }
 }

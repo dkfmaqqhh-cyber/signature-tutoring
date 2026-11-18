@@ -610,8 +610,8 @@
     },
     {
       "no": 21,
-      "slug": "python-basics-roadmap",
-      "title": "파이썬 기초, 혼자 공부할 때 막히는 지점과 학습 순서",
+      "slug": "python-beginner-study",
+      "title": "파이썬 처음 배울 때, 방학 공부 순서와 학교 코딩 수업 준비",
       "category": "코딩 · 파이썬",
       "palette": "teal",
       "keywords": [
@@ -622,7 +622,7 @@
       ],
       "angle": "설치·변수·조건·반복·함수·리스트 순서, 작은 프로젝트 예시, 오류 읽는 법.",
       "need_check": [],
-      "status": "todo",
+      "status": "done",
       "parent_questions": [
         "파이썬은 무엇부터 배우나요?",
         "파이썬 독학이 막힐 때는?"
@@ -635,7 +635,8 @@
         "코딩독학": 320
       },
       "date": "2026-11-26",
-      "track": "코딩"
+      "track": "코딩",
+      "published": "2026-11-18"
     },
     {
       "no": 22,

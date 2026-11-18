@@ -1,0 +1,142 @@
+{
+  "no": 21,
+  "slug": "python-beginner-study",
+  "date": "2026-11-18",
+  "title": "파이썬 처음 배울 때, 방학 공부 순서와 학교 코딩 수업 준비",
+  "description": "파이썬을 처음 배우는 학생을 위해 출력·입력, 변수와 자료형, 조건문, 반복문, 간단한 프로그램 순서로 직접 실행할 수 있는 예제를 정리했습니다. 오류 확인법, 방학 공부 방법, 학교 코딩 수업 준비까지 담았습니다.",
+  "category": "코딩 · 파이썬",
+  "keywords": [
+    "파이썬기초",
+    "파이썬독학",
+    "파이썬공부순서",
+    "방학코딩",
+    "학교코딩수업"
+  ],
+  "lead": "<strong>파이썬 기초</strong>는 <strong>출력과 입력 → 변수와 자료형 → 조건문 → 반복문 → 간단한 프로그램</strong> 순서로, 짧은 예제를 직접 실행하며 익히면 부담이 적습니다. 시작하기 전에 지금까지의 코딩 경험과 학교에서 배우는 언어, 공부 목적과 쓸 수 있는 시간을 먼저 확인해 두면 방학 계획과 학교 수업 준비를 함께 세우기 쉽습니다.",
+  "cover_alt": "파이썬을 처음 배울 때 출력·입력부터 간단한 프로그램까지 공부 순서를 정리한 대표 이미지",
+  "summary": [
+    "공부 순서(제안): <strong>출력·입력 → 변수·자료형 → 조건문 → 반복문 → 간단한 프로그램</strong>",
+    "오류가 나면 <strong>들여쓰기·따옴표·변수 이름·오류 메시지 마지막 줄</strong>부터 확인",
+    "학교 수업은 <strong>교과서·수업 자료·평가 범위</strong>를 먼저 확인하고 그 범위에 맞춰 복습"
+  ],
+  "sections": [
+    {
+      "id": "before-start",
+      "h2": "파이썬을 시작하기 전에 무엇을 확인하면 좋을까요?",
+      "html": "<p>시작 전에는 지금까지의 코딩 경험, 학교에서 배우는 언어, 공부 목적과 쓸 수 있는 시간 세 가지를 확인합니다. 이 세 가지에 따라 어디서부터, 얼마나 깊게 공부할지가 달라집니다.</p><p><strong>파이썬</strong>은 영어 문장과 비슷하게 읽히는 텍스트 코딩 언어로, 처음 키보드로 코드를 쓰는 학생이 많이 시작하는 언어입니다. 다만 학생마다 출발점이 다르므로, 같은 '파이썬 기초'라도 공부 방법을 다르게 잡는 것이 좋습니다.</p><div class=\"post-table-wrap\"><table class=\"post-table\"><thead><tr><th scope=\"col\">확인할 것</th><th scope=\"col\">질문 예시</th><th scope=\"col\">계획에 반영하는 방법</th></tr></thead><tbody><tr><th scope=\"row\">코딩 경험</th><td>스크래치·엔트리 같은 블록코딩을 해 봤나요? 타자는 익숙한가요?</td><td>처음이라면 출력·입력부터 천천히, 블록코딩 경험이 있다면 조건문·반복문을 블록과 비교하며 진행</td></tr><tr><th scope=\"row\">학교에서 배우는 언어</th><td>정보 수업에서 파이썬을 쓰나요, 다른 언어나 블록코딩을 쓰나요?</td><td>학교에서 쓰는 언어와 도구가 따로 있다면 그쪽을 먼저 맞추기</td></tr><tr><th scope=\"row\">공부 목적</th><td>학교 수업 복습, 수행평가 준비, 관심 있는 것을 직접 만들어 보기 중 무엇인가요?</td><td>목적에 맞는 범위만 먼저 정하고 나머지는 뒤로 미루기</td></tr><tr><th scope=\"row\">쓸 수 있는 시간</th><td>방학 중 일주일에 며칠, 하루 몇 분을 쓸 수 있나요?</td><td>짧게라도 규칙적으로 할 수 있는 양으로 계획</td></tr></tbody></table></div><p>블록코딩을 아직 해 보지 않았고 초등 저학년이라면, 파이썬보다 블록코딩으로 순서·반복·조건 개념을 먼저 익히는 편이 수월할 수 있습니다. 시작 시점은 <a href=\"kids-coding-start.html\">스크래치 코딩·엔트리 코딩 시작 가이드</a>에서 정리했습니다.</p><p>코드를 실행할 곳도 미리 정합니다. 학교에서 쓰는 실습 환경이 있다면 그것을 그대로 쓰는 것이 가장 간단합니다. 집 컴퓨터에 설치한다면 파이썬 공식 사이트(python.org)의 다운로드 페이지를 이용하며, 윈도우에서는 공식 문서가 안내하는 설치 관리자(Python install manager)를 쓰는 방법이 있습니다. 설치 방법은 바뀔 수 있으므로 설치할 때 공식 안내를 함께 확인해 주세요.</p>"
+    },
+    {
+      "id": "study-order",
+      "h2": "파이썬 기초는 어떤 순서로 공부하면 좋을까요?",
+      "html": "<p>처음에는 출력과 입력, 변수와 자료형, 조건문, 반복문을 차례로 익힌 뒤 이를 묶어 간단한 프로그램을 만들어 보는 순서를 권합니다. 이 순서는 공식 교육과정이 아니라 입문자를 위한 학습 제안이며, 학교 수업 순서와 다를 수 있습니다.</p><p>아래 예제는 그대로 입력해 실행할 수 있습니다. 어두운 상자는 코드, 그 아래 밝은 상자는 실행했을 때 나오는 결과입니다. 결과에 보이는 '하늘', '7' 같은 값은 실행할 때 키보드로 입력한 예시입니다.</p><h3>1단계. 출력과 입력</h3><p><code>print()</code>는 화면에 글자를 보여 주고, <code>input()</code>은 키보드로 입력한 내용을 받아 옵니다. 가장 먼저 '내가 쓴 코드가 화면에 나타난다'는 경험을 해 봅니다.</p><pre class=\"py-code\" tabindex=\"0\"><code>print(\"안녕하세요, 파이썬!\")\nname = input(\"이름을 입력하세요: \")\nprint(name + \"님, 반가워요!\")</code></pre><pre class=\"py-out\" tabindex=\"0\" aria-label=\"실행 결과\"><code>안녕하세요, 파이썬!\n이름을 입력하세요: 하늘\n하늘님, 반가워요!</code></pre><h3>2단계. 변수와 자료형</h3><p><strong>변수</strong>는 값에 붙이는 이름이고, <strong>자료형</strong>은 값의 종류입니다. 정수는 <code>int</code>, 소수점이 있는 수는 <code>float</code>, 글자는 <code>str</code>입니다. <code>type()</code>으로 값의 종류를 확인할 수 있습니다.</p><pre class=\"py-code\" tabindex=\"0\"><code>age = 15\nheight = 162.5\nhobby = \"축구\"\nprint(type(age))\nprint(type(height))\nprint(type(hobby))</code></pre><pre class=\"py-out\" tabindex=\"0\" aria-label=\"실행 결과\"><code>&lt;class 'int'&gt;\n&lt;class 'float'&gt;\n&lt;class 'str'&gt;</code></pre><p>처음 배우는 학생이 자주 헷갈리는 점은 <code>input()</code>으로 받은 값이 숫자를 입력해도 글자(문자열)라는 것입니다. 파이썬 공식 문서도 <code>input()</code>은 입력한 한 줄을 문자열로 바꿔 돌려준다고 설명합니다. 계산하려면 <code>int()</code>로 정수로 바꿔야 합니다.</p><pre class=\"py-code\" tabindex=\"0\"><code>num = input(\"숫자를 입력하세요: \")\nprint(num * 2)\nprint(int(num) * 2)</code></pre><pre class=\"py-out\" tabindex=\"0\" aria-label=\"실행 결과\"><code>숫자를 입력하세요: 7\n77\n14</code></pre><p>같은 7을 입력했는데 첫 줄은 글자 '7'을 두 번 이어 붙인 77, 둘째 줄은 숫자 7에 2를 곱한 14가 나옵니다. 이 차이를 직접 확인해 보는 것이 자료형을 이해하는 가장 빠른 방법입니다.</p><h3>3단계. 조건문</h3><p><strong>조건문</strong>은 조건에 따라 다른 코드를 실행하게 합니다. <code>if</code>, <code>elif</code>, <code>else</code> 끝에는 콜론(<code>:</code>)을 쓰고, 그 아래 실행할 줄은 들여 씁니다.</p><pre class=\"py-code\" tabindex=\"0\"><code>score = int(input(\"점수를 입력하세요: \"))\nif score &gt;= 90:\n    print(\"아주 잘했어요\")\nelif score &gt;= 70:\n    print(\"조금만 더 복습해요\")\nelse:\n    print(\"기본 개념부터 다시 봐요\")</code></pre><pre class=\"py-out\" tabindex=\"0\" aria-label=\"실행 결과\"><code>점수를 입력하세요: 75\n조금만 더 복습해요</code></pre><p>75를 입력하면 첫 조건(90 이상)은 맞지 않고 둘째 조건(70 이상)이 맞아 '조금만 더 복습해요'가 나옵니다. 점수를 바꿔 입력하며 어느 줄이 실행되는지 예상해 보세요.</p><h3>4단계. 반복문</h3><p><strong>반복문</strong>은 같은 일을 여러 번 하게 합니다. <code>for</code>와 <code>range()</code>를 함께 쓰면 정해진 횟수만큼 반복할 수 있습니다. <code>range(5)</code>는 0부터 4까지 다섯 개의 수를 만들며, 끝값 5는 포함되지 않습니다.</p><pre class=\"py-code\" tabindex=\"0\"><code>for i in range(5):\n    print(i)</code></pre><pre class=\"py-out\" tabindex=\"0\" aria-label=\"실행 결과\"><code>0\n1\n2\n3\n4</code></pre><p>반복하면서 값을 조금씩 더해 가면 합계를 구할 수 있습니다. <code>range(1, 11)</code>은 1부터 10까지입니다.</p><pre class=\"py-code\" tabindex=\"0\"><code>total = 0\nfor n in range(1, 11):\n    total = total + n\nprint(\"1부터 10까지 합:\", total)</code></pre><pre class=\"py-out\" tabindex=\"0\" aria-label=\"실행 결과\"><code>1부터 10까지 합: 55</code></pre><h3>5단계. 간단한 프로그램 만들기</h3><p>앞에서 배운 입력, 변수, 반복문을 묶으면 작은 프로그램이 됩니다. 원하는 단을 입력하면 구구단을 보여 주는 프로그램입니다.</p><pre class=\"py-code\" tabindex=\"0\"><code>dan = int(input(\"몇 단을 볼까요? \"))\nfor i in range(1, 10):\n    print(dan, \"x\", i, \"=\", dan * i)</code></pre><pre class=\"py-out\" tabindex=\"0\" aria-label=\"실행 결과\"><code>몇 단을 볼까요? 3\n3 x 1 = 3\n3 x 2 = 6\n3 x 3 = 9\n…</code></pre><p>완성했다면 일부를 바꿔 봅니다. 예를 들어 1~9단이 아닌 수를 입력하면 안내 문장을 보여 주도록 조건문을 더하거나, 곱한 결과가 짝수일 때만 출력하도록 바꿔 볼 수 있습니다. 이렇게 '스스로 바꿔 보는' 단계에서 개념이 자기 것이 됩니다.</p>"
+    },
+    {
+      "id": "when-error",
+      "h2": "오류가 나면 무엇부터 확인해야 하나요?",
+      "html": "<p>오류가 나면 들여쓰기, 따옴표, 변수 이름을 먼저 확인하고, 오류 메시지의 마지막 줄을 읽어 오류 종류를 확인합니다. 처음 배우는 학생의 오류는 대부분 이 네 가지에서 찾을 수 있습니다.</p><p>파이썬은 오류가 난 줄을 보여 주고 문제가 감지된 위치를 작은 표시(<code>^</code>)로 가리킵니다. 공식 문서에 따르면 이 표시가 항상 고쳐야 할 위치는 아니므로, 표시된 곳과 그 바로 앞부분을 함께 살펴야 합니다. 오류 메시지 문장은 파이썬 버전에 따라 조금 다를 수 있지만, 마지막 줄 맨 앞의 오류 종류 이름은 같은 방식으로 나타납니다.</p><ol class=\"post-check\"><li><strong>들여쓰기</strong> — <code>if</code>나 <code>for</code> 아래 줄을 들여 쓰지 않으면 <code>IndentationError</code>가 납니다. 파이썬은 들여쓰기로 코드 덩어리를 구분합니다.</li><li><strong>따옴표</strong> — 글자를 여는 따옴표만 있고 닫는 따옴표가 없으면 <code>SyntaxError</code>가 납니다. 큰따옴표와 작은따옴표를 섞어 쓰지 않았는지도 확인합니다.</li><li><strong>변수 이름</strong> — <code>name</code>을 <code>nmae</code>처럼 잘못 쓰면 <code>NameError</code>가 납니다. 대문자와 소문자도 다른 이름으로 봅니다.</li><li><strong>오류 메시지 읽기</strong> — <code>input()</code>으로 받은 글자에 숫자를 더하려 하면 <code>TypeError</code>가 납니다. 마지막 줄의 오류 종류와 설명을 읽고, 몇 번째 줄에서 났는지 확인합니다.</li></ol><p>아래는 들여쓰기를 빠뜨린 예입니다. <code>print</code> 줄 앞에 공백 네 칸을 넣으면 정상적으로 실행됩니다.</p><pre class=\"py-code\" tabindex=\"0\"><code>if True:\nprint(\"들여쓰기를 빠뜨렸어요\")</code></pre><pre class=\"py-out\" tabindex=\"0\" aria-label=\"실행 결과\"><code>IndentationError: expected an indented block after 'if' statement on line 1</code></pre><p>오류가 나면 코드를 지우고 새로 쓰기보다, 오류 메시지를 소리 내어 읽고 어느 줄이 문제인지 먼저 말해 보는 습관이 도움이 됩니다. 오류를 스스로 찾는 경험이 쌓일수록 다음 단계로 넘어가기가 쉬워집니다.</p>"
+    },
+    {
+      "id": "vacation-study",
+      "h2": "방학에는 파이썬을 어떻게 공부하면 좋을까요?",
+      "html": "<p>방학에는 하루에 많은 양을 하기보다 '개념 확인 → 예제 실행 → 일부 바꾸기 → 스스로 설명하기'를 한 묶음으로 짧게 자주 반복하는 방법을 권합니다. 몇 주 만에 끝내겠다는 목표보다 한 단계씩 이해했는지 확인하며 나아가는 것이 중요합니다.</p><ol class=\"post-check\"><li><strong>개념 확인</strong> — 오늘 배울 내용을 한두 문장으로 읽고, 처음 보는 용어의 뜻을 적어 둡니다.</li><li><strong>예제 실행</strong> — 예제를 직접 입력해 실행합니다. 복사해 붙여 넣기보다 직접 입력하면 오타와 들여쓰기에 익숙해집니다.</li><li><strong>일부 바꾸기</strong> — 숫자, 문장, 조건, 반복 횟수를 하나씩 바꿔 결과를 먼저 예상한 뒤 실행해 확인합니다.</li><li><strong>스스로 설명하기</strong> — 코드 한 줄 한 줄이 무슨 일을 하는지 말이나 글로 설명해 봅니다. 설명이 막히는 곳이 다시 볼 곳입니다.</li></ol><div class=\"post-table-wrap\"><table class=\"post-table\"><thead><tr><th scope=\"col\">방학 계획 (예시)</th><th scope=\"col\">다룰 내용</th><th scope=\"col\">스스로 확인할 질문</th></tr></thead><tbody><tr><th scope=\"row\">시작 단계</th><td>출력과 입력, 변수</td><td>입력한 값을 변수에 담아 다시 보여 줄 수 있나요?</td></tr><tr><th scope=\"row\">다음 단계</th><td>자료형, 조건문</td><td>입력값을 숫자로 바꿔 조건에 따라 다른 문장을 출력할 수 있나요?</td></tr><tr><th scope=\"row\">그다음 단계</th><td>반복문</td><td>정해진 횟수만큼 반복하며 합계를 구할 수 있나요?</td></tr><tr><th scope=\"row\">마무리 단계</th><td>간단한 프로그램</td><td>배운 내용을 묶어 작은 프로그램을 만들고 설명할 수 있나요?</td></tr></tbody></table></div><p>표의 단계는 예시이며, 한 단계에 걸리는 시간은 학생마다 다릅니다. 앞 단계의 확인 질문에 답하기 어렵다면 다음으로 넘어가지 말고 같은 단계의 예제를 바꿔 가며 한 번 더 연습합니다. 방학 전체 계획은 <a href=\"pre-middle1-winter-prep.html\">예비 중1 겨울방학 준비</a> 글처럼 다른 과목 복습 시간과 함께 나눠 세우면 무리가 적습니다.</p>"
+    },
+    {
+      "id": "school-class",
+      "h2": "학교 코딩 수업은 어떻게 준비하면 좋을까요?",
+      "html": "<p>학교 코딩 수업은 먼저 교과서와 수업 자료, 평가 범위를 확인하고 그 범위에 맞춰 복습하는 것이 기본입니다. 학교마다 사용하는 언어와 도구, 다루는 내용과 평가 방식이 다를 수 있으므로 집에서 공부한 순서보다 학교 안내를 우선합니다.</p><p>모든 학교가 정보 수업에서 파이썬을 배우는 것은 아니며, 블록코딩이나 다른 언어를 쓰는 경우도 있습니다. 또 학교 수업을 따라가는 데 별도 수업이 꼭 필요한 것도 아닙니다. 아래 순서로 확인하면 무엇을 준비할지 정리하기 쉽습니다.</p><ol><li><strong>교과서·수업 자료 확인</strong> — 수업에서 쓰는 언어와 실습 도구, 지금 배우는 단원을 확인합니다.</li><li><strong>평가 범위·방식 확인</strong> — 지필평가와 수행평가의 범위, 제출 방식은 학교 안내나 선생님 공지를 기준으로 합니다.</li><li><strong>수업 예제 다시 실행</strong> — 수업에서 다룬 예제를 집에서 다시 입력해 실행하고, 일부를 바꿔 결과를 확인합니다.</li><li><strong>모르는 부분 정리</strong> — 설명하기 어려운 줄이나 오류가 난 부분을 적어 두고 수업 시간에 질문합니다.</li></ol><p>수행평가나 과제는 학생이 스스로 이해하고 작성해야 하는 활동입니다. 집에서는 개념과 예제를 충분히 익혀 두고, 과제 자체는 학교 안내에 따라 직접 해결하는 것을 원칙으로 합니다.</p>"
+    },
+    {
+      "id": "self-or-tutor",
+      "h2": "혼자 공부와 1:1 수업은 어떻게 선택할까요?",
+      "html": "<p>혼자서도 예제를 실행하고 오류를 찾아 고칠 수 있다면 혼자 공부로 충분히 시작할 수 있습니다. 같은 곳에서 계속 막히거나 학교 수업 범위에 맞춘 계획이 필요하다면 1:1 수업을 함께 고려해 볼 수 있습니다.</p><div class=\"post-table-wrap\"><table class=\"post-table\"><thead><tr><th scope=\"col\">확인할 기준</th><th scope=\"col\">혼자 공부로 시작해 볼 만한 경우</th><th scope=\"col\">1:1 수업을 고려해 볼 만한 경우</th></tr></thead><tbody><tr><th scope=\"row\">오류 해결</th><td>오류 메시지를 읽고 스스로 고칠 수 있음</td><td>같은 종류의 오류에서 오래 막힘</td></tr><tr><th scope=\"row\">공부 습관</th><td>정한 시간에 꾸준히 할 수 있음</td><td>계획을 세워도 이어 가기 어려움</td></tr><tr><th scope=\"row\">학교 수업</th><td>수업 내용을 따라가고 있음</td><td>수업 범위·평가에 맞춘 복습 계획이 필요함</td></tr><tr><th scope=\"row\">설명하기</th><td>예제의 각 줄을 설명할 수 있음</td><td>코드는 실행되지만 왜 그런지 설명하기 어려움</td></tr></tbody></table></div><p>수업을 고를 때는 학생이 직접 코드를 입력하고 실행하는 시간이 충분한지, 처음에 현재 수준을 확인하는지, 학교에서 배우는 언어와 평가 범위를 반영해 계획을 세우는지 확인해 보세요. 1:1 코딩 수업에서는 일반적으로 학생의 현재 단계를 먼저 확인한 뒤, 예제를 직접 실행하고 바꿔 보며 스스로 설명하게 하는 방식으로 진행하는 경우가 많습니다.</p><div class=\"post-related-grid\"><a class=\"post-related-card\" href=\"../coding/\"><span class=\"post-related-cat\">코딩 수업</span><strong>파이썬·자바 코딩 수업 안내</strong></a><a class=\"post-related-card\" href=\"kids-coding-start.html\"><span class=\"post-related-cat\">블록코딩</span><strong>스크래치 코딩·엔트리 코딩 시작 가이드</strong></a></div>"
+    }
+  ],
+  "faq": [
+    {
+      "q": "파이썬은 무엇부터 공부하면 좋나요?",
+      "a": "출력과 입력, 변수와 자료형, 조건문, 반복문을 차례로 익힌 뒤 이를 묶어 간단한 프로그램을 만들어 보는 순서를 권합니다. 이 순서는 입문자를 위한 제안이며, 학교에서 배우는 순서가 있다면 학교 수업을 우선해 주세요."
+    },
+    {
+      "q": "파이썬 독학을 하다 오류가 나면 어떻게 하나요?",
+      "a": "들여쓰기, 따옴표, 변수 이름을 먼저 확인하고 오류 메시지의 마지막 줄에서 오류 종류를 읽습니다. 파이썬이 표시한 위치와 그 바로 앞부분을 함께 살펴보고, 어느 줄이 문제인지 말로 설명해 보면 원인을 찾기 쉽습니다."
+    },
+    {
+      "q": "input()으로 받은 숫자로 계산이 안 되는 이유는 무엇인가요?",
+      "a": "input()은 입력한 내용을 숫자가 아닌 문자열로 돌려주기 때문입니다. 계산하려면 int()로 정수로 바꾼 뒤 사용해야 하며, 바꾸지 않고 숫자를 더하면 TypeError가 납니다."
+    },
+    {
+      "q": "방학 동안 파이썬 기초를 끝낼 수 있나요?",
+      "a": "걸리는 시간은 학생의 경험과 공부 시간에 따라 크게 다릅니다. 기간을 정해 두기보다 단계마다 예제를 바꿔 보고 스스로 설명할 수 있는지 확인하며 다음 단계로 넘어가는 것을 권합니다."
+    },
+    {
+      "q": "학교 정보 수업에서 모두 파이썬을 배우나요?",
+      "a": "학교마다 사용하는 언어와 도구가 다를 수 있습니다. 블록코딩이나 다른 언어를 쓰는 경우도 있으므로 교과서와 수업 자료, 평가 안내를 먼저 확인해 주세요."
+    }
+  ],
+  "sources": [
+    {
+      "org": "Python 공식 문서",
+      "title": "3. 파이썬의 간략한 소개",
+      "url": "https://docs.python.org/ko/3/tutorial/introduction.html"
+    },
+    {
+      "org": "Python 공식 문서",
+      "title": "4. 기타 제어 흐름 도구(if 문·for 문·range 함수)",
+      "url": "https://docs.python.org/ko/3/tutorial/controlflow.html"
+    },
+    {
+      "org": "Python 공식 문서",
+      "title": "8. 에러와 예외",
+      "url": "https://docs.python.org/ko/3/tutorial/errors.html"
+    },
+    {
+      "org": "Python 공식 문서",
+      "title": "Built-in functions(input·int·type)",
+      "url": "https://docs.python.org/ko/3/library/functions.html"
+    },
+    {
+      "org": "Python 공식 문서",
+      "title": "4. 윈도우에서 파이썬 사용하기",
+      "url": "https://docs.python.org/ko/3/using/windows.html"
+    }
+  ],
+  "disclaimer": "이 글은 파이썬을 처음 배우는 학생을 위한 일반적인 참고 정보입니다. 공부 순서와 방학 계획은 입문자를 위한 제안이며, 학교에서 배우는 언어·내용·평가 방식은 학교마다 다를 수 있으니 학교 안내를 확인해 주세요. 예제 실행 결과는 Python 3.12에서 확인했으며, 오류 메시지 문장은 버전에 따라 조금 다를 수 있습니다.",
+  "cta_title": "파이썬, 어디서부터 다시 시작할지 고민된다면",
+  "cta_text": "학년과 지금까지의 코딩 경험, 학교에서 배우는 내용을 남겨주시면 상담 내용을 확인해 안내드립니다.",
+  "related": [
+    "kids-coding-start",
+    "pre-middle1-winter-prep"
+  ],
+  "card_summary": "출력·입력부터 간단한 프로그램까지 파이썬 공부 순서와 예제를 정리했습니다.",
+  "cover": {
+    "palette": "teal",
+    "badge": "코딩 · 파이썬",
+    "title": "파이썬\n*처음 배울 때*\n공부 순서",
+    "keys": [
+      "방학 공부",
+      "학교 수업 준비"
+    ],
+    "cardTitle": "파이썬 공부 순서",
+    "cardTag": "제안",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "1",
+        "text": "출력과 입력"
+      },
+      {
+        "label": "2",
+        "text": "변수와 자료형"
+      },
+      {
+        "label": "3",
+        "text": "조건문·반복문"
+      },
+      {
+        "label": "4",
+        "text": "간단한 프로그램"
+      }
+    ],
+    "lens": false
+  }
+}

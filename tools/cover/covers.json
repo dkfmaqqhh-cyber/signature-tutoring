@@ -846,5 +846,36 @@
       "선지의 시기·주체를 확인했나요?"
     ],
     "lens": false
+  },
+  "winter-coding-plan": {
+    "palette": "indigo",
+    "badge": "코딩 · 방학 계획",
+    "title": "겨울방학 코딩\n*4주 계획*\n세우는 법",
+    "keys": [
+      "블록코딩",
+      "파이썬 기초"
+    ],
+    "cardTitle": "방학 4주 코딩 계획",
+    "cardTag": "예시",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "1주",
+        "text": "도구 익히기"
+      },
+      {
+        "label": "2주",
+        "text": "반복·조건"
+      },
+      {
+        "label": "3주",
+        "text": "작품 만들기"
+      },
+      {
+        "label": "4주",
+        "text": "고치기·발표"
+      }
+    ],
+    "lens": false
   }
 }

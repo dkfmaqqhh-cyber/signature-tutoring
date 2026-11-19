@@ -94,6 +94,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- [25차] 과목과외 설명글 전용 -->
 <link rel="stylesheet" href="../css/style.css">
+<style>
+/* [520차] 시기별 수업 안내 링크 2개 (이 페이지 전용 · 기존 네이비·골드 버튼 색) */
+.season-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 12px; max-width: 1080px; margin: 26px auto 0; text-align: center; }
+.season-links-label { width: 100%; color: #10233F; font-size: 15px; font-weight: 800; }
+.season-links a { display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border: 1.5px solid #10233F; border-radius: 999px; background: #FFFFFF; color: #10233F; font-size: 15px; font-weight: 800; text-decoration: none; }
+.season-links a:hover, .season-links a:focus-visible { border-color: #F4C542; background: #FFF4CC; color: #10233F; }
+@media (max-width: 480px) { .season-links a { width: 100%; justify-content: center; } }
+</style>
 </head>
 <body class="page-subject page-sj">
 
@@ -255,6 +263,8 @@
         <p>학습 목적과 현재 수준을 상담에서 확인한 뒤, 가능한 1:1 수업 방향을 안내합니다.</p>
       </div>
     </div>
+    <!-- [520차] 시기별 수업 안내 (기말고사·겨울방학 안내 페이지 연결) -->
+    <p class="season-links"><span class="season-links-label">시기별 수업 안내</span><a href="../tutoring/final-exam.html">기말고사 대비 과외 <span aria-hidden="true">→</span></a><a href="../tutoring/winter-break.html">겨울방학 과외 <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 

@@ -1,6 +1,7 @@
 {
   "no": 2,
   "slug": "final-exam-middle-math",
+  "date_modified": "2026-11-19",
   "title": "중학교 기말고사 수학, 4주 공부 순서와 시험 공부 계획표",
   "description": "중학교 기말고사 수학을 4주 동안 준비하는 순서를 정리했습니다. 시험 범위 확인부터 개념, 유형, 오답, 실전 연습까지 주차별 시험 공부 계획표 예시와 서술형 감점 줄이는 법, 문제집 선택 기준을 담았습니다.",
   "category": "내신 관리 · 중등 수학",
@@ -52,7 +53,7 @@
     {
       "id": "naesin-parents",
       "h2": "중학교 내신 수학, 학부모는 무엇을 확인하면 좋을까요?",
-      "html": "<p>학부모는 공부 내용을 직접 가르치기보다, 시험 범위와 계획표가 있는지, 오답을 다시 풀고 있는지를 함께 확인해 주는 것만으로도 충분히 도움이 됩니다.</p><ul><li>시험 범위와 시험 날짜를 아이와 함께 달력에 적어 두기</li><li>주차별 목표가 있는 계획표가 있는지 확인하기</li><li>틀린 문제를 다시 풀어 맞혔는지 주 1회 정도 함께 보기</li><li>점수보다 틀린 이유를 묻는 대화 나누기</li></ul><p>중학교 성적표에 나오는 원점수, 과목평균, 성취도 같은 용어가 낯설다면 <a href=\"midterm-report-card.html\">중간고사 성적표 보는 법</a>을 참고해 주세요. 중학생 학습 전반은 <a href=\"../grade/middle.html\">중학생과외 안내</a>에서도 볼 수 있습니다. 1:1 수업에서는 일반적으로 시험 4주 전부터 학생의 오답을 기준으로 단원별 보완 순서를 정해 진행하는 경우가 많습니다.</p><div class=\"post-related-grid\"><a class=\"post-related-card\" href=\"../grade/middle.html\"><span class=\"post-related-cat\">학년별 과외</span><strong>중학생과외 안내</strong></a><a class=\"post-related-card\" href=\"../subject/math.html\"><span class=\"post-related-cat\">과목별 과외</span><strong>수학과외 안내</strong></a></div>"
+      "html": "<p>학부모는 공부 내용을 직접 가르치기보다, 시험 범위와 계획표가 있는지, 오답을 다시 풀고 있는지를 함께 확인해 주는 것만으로도 충분히 도움이 됩니다.</p><ul><li>시험 범위와 시험 날짜를 아이와 함께 달력에 적어 두기</li><li>주차별 목표가 있는 계획표가 있는지 확인하기</li><li>틀린 문제를 다시 풀어 맞혔는지 주 1회 정도 함께 보기</li><li>점수보다 틀린 이유를 묻는 대화 나누기</li></ul><p>중학교 성적표에 나오는 원점수, 과목평균, 성취도 같은 용어가 낯설다면 <a href=\"midterm-report-card.html\">중간고사 성적표 보는 법</a>을 참고해 주세요. 중학생 학습 전반은 <a href=\"../grade/middle.html\">중학생과외 안내</a>에서도 볼 수 있습니다. 1:1 수업에서는 일반적으로 시험 4주 전부터 학생의 오답을 기준으로 단원별 보완 순서를 정해 진행하는 경우가 많습니다. 기말고사 대비 1:1 수업의 상담 준비 자료와 진행 방식은 <a href=\"../tutoring/final-exam.html\">기말고사 대비 과외 안내</a>에서 볼 수 있습니다.</p><div class=\"post-related-grid\"><a class=\"post-related-card\" href=\"../grade/middle.html\"><span class=\"post-related-cat\">학년별 과외</span><strong>중학생과외 안내</strong></a><a class=\"post-related-card\" href=\"../subject/math.html\"><span class=\"post-related-cat\">과목별 과외</span><strong>수학과외 안내</strong></a></div>"
     }
   ],
   "faq": [

@@ -1,6 +1,7 @@
 {
   "no": 10,
   "slug": "high1-common-math2-final",
+  "date_modified": "2026-11-19",
   "title": "고1 기말고사 수학, 공통수학2에서 먼저 점검할 단원",
   "description": "고1 기말고사 수학을 앞두고 공통수학2의 도형의 방정식·집합과 명제·함수와 그래프 단원에서 무엇부터 점검할지 정리했습니다. 단원 흐름 표, 자주 막히는 지점, 다시 볼 중학 개념, 4주 계획 예시를 담았습니다.",
   "category": "내신 관리 · 고등 수학",
@@ -53,7 +54,7 @@
     {
       "id": "five-grade-naesin",
       "h2": "고1 수학 내신 5등급제에서는 어떻게 준비하나요?",
-      "html": "<p>고1 공통과목은 성취도 A~E와 함께 5등급 상대평가 등급이 기재되므로, 실수를 줄여 안정적으로 점수를 지키는 준비가 중요합니다. 1등급은 상위 10%, 2등급은 누적 34%까지이며 학교 안에서 비교되는 구조입니다.</p><p>등급 구간이 넓어진 만큼 고난도 한두 문제보다 계산 실수와 서술형 감점이 등급을 가르는 경우가 많습니다. 아래 항목을 시험 전에 점검해 보세요.</p><ol class=\"post-check\"><li><strong>계산 실수 기록</strong> — 부호, 이항, 분수 계산에서 틀린 문제를 따로 모아 다시 풉니다.</li><li><strong>서술형 과정</strong> — 답만 맞히지 말고 식을 세운 이유와 과정을 끝까지 씁니다.</li><li><strong>시간 배분</strong> — 객관식과 서술형에 쓸 시간을 미리 정해 두고 연습합니다.</li><li><strong>검토 순서</strong> — 남는 시간에 다시 볼 문제(부호·조건·단위)를 정해 둡니다.</li></ol><p>또 고교학점제에서는 공통과목에서 학업성취율이 40%에 미치지 못하면 학교의 최소 성취수준 지도(보충 지도)를 받게 됩니다. 기초가 흔들린다면 기말 이후 겨울방학에 앞 단원을 다시 정리하는 계획도 함께 세워 두면 좋습니다. 내신 5등급제의 자세한 내용은 <a href=\"high-school-5-grade-system.html\">고등학교 내신 5등급제 정리</a> 글에서 확인할 수 있습니다.</p><div class=\"post-related-grid\"><a class=\"post-related-card\" href=\"../grade/high.html\"><span class=\"post-related-cat\">학년별 과외</span><strong>고등학생과외 안내</strong></a><a class=\"post-related-card\" href=\"../subject/math.html\"><span class=\"post-related-cat\">과목별 과외</span><strong>수학과외 안내</strong></a></div><p>1:1 수업에서는 일반적으로 시험 범위 안에서 학생이 틀린 문제의 원인을 먼저 나누고, 그에 맞는 앞 개념부터 다시 잡는 방식으로 진행하는 경우가 많습니다.</p>"
+      "html": "<p>고1 공통과목은 성취도 A~E와 함께 5등급 상대평가 등급이 기재되므로, 실수를 줄여 안정적으로 점수를 지키는 준비가 중요합니다. 1등급은 상위 10%, 2등급은 누적 34%까지이며 학교 안에서 비교되는 구조입니다.</p><p>등급 구간이 넓어진 만큼 고난도 한두 문제보다 계산 실수와 서술형 감점이 등급을 가르는 경우가 많습니다. 아래 항목을 시험 전에 점검해 보세요.</p><ol class=\"post-check\"><li><strong>계산 실수 기록</strong> — 부호, 이항, 분수 계산에서 틀린 문제를 따로 모아 다시 풉니다.</li><li><strong>서술형 과정</strong> — 답만 맞히지 말고 식을 세운 이유와 과정을 끝까지 씁니다.</li><li><strong>시간 배분</strong> — 객관식과 서술형에 쓸 시간을 미리 정해 두고 연습합니다.</li><li><strong>검토 순서</strong> — 남는 시간에 다시 볼 문제(부호·조건·단위)를 정해 둡니다.</li></ol><p>또 고교학점제에서는 공통과목에서 학업성취율이 40%에 미치지 못하면 학교의 최소 성취수준 지도(보충 지도)를 받게 됩니다. 기초가 흔들린다면 기말 이후 겨울방학에 앞 단원을 다시 정리하는 계획도 함께 세워 두면 좋습니다. 내신 5등급제의 자세한 내용은 <a href=\"high-school-5-grade-system.html\">고등학교 내신 5등급제 정리</a> 글에서 확인할 수 있습니다.</p><div class=\"post-related-grid\"><a class=\"post-related-card\" href=\"../grade/high.html\"><span class=\"post-related-cat\">학년별 과외</span><strong>고등학생과외 안내</strong></a><a class=\"post-related-card\" href=\"../subject/math.html\"><span class=\"post-related-cat\">과목별 과외</span><strong>수학과외 안내</strong></a></div><p>1:1 수업에서는 일반적으로 시험 범위 안에서 학생이 틀린 문제의 원인을 먼저 나누고, 그에 맞는 앞 개념부터 다시 잡는 방식으로 진행하는 경우가 많습니다. 기말고사 대비 1:1 수업의 상담 준비 자료와 진행 방식은 <a href=\"../tutoring/final-exam.html\">기말고사 대비 과외 안내</a>에서 볼 수 있습니다.</p>"
     }
   ],
   "faq": [

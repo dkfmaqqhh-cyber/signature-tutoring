@@ -777,5 +777,24 @@
       }
     ],
     "lens": false
+  },
+  "korean-reading-wrong-answers": {
+    "palette": "indigo",
+    "badge": "국어 · 독해",
+    "title": "국어 지문은 아는데\n문제는 *왜* 틀릴까?",
+    "keys": [
+      "답의 근거",
+      "선지 판단"
+    ],
+    "cardTitle": "틀린 이유 점검표",
+    "cardTag": "체크",
+    "cardType": "checks",
+    "items": [
+      "모르는 낱말을 짐작으로 넘겼나요?",
+      "문단 사이 관계를 확인했나요?",
+      "선지 모든 부분에 근거가 있나요?",
+      "시간 없이 풀면 맞히나요?"
+    ],
+    "lens": false
   }
 }

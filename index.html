@@ -513,6 +513,14 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
 .hero-season-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 14px 0 0; }
 .hero-season-links a { color: #10233F; font-size: 15px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
 .hero-season-links a:hover, .hero-season-links a:focus-visible { text-decoration-color: #F4C542; }
+/* [530차] #features 카드 위 맞춤수업 설명 사진 (이 페이지 전용 · 사진 비율 유지·최대 폭 제한 · 모바일은 위아래) */
+#features .ft-lesson { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: 28px; align-items: center; max-width: 940px; margin: 0 auto 28px; padding: 18px; border: 1px solid #eadcbc; border-radius: 18px; background: #fff; }
+#features .ft-lesson img { display: block; width: 100%; height: auto; border-radius: 12px; }
+#features .ft-lesson figcaption { min-width: 0; text-align: left; }
+#features .ft-lesson strong { display: block; margin: 0 0 8px; color: #10233F; font-size: 19px; font-weight: 900; line-height: 1.45; word-break: keep-all; }
+#features .ft-lesson p { margin: 0 0 10px; color: #4B5563; font-size: 15.5px; line-height: 1.7; word-break: keep-all; }
+#features .ft-lesson small { display: block; color: #8f6b2f; font-size: 13px; line-height: 1.5; }
+@media (max-width: 760px) { #features .ft-lesson { grid-template-columns: 1fr; gap: 14px; padding: 14px; } #features .ft-lesson figcaption { text-align: center; } }
 </style>
 </head>
 <body class="page-home">
@@ -995,6 +1003,15 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
       <h2>성적뿐 아니라 공부하는 과정까지 관리합니다.</h2>
       <p>맞춤 커리큘럼, 취약점 진단, 수업 현황 공유로 학생의 공부 과정을 함께 관리합니다.</p>
     </div>
+    <!-- [530차] 맞춤수업 설명 사진 — 기존 images/lesson-visit.jpg 재사용(원래 '수업 두가지 방식' 위치 그대로) · 설명용 이미지 표시 · AI 진단·피드백·과제 공유 화면이라고 쓰지 않음 -->
+    <figure class="ft-lesson">
+      <img src="images/lesson-visit.jpg" alt="선생님이 학생 옆에 앉아 노트의 문제를 손으로 짚어 주며 설명하는 1:1 수업 장면" width="1200" height="900" loading="lazy" decoding="async">
+      <figcaption>
+        <strong>현재 수준을 확인하고 부족한 부분을 보완하는 맞춤수업</strong>
+        <p>학생의 현재 수준과 어려운 부분을 확인하고, 필요한 개념과 문제 풀이를 중심으로 수업 방향을 정합니다.</p>
+        <small>수업·학습관리 이해를 돕기 위한 이미지입니다.</small>
+      </figcaption>
+    </figure>
     <!-- [교체 가능] 카드 배경에 직접 찍은 사진을 쓰려면 .lux-card에 style="--lux-photo:url(images/파일명.webp)" 추가 -->
     <div class="lux-grid">
       <article class="lux-card">

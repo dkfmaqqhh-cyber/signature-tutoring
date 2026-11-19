@@ -88,6 +88,7 @@
 - `cover` 형식은 `tools/cover/covers.json`의 `_설명`과 기존 항목을 참고 (제목 3줄 이내, 한 줄 10자 안팎).
 - `related`는 실제 있는 `info/*.html` 중 주제가 가까운 2개.
 - 날짜(선택) [514차]: `"date": "YYYY-MM-DD"`는 발행일, `"date_modified": "YYYY-MM-DD"`는 실제로 본문을 고친 날입니다. 새 글은 둘 다 넣지 않습니다(오늘 발행). `date`가 없으면 `published.json`에 기록된 발행일을 쓰므로 기존 글을 다시 생성해도 발행일이 바뀌지 않습니다. 기존 글 본문을 고칠 때만 `date_modified`를 그날로 적습니다 — JSON-LD `dateModified`와 sitemap `lastmod`에 쓰이며, 발행일보다 이르거나 오늘보다 늦으면 생성이 중단됩니다.
+- 글 전용 CSS(선택) [515차]: 그 글에만 필요한 스타일(예: 파이썬 글의 코드 상자)은 `"style": ["CSS 한 줄", ...]`로 적으면 `</head>` 앞 `<style>`에 들어갑니다. 보통 글은 넣지 않으며, 공통 `css/style.css`에 한 글용 스타일을 추가하지 않습니다.
 
 ## 5. 생성·검사
 ```bash

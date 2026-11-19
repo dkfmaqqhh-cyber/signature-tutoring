@@ -119,13 +119,17 @@ def build_post(spec, today, modified=None):
         f'        <li>{esc(s["org"])}, 「{esc(s["title"])}」 — <a href="{esc(s["url"])}" target="_blank" rel="noopener nofollow">{esc(s["url"])}</a></li>'
         for s in spec["sources"])
     rel = "\n".join(related_card(r) for r in spec["related"])
+    # [515차] 글 전용 CSS(선택): JSON "style" 줄 목록 → </head> 앞 <style>. 없으면 빈칸이라 기존 글 결과 그대로
+    if "style" in spec and not (isinstance(spec["style"], list) and all(isinstance(x, str) for x in spec["style"])):
+        die("style 은 CSS 줄(문자열) 목록이어야 합니다.")
+    post_style = "<style>\n" + "\n".join(spec["style"]) + "\n</style>\n" if spec.get("style") else ""
     rep = {
         "TITLE": esc(spec["title"]), "DESCRIPTION": esc(spec["description"]), "SLUG": slug,
         "COVER_ALT": esc(spec["cover_alt"]), "NO": str(spec.get("no", "")),
         "CATEGORY": esc(spec["category"]), "CATEGORY_MAIN": esc(cat_main),
         "KEYWORDS": esc(", ".join(spec["keywords"])), "LEAD": spec["lead"],
         "FAQ_JSON": faq_json, "FAQ_HTML": faq_html, "BODY": "\n".join(body), "TOC_LI": toc,
-        "SUMMARY_LI": summ, "SOURCES_LI": srcs, "RELATED": rel,
+        "SUMMARY_LI": summ, "SOURCES_LI": srcs, "RELATED": rel, "POST_STYLE": post_style,
         "DISCLAIMER": esc(spec["disclaimer"]), "CTA_TITLE": esc(spec["cta_title"]), "CTA_TEXT": esc(spec["cta_text"]),
     }
     for k, v in rep.items():

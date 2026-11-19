@@ -209,16 +209,14 @@ body.page-area-hub main #free-trial { background: linear-gradient(180deg, #FFF1E
 body.page-area-hub main #faq { background: linear-gradient(180deg, #FFF8E2 0%, #EDF3FB 100%) !important; }
 </style>
 <style>
-/* [516차] 지역 대문 '다른 수업도 알아보세요' (이 페이지 전용 · 네이비·크림 기존 색) */
-.sc-other { max-width: 1080px; margin: 18px auto 0; padding: 18px 22px; border: 1px solid #E5E7EB; border-radius: 16px; background: #FFFFFF; }
-.sc-other-title { margin: 0 0 10px; color: #10233F; font-size: 17px; font-weight: 900; letter-spacing: -0.02em; }
-.sc-other-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 18px; margin: 0; padding: 0; list-style: none; }
-.sc-other-list li { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-.sc-other-list a { color: #10233F; font-size: 15.5px; font-weight: 800; text-decoration: underline; text-underline-offset: 4px; }
-.sc-other-list a:hover, .sc-other-list a:focus-visible { text-decoration-color: #F4C542; }
-.sc-other-list li > span { color: #6B7280; font-size: 14px; line-height: 1.55; word-break: keep-all; overflow-wrap: anywhere; }
-.sc-other-note { margin: 12px 0 0; padding-top: 10px; border-top: 1px dashed #E5E7EB; color: #4B5563; font-size: 13.5px; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
-@media (max-width: 760px) { .sc-other { padding: 16px; } .sc-other-list { grid-template-columns: 1fr; gap: 12px; } }
+/* [531차] FAQ 위 '지역별 특별수업 찾기' (이 페이지 전용 · 516차 '다른 수업도 알아보세요'를 이 영역으로 통합 · 네이비·크림 기존 색) */
+.ah-special-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 1080px; margin: 0 auto; padding: 0; list-style: none; }
+.ah-special-list li { display: flex; flex-direction: column; gap: 6px; min-width: 0; padding: 16px 18px; border: 1px solid #eadcbc; border-radius: 14px; background: #fffaf0; }
+.ah-special-list a { color: #10233F; font-size: 16px; font-weight: 800; text-decoration: underline; text-underline-offset: 4px; word-break: keep-all; }
+.ah-special-list a:hover, .ah-special-list a:focus-visible { text-decoration-color: #F4C542; }
+.ah-special-mode { align-self: flex-start; padding: 2px 10px; border-radius: 999px; background: #10233F; color: #fff; font-size: 12.5px; font-weight: 800; }
+.ah-special-desc { color: #4B5563; font-size: 14px; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
+@media (max-width: 760px) { .ah-special-list { grid-template-columns: 1fr; gap: 10px; } .ah-special-list li { padding: 14px 16px; } }
 </style>
 </head>
 <!-- [134차] page-area-hub = /area/ 허브 전용 클래스(과외수업 통합형 섹션 CSS 범위 제한용 · 지역 페이지는 page-area만 있음) -->
@@ -320,16 +318,6 @@ body.page-area-hub main #faq { background: linear-gradient(180deg, #FFF8E2 0%, #
       <article class="sc-card"><h3>유아·기초학습</h3><p>학습의 첫 시작을 함께하는 기초 수업</p><p class="sc-tags">유아한글 · 기초수학 · 파닉스</p></article>
       <article class="sc-card"><h3>회화·외국어</h3><p>학생·성인 목표에 맞춘 외국어 수업</p><p class="sc-tags">영어회화 · 스피킹 · 라이팅</p></article>
       <article class="sc-card"><h3>특별과정</h3><p>교과 외에 필요한 과정까지 안내</p><p class="sc-tags">검정고시 · 코딩 · 학습코칭</p></article>
-    </div>
-    <!-- [516차] 다른 수업 연결 (지역 공통 안내 · 방문과외와 수업 방식 구분 · 지역 지점·방문 전담 표현 없음) -->
-    <div class="sc-other">
-      <h3 class="sc-other-title">다른 수업도 알아보세요</h3>
-      <ul class="sc-other-list">
-        <li><a href="../ged/">검정고시 과외 <span aria-hidden="true">→</span></a><span>초·중·고졸 준비, 과목별 1:1 화상 수업</span></li>
-        <li><a href="../conversation/">외국어 회화·한국어 <span aria-hidden="true">→</span></a><span>배우는 목적에 맞춘 회화·한글·한국어 수업 상담</span></li>
-        <li><a href="../coding/">코딩 과외 <span aria-hidden="true">→</span></a><span>자바·파이썬 기초, 방학 집중학습과 학교 수업 준비</span></li>
-      </ul>
-      <p class="sc-other-note">검정고시와 코딩은 화상으로 진행하며, 회화는 언어별 가능한 수업 방식을 상담에서 안내합니다.</p>
     </div>
   </div>
 </section>
@@ -640,6 +628,22 @@ body.page-area-hub main #faq { background: linear-gradient(180deg, #FFF8E2 0%, #
 
 </div>
 <!-- [137차] 과외수업 콘텐츠 이식 끝 -->
+
+<!-- [531차] 지역별 특별수업 찾기 — FAQ 바로 위 · 순서 검정고시→코딩→회화 · 2026-11-19 확인 결과 지역별 검정고시·코딩·회화 페이지가 없어 지역 선택 메뉴 없이 대표 안내 링크와 확인된 수업 방식만 표시(빈 메뉴·준비 중 링크 없음) · 지역 지점·방문 가능 여부 표현 없음 -->
+<section class="page-section" id="special-classes" aria-labelledby="ahSpecialTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">SPECIAL CLASSES</div>
+      <h2 id="ahSpecialTitle">지역별 특별수업 찾기</h2>
+      <p>검정고시·코딩은 1:1 화상수업이라 지역별 안내 대신 아래 안내에서 확인할 수 있고, 회화는 언어별 가능한 수업 방식을 상담에서 안내합니다.</p>
+    </div>
+    <ul class="ah-special-list">
+      <li><a href="../ged/">검정고시 과외 <span aria-hidden="true">→</span></a><span class="ah-special-mode">1:1 화상수업</span><span class="ah-special-desc">초·중·고졸 준비, 과목별 1:1 화상 수업</span></li>
+      <li><a href="../coding/">코딩 과외 <span aria-hidden="true">→</span></a><span class="ah-special-mode">1:1 화상수업</span><span class="ah-special-desc">자바·파이썬 기초, 방학 집중학습과 학교 수업 준비</span></li>
+      <li><a href="../conversation/">외국어 회화·한국어 <span aria-hidden="true">→</span></a><span class="ah-special-mode">언어별 수업 방식 상담</span><span class="ah-special-desc">배우는 목적에 맞춘 회화·한글·한국어 수업 상담</span></li>
+    </ul>
+  </div>
+</section>
 
 <!-- [134차] 9. 자주 묻는 질문 · [137차] 과외수업 원본 FAQ 4개 통합 → 12개(원본의 '방문과외와 화상과외…'는 2번과 중복이라 제외) · 화면 문구 = JSON-LD FAQPage 문구 · PC 2열, 모바일 1열 · [138차] 질문만 보이는 접힘형(details/summary, JS 없음) -->
 <section class="page-section ah-sec ah-bg-cream" id="faq" aria-labelledby="ahFaqTitle">

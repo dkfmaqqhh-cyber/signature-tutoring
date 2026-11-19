@@ -75,6 +75,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap">
 <link rel="stylesheet" href="../css/style.css">
+<style>
+/* [526차] 최신 학습정보 위 '이런 고민이 있으신가요?' 텍스트 링크 (이 페이지 전용 · 기존 네이비·베이지 색) */
+.lp-concerns { max-width: 1080px; margin: 0 auto 28px; padding: 16px 20px; border: 1px solid #e3d6bf; border-radius: 14px; background: #fffaf0; }
+.lp-concerns h3 { margin: 0 0 8px; color: var(--brand-navy, #10233F); font-size: 16px; font-weight: 900; }
+.lp-concerns ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 24px; margin: 0; padding: 0; list-style: none; }
+.lp-concerns a { color: var(--brand-navy, #10233F); font-size: 15px; font-weight: 700; line-height: 1.6; text-decoration: underline; text-underline-offset: 4px; word-break: keep-all; overflow-wrap: anywhere; }
+.lp-concerns a:hover, .lp-concerns a:focus-visible { text-decoration-color: var(--brand-gold, #c9a15f); }
+@media (max-width: 720px) { .lp-concerns { padding: 14px 16px; } .lp-concerns ul { grid-template-columns: 1fr; gap: 8px; } }
+</style>
 </head>
 <body class="page-subject page-lp">
 
@@ -140,6 +149,16 @@
       <h2>최신 학습정보</h2>
       <p>과외를 고민할 때 확인하면 좋은 기준과 시험 준비 방법을 정리했습니다.</p>
     </div>
+    <!-- [526차] 고민별 바로가기 — 각 글 본문이 실제로 답하는 질문만 · 목록 자동 생성 영역(AUTO-POSTS) 밖이라 build.py 재생성 때도 유지 -->
+    <nav class="lp-concerns" aria-labelledby="lpConcernsTitle">
+      <h3 id="lpConcernsTitle">이런 고민이 있으신가요?</h3>
+      <ul>
+        <li><a href="../info/korean-reading-wrong-answers.html">국어 지문은 이해하는데 문제를 자꾸 틀려요 <span aria-hidden="true">→</span></a></li>
+        <li><a href="../info/after-midterm-review.html">중간고사가 끝난 뒤 무엇부터 복습해야 할까요? <span aria-hidden="true">→</span></a></li>
+        <li><a href="../info/middle-winter-math-review.html">중학생 겨울방학 수학, 복습과 선행 중 무엇이 먼저일까요? <span aria-hidden="true">→</span></a></li>
+        <li><a href="../info/midterm-report-card.html">성적표의 평균·표준편차는 어떻게 봐야 할까요? <span aria-hidden="true">→</span></a></li>
+      </ul>
+    </nav>
     <div class="lp-posts">
       <!-- AUTO-POSTS:START (tools/blog/build.py 가 자동 생성 · 직접 수정 금지) -->
       <article class="lp-post">

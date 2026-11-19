@@ -508,6 +508,14 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
 </style>
 <script>addEventListener('load', function () { document.documentElement.classList.add('tu-loaded'); });</script>
 
+<style>
+/* [520차] 시기별 수업 안내 링크 2개 (이 페이지 전용 · 기존 네이비·골드 버튼 색) */
+.season-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 12px; max-width: 1080px; margin: 26px auto 0; text-align: center; }
+.season-links-label { width: 100%; color: #10233F; font-size: 15px; font-weight: 800; }
+.season-links a { display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border: 1.5px solid #10233F; border-radius: 999px; background: #FFFFFF; color: #10233F; font-size: 15px; font-weight: 800; text-decoration: none; }
+.season-links a:hover, .season-links a:focus-visible { border-color: #F4C542; background: #FFF4CC; color: #10233F; }
+@media (max-width: 480px) { .season-links a { width: 100%; justify-content: center; } }
+</style>
 </head>
 <body class="page-home">
 
@@ -768,6 +776,8 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
         </div>
       </article>
     </div>
+    <!-- [520차] 시기별 수업 안내 (기말고사·겨울방학 안내 페이지 연결) -->
+    <p class="season-links"><span class="season-links-label">시기별 수업 안내</span><a href="tutoring/final-exam.html">기말고사 대비 과외 <span aria-hidden="true">→</span></a><a href="tutoring/winter-break.html">겨울방학 과외 <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 

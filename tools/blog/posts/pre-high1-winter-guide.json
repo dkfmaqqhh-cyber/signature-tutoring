@@ -1,6 +1,7 @@
 {
   "no": 41,
   "slug": "pre-high1-winter-guide",
+  "date_modified": "2026-11-19",
   "title": "예비 고1 겨울방학 총정리: 고교학점제·5등급제와 과목별 준비",
   "description": "예비 고1 겨울방학 준비를 총정리했습니다. 고교학점제 졸업·이수 기준과 2026년 개선 내용, 내신 5등급제 등급 비율, 고1 공통과목 목록, 2028 통합형 수능, 과목별 준비 순서와 학부모 체크리스트를 확인하세요.",
   "category": "학년 전환 · 예비 고1",
@@ -52,7 +53,7 @@
     {
       "id": "parents",
       "h2": "학부모가 예비 고1 겨울방학에 확인할 것은?",
-      "html": "<p>배정 고등학교의 교육과정 편성표와 학사 일정, 아이의 중학교 성취 수준을 함께 확인하는 것이 출발점입니다.</p><ul><li>배정 고등학교 홈페이지에서 교육과정 편성표(어떤 과목을 몇 학년에 여는지) 확인하기</li><li>고교학점제 이수 기준과 출석의 중요성을 아이와 함께 이야기하기</li><li>중학교 성적표에서 성취도가 낮았던 과목을 골라 방학 중 보완 계획 세우기</li><li>통학 경로와 시간, 등교 시각에 맞춘 기상 시각 미리 정하기</li><li>진로 관심사를 이야기해 보고, 고1 동안 탐색할 분야 메모해 두기</li></ul><p>고등학교 학습 상황은 <a href=\"../grade/high.html\">고등학생과외 안내</a>와 <a href=\"../subject/math.html\">수학과외 안내</a>에서도 볼 수 있습니다. 1:1 수업에서는 일반적으로 방학 초반에 중학교 내용을 진단하고, 부족한 단원을 채운 뒤 고1 공통과목 예습으로 넘어가는 방식으로 진행하는 경우가 많습니다.</p><div class=\"post-related-grid\"><a class=\"post-related-card\" href=\"../grade/high.html\"><span class=\"post-related-cat\">학년별 과외</span><strong>고등학생과외 안내</strong></a><a class=\"post-related-card\" href=\"../subject/english.html\"><span class=\"post-related-cat\">과목별 과외</span><strong>영어과외 안내</strong></a></div>"
+      "html": "<p>배정 고등학교의 교육과정 편성표와 학사 일정, 아이의 중학교 성취 수준을 함께 확인하는 것이 출발점입니다.</p><ul><li>배정 고등학교 홈페이지에서 교육과정 편성표(어떤 과목을 몇 학년에 여는지) 확인하기</li><li>고교학점제 이수 기준과 출석의 중요성을 아이와 함께 이야기하기</li><li>중학교 성적표에서 성취도가 낮았던 과목을 골라 방학 중 보완 계획 세우기</li><li>통학 경로와 시간, 등교 시각에 맞춘 기상 시각 미리 정하기</li><li>진로 관심사를 이야기해 보고, 고1 동안 탐색할 분야 메모해 두기</li></ul><p>고등학교 학습 상황은 <a href=\"../grade/high.html\">고등학생과외 안내</a>와 <a href=\"../subject/math.html\">수학과외 안내</a>에서도 볼 수 있습니다. 1:1 수업에서는 일반적으로 방학 초반에 중학교 내용을 진단하고, 부족한 단원을 채운 뒤 고1 공통과목 예습으로 넘어가는 방식으로 진행하는 경우가 많습니다. 방학 수업의 상담 내용과 진행 방식은 <a href=\"../tutoring/winter-break.html\">겨울방학 과외 안내</a>에서 볼 수 있습니다.</p><div class=\"post-related-grid\"><a class=\"post-related-card\" href=\"../grade/high.html\"><span class=\"post-related-cat\">학년별 과외</span><strong>고등학생과외 안내</strong></a><a class=\"post-related-card\" href=\"../subject/english.html\"><span class=\"post-related-cat\">과목별 과외</span><strong>영어과외 안내</strong></a></div>"
     }
   ],
   "faq": [

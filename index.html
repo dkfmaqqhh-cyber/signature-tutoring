@@ -509,12 +509,10 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
 <script>addEventListener('load', function () { document.documentElement.classList.add('tu-loaded'); });</script>
 
 <style>
-/* [520차] 시기별 수업 안내 링크 2개 (이 페이지 전용 · 기존 네이비·골드 버튼 색) */
-.season-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 12px; max-width: 1080px; margin: 26px auto 0; text-align: center; }
-.season-links-label { width: 100%; color: #10233F; font-size: 15px; font-weight: 800; }
-.season-links a { display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border: 1.5px solid #10233F; border-radius: 999px; background: #FFFFFF; color: #10233F; font-size: 15px; font-weight: 800; text-decoration: none; }
-.season-links a:hover, .season-links a:focus-visible { border-color: #F4C542; background: #FFF4CC; color: #10233F; }
-@media (max-width: 480px) { .season-links a { width: 100%; justify-content: center; } }
+/* [521차] 대문 상담 버튼 아래 시기별 수업 안내 텍스트 링크 (이 페이지 전용 · 520차 #by-grade 아래 링크 묶음을 대문으로 옮김) */
+.hero-season-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 14px 0 0; }
+.hero-season-links a { color: #10233F; font-size: 15px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.hero-season-links a:hover, .hero-season-links a:focus-visible { text-decoration-color: #F4C542; }
 </style>
 </head>
 <body class="page-home">
@@ -604,6 +602,8 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
       <a href="consult.html" class="hero-cta-trial">무료 시범수업 신청</a>
       <a href="#price" class="hero-cta-trial hero-cta-secondary">학년별 수업료 보기</a>
     </div>
+    <!-- [521차] 시기별 수업 안내 텍스트 링크 줄 (주 상담 버튼 아래 · 520차 #by-grade 아래 링크 묶음을 이 자리로 옮김) -->
+    <p class="hero-season-links"><a href="tutoring/final-exam.html">기말고사 대비 과외 <span aria-hidden="true">→</span></a><a href="tutoring/winter-break.html">겨울방학 과외 <span aria-hidden="true">→</span></a></p>
   </div>
 
   <div class="signature-slider-controls" aria-label="대문 슬라이드 이동">
@@ -632,7 +632,8 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
     var vis = track.querySelector('#about-signature .about-hero-fixed-visual');
     var twoCol = vis && top(vis).t < top(slotA).t + 1 && top(vis).l > top(copyA).l + copyA.offsetWidth - 1;
     wrap.style.width = (twoCol ? Math.min(slotM.offsetWidth, slotA.offsetWidth) : slotM.offsetWidth) + 'px';
-    var h = row.offsetHeight + (parseFloat(getComputedStyle(row).marginTop) || 0);
+    var sl = wrap.querySelector('.hero-season-links'); /* [521차] 버튼 아래 텍스트 링크 줄 높이까지 빈 칸에 포함 */
+    var h = row.offsetHeight + (parseFloat(getComputedStyle(row).marginTop) || 0) + (sl ? sl.offsetHeight + (parseFloat(getComputedStyle(sl).marginTop) || 0) : 0);
     slotM.style.height = slotA.style.height = h + 'px';
     var addM = 0, addA = 0, prev = Infinity;
     for (var i = 0; i < 12; i++) {
@@ -776,8 +777,6 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
         </div>
       </article>
     </div>
-    <!-- [520차] 시기별 수업 안내 (기말고사·겨울방학 안내 페이지 연결) -->
-    <p class="season-links"><span class="season-links-label">시기별 수업 안내</span><a href="tutoring/final-exam.html">기말고사 대비 과외 <span aria-hidden="true">→</span></a><a href="tutoring/winter-break.html">겨울방학 과외 <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
@@ -1189,20 +1188,22 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
     <button type="button" class="rs-lightbox-size" id="rsLightboxSize" aria-pressed="false">원본 크기로 보기</button>
     <button type="button" class="rs-lightbox-close" id="rsLightboxClose">닫기 <span aria-hidden="true">✕</span></button>
   </div>
-  <div class="rs-lightbox-body" id="rsLightboxBody"><img id="rsLightboxImg" src="data:," alt=""></div>
+  <div class="rs-lightbox-body" id="rsLightboxBody"></div><!-- [521차] 빈 자리표시 이미지(src="data:,")가 깨진 이미지로 잡혀 삭제 → 아래 스크립트가 확대 이미지를 만들어 넣음 -->
   <p class="rs-lightbox-cap" id="rsLightboxCap"></p>
 </dialog>
 <script>
 (function () {
   var dlg = document.getElementById('rsLightbox'); if (!dlg || typeof dlg.showModal !== 'function') return; /* dialog 미지원 브라우저: 확대 없이 사진만 표시 */
-  var img = document.getElementById('rsLightboxImg'), title = document.getElementById('rsLightboxTitle'), cap = document.getElementById('rsLightboxCap');
+  var title = document.getElementById('rsLightboxTitle'), cap = document.getElementById('rsLightboxCap');
   var body = document.getElementById('rsLightboxBody'), size = document.getElementById('rsLightboxSize'), opener = null;
+  var img = null; /* [521차] 확대 이미지는 사진 버튼을 처음 누를 때 만들어 넣음(주소 없는 이미지를 미리 두지 않음) */
   function setFull(on) { dlg.classList.toggle('is-full', on); size.setAttribute('aria-pressed', on ? 'true' : 'false'); size.textContent = on ? '화면에 맞추기' : '원본 크기로 보기'; body.scrollTop = 0; body.scrollLeft = 0; }
   function checkSize() { setFull(false); size.hidden = !(img.naturalWidth > img.clientWidth + 24 || img.naturalHeight > img.clientHeight + 24); }
   document.querySelectorAll('#results .rs-zoom').forEach(function (b) {
     b.addEventListener('click', function () {
       var s = b.querySelector('img'), fig = b.closest('figure');
       opener = b;
+      if (!img) { img = document.createElement('img'); img.id = 'rsLightboxImg'; body.appendChild(img); }
       img.src = s.currentSrc || s.src; img.alt = s.alt;
       title.textContent = (fig.querySelector('figcaption strong') || {}).textContent || '기록 크게 보기';
       cap.textContent = (fig.querySelector('figcaption p') || {}).textContent || '';

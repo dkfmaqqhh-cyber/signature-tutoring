@@ -443,6 +443,7 @@
         "중3겨울방학"
       ],
       "angle": "성적표 분석 → 복습/예습 비율 → 주간 루틴. 학년별 중점.",
+      "overlap_note": "[527차] info/final-math-score-drop(기말고사 수학 점수 하락)이 성적표 확인·수학 오답 분류·방학 복습 단원 고르기를 다룸 → 발행 시 전 과목 방학 계획·주간 루틴 중심으로 차별화하고 그 글을 링크",
       "need_check": [],
       "status": "todo",
       "parent_questions": [

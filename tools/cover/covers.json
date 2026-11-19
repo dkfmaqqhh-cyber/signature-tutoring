@@ -796,5 +796,36 @@
       "시간 없이 풀면 맞히나요?"
     ],
     "lens": false
+  },
+  "final-math-score-drop": {
+    "palette": "teal",
+    "badge": "수학 · 학부모 가이드",
+    "title": "기말 수학 점수,\n*떨어졌다면*\n먼저 볼 것",
+    "keys": [
+      "오답 4갈래",
+      "방학 복습"
+    ],
+    "cardTitle": "확인 순서",
+    "cardTag": "순서",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "1",
+        "text": "범위·문항·과목평균 확인"
+      },
+      {
+        "label": "2",
+        "text": "오답을 4갈래로 분류"
+      },
+      {
+        "label": "3",
+        "text": "해설 없이 다시 풀기"
+      },
+      {
+        "label": "4",
+        "text": "오답 근거로 방학 단원 선택"
+      }
+    ],
+    "lens": false
   }
 }

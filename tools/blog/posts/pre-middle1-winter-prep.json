@@ -1,6 +1,7 @@
 {
   "no": 40,
   "slug": "pre-middle1-winter-prep",
+  "date_modified": "2026-11-19",
   "title": "예비 중1 겨울방학, 중학교 가기 전 준비할 5가지",
   "description": "예비 중1 겨울방학에 무엇을 준비하면 좋을지 정리했습니다. 중학교에서 달라지는 자유학기제, 정기시험과 수행평가, 성취도 A~E 성적 표기, 과목별 준비 방법과 학부모 체크리스트를 확인하세요.",
   "category": "학년 전환 · 예비 중1",
@@ -47,7 +48,7 @@
     {
       "id": "parents",
       "h2": "학부모가 겨울방학에 함께 확인할 체크리스트는?",
-      "html": "<p>학부모는 진학할 학교 정보와 생활 습관을 함께 챙겨 주는 것이 가장 큰 도움이 됩니다. 공부 내용보다 아이가 새로운 환경을 예측할 수 있게 해 주는 것이 중요합니다.</p><ul><li>배정된 중학교 홈페이지에서 학사 일정, 자유학기 운영 학기 확인하기 (입학 전후 공개)</li><li>학교알리미에서 진학할 학교의 공시 정보 살펴보기</li><li>등하교 경로와 걸리는 시간 미리 확인하기</li><li>아이와 함께 주간 계획표를 쓰고 일요일 저녁에 점검하는 습관 만들기</li><li>휴대전화·게임 사용 시간을 방학 중에 미리 약속해 두기</li><li>초등 마지막 학기 평가 결과를 보고 약한 과목 한두 개만 골라 보완하기</li></ul><p>학년에 맞는 공부 방법은 <a href=\"../grade/middle.html\">중학생과외 안내</a>와 <a href=\"../grade/elementary.html\">초등학생과외 안내</a>에서도 볼 수 있습니다. 1:1 수업에서는 일반적으로 방학 초반에 초등 내용 진단을 먼저 하고, 비어 있는 단원을 채운 뒤 중학교 첫 단원으로 넘어가는 방식으로 진행하는 경우가 많습니다.</p><div class=\"post-related-grid\"><a class=\"post-related-card\" href=\"../grade/middle.html\"><span class=\"post-related-cat\">학년별 과외</span><strong>중학생과외 안내</strong></a><a class=\"post-related-card\" href=\"../subject/math.html\"><span class=\"post-related-cat\">과목별 과외</span><strong>수학과외 안내</strong></a></div>"
+      "html": "<p>학부모는 진학할 학교 정보와 생활 습관을 함께 챙겨 주는 것이 가장 큰 도움이 됩니다. 공부 내용보다 아이가 새로운 환경을 예측할 수 있게 해 주는 것이 중요합니다.</p><ul><li>배정된 중학교 홈페이지에서 학사 일정, 자유학기 운영 학기 확인하기 (입학 전후 공개)</li><li>학교알리미에서 진학할 학교의 공시 정보 살펴보기</li><li>등하교 경로와 걸리는 시간 미리 확인하기</li><li>아이와 함께 주간 계획표를 쓰고 일요일 저녁에 점검하는 습관 만들기</li><li>휴대전화·게임 사용 시간을 방학 중에 미리 약속해 두기</li><li>초등 마지막 학기 평가 결과를 보고 약한 과목 한두 개만 골라 보완하기</li></ul><p>학년에 맞는 공부 방법은 <a href=\"../grade/middle.html\">중학생과외 안내</a>와 <a href=\"../grade/elementary.html\">초등학생과외 안내</a>에서도 볼 수 있습니다. 1:1 수업에서는 일반적으로 방학 초반에 초등 내용 진단을 먼저 하고, 비어 있는 단원을 채운 뒤 중학교 첫 단원으로 넘어가는 방식으로 진행하는 경우가 많습니다. 방학 수업의 상담 내용과 진행 방식은 <a href=\"../tutoring/winter-break.html\">겨울방학 과외 안내</a>에서 볼 수 있습니다.</p><div class=\"post-related-grid\"><a class=\"post-related-card\" href=\"../grade/middle.html\"><span class=\"post-related-cat\">학년별 과외</span><strong>중학생과외 안내</strong></a><a class=\"post-related-card\" href=\"../subject/math.html\"><span class=\"post-related-cat\">과목별 과외</span><strong>수학과외 안내</strong></a></div>"
     }
   ],
   "faq": [

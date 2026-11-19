@@ -827,5 +827,24 @@
       }
     ],
     "lens": false
+  },
+  "korean-history-memorize-wrong": {
+    "palette": "brown",
+    "badge": "한국사 · 학교 시험",
+    "title": "한국사, 외웠는데\n*왜* 틀릴까?",
+    "keys": [
+      "흐름 연결",
+      "시기·주체·내용"
+    ],
+    "cardTitle": "암기 후 점검표",
+    "cardTag": "체크",
+    "cardType": "checks",
+    "items": [
+      "용어 뜻을 설명할 수 있나요?",
+      "사건의 앞뒤를 이을 수 있나요?",
+      "사료의 단서를 찾았나요?",
+      "선지의 시기·주체를 확인했나요?"
+    ],
+    "lens": false
   }
 }

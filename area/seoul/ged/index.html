@@ -21,7 +21,7 @@
 <!-- [549차] 서울 검정고시 1:1 화상과외 안내 (시·도 대표) · 부산 검정고시(532차) 디자인·548차 체험 배너 재사용, 본문은 새로 작성
      · 구성: 대문 → 대상·수업 진행 → 수업료 → 준비 상황별 안내 → 공식 시험정보 확인 방법 → 상담 준비 → FAQ → 관련 안내
      · 운영 조건 = /ged/ 동일 · 방문·지점·전담 선생님·즉시 배정·합격 기간·점수 보장·사례 없음 · 하단 대형 상담 상자 없음
-     · [555차] 수업료 섹션을 FAQ 바로 앞으로 이동 · 서울 학습 안내 보강(#plan 질문형 통합, #study 영어·수학·성인·직장인·자퇴, FAQ 1개 교체+1개 추가, description 수정)
+     · [555차] 수업료 섹션을 FAQ 바로 앞으로 이동 · [556차] #study 과목 안내 국어→영어→수학→사회→과학(+성인·자퇴), 상담 준비 3D 아이콘 · 서울 학습 안내 보강(#plan 질문형 통합, #study 영어·수학·성인·직장인·자퇴, FAQ 1개 교체+1개 추가, description 수정)
      · 서울특별시교육청 공식 출처(2026-11-21 이 PC의 Chrome으로 접속 확인): 검정고시공고 https://www.sen.go.kr/user/bbs/BD_selectBbsList.do?q_bbsSn=1097 · 날짜·시험장·접수 기간·자격 조건은 옮겨 적지 않고 확인 경로만 안내 -->
 <link rel="icon" href="../../../images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="../../../images/favicon-48.png">
@@ -291,6 +291,15 @@ html.tb-html { scroll-padding-bottom: calc(var(--tb-sp, 0px) + 16px); } /* 키�
 .page-ged .ged-study-link { font-size: 15px !important; }
 .page-ged .ged-study-link a { color: var(--brand-navy); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 760px) { .page-ged .ged-study h3 { font-size: 18px; } .page-ged .bg-study-table thead { display: none; } .page-ged .bg-study-table tr { display: block; padding: 10px 0; border-bottom: 1px solid #eee3cf; } .page-ged .bg-study-table th, .page-ged .bg-study-table td { display: block; width: auto; border: 0; padding: 2px 12px; } .page-ged .bg-study-table td[data-label]::before { content: attr(data-label); display: block; color: #8f6b2f; font-size: 12.5px; font-weight: 800; } }
+/* [556차] '상담 전에 준비하면 좋은 것' — 의미별 3D 아이콘 + 파스텔 항목 (이 영역 전용, 공통 .check-grid 미사용) */
+.page-ged .ged-prep { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; max-width: 900px; margin: 0 auto; padding: 0; list-style: none; }
+.page-ged .ged-prep-item { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border-radius: 16px; border: 1px solid rgba(16, 35, 63, .08); color: #10233F; font-size: 18px; font-weight: 600; line-height: 1.6; word-break: keep-all; }
+.page-ged .ged-prep-item img { flex: none; width: 48px; height: 48px; }
+.page-ged .ged-prep-item.is-cream { background: #FFF8E8; }
+.page-ged .ged-prep-item.is-apricot { background: #FFF0E6; }
+.page-ged .ged-prep-item.is-mint { background: #EAF7F2; }
+.page-ged .ged-prep-item.is-lavender { background: #F2EEFB; }
+@media (max-width: 760px) { .page-ged .ged-prep { grid-template-columns: 1fr; gap: 10px; } .page-ged .ged-prep-item { gap: 12px; padding: 14px 16px; font-size: 17px; } .page-ged .ged-prep-item img { width: 40px; height: 40px; } }
 </style>
 </head>
 <body class="page-subject page-ged">
@@ -407,6 +416,14 @@ html.tb-html { scroll-padding-bottom: calc(var(--tb-sp, 0px) + 16px); } /* 키�
       <p>아래 안내는 지역과 관계없이 모든 검정고시 1:1 화상수업에 같이 적용됩니다.</p>
     </div>
     <div class="ged-study">
+      <h3 id="study-korean">검정고시 국어 과외: 지문은 읽었는데 답을 고르기 어렵다면?</h3>
+      <p>어휘·문장 뜻, 문단의 중심 내용, 지문에서 답의 근거 찾기 중 어디가 어려운지 먼저 확인합니다.</p>
+      <ul class="ged-study-list">
+        <li><strong>수업</strong> — 읽은 내용을 문단마다 짧게 정리하고, 선지를 지문과 하나씩 대조하며 고르는 연습을 합니다.</li>
+        <li><strong>복습</strong> — 틀린 선지와 판단의 근거가 된 문장을 다시 확인합니다.</li>
+      </ul>
+      <p class="ged-study-link">선지와 근거 문장을 대조하는 방법은 <a href="../../../info/korean-reading-wrong-answers.html">국어 지문은 이해하는데 문제를 틀리는 이유</a>에서 볼 수 있습니다.</p>
+
       <h3 id="study-english">검정고시 영어 과외: 단어는 외웠는데 문장이 안 읽힌다면?</h3>
       <p>단어를 몰라서인지, 주어·동사를 못 찾아서인지, 지문에서 답의 근거를 못 찾아서인지부터 나눠 봅니다. 막히는 단계가 다르면 수업과 복습할 내용도 달라집니다.</p>
       <div class="bg-exam-wrap"><table class="bg-exam-table bg-study-table"><thead><tr><th scope="col">막히는 부분</th><th scope="col">수업에서 확인할 것</th><th scope="col">복습할 내용</th></tr></thead><tbody><tr><th scope="row">단어 뜻</th><td data-label="수업에서 확인할 것">문장 속 단어의 뜻을 대부분 아는지</td><td data-label="복습할 내용">자주 나오는 단어를 문장과 함께 다시 보기</td></tr><tr><th scope="row">주어·동사</th><td data-label="수업에서 확인할 것">짧은 문장에서 주어와 동사를 찾는지</td><td data-label="복습할 내용">수업에서 끊어 읽은 문장을 다시 끊어 읽기</td></tr><tr><th scope="row">문장 의미</th><td data-label="수업에서 확인할 것">문장 전체를 우리말로 옮길 수 있는지</td><td data-label="복습할 내용">해석한 문장을 보지 않고 다시 옮겨 보기</td></tr><tr><th scope="row">짧은 지문</th><td data-label="수업에서 확인할 것">질문의 답이 되는 문장을 지문에서 찾는지</td><td data-label="복습할 내용">근거 문장에 표시하며 다시 풀기</td></tr></tbody></table></div>
@@ -420,6 +437,20 @@ html.tb-html { scroll-padding-bottom: calc(var(--tb-sp, 0px) + 16px); } /* 키�
       </ul>
       <p class="ged-study-link">계산부터 방정식까지 단계별 예제는 <a href="../../../info/ged-english-math-basics.html#math-start">수학 시작점 찾는 법</a>에 있습니다.</p>
 
+      <h3 id="study-social">검정고시 사회 과외: 용어는 외웠는데 자료 문제가 어렵다면?</h3>
+      <p>핵심 용어와 개념을 이해했는지, 그 개념을 지도·표 같은 자료 속 단서와 연결할 수 있는지부터 확인합니다.</p>
+      <ul class="ged-study-list">
+        <li><strong>수업</strong> — 헷갈리기 쉬운 개념을 비교해 정리하고, 지도·표에서 답의 근거가 되는 부분을 찾는 연습을 합니다.</li>
+        <li><strong>복습</strong> — 헷갈린 개념과 그렇게 판단한 근거를 함께 정리합니다.</li>
+      </ul>
+
+      <h3 id="study-science">검정고시 과학 과외: 원리는 들었는데 문제에 적용이 어렵다면?</h3>
+      <p>기본 용어와 원리를 이해했는지, 그 원리를 문제에 적용하는 단계에서 막히는지 나눠 확인합니다.</p>
+      <ul class="ged-study-list">
+        <li><strong>수업</strong> — 원리를 자기 말로 설명해 보고, 문제에 나온 실험 설명·표·그래프를 해석하는 연습을 합니다.</li>
+        <li><strong>복습</strong> — 정답만 확인하지 않고 그 결과가 나오는 이유를 다시 설명해 봅니다.</li>
+      </ul>
+
       <h3 id="study-adult">성인·직장인은 수업과 공부를 어떻게 병행하나요?</h3>
       <p>수업할 수 있는 시간과 혼자 복습할 시간을 따로 정하고, 공부 공백·어려운 과목·남은 과목에 따라 먼저 수강할 과목을 상담에서 정합니다.</p>
       <ul class="ged-study-list">
@@ -430,7 +461,7 @@ html.tb-html { scroll-padding-bottom: calc(var(--tb-sp, 0px) + 16px); } /* 키�
 
       <h3 id="study-dropout">자퇴 후 준비한다면 무엇을 먼저 구분하나요?</h3>
       <p>학습 상담과 응시 자격 판단은 별개입니다. 과외 상담에서는 배운 범위와 과목별 수준을 확인해 수업을 정하고, 응시할 수 있는지는 해당 회차 서울특별시교육청 검정고시 공고로 확인합니다.</p>
-      <p class="ged-study-link">응시 시점과 접수 흐름은 <a href="../../../info/dropout-ged-process.html">고등학교 자퇴 후 검정고시, 응시 시점과 접수 5단계</a>에 정리되어 있습니다. 국어·사회·과학의 과목별 수업 범위는 <a href="../../../ged/#subject-start">검정고시 과목별 시작점 안내</a>에서 볼 수 있습니다.</p>
+      <p class="ged-study-link">응시 시점과 접수 흐름은 <a href="../../../info/dropout-ged-process.html">고등학교 자퇴 후 검정고시, 응시 시점과 접수 5단계</a>에 정리되어 있습니다.</p>
     </div>
   </div>
 </section>
@@ -467,12 +498,12 @@ html.tb-html { scroll-padding-bottom: calc(var(--tb-sp, 0px) + 16px); } /* 키�
       <div class="kicker">BEFORE CONSULTING</div>
       <h2>상담 전에 준비하면 좋은 것</h2>
     </div>
-    <div class="check-grid">
-      <div class="check-item">준비할 과정과 응시하려는 시기</div>
-      <div class="check-item">과목합격한 과목이 있다면 그 과목</div>
-      <div class="check-item">최근 풀어 본 문제나 기출문제, 틀린 문제</div>
-      <div class="check-item">수업 가능한 요일·시간</div>
-    </div>
+    <ul class="ged-prep"><!-- [556차] 의미별 3D 아이콘(장식 alt="") · 책=과정·시기 / 체크 문서=과목합격 / 문제지·연필=최근 문제 / 달력·시계=가능 시간 -->
+      <li class="ged-prep-item is-cream"><img src="../../../images/ged-level-3d.svg" width="48" height="48" alt="" loading="lazy" decoding="async"><span>준비할 과정과 응시하려는 시기</span></li>
+      <li class="ged-prep-item is-apricot"><img src="../../../images/jp-form-3d.svg" width="48" height="48" alt="" loading="lazy" decoding="async"><span>과목합격한 과목이 있다면 그 과목</span></li>
+      <li class="ged-prep-item is-mint"><img src="../../../images/jp-exam-3d.svg" width="48" height="48" alt="" loading="lazy" decoding="async"><span>최근 풀어 본 문제나 기출문제, 틀린 문제</span></li>
+      <li class="ged-prep-item is-lavender"><img src="../../../images/ged-time-3d.svg" width="48" height="48" alt="" loading="lazy" decoding="async"><span>수업 가능한 요일·시간</span></li>
+    </ul>
   </div>
 </section>
 

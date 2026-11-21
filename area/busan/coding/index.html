@@ -226,6 +226,11 @@
 .page-ged .bg-plan-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 900px; }
 .page-ged .cd-one { grid-template-columns: minmax(0, 440px); justify-content: center; }
 @media (max-width: 760px) { .page-ged .bg-plan-grid.cols-2 { grid-template-columns: 1fr; } .page-ged .cd-one { grid-template-columns: 1fr; } }
+/* [547차] 대문 아래 이동 링크 (이 페이지 전용) */
+.page-ged .cd-hero-links { margin: 14px 0 0; font-size: 14.5px; line-height: 1.6; color: var(--brand-navy); }
+.page-ged .cd-hero-links a { color: var(--brand-navy); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.page-ged .ged-related .cd-gu-list { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px 18px; }
+.page-ged #gu-list { scroll-margin-top: 90px; }
 </style>
 </head>
 <body class="page-subject page-ged">
@@ -280,6 +285,7 @@
         <a href="../../../consult.html" class="btn-navy">코딩 무료 체험수업 상담 신청</a>
         <a href="#fee" class="btn-line">수업료 확인 ↓</a>
       </div>
+      <p class="cd-hero-links"><a href="#gu-list">구·군별 코딩 안내 보기 ↓</a></p>
     </div>
   </div>
 </section>
@@ -416,9 +422,9 @@
       <details><summary>수업료와 무료 체험은 어떻게 안내되나요?</summary><div class="faq-answer">수업료는 주 2회·1회 60분·한 달 기준 월 300,000원입니다. 실제 수업 시간과 과정은 상담 후 정하며, 구성 변경에 따른 최종 비용은 상담에서 안내합니다. 무료 체험수업이 가능하며 진행 방법은 상담에서 안내합니다.</div></details>
     </div>
     <!-- [535차] 부산 지역별 코딩과외 — 실제로 만든 구 페이지만 (빈 링크·준비 중 없음) -->
-    <div class="ged-related">
-      <h3>부산 지역별 코딩과외</h3>
-      <ul>
+    <div class="ged-related" id="gu-list">
+      <h3>부산 구·군별 코딩과외</h3>
+      <ul class="cd-gu-list">
         <li><a href="../geumjeong/coding/">금정구 코딩과외</a></li>
         <li><a href="../dongnae/coding/">동래구 코딩과외</a></li>
         <li><a href="../haeundae/coding/">해운대구 코딩과외</a></li>

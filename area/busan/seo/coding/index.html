@@ -240,6 +240,9 @@
 .page-ged .gj-code .gj-tag { display: inline-block; margin-bottom: 6px; padding: 3px 10px; border-radius: 999px; background: #10233F; color: #fff; font-size: 12.5px; font-weight: 800; }
 @media (max-width: 640px) { .page-ged .gj-code pre { padding: 12px 14px; font-size: 13.5px; } }
 @media (max-width: 760px) { .page-ged .bg-exam-table td[data-label]::before { content: attr(data-label); display: block; margin-bottom: 2px; color: #8f6b2f; font-size: 12.5px; font-weight: 800; } }
+/* [547차] 대문 아래 이동 링크 (이 페이지 전용) */
+.page-ged .cd-hero-links { margin: 14px 0 0; font-size: 14.5px; line-height: 1.6; color: var(--brand-navy); }
+.page-ged .cd-hero-links a { color: var(--brand-navy); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 </style>
 </head>
 <body class="page-subject page-ged">
@@ -289,18 +292,41 @@
         <li>코딩과외</li>
       </ol>
       <span class="page-kicker">SEO CODING · ONLINE 1:1</span>
-      <h1>부산 서구 코딩과외,<br><em>실행하며 질문하는 1:1 <span class="ged-nowrap">화상수업</span></em></h1>
-      <p class="page-lead">학생이 직접 코드를 작성하고 실행하며, 막히는 곳을 바로 질문하는 방식으로 자바·파이썬을 배웁니다.<br>방문수업 없이 실시간 1:1 화상으로 진행하며, 무료 체험수업 상담이 가능합니다.</p>
+      <h1>부산 서구 코딩과외,<br><em>자바·파이썬 1:1 <span class="ged-nowrap">화상수업</span></em></h1>
+      <p class="page-lead">자바·파이썬을 방문수업 없이 실시간 1:1 화상으로 배우며, 무료 체험수업 상담이 가능합니다.<br>아래에서는 화상수업에서 직접 실행하며 질문하는 방법을 안내합니다.</p>
       <div class="page-actions">
         <a href="../../../../consult.html" class="btn-navy">코딩 무료 체험수업 상담 신청</a>
         <a href="#how" class="btn-line">화상 코딩수업 진행 보기 ↓</a>
       </div>
+      <p class="cd-hero-links"><a href="../../coding/">부산 전체 코딩 안내</a> · <a href="../">서구 과외 안내</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 수업 진행·수업료 (운영 조건은 /coding/과 동일) · [547차] 대문 바로 아래로 이동 -->
+<section class="page-section" id="fee">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">ONLINE CLASS · TUITION</div>
+      <h2>수업 진행과 수업료</h2>
+      <p>초·중·고 학생과 직장인을 대상으로 자바·파이썬 기초, 학교 수업 준비, 방학 학습을 목적에 맞춰 진행합니다.</p>
+    </div>
+    <div class="bg-plan-grid">
+      <div class="bg-plan"><h3>실시간 1:1 화상</h3><p>방문수업 없이 선생님과 같은 시간에 화면으로 만나 질문하고 설명을 들으며 진행합니다. 수업 녹화 기능으로 수업 후 다시 보며 복습할 수 있습니다.</p></div>
+      <div class="bg-plan"><h3>준비물</h3><p>PC 또는 노트북과 안정적인 인터넷, 카메라·마이크가 필요합니다. 필요한 프로그램과 설치 방법은 상담에서 안내합니다.</p></div>
+      <div class="bg-plan"><h3>무료 체험수업</h3><p>무료 체험수업으로 현재 수준과 수업 방식을 먼저 확인할 수 있습니다.</p></div>
+    </div>
+    <div class="ged-price-grid cd-one" style="margin-top:22px">
+      <div class="ged-price-card"><h3>코딩 1:1 화상수업</h3><p class="ged-price"><span>월</span> <strong>300,000원</strong></p><p class="ged-price-basis">주 2회 · 1회 60분 · 한 달 기준</p></div>
+    </div>
+    <div class="ged-price-note">
+      <p>실제 수업 시간과 과정은 상담 후 정하며,<br>구성 변경에 따른 최종 비용은 상담에서 안내합니다.</p>
     </div>
   </div>
 </section>
 
 <!-- 2. 화상 코딩수업 진행 -->
-<section class="page-section" id="how">
+<section class="page-section soft" id="how">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">HOW ONLINE CODING WORKS</div>
@@ -318,7 +344,7 @@
 </section>
 
 <!-- 3. 오류 메시지·예상 결과 확인 -->
-<section class="page-section soft" id="check">
+<section class="page-section" id="check">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">ERRORS &amp; EXPECTED RESULTS</div>
@@ -332,7 +358,7 @@
 </section>
 
 <!-- 4. 준비물·무료 체험에서 확인할 것 -->
-<section class="page-section" id="trial">
+<section class="page-section soft" id="trial">
   <div class="container">
     <div class="ged-online">
       <div class="ged-online-head">
@@ -352,30 +378,8 @@
   </div>
 </section>
 
-<!-- 수업 진행·수업료 (운영 조건은 /coding/과 동일) -->
-<section class="page-section" id="fee">
-  <div class="container">
-    <div class="section-head center">
-      <div class="kicker">ONLINE CLASS · TUITION</div>
-      <h2>수업 진행과 수업료</h2>
-      <p>자바·파이썬 기초, 학교 수업 준비, 방학 학습을 목적에 맞춰 진행합니다.</p>
-    </div>
-    <div class="bg-plan-grid">
-      <div class="bg-plan"><h3>실시간 1:1 화상</h3><p>방문수업 없이 선생님과 같은 시간에 화면으로 만나 질문하고 설명을 들으며 진행합니다. 수업 녹화 기능으로 수업 후 다시 보며 복습할 수 있습니다.</p></div>
-      <div class="bg-plan"><h3>준비물</h3><p>PC 또는 노트북과 안정적인 인터넷, 카메라·마이크가 필요합니다. 필요한 프로그램과 설치 방법은 상담에서 안내합니다.</p></div>
-      <div class="bg-plan"><h3>무료 체험수업</h3><p>무료 체험수업으로 현재 수준과 수업 방식을 먼저 확인할 수 있습니다.</p></div>
-    </div>
-    <div class="ged-price-grid cd-one" style="margin-top:22px">
-      <div class="ged-price-card"><h3>코딩 1:1 화상수업</h3><p class="ged-price"><span>월</span> <strong>300,000원</strong></p><p class="ged-price-basis">주 2회 · 1회 60분 · 한 달 기준</p></div>
-    </div>
-    <div class="ged-price-note">
-      <p>실제 수업 시간과 과정은 상담 후 정하며,<br>구성 변경에 따른 최종 비용은 상담에서 안내합니다.</p>
-    </div>
-  </div>
-</section>
-
 <!-- 상담 준비 -->
-<section class="page-section soft" id="prepare">
+<section class="page-section" id="prepare">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">BEFORE CONSULTING</div>
@@ -391,7 +395,7 @@
 </section>
 
 <!-- FAQ + 함께 보기 -->
-<section class="page-section" id="faq">
+<section class="page-section soft" id="faq">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">FAQ</div>

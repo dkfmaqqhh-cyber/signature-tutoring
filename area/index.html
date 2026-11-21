@@ -694,6 +694,7 @@ html.tb-html { scroll-padding-bottom: calc(var(--tb-sp, 0px) + 16px); } /* 키�
 
 <!-- [537차] 지역별 특별수업 찾기 — FAQ 바로 위 · 서비스별 묶음 + 시·도 펼침 상자(details/summary, 처음 모두 닫힘) · 실제로 있는 지역 페이지만
      · [538차] 메뉴 표기 간결화('○○전체 검정고시/코딩' + 구 이름만, 화살표·'화상과외'·중간 소제목 없음), 동래구 추가
+     · [549차] 검정고시 시·도 대표 8곳(서울·부산·대구·인천·광주·대전·울산·세종, 시·도 순서) — 새 상자 링크는 '○○ 검정고시'로 짧게, 부산·대구 기존 표기 유지
      · [538차 범위 조정] 검정고시는 시·도 단위까지만 운영 → 검정고시 메뉴는 부산·대구 대표 링크만(구 링크 제거, 금정구·동래구 검정고시 페이지 자체는 보존) · 코딩은 시·도+구·군
      · 구 추가: 해당 시·도의 ul.sp-gu에 li.sp-gu-item 추가 · 나중에 동 페이지가 생기면 그 구의 li 안에 details(구 이름 summary + 동 링크 목록)로 바꿔 넣을 수 있게 구를 li 단위로 둠 · 새 시·도는 details.sp-region 추가 -->
 <section class="page-section" id="special-classes" aria-labelledby="ahSpecialTitle">
@@ -712,6 +713,12 @@ html.tb-html { scroll-padding-bottom: calc(var(--tb-sp, 0px) + 16px); } /* 키�
       </div>
       <div class="sp-regions">
         <details class="sp-region">
+          <summary><span class="sp-pin"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="currentColor" opacity=".9"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg></span><span class="sp-name">서울</span><span class="sp-toggle" aria-hidden="true"></span></summary>
+          <div class="sp-body">
+            <a class="sp-link is-whole" href="seoul/ged/">서울 검정고시</a>
+          </div>
+        </details>
+        <details class="sp-region">
           <summary><span class="sp-pin"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="currentColor" opacity=".9"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg></span><span class="sp-name">부산</span><span class="sp-toggle" aria-hidden="true"></span></summary>
           <div class="sp-body">
             <a class="sp-link is-whole" href="busan/ged/">부산전체 검정고시</a>
@@ -721,6 +728,36 @@ html.tb-html { scroll-padding-bottom: calc(var(--tb-sp, 0px) + 16px); } /* 키�
           <summary><span class="sp-pin"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="currentColor" opacity=".9"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg></span><span class="sp-name">대구</span><span class="sp-toggle" aria-hidden="true"></span></summary>
           <div class="sp-body">
             <a class="sp-link is-whole" href="daegu/ged/">대구전체 검정고시</a>
+          </div>
+        </details>
+        <details class="sp-region">
+          <summary><span class="sp-pin"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="currentColor" opacity=".9"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg></span><span class="sp-name">인천</span><span class="sp-toggle" aria-hidden="true"></span></summary>
+          <div class="sp-body">
+            <a class="sp-link is-whole" href="incheon/ged/">인천 검정고시</a>
+          </div>
+        </details>
+        <details class="sp-region">
+          <summary><span class="sp-pin"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="currentColor" opacity=".9"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg></span><span class="sp-name">광주</span><span class="sp-toggle" aria-hidden="true"></span></summary>
+          <div class="sp-body">
+            <a class="sp-link is-whole" href="gwangju/ged/">광주 검정고시</a>
+          </div>
+        </details>
+        <details class="sp-region">
+          <summary><span class="sp-pin"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="currentColor" opacity=".9"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg></span><span class="sp-name">대전</span><span class="sp-toggle" aria-hidden="true"></span></summary>
+          <div class="sp-body">
+            <a class="sp-link is-whole" href="daejeon/ged/">대전 검정고시</a>
+          </div>
+        </details>
+        <details class="sp-region">
+          <summary><span class="sp-pin"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="currentColor" opacity=".9"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg></span><span class="sp-name">울산</span><span class="sp-toggle" aria-hidden="true"></span></summary>
+          <div class="sp-body">
+            <a class="sp-link is-whole" href="ulsan/ged/">울산 검정고시</a>
+          </div>
+        </details>
+        <details class="sp-region">
+          <summary><span class="sp-pin"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="currentColor" opacity=".9"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg></span><span class="sp-name">세종</span><span class="sp-toggle" aria-hidden="true"></span></summary>
+          <div class="sp-body">
+            <a class="sp-link is-whole" href="sejong/ged/">세종 검정고시</a>
           </div>
         </details>
       </div>

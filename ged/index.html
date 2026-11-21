@@ -252,6 +252,18 @@ html.tb-html { scroll-padding-bottom: calc(var(--tb-sp, 0px) + 16px); } /* 키�
 @media (max-height: 420px) and (orientation: landscape) { .tb-lt { padding-top: 8px; padding-bottom: calc(8px + env(safe-area-inset-bottom)); } .tb-lt-inner { flex-direction: row; align-items: center; } .tb-lt-title { padding-right: 0; } .tb-lt-btn { width: auto; min-height: 40px; } .tb-lt-close { top: 50%; transform: translateY(-50%); } }
 @media (prefers-reduced-motion: reduce) { .tb-lt, .tb-lt.is-shown { transition: none; } }
 @media print { .tb-lt { display: none; } }
+/* [554차] 과목별 시작점 안내(#subject-start) + 지역별 검정고시 링크 목록 — 이 페이지 전용 */
+.page-ged .ged-start { max-width: 980px; margin: 28px auto 0; padding: 22px 24px; border: 1px solid #e7dcc6; border-radius: 18px; background: #fffaf0; scroll-margin-top: 90px; }
+.page-ged .ged-start-title { margin: 0 0 6px; color: var(--brand-navy); font-size: 19px; font-weight: 800; }
+.page-ged .ged-start-lead { margin: 0 0 14px; color: #5b6472; font-size: 14.5px; line-height: 1.6; word-break: keep-all; }
+.page-ged .ged-start-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.page-ged .ged-start-item { padding: 16px 16px 14px; border: 1px solid #efe4cf; border-radius: 14px; background: #fff; scroll-margin-top: 90px; }
+.page-ged .ged-start-item h4 { margin: 0 0 6px; color: var(--brand-navy); font-size: 16.5px; font-weight: 800; }
+.page-ged .ged-start-item p { margin: 0; color: #3a4658; font-size: 15px; line-height: 1.65; word-break: keep-all; }
+.page-ged .ged-start-item a { display: inline-block; margin-top: 8px; color: var(--brand-navy); font-size: 15px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.page-ged .ged-region-note { margin: 0 0 10px; color: #5b6472; font-size: 14.5px; line-height: 1.6; word-break: keep-all; }
+.page-ged .ged-related .ged-region-list { display: flex; flex-wrap: wrap; gap: 6px 18px; padding-left: 0; list-style: none; }
+@media (max-width: 760px) { .page-ged .ged-start { padding: 18px 16px; } .page-ged .ged-start-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body class="page-subject page-ged">
@@ -429,6 +441,27 @@ html.tb-html { scroll-padding-bottom: calc(var(--tb-sp, 0px) + 16px); } /* 키�
         <p>시대 흐름을 중심으로 사건과 인물을 연결해 정리합니다.</p>
       </div>
     </div>
+    <!-- [554차] 과목별 시작점 안내 — 영어·수학 단계는 학습정보 '검정고시 영어·수학 기초' 글과 같은 순서, 국어·사회·과학은 위 과목 카드와 지역 페이지에 이미 안내한 범위 안에서만 · 공식 시험 범위·진단검사 아님 -->
+    <div class="ged-start" id="subject-start">
+      <h3 class="ged-start-title">과목별로 어디서부터 시작할까요?</h3>
+      <p class="ged-start-lead">첫 수업의 출발점을 정하기 위한 예시이며, 공식 시험 범위나 진단검사가 아닙니다. 실제 수강 과목과 순서는 상담 후 정합니다.</p>
+      <div class="ged-start-grid">
+        <div class="ged-start-item" id="subject-english">
+          <h4>검정고시 영어 과외</h4>
+          <p>단어 뜻, 문장 구조(주어·동사), 짧은 지문 중 어디서 막히는지 먼저 구분하고, 처음 막히는 단계부터 수업을 시작합니다.</p>
+          <a href="../info/ged-english-math-basics.html#english-start">영어 시작점 찾는 법</a>
+        </div>
+        <div class="ged-start-item" id="subject-math">
+          <h4>검정고시 수학 과외</h4>
+          <p>기본 계산, 분수와 부호, 문자식, 방정식 순서로 짧은 문제를 풀어 보며 처음 막히거나 설명하기 어려운 단계를 출발점으로 정합니다.</p>
+          <a href="../info/ged-english-math-basics.html#math-start">수학 시작점 찾는 법</a>
+        </div>
+        <div class="ged-start-item" id="subject-others">
+          <h4>국어·사회·과학</h4>
+          <p>국어는 지문의 중심 내용을 정리하며 읽는지, 사회·과학은 정리한 개념을 자료·그래프 문제에 적용할 수 있는지 확인하고 막히는 부분부터 다룹니다.</p>
+        </div>
+      </div>
+    </div>
     <div class="ged-course">
       <div class="ged-course-item">
         <strong>중졸 검정고시</strong>
@@ -595,6 +628,30 @@ html.tb-html { scroll-padding-bottom: calc(var(--tb-sp, 0px) + 16px); } /* 키�
       <details><summary>성인이나 직장인도 수업을 신청할 수 있나요?</summary><div class="faq-answer">성인·직장인도 상담 가능합니다. 현재 수준과 학습 가능한 시간을 확인해 필요한 과목과 수업 일정을 안내합니다.</div></details>
       <details><summary>검정고시 수업료는 얼마인가요?</summary><div class="faq-answer">중졸 검정고시는 과목당 월 268,000원, 고졸 검정고시는 과목당 월 308,000원입니다. 주 2회·1회 60분·한 달 기준이며, 실제 수업 시간과 수강 과목은 상담 후 정합니다. 수업 구성 변경에 따른 최종 비용과 초졸 과정 수업료는 상담에서 안내합니다.</div></details>
       <details><summary>화상 수업을 위해 무엇을 준비해야 하나요?</summary><div class="faq-answer">인터넷 연결과 카메라·마이크 사용 환경을 준비해 주세요. 필요한 기기와 접속 방법은 상담에서 확인해 주세요.</div></details>
+    </div>
+    <!-- [554차] 지역별 검정고시 과외 안내 — 실제 운영 중인 시·도 대표 17곳만(구·군 이전 안내 제외), 시·도 순서 -->
+    <div class="ged-related" aria-labelledby="gedRegionTitle">
+      <h3 id="gedRegionTitle">지역별 검정고시 과외 안내</h3>
+      <p class="ged-region-note">모든 지역에서 1:1 화상수업으로 진행하며, 지역별 시험정보 확인 방법을 함께 안내합니다.</p>
+      <ul class="ged-region-list">
+        <li><a href="../area/seoul/ged/">서울 검정고시</a></li>
+        <li><a href="../area/busan/ged/">부산 검정고시</a></li>
+        <li><a href="../area/daegu/ged/">대구 검정고시</a></li>
+        <li><a href="../area/incheon/ged/">인천 검정고시</a></li>
+        <li><a href="../area/gwangju/ged/">광주 검정고시</a></li>
+        <li><a href="../area/daejeon/ged/">대전 검정고시</a></li>
+        <li><a href="../area/ulsan/ged/">울산 검정고시</a></li>
+        <li><a href="../area/sejong/ged/">세종 검정고시</a></li>
+        <li><a href="../area/gyeonggi/ged/">경기 검정고시</a></li>
+        <li><a href="../area/gangwon/ged/">강원 검정고시</a></li>
+        <li><a href="../area/chungbuk/ged/">충북 검정고시</a></li>
+        <li><a href="../area/chungnam/ged/">충남 검정고시</a></li>
+        <li><a href="../area/jeonbuk/ged/">전북 검정고시</a></li>
+        <li><a href="../area/jeonnam/ged/">전남 검정고시</a></li>
+        <li><a href="../area/gyeongbuk/ged/">경북 검정고시</a></li>
+        <li><a href="../area/gyeongnam/ged/">경남 검정고시</a></li>
+        <li><a href="../area/jeju/ged/">제주 검정고시</a></li>
+      </ul>
     </div>
     <div class="ged-related" aria-labelledby="gedRelatedTitle"><!-- [493차] 직접 관련된 학습정보 글 2개만 연결 -->
       <h3 id="gedRelatedTitle">함께 보면 좋은 학습정보</h3>

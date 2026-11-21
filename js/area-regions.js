@@ -1,6 +1,7 @@
 /* [302차] 상담 신청서 지역 자동 입력 표 — 지역 대문 페이지(area/{시도}/·area/{시도}/{구·시·군}/)의 Schema areaServed 이름을 그대로 옮김.
    consult.html에서만 불러오며, 같은 사이트의 지역 페이지에서 상담 버튼으로 들어왔을 때 시·도·시·구(군)까지만 채움(동·상세주소는 넣지 않음).
-   지역 페이지를 새로 만들면 이 표에도 추가해야 자동 입력됨(없으면 아무것도 채우지 않음). */
+   지역 페이지를 새로 만들면 이 표에도 추가해야 자동 입력됨(없으면 아무것도 채우지 않음).
+   [551차] 'gwangju/ged'·'jeonnam/ged' 두 키만 예외: 같은 통합 교육청을 쓰는 광주·전남 검정고시 페이지에서 온 상담을 '(광주 지역)'·'(전남 지역)'으로 구분(공식 명칭 유지 + 괄호 구분). prefillRegion 로직은 그대로(구 키가 없으면 시·도 키 사용) → 다른 페이지 동작 변화 없음 */
 window.SIG_AREA_REGIONS = {
 "busan":"부산광역시",
 "busan/buk":"부산광역시 북구",
@@ -85,6 +86,7 @@ window.SIG_AREA_REGIONS = {
 "gwangju":"전남광주통합특별시",
 "gwangju/buk":"전남광주통합특별시 북구",
 "gwangju/dong":"전남광주통합특별시 동구",
+"gwangju/ged":"전남광주통합특별시 (광주 지역)",
 "gwangju/gwangsan":"전남광주통합특별시 광산구",
 "gwangju/nam":"전남광주통합특별시 남구",
 "gwangju/seo":"전남광주통합특별시 서구",
@@ -196,6 +198,7 @@ window.SIG_AREA_REGIONS = {
 "jeonnam/boseong":"전남광주통합특별시 보성군",
 "jeonnam/damyang":"전남광주통합특별시 담양군",
 "jeonnam/gangjin":"전남광주통합특별시 강진군",
+"jeonnam/ged":"전남광주통합특별시 (전남 지역)",
 "jeonnam/goheung":"전남광주통합특별시 고흥군",
 "jeonnam/gokseong":"전남광주통합특별시 곡성군",
 "jeonnam/gurye":"전남광주통합특별시 구례군",

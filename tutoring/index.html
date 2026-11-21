@@ -203,22 +203,6 @@ else{var go=function(){requestAnimationFrame(function(){setTimeout(start,0);});}
   .tu-ls-q em { width: 16px; height: 16px; font-size: 9px; }
   .tu-ls-memo { padding: 6px 8px; }
 }
-/* [434차] 대문 버튼 아래 수업료 바로가기 (보조 텍스트 링크) */
-.tu-hero-price { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: 10px; color: #fff; font-size: 15.5px; font-weight: 700; text-decoration: underline; text-decoration-color: rgba(246, 199, 57, 0.85); text-underline-offset: 5px; word-break: keep-all; }
-.tu-hero-price::after { content: "→"; text-decoration: none; transition: transform 0.2s; }
-.tu-hero-price:hover::after, .tu-hero-price:focus-visible::after { transform: translateX(3px); }
-.tu-hero-price:hover, .tu-hero-price:focus-visible { color: var(--hf-yellow, #f6c739); }
-@media (max-width: 640px) {
-  .tu-hero-price { display: flex; justify-content: center; margin-top: 6px; font-size: 15px; }
-}
-/* [442차] 수업료 핵심 안내 문단 + 바로가기 한 묶음 */
-.tu-hero-pricebox { margin-top: 14px; max-width: 520px; }
-.tu-hero-pricenote { margin: 0; color: rgba(255, 255, 255, 0.88); font-size: 14.5px; line-height: 1.65; word-break: keep-all; }
-.tu-hero-pricebox .tu-hero-price { margin-top: 4px; }
-@media (max-width: 640px) {
-  .tu-hero-pricebox { margin-left: auto; margin-right: auto; text-align: center; }
-  .tu-hero-pricenote { font-size: 14px; }
-}
 /* [462차] 대문 breadcrumb 다시 표시 — [78차] 공통 대문(.vs-hf-text .breadcrumb)은 breadcrumb를 1px로 잘라 숨겨, '홈' 링크가 보이지 않는데도 Tab 초점을 받고 클릭할 곳이 없었음
    · 이 페이지만 숨김을 풀어 실제 자리에 표시(z-index 조정 없음) · 공통 CSS·visit.html 미수정 · 링크 클릭 영역은 안쪽 여백으로 넓힘 */
 body.page-tutoring .vs-hf-text .breadcrumb { position: static; width: auto; height: auto; margin: 0 0 12px; overflow: visible; clip: auto; white-space: normal; color: rgba(255, 255, 255, 0.72); }
@@ -296,10 +280,6 @@ html:not(.tu-loaded) { scroll-behavior: auto; }
         <span>무료 시범수업 신청</span><!-- [89차] 시험수업 → 시범수업 · [321차] 무료 시범수업으로 통일 -->
         <svg class="vs-hf-btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      </div>
-      <div class="tu-hero-pricebox"><!-- [442차] 수업료 핵심 안내 (금액·기준 = #price 방문과외 표와 동일, 화상수업 금액 미표기) -->
-        <p class="tu-hero-pricenote">방문과외는 주 2회, 1회 60분·월 8회 기준으로 초등학생 월 256,000원부터 시작합니다. 학년별 수업료와 수업 시간에 따른 안내를 확인해 보세요.</p>
-        <a class="tu-hero-price" href="#price">학년별 방문과외 수업료 확인</a><!-- [434차] 수업료 표 바로가기 -->
       </div>
       <!-- [190-2차] 근거 자료가 프로젝트에 없는 신뢰 수치(누적 방문자·학부모 만족도·전문 선생님 수) 제거. 원본: backup/190-2차_서울전환신뢰보완수정전/tutoring/index.html -->
     </div>

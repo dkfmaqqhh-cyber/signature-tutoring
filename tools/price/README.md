@@ -23,7 +23,7 @@ node tools/price/check-price-consistency.mjs
 ## 수업료를 바꿀 때 함께 확인할 곳
 1. `tutoring/index.html` `#price` 표·안내문 (원본)
 2. 이 점검의 대상: `area/ulsan/nam/math/index.html` 비용 FAQ (화면 + JSON-LD)
-3. 이 점검에 포함되지 않은 곳 — 직접 확인: `index.html` 메인 FAQ '과외비는 어떻게 정해지나요?'(화면 + JSON-LD), `tutoring/index.html` 대문 안내 문단(442차, 초등 시작 금액·기준)
+3. 이 점검에 포함되지 않은 곳 — 직접 확인: `index.html` 메인 FAQ '과외비는 어떻게 정해지나요?'(화면 + JSON-LD), (`tutoring/index.html` 대문 안내 문단은 552차에 삭제)
 4. 내용을 바꾼 페이지는 화면 날짜·`dateModified`·`sitemap.xml` lastmod도 함께 갱신
 
 다른 페이지에 가격을 새로 적으면 `TARGETS`에 그 파일과 질문을 추가하세요.

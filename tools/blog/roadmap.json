@@ -1515,7 +1515,7 @@
       "need_check": [
         "JLPT 시행 일정·접수 기간·급수 기준(jlpt.or.kr)"
       ],
-      "status": "todo",
+      "status": "done",
       "parent_questions": [
         "JLPT는 언제 보나요?",
         "JLPT 몇 급부터 시작하면 되나요?"
@@ -1528,7 +1528,8 @@
         "일본어능력시험": null
       },
       "date": "2026-11-27",
-      "track": "회화"
+      "track": "회화",
+      "published": "2026-11-23"
     },
     {
       "no": 52,
@@ -1686,5 +1687,5 @@
     "코딩",
     "회화"
   ],
-  "next_track": "회화"
+  "next_track": "학습"
 }

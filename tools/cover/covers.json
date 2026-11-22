@@ -877,5 +877,36 @@
       }
     ],
     "lens": false
+  },
+  "jlpt-levels-schedule": {
+    "palette": "plum",
+    "badge": "회화 · 일본어 시험",
+    "title": "JLPT\n*급수와 일정*\n접수 전 확인",
+    "keys": [
+      "N1~N5",
+      "7월·12월"
+    ],
+    "cardTitle": "JLPT 급수 단계",
+    "cardTag": "공식 안내",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "N5",
+        "text": "기본 일본어 일부 이해"
+      },
+      {
+        "label": "N4",
+        "text": "기본 일본어 이해"
+      },
+      {
+        "label": "N3",
+        "text": "일상 일본어 어느 정도"
+      },
+      {
+        "label": "N2·N1",
+        "text": "폭넓은 장면 이해"
+      }
+    ],
+    "lens": false
   }
 }

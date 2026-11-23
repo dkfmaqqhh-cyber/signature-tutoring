@@ -355,7 +355,7 @@ body.page-home .home-tu #results .rs-proof-head p { font-size: 17px; }
 .tu-teachers-link { margin: 32px auto 0; max-width: 720px; color: #4A5568; font-size: 16px; line-height: 1.7; text-align: center; word-break: keep-all; } /* [408차] #process 아래 선생님 소개 텍스트 링크 */
 .tu-teachers-link a { color: #10233F; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 /* [560차] 과외마루 안내(#about-guide) — #process 단계 아래 작은 안내 박스(이 페이지 전용) · 푸터 "과외마루 소개" 링크 목적지 */
-.home-about-guide { max-width: 880px; margin: 40px auto 0; padding: 26px 28px; background: #f3f7ff; border: 1px solid #d9e5f6; border-radius: 18px; color: #102D4E; word-break: keep-all; overflow-wrap: anywhere; scroll-margin-top: 96px; }
+.home-about-guide { max-width: 880px; margin: 40px auto 0; padding: 26px 28px; background: #f3f7ff; border: 1px solid #d9e5f6; border-radius: 18px; color: #102D4E; word-break: keep-all; overflow-wrap: anywhere; }
 .home-about-guide h3 { margin: 0 0 8px; color: #102D4E; font-size: 21px; line-height: 1.4; text-align: center; }
 .home-about-guide .hag-lead { margin: 0 0 18px; color: #102D4E; font-size: 16px; line-height: 1.7; text-align: center; }
 .home-about-guide .hag-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -364,7 +364,10 @@ body.page-home .home-tu #results .rs-proof-head p { font-size: 17px; }
 .home-about-guide ul { margin: 0; padding-left: 18px; color: #26364d; font-size: 15px; line-height: 1.7; }
 .home-about-guide li + li { margin-top: 4px; }
 .home-about-guide .hag-after { margin: 16px 0 0; color: #102D4E; font-size: 15px; line-height: 1.7; text-align: center; }
-@media (max-width: 720px) { .home-about-guide { padding: 20px 16px; scroll-margin-top: 80px; } .home-about-guide .hag-cols { grid-template-columns: 1fr; } .home-about-guide h3 { font-size: 19px; } .home-about-guide .hag-lead { font-size: 15px; text-align: left; } .home-about-guide .hag-after { text-align: left; } .home-about-guide .hag-col { padding: 14px 14px; } }
+/* [560차 보정] 홈 앵커 도착 후 위쪽 내용 높이가 약 52px 줄어드는 기존 현상(480차 #reviews와 같음) 때문에 제목이 고정 헤더에 걸리는 경우가 있어, 이 안내만 여백을 넉넉히(.home-tu [id] 84/72px보다 우선) */
+body.page-home .home-tu #about-guide { scroll-margin-top: 132px; }
+@media (max-width: 720px) { body.page-home .home-tu #about-guide { scroll-margin-top: 124px; } }
+@media (max-width: 720px) { .home-about-guide { padding: 20px 16px; } .home-about-guide .hag-cols { grid-template-columns: 1fr; } .home-about-guide h3 { font-size: 19px; } .home-about-guide .hag-lead { font-size: 15px; text-align: left; } .home-about-guide .hag-after { text-align: left; } .home-about-guide .hag-col { padding: 14px 14px; } }
 @media (max-width: 1024px) {
   .tu-ptable thead th { font-size: 14px; }
   .tu-ptable tbody th { padding: 18px 14px; }

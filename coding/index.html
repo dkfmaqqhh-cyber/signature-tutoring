@@ -246,6 +246,12 @@
   .page-cd .cd-school-note { text-align: left; }
 }
 .page-cd .cd-curri { background: #fff; }
+/* [565차] 앱·게임 과정 — 파이썬 커리큘럼 카드·펼침 디자인 재사용, 배경만 구분 · 상세 이미지는 1열(원본 폭 이하로만 표시) */
+.page-cd .cd-app { background: #f7fafe; }
+.page-cd .cd-curri-imgs.cd-app-imgs { grid-template-columns: 1fr; justify-items: center; }
+.page-cd .cd-app-imgs .cd-img { width: 100%; }
+.page-cd .cd-app-lv1 img { max-width: 1078px; }
+.page-cd .cd-app-lv24 img { max-width: 688px; }
 .page-cd .cd-curri-grid, .page-cd .cd-story-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; max-width: 1040px; margin: 0 auto; padding: 0; list-style: none; }
 .page-cd .cd-curri-card { display: flex; flex-direction: column; padding: 24px 26px; border: 1px solid #e4e1ee; border-radius: 20px; color: #26364d; word-break: keep-all; }
 .page-cd .cd-curri-card.c1 { background: #fff8ea; border-color: #efe2c4; }
@@ -734,13 +740,72 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
   </div>
 </section>
 
+<!-- [565차] 앱·게임 제작 과정 — 사용자 제공 이미지 ③(Lv1)·④(Lv2~Lv4) 문구로만 작성 · 언어·도구·플랫폼 이름 없음(이미지에 없음) · 파이썬 과정과 회차 합산·가격 연결 없음 -->
+<section class="page-section cd-curri cd-app" id="app-game-curriculum" aria-labelledby="cdAppTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">APP · GAME CURRICULUM</div>
+      <h2 id="cdAppTitle">직접 만들며 배우는 앱·게임 코딩</h2>
+      <p>캐릭터의 움직임과 게임 속 상황을 명령으로 구성하며 프로그래밍 개념을 익히는 과정입니다. 현재 경험과 목표를 상담해 시작 단계와 수강 범위를 안내합니다.</p>
+    </div>
+    <ol class="cd-curri-grid">
+        <li class="cd-curri-card c1">
+          <div class="cd-curri-top"><span class="cd-curri-ico"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M12 14V7a2 2 0 0 1 4 0v7"/><path d="M16 12a2 2 0 0 1 4 0v3"/><path d="M20 14a2 2 0 0 1 4 0v5c0 4-3 7-7 7h-1c-3 0-5-2-6.5-4L6 17a2 2 0 0 1 3-2.6l3 3"/><path d="M8 7a6 6 0 0 1 12 0"/></svg></span><span class="cd-curri-num">STEP 1 · Lv1</span></div>
+          <h3>프로그래밍 개념 입문</h3>
+          <dl>
+            <div><dt>배우는 내용</dt><dd>API 사용(기본·심화)과 순차·이벤트 같은 기초 프로그래밍 개념, 텍스트 언어의 기본 사용법</dd></div>
+            <div><dt>연습 방향</dt><dd>자신의 생각을 텍스트 언어로 표현하며, 모바일에서도 실행할 수 있는 여러 주제의 앱을 직접 만들어 봅니다.</dd></div>
+          </dl>
+        </li>
+        <li class="cd-curri-card c2">
+          <div class="cd-curri-top"><span class="cd-curri-ico"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="5" y="9" width="10" height="10" rx="2"/><rect x="17" y="9" width="10" height="10" rx="2"/><path d="M8 24h16M10 5h12"/></svg></span><span class="cd-curri-num">STEP 2 · Lv2</span></div>
+          <h3>프로그래밍 개념 기초</h3>
+          <dl>
+            <div><dt>배우는 내용</dt><dd>변수·조건(기본·심화)과 복제·함수·배열의 기초, 순차·반복·선택 구조</dd></div>
+            <div><dt>연습 방향</dt><dd>여러 개념이 담긴 앱을 스스로 제작하며 같은 문제를 다양한 방법으로 해결해 봅니다.</dd></div>
+          </dl>
+        </li>
+        <li class="cd-curri-card c3">
+          <div class="cd-curri-top"><span class="cd-curri-ico"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M5 11h6a3 3 0 1 1 6 0h6v6a3 3 0 1 0 0 6v4H5z"/></svg></span><span class="cd-curri-num">STEP 3 · Lv3</span></div>
+          <h3>프로그래밍 개념 심화</h3>
+          <dl>
+            <div><dt>배우는 내용</dt><dd>복제·함수·배열·반복의 심화와, 조건·변수·물리를 함께 쓰는 응용</dd></div>
+            <div><dt>연습 방향</dt><dd>배운 개념을 조합해 더 복잡한 앱을 만들고, 같은 문제를 더 효율적인 방법으로 해결합니다.</dd></div>
+          </dl>
+        </li>
+        <li class="cd-curri-card c4">
+          <div class="cd-curri-top"><span class="cd-curri-ico"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="10" width="26" height="14" rx="7"/><path d="M10 14v6M7 17h6"/><circle cx="21" cy="15.5" r="1.2"/><circle cx="24" cy="18.5" r="1.2"/></svg></span><span class="cd-curri-num">STEP 4 · Lv4</span></div>
+          <h3>프로그래밍 응용 기초</h3>
+          <dl>
+            <div><dt>배우는 내용</dt><dd>변수·조건·함수·반복·배열을 조합한 응용과 심화</dd></div>
+            <div><dt>연습 방향</dt><dd>지금까지 배운 개념으로 앱을 제작하며 프로그래밍 방법과 알고리즘을 익혀 자신의 아이디어를 표현합니다.</dd></div>
+          </dl>
+        </li>
+    </ol>
+    <details class="cd-curri-more">
+      <summary>앱·게임 제작 상세 커리큘럼 보기</summary>
+      <div class="cd-curri-imgs cd-app-imgs">
+        <figure class="cd-img cd-app-lv1">
+          <img src="../images/coding-curriculum-app-lv1.webp" alt="앱·게임 제작 Lv1 프로그래밍 개념 입문 3단계(API 사용 기본·심화) 커리큘럼 이미지" width="1078" height="467" loading="lazy" decoding="async">
+          <figcaption><a class="cd-img-link" href="../images/coding-curriculum-app-lv1.webp">커리큘럼 이미지 크게 보기 (Lv1)</a></figcaption>
+        </figure>
+        <figure class="cd-img cd-app-lv24">
+          <img src="../images/coding-curriculum-app-lv2-4.webp" alt="앱·게임 제작 Lv2 프로그래밍 개념 기초, Lv3 프로그래밍 개념 심화, Lv4 프로그래밍 응용 기초 단계별 커리큘럼 이미지" width="688" height="811" loading="lazy" decoding="async">
+          <figcaption><a class="cd-img-link" href="../images/coding-curriculum-app-lv2-4.webp">커리큘럼 이미지 크게 보기 (Lv2~Lv4)</a></figcaption>
+        </figure>
+      </div>
+    </details>
+    <p class="cd-curri-note">이미지의 단계·회차는 커리큘럼 구성 안내입니다. 실제 수강 범위와 진도·일정, 해당 구성의 비용은 상담에서 확인해 주세요.</p>
+  </div>
+</section>
+
 <!-- 6. 프로젝트형 수업 (실습 중심 진행 흐름) -->
 <section class="page-section sj-cases" id="project">
   <div class="container">
     <div class="section-head center">
       <div class="kicker">LEARN BY MAKING</div>
       <h2>프로젝트형 수업</h2>
-      <p>이론만 듣는 수업이 아니라, 작은 프로그램을 직접 만들어 보며 배웁니다.</p>
+      <p>파이썬 과정과 앱·게임 과정 모두, 작은 프로그램을 직접 만들어 보며 아래 흐름으로 배웁니다.</p>
     </div>
     <ol class="ged-steps en-steps">
       <li class="ged-step">

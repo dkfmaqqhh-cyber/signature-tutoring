@@ -4615,7 +4615,7 @@ main, main * {
 .post-cat{display:inline-block;margin:18px 0 12px;padding:5px 12px;border-radius:999px;background:#102a4b;color:#fff;font-size:12.5px;font-weight:800}
 .post-head h1{margin:0 0 14px;font-size:clamp(26px,3.4vw,38px);line-height:1.32;letter-spacing:-.03em;color:#102a4b;word-break:keep-all}
 .post-lead{margin:0 0 18px;font-size:16.5px;line-height:1.7;color:#4a5568;word-break:keep-all}
-.post-meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:#7a828e}
+.post-meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:#5b6472} /* [561차] 학습정보 작성 정보 줄 대비 보강(#7a828e 3.6:1 → 5.5:1) */
 .post-meta span+span::before{content:"·";margin-right:16px;color:#c9c0b0}
 .post-content{padding-top:36px;padding-bottom:80px}
 .post-thumb{height:auto;min-height:220px;border-radius:20px;font-size:clamp(26px,3.6vw,36px);padding:32px;margin-bottom:28px}

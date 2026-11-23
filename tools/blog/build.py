@@ -138,8 +138,9 @@ def build_post(spec, today, modified=None):
     iso = today.isoformat()
     tpl = tpl.replace('"inLanguage": "ko-KR",\n      "articleSection"',
                       f'"inLanguage": "ko-KR",\n      "datePublished": "{iso}",\n      "dateModified": "{modified.isoformat()}",\n      "articleSection"', 1)
-    tpl = tpl.replace('<div class="post-meta"><span>과외마루 학습정보</span></div>',
-                      f'<div class="post-meta"><span>과외마루 학습정보</span><span>작성일 {today:%Y.%m.%d}</span></div>', 1)
+    # [561차] 작성 정보 줄: 작성 주체(BlogPosting author 과외마루)·작성일(datePublished와 같은 날, time 요소) · 화면 수정일은 표시하지 않음(464차)
+    tpl = tpl.replace('<div class="post-meta"><span>작성: 과외마루</span></div>',
+                      f'<div class="post-meta"><span>작성: 과외마루</span><span>작성일 <time datetime="{iso}">{today:%Y.%m.%d}</time></span></div>', 1)
     (ROOT / "info" / f"{slug}.html").write_text(tpl, encoding="utf-8")
     return tpl
 

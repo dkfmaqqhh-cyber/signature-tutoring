@@ -144,6 +144,13 @@
 }
 .page-cd .cd-related { max-width: 860px; margin: 28px auto 0; color: #3a4556; font-size: 16px; line-height: 1.7; text-align: center; word-break: keep-all; }
 .page-cd .cd-related a { color: var(--brand-navy); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+/* [559차] 지역별 코딩과외 안내(FAQ 아래 · 부산 코딩 대표 1곳 연결) */
+.page-cd .cd-region { max-width: 760px; margin: 28px auto 0; padding: 20px 22px; background: #eef5ff; border: 1px solid #d6e4f7; border-radius: 16px; color: #102D4E; text-align: center; word-break: keep-all; overflow-wrap: anywhere; }
+.page-cd .cd-region h3 { margin: 0 0 8px; color: #102D4E; font-size: 18px; line-height: 1.4; }
+.page-cd .cd-region p { margin: 0 0 10px; color: #102D4E; font-size: 15px; line-height: 1.7; }
+.page-cd .cd-region a { display: inline-block; padding: 6px 2px; color: #102D4E; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+.page-cd .cd-region a:focus-visible { outline: 3px solid #102D4E; outline-offset: 3px; border-radius: 4px; }
+@media (max-width: 480px) { .page-cd .cd-region { padding: 16px 14px; } .page-cd .cd-region h3 { font-size: 17px; } .page-cd .cd-region p { font-size: 14.5px; } }
 /* [501차] 카드 내용 가운데 정렬 — 추천·수업 분야·방학/내신·수준별·수업 방식/수업료·진행 단계 카드만(대문·FAQ·사례 사진 카드·헤더·푸터는 기존 정렬) · 높이 고정 없음 */
 .page-cd .en-rec .rec-card { align-items: center; text-align: center; }
 .page-cd .en-rec .rec-card h3, .page-cd .en-rec .rec-card p { width: 100%; }
@@ -626,6 +633,12 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
       <details><summary>코딩도 무료 체험수업을 받을 수 있나요?</summary><div class="faq-answer">네, 코딩도 무료 체험수업이 가능합니다. 무료 체험수업으로 현재 수준과 수업 방식을 먼저 확인해 보세요. 희망 과정과 일정에 맞춰 진행 방법을 안내합니다.</div></details>
     </div>
     <p class="cd-related">함께 읽어 보세요: <a href="../info/kids-coding-start.html">스크래치 코딩·엔트리 코딩, 초등·중등은 무엇부터 시작할까</a><br><a href="../info/python-beginner-study.html">파이썬 처음 배울 때, 방학 공부 순서와 학교 코딩 수업 준비</a></p><!-- [498차] 코딩 관련 학습정보 글(글 본문에는 이미 코딩 페이지 링크 있음) · [509차] 파이썬 입문 글 1개 추가(블록코딩 글 제목·순서 유지) -->
+    <!-- [559차] 지역별 코딩과외 안내 — 부산 코딩 대표만 연결(구·군 16개는 부산 대표 안에서 안내) -->
+    <div class="cd-region" role="region" aria-labelledby="cdRegionTitle">
+      <h3 id="cdRegionTitle">지역별 코딩과외 안내</h3>
+      <p>코딩 수업은 지역과 관계없이 실시간 1:1 화상으로 진행합니다. 부산에서 코딩과외를 찾고 있다면 부산 전체 안내에서 구·군별 학습 안내와 상담 준비사항을 확인해 보세요.</p>
+      <a href="../area/busan/coding/">부산 코딩과외 안내</a>
+    </div>
   </div>
 </section>
 </main>

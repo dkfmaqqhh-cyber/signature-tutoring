@@ -245,6 +245,16 @@
   .page-cd .cd-pcard p { font-size: 16px; }
   .page-cd .cd-school-note { text-align: left; }
 }
+/* [567차] 대문 상담 버튼만: 밝은 골드 #FFD166 + 네이비 글자 #102B4E · 버튼은 그대로 두고 주변 골드빛 그림자만 2.8초 주기로 천천히 강약(box-shadow라 레이아웃·가로 스크롤 영향 없음)
+   · 마우스·키보드 초점 시 반복 효과 멈추고 네이비 테두리 · 동작 줄이기 설정이면 반복 효과 끔 · 하단 상담 상자·고정 배너는 대상 아님 */
+.page-cd .page-hero .cd-hero-cta { background: #FFD166; border-color: #F2BE45; color: #102B4E; box-shadow: 0 0 0 0 rgba(255, 196, 61, 0), 0 10px 22px rgba(196, 145, 30, .26); animation: cdHeroGlow 2.8s ease-in-out infinite; }
+@keyframes cdHeroGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 196, 61, 0), 0 10px 22px rgba(196, 145, 30, .24); }
+  50% { box-shadow: 0 0 0 7px rgba(255, 196, 61, .34), 0 12px 30px rgba(196, 145, 30, .38); }
+}
+.page-cd .page-hero .cd-hero-cta:hover { animation: none; background: #FFC94A; border-color: #102B4E; color: #102B4E; box-shadow: 0 0 0 2px #102B4E, 0 12px 26px rgba(196, 145, 30, .32); }
+.page-cd .page-hero .cd-hero-cta:focus-visible { animation: none; outline: 3px solid #102B4E; outline-offset: 3px; box-shadow: 0 0 0 2px #fff, 0 10px 22px rgba(196, 145, 30, .3); }
+@media (prefers-reduced-motion: reduce) { .page-cd .page-hero .cd-hero-cta { animation: none; } }
 .page-cd .cd-curri { background: #fff; }
 /* [565차] 앱·게임 과정 — 파이썬 커리큘럼 카드·펼침 디자인 재사용, 배경만 구분 · 상세 이미지는 1열(원본 폭 이하로만 표시) */
 .page-cd .cd-app { background: #f7fafe; }
@@ -410,7 +420,7 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
         <li>내신 대비</li>
       </ul>
       <div class="page-actions">
-        <a href="../consult.html" class="btn-navy">코딩 무료 체험수업 상담 신청</a>
+        <a href="../consult.html" class="btn-navy cd-hero-cta">코딩 무료 체험수업 상담 신청</a>
       </div>
     </div>
     <div class="sj-hero-visual en-hero-visual">

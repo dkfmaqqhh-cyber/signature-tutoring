@@ -233,6 +233,7 @@ body.page-area-hub main #faq { background: linear-gradient(180deg, #FFF8E2 0%, #
 #special-classes .sp-links { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
 #special-classes .sp-link { display: inline-block; color: #10233F; font-size: 15px; font-weight: 700; line-height: 1.5; text-decoration: underline; text-underline-offset: 4px; word-break: keep-all; }
 #special-classes .sp-link.is-whole { display: inline-block; font-weight: 800; }
+#special-classes .sp-coding .sp-link.is-whole { display: inline-flex; align-items: center; min-height: 44px; } /* [575차] 코딩 시·도 대표 링크 누르기 높이 44px(서울·부산) */
 #special-classes .sp-link:hover, #special-classes .sp-link:focus-visible, #special-classes .sp-all:hover, #special-classes .sp-all:focus-visible { text-decoration-color: #F4C542; }
 @media (max-width: 760px) {
   #special-classes .sp-group { padding: 16px; }
@@ -825,6 +826,12 @@ html.tb-html { scroll-padding-bottom: calc(var(--tb-sp, 0px) + 16px); } /* 키�
         <a class="sp-all" href="../coding/">전국 코딩 수업 안내</a>
       </div>
       <div class="sp-regions">
+        <details class="sp-region"><!-- [575차] 서울 코딩 대표(구별 페이지 없음 → 대표 링크만) -->
+          <summary><span class="sp-pin"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="currentColor" opacity=".9"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg></span><span class="sp-name">서울</span><span class="sp-toggle" aria-hidden="true"></span></summary>
+          <div class="sp-body">
+            <a class="sp-link is-whole" href="seoul/coding/">서울전체 코딩</a>
+          </div>
+        </details>
         <details class="sp-region">
           <summary><span class="sp-pin"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="currentColor" opacity=".9"/><circle cx="12" cy="10" r="2.4" fill="#fff"/></svg></span><span class="sp-name">부산</span><span class="sp-toggle" aria-hidden="true"></span></summary>
           <div class="sp-body">

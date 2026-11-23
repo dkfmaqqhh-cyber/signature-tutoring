@@ -354,6 +354,17 @@ body.page-home .home-tu #results .rs-proof-head p { font-size: 17px; }
 .tu-price-check li + li { margin-top: 2px; }
 .tu-teachers-link { margin: 32px auto 0; max-width: 720px; color: #4A5568; font-size: 16px; line-height: 1.7; text-align: center; word-break: keep-all; } /* [408차] #process 아래 선생님 소개 텍스트 링크 */
 .tu-teachers-link a { color: #10233F; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+/* [560차] 과외마루 안내(#about-guide) — #process 단계 아래 작은 안내 박스(이 페이지 전용) · 푸터 "과외마루 소개" 링크 목적지 */
+.home-about-guide { max-width: 880px; margin: 40px auto 0; padding: 26px 28px; background: #f3f7ff; border: 1px solid #d9e5f6; border-radius: 18px; color: #102D4E; word-break: keep-all; overflow-wrap: anywhere; scroll-margin-top: 96px; }
+.home-about-guide h3 { margin: 0 0 8px; color: #102D4E; font-size: 21px; line-height: 1.4; text-align: center; }
+.home-about-guide .hag-lead { margin: 0 0 18px; color: #102D4E; font-size: 16px; line-height: 1.7; text-align: center; }
+.home-about-guide .hag-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.home-about-guide .hag-col { padding: 16px 18px; background: #fff; border-radius: 14px; }
+.home-about-guide h4 { margin: 0 0 8px; color: #102D4E; font-size: 16.5px; line-height: 1.4; }
+.home-about-guide ul { margin: 0; padding-left: 18px; color: #26364d; font-size: 15px; line-height: 1.7; }
+.home-about-guide li + li { margin-top: 4px; }
+.home-about-guide .hag-after { margin: 16px 0 0; color: #102D4E; font-size: 15px; line-height: 1.7; text-align: center; }
+@media (max-width: 720px) { .home-about-guide { padding: 20px 16px; scroll-margin-top: 80px; } .home-about-guide .hag-cols { grid-template-columns: 1fr; } .home-about-guide h3 { font-size: 19px; } .home-about-guide .hag-lead { font-size: 15px; text-align: left; } .home-about-guide .hag-after { text-align: left; } .home-about-guide .hag-col { padding: 14px 14px; } }
 @media (max-width: 1024px) {
   .tu-ptable thead th { font-size: 14px; }
   .tu-ptable tbody th { padding: 18px 14px; }
@@ -1312,6 +1323,31 @@ html { scroll-padding-bottom: 96px; } /* 키보드 초점 이동 시 고정 배�
       <li class="flow-step"><span class="flow-ico" aria-hidden="true"><span class="flow-ico-in"><svg viewBox="0 0 48 48"><path d="M7 41h34"/><rect x="10" y="29" width="7" height="12" rx="1.5"/><rect x="21" y="22" width="7" height="19" rx="1.5"/><rect x="32" y="14" width="7" height="27" rx="1.5"/><path class="ac" d="M9 21l9-8 6 4 11-10M30 7h5v5"/></svg></span></span><strong>정식 수업 결정</strong><p>시범수업 후 진행 여부를 결정하시면 학생에게 맞춘 1:1 수업을 시작합니다.</p><!-- [324차] 학습 시작 → 정식 수업 결정(시범수업 후 학부모 결정 명시) --></li>
     </ol>
     <p class="tu-teachers-link">과외마루 선생님들의 학력·지도 경험·수업 스타일은 <a href="teachers.html">선생님 소개</a>에서 먼저 살펴보실 수 있습니다.</p><!-- [408차] 선생님 소개 페이지 텍스트 링크 1곳 -->
+    <!-- [560차] 과외마루 안내 — 서비스·상담 역할 설명(운영 주체 개인정보·경력·제휴 표현 없음) · 근거: 대문 과외마루란?·FAQ(방문 가능 지역·선생님 배정·상담 후 진행)·consult.html 상담 후 확인 항목·ged/coding 화상 전용·conversation 상담 안내 · 주요 5개 페이지 푸터 "과외마루 소개" 목적지 -->
+    <div class="home-about-guide" id="about-guide" role="region" aria-labelledby="aboutGuideTitle">
+      <h3 id="aboutGuideTitle">과외마루 안내</h3>
+      <p class="hag-lead">과외마루는 학생의 학년·과목·현재 수준·학습 목표를 확인해 알맞은 1:1 수업 방향을 상담합니다.</p>
+      <div class="hag-cols">
+        <div class="hag-col">
+          <h4>안내하는 수업</h4>
+          <ul>
+            <li>방문과외와 실시간 1:1 화상수업을 안내합니다. 방문 가능 여부는 지역·일정·선생님 배정 상황을 상담에서 확인합니다.</li>
+            <li>검정고시와 코딩은 실시간 1:1 화상수업으로 진행합니다.</li>
+            <li>회화는 희망 언어에 따른 수업 방식과 일정을 상담에서 확인합니다.</li>
+          </ul>
+        </div>
+        <div class="hag-col">
+          <h4>상담에서 확인하는 내용</h4>
+          <ul>
+            <li>학년 또는 준비 과정</li>
+            <li>희망 과목과 어려운 부분</li>
+            <li>지역과 수업 가능한 요일·시간</li>
+            <li>희망 수업 방식</li>
+          </ul>
+        </div>
+      </div>
+      <p class="hag-after">상담 신청만으로 등록이나 선생님 배정이 확정되지는 않습니다. 위 순서처럼 상담 내용을 바탕으로 선생님을 안내하고, 무료 시범수업 후 정식 수업 진행 여부를 결정합니다.</p>
+    </div>
   </div>
 </section>
 </div>

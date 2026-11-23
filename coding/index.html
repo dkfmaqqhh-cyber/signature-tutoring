@@ -272,6 +272,14 @@
   body.page-cd .page-hero.no-visual .page-hero-inner:has(.cd-hero-anim img) { grid-template-columns: 1fr; gap: 28px; }
   .page-cd .cd-anim-btn { align-self: center; }
 }
+/* [570차] 옮긴 안내 묶음: 섹션 첫 요소 위 여백 제거, 아래 후기 섹션과 간격 정리 · 하단 무료 체험 상담 버튼만 밝은 노랑 #FFE44D·네이비 글자(hover·active도 노랑 계열, 골드 미표시, 반복 효과 없음) */
+.page-cd .cd-plan { padding: 72px 0 64px; background: #fff; }
+.page-cd .cd-plan .cd-season { margin-top: 0; }
+@media (max-width: 640px) { .page-cd .cd-plan { padding: 52px 0 48px; } }
+.page-cd #free-consult .sj-trial-btn { background: #FFE44D; border-color: #FFE44D; color: #102B4E; filter: none; box-shadow: 0 12px 26px rgba(255, 228, 77, .26); }
+.page-cd #free-consult .sj-trial-btn:hover { background: #FFEA6E; border-color: #FFEA6E; color: #102B4E; filter: none; box-shadow: 0 14px 28px rgba(255, 228, 77, .32); }
+.page-cd #free-consult .sj-trial-btn:active { background: #F2D530; border-color: #F2D530; color: #102B4E; filter: none; transform: none; box-shadow: 0 6px 14px rgba(255, 228, 77, .24); }
+.page-cd #free-consult .sj-trial-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; box-shadow: inset 0 0 0 2px #102B4E, 0 12px 26px rgba(255, 228, 77, .26); }
 .page-cd .cd-curri { background: #fff; }
 /* [565차] 앱·게임 과정 — 파이썬 커리큘럼 카드·펼침 디자인 재사용, 배경만 구분 · 상세 이미지는 1열(원본 폭 이하로만 표시) */
 .page-cd .cd-app { background: #f7fafe; }
@@ -603,28 +611,6 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
         <p>방학 동안 기본 개념과 실습을 집중적으로 익혀 학기 중 수업에 대비합니다.</p>
       </div>
     </div>
-    <div class="cd-season"><!-- [499차] 운영자 확인: 자격증보다 방학 집중학습·학교 내신 준비 중심 · 기존 '방학 집중수업' 카드 자리 활용 -->
-      <h3>방학에는 기초부터, 학기 중에는 내신까지</h3>
-      <p>방학 동안 코딩의 기본 개념과 실습을 집중적으로 익히고, 학기 중에는 학교 정보·프로그래밍 수업에서 배우는 내용을 이해하는 데 연결합니다. 학교에서 코딩을 배우는 학생이라면 시험 직전에만 준비하기보다 기초부터 꾸준히 익히는 것이 중요합니다.</p>
-      <ul class="cd-season-list">
-        <li><strong>기본 개념 이해</strong><span>학교에서 배우는 프로그래밍 개념을 차근차근 정리</span></li>
-        <li><strong>직접 작성하는 실습</strong><span>예제를 따라 하고 코드를 수정하며 동작 원리 이해</span></li>
-        <li><strong>학교 진도 보완</strong><span>교과·평가 범위를 확인해 어려운 개념과 문제 유형 연습</span></li>
-      </ul>
-      <p class="cd-season-note">학교·학년별 교육과정과 평가 범위가 다르므로 실제 수업 계획은 상담에서 확인합니다.</p>
-    </div>
-    <div class="ged-course">
-      <div class="ged-course-item">
-        <strong>화상전용 실시간 1:1</strong>
-        <p>PC 또는 노트북과 안정적인 인터넷, 카메라·마이크 환경에서 진행합니다. 과정별 필요한 프로그램과 설치 방법은 상담에서 안내합니다</p>
-      </div>
-      <div class="ged-course-item cd-fee"><!-- [500차] 운영자 확인 코딩 수업료: 월 300,000원 · 주 2회 · 1회 60분 · 한 달 기준 (학년별 구분·부터·할인 없음) -->
-        <strong>코딩 수업료</strong>
-        <p class="cd-fee-price">월 300,000원</p>
-        <p class="cd-fee-basis">주 2회 · 1회 60분 · 한 달 기준</p>
-        <p>실제 수업 시간과 과정은 상담 후 정하며, 구성 변경에 따른 최종 비용은 상담에서 안내합니다.</p>
-      </div>
-    </div>
     <figure class="cd-case is-reverse">
       <div class="cd-case-photo"><img src="../images/coding-data.png" alt="노트북으로 파이썬 코드와 실행 결과를 함께 확인하는 수업" width="1100" height="600" loading="lazy" decoding="async"></div>
       <figcaption class="cd-case-body">
@@ -899,6 +885,34 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
       </figcaption>
     </figure>
     <p class="note-box">선생님 배정 기준과 절차는 상담 시 학생의 수준과 목표를 확인한 뒤 안내드립니다.</p>
+  </div>
+</section>
+
+<!-- [570차] 학습 계획·수업 조건·수업료 안내 묶음 — 수업 분야(#fields) 안에서 옮김(문구·가격·디자인 그대로) · 후기 섹션 바로 앞 -->
+<section class="page-section cd-plan" id="study-plan" aria-label="코딩 학습 계획과 수업료 안내">
+  <div class="container">
+    <div class="cd-season"><!-- [499차] 운영자 확인: 자격증보다 방학 집중학습·학교 내신 준비 중심 · 기존 '방학 집중수업' 카드 자리 활용 -->
+      <h3>방학에는 기초부터, 학기 중에는 내신까지</h3>
+      <p>방학 동안 코딩의 기본 개념과 실습을 집중적으로 익히고, 학기 중에는 학교 정보·프로그래밍 수업에서 배우는 내용을 이해하는 데 연결합니다. 학교에서 코딩을 배우는 학생이라면 시험 직전에만 준비하기보다 기초부터 꾸준히 익히는 것이 중요합니다.</p>
+      <ul class="cd-season-list">
+        <li><strong>기본 개념 이해</strong><span>학교에서 배우는 프로그래밍 개념을 차근차근 정리</span></li>
+        <li><strong>직접 작성하는 실습</strong><span>예제를 따라 하고 코드를 수정하며 동작 원리 이해</span></li>
+        <li><strong>학교 진도 보완</strong><span>교과·평가 범위를 확인해 어려운 개념과 문제 유형 연습</span></li>
+      </ul>
+      <p class="cd-season-note">학교·학년별 교육과정과 평가 범위가 다르므로 실제 수업 계획은 상담에서 확인합니다.</p>
+    </div>
+    <div class="ged-course">
+      <div class="ged-course-item">
+        <strong>화상전용 실시간 1:1</strong>
+        <p>PC 또는 노트북과 안정적인 인터넷, 카메라·마이크 환경에서 진행합니다. 과정별 필요한 프로그램과 설치 방법은 상담에서 안내합니다</p>
+      </div>
+      <div class="ged-course-item cd-fee"><!-- [500차] 운영자 확인 코딩 수업료: 월 300,000원 · 주 2회 · 1회 60분 · 한 달 기준 (학년별 구분·부터·할인 없음) -->
+        <strong>코딩 수업료</strong>
+        <p class="cd-fee-price">월 300,000원</p>
+        <p class="cd-fee-basis">주 2회 · 1회 60분 · 한 달 기준</p>
+        <p>실제 수업 시간과 과정은 상담 후 정하며, 구성 변경에 따른 최종 비용은 상담에서 안내합니다.</p>
+      </div>
+    </div>
   </div>
 </section>
 

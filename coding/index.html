@@ -199,6 +199,50 @@
   .page-cd .en-steps .ged-step { padding: 16px 16px 14px; }
 }
 @media (max-width: 520px) { .page-cd .ged-subject-grid { grid-template-columns: 1fr; gap: 12px; } } /* 좁은 화면: 2열 강제 시 설명이 길게 늘어나 1열로 */
+/* [562차] 사용자 제공 이미지 4종(소개·파이썬 커리큘럼 2장·학습 사례) + 온라인과외 진행 안내 — 이 페이지 전용 · 이미지는 원본 700×700 비율·폭 이내 */
+.page-cd .cd-img { margin: 0; }
+.page-cd .cd-img img { display: block; width: 100%; max-width: 700px; height: auto; margin: 0 auto; border-radius: 16px; border: 1px solid #e3e6f0; background: #fff; }
+.page-cd .cd-img figcaption { text-align: center; }
+.page-cd .cd-img-link { display: inline-block; margin-top: 10px; padding: 6px 2px; color: #102D4E; font-size: 15px; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+.page-cd .cd-img-link:focus-visible { outline: 3px solid #102D4E; outline-offset: 3px; border-radius: 4px; }
+.page-cd .cd-online { max-width: 860px; margin: 28px auto 0; padding: 22px 26px; background: #eefaf6; border: 1px solid #cfeee3; border-radius: 18px; color: #102D4E; text-align: center; word-break: keep-all; }
+.page-cd .cd-online h3 { margin: 0 0 8px; font-size: 20px; line-height: 1.4; color: #102D4E; }
+.page-cd .cd-online p { margin: 0; font-size: 17px; line-height: 1.75; color: #26364d; }
+.page-cd .cd-online p + p { margin-top: 6px; }
+.page-cd .cd-start { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 32px; align-items: center; max-width: 980px; margin: 36px auto 0; padding: 24px; background: #fff; border: 1px solid #ece6d8; border-radius: 20px; }
+.page-cd .cd-start-body h3 { margin: 0 0 10px; color: #102D4E; font-size: 22px; line-height: 1.4; word-break: keep-all; }
+.page-cd .cd-start-body p { margin: 0; color: #26364d; font-size: 17px; line-height: 1.75; word-break: keep-all; }
+.page-cd .cd-curri { background: #f5f3ff; }
+.page-cd .cd-curri-row { display: grid; grid-template-columns: minmax(0, 520px) minmax(0, 1fr); gap: 32px; align-items: start; max-width: 1080px; margin: 0 auto; }
+.page-cd .cd-curri-row + .cd-curri-row { margin-top: 36px; }
+.page-cd .cd-curri-steps { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.page-cd .cd-curri-step { padding: 18px 20px; background: #fff; border: 1px solid #e2ddf5; border-radius: 16px; color: #26364d; word-break: keep-all; }
+.page-cd .cd-curri-num { display: inline-block; padding: 3px 10px; border-radius: 999px; background: #102D4E; color: #fff; font-size: 13px; font-weight: 800; letter-spacing: .02em; }
+.page-cd .cd-curri-step h3 { margin: 8px 0 6px; color: #102D4E; font-size: 19px; line-height: 1.4; }
+.page-cd .cd-curri-step p { margin: 0; font-size: 16.5px; line-height: 1.7; }
+.page-cd .cd-curri-step p + p { margin-top: 4px; }
+.page-cd .cd-curri-step p strong { margin-right: 6px; color: #102D4E; }
+.page-cd .cd-curri-note { max-width: 860px; margin: 28px auto 0; padding: 14px 18px; background: #fff; border: 1px solid #e2ddf5; border-radius: 14px; color: #102D4E; font-size: 16px; line-height: 1.7; text-align: center; word-break: keep-all; }
+.page-cd .cd-voice { background: #fffaf0; }
+.page-cd .cd-voice .cd-img { max-width: 700px; margin: 0 auto; }
+.page-cd .cd-voice-note { max-width: 760px; margin: 16px auto 0; color: #3a4556; font-size: 15.5px; line-height: 1.7; text-align: center; word-break: keep-all; }
+@media (max-width: 860px) {
+  .page-cd .cd-start, .page-cd .cd-curri-row { grid-template-columns: 1fr; gap: 18px; }
+  .page-cd .cd-start { padding: 18px; }
+  .page-cd .cd-start-body { text-align: center; }
+}
+@media (max-width: 640px) {
+  .page-cd .cd-online { padding: 18px 16px; }
+  .page-cd .cd-online h3 { font-size: 18.5px; }
+  .page-cd .cd-online p, .page-cd .cd-start-body p { font-size: 16px; }
+  .page-cd .cd-start { padding: 14px; }
+  .page-cd .cd-start-body h3 { font-size: 19.5px; }
+  .page-cd .cd-curri-step { padding: 16px; }
+  .page-cd .cd-curri-step h3 { font-size: 18px; }
+  .page-cd .cd-curri-step p { font-size: 16px; }
+  .page-cd .cd-curri-note { padding: 12px 14px; font-size: 15.5px; text-align: left; }
+  .page-cd .cd-voice-note { text-align: left; }
+}
 /* [501차] 코딩 무료 체험수업 고정 배너(.cd-lt) — 일본어 [486차] .jp-lt 동작 + 회화 [472차] 안내 캐릭터 재사용, 이 페이지 전용
    · 연한 크림 배경 · 네이비 제목 · 노란 버튼(#FFE34D)·네이비 글자 · PC: 아래 가운데(오른쪽 떠 있는 상담 버튼 3개와 겹치지 않는 폭), 캐릭터가 배너 위로 살짝 걸침
    · 1024px 이하: 기존 하단 상담 띠 자리로 바뀌어 하나만 표시·캐릭터 숨김 · 600px 이하: 제목 위·버튼 아래 · 실제 배너 높이(--cd-lt-h)만큼 본문 아래 여백 */
@@ -325,6 +369,12 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
         <p>수업 녹화 기능을 활용해 수업 후 다시 보며 복습할 수 있습니다.</p>
       </div>
     </div>
+    <!-- [562차] 온라인과외 진행 안내 — 기존 운영 범위(화상 전용·방문 없음·무료 체험)만 · 특정 화상 프로그램·새 기능 없음 -->
+    <div class="cd-online">
+      <h3>코딩 온라인과외는 어떻게 진행하나요?</h3>
+      <p>코딩 온라인과외는 방문수업 없이 실시간 1:1 화상수업으로 진행합니다. 정해진 시간에 선생님과 만나 설명을 듣고, 직접 코드를 작성·실행해 결과를 확인하며 막히는 부분은 바로 질문합니다.</p>
+      <p>파이썬 온라인수업과 자바 수업 모두 같은 방식이며, 무료 체험수업으로 수업 방식을 먼저 확인할 수 있습니다.</p>
+    </div>
   </div>
 </section>
 
@@ -368,15 +418,17 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
         <ul class="rec-tags"><li>완성경험</li><li>피드백</li></ul>
       </article>
     </div>
-    <figure class="cd-case">
-      <div class="cd-case-photo"><img src="../images/coding-beginner.png" alt="선생님과 화면을 함께 보며 코딩 기초를 배우는 학생" width="1100" height="600" loading="lazy" decoding="async"></div>
-      <figcaption class="cd-case-body">
-        <span class="cd-case-badge">CASE 01 · 입문</span>
-        <strong>코딩을 처음 시작한 학생</strong>
-        <p>처음이라 막막해도, 화면을 함께 보며 작은 실행 결과부터 하나씩 확인합니다.</p>
-        <ul class="cd-case-tags"><li>첫 코딩</li><li>기초 개념</li><li>1:1 설명</li></ul>
-      </figcaption>
-    </figure>
+    <!-- [562차] 사용자 제공 소개 이미지(A, 원본 004.jpg 700×700 → WebP) — 같은 역할의 기존 CASE 01(coding-beginner.png) 사진 카드를 교체 · 이미지 속 문구는 제목·본문·버튼에 반복하지 않음 -->
+    <div class="cd-start">
+      <figure class="cd-img cd-start-media">
+        <img src="../images/coding-intro-students.webp" alt="교복을 입은 학생 두 명과 코딩 학습을 소개하는 문구가 담긴 안내 이미지" width="700" height="700" loading="lazy" decoding="async">
+        <figcaption><a class="cd-img-link" href="../images/coding-intro-students.webp">이미지 크게 보기</a></figcaption>
+      </figure>
+      <div class="cd-start-body">
+        <h3>코딩을 처음 배운다면 무엇부터 확인할까요?</h3>
+        <p>코딩을 배우려는 목적과 지금까지의 경험을 먼저 확인합니다. 자바·파이썬 기초, 학교 정보 수업 준비, 방학 학습 등 필요한 방향을 상담하고 현재 수준에 맞춰 시작합니다.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -494,6 +546,60 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
   </div>
 </section>
 
+<!-- [562차] 파이썬 커리큘럼 — 사용자 제공 이미지 B(006.jpg)·C(007.jpg) + 이미지에서 확인되는 주요 내용만 HTML 4단계로 · 흐릿한 용어·Lv5·앱창작 과정은 옮기지 않음
+     · 이미지의 레벨·단계·회차를 현재 월 수업료(주 2회·60분·한 달) 포함 범위나 수료 기간으로 쓰지 않음 -->
+<section class="page-section cd-curri" id="python-curriculum" aria-labelledby="cdCurriTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">PYTHON CURRICULUM</div>
+      <h2 id="cdCurriTitle">파이썬 코딩수업, 기초에서 데이터 분석·자료구조까지</h2>
+      <p>제공된 파이썬 데이터사이언스 과정 커리큘럼의 주요 학습 내용을 소개합니다. 자바 수업은 위 수업 분야와 같이 수준에 맞춰 진행하며, 실제 시작 단계와 수강 범위·진도·일정은 상담 후 안내합니다.</p>
+    </div>
+    <div class="cd-curri-row">
+      <figure class="cd-img">
+        <img src="../images/coding-curriculum-python-lv1.webp" alt="파이썬 데이터 분석 과정 소개와 Lv1 데이터 분석 기초 3단계 내용을 담은 커리큘럼 이미지" width="700" height="700" loading="lazy" decoding="async">
+        <figcaption><a class="cd-img-link" href="../images/coding-curriculum-python-lv1.webp">커리큘럼 이미지 크게 보기 (Lv1)</a></figcaption>
+      </figure>
+      <ol class="cd-curri-steps">
+        <li class="cd-curri-step">
+          <span class="cd-curri-num">STEP 1 · Lv1</span>
+          <h3>파이썬 데이터 분석 기초</h3>
+          <p><strong>배우는 내용</strong>변수·자료형·연산자와 제어문, 자료형 변환과 진법, 딕셔너리·튜플·집합 같은 파이썬 기초 문법</p>
+          <p><strong>연습 방향</strong>필요한 데이터를 모으고 가공해 문제 해결의 단서로 활용하며 프로그래밍의 기본 개념을 다집니다.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="cd-curri-row">
+      <figure class="cd-img">
+        <img src="../images/coding-curriculum-python-lv2-4.webp" alt="Lv2 데이터 분석 심화, Lv3 자료구조 기초, Lv4 자료구조 심화 단계별 내용을 담은 커리큘럼 이미지" width="700" height="700" loading="lazy" decoding="async">
+        <figcaption><a class="cd-img-link" href="../images/coding-curriculum-python-lv2-4.webp">커리큘럼 이미지 크게 보기 (Lv2~Lv4)</a></figcaption>
+      </figure>
+      <ol class="cd-curri-steps" start="2">
+        <li class="cd-curri-step">
+          <span class="cd-curri-num">STEP 2 · Lv2</span>
+          <h3>데이터 분석 심화</h3>
+          <p><strong>배우는 내용</strong>사용자 정의 함수를 만들고 호출하는 방법, 반복 흐름 제어, 파이썬 모듈 활용</p>
+          <p><strong>연습 방향</strong>반복되는 코드를 함수로 정리하고 모듈을 활용해 복잡한 문제를 나누어 해결합니다.</p>
+        </li>
+        <li class="cd-curri-step">
+          <span class="cd-curri-num">STEP 3 · Lv3</span>
+          <h3>자료구조 기초</h3>
+          <p><strong>배우는 내용</strong>객체 지향 프로그래밍의 원리와 클래스, 해시 함수, 스택·큐·그래프와 인접 행렬, 다익스트라 알고리즘</p>
+          <p><strong>연습 방향</strong>데이터가 들어오는 순서와 연산 방식에 따라 데이터를 다르게 처리하는 알고리즘을 직접 구현합니다.</p>
+        </li>
+        <li class="cd-curri-step">
+          <span class="cd-curri-num">STEP 4 · Lv4</span>
+          <h3>자료구조 심화</h3>
+          <p><strong>배우는 내용</strong>트리와 트리 탐색, 재귀·선택 정렬, 탐색 알고리즘, DFS 탐색, 볼록 껍질(Convex hull) 알고리즘</p>
+          <p><strong>연습 방향</strong>알고리즘의 원리를 이해하고 직접 구현하며 프로그램 실행 흐름을 효율적으로 짜는 연습을 합니다.</p>
+        </li>
+      </ol>
+    </div>
+    <p class="cd-curri-note">이미지의 단계·회차는 커리큘럼 구성 안내입니다. 실제 수강 범위와 진도·일정, 해당 구성의 비용은 상담에서 확인해 주세요.</p>
+    <p class="cd-related">파이썬을 처음 시작한다면 <a href="../info/python-beginner-study.html">파이썬 처음 배울 때, 방학 공부 순서와 학교 코딩 수업 준비</a>도 함께 읽어 보세요.</p>
+  </div>
+</section>
+
 <!-- 6. 프로젝트형 수업 (실습 중심 진행 흐름) -->
 <section class="page-section sj-cases" id="project">
   <div class="container">
@@ -565,6 +671,23 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
       </figcaption>
     </figure>
     <p class="note-box">선생님 배정 기준과 절차는 상담 시 학생의 수준과 목표를 확인한 뒤 안내드립니다.</p>
+  </div>
+</section>
+
+<!-- [562차] 사용자 제공 학습 사례 이미지(D, 원본 005.jpg 700×700 → WebP) — 원본 비율 그대로 한 장 · 이름·학년·사진·후기 문구를 따로 추출·카드화하지 않음
+     · 별점을 평균·만족도·후기 수로 환산하지 않음 · Review·AggregateRating 구조화 데이터 없음 · 직접 수집·검증 후기라고 주장하지 않음 -->
+<section class="page-section cd-voice" id="learning-stories" aria-labelledby="cdVoiceTitle">
+  <div class="container">
+    <div class="section-head center">
+      <div class="kicker">LEARNING STORIES</div>
+      <h2 id="cdVoiceTitle">학생·학부모가 전한 코딩 학습 경험</h2>
+      <p>제공된 사례에는 직접 명령을 작성하는 경험, 게임의 원리와 과정 이해, 코딩 학습에 대한 흥미 등이 담겨 있습니다.</p>
+    </div>
+    <figure class="cd-img">
+      <img src="../images/coding-learning-stories.webp" alt="별점과 학생 사진이 함께 있는 코딩 수업 후기 카드 4개 이미지" width="700" height="700" loading="lazy" decoding="async">
+      <figcaption><a class="cd-img-link" href="../images/coding-learning-stories.webp">학습 사례 이미지 크게 보기</a></figcaption>
+    </figure>
+    <p class="cd-voice-note">사용자가 제공한 수업 후기 자료입니다. 이미지 속 학년과 과정명은 후기 작성 당시 표기이며, 학습 경험과 변화는 개인마다 다를 수 있습니다.</p>
   </div>
 </section>
 

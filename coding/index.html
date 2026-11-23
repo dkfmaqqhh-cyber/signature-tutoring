@@ -266,7 +266,12 @@
 .page-cd .cd-anim-btn[data-state="playing"] .cd-anim-ico { border-left: 4px solid #102B4E; border-right: 4px solid #102B4E; width: 4px; height: 12px; box-sizing: content-box; }
 .page-cd .cd-anim-btn[data-state="paused"] .cd-anim-ico { width: 0; height: 0; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 10px solid #102B4E; }
 .page-cd .cd-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-@media (max-width: 980px) { .page-cd .cd-anim-btn { align-self: center; } }
+/* [569차] 대문 애니메이션 확대: 1264px 이상은 오른쪽 칸 최대 640px(왼쪽 글 칸 최소 440px·간격 40px, 이미지 600px 이상 보장) · 1263px 이하는 세로 배치(이미지 최대 640px, 가운데) */
+@media (min-width: 1264px) { body.page-cd .page-hero.no-visual .page-hero-inner:has(.cd-hero-anim img) { grid-template-columns: minmax(440px, 1fr) minmax(0, 640px); gap: 40px; } }
+@media (max-width: 1263px) {
+  body.page-cd .page-hero.no-visual .page-hero-inner:has(.cd-hero-anim img) { grid-template-columns: 1fr; gap: 28px; }
+  .page-cd .cd-anim-btn { align-self: center; }
+}
 .page-cd .cd-curri { background: #fff; }
 /* [565차] 앱·게임 과정 — 파이썬 커리큘럼 카드·펼침 디자인 재사용, 배경만 구분 · 상세 이미지는 1열(원본 폭 이하로만 표시) */
 .page-cd .cd-app { background: #f7fafe; }

@@ -209,9 +209,15 @@
 .page-cd .cd-online h3 { margin: 0 0 8px; font-size: 20px; line-height: 1.4; color: #102D4E; }
 .page-cd .cd-online p { margin: 0; font-size: 17px; line-height: 1.75; color: #26364d; }
 .page-cd .cd-online p + p { margin-top: 6px; }
-.page-cd .cd-start { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 32px; align-items: center; max-width: 980px; margin: 36px auto 0; padding: 24px; background: #fff; border: 1px solid #ece6d8; border-radius: 20px; }
+.page-cd .cd-start { display: grid; grid-template-columns: minmax(0, 520px) minmax(0, 1fr); gap: 32px; align-items: center; max-width: 980px; margin: 36px auto 0; padding: 24px; background: #fff; border: 1px solid #ece6d8; border-radius: 20px; }
 .page-cd .cd-start-body h3 { margin: 0 0 10px; color: #102D4E; font-size: 22px; line-height: 1.4; word-break: keep-all; }
 .page-cd .cd-start-body p { margin: 0; color: #26364d; font-size: 17px; line-height: 1.75; word-break: keep-all; }
+/* [564차] 소개 이미지 AI 생성 안내 · 무료 체험 상자 로봇(장식, contain·비율 유지, 아치·테두리 없음) */
+.page-cd .cd-ai-note { display: block; margin-top: 8px; color: #5b6472; font-size: 14px; line-height: 1.5; word-break: keep-all; }
+.page-cd .cd-ai-note + .cd-img-link { margin-top: 2px; }
+.page-cd .cd-trial-robot img { display: block; width: 100%; max-width: 250px; height: auto; aspect-ratio: 560 / 695; object-fit: contain; border-radius: 22px; pointer-events: none; }
+@media (max-width: 980px) { .page-cd .cd-trial-robot img { max-width: 200px; } }
+@media (max-width: 640px) { .page-cd .cd-trial-robot img { max-width: 170px; } }
 .page-cd .cd-curri { background: #fff; }
 .page-cd .cd-curri-grid, .page-cd .cd-story-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; max-width: 1040px; margin: 0 auto; padding: 0; list-style: none; }
 .page-cd .cd-curri-card { display: flex; flex-direction: column; padding: 24px 26px; border: 1px solid #e4e1ee; border-radius: 20px; color: #26364d; word-break: keep-all; }
@@ -453,11 +459,11 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
         <ul class="rec-tags"><li>완성경험</li><li>피드백</li></ul>
       </article>
     </div>
-    <!-- [562차] 사용자 제공 소개 이미지(A, 원본 004.jpg 700×700 → WebP) — 같은 역할의 기존 CASE 01(coding-beginner.png) 사진 카드를 교체 · 이미지 속 문구는 제목·본문·버튼에 반복하지 않음 -->
+    <!-- [564차] 소개 이미지를 가로형 AI 생성 학습 장면(원본 PNG 1024×687 → WebP)으로 교체 · 비율 그대로 · 이미지 속 문구는 HTML로 겹치지 않음 -->
     <div class="cd-start">
       <figure class="cd-img cd-start-media">
-        <img src="../images/coding-intro-students.webp" alt="교복을 입은 학생 두 명과 코딩 학습을 소개하는 문구가 담긴 안내 이미지" width="700" height="700" loading="lazy" decoding="async">
-        <figcaption><a class="cd-img-link" href="../images/coding-intro-students.webp">이미지 크게 보기</a></figcaption>
+        <img src="../images/coding-learning-online.webp" alt="게임 화면과 코드를 보며 1:1 온라인 코딩을 배우는 학생을 표현한 AI 생성 이미지" width="1024" height="687" loading="lazy" decoding="async">
+        <figcaption><span class="cd-ai-note">코딩 학습 장면을 표현한 AI 생성 이미지입니다.</span> <a class="cd-img-link" href="../images/coding-learning-online.webp">이미지 크게 보기</a></figcaption>
       </figure>
       <div class="cd-start-body">
         <h3>코딩을 처음 배운다면 무엇부터 확인할까요?</h3>
@@ -794,8 +800,8 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
         </div>
         <a href="../consult.html" class="btn-gold sj-trial-btn">코딩 무료 체험수업 상담 신청</a>
       </div>
-      <div class="sj-trial-visual"><!-- [487차] 하단 상담 영역 공통 인물 이미지(첨부 원본 → WebP 800×1000) · 역할 설명 없이 alt만 -->
-        <div class="sj-trial-photo"><img src="../images/consult-guide-portrait.webp" alt="상담 안내 인물 이미지" width="800" height="1000" loading="lazy" decoding="async"></div>
+      <div class="sj-trial-visual cd-trial-robot"><!-- [564차] 인물 사진·아치 테두리 대신 장식용 로봇 이미지(네이비 배경 원본 그대로, contain · 자르지 않음) -->
+        <img src="../images/coding-trial-robot.webp" alt="" width="560" height="695" loading="lazy" decoding="async">
       </div>
     </div>
   </div>

@@ -594,7 +594,7 @@
         "중학교 학업중단 숙려제",
         "중졸 검정고시 응시자격·과목(교육청 공고)"
       ],
-      "status": "todo",
+      "status": "done",
       "keywords": [
         "중학교자퇴",
         "중졸검정고시",
@@ -610,7 +610,8 @@
       "season_until": null,
       "date": "2026-11-25",
       "parent_questions": [],
-      "track": "검정고시"
+      "track": "검정고시",
+      "published": "2026-11-25"
     },
     {
       "no": 21,
@@ -1689,5 +1690,5 @@
     "코딩",
     "회화"
   ],
-  "next_track": "검정고시"
+  "next_track": "코딩"
 }

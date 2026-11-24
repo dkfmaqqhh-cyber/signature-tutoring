@@ -73,6 +73,14 @@
         },
         {
           "@type": "Question",
+          "name": "코딩이나 파이썬을 독학하다 막혔는데 수업을 받을 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네, 상담할 수 있습니다. 지금 사용 중인 언어와 교재·강의 같은 자료, 직접 작성한 코드를 먼저 확인하고, 막힌 부분에서 나온 오류 메시지나 예상과 다른 결과를 함께 살펴봅니다. 이해한 부분과 어려운 부분을 구분해 시작 범위를 상담하며, 수업에서는 학생이 직접 코드를 수정·실행하며 확인하고 복습할 때 다시 볼 질문을 정리합니다."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "방문수업도 가능한가요?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -432,6 +440,7 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
 @media (max-height: 420px) and (orientation: landscape) { .cd-lt { padding-top: 8px; padding-bottom: calc(8px + env(safe-area-inset-bottom)); } .cd-lt-inner { flex-direction: row; align-items: center; } .cd-lt-title { padding-right: 0; } .cd-lt-btn { width: auto; min-height: 40px; } .cd-lt-close { top: 50%; transform: translateY(-50%); } } /* 휴대폰 가로: 한 줄 */
 @media (prefers-reduced-motion: reduce) { .cd-lt, .cd-lt.is-shown { transition: none; } }
 @media print { .cd-lt { display: none; } }
+@media (max-width: 640px) { .page-cd #fields .ged-subject p { font-size: 16px; } } /* [583차] 수업 분야 카드 설명 모바일 16px(공통 style.css의 14.5px를 이 페이지에서만 보정) */
 </style>
 </head>
 <body class="page-subject page-en page-cd">
@@ -619,8 +628,8 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
         <figcaption><a class="cd-img-link" href="../images/coding-learning-online.webp">이미지 크게 보기</a></figcaption>
       </figure>
       <div class="cd-start-body">
-        <h3>코딩을 처음 배운다면 무엇부터 확인할까요?</h3>
-        <p>코딩을 배우려는 목적과 지금까지의 경험을 먼저 확인합니다. 자바·파이썬 기초, 학교 정보 수업 준비, 방학 학습 등 필요한 방향을 상담하고 현재 수준에 맞춰 시작합니다.</p>
+        <h3>처음 코딩을 배우려면 무엇부터 확인하나요?</h3>
+        <p>지금까지 사용해 본 도구와 직접 작성해 본 코드가 있는지부터 확인합니다. 1:1 코딩수업에서는 출력·변수·조건·반복 같은 코딩 기초를 짧은 예제로 직접 작성하고 실행한 뒤, 결과를 먼저 예상하고 한 부분을 바꿔 다시 확인하는 연습으로 코딩 배우기를 시작합니다. 자바·파이썬 기초, 학교 정보 수업 준비, 방학 학습 가운데 어떤 과정으로 시작할지는 경험과 목표를 확인해 상담에서 정합니다.</p><!-- [583차] 입문 질문에 직접 답하도록 보완(도구·작성 경험 확인 → 짧은 예제 작성·실행 → 예상·변경 후 재확인 → 시작 과정 상담) -->
       </div>
     </div>
   </div>
@@ -643,7 +652,7 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
       <div class="ged-subject">
         <span class="ged-subject-tag">LANGUAGE</span>
         <h3>파이썬</h3>
-        <p>파이썬으로 기초 개념을 익히고 간단한 문제를 해결해 봅니다.</p>
+        <p>변수·자료형과 기본 연산, 조건·반복 같은 파이썬 기초를 익히고 짧은 코드로 간단한 문제를 해결해 봅니다.</p><!-- [583차] 파이썬 기초 범위 명시 -->
       </div>
       <div class="ged-subject">
         <span class="ged-subject-tag">BASIC</span>
@@ -695,7 +704,7 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
       <li class="cd-pcard p1">
         <img class="cd-pcard-ico" src="../images/icons/grade-elementary.svg" alt="" width="64" height="64" loading="lazy" decoding="async">
         <h3>초등학생 코딩</h3>
-        <p>사용해 본 도구와 코딩 경험을 확인하고, 명령의 <span class="cd-nowrap">순서·조건·반복을</span> 이해하는 활동부터 학습 방향을 정합니다.</p>
+        <p>초등 코딩수업은 사용해 본 도구와 코딩 경험을 확인한 뒤, 명령의 <span class="cd-nowrap">순서·조건·반복을</span> 이해하는 짧은 활동부터 시작해 학습 방향을 정합니다.</p><!-- [583차] 초등 시작 범위 명시 -->
         <div class="cd-pcard-check"><strong>상담에서 확인할 것</strong><span>사용해 본 도구 · 코딩 경험</span></div>
       </li>
       <li class="cd-pcard p2">
@@ -771,7 +780,7 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
     <div class="section-head center">
       <div class="kicker">APP · GAME CURRICULUM</div>
       <h2 id="cdAppTitle">직접 만들며 배우는 앱·게임 코딩</h2>
-      <p>캐릭터의 움직임과 게임 속 상황을 명령으로 구성하며 프로그래밍 개념을 익히는 과정입니다. 현재 경험과 목표를 상담해 시작 단계와 수강 범위를 안내합니다.</p>
+      <p>앱·게임을 직접 만들며 코딩을 배우는 과정입니다. 캐릭터의 움직임이나 조건에 따라 달라지는 동작을 작은 기능으로 나누고, 코드를 작성·수정한 뒤 실행 결과를 확인하며 아래 단계에 표시된 변수·조건·반복 같은 프로그래밍 개념을 연결해 익힙니다. 현재 경험과 목표를 상담해 시작 단계와 수강 범위를 안내합니다.</p><!-- [583차] 「직접 만들며 배우는 과정」 의미 보완 · 언어·플랫폼·출시·완성 기간 언급 없음 -->
     </div>
     <ol class="cd-curri-grid">
         <li class="cd-curri-card c1">
@@ -831,7 +840,7 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
     <div class="section-head center">
       <div class="kicker">PYTHON CURRICULUM</div>
       <h2 id="cdCurriTitle">파이썬 코딩수업, 기초에서 데이터 분석·자료구조까지</h2>
-      <p>파이썬 데이터사이언스 과정 커리큘럼의 주요 학습 내용을 소개합니다. 자바 수업은 위 수업 분야와 같이 수준에 맞춰 진행하며, 실제 시작 단계와 수강 범위·진도·일정은 상담 후 안내합니다.</p>
+      <p>파이썬 기초부터 배우는 1:1 과외에서는 변수·자료형과 기본 연산, 조건·반복을 이용한 짧은 코드를 직접 작성하고 실행하며 결과와 오류를 확인합니다. 아래는 파이썬 데이터사이언스 과정 커리큘럼의 주요 학습 내용이며, 처음 배우는 학생이 데이터 분석·자료구조 단계까지 모두 거쳐야 하는 것은 아닙니다. 현재 경험에 맞춰 이후 학습 범위와 진도·일정은 상담 후 안내하며, 자바 수업은 위 수업 분야와 같이 수준에 맞춰 진행합니다.</p><!-- [583차] 파이썬 기초·1:1 과외 학습 범위 연결 · 이미지 내용은 아래 카드·상세 이미지 그대로 -->
     </div>
     <ol class="cd-curri-grid">
         <li class="cd-curri-card c1">
@@ -1090,6 +1099,7 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
       <details><summary>코딩을 한 번도 해본 적 없어도 수업할 수 있나요?</summary><div class="faq-answer">가능합니다. 현재 코딩 경험을 먼저 확인한 뒤 변수, 조건, 반복 같은 프로그래밍 기본 개념부터 차근차근 시작합니다.</div></details>
       <details><summary>어떤 언어로 수업하나요?</summary><div class="faq-answer">자바와 파이썬 수업을 진행하며, 학생의 수준과 학습 목표에 맞춰 언어와 수업 방향을 상담합니다.</div></details>
       <details><summary>앱·게임 제작과 파이썬 중 무엇부터 시작하나요?</summary><div class="faq-answer">게임 캐릭터의 움직임과 조건을 직접 구성해 보고 싶다면 <a href="#app-game-curriculum">앱·게임 제작 안내</a>를, 파이썬 문법부터 데이터 분석·자료구조까지 배우고 싶다면 <a href="#python-curriculum">파이썬 안내</a>를 살펴보세요. 처음 시작한다면 사용해 본 도구와 만들고 싶은 결과를 확인해 시작 과정과 학습 범위를 상담합니다.</div></details><!-- [572차] 과정 선택 질문 -->
+      <details><summary>코딩이나 파이썬을 독학하다 막혔는데 수업을 받을 수 있나요?</summary><div class="faq-answer">네, 상담할 수 있습니다. 지금 사용 중인 언어와 교재·강의 같은 자료, 직접 작성한 코드를 먼저 확인하고, 막힌 부분에서 나온 오류 메시지나 예상과 다른 결과를 함께 살펴봅니다. 이해한 부분과 어려운 부분을 구분해 시작 범위를 상담하며, 수업에서는 학생이 직접 코드를 수정·실행하며 확인하고 복습할 때 다시 볼 질문을 정리합니다.</div></details><!-- [583차] 독학 중 막힘 질문(기존 FAQ에 같은 질문 없음) -->
       <details><summary>방문수업도 가능한가요?</summary><div class="faq-answer">코딩 수업은 화상전용으로 진행합니다. 선생님과 같은 시간에 화면으로 만나 실시간 1:1로 수업하며, 필요한 환경은 상담 시 안내드립니다.</div></details>
       <details><summary>학교 정보·코딩 내신이나 방학 집중수업도 가능한가요?</summary><div class="faq-answer">네, 방학에는 코딩의 기본 개념과 실습을 집중적으로 익히고, 학기 중에는 학교 정보·프로그래밍 수업 내용을 이해하도록 내신 대비 수업을 진행합니다. 학교·학년별 교육과정과 평가 범위가 다르므로 실제 수업 계획은 상담에서 확인합니다. 자격증 준비도 상담할 수 있으며, 준비 가능한 세부 과정은 상담 시 안내드립니다.</div></details>
       <details><summary>직장인도 수업을 받을 수 있나요?</summary><div class="faq-answer">네, 코딩을 처음 배우는 성인·직장인도 자바·파이썬 기초를 배우거나 배운 내용을 다시 정리하는 1:1 화상수업을 상담할 수 있습니다. 사용해 본 언어와 학습 목적, 수업 가능한 요일·시간을 알려 주시면 학습 범위와 선생님 일정을 확인해 안내합니다.</div></details>

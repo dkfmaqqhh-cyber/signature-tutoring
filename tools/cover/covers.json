@@ -968,5 +968,36 @@
       }
     ],
     "lens": false
+  },
+  "middle-school-dropout-ged": {
+    "palette": "green",
+    "badge": "검정고시 · 중졸",
+    "title": "중학교 자퇴 후\n*중졸 검정고시*\n절차와 과목",
+    "keys": [
+      "정원외 관리",
+      "6과목"
+    ],
+    "cardTitle": "준비 순서 한눈에",
+    "cardTag": "공고 기준",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "학적",
+        "text": "정원외 관리 처리일 확인"
+      },
+      {
+        "label": "자격",
+        "text": "공고일 이전 정원외 관리"
+      },
+      {
+        "label": "과목",
+        "text": "필수 5 + 선택 1"
+      },
+      {
+        "label": "합격",
+        "text": "전 과목 평균 60점"
+      }
+    ],
+    "lens": false
   }
 }

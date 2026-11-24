@@ -480,9 +480,10 @@ window.addEventListener("load", function(){
       if (!map || !document.referrer || f.region.value.trim()) return;
       var ref = new URL(document.referrer);
       if (ref.origin !== location.origin) return;
-      var m = ref.pathname.match(/\/area\/([a-z-]+)\/(?:([a-z-]+)\/)?/);
+      var m = ref.pathname.match(/\/area\/([a-z-]+)\/(?:([a-z-]+)\/)?(?:([a-z-]+)\/)?/);
       if (!m) return;
-      var name = (m[2] && map[m[1] + '/' + m[2]]) || map[m[1]];
+      /* [599차] 세 칸 키(예: gwangju/dong/coding)가 표에 있을 때만 먼저 사용 — 없으면 기존과 같이 구 키 → 시·도 키 */
+      var name = (m[2] && m[3] && map[m[1] + '/' + m[2] + '/' + m[3]]) || (m[2] && map[m[1] + '/' + m[2]]) || map[m[1]];
       if (!name) return;
       f.region.value = name + ' ';
       if (regionHint) regionHint.textContent = '보시던 지역 페이지의 지역을 넣어 두었습니다. 동까지 덧붙이시거나, 다른 지역이면 고쳐 주세요.';

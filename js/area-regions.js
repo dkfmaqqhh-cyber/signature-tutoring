@@ -2,7 +2,8 @@
    consult.html에서만 불러오며, 같은 사이트의 지역 페이지에서 상담 버튼으로 들어왔을 때 시·도·시·구(군)까지만 채움(동·상세주소는 넣지 않음).
    지역 페이지를 새로 만들면 이 표에도 추가해야 자동 입력됨(없으면 아무것도 채우지 않음).
    [551차] 'gwangju/ged'·'jeonnam/ged' 두 키만 예외: 같은 통합 교육청을 쓰는 광주·전남 검정고시 페이지에서 온 상담을 '(광주 지역)'·'(전남 지역)'으로 구분(공식 명칭 유지 + 괄호 구분). prefillRegion 로직은 그대로(구 키가 없으면 시·도 키 사용) → 다른 페이지 동작 변화 없음
-   [598차] 'gwangju/coding'·'jeonnam/coding' 두 키 추가: 광주·전남 코딩 대표에서 온 상담을 사용자 확정대로 '광주광역시'·'전라남도'로 입력(코딩 대표 두 경로만 · 광역 기본값·검정고시·구 페이지 키는 그대로) */
+   [598차] 'gwangju/coding'·'jeonnam/coding' 두 키 추가: 광주·전남 코딩 대표에서 온 상담을 사용자 확정대로 '광주광역시'·'전라남도'로 입력(코딩 대표 두 경로만 · 광역 기본값·검정고시·구 페이지 키는 그대로)
+   [599차] 'gwangju/{구}/coding' 5개 키: 광주 구별 코딩 페이지에서 온 상담을 '광주광역시 {구}'로 입력(사용자 확정 · js/script.js prefillRegion이 세 칸 키를 먼저 찾음 · 구 대문·과목 페이지 등 기존 키는 그대로) */
 window.SIG_AREA_REGIONS = {
 "busan":"부산광역시",
 "busan/buk":"부산광역시 북구",
@@ -86,12 +87,17 @@ window.SIG_AREA_REGIONS = {
 "gangwon/yeongwol":"강원특별자치도 영월군",
 "gwangju":"전남광주통합특별시",
 "gwangju/buk":"전남광주통합특별시 북구",
+"gwangju/buk/coding":"광주광역시 북구",
 "gwangju/coding":"광주광역시",
 "gwangju/dong":"전남광주통합특별시 동구",
+"gwangju/dong/coding":"광주광역시 동구",
 "gwangju/ged":"전남광주통합특별시 (광주 지역)",
 "gwangju/gwangsan":"전남광주통합특별시 광산구",
+"gwangju/gwangsan/coding":"광주광역시 광산구",
 "gwangju/nam":"전남광주통합특별시 남구",
+"gwangju/nam/coding":"광주광역시 남구",
 "gwangju/seo":"전남광주통합특별시 서구",
+"gwangju/seo/coding":"광주광역시 서구",
 "gyeongbuk":"경상북도",
 "gyeongbuk/andong":"경상북도 안동시",
 "gyeongbuk/bonghwa":"경상북도 봉화군",

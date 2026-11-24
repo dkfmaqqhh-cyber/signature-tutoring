@@ -534,7 +534,7 @@ window.addEventListener("load", function(){
   f.subject.addEventListener('input', syncChips);
 
   /* [410차] 과목 페이지에서 상담 버튼으로 들어오면 직전 페이지(같은 사이트) 주소의 과목 slug로 관심 과목 버튼을 미리 선택
-     · /area/…/{korean|english|math|science|social}/ 와 /subject/{korean|english|math|science}.html 만 · 학년 페이지·메인·외부·직접 접속은 선택하지 않음
+     · /area/…/{korean|english|math|science|social}/ 와 /subject/{korean|english|math|science}.html 만 ([604차] + 코딩 페이지 → '코딩') · 학년 페이지·메인·외부·직접 접속은 선택하지 않음
      · prefillRegion과 같이 document.referrer만 읽고 브라우저에 저장하지 않음 · 칸에 이미 값이 있으면 건드리지 않음 · 버튼을 다시 눌러 바꿀 수 있음 */
   (function prefillSubject() {
     try {
@@ -545,6 +545,8 @@ window.addEventListener("load", function(){
       var m = ref.pathname.match(/^\/area\/(?:[a-z0-9-]+\/)+(korean|english|math|science|social)\/(?:index\.html)?$/) ||
         ref.pathname.match(/^\/subject\/(korean|english|math|science)\.html$/);
       var s = m && SUBJECT_BY_SLUG[m[1]];
+      /* [604차] 코딩 페이지(/coding/ · /area/{시도}/coding/ · /area/{시도}/{시·군·구}/coding/)에서 오면 기존 '코딩' 버튼 선택 — 같은 subject 칸·같은 글자 값 */
+      if (!s && /^\/(?:area\/[a-z-]+\/(?:[a-z-]+\/)?)?coding\/(?:index\.html)?$/.test(ref.pathname)) s = '코딩';
       if (!s || !form.querySelector('.cf-chip[data-subject="' + s + '"]')) return;
       f.subject.value = s;
       syncChips();

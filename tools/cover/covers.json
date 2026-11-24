@@ -939,5 +939,34 @@
       }
     ],
     "lens": false
+  },
+  "java-or-python-first": {
+    "palette": "indigo",
+    "badge": "코딩 · 프로그래밍 언어",
+    "title": "자바와 파이썬\n*무엇부터*\n배울까",
+    "keys": [
+      "언어 비교",
+      "방학 4주 계획"
+    ],
+    "cardTitle": "두 언어 한눈에 비교",
+    "cardTag": "정리",
+    "cardType": "compare",
+    "items": [
+      {
+        "title": "파이썬",
+        "lines": [
+          "타입 선언 없이 짧게",
+          "들여쓰기로 묶음"
+        ]
+      },
+      {
+        "title": "자바",
+        "lines": [
+          "타입을 먼저 선언",
+          "class·main 기본 틀"
+        ]
+      }
+    ],
+    "lens": false
   }
 }

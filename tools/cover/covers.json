@@ -908,5 +908,36 @@
       }
     ],
     "lens": false
+  },
+  "korean-literature-naesin": {
+    "palette": "brown",
+    "badge": "내신 관리 · 국어",
+    "title": "국어 문학\n*처음 보는 작품*\n읽는 순서",
+    "keys": [
+      "분석 틀",
+      "작품 정리표"
+    ],
+    "cardTitle": "문학 작품 읽는 순서",
+    "cardTag": "정리",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "1",
+        "text": "갈래 · 말하는 이"
+      },
+      {
+        "label": "2",
+        "text": "상황과 대상"
+      },
+      {
+        "label": "3",
+        "text": "정서·태도 변화"
+      },
+      {
+        "label": "4",
+        "text": "표현 · 근거 구절"
+      }
+    ],
+    "lens": false
   }
 }

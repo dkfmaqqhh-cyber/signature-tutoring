@@ -1044,5 +1044,36 @@
       "문제 접근 — 무엇부터 쓸지"
     ],
     "lens": false
+  },
+  "scratch-entry-difference": {
+    "palette": "indigo",
+    "badge": "코딩 · 블록코딩",
+    "title": "스크래치와 엔트리\n*도구가 달라도*\n괜찮을까",
+    "keys": [
+      "운영·공유 차이",
+      "개념 이어 가기"
+    ],
+    "cardTitle": "두 도구 한눈에",
+    "cardTag": "공식 안내 기준",
+    "cardType": "compare",
+    "items": [
+      {
+        "title": "스크래치",
+        "lines": [
+          "MIT 미디어랩",
+          "40개 이상 언어",
+          "공유 작품은 공개"
+        ]
+      },
+      {
+        "title": "엔트리",
+        "lines": [
+          "네이버 커넥트재단",
+          "교과서 실습 자료",
+          "오프라인 프로그램"
+        ]
+      }
+    ],
+    "lens": false
   }
 }

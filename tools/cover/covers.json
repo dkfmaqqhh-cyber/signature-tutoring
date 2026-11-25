@@ -999,5 +999,50 @@
       }
     ],
     "lens": false
+  },
+  "game-coding-first-feature": {
+    "palette": "green",
+    "badge": "코딩 · 게임 만들기",
+    "title": "게임 만들기\n*첫 기능*\n정하는 법",
+    "keys": [
+      "작은 동작부터",
+      "조작·조건·결과"
+    ],
+    "cardTitle": "첫 기능 문장 만들기",
+    "cardTag": "예시",
+    "cardType": "steps",
+    "items": [
+      {
+        "label": "조작",
+        "text": "화살표 키를 누르면"
+      },
+      {
+        "label": "조건",
+        "text": "화면 안에 있을 때"
+      },
+      {
+        "label": "결과",
+        "text": "캐릭터가 움직인다"
+      }
+    ],
+    "lens": false
+  },
+  "adult-coding-restart": {
+    "palette": "navy",
+    "badge": "코딩 · 성인 독학",
+    "title": "코딩 독학\n*다시 시작*\n어디서부터",
+    "keys": [
+      "작성 범위 확인",
+      "막힌 곳 구분"
+    ],
+    "cardTitle": "막힌 곳 구분하기",
+    "cardTag": "정리",
+    "cardType": "checks",
+    "items": [
+      "문법 — 실행 전 오류",
+      "실행 환경 — 설치·버전·폴더",
+      "문제 접근 — 무엇부터 쓸지"
+    ],
+    "lens": false
   }
 }

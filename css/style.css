@@ -8118,6 +8118,18 @@ body.page-area.page-region #consult-check .mt-check-grid > li.mt-check { justify
   .cf-compact .form-field.cf-inline { gap: 10px; }
   .cf-v2 .choice-row span { padding: 8px 13px; white-space: nowrap; }
 }
+/* ---------- [605차] 상담 신청서 관심 과목 버튼(.cf-chip) 가독성·누르기 영역(consult.html .cf-v2 전용 — 다른 버튼 영향 없음)
+   · 높이 최소 44px · 글자 16px(모바일 포함, 축소 없음) · 간격 8px · 좁은 화면은 다음 줄로(flex-wrap 그대로) · 단어 중간에서 끊지 않음
+   · 선택: 네이비 바탕 + 흰 글자 + 체크 표시(색 외 구분) / 미선택: 크림 바탕 + 진한 테두리 / 키보드 초점: 진한 골드 외곽선
+   · 버튼 이름·data-subject 값·aria-pressed·JS(js/script.js) 그대로 · 되돌리기: 이 블록 삭제 */
+.cf-v2 .cf-chips { gap: 8px; }
+.cf-v2 .cf-chip { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; max-width: 100%; padding: 10px 18px; border-color: #cbbda5; color: #374151; font-size: 16px; line-height: 1.3; word-break: keep-all; overflow-wrap: break-word; }
+.cf-v2 .cf-chip[aria-pressed="true"] { border-color: #102a4b; background: #102a4b; color: #fff; }
+.cf-v2 .cf-chip[aria-pressed="true"]::before { content: ""; flex: none; width: 5px; height: 10px; margin: -3px 8px 0 0; border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.cf-v2 .cf-chip:focus-visible { outline: 3px solid #8f6b2f; outline-offset: 2px; box-shadow: none; }
+@media (max-width: 640px) {
+  .cf-v2 .cf-chip { padding: 10px 16px; font-size: 16px; }
+}
 /* ---------- [273차] 상담 페이지(consult.html) 상단: 제목 '상담 신청'만 남기고 바로 신청서로 이어지게 여백 축소 · 같은 크림 배경으로 경계선 없이 연결
    되돌리기: 이 블록 삭제 + consult.html 상단·5단계 섹션을 커밋 ae0e8cc 상태로 */
 .page-hero.consult-hero { padding: 44px 0 20px; background: #fbf8f3; border-bottom: 0; }

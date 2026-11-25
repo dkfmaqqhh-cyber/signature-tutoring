@@ -443,6 +443,39 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
 @media (prefers-reduced-motion: reduce) { .cd-lt, .cd-lt.is-shown { transition: none; } }
 @media print { .cd-lt { display: none; } }
 @media (max-width: 640px) { .page-cd #fields .ged-subject p { font-size: 16px; } } /* [583차] 수업 분야 카드 설명 모바일 16px(공통 style.css의 14.5px를 이 페이지에서만 보정) */
+/* [608차] 과정 선택 비교(#course-compare, 수업 분야 안) — PC·태블릿: 행 = 비교 항목, 열 = 과정인 표 / 720px 이하: 같은 표를 항목별 세로 카드로(과정 이름은 화면용 장식 글자, 대체 글자 "" → 읽기 프로그램은 열 머리글로 한 번만)
+   · 크림 바탕 + 과정별 파스텔 머리글(초록·하늘·보라) · 본문 PC 16.5px·모바일 16px · 과정 링크 44px · 연결 대상 앵커는 [572차] scroll-margin 92px 그대로 */
+.page-cd .cd-sr { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+.page-cd .cd-compare { max-width: 1040px; margin: 36px auto 0; padding: 28px 28px 24px; background: #fffaf0; border: 1px solid #efe2c4; border-radius: 20px; color: #102D4E; word-break: keep-all; }
+.page-cd .cd-compare h3 { margin: 0 0 8px; color: #102D4E; font-size: 21px; line-height: 1.4; text-align: center; }
+.page-cd .cd-compare-lead { max-width: 780px; margin: 0 auto 20px; color: #26364d; font-size: 16.5px; line-height: 1.75; text-align: center; }
+.page-cd .cd-compare-table { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0; background: #fff; border: 1px solid #e6dcc6; border-radius: 16px; overflow: hidden; }
+.page-cd .cd-compare-table th, .page-cd .cd-compare-table td { padding: 14px 16px; border-top: 1px solid #efe7da; color: #26364d; font-size: 16.5px; line-height: 1.7; text-align: left; vertical-align: top; overflow-wrap: break-word; }
+.page-cd .cd-compare-table td + td, .page-cd .cd-compare-table th + td, .page-cd .cd-compare-table thead th + th { border-left: 1px solid #efe7da; }
+.page-cd .cd-compare-table thead th { width: auto; border-top: 0; background: #faf6ee; color: #102D4E; font-size: 17px; font-weight: 800; text-align: center; }
+.page-cd .cd-compare-table thead th:first-child { width: 20%; }
+.page-cd .cd-compare-table thead th.k1 { background: #ebf8f2; }
+.page-cd .cd-compare-table thead th.k2 { background: #eaf4fd; }
+.page-cd .cd-compare-table thead th.k3 { background: #f2effc; }
+.page-cd .cd-compare-table tbody th { background: #faf6ee; color: #102D4E; font-weight: 800; }
+.page-cd .cd-compare-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid #cdd7e5; border-radius: 999px; background: #fff; color: #102D4E; font-size: 16px; font-weight: 800; line-height: 1.35; text-decoration: none; }
+.page-cd .cd-compare-link::after { content: "↓"; content: "↓" / ""; margin-left: 6px; color: #1f4f8a; }
+.page-cd .cd-compare-link:hover { border-color: #102D4E; }
+.page-cd .cd-compare-link:focus-visible { outline: 3px solid #102D4E; outline-offset: 2px; }
+.page-cd .cd-compare-note { max-width: 860px; margin: 18px auto 0; color: #3a4556; font-size: 16px; line-height: 1.7; text-align: center; }
+@media (max-width: 720px) {
+  .page-cd .cd-compare { padding: 22px 16px 18px; }
+  .page-cd .cd-compare h3 { font-size: 19px; }
+  .page-cd .cd-compare-lead { font-size: 16px; text-align: left; }
+  .page-cd .cd-compare-table, .page-cd .cd-compare-table tbody, .page-cd .cd-compare-table tr, .page-cd .cd-compare-table th, .page-cd .cd-compare-table td { display: block; width: auto; }
+  .page-cd .cd-compare-table { background: transparent; border: 0; border-radius: 0; overflow: visible; }
+  .page-cd .cd-compare-table thead { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+  .page-cd .cd-compare-table tbody tr { margin: 0 0 12px; background: #fff; border: 1px solid #e6dcc6; border-radius: 16px; overflow: hidden; }
+  .page-cd .cd-compare-table tbody th { padding: 12px 16px; border-top: 0; font-size: 17px; }
+  .page-cd .cd-compare-table td, .page-cd .cd-compare-table td + td, .page-cd .cd-compare-table th + td { padding: 12px 16px; border-left: 0; font-size: 16px; }
+  .page-cd .cd-compare-table td::before { content: attr(data-label); content: attr(data-label) / ""; display: block; margin-bottom: 2px; color: #1f4f8a; font-size: 15px; font-weight: 800; }
+  .page-cd .cd-compare-note { text-align: left; }
+}
 </style>
 </head>
 <body class="page-subject page-en page-cd">
@@ -676,6 +709,46 @@ html.cd-lt-html { scroll-padding-bottom: calc(var(--cd-lt-sp, 0px) + 16px); } /*
         <h3>방학 집중학습</h3>
         <p>방학 동안 기본 개념과 실습을 집중적으로 익혀 학기 중 수업에 대비합니다.</p>
       </div>
+    </div>
+    <!-- [608차] 과정 선택 비교 — 수업 분야 카드·자바 시작 안내·앱·게임/파이썬 커리큘럼·과정 선택 FAQ·독학 FAQ에 이미 있는 범위만 요약(상세 커리큘럼은 각 앵커로)
+         · 앱·게임: 본문 근거 '캐릭터의 움직임이나 조건에 따라 달라지는 동작'('게임 규칙'은 본문에 없어 쓰지 않음) · 언어·플랫폼·나이·성과·기간·요일 약속 없음
+         · 행 = 비교 항목, 열 = 과정 · 720px 이하는 같은 표를 세로로 표시(과정 이름은 CSS 장식 글자, 표 관계는 role로 유지 → 내용 한 벌) -->
+    <div class="cd-compare" id="course-compare">
+      <h3 id="cdCompareTitle">앱·게임 제작, 파이썬, 자바 중 무엇부터 시작할까요?</h3>
+      <p class="cd-compare-lead">만들고 싶은 것, 사용해 본 도구와 학교에서 배우는 언어를 함께 확인해 시작 과정을 상담합니다. 학생과 성인·직장인 모두 같은 기준으로 살펴볼 수 있습니다.</p>
+      <table class="cd-compare-table" role="table">
+        <caption class="cd-sr">앱·게임 제작, 파이썬, 자바 과정별 시작 기준 비교</caption>
+        <thead role="rowgroup">
+          <tr role="row"><th role="columnheader" scope="col"><span class="cd-sr">비교 항목</span></th><th role="columnheader" scope="col" class="k1">앱·게임 제작</th><th role="columnheader" scope="col" class="k2">파이썬</th><th role="columnheader" scope="col" class="k3">자바</th></tr>
+        </thead>
+        <tbody role="rowgroup">
+          <tr role="row">
+            <th role="rowheader" scope="row">이런 상황에서 살펴보세요</th>
+            <td role="cell" data-label="앱·게임 제작">캐릭터의 움직임이나 조건에 따라 달라지는 동작을 직접 만들어 보고 싶은 경우</td>
+            <td role="cell" data-label="파이썬">파이썬 기초를 시작하거나, 학교 수업·독학으로 배운 내용을 보완하려는 경우</td>
+            <td role="cell" data-label="자바">학교에서 자바를 배우거나 자바 기초를 시작하려는 경우</td>
+          </tr>
+          <tr role="row">
+            <th role="rowheader" scope="row">수업에서 해 볼 연습</th>
+            <td role="cell" data-label="앱·게임 제작">만들 동작을 작은 기능으로 나누고, 코드를 <span class="cd-nowrap">작성·수정한</span> 뒤 실행 결과를 확인합니다.</td>
+            <td role="cell" data-label="파이썬">변수·자료형·조건·반복을 짧은 코드로 작성하고 실행 결과와 오류를 확인합니다.</td>
+            <td role="cell" data-label="자바">기초 문법과 코드의 실행 순서를 확인하고, 짧은 코드를 작성하며 오류를 점검합니다.</td>
+          </tr>
+          <tr role="row">
+            <th role="rowheader" scope="row">상담 전에 준비할 것</th>
+            <td role="cell" data-label="앱·게임 제작">사용해 본 도구, 만들고 싶은 동작이나 간단한 아이디어</td>
+            <td role="cell" data-label="파이썬">사용 중인 교재·강의, 직접 작성한 코드와 막힌 부분</td>
+            <td role="cell" data-label="자바">수업에서 쓰는 언어·교재·단원, 작성한 코드나 오류 메시지</td>
+          </tr>
+          <tr role="row">
+            <th role="rowheader" scope="row">자세한 과정 안내</th>
+            <td role="cell" data-label="앱·게임 제작"><a class="cd-compare-link" href="#app-game-curriculum">앱·게임 제작 과정 보기</a></td>
+            <td role="cell" data-label="파이썬"><a class="cd-compare-link" href="#python-curriculum">파이썬 과정 보기</a></td>
+            <td role="cell" data-label="자바"><a class="cd-compare-link" href="#java-start">자바 시작 안내 보기</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="cd-compare-note">표는 시작점을 고르기 위한 기준입니다. 학교 수업이라면 실제 수업 언어·도구·교재와 평가 범위를 확인합니다. 실제 시작 단계와 수강 범위는 현재 경험과 목표를 확인한 뒤 상담에서 정합니다.</p>
     </div>
     <!-- [572차] 자바 시작 안내 — 기존 확인 범위(기초 문법·코드 작성·오류 확인)만 · 상세 커리큘럼·자격증·개발 도구 없음 -->
     <div class="cd-note-box cd-java" id="java-start">

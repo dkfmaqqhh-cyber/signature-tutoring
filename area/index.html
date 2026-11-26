@@ -185,7 +185,7 @@ else{var go=function(){requestAnimationFrame(function(){setTimeout(start,0);});}
   body.page-area .sig-float.rg-float { right: 8px; gap: 8px; }
   body.page-area .sig-float.rg-float a { width: 52px; height: 52px; gap: 3px; border-radius: 16px; font-size: 10.5px; }
   body.page-area .sig-float.rg-float svg { width: 16px; height: 16px; }
-  body.page-area main section:not(.ar-hero) > .container, body.page-area .rg-updated .container, body.page-area .site-footer .container { padding-right: 64px; }
+  body.page-area main section:not(.ar-hero):not(#free-trial) > .container, body.page-area .rg-updated .container, body.page-area .site-footer .container { padding-right: 64px; } /* [623차] #free-trial(상담 박스)만 제외 — 1024px 이하에서 박스가 오른쪽 64px 좁아지던 문제 · 다른 섹션·푸터 여백은 유지 */
 }
 </style>
 <!-- [474-3차] 섹션 배경 그라데이션 흐름(이 페이지 전용 · 공용 css 미수정) — 밝은 섹션이 크림·흰색으로 번갈아 끊기던 것을

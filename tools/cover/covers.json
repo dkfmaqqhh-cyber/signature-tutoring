@@ -1075,5 +1075,34 @@
       }
     ],
     "lens": false
+  },
+  "english-speaking-test": {
+    "palette": "plum",
+    "badge": "회화 · 영어 시험",
+    "title": "영어 말하기 시험\n*오픽 vs*\n*토익스피킹*",
+    "keys": [
+      "시험 방식",
+      "등급·점수"
+    ],
+    "cardTitle": "두 시험 한눈에",
+    "cardTag": "공식 안내",
+    "cardType": "compare",
+    "items": [
+      {
+        "title": "오픽",
+        "lines": [
+          "설문 기반 인터뷰",
+          "등급(Novice~)"
+        ]
+      },
+      {
+        "title": "토익스피킹",
+        "lines": [
+          "11문항·약 20분",
+          "0~200점"
+        ]
+      }
+    ],
+    "lens": false
   }
 }

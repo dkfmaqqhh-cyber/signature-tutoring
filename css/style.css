@@ -385,12 +385,18 @@ header {
 }
 .sig-menu {
   display: flex;
-  gap: 24px;
+  gap: 28px; /* [619차] 24→28px (글자 17px에 맞춰 간격 확대) */
   align-items: center;
   margin-left: auto;
-  font-size: 13px;
-  font-weight: 800;
+  font-size: 17px; /* [619차] PC 상단 메뉴 13px→17px · 굵기 800→700 · 색상 유지 · 980px 이하는 기존 모바일 메뉴 */
+  font-weight: 700;
   color: #28364e;
+}
+.sig-menu a {
+  display: inline-flex; /* [619차] 클릭 영역 높이 44px 이상 · 한 줄 유지 */
+  align-items: center;
+  min-height: 44px;
+  white-space: nowrap;
 }
 .sig-menu a:hover {
   color: #b78a46;

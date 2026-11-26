@@ -182,7 +182,7 @@ body.page-cv .cv7-hero .cv7-actions .btn-navy:focus-visible { outline: 3px solid
 .cv7-dark { background: var(--brand-navy); }
 .page-subject main .cv7-dark .section-head h2, .cv7-dark .cv7-subhead { color: #fff; } /* 공통 .page-subject main .section-head h2(네이비)보다 우선 */
 .page-subject main .cv7-dark .section-head p, .cv7-dark .cv7-note { color: rgba(255, 255, 255, .85); }
-.cv7-dark .kicker { color: var(--brand-gold-light); }
+.cv7-dark .kicker { color: var(--brand-gold-light) !important; } /* [623차] 공통 .kicker #8f6b2f !important(네이비 위 약 3.0:1)가 이기던 것 → 밝은 금색 유지 */
 .cv7-loop { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; counter-reset: none; }
 .cv7-loop li { position: relative; display: flex; flex-direction: column; padding: 0; border: 1px solid rgba(255, 255, 255, .16); border-radius: var(--radius-sm); background: rgba(255, 255, 255, .06); }
 .cv7-ico { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; }

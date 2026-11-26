@@ -702,13 +702,14 @@ window.addEventListener("load", function(){
 
     var phone = f.phone.value.replace(/[^0-9]/g, '');
     var region = f.region.value.trim();
-    /* [102차] 화면 순서대로 확인: 학생이름 → 지역 → 학년 → 문의과목 → 휴대폰번호 → 신청자 → 개인정보 동의 (학교는 선택) */
+    /* [102차] 화면 순서대로 확인 (학교는 선택)
+       [623차] 신청서 화면 순서(학생 이름 → 휴대폰번호 → 지역 → 학년 → 관심 과목 → 신청자 → 개인정보 동의)에 맞춰 휴대폰번호 확인을 이름 바로 다음으로 이동 · 조건·문구는 그대로 */
     if (!f.name.value.trim()) return fail(f.name, '학생 이름을 입력해 주세요.');
+    if (!/^01[0-9]{8,9}$/.test(phone)) return fail(f.phone, '휴대폰번호를 정확히 입력해 주세요. (예: 010-1234-5678)');
     if (!region) return fail(f.region, '지역을 입력해 주세요.');
     if (!looksRegion(region)) return fail(f.region, '지역을 시·구(군)까지 입력해 주세요. 동까지 적어 주시면 방문수업 가능 여부를 더 빨리 확인해 드립니다. (예: 부산 해운대구 우동)');
     if (!f.grade.value) return fail(f.grade, '학년을 선택해 주세요.');
     if (!f.subject.value.trim()) return fail(f.subject, '관심 과목을 고르거나 입력해 주세요.');
-    if (!/^01[0-9]{8,9}$/.test(phone)) return fail(f.phone, '휴대폰번호를 정확히 입력해 주세요. (예: 010-1234-5678)');
     if (!f.applicant.value) return fail(f.applicant, '신청자(학부모 · 학생)를 선택해 주세요.');
     /* [269차] 만 14세 미만 학생 본인 신청 차단 · 학부모 신청은 법정대리인 확인 필수 */
     if (f.applicant.value === '학생') {

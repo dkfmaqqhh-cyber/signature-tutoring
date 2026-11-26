@@ -102,6 +102,10 @@
 .season-links a:hover, .season-links a:focus-visible { border-color: #F4C542; background: #FFF4CC; color: #10233F; }
 @media (max-width: 480px) { .season-links a { width: 100%; justify-content: center; } }
 </style>
+<style>/* [624차] 1024px 이하 하단 고정 상담 띠(.sig-float, 높이 48~52px) — 키보드 초점이 띠 뒤에 걸치면 브라우저가 스크롤하지 않아 초점선·버튼 아래가 가리던 문제
+   · 메인 [473-4차] html { scroll-padding-bottom } 방식과 같게 이 페이지에서만 초점 이동 시 띠 높이+여유만큼 위로 · 띠 표시·숨김·레이아웃은 그대로 */
+@media (max-width: 1024px) { html { scroll-padding-bottom: 72px; } }
+</style>
 <style>/* [622차] 하단 상담 영역(#free-trial)만 밝은 세이지·아이보리로 — 이 페이지 전용 · 공통 css/style.css 미수정 · 문구·링크·배치 그대로
    배경 #EDF4EF→#FFF9EE · 제목 #102A4B · 강조 #946B28 · 본문 #46596B · 전화·카카오 카드 흰 바탕+옅은 테두리 · 신청서 버튼 네이비+흰 글자 */
 #free-trial.sj-trial .sj-trial-box { color: #102A4B; background: linear-gradient(135deg, #EDF4EF 0%, #FFF9EE 100%); border: 1px solid #DCE7DF; box-shadow: 0 20px 44px rgba(16, 42, 75, 0.10); }
